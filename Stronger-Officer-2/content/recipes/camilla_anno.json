@@ -199,8 +199,8 @@
     },
         {
             "id": "sergei_attack.anno_passive",
-            "label": "意想不到的战局！",
-            "startdescription": "盟军军官已经被食铁者弄的很生气了，很生气。",
+            "label": "不朽之争",
+            "startdescription": "那位军官没有避开，而是？正面迎击？！",
             "warmup": 30,
             "extantreqs": {
                 "anno.mark": 1,
@@ -216,7 +216,8 @@
 				"anno_sergei": 1
 			},
             "aspects": {
-                "follower_scar_edge": 1
+                "follower_scar_edge": 1,
+                "fatiguing": 1,
             },
 			"playAudioTrack": "bgm.umiri_sergei.mp3",
             "slots": [
@@ -244,8 +245,8 @@
         },
         {
             "id": "sergei_attack.anno_haveto",
-            "label": "意想不到的战局！",
-            "startdescription": "盟军军官已经被食铁者弄的很生气了，很生气。",
+            "label": "不朽之争",
+            "startdescription": "那位军官没有避开，而是？正面迎击？！",
             "warmup": 30,
             "extantreqs": {
                 "anno.mark": 1,
@@ -275,8 +276,8 @@
         },
         {
             "id": "sergei_attack.anno",
-            "label": "意想不到的战局！",
-            "startdescription": "没人知道发生了什么，不过老狼看起来无精打采的，暂时没工夫来烦扰我们了。",
+            "label": "辉光刺目",
+            "startdescription": "辉光自内而外的释放，而后炙热与光明照亮了战场，火焰将他的皮毛尽数焚灭……\n那匹老狼落败了，或许他会学到教训。",
             "warmup": 45,
             "effects": {
 				"wound.sergei.foranno": 1,
@@ -296,12 +297,42 @@
                 }
             ],
             "alt": [],
+            "inductions": [
+				{
+					"id": "anno_out.sergei",
+					"expulsion": {
+						"filter": {
+							"anno.mark": 1,
+							"faction.anno": 1,
+						},
+						"limit": 99
+					}
+				}
+			]
+        },
+        {
+            "id": "anno_out.sergei",
+            "label": "举火驱狼",
+            "startdescription": "那个军官自火焰中走出。",
+            "warmup": 10,
+            "effects": {
+			},
+            "aspects": {
+				"fatiguing": 1
+			},
+            "slots": [],
+            "mutations": [],
+            "craftable": false,
+            "hintonly": false,
+            "linked": [
+            ],
+            "alt": [],
         },
 		
         {
             "id": "camilla_attack.anno_passive",
-            "label": "意想不到的战局！",
-            "startdescription": "盟军军官与其大敌的仇恨已由来已久。",
+            "label": "不朽之争",
+            "startdescription": "那位军官没有避开，而是？正面迎击？！",
             "warmup": 30,
             "extantreqs": {
                 "anno.mark": 1,
@@ -344,8 +375,8 @@
         },
         {
             "id": "camilla_attack.anno_haveto",
-            "label": "意想不到的战局！",
-            "startdescription": "盟军军官与其大敌的仇恨已由来已久。",
+            "label": "不朽之争",
+            "startdescription": "那位军官没有避开，而是？正面迎击？！",
             "warmup": 30,
             "extantreqs": {
                 "anno.mark": 1,
@@ -375,25 +406,34 @@
         },
         {
             "id": "camilla_attack.anno",
-            "label": "意想不到的战局！",
-            "startdescription": "盟军军官与其大敌的仇恨已由来已久，她们将去别处缠斗至一方暂时休止。",
+            "label": "铁光交锋",
+            "startdescription": "技巧与力量相互交织，辉光与铁器正面交锋，他们为彼此留下浅浅的伤口，这一轮不分胜负，但是她应该明白，她和她的军队会让她付出代价。",
             "warmup": 45,
             "effects": {
 				"wound.camilla.foranno": 1,
-				"anno_camilla": -99
+				"anno_camilla": -99,
+				"camilla": -99,
+				"faction.anno": -99,
 			},
             "achievements": [
                 "ending.camilla_anno"
             ],
+			"deleteverb": {
+				"annoaction": 99,
+				"friendpowerup": 99,
+				"friendstun": 99,
+				"friendairstrike": 99,
+				"friendvalkyrie": 99,
+			},
+			"purge": {
+				"faction.anno": 99
+			},
             "aspects": {},
             "slots": [],
             "mutations": [],
             "craftable": false,
             "hintonly": false,
             "linked": [
-                {
-                    "id": "edgelong.cycle"
-                }
             ],
             "alt": [],
         },
