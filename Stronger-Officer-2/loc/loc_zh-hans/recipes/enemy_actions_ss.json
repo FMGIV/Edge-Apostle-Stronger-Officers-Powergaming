@@ -1048,7 +1048,56 @@
 		"level": 1
 	    },
 	    {
-		"filter": "clockwork",
+		"filter": "clockwork.mark",
+		"mutate": "karotechia.officerdetail",
+		"level": 0
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "clockwork.orderguard.3",
+	"label": "齿轮啮合",
+	"actionId": "karotechia.rankofficer",
+	"startdescription": "发条仍在运作，尽管那具躯体已经残破。齿轮咬合，活塞推动，精密的人造关节无视了血肉之躯应有的极限。他的眼中没有痛楚，只有冰冷而固执的算计。发条爵士缓缓退入阴影，左右军士齐齐迎上，截住我的去路。\n\n[发条爵士能够指示其他敌军保护他，在这些护卫被击杀前他无法被攻击。]",
+	"requirements": {
+	    "monster.wound": -3,
+		"clockwork.mark": 1
+	},
+	"aspects": {
+	},
+	"slots": [
+	    {
+		"id": "needsss",
+		"label": "敌军",
+		"required": {
+		    "faction.karotechia": 1
+		},
+		"forbidden": {
+		    "clockwork.mark": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsss2",
+		"label": "敌军",
+		"required": {
+		    "faction.karotechia": 1
+		},
+		"forbidden": {
+		    "clockwork.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "faction.karotechia",
+		"mutate": "karotechia.officerdetail",
+		"level": 1
+	    },
+	    {
+		"filter": "clockwork.mark",
 		"mutate": "karotechia.officerdetail",
 		"level": 0
 	    }
@@ -1368,31 +1417,6 @@
 	"craftable": true,
 	"warmup": 10
     },
-    {
-	"id": "produce.monsterlesson",
-	"actionid": "monsterdrop",
-	"label": "自鲜血中获得理解",
-	"startdescription": "今天我击败了一个具有非人特质的敌军——有些人称这些东西为“怪物”。狮子匠塑造怪物，而通过战斗，通过严酷的战场，我习得了他这技艺的一鳞半爪。",
-	"requirements": {
-	    "foe.corpse.unnatural": 1
-	},
-	"extantreqs": {
-	    "constructions.a": 1,
-	    "constructions.c": -1
-	},
-	"effects": {
-	    "lesson.monsters.a": 1
-	},
-	"linked": [
-	    {
-		"id": "convert.lessonb"
-	    },
-	    {
-		"id": "convert.lessonc"
-	    }
-	],
-	"warmup": 10
-    },   
     {
 	"id": "duel.countdown.success.purgecards",
 	"label": "战斗双方正在集合",

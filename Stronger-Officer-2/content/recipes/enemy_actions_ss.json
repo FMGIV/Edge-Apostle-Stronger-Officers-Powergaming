@@ -311,15 +311,15 @@
 	"linked": [
 	    {
 		"id": "defend.fire.3",
-		"chance": 20
+		"chance": 30
 	    },
 	    {
 		"id": "defend.fire.2",
-		"chance": 20
+		"chance": 30
 	    },
 	    {
 		"id": "defend.fire.1",
-		"chance": 20
+		"chance": 30
 	    },
 	    {
 		"id": "ss.target.legion",
@@ -379,15 +379,15 @@
 	"linked": [
 	    {
 		"id": "defend.fire.3",
-		"chance": 20
+		"chance": 30
 	    },
 	    {
 		"id": "defend.fire.2",
-		"chance": 20
+		"chance": 30
 	    },
 	    {
 		"id": "defend.fire.1",
-		"chance": 20
+		"chance": 30
 	    },
 	    {
 		"id": "target.legion2",
@@ -447,15 +447,15 @@
 	"linked": [
 	    {
 		"id": "defend.fire.3",
-		"chance": 20
+		"chance": 30
 	    },
 	    {
 		"id": "defend.fire.2",
-		"chance": 20
+		"chance": 30
 	    },
 	    {
 		"id": "defend.fire.1",
-		"chance": 20
+		"chance": 30
 	    },
 	    {
 		"id": "target.legion3",
@@ -481,15 +481,15 @@
 	"linked": [
 	    {
 		"id": "defend.fire.3",
-		"chance": 20
+		"chance": 30
 	    },
 	    {
 		"id": "defend.fire.2",
-		"chance": 20
+		"chance": 30
 	    },
 	    {
 		"id": "defend.fire.1",
-		"chance": 20
+		"chance": 30
 	    },
 	    {
 		"id": "ss.target.legion",
@@ -1047,7 +1047,56 @@
 		"level": 1
 	    },
 	    {
-		"filter": "clockwork",
+		"filter": "clockwork.mark",
+		"mutate": "karotechia.officerdetail",
+		"level": 0
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "clockwork.orderguard.3",
+	"actionId": "karotechia.rankofficer",
+	"label": "Gears Engage",
+	"startdescription": "The clockwork continues to turn, though the body lies broken. Gears mesh, pistons thrust—precision-crafted artificial joints ignore the limits of mortal flesh. His eyes hold no pain, only cold, relentless calculation. The Clockwork Lord slowly retreats into shadow, as soldiers to either side advance to block my path.\n\n[The Clockwork Lord can order other enemy forces to protect him. He cannot be attacked until these guardians are eliminated.]",
+	"requirements": {
+	    "monster.wound": -3,
+		"clockwork.mark": 1
+	},
+	"aspects": {
+	},
+	"slots": [
+	    {
+		"id": "needsss",
+		"label": "Enemy",
+		"required": {
+		    "faction.karotechia": 1
+		},
+		"forbidden": {
+		    "clockwork.mark": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsss2",
+		"label": "Enemy",
+		"required": {
+		    "faction.karotechia": 1
+		},
+		"forbidden": {
+		    "clockwork.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "faction.karotechia",
+		"mutate": "karotechia.officerdetail",
+		"level": 1
+	    },
+	    {
+		"filter": "clockwork.mark",
 		"mutate": "karotechia.officerdetail",
 		"level": 0
 	    }
@@ -1367,31 +1416,6 @@
 	"craftable": true,
 	"warmup": 10
     },
-    {
-	"id": "produce.monsterlesson",
-	"actionid": "monsterdrop",
-	"label": "An Understanding in Blood",
-	"startdescription": "Today I have defeated an enemy of inhuman quality - what some might call 'a monster.' The Lionsmith shapes monsters, and through battle, through the rigor of the field, I have learned a little of his craft.",
-	"requirements": {
-	    "foe.corpse.unnatural": 1
-	},
-	"extantreqs": {
-	    "constructions.a": 1,
-	    "constructions.c": -1
-	},
-	"effects": {
-	    "lesson.monsters.a": 1
-	},
-	"linked": [
-	    {
-		"id": "convert.lessonb"
-	    },
-	    {
-		"id": "convert.lessonc"
-	    }
-	],
-	"warmup": 10
-    },   
     {
 	"id": "duel.countdown.success.purgecards.proterant",
 	"label": "Combatants, Assembling",
