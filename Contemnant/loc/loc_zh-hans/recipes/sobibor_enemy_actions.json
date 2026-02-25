@@ -1,0 +1,258 @@
+{
+"recipes": [
+    {
+	"id": "nightmare.cycle",
+	"actionid": "nightmare_action",
+	"label": "梦魇正在翻腾……",
+	"startdescription": "风呼啸着穿过铁丝栅栏，地平线处的铁丝在黄昏中颤抖。在远处，有狗在叫。这一切几乎与我的回忆完全一致——但这梦魇绝不会永远停滞。肯定有什么来会找上我。",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token.marinette": 1,
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "nightmare.hightrauma.convert"
+	    },
+	    {
+		"id": "nightmare.exileattack.trigger",
+		"chance": 40
+	    },
+	    {
+		"id": "nightmare.pickaction.router",
+		"chance": 40
+	    },
+	    {
+		"id": "nightmare.cycle"
+	    }
+	],
+	"extantreqs": {
+	    "sobibor.here": 1,
+	    "damage.mind": -3
+	},
+	"xpans": { 
+	    "intention.downtime": 1 
+	},
+    },
+    {
+	"id": "nightmare.pickaction.router",
+	"label": "梦魇奔涌！",
+	"startdescription": "旧时的恐惧与痛苦再次浮现！这梦魇嚎叫着索取我的血——",
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"internaldeck": {
+	    "spec": [
+		"decision.enemy.singleattack",
+		"decision.enemy.singleattack",
+		"decision.enemy.singleattack",
+		"decision.enemy.doubleattack",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "nightmare.singleattack.trigger"
+	    },
+	    {
+		"id": "nightmare.doubleattack.trigger"
+	    },
+	]
+    },
+    {
+	"id": "nightmare.singleattack.trigger",
+	"label": "梦魇奔涌！",
+	"requirements": {
+	    "decision.enemy.singleattack": 1
+	},
+	"alt": [
+	    {
+		"id": "singleattack.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "nightmare.clear"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.doubleattack.trigger",
+	"label": "梦魇奔涌！",
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"alt": [
+	    {
+		"id": "doubleattack.1.startup",
+		"additional": true
+	    },
+	    {
+		"id": "doubleattack.2.startup",
+		"additional": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "nightmare.clear"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.clear",
+	"label": "梦魇奔涌！",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    },
+	    {
+		"id": "nightmare.cycle"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.exileattack.trigger",
+	"label": "梦魇奔涌！",
+	"startdescription": "旧时的恐惧与痛苦再次浮现！这梦魇嚎叫着索取我的血——",
+	"requirements": {
+	    "readiness.token.marinette": 8
+	},
+	"alt": [
+	    {
+		"id": "exile.attacks.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "nightmare.exileattack.clear"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.exileattack.clear",
+	"label": "梦魇奔涌！",
+	"startdescription": "旧时的恐惧与痛苦再次浮现！这梦魇嚎叫着索取我的血——",
+	"effects": {
+	    "readiness.token.marinette": -99
+	},
+	"linked": [
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    },
+	    {
+		"id": "nightmare.cycle"
+	    }
+	]
+    },
+    {
+	"id": "exile.attacks.startup",
+	"actionid": "marinette.attack",
+	"label": "回忆中的怪物",
+	"startdescription": "“看来你想再上一课。”",
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsmarinette",
+		"label": "流亡者",
+		"required": {
+		    "foe.exilenightmare": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "decision.enemy.attack": 1,
+	    "decision.enemy.singleattack": 1
+	},
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.hightrauma.convert",
+	"actionid": "nightmare_action",
+	"label": "梦魇正在翻腾……",
+	"startdescription": "风呼啸着穿过铁丝栅栏，地平线处的铁丝在黄昏中颤抖。在远处，有狗在叫。这一切几乎与我的回忆完全一致——但这梦魇绝不会永远停滞。肯定有什么来会找上我。",
+	"linked": [
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    }
+	],
+	"extantreqs": {
+	    "sobibor.here": 1,
+	    "damage.mind": 3
+	},
+	"xpans": { 
+	    "intention.assault": 1 
+	},
+    },
+    {
+	"id": "nightmare.hightrauma.cycle",
+	"actionid": "nightmare_action",
+	"label": "梦魇正在翻腾……",
+	"startdescription": "风呼啸着穿过铁丝栅栏，地平线处的铁丝在黄昏中颤抖。在远处，有狗在叫。这一切几乎与我的回忆完全一致——但这梦魇绝不会永远停滞。肯定有什么来会找上我。",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token.marinette": 1,
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "nightmare.lowtrauma.convert"
+	    },
+	    {
+		"id": "nightmare.exileattack.trigger",
+		"chance": 40
+	    },
+	    {
+		"id": "nightmare.pickaction.router",
+		"chance": 40
+	    },
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    }
+	],
+	"extantreqs": {
+	    "sobibor.here": 1,
+	    "damage.mind": 3
+	},
+	"xpans": { 
+	    "intention.assault": 1 
+	},
+    },
+    {
+	"id": "nightmare.lowtrauma.convert",
+	"actionid": "nightmare_action",
+	"label": "梦魇正在翻腾……",
+	"startdescription": "风呼啸着穿过铁丝栅栏，地平线处的铁丝在黄昏中颤抖。在远处，有狗在叫。这一切几乎与我的回忆完全一致——但这梦魇绝不会永远停滞。肯定有什么来会找上我。",
+	"linked": [
+	    {
+		"id": "nightmare.cycle"
+	    }
+	],
+	"extantreqs": {
+	    "sobibor.here": 1,
+	    "damage.mind": -3
+	},
+	"xpans": { 
+	    "intention.downtime": 1 
+	},
+    },
+]
+}

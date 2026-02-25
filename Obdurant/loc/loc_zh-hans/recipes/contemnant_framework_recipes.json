@@ -1,0 +1,2252 @@
+{
+"recipes": [
+    {
+	"id": "hint.getreinforcements.contemnant",
+	"actionid": "communicate",
+	"label": "无人前来",
+	"startdescription": "我们并非常备军，亦非有组织的反抗军，故我们无处求援，无处求慰。但我们早已被迫适应。\n\n[你无法正常呼叫援军，但你和你的友军可以在战区内进行一些非常规行动，在战火摧残的地区上则可以进行另一些。]",
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "exhausted": -1
+	},
+	"craftable": "false",
+	"hintonly": true
+    },
+    {
+	"id": "hint.getreinforcements.contemnant.hopecatchall",
+	"actionid": "communicate",
+	"label": "无人前来",
+	"startdescription": "我们并非常备军，亦非有组织的反抗军，故我们无处求援，无处求慰。但我们早已被迫适应。\n\n[你无法正常呼叫援军，但你和你的友军可以在战区内进行一些非常规行动，在战火摧残的地区上则可以进行另一些。]",
+	"extantreqs": {
+	    "contemnant.memento": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "exhausted": -1
+	},
+	"craftable": "false",
+	"hintonly": true
+    },
+    {
+	"id": "abandon.ally.contemnant",
+	"actionid": "abandon",
+	"label": "放逐友军",
+	"startdescription": "或许是我们已没有足够的补给分给此人。亦或许只是我单纯的不想再看见此人。",
+	"description": "此人已去。",
+	"extantreqs": {
+	    "lake.here": -1,
+	    "contemnant.story": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "damage.body": -1,
+	    "lore": -1,
+	    "legacyplotitem": -1
+	},
+	"effects": {
+	    "friend": -99
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.calm",
+		"mem.regret",
+		"mem.grief"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10,
+	"craftable": true
+    },
+    {
+	"id": "abandon.ally.contemnant.hopecatchall",
+	"actionid": "abandon",
+	"label": "放逐友军",
+	"startdescription": "或许是我们已没有足够的补给分给此人。亦或许只是我单纯的不想再看见此人。",
+	"description": "此人已去。",
+	"extantreqs": {
+	    "lake.here": -1,
+	    "memento.contemnant": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "damage.body": -1,
+	    "lore": -1
+	},
+	"effects": {
+	    "friend": -99
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.calm",
+		"mem.regret",
+		"mem.grief"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10,
+	"craftable": true
+    },
+    {
+	"id": "travel.firstwarzone.contemnant",
+	"actionid": "mobilize",
+	"label": "准备启程",
+	"startdescription": "战争等待着我们。出发吧。\n\n[启程将终止你在当前战区的任何行动，并将任何敌军，障碍，次要目标与机会留在当前战区。你的旅程将会通过战火摧残的地区，即是说，那位于你现在位置与目的地之间的偏远、危险的废土。",
+	"requirements": {
+	    "warzone": 1,
+	    "provisions": 3
+	},
+	"effects": {
+	    "wasteland.a.contemnant": 1
+	},
+	"extantreqs": {
+	    "battlehunger": -1,
+	    "contemnant.story": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"warmup": 10,
+	"craftable": true,
+	"maxexecutions": 1
+    },
+    {
+	"id": "travel.warzone.sector.a.contemnant",
+	"actionid": "mobilize",
+	"label": "准备启程",
+	"startdescription": "战争等待着我们。出发吧。\n\n[启程将终止你在当前战区的任何行动，并将任何敌军，障碍，次要目标与机会留在当前战区。你的旅程将会通过战火摧残的地区，即是说，那位于你现在位置与目的地之间的偏远、危险的废土。",
+	"requirements": {
+	    "warzone": 1,
+	    "provisions": 3,
+	    "sector.a": 1
+	},
+	"extantreqs": {
+	    "battlehunger": -1,
+	    "contemnant.story": 1,
+	    "travel.blocker": -1
+	},
+	"effects": {
+	    "wasteland.a.contemnant": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "travel.warzone.sector.b.contemnant.fromsobibor",
+	"actionid": "mobilize",
+	"label": "准备启程",
+	"startdescription": "战争等待着我们。出发吧。\n\n[启程将终止你在当前战区的任何行动，并将任何敌军，障碍，次要目标与机会留在当前战区。你的旅程将会通过战火摧残的地区，即是说，那位于你现在位置与目的地之间的偏远、危险的废土。",
+	"requirements": {
+	    "warzone": 1,
+	    "sector.b": 1
+	},
+	"extantreqs": {
+	    "token.intent": 1,
+	    "battlehunger": -1,
+	    "contemnant.story": 1,
+	    "travel.blocker": -1
+	},
+	"effects": {
+	    "wasteland.b.contemnant": 1,
+	    "traveltransition.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"craftable": true,
+	"warmup": 10,
+	"maxexecutions": 1
+    },
+    {
+	"id": "travel.warzone.sector.b.contemnant",
+	"actionid": "mobilize",
+	"label": "准备启程",
+	"startdescription": "战争等待着我们。出发吧。\n\n[启程将终止你在当前战区的任何行动，并将任何敌军，障碍，次要目标与机会留在当前战区。你的旅程将会通过战火摧残的地区，即是说，那位于你现在位置与目的地之间的偏远、危险的废土。",
+	"requirements": {
+	    "warzone": 1,
+	    "provisions": 3,
+	    "sector.b": 1
+	},
+	"extantreqs": {
+	    "battlehunger": -1,
+	    "contemnant.story": 1,
+	    "travel.blocker": -1
+	},
+	"effects": {
+	    "wasteland.b.contemnant": 1,
+	    "traveltransition.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "produce.wounds.contemnant",
+	"actionid": "explorevault_casualty",
+	"label": "我受伤了！",
+	"startdescription": "此身仍为凡人，若我不够谨慎，战争之试炼将乐见此身被毁灭——",
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "wound.generic": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "edgelong.spitout.wounds.contemnant",
+	"actionid": "edgelong.wounds",
+	"label": "痛苦与恐惧",
+	"startdescription": "这就是万物注定的终结吗？这会是终结我的一击吗？",
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "wound.generic": 2
+	},
+	"warmup": 10
+    },
+    {
+	"id": "produce.strife.contemnant",
+	"actionid": "spit.edge",
+	"label": "抗争！",
+	"startdescription": "战斗招致战斗。纷争沸腾并重新开动，因此斗争将持续。",
+	"warmup": 10,
+	"effects": {
+	    "strife": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"linked": [
+	    {
+		"id": "vulneration.killrandom",
+		"chance": 70
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.first",
+	"actionid": "wolfcycle",
+	"label": "狼之行进",
+	"effects": {
+	    "wolf.neutral": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "arrive.marinette",
+	"actionid": "marinettearrival",
+	"label": "猎团前来",
+	"startdescription": "<i>持钥人</i>在关着她的容器内低声嘶鸣。“我的原姐妹找上门来了。做好准备。”",
+	"extantreqs": {
+	    "klei.casket": 1,
+	    "wasteland": 1,
+	    "traveltransition.marker": -1,
+	    "foe.huntingparty": -1,
+	    "token.escaped": -1
+	},
+	"warmup": 30,
+	"haltverb": {
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "produce.monster": 99,
+	    "reinforcements.*": 99,
+	    "foedebuff": 99,
+	    "spit.grail": 99
+	},
+	"linked": [
+	    {
+		"id": "arrive.marinette.continue"
+	    }
+	]
+    },
+    {
+	"id": "arrive.marinette.whilehiding",
+	"actionid": "marinettearrival",
+	"label": "猎团前来",
+	"startdescription": "<i>持钥人</i>在关着她的容器内低声嘶鸣。“我的原姐妹找上门来了。做好准备。”",
+	"extantreqs": {
+	    "klei.casket.masked": 1,
+	    "wasteland": 1,
+	    "traveltransition.marker": -1,
+	    "foe.huntingparty": -1,
+	    "token.escaped": -1
+	},
+	"warmup": 30,
+	"haltverb": {
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "produce.monster": 99,
+	    "reinforcements.*": 99,
+	    "foedebuff": 99,
+	    "spit.grail": 99
+	},
+	"linked": [
+	    {
+		"id": "arrive.marinette.continue"
+	    }
+	]
+    },
+    {
+	"id": "flesheater.buffothers",
+	"actionid": "spit.grail",
+	"label": "腐肉的呼唤",
+	"startdescription": "同族之血的气味引来了另一个无餍亡者，而那生物立刻开始吞食残骸，仿佛受到命令一般——",
+	"description": "那永远饥饿的亡灵控制不住地抖动，舔食了残留在其口边的脏腑。它发出尖啸，并因此被血噎住。它还要更多。",
+	"tablereqs": {
+	    "foe.flesheater": 1
+	},
+	"warmup": 10,
+	"aspects": {
+	    "avowal": 1
+	},
+	"slots": [
+	    {
+		"id": "needsflesheater",
+		"label": "敌军",
+		"required": {
+		    "foe.flesheater": 1
+		},
+		"greedy": true
+	    }
+	]
+    },
+    {
+	"id": "friend.wrake.killed",
+	"label": "临终尖啸",
+	"startdescription": "这头戕狼临终之时用它那不似声音的恐怖之声嚎叫，身体不断摆动，并爆发。杀死它的人们全都被那漩涡卷入——",
+	"requirements": {
+	    "friend.wrake.killtoken": 1
+	},
+	"aspects": {
+	    "killfoe": 1
+	}
+    },
+    {
+	"id": "used.gaebolg.producewrake",
+	"label": "胜利！",
+	"startdescription": "敌人在我们的脚边倒下，在战争结束之前，更多的敌人将会如此。今天是个好日子，但这只是沧海一粟。",
+	"requirements": {
+	    "weapon.gaebolg.exhausted": 1
+	},
+	"effects": {
+	    "friend.wrake": 1
+	},
+    },
+    {
+	"id": "used.shotgun.collateral",
+	"label": "命中侧方！",
+	"startdescription": "陨铁猎枪的散射击杀了另一个敌军目标！",
+	"requirements": {
+	    "marker.shotgun": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌军",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		   "foe.officer": 1,
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"aspects": {
+	    "killfoe": 1
+	}
+    },
+    {
+	"id": "contemnant.namehints",
+	"label": "思考具名之位",
+	"startdescription": "我将进入一场浅眠，并沉思我的复仇。",
+	"requirements": {
+	    "contemnant.story": 1
+	},
+	"linked": [
+	    {
+		"id": "contemnant.drawhint"
+	    }
+	]
+    },
+    {
+	"id": "contemnant.drawhint",
+	"label": "思考具名之位",
+	"internaldeck": {
+	    "spec": [
+		"draw.hintcontemnant.lore",
+		"draw.hintcontemnant.retributions",
+		"draw.hintcontemnant.antithesis",
+		"draw.hintcontemnant.vulneration",
+		"draw.hintcontemnant.kleidouchos",
+		"draw.hintcontemnant.killexile",
+		"draw.hintcontemnant.berlin",
+		"draw.hintcontemnant.peace"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "contemnant.hintdesc.lore"
+	    },
+	    {
+		"id": "contemnant.hintdesc.retributions"
+	    },
+	    {
+		"id": "contemnant.hintdesc.antithesis"
+	    },
+	    {
+		"id": "contemnant.hintdesc.vulneration"
+	    },
+	    {
+		"id": "contemnant.hintdesc.kleidouchos"
+	    },
+	    {
+		"id": "contemnant.hintdesc.killexile"
+	    },
+	    {
+		"id": "contemnant.hintdesc.berlin"
+	    },
+	    {
+		"id": "contemnant.hintdesc.peace"
+	    },
+	    {
+		"id": "contemnant.clearagain"
+	    }
+	]
+    },
+    {
+	"id": "contemnant.hintdesc.lore",
+	"label": "裂狼之秘……",
+	"startdescription": "在索比堡的那一年间，流亡者用击打与切裂将狼的技艺刻进此身……",
+	"description": "在索比堡的那一年间，流亡者用击打与切裂将狼的技艺刻进此身——其称之为“我应受的教育”。但其并未倾囊相授。我需要彻底精通毁灭的技艺，那之后裂分之狼才会注意我。",
+	"requirements": {
+	    "draw.hintcontemnant.lore": 1
+	},
+	"extantreqs": {
+	    "contemnant.fragmentedgeg.exhausted": -1,
+	    "contemnant.fragmentedgeg": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "contemnant.hintdesc.retributions",
+	"label": "报应之途……",
+	"startdescription": "在漆黑猎鹰与带钩十字之下，我曾在饥饿与痛苦中挣扎……",
+	"description": "在漆黑猎鹰与带钩十字之下，我曾在饥饿与痛苦中挣扎。痛苦是通往复仇的门关。在我前往柏林途中经过的每一个城市都将经受这报应。",
+	"requirements": {
+	    "draw.hintcontemnant.retributions": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "contemnant.hintdesc.antithesis",
+	"label": "憎恨万物……",
+	"startdescription": "于裂分之狼中燃烧着对一切存在之物的轻蔑……",
+	"description": "于裂分之狼中燃烧着对一切存在之物的轻蔑。凡人的思维无法理解这种憎恨——但由于我曾受尽苦难，我的思维已经十分接近于狼。希望需要最先死去，其余部分紧随其后。",
+	"requirements": {
+	    "draw.hintcontemnant.antithesis": 1
+	},
+	"extantreqs": {
+	    "antithesis": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "contemnant.hintdesc.vulneration",
+	"label": "分裂之印……",
+	"startdescription": "“<b>CAPUT GERAT LUPINUM</b>。太阳曾被分裂……”",
+	"description": "“<b>CAPUT GERAT LUPINUM</b>。太阳曾被分裂，此即其伤口。”我当身佩狼首；我当经受分裂；我当身负一道可怖的创伤。能将那创伤施加于此身的器具正在这前线的某处，等待着我。",
+	"requirements": {
+	    "draw.hintcontemnant.vulneration": 1
+	},
+	"extantreqs": {
+	    "wound.glorious": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "contemnant.hintdesc.kleidouchos",
+	"label": "白日之钥……",
+	"startdescription": "于所有日之司辰而言，白日之钥都是神圣的……",
+	"description": "于所有日之司辰而言，白日之钥都是神圣的——裂分之狼也不例外。能够开启我通往具名之位前必经之门的也只有那把钥匙。据流亡者说，持有这一钥匙之人仍潜藏在已被炸为废墟的维也纳中。",
+	"requirements": {
+	    "draw.hintcontemnant.kleidouchos": 1
+	},
+	"extantreqs": {
+	    "klei.casket": -1,
+	    "klei.casket.masked": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "contemnant.hintdesc.killexile",
+	"label": "流亡之人……",
+	"startdescription": "我的老师。我的折磨者。我的大敌……",
+	"description": "我的老师。我的折磨者。我的大敌。若缺失了此人的死亡，我的复仇便不算完成。所以，我必须毁灭那造就了我的人。我将杀死流亡者。",
+	"requirements": {
+	    "draw.hintcontemnant.killexile": 1
+	},
+	"extantreqs": {
+	    "memento.exile": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "contemnant.hintdesc.berlin",
+	"label": "纷争之枢……",
+	"startdescription": "我或将得以具名之地在西方等待……",
+	"description": "我或将得以具名之地在西方等待——在那里，帝国的临终尖啸将响彻那片废墟，而这场战争将迎来血腥的终结。在柏林，我将寻得我的命运。",
+	"requirements": {
+	    "draw.hintcontemnant.berlin": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "contemnant.hintdesc.peace",
+	"label": "希望仍存？",
+	"startdescription": "流亡者使我认为复仇已然超越一种责任……",
+	"description": "流亡者使我认为复仇已然超越一种责任——使我认为倘若缺了复仇，我便会死去。但我真的没有其他出路可选吗？倘若我在那重大转折到来时，选择抛下这一切远走高飞又如何？和平无法长存，但战争总会结束。并且只要灵魂不拒绝希望，希望就始终存在。",
+	"requirements": {
+	    "draw.hintcontemnant.peace": 1
+	},
+	"extantreqs": {
+	    "contemnant.memento": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "contemnant.clearagain",
+	"label": "Meditate on Namehood",
+	"effects": {
+	    "decision": -99
+	},
+	"linked": [
+	    {
+		"id": "contemnant.drawhint"
+	    }
+	]
+    },
+    {
+	"id": "ob.success.rescuerefugees",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "rescuerefugees.complete": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.dregsoldier",
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+		"friend.dregscavengers"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "dreams.edgehour.draw.contemnant",
+	"label": "不断斗争的司辰",
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+	    	"draw.wolf.1",
+		"draw.wolf.2",
+		"draw.wolf.3",
+		"draw.wolf.3",
+		"draw.lionsmith.1",
+		"draw.lionsmith.2",
+		"draw.colonel.1",
+		"draw.colonel.2"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "dreams.colonel.contemnant"
+	    },
+	    {
+		"id": "dreams.lionsmith.contemnant"
+	    },
+	    {
+		"id": "dreams.wolf.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "dreams.colonel.contemnant",
+	"label": "疤之梦魇",
+	"startdescription": "@#draw.colonel.1|我的梦境是一片完美的静滞。高塔在无声的威严中耸立。街道铺满了雪，天空的颜色则如大理石一般。而死者——那监视并凝视的死者，伫立在原地。世界化作了一片美丽的纯白。#draw.colonel.2|今夜我梦到了玻璃后的一个黑影。漆黑的刚玉与起伏的软骨，这是被我们称作蠕虫之物。而在蠕虫展馆的寒冷阴影之下，这些生物被陈列，为了教育后来者，也为了注入恐惧。在漫宿，没有一处能称之为“安全”，但对于像我这样的人，<i>这里</i>尤为不安全。@",
+	"description": "@#draw.colonel.1|而后则是一次背叛：一声喊叫。而后是另一声，再另一声。声音如反抗之拳般此起彼伏。为何？为何他们现在出声打破这片寂静？随后便是一声木石移动的低鸣-城门正在开启。他们让他进来了。他就在此，太阳则在他的身后、他就在此，而即使他无法看见，我也无法逃过他。而后他的脸——他那遍布伤疤的破烂<i>面庞</i>——#draw.colonel.2|一阵不可见的回音穿过蠕虫展馆的静寂，如同在石头上跛行的巨人。我的内心满是恐惧。我选择藏身于一间有更多蠕虫展出的大厅中。然而那回音仍不断靠近。当他踏入展厅时，我终于看见了他，他的身上满是尖锐的器具与纯白如冬的酷刑。随后那屋室便缩短，我则被带到他的身前，赤裸且软弱。在我受到任何实质性的伤害之前，我的梦境便结束了，但上校的手在我的肩上留下的严寒仍令我感到疼痛，难以忍受的疼痛。@",
+	"requirements": {
+	    "dream.colonel": 1
+	},
+	"effects": {
+	    "hindrance.colonel": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "dreams.lionsmith.contemnant",
+	"label": "狮之梦魇",
+	"startdescription": "@#draw.lionsmith.1|我首先感到的是胸口利爪带来的尖锐疼痛。一只野虎斑猫后跳，发出反抗的嘶鸣，并伏下身准备再次前冲。我用双手钳住它的脖颈，想使其在尘土中窒息，但那只猫突然变成薮猫，在我的钳制中挣扎，并在退后时用煤油灯般的眼睛瞪着我——#draw.lionsmith.2|今夜，我的梦境是火之梦境。无名的恐怖武器以其炮火照亮夜空，而战场则为无烟火焰构成的湖泊。在下方，各种外形与种类的怪兽在那燃烧之湖中遨游，用利爪、尖牙、以及致命的吐息屠杀逃亡的人们。血与金。@",
+	"description": "@#draw.lionsmith.1|我尝试再次将其摔至地面，而现在它已经变成拥有铸铁般肌肉的狮子并将我抛起，而后变为一只燃烧得老虎，将其活塞般的利齿嵌入我的血肉。花在斗争上的每一分钟都使这猛兽的力量与狂怒翻倍。直面其狂怒与向火中添柴无异。或许，它终有一天会成长到我的力量不足以与其相争的程度。#draw.lionsmith.2|在战斗的嘈杂声中——在那尖叫与咆哮与雷鸣般的炮火声中——一个自傲且暴躁的笑声尤为突出。一个巨人笑着前进踏碎百人，踏碎百兽。而后又是百人，又是百兽。太迟了，我意识到我位于他的前路上——谢天谢地，此时梦境结束了。但我仍能回想起那火焰之湖，那枪炮的火焰，以及那黄金巨人投下的阴影。@",
+	"requirements": {
+	    "dream.lionsmith": 1
+	},
+	"effects": {
+	    "hindrance.lionsmith": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "dreams.wolf.contemnant",
+	"label": "狼之预兆",
+	"startdescription": "@#draw.wolf.1|今晚我梦到了黑暗。不，这并非黑暗——而是空缺。此处无光，亦无暗；无热，亦无冷。就连我身体的边界也变得越发模糊。完全的湮灭包裹了我，如同第二层外皮，使我柔和地窒息……#draw.wolf.2|我的梦中十分寒冷。在冬日的空气中，缠着带刺铁丝的柱子和火车车厢一动不动。我低下头，双眼凝视脚下的土地，准备适应并熬过这停滞的炼狱。索比堡至少教会了我一件事：忍耐。#draw.wolf.3|我梦见我的手正环绕某人的脖颈。我知道这人是谁——整整一年，我忍受此人用利刃划过我的皮肤，并打碎我四肢的骨头。流亡者。我的指节泛白，牙关紧咬，手上力度不自觉地加大，而我的血液因愉悦变得炽热。@",
+	"description": "@#draw.wolf.1|……而后我便醒来。梦中没有的酸痛的肌肉，嘎吱作响的骨头与噬骨的悲伤也都找上了我。一股漆黑的怒火在我之中翻涌。我是何等<i>厌弃</i>这一切，并何等渴望得到慰藉啊——但在一切烛火熄灭，一切声响止息之前，都不存在慰藉。狼之动力来源于此，而这个早晨，其正于我之中燃烧。#draw.wolf.2|我听到了尖刀落地的声响，于是抬起头，而后一只粗糙的手抓住我的脸。“拿走它，”狼如此咆哮。“用它砍下，切开，撕碎世界并痛饮其流出的血。给它带去痛苦，带去伤悲，带去沉默——把任何它曾留给你的痛苦带去给它。当世界的尸体在火堆上焚烧时，你将得到你的温暖。”#draw.wolf.3|我看着血与唾液从流亡者的喉头溢出，手上绞得更紧。其双眼正充血外凸，呼吸被打断发出的噪声正越来越低微，但这声音对我而言宛如天籁。当其眼中失去光芒时我开始发笑。随后我便双手扼住自己的咽喉，然后<i>用力</i>。我在喘息中醒来，双手仍在颤抖。@",
+	"requirements": {
+	    "dream.wolf": 1
+	},
+	"effects": {
+	    "op.wolfdivided": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "operate.church.heart.contemnant",
+	"actionid": "operate",
+	"label": "拜访本地教堂以自省",
+	"startdescription": "我不确定我是否仍相信神，但教堂的门敞开，且我的灵魂觉得沉重。或许在这里逗留片刻对我有点好处。或许。",
+	"description": "在一次深呼吸后，我起身离开。独自一人审视自己的内心过久会令人不适。",
+	"requirements": {
+	    "op.church.contemnant": 1,
+	    "heart": 1
+	},
+	"effects": {
+	    "op": -99
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.regret",
+		"mem.joy",
+		"mem.rage",
+		"mem.fear",
+		"mem.calm",
+		"mem.grief",
+		"mem.ingenuity",
+		"mem.taste",
+		"mem.unexpected"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "operate.farm.edge.contemnant",
+	"actionid": "operate",
+	"label": "向本地农场要求补给品",
+	"startdescription": "战斗的人需要足够的食物与饮水才能保持战斗状态。一次对本地农场的强行拜访或许能够在这件事上起到帮助。",
+	"description": "农夫不情愿地给出，而我们谦恭地接受。这将帮助我们度过接下来的几个星期。",
+	"requirements": {
+	    "op.farm.contemnant": 1,
+	    "edge": 1
+	},
+	"effects": {
+	    "op": -99,
+	    "provisions": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"nothing",
+		"nothing"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 30,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "spit.hostilelocals",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "operate.farm.grail.contemnant",
+	"actionid": "operate",
+	"label": "向本地农场要求补给品",
+	"startdescription": "战斗的人需要足够的食物与饮水才能保持战斗状态。一次对本地农场的强行拜访或许能够在这件事上起到帮助。",
+	"description": "农夫不情愿地给出，而我们谦恭地接受。这将帮助我们度过接下来的几个星期。",
+	"requirements": {
+	    "op.farm.contemnant": 1,
+	    "grail": 1
+	},
+	"effects": {
+	    "op": -99,
+	    "provisions": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"nothing",
+		"nothing"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 30,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "spit.hostilelocals",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "produce.foemonster.begin.contemnant",
+	"actionid": "produce.monster",
+	"label": "邪恶之物前来此地",
+	"startdescription": "醒时世界的此处已被鲜血的气味与痛苦的回响浸染，浸染之深已无法磨灭。是故怪奇且可怖的敌人被此地的杀戮吸引，漫步前来。它们渴望，饥饿，且充满憎恨。",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "foe.monster": -2,
+	    "contemnant.story": 1,
+	    "foe.marinette": -1,
+	    "sobibor.here": -1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "produce.foemonster.draw.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "produce.foemonster.draw.contemnant",
+	"actionid": "produce.monster",
+	"label": "邪恶之物前来此地",
+	"startdescription": "醒时世界的此处已被鲜血的气味与痛苦的回响浸染，浸染之深已无法磨灭。是故怪奇且可怖的敌人被此地的杀戮吸引，漫步前来。它们渴望，饥饿，且充满憎恨。",
+	"requirements": {
+	    "foe": -2
+	},
+	"deckeffects": {
+	    "enemies.occult.contemnant": 1
+	},
+	"linked": [
+	    {
+		"id": "produce.foemonster.draw.contemnant",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "hindrances.heavy.startup.contemnant",
+	"label": "汇聚的敌意",
+	"startdescription": "纷争于此处熊熊燃烧。在上方，司辰带着审视、好奇与蔑视聚集。战场被他们的注意中带有的力量刺穿，诅咒与疫病自漫宿中被诱出，来到这个世界。接下来将来临的是什么？",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "contemnant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.contemnant": 1,
+	    "hindrances.light": 1
+	}
+    },
+    {
+	"id": "ob.success.raze",
+	"label": "火焰的盛宴",
+	"startdescription": "尖叫在烟中回响。我深吸一口烟气，而后微笑。",
+	"requirements": {
+	    "main.raze.rewardrouter": 1
+	},
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"label": "战区",
+		"required": {
+		    "warzone.current": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "ob.success.raze.convertwarzone"
+	    },
+	    {
+		"id": "ob.success.raze"
+	    }
+	]
+    },
+    {
+	"id": "ob.success.raze.convertwarzone",
+	"label": "火焰的盛宴",
+	"startdescription": "",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"effects": {
+	    "strife": 1,
+	    "reputation.infamy": 3,
+	    "shrine.wolf": 1,
+	},
+	"linked": [
+	    {
+		"id": "wolfshrine.assignsectora"
+	    },
+	    {
+		"id": "wolfshrine.assignsectorb"
+	    }
+	]
+    },
+    {
+	"id": "ob.success.seize",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "main.seize.rewardrouter": 1
+	},
+	"effects": {
+	    "provisions": 4
+	},
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "ob.success.breakout",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "main.breakout.rewardrouter": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.doctor",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.gunman",
+		"friend.dregsoldier",
+		"friend.dregscavengers",
+		"friend.dregarsonists",
+		"friend.dregsoldier",
+		"friend.dregscavengers",
+		"friend.dregarsonists"
+	    ],
+	    "draws": 5,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "vulneration.killrandom",
+	"actionid": "vulneration",
+	"label": "辉光的破裂",
+	"startdescription": "我仅是存在于此，现实便会扭曲。此人偶然靠的太近，故成为了从我之中泄露的那可怖光芒的猎获——",
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "湮灭",
+		"required": {
+		    "friend": 1,
+		    "foe": 1,
+		    "neutral": 1
+		},
+		"forbidden": {
+		    "friend.immortal": 1,
+		    "marinette.marker": 1,
+		    "foe.exile": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "friend": -99,
+	    "foe": -99,
+	    "neutral": -99
+	},
+	"warmup": 10,
+	"extantreqs": {
+	    "wound.glorious": 1
+	}
+    },
+    {
+	"id": "hint.attackenemy.suicideattack.forge.officer.stillprotected",
+	"actionid": "operate",
+	"label": "发起一次对敌军的自杀式袭击？",
+	"startdescription": "我们的目标仍受到保护。\n\n[在杀死所有军官的特遣队之前，你无法攻击敌军军官。]",
+	"requirements": {
+	    "forge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "hired": -1,
+	    "foe.officer": 1,
+	    "foe.ingluviate.engorged": -1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "foe.officerdetail": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.attackenemy.suicideattack.edge.ingluviate.stillprotected",
+	"actionid": "operate",
+	"label": "发起一次对敌军的自杀式袭击？",
+	"startdescription": "在正常情况下，这生物算不上难杀，但尽管它的体内现有一个沉重物件，这吞食者的动作仍意外地迅捷——更别提还有许多其它生物挡在我与它之间。",
+	"requirements": {
+	    "edge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "hired": -1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": 1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "foe.ingluviate.protect": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.attackenemy.suicideattack.forge.ingluviate.stillprotected",
+	"actionid": "operate",
+	"label": "发起一次对敌军的自杀式袭击？",
+	"startdescription": "在正常情况下，这生物算不上难杀，但尽管它的体内现有一个沉重物件，这吞食者的动作仍意外地迅捷——更别提还有许多其它生物挡在我与它之间。",
+	"requirements": {
+	    "forge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "hired": -1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": 1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "foe.ingluviate.protect": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.suicideattack.edge",
+	"actionid": "operate",
+	"label": "发起一次对敌军的自杀式袭击",
+	"startdescription": "迈向死亡吧，带着敌人与你一起。此乃绝望的一击，\n\n[在本次攻击中使用的所有资源都将被消耗。这次攻击不保证能成功。采取如此可怕的手段会使部分盟友沮丧，并选择离开。]",
+	"requirements": {
+	    "edge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "lore": -1,
+	    "damage.body": -1,
+	    "hired": -1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": -1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "friend": -99,
+	    "edge": -99,
+	    "winter": -99,
+	    "heart": -99,
+	    "grail": -99,
+	    "moth": -99,
+	    "lantern": -99,
+	    "forge": -99,
+	    "knock": -99
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 60
+	    },
+	    {
+		"id": "attackenemy.suicideattack.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 40
+	    },
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.forge",
+	"actionid": "operate",
+	"label": "发起一次对敌军的自杀式袭击",
+	"startdescription": "迈向死亡吧，带着敌人与你一起。此乃绝望的一击，\n\n[在本次攻击中使用的所有资源都将被消耗。这次攻击不保证能成功。采取如此可怕的手段会使部分盟友沮丧，并选择离开。]",
+	"requirements": {
+	    "forge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "lore": -1,
+	    "damage.body": -1,
+	    "hired": -1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": -1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "friend": -99,
+	    "edge": -99,
+	    "winter": -99,
+	    "heart": -99,
+	    "grail": -99,
+	    "moth": -99,
+	    "lantern": -99,
+	    "forge": -99,
+	    "knock": -99
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 60
+	    },
+	    {
+		"id": "attackenemy.suicideattack.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 40
+	    },
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.edge.withyou",
+	"actionid": "operate",
+	"label": "领导一次对敌军的自杀式袭击？",
+	"startdescription": "我们将会死去，希望敌人与我们同去。或许这便是我希望的终结：先是鲜血，再是寂静。\n\n[这极有可能杀死你。]",
+	"requirements": {
+	    "edge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "hired": -1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": -1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "friend": -99,
+	    "supplies": -99,
+	    "weapon": -99,
+	    "op": -99,
+	    "memory": -99,
+	    "wound.generic": 7,
+	    "trauma": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 60
+	    },
+	    {
+		"id": "attackenemy.suicideattack.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.forge.withyou",
+	"actionid": "operate",
+	"label": "领导一次对敌军的自杀式袭击？",
+	"startdescription": "我们将会死去，希望敌人与我们同去。或许这便是我希望的终结：先是鲜血，再是寂静。\n\n[这极有可能杀死你。]",
+	"requirements": {
+	    "forge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "hired": -1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": -1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "friend": -99,
+	    "supplies": -99,
+	    "weapon": -99,
+	    "op": -99,
+	    "memory": -99,
+	    "wound.generic": 7,
+	    "trauma": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 60
+	    },
+	    {
+		"id": "attackenemy.suicideattack.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.success",
+	"label": "成功的一搏！",
+	"startdescription": "我的友军迎来了死亡——但敌军很快就与他们同去。",
+	"aspects": {
+	    "fatiguing": 1,
+	    "revealidentity": 1,
+	    "killfoe": 1
+	},
+	"alt": [
+	    {
+		"id": "resilient.survived",
+		"chance": 30
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.escape",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.escape.marinette",
+		"additional": true,
+		"chance": 100
+	    },
+	    {
+		"id": "produce.escape.bloodonhands",
+		"additional": true,
+		"chance": 100
+	    },
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.failure",
+	"label": "失败的一搏！",
+	"startdescription": "我的友军已死，但敌军尚存。仅是浪费时间罢了。",
+	"aspects": {
+	    "fatiguing": 1,
+	    "revealidentity": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.edge.officer",
+	"actionid": "operate",
+	"label": "发起一次对敌军的自杀式袭击",
+	"startdescription": "迈向死亡吧，带着敌人与你一起。此乃绝望的一击，\n\n[在本次攻击中使用的所有资源都将被消耗。这次攻击不保证能成功。采取如此可怕的手段会使部分盟友沮丧，并选择离开。]",
+	"requirements": {
+	    "edge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "lore": -1,
+	    "damage.body": -1,
+	    "hired": -1,
+	    "foe.officer": 1,
+	    "foe.ingluviate.engorged": -1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "foe.officerdetail": -1
+	},
+	"effects": {
+	    "friend": -99,
+	    "edge": -99,
+	    "winter": -99,
+	    "heart": -99,
+	    "grail": -99,
+	    "moth": -99,
+	    "lantern": -99,
+	    "forge": -99,
+	    "knock": -99
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 60
+	    },
+	    {
+		"id": "attackenemy.suicideattack.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.forge.officer",
+	"actionid": "operate",
+	"label": "发起一次对敌军的自杀式袭击",
+	"startdescription": "迈向死亡吧，带着敌人与你一起。此乃绝望的一击，\n\n[在本次攻击中使用的所有资源都将被消耗。这次攻击不保证能成功。采取如此可怕的手段会使部分盟友沮丧，并选择离开。]",
+	"requirements": {
+	    "forge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "lore": -1,
+	    "damage.body": -1,
+	    "hired": -1,
+	    "foe.officer": 1,
+	    "foe.ingluviate.engorged": -1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "foe.officerdetail": -1
+	},
+	"effects": {
+	    "friend": -99,
+	    "edge": -99,
+	    "winter": -99,
+	    "heart": -99,
+	    "grail": -99,
+	    "moth": -99,
+	    "lantern": -99,
+	    "forge": -99,
+	    "knock": -99
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 60
+	    },
+	    {
+		"id": "attackenemy.suicideattack.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.edge.withyou.officer",
+	"actionid": "operate",
+	"label": "领导一次对敌军的自杀式袭击？",
+	"startdescription": "我们将会死去，希望敌人与我们同去。或许这便是我希望的终结：先是鲜血，再是寂静。\n\n[这极有可能杀死你。]",
+	"requirements": {
+	    "edge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "hired": -1,
+	    "foe.officer": 1,
+	    "foe.ingluviate.engorged": -1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "foe.officerdetail": -1
+	},
+	"effects": {
+	    "friend": -99,
+	    "edge": -99,
+	    "winter": -99,
+	    "heart": -99,
+	    "grail": -99,
+	    "moth": -99,
+	    "lantern": -99,
+	    "forge": -99,
+	    "knock": -99,
+	    "wound.generic": 7,
+	    "trauma": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 60
+	    },
+	    {
+		"id": "attackenemy.suicideattack.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.forge.withyou.officer",
+	"actionid": "operate",
+	"label": "领导一次对敌军的自杀式袭击？",
+	"startdescription": "我们将会死去，希望敌人与我们同去。或许这便是我希望的终结：先是鲜血，再是寂静。\n\n[这极有可能杀死你。]",
+	"requirements": {
+	    "forge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "hired": -1,
+	    "foe.officer": 1,
+	    "foe.ingluviate.engorged": -1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "foe.officerdetail": -1
+	},
+	"effects": {
+	    "friend": -99,
+	    "edge": -99,
+	    "winter": -99,
+	    "heart": -99,
+	    "grail": -99,
+	    "moth": -99,
+	    "lantern": -99,
+	    "forge": -99,
+	    "knock": -99,
+	    "wound.generic": 7,
+	    "trauma": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 60
+	    },
+	    {
+		"id": "attackenemy.suicideattack.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.edge.ingluviate.engorged",
+	"actionid": "operate",
+	"label": "发起一次对敌军的自杀式袭击",
+	"startdescription": "迈向死亡吧，带着敌人与你一起。此乃绝望的一击，\n\n[在本次攻击中使用的所有资源都将被消耗。这次攻击不保证能成功。采取如此可怕的手段会使部分盟友沮丧，并选择离开。]",
+	"requirements": {
+	    "edge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "lore": -1,
+	    "damage.body": -1,
+	    "hired": -1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": 1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "foe.ingluviate.protect": -1
+	},
+	"effects": {
+	    "friend": -99,
+	    "edge": -99,
+	    "winter": -99,
+	    "heart": -99,
+	    "grail": -99,
+	    "moth": -99,
+	    "lantern": -99,
+	    "forge": -99,
+	    "knock": -99
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 60
+	    },
+	    {
+		"id": "attackenemy.suicideattack.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.forge.ingluviate.engorged",
+	"actionid": "operate",
+	"label": "发起一次对敌军的自杀式袭击",
+	"startdescription": "迈向死亡吧，带着敌人与你一起。此乃绝望的一击，\n\n[在本次攻击中使用的所有资源都将被消耗。这次攻击不保证能成功。采取如此可怕的手段会使部分盟友沮丧，并选择离开。]",
+	"requirements": {
+	    "forge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "lore": -1,
+	    "damage.body": -1,
+	    "hired": -1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": 1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "foe.ingluviate.protect": -1
+	},
+	"effects": {
+	    "friend": -99,
+	    "edge": -99,
+	    "winter": -99,
+	    "heart": -99,
+	    "grail": -99,
+	    "moth": -99,
+	    "lantern": -99,
+	    "forge": -99,
+	    "knock": -99
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 60
+	    },
+	    {
+		"id": "attackenemy.suicideattack.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.edge.withyou.ingluviate.engorged",
+	"actionid": "operate",
+	"label": "领导一次对敌军的自杀式袭击？",
+	"startdescription": "我们将会死去，希望敌人与我们同去。或许这便是我希望的终结：先是鲜血，再是寂静。\n\n[这极有可能杀死你。]",
+	"requirements": {
+	    "edge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "hired": -1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": 1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "foe.ingluviate.protect": -1
+	},
+	"effects": {
+	    "friend": -99,
+	    "edge": -99,
+	    "winter": -99,
+	    "heart": -99,
+	    "grail": -99,
+	    "moth": -99,
+	    "lantern": -99,
+	    "forge": -99,
+	    "knock": -99,
+	    "wound.generic": 7,
+	    "trauma": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 50
+	    },
+	    {
+		"id": "attackenemy.suicideattack.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.forge.withyou.ingluviate.engorged",
+	"actionid": "operate",
+	"label": "领导一次对敌军的自杀式袭击？",
+	"startdescription": "我们将会死去，希望敌人与我们同去。或许这便是我希望的终结：先是鲜血，再是寂静。\n\n[这极有可能杀死你。]",
+	"requirements": {
+	    "forge": 10,
+	    "friend": 1,
+	    "foe": 1,
+	    "foe.hidden": -1,
+	    "hired": -1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": 1,
+	    "friend.immortal": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "foe.ingluviate.protect": -1
+	},
+	"effects": {
+	    "friend": -99,
+	    "edge": -99,
+	    "winter": -99,
+	    "heart": -99,
+	    "grail": -99,
+	    "moth": -99,
+	    "lantern": -99,
+	    "forge": -99,
+	    "knock": -99,
+	    "wound.generic": 7,
+	    "trauma": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 50
+	    },
+	    {
+		"id": "attackenemy.suicideattack.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "contemplate.mainobjective.contemnant",
+	"label": "我的意图？",
+	"startdescription": "我已决定我在此的职责。但我内心中的那份阴影不断引诱我改变那决定……",
+	"requirements": {
+	    "main": 1
+	},
+	"linked": [
+	    {
+		"id": "contemplate.turnraze"
+	    }
+	]
+    },
+    {
+	"id": "contemplate.turnraze",
+	"label": "我的意图？",
+	"startdescription": "利刃应该插入多深？我的报应应镌刻到何种地步？",
+	"description": "心跳静息，阴影退去。我咽下紧张。终有一天，它还会回到我的脑海中的。",
+	"slots": [
+	    {
+		"id": "needswolf",
+		"label": "阴影",
+		"required": {
+		    "op.wolfdivided": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"alt": [
+	    {
+		"id": "contemplate.turnraze.success"
+	    }
+	]
+    },
+    {
+	"id": "contemplate.turnraze.success",
+	"label": "狼之功业",
+	"startdescription": "伤口再深都不为过。报应再狠都不为过。",
+	"description": "我的双手将被有罪者的血染红。带去痛苦即为我的职责。狼在我的耳边低语，而我选择了听从。",
+	"requirements": {
+	    "op.wolfdivided": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "main": -99,
+	    "main.raze": 1
+	}
+    },
+    {
+	"id": "foe.commander.extraenemy",
+	"actionid": "commander.attack",
+	"label": "指挥者下令了！",
+	"startdescription": "",
+	"requirements": {
+	     "foe.commander": 1
+	},
+	"effects": {
+	    "decision.enemy.attack": 1,
+	    "decision.enemy.singleattack": 1
+	},
+	"linked": [
+	    {
+		"id": "singleattack.startup"
+	    }
+	]
+    },
+    {
+	"id": "produce.escape",
+	"actionid": "spit.moth",
+	"label": "逃离这场追猎？",
+	"startdescription": "我们每杀死一个敌人，干涸女巫的利爪就松开一分。但目前还不够松，还不足以让我们逃离。",
+	"effects": {
+	    "op.escapemarinette": 1
+	},
+	"extantreqs": {
+	    "foe.huntingparty": 1
+	},
+	"requirements": {
+	    "foe.marinette": -1,
+	    "foe.bloodonhands": -1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "produce.escape.marinette",
+	"actionid": "spit.moth",
+	"label": "逃离这场追猎？",
+	"startdescription": "我们每杀死一个敌人，干涸女巫的利爪就松开一分。但目前还不够松，还不足以让我们逃离。",
+	"effects": {
+	    "op.escapemarinette": 1
+	},
+	"extantreqs": {
+	    "foe.huntingparty": 1
+	},
+	"requirements": {
+	    "foe.braced": -1,
+	    "foe.marinette": 1,
+	    "foe.bloodonhands": -1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "produce.escape.bloodonhands",
+	"actionid": "spit.moth",
+	"label": "逃离这场追猎？",
+	"startdescription": "我们每杀死一个敌人，干涸女巫的利爪就松开一分。但目前还不够松，还不足以让我们逃离。",
+	"effects": {
+	    "op.escapemarinette": 1
+	},
+	"extantreqs": {
+	    "foe.huntingparty": 1
+	},
+	"requirements": {
+	    "foe.marinette": -1,
+	    "foe.bloodonhands": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "exiletrauma.contemnant",
+	"actionid": "despair",	
+	"label": "最深的恐惧",
+	"startdescription": "脚步声于石上回荡，尖锐阴影投于墙上，可怖笑声响彻夜空——那名为流亡者的怪物已经来此。而我感到害怕。",
+	"description": "脚步声于石上回荡，尖锐阴影投于墙上，可怖笑声响彻夜空——那名为流亡者的怪物已经来此。而我感到害怕。\n\n[在流亡者的阴影下滞留过久会使你受到精神创伤——除非你能够跨越对其的恐惧。]",
+	"effects": {
+	    "trauma": 1
+	},
+	"warmup": 10,
+	"extantreqs": {
+	    "token.intent": -1,
+	    "foe.exile": 1
+	},
+    },
+    {
+	"id": "exiletrauma.contemnant.duringduel",
+	"actionid": "despair",	
+	"label": "最深的恐惧",
+	"startdescription": "流亡者正站在我身前，千真万确。其乐于一次又一次地伤害我，直到我已不再。而我感到害怕。",
+	"description": "流亡者正站在我身前，千真万确。其乐于一次又一次地伤害我，直到我已不再。而我感到害怕。\n\n[在流亡者的阴影下滞留过久会使你受到精神创伤——除非你能够跨越对其的恐惧。]",
+	"effects": {
+	    "trauma": 1
+	},
+	"warmup": 10,
+	"extantreqs": {
+	    "token.intent": -1
+	},
+    },
+    {
+	"id": "travel.sobibor",
+	"actionid": "mobilize",
+	"label": "试炼静候于内",
+	"startdescription": "正如那丽姬娅所说，我必须深入我之内，以寻得我对恐惧的答复。这次没有人能够跟随我，敌人不能，自称我友军者也不能。我将独自一人踏入黑暗，而在某一时刻，现实与梦境的界线将不复存在。",
+	"description": "我已向西行了如此之远，而现在我发现自己回到了东方。大门打开。我听见远处铁道上火车犹疑的刹车声。我又回到了这里。",
+	"requirements": {
+	    "sobibor": 1,
+	},
+	"extantreqs": {
+	    "wasteland": -1	
+	},
+	"craftable": true,
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "travel.sobibor.haltverbs"
+	    }
+	]
+    },
+    {
+	"id": "travel.sobibor.haltverbs",
+	"label": "试炼静候于内",
+	"startdescription": "我已向西行了如此之远，而现在我发现自己回到了东方。大门打开。我听见远处铁道上火车犹疑的刹车声。我又回到了这里。",
+	"haltverb": {
+	    "operate": 1,
+	    "abandon": 1,
+	    "recon": 1,
+	    "communicate": 1,
+	    "mobilize": 1,
+	    "operation.edge": 99,
+	    "operation.heart": 99,
+	    "operation.forge": 99,
+	    "main": 99,
+	    "side": 99,
+	    "side.2": 99,
+	    "side.3": 99,
+	    "resupply": 99,
+	    "hindrances.verb": 99,
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "enemyaction.niniame": 99,
+	    "friend.verb": 99,
+	    "fatality": 99,
+	    "spit.*": 99,
+	    "long.wilhelm": 99,
+	    "long.sergei": 99,
+	    "long.camilla": 99,
+	    "explorevault_casualty": 99,
+	    "edgelong.wounds": 99,
+	    "produce.monster": 99,
+	    "action.legion": 99,
+	    "action.king": 99,
+	    "attack.jerome": 99,
+	    "attack.king": 99,
+	    "attack.legion": 99,
+	    "attack.lionel": 99,
+	    "explosion": 99,
+	    "fallingstar": 99,
+	    "reinforcements.*": 99,
+	    "stasis": 99,
+	    "verb.retaliatory": 99,
+	    "sovietaction": 99,
+	    "neutral.reinforcements": 99,
+	    "neutral.singleattack": 99,
+	    "sovietaction.aggro": 99,
+	    "aggro.destroysupplies": 99,
+	    "aggro.doubleattack.1": 99,
+	    "aggro.doubleattack.2": 99,
+	    "aggro.hide": 99,
+	    "aggro.reinforcements": 99,
+	    "aggro.singleattack": 99,
+	    "execution": 99,
+	    "flesheater.verb": 99,
+	    "ingluviate.guard": 99,
+	    "marinette.arrival": 99,
+	    "resupply.yellow": 99,
+	    "lurk": 99,
+	    "spit.grail": 99
+	},
+	"linked": [
+	    {
+		"id": "travel.sobibor.purge"
+	    }
+	]
+    },
+    {
+	"id": "travel.sobibor.purge",
+	"label": "试炼静候于内",
+	"startdescription": "我已向西行了如此之远，而现在我发现自己回到了东方。大门打开。我听见远处铁道上火车犹疑的刹车声。我又回到了这里。",
+	"deleteverb": {
+	    "side": 99,
+	    "side.2": 99,
+	    "side.3": 99,
+	    "resupply": 99,
+	    "hindrances.verb": 99,
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "enemyaction.niniame": 99,
+	    "friend.verb": 99,
+	    "fatality": 99,
+	    "spit.*": 99,
+	    "long.wilhelm": 99,
+	    "long.sergei": 99,
+	    "long.camilla": 99,
+	    "explorevault_casualty": 99,
+	    "edgelong.wounds": 99,
+	    "action.legion": 99,
+	    "action.king": 99,
+	    "attack.jerome": 99,
+	    "attack.king": 99,
+	    "attack.legion": 99,
+	    "attack.lionel": 99,
+	    "explosion": 99,
+	    "fallingstar": 99,
+	    "reinforcements.king": 99,
+	    "reinforcements.legion": 99,
+	    "stasis": 99,
+	    "verb.retaliatory": 99,
+	    "sovietaction": 99,
+	    "neutral.reinforcements": 99,
+	    "neutral.singleattack": 99,
+	    "sovietaction.aggro": 99,
+	    "aggro.destroysupplies": 99,
+	    "aggro.doubleattack.1": 99,
+	    "aggro.doubleattack.2": 99,
+	    "aggro.hide": 99,
+	    "aggro.reinforcements": 99,
+	    "aggro.singleattack": 99,
+	    "execution": 99,
+	    "flesheater.verb": 99,
+	    "ingluviate.guard": 99,
+	    "marinette.arrival": 99,
+	    "resupply.yellow": 99,
+	    "lurk": 99,
+	    "spit.grail": 99
+	},
+	"purge": {
+	    "foe.bombers.refuel": 99,
+	    "aggro.bombers.refuel": 99,
+	    "objective": 99,
+	    "location": 99,
+	    "hindrance": 99,
+	    "warzone.current": 99,
+	    "strife": 99,
+	    "foe": 99,
+	    "side": 99,
+	    "infrastructure": 99,
+	    "infrastructure.destroyed": 99,
+	    "local": 99,
+	    "warzone.current": 99,
+	    "reputation.infamy": 99
+	},
+	"furthermore": [
+	    { 
+		"target": "~/exterior",
+		"effects": { 
+		    "[warzone] && [sobibor]=0": -99,
+		    "foe.bombers.refuel": -99,
+		    "[op] && ![op.axe] && ![broodscent]": -99
+		} 
+	    } 
+	],
+	"xpans": { 
+	    "sobibor.convert": 1 
+	},
+	"linked": [
+	    {
+		"id": "travel.sobibor.purge.round2"
+	    }
+	]
+    },
+    {
+	"id": "travel.sobibor.purge.round2",
+	"label": "试炼静候于内",
+	"startdescription": "我已向西行了如此之远，而现在我发现自己回到了东方。大门打开。我听见远处铁道上火车犹疑的刹车声。我又回到了这里。",
+	"aspects": {
+	    "arriving": 1
+	},
+	"purge": {
+	    "foe.bombers.refuel": 99,
+	    "aggro.bombers.refuel": 99,
+	    "objective": 99,
+	    "location": 99,
+	    "hindrance": 99,
+	    "warzone.current": 99,
+	    "strife": 99,
+	    "foe": 99,
+	    "side": 99,
+	    "infrastructure": 99,
+	    "infrastructure.destroyed": 99,
+	    "local": 99,
+	    "warzone.current": 99,
+	    "reputation.infamy": 99,
+	    "friend": 99
+	},
+	"furthermore": [
+	    { 
+		"target": "~/exterior",
+		"effects": { 
+		    "[warzone] && [sobibor]=0": -99,
+		    "foe.bombers.refuel": -99,
+		    "[op] && ![op.axe] && ![broodscent]": -99
+		} 
+	    } 
+	],
+	"xpans": { 
+	    "sobibor.convert": 1 
+	},
+	"alt": [
+	    {
+		"id": "nightmare.cycle",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "contemplate.antithesis",
+	"actionid": "dreaming",
+	"label": "终结之梦",
+	"startdescription": "狼之憎恶是一个严酷且无止尽的深坑，接受万物，但返还无物。但我可以做出一个不智之举——从这深坑的边缘望向其内部，看看是什么会从那里回望我。\n\n[这将产生精神创伤，且或许也会产生物理的创伤。]",
+	"description": "什么都没有。没有东西回望我。我开始尖叫。",
+	"requirements": {
+	    "antithesis": 1
+	},
+	"effects": {
+	    "op.wolfdivided": 1,
+	    "trauma": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"wound.generic",
+		"wound.generic",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "ambush.cross.startup",
+	"label": "愤怒之翅",
+	"startdescription": "一道影子掠过太阳。那东西——它比人更大，身披鳞片，背生双翅，手为利爪——极速接近，突袭了那刃之长生者，撕裂其不朽的血肉。这次诡异的伏击迫使长生者暂时后退，给了我喘息之机。那会不会是一只传说中的介壳种？不——在肉战胜石的，猿猴征服甲虫之时，它们已全部从世间消失，不是吗？",
+	"effects": {
+	    "cross.first": 1,
+	    "contemplation.cross.1": 1
+	},
+	"extantreqs": {
+	    "runmarker.cross": 1,
+	    "kaunas.here": -1,
+	    "brest.here": -1,
+	    "wasteland.a.contemnant": -1,
+	    "wasteland.b.contemnant": -1
+	},
+	"linked": [
+	    {
+		"id": "ambush.cross"
+	    }
+	],
+	"maxexecutions": 1
+    },
+    {
+	"id": "ambush.cross",
+	"label": "愤怒之翅",
+	"startdescription": "一道影子掠过太阳。那东西——它比人更大，身披鳞片，背生双翅，手为利爪——极速接近，突袭了那刃之长生者，撕裂其不朽的血肉。这次诡异的伏击迫使长生者暂时后退，给了我喘息之机。那会不会是一只传说中的介壳种？不——在肉战胜石的，猿猴征服甲虫之时，它们已全部从世间消失，不是吗？",
+	"warmup": 120,
+	"linked": [
+	    {
+		"id": "ambush.cross.finish"
+	    }
+	]
+    },
+    {
+	"id": "ambush.cross.finish",
+	"label": "撤退！",
+	"startdescription": "刃之长生者的力量足以驱离这身披甲壳的刺客。那生物既已败退，便逃离战场，飞回天空之后——但多亏了它，刃之长生者需要恢复一段时间才能再来找我。如果我想活着离开这里，最好现在就开始准备。",
+	"warmup": 30,
+	"effects": {
+	    "cross.first": -99
+	},
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	]
+    },
+    {
+	"id": "attack.nodefense.nightmare",
+	"label": "毫无防备！",
+	"startdescription": "我的大脑天旋地转。我的灵魂开始分裂。",
+	"requirements": {
+	    "decision.enemy.attack": 1
+	},
+	"effects": {
+	    "developing.trauma": 1
+	},
+	"extantreqs": {
+	    "sobibor.here": 1
+	},
+	"aspects": {
+	    "makeadditional": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "attack.nodefense.exilenightmare",
+	"label": "毫无防备！",
+	"startdescription": "那一整年份的折磨之痛如洪水般涌回；那一整年，流亡者将其痛苦与真实刻在了我的身上与我的体内。我的手希望将我那入梦的脑从颅中扯出，但我压制住了我的本能。还。不。行。",
+	"requirements": {
+	    "decision.enemy.attack": 1,
+	    "foe.exilenightmare": 1
+	},
+	"effects": {
+	    "developing.permatrauma": 1
+	},
+	"extantreqs": {
+	    "sobibor.here": 1
+	},
+	"aspects": {
+	    "makeadditional": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "ob.success.sobibor",
+	"label": "胜利！",
+	"startdescription": "找到你了。",
+	"requirements": {
+	    "sidesobibor.complete": 1
+	},
+	"effects": {
+	    "shred.self": 3
+	}
+    },
+]
+}

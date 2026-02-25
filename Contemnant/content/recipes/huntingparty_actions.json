@@ -1,0 +1,288 @@
+{
+"recipes": [
+    {
+	"id": "operate.escapemarinette",
+	"actionid": "operate",
+	"label": "Escape Encirclement!",
+	"startdescription": "There! An opening in Marinette's offensive comes clear. It will be a narrow escape - but that's the best I can hope for when hounded by the hungriest of the Ligieans.",
+	"description": "Out from the Grail's clutches. For now.\n\n[You will not encounter Marinette and her forces again until the next time you pass through the Ruined Country.]",
+	"requirements": {
+	    "op.escapemarinette": 5
+	},
+	"haltverb": {
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "produce.monster": 99,
+	    "reinforcements.*": 99,
+	    "foedebuff": 99,
+	    "huntingparty": 99,
+	    "commander.attack": 99,
+	    "marinette.attack": 99,
+	    "spit.grail": 99
+	},
+	"craftable": true,
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "operate.escapemarinette.continue",
+	    }
+	]
+    },
+    {
+	"id": "operate.escapemarinette.continue",
+	"label": "Escape Encirclement!",
+	"startdescription": "There! An opening in Marinette's offensive comes clear. It will be a narrow escape - but that's the best I can hope for when hounded by the hungriest of the Ligieans.",
+	"description": "Out from the Grail's clutches. For now.\n\n[You will not encounter Marinette and her forces again until the next time you pass through the Ruined Country.]",
+	"deleteverb": {
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "produce.monster": 99,
+	    "reinforcements.*": 99,
+	    "foedebuff": 99,
+	    "huntingparty": 99,
+	    "commander.attack": 99,
+	    "marinette.attack": 99,
+	    "spit.grail": 99
+	},
+	"purge": {
+	    "foe": 99,
+	    "foe.huntingparty": 99,
+	    "strife": 99
+	},
+	"effects": {
+	    "op.escapemarinette": -99,
+	    "token.escaped": 1
+	}
+    },
+    {
+	"id": "arrive.marinette.continue",
+	"label": "A Hunting Party",
+	"startdescription": "Kleidouchos hisses from within the confines of her vessel. 'My un-sister has found me. Stand ready.'",
+	"deleteverb": {
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "produce.monster": 99,
+	    "reinforcements.*": 99,
+	    "foedebuff": 99
+	},
+	"purge": {
+	    "foe": 99
+	},
+	"effects": {
+	    "foe.marinette": 1,
+	    "foe.bloodonhands.hidden": 1,
+	    "foe.ivory.hidden": 6,
+	    "foe.percussigant": 8,
+	    "foe.flesheater": 10
+	},
+	"alt": [
+	    {
+		"id": "huntingparty.cycle",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.cycle",
+	"actionid": "huntingparty",
+	"label": "On the Hunt",
+	"startdescription": "The Ligeians owe fealty to the Red Grail, but Marinette has always been especially receptive to her demands. Emboldened by war's outbreak, the Grail has ordered Marinette to seize the Key of Days - the Key that I must have. Will the Law permit a Ligeian to hold a second Key? I do not know, but I cannot allow Marinette to find out.",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token": 1,
+	    "readiness.token.marinette": 1
+	},
+	"linked": [
+	    {
+		"id": "marinette.attack.router",
+		"chance": 45
+	    },
+	    {
+		"id": "huntingparty.pickaction.router",
+		"chance": 45
+	    },
+	    {
+		"id": "huntingparty.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "huntingparty.reinforcements",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "marinette.attack.router",
+	"label": "The Hunt Moves!",
+	"startdescription": "Marinette's forces close in - prepare to shed blood!",
+	"requirements": {
+	    "readiness.token.marinette": 9
+	},
+	"alt": [
+	    {
+		"id": "marinette.attacks.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "marinette.attack.clear"
+	    }
+	]
+    },
+    {
+	"id": "marinette.attack.clear",
+	"label": "The Hunt Moves!",
+	"startdescription": "Marinette's forces close in - prepare to shed blood!",
+	"effects": {
+	    "readiness.token.marinette": -99
+	},
+	"linked": [
+	    {
+		"id": "huntingparty.cycle"
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.pickaction.router",
+	"label": "The Hunt Moves!",
+	"startdescription": "Marinette's forces close in - prepare to shed blood!",
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"deckeffects": {
+	    "decisions.enemy.low.contemnant": 1
+	},
+	"linked": [
+	    {
+		"id": "huntingparty.executeaction"
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.executeaction",
+	"label": "The Hunt Moves!",
+	"startdescription": "Marinette's forces close in - prepare to shed blood!",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "huntingparty.clear"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "singleattack.startup",
+		"additional": true
+	    },
+	    {
+		"id": "destroysupplies.startup",
+		"additional": true
+	    },
+	    {
+		"id": "hide.startup",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.clear",
+	"label": "The Hunt Moves!",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "huntingparty.cycle"
+	    }
+	]
+    },
+    {
+	"id": "marinette.attacks.startup",
+	"actionid": "marinette.attack",
+	"label": "The Dry-Witch Strikes!",
+	"startdescription": "'<sprite name=edge>. <sprite name=edge>. <sprite name=edge>!'",
+	"extantreqs": {
+	    "foe.marinette.recovering": -1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsmarinette",
+		"label": "Marinette",
+		"required": {
+		    "marinette.marker": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "decision.enemy.attack": 1,
+	    "decision.enemy.singleattack": 1
+	},
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.reinforcements",
+	"actionid": "enemyaction.reinforcements",
+	"label": "The Tide Swells",
+	"startdescription": "Marinette draws upon the powers and sycophants of the Grail to aid her hunt -",
+	"extantreqs": {
+	    "foe.huntingparty": -10
+	},
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"foe.ivory",
+		"foe.ivory",
+		"foe.ivory",
+		"foe.percussigant",
+		"foe.percussigant",
+		"foe.percussigant",
+		"foe.flesheater",
+		"foe.flesheater",
+		"foe.flesheater",
+		"foe.flesheater"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    }
+]
+}

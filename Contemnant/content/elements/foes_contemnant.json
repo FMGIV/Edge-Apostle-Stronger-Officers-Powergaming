@@ -1,0 +1,1101 @@
+{
+"elements": [
+    {
+	"id": "foe.nightmare.template",
+	"label": "Nightmare Foe Template",
+	"aspects": {
+	    "foe": 1,
+	    "foe.nightmare": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresources1",
+		"label": "Resources",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    },
+	    {
+		"id": "needsresources2",
+		"label": "Resources",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    },
+	    {
+		"id": "needsresources3",
+		"label": "Something More?",
+		"description": "A knot of power? A confluence? A sign of the earth, or the sky?",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "friend": 1,
+		    "supplies": 1,
+		    "weapon": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "foe.corpse.nightmare",
+	"label": "A Nightmare, Slain",
+	"lifetime": 1
+    },
+    {
+	"id": "foe.exilenightmare",
+	"label": "The Exile",
+	"description": "This is the face of my terror: my mentor and tormentor, warped by the haze of this dark, dreaming glass, this uncanny nightmare. Even as a memory, they command my fear and my pain. But there are ways to kill even memory.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsedge": 100,
+	    "foe.exile": 1
+	},
+	"xtriggers": {
+	    "killfoe": "token.intent",
+	    "weaken": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -33
+		},
+	    ],
+	},
+	"unique": true
+    },
+    {
+	"id": "foe.campguard",
+	"label": "Camp Guard",
+	"description": "I remember them well: how they cracked our ribs and pointed their rifles and laughed when we yelped like beaten dogs. Men only following orders.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsedge": 12
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.infantry"
+    },
+    {
+	"id": "foe.watchdog",
+	"label": "Watchdog",
+	"description": "<i>Deutscher Schäferhund.</i> These beasts became fashionable in the Reich for how closely they resembled wolves, and they were fashionable at Sobibor, too, for how quickly they could rip a man apart for an officer's amusement.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsedge": 10,
+	    "foe.coordinated": 1
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.searchlight",
+	"label": "Searchlight",
+	"description": "They say mercy is only found in shadow. This glare from above let me understand that truth firsthand.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsmoth": 10
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.starvation",
+	"label": "Starvation",
+	"description": "Now and then, in my hunger, I would dream of the Red Cup, and I would listen to it laugh at me.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsgrail": 8
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.cold",
+	"label": "Cold",
+	"description": "Sometimes, it got so cold there that the mind would fool itself into thinking it was warm outside. But we all knew there was only one season at Sobibor, and it was Winter.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsforge": 8,
+	    "needsheart": 8
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ]
+	}
+    },
+    {
+	"id": "foe.prisoners",
+	"label": "Prisoner",
+	"description": "Elsewhere, they might have been a friend - but here, they were another mouth to feed, another body to clothe, another space occupied in the cells. I did what I had to to survive. [Use Heart to gain a useful memory, or Edge to gain a Trauma.]",
+	"aspects": {
+	    "op": 1,
+	    "needsedge": 4,
+	    "needsheart": 4
+	},
+	"lifetime": 300,
+	"slots": [
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Intent",
+		"required": {
+		    "edge": 1,
+		    "heart": 1
+		}
+	    }
+	],
+	"icon": "side.fiorenza.complete"
+    },
+    {
+	"id": "foe.grame.inactive",
+	"label": "An Unseen Rage...",
+	"description": "At the nightmare's edge, I can hear a ravenous growling - faint, but definite. [This card will become active once you have at least three instances of Trauma.]",
+	"aspects": {
+	    "foe.nightmare": 1
+	},
+	"xtriggers": {
+	    "intention.assault": "foe.grame"
+	},
+	"icon": "foe.unknown"
+    },
+    {
+	"id": "foe.grame",
+	"label": "Wolf-Grame",
+	"description": "If wolf-splinters are the soul's despair outpacing its light, and wrakes the agonies that consume the spirit, then wolf-grames are the simmering, festering rage of the unavenged and unanswered. I must be host to dozens.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsedgewinter": 10,
+	    "foe.commander": 1
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "intention.downtime": "foe.grame.inactive",
+	    "takeadditional": [
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ]
+	}
+    },
+    {
+	"id": "foe.shade.inactive",
+	"label": "A Lurking Sorrow...",
+	"description": "At the nightmare's edge, I can hear a dozen soft voices weeping - faint, but definite. [This card will become active once you have at least three instances of Trauma.]",
+	"aspects": {
+	    "foe.nightmare": 1
+	},
+	"xtriggers": {
+	    "intention.assault": "foe.shade"
+	},
+	"icon": "foe.unknown"
+    },
+    {
+	"id": "foe.shade",
+	"label": "Devoured",
+	"description": "'Are you not tired? Come, come. Walk with us on the road that knows no sun nor moon; no pain nor grief; no here nor there. Come, and there will be no more.' [Whenever this Enemy acts, there is a chance for it produce Mounting Dread.]",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needslanternheart": 6
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "intention.downtime": "foe.shade.inactive",
+	    "takeadditional": [
+		{
+		    "id": "needslanternheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needslanternheart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+	    ]
+	},
+	"induces": [
+	    {
+		"id": "produce.developing.trauma",
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "foe.wrake",
+	"label": "Wolf-Wrake",
+	"description": "Some agonies are so intense that they can outlive the body that suffered them - and without a vessel, this wandering excruciation will hasten to find a new home. You don't want it to be you.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needswinter": 14,
+	    "needswinterheart": 6
+	},
+	"xtriggers": {
+	    "refresh": "foe.wrake",
+	    "killfoe": "agony",
+	    "concealidentity": "foe.wrake.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.wrake.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.wrake.hidden",
+	    "killfoe": "agony",
+	    "revealidentity": "foe.wrake",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.marinette",
+	"label": "Marinette",
+	"description": "'<sprite name=way> . <sprite name=edge> . <sprite name=grail> .'",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 30,
+	    "foe.lethal": 1,
+	    "foe.braced": 1,
+	    "long.blocker": 1,
+	    "foe.huntingparty": 1,
+	    "marinette.marker": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.marinette",
+	    "killfoe": [
+		{
+		    "id": "foe.marinette.recovering"
+		},
+		{
+		    "id": "braced_timer",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+	    ],
+	    "concealidentity": "foe.marinette.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -10
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 10
+		},
+	    ]
+	},
+    },
+    {
+	"id": "foe.marinette.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "long.blocker": 1,
+	    "foe.huntingparty": 1,
+	    "marinette.marker": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.marinette.hidden",
+	    "killfoe": "foe.marinette.recovering",
+	    "revealidentity": "foe.marinette",
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.marinette.recovering",
+	"label": "Marinette (Recovering)",
+	"description": "'<sprite name=heart>. <sprite name=resentment> .'",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1,
+	    "long.blocker": 1,
+	    "foe.huntingparty": 1,
+	    "marinette.marker": 1
+	},
+	"lifetime": 180,
+	"decayTo": "foe.marinette",
+	"resaturate": true,
+	"icon": "foe.marinette"
+    },
+    {
+	"id": "foe.bloodonhands",
+	"label": "Blood-on-Hands",
+	"description": "'We are the palest of Mother's children, and we have very little red of our own. Please, show me what is red inside you. <i>Please.'</i>",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 24,
+	    "needsedgemoth": 10,
+	    "needsedgegrail": 10,
+	    "foe.braced": 1,
+	    "foe.commander": 1,
+	    "foe.armoured": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.bloodonhands",
+	    "killfoe": "foe.bloodonhands.defunct",
+	    "concealidentity": "foe.bloodonhands.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 8
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": 6
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": 6
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"decayTo": "foe.bloodonhands.defunct"
+    },
+    {
+	"id": "foe.bloodonhands.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.bloodonhands.hidden",
+	    "killfoe": "foe.bloodonhands.defunct",
+	    "revealidentity": "foe.bloodonhands",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true,
+	"decayTo": "foe.bloodonhands.defunct"
+    },
+    {
+	"id": "foe.bloodonhands.defunct",
+	"label": "Blood-on-Hands (Banished)",
+	"description": "For now, the Ivory is as dead as we can make it. They will walk again on this side of the dream, no doubt - but it will be some time before that happens. [This Enemy will be active again the next time you encounter Marinette's hunting party.]",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1,
+	    "foe.huntingparty": 1
+	}
+    },
+    {
+	"id": "foe.percussigant",
+	"label": "Percussigant",
+	"description": "Joyous, irrepressible celebrants of pain, who thump and twirl in memory of the flaying the Grail inflicted upon the Thunderskin. These ones seem to know how to dance in pairs...",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 12,
+	    "needswinter": 8,
+	    "foe.coordinated": 1,
+	    "foe.unsubtle": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.percussigant",
+	    "killfoe": "foe.corpse.unnatural",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -5
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 5
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 3
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.percussigant.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.percussigant.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.percussigant",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.ingluviate",
+	"label": "Ingluviate",
+	"description": "What is without, within. [This Enemy will attempt to swallow the Iron Casket and steal away with it.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 10,
+	    "foe.unsubtle": 1,
+	    "marker.ingluviate": 1
+	},
+	"xtriggers": {
+	    "devourer": "foe.ingluviate.engorged",
+	    "refresh": "foe.ingluviate",
+	    "killfoe": "foe.corpse.unnatural",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ]
+	}
+    },
+    {
+	"id": "foe.ingluviate.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ingluviate.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.ingluviate",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.ingluviate.engorged",
+	"label": "Ingluviate (Engorged)",
+	"description": "What is without, within. [Kill this Enemy to reclaim the Iron Casket.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "needsedgegrail": 8,
+	    "foe.unsubtle": 1,
+	    "otherworldly": 1,
+	    "detectivetemptation": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ingluviate.engorged",
+	    "killfoe": [
+		{
+		    "id": "foe.corpse.unnatural"
+		},
+		{
+		    "id": "klei.casket",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"induces": [
+	    {
+		"id": "createguards.ingluviate",
+	    }
+	]
+    },
+    {
+	"id": "foe.flesheater",
+	"label": "Insatiable Risen",
+	"description": "The dead who perished of hunger or thirst gather beneath the drippings of the Red Grail, and by the providence of appetite they are made to walk in the world again.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 8,
+	    "needswinter": 6,
+	    "foe.pack": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.flesheater",
+	    "killfoe": "flesheater.deathtrigger",
+	    "killflesheater": "flesheater.deathtrigger",
+	    "concealidentity": "foe.flesheater.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "avowal": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 6
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	}
+    },
+    {
+	"id": "foe.flesheater.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.flesheater.hidden",
+	    "killfoe": "flesheater.deathtrigger",
+	    "killflesheater": "flesheater.deathtrigger",
+	    "revealidentity": "foe.flesheater",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "flesheater.deathtrigger",
+	"label": "An Insatiable Risen is Dead!",
+	"description": "Dinner.",
+	"lifetime": 1,
+	"induces": [
+	    {
+		"id": "flesheater.buffothers"
+	    }
+	],
+	"icon": "foe.flesheater"
+    },
+    {
+	"id": "foe.ivory",
+	"label": "Ivory",
+	"description": "The sharpest and palest of the Red Grail's Names. Like someone took a tooth and made it bigger and tougher. And hungrier.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 18,
+	    "needsgrail": 10,
+	    "needsmoth": 10,
+	    "foe.braced": 1,
+	    "foe.commander": 1,
+	    "foe.armoured": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ivory",
+	    "concealidentity": "foe.ivory.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 6
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.ivory.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ivory.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.ivory",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.innocents",
+	"label": "Civilians",
+	"description": "'When the lambs is lost in the mountain, he said. They is cry. Sometime come the mother. Sometime the wolf.'\n\n- Cormac McCarthy, <i>Blood Meridian</i>",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 1
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpses"
+	},
+	"icon": "side.fiorenza.complete"
+    },
+]
+}

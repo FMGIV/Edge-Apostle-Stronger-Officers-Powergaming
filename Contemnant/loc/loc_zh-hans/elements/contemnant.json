@@ -1,0 +1,1176 @@
+{
+"elements": [
+    {
+	"id": "op.endinghope",
+	"label": "和平？",
+	"description": "这里就是命运的十字路口。若我仍相信重获新生、重建生活——使这曾见过人间地狱的生命存续——的可能，那么我就应该从这复仇之路上离开。或许我终能逃离战争漫长的阴影。或许我能再次活着。",
+	"aspects": {
+	    "op": 1
+	},
+	"lifetime": 300,
+	"unique": true,
+	"slots": [
+	    {
+		"id": "needshope",
+		"label": "希望",
+		"required": {
+		    "contemnant.memento": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "hatred",
+	"label": "憎恨",
+	"description": "“你和我说我的兄弟是我的救赎？我的救赎？那就让他见鬼去吧。无论他长啥样都见鬼去吧。你问我有没有在他身上看到自己？有，并且那让我恶心。”\n\n——科马克·麦卡锡，<i>《日落号列车》</i>",
+	"aspects": {
+	    "edge": 6,
+	    "memory": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "despair",
+	"label": "绝望",
+	"description": "徘徊在神智边缘的黑暗；吞噬念想的狼。",
+	"aspects": {
+	    "winter": 6,
+	    "memory": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "agony",
+	"label": "痛苦",
+	"description": "痛苦并非一切。因为它是唯一。",
+	"aspects": {
+	    "edge": 6,
+	    "winter": 6,
+	    "memory": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "contemnant.memento",
+	"label": "希望",
+	"description": "关于旧世界的记忆——爱、和平、可能性——忽明忽暗，如狂嚎之夜里一朵孤单的烛火。有朝一日，我能回到那吗？回到那“战争”只是一个词语的时候？若我携带这微光前行，或许到了某个时候，我就会知道答案。",
+	"aspects": {
+	    "heart": 6,
+	    "memento": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "contemnant.weapon",
+	"label": "军官的匕首",
+	"description": "流亡者的黑色幽默。",
+	"aspects": {
+	    "edge": 2,
+	    "weapon": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "contemnant.weapon.exhausted"
+	},
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "contemnant.weapon.exhausted",
+	"label": "军官的匕首（准备中）",
+	"description": "流亡者的黑色幽默。",
+	"aspects": {
+	    "exhausted": 1,
+	    "weapon": 1
+	},
+	"icon": "contemnant.weapon",
+	"uniquenessgroup": "uq.mosin",
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "contemnant.weapon"
+    },
+    {
+	"id": "contemnant.setupitem",
+	"label": "血色的日落",
+	"description": "白昼正在死亡，暗影聚集，我颈上的汗毛倒竖——有谁来了。",
+	"aspects": {
+	    "op": 1
+	},
+	"icon": "op.sunset"
+    },
+    {
+	"id": "contemnant.mentor",
+	"label": "#PREVIOUSCHARACTERNAME#",
+	"description": "一个衣衫褴褛的利比亚人，带着残忍的笑容——此人是我在索比堡那一年间的折磨者，也是老师。其他人只把他当作一个外国雇佣兵，但我知道并非如此。此人已将有关其本质的知识向我展现。",
+	"aspects": {
+	    "friend": 1,
+	    "foe": 1,
+	    "edgelong": 1
+	}
+    },
+    {
+	"id": "contemnant.story",
+	"label": "何乐而不为？",
+	"description": "“在索比堡的所有可怜人中，我觉得你最为突出。所以我把你当成我。教授你痛苦。然后现在，你心中已经有了狼的承诺的种子。噢，没错——说不定到这场战争结束你就会变成他血腥大口里面另一颗弯曲的狼牙。既然能复仇，那何乐而不为？这世界给了你足够的理由恨它。把你之中不想这么做的部分全部挖掉。追随我教授你的秘密至其本源。去维也纳找到那个阿卢卡，并从她手上活下来。然后——然后或许我们会再谈一谈。我希望那会是我们最后一次谈话。说到底，你欠谁什么？以前，我曾问过自己这个问题。现在，轮到你了。”",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "avowal": [
+		{
+		    "id": "marker.spoketosergeiaboutsword",
+		    "morpheffect": "mutate"
+		}
+	    ],
+	    "longded": [
+		{
+		    "id": "long.blocker",
+		    "morpheffect": "mutate"
+		}
+	    ],
+	},
+	"unique": true
+    },
+    {
+	"id": "contemnant.fragmentedge",
+	"label": "狂徒的秘密",
+	"description": "被称为流亡者之人曾告诉我这些：“狼无法索要律法的庇护，但同时也不受它们束缚——因此我们能够向任何人施以任何我们想施以的。”此言非虚。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 2,
+	    "winter": 2
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedge.grail",
+	    "add.knock": "contemnant.fragmentedge.knock",
+	    "add.lantern": "contemnant.fragmentedge.lantern",
+	    "fatiguing": "contemnant.fragmentedge.exhausted",
+	    "epiphany": "contemnant.fragmentedgeb"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedge.exhausted",
+	"label": "狂徒的秘密（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedge"
+	},
+	"lifetime": 300,
+	"decayTo": "contemnant.fragmentedge",
+	"icon": "contemnant.fragmentedge",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedgeb",
+	"label": "狼的教诲",
+	"description": "此乃被分裂者自太阳的鲜血中上升之时显现的真实。它无法被详述，但当我们在无人回应处号哭；当我们咬牙切齿；当我们撕开血肉，也被撕开血肉之时——我们便接近了它。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgeb.grail",
+	    "add.knock": "contemnant.fragmentedgeb.knock",
+	    "add.lantern": "contemnant.fragmentedgeb.lantern",
+	    "fatiguing": "contemnant.fragmentedgeb.exhausted",
+	    "epiphany": "contemnant.fragmentedgec"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgeb.exhausted",
+	"label": "狼的教诲（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgeb"
+	},
+	"lifetime": 260,
+	"decayTo": "contemnant.fragmentedgeb",
+	"resaturate": true,
+	"icon": "contemnant.fragmentedgeb"
+    },
+    {
+	"id": "contemnant.fragmentedgec",
+	"label": "碎狼行动",
+	"description": "能够增强痛苦、强化残忍的凶暴活动。修习这些技艺者有时会因为施展技艺所需的动作过于剧烈而撕裂自身。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 6,
+	    "winter": 6
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgec.grail",
+	    "add.knock": "contemnant.fragmentedgec.knock",
+	    "add.lantern": "contemnant.fragmentedgec.lantern",
+	    "fatiguing": "contemnant.fragmentedgec.exhausted",
+	    "epiphany": "contemnant.fragmentedged"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgec.exhausted",
+	"label": "碎狼行动（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgec"
+	},
+	"lifetime": 220,
+	"decayTo": "contemnant.fragmentedgec",
+	"icon": "contemnant.fragmentedgec",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedged",
+	"label": "狼的具名者",
+	"description": "裂分之狼具三性：毁灭性，毁灭性，以及，毁灭性。他的具名者皆带来终局，但这终局从不安宁。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 8,
+	    "winter": 8
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedged.grail",
+	    "add.knock": "contemnant.fragmentedged.knock",
+	    "add.lantern": "contemnant.fragmentedged.lantern",
+	    "fatiguing": "contemnant.fragmentedged.exhausted",
+	    "epiphany": "contemnant.fragmentedgee"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedged.exhausted",
+	"label": "狼的具名者（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedged"
+	},
+	"lifetime": 180,
+	"decayTo": "contemnant.fragmentedged",
+	"icon": "contemnant.fragmentedged",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedgee",
+	"label": "朱砂之构",
+	"description": "七七四十九种毁灭之术。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 10,
+	    "winter": 10
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgee.grail",
+	    "add.knock": "contemnant.fragmentedgee.knock",
+	    "add.lantern": "contemnant.fragmentedgee.lantern",
+	    "fatiguing": "contemnant.fragmentedgee.exhausted",
+	    "epiphany": "contemnant.fragmentedgef"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgee.exhausted",
+	"label": "朱砂之构（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgee"
+	},
+	"lifetime": 140,
+	"decayTo": "contemnant.fragmentedgee",
+	"icon": "contemnant.fragmentedgee",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedgef",
+	"label": "分裂之式",
+	"description": "”CAPUT GERAT LUPINUM。太阳曾被分裂，此即其伤口。“此即为使人殒命、使光流血的恶毒认知。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 12,
+	    "winter": 12
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgef.grail",
+	    "add.knock": "contemnant.fragmentedgef.knock",
+	    "add.lantern": "contemnant.fragmentedgef.lantern",
+	    "fatiguing": "contemnant.fragmentedgef.exhausted",
+	    "epiphany": "contemnant.fragmentedgeg"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgef.exhausted",
+	"label": "分裂之式（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgef"
+	},
+	"lifetime": 100,
+	"decayTo": "contemnant.fragmentedgef",
+	"icon": "contemnant.fragmentedgef",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedgeg",
+	"label": "痛苦之秘",
+	"description": "狡诈与力量可以相互回应，但是我们该如何回应痛苦呢？以憎恨，那吞噬外物的火焰；以绝望，那吞噬内里的火焰。这便是痛苦的双生之根基——将其统合，并得毁灭。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 14,
+	    "winter": 14,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgeg.grail",
+	    "add.knock": "contemnant.fragmentedgeg.knock",
+	    "add.lantern": "contemnant.fragmentedgeg.lantern",
+	    "fatiguing": "contemnant.fragmentedgeg.exhausted",
+	    "epiphany": [
+		{
+		    "id": "wolf.weaponfragment",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgeg.exhausted",
+	"label": "痛苦之秘（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[你精通了狼的秘密——至少已经抵达了凡人所能精通的极限。]",
+	"aspects": {
+	    "exhausted": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgeg"
+	},
+	"lifetime": 60,
+	"decayTo": "contemnant.fragmentedgeg",
+	"icon": "contemnant.fragmentedgeg",
+	"resaturate": true
+    },
+    {
+	"id": "contemplation.skill.unmake",
+	"label": "意图：失落技术？",
+	"description": "一位裂分之狼的具名者向我展示了这种饱受斥责、常遭禁止的战斗技术。这是狂暴且具破坏性的知识，它的本性不会轻易地让我理解。",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.unmake"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.sustain",
+	"label": "意图：失落技术？",
+	"description": "一位裂分之狼的具名者向我展示了这种饱受斥责、常遭禁止的战斗技术。这是狂暴且具破坏性的知识，它的本性不会轻易地让我理解。",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.sustain.dormant"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.division",
+	"label": "意图：失落技术？",
+	"description": "一位裂分之狼的具名者向我展示了这种饱受斥责、常遭禁止的战斗技术。这是狂暴且具破坏性的知识，它的本性不会轻易地让我理解。",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.division"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "challenge.contemplation.wolf",
+	"label": "狼精通技能挑战",
+	"aspects": {
+	    "needsedgewinter": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "skill.unmake",
+	"label": "毁灭",
+	"description": "心、手、灵、魂、肉、血、骨——将这一切，尽数毁灭。[你可以使用此卡牌立刻消灭几乎任何敌军或友军。此卡牌的<b>刃</b>性相将随着使用次数增加，但每次使用此卡牌都会产生一份精神创伤。]",
+	"aspects": {
+	    "edge": 1,
+	    "lore": 1
+	},
+	"xtriggers": {
+	    "fatiguing": [
+		{
+		    "id": "skill.unmake.exhausted"
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -99
+		},
+		{
+		    "id": "edge_timer",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "trauma",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "目标",
+		"description": "Anyone.",
+		"required": {
+		    "friend": 1,
+		    "foe": 1,
+		    "neutral": 1
+		},
+		"forbidden": {
+		    "marinette.marker": 1,
+		    "foe.exile": 1
+		},
+		"consumes": true
+	   }
+	]
+    },
+    {
+	"id": "skill.unmake.exhausted",
+	"label": "毁灭（枯竭）",
+	"description": "心、手、灵、魂、肉、血、骨——将这一切，尽数毁灭。[你可以使用此卡牌立刻消灭几乎任何敌军或友军。此卡牌的<b>刃</b>性相将随着使用次数增加，但每次使用此卡牌都会产生一份精神创伤。]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 60,
+	"decayTo": "skill.unmake",
+	"resaturate": true,
+	"icon": "skill.unmake"
+    },
+    {
+	"id": "skill.sustain.active",
+	"label": "苦痛维生",
+	"description": "被毁灭即被解脱，自痛苦中被解脱。但狼还不想让我现在得到解脱。. [当此卡牌为激活状态时，任何数量的创伤或残疾都无法杀死你。在<b>行动</b>中投入“裂分之狼的阴影”以维持此卡牌的激活状态。当你持有此卡牌时，使用“毁灭”有概率产生“裂分之狼的阴影”。]",
+	"lifetime": 480,
+	"xtriggers": {
+	    "employment": "skill.sustain.active"
+	},
+	"decayTo": "skill.sustain.dormant",
+	"aspects": {
+	    "sustain.marker": 1
+	}
+    },
+    {
+	"id": "skill.sustain.dormant",
+	"label": "苦痛维生",
+	"description": "被毁灭即被解脱，自痛苦中被解脱。但狼还不想让我现在得到解脱。.[在<b>行动</b>中投入“裂分之狼的阴影”以激活此卡牌。当你持有此卡牌时，使用“毁灭”有概率产生“裂分之狼的阴影”。]",
+	"xtriggers": {
+	    "employment": "skill.sustain.active"
+	},
+	"aspects": {
+	    "sustain.marker": 1
+	}
+    },
+    {
+	"id": "skill.division",
+	"label": "自我分裂",
+	"description": "人类的灵魂只能承受这么多。当我的痛苦即将从杯中溢出前，或许我可以将其中一些倒向这世界——予痛苦以形，使其得以行于世间。即使那形态面目可憎、凶猛残暴、且时刻饥饿。[使用此卡牌以将一份精神创伤变为一头友军碎狼。]",
+	"aspects": {
+	    "edge": 8,
+	    "winter": 8,
+	    "lore": 1
+	},
+	"slots": [
+	    {
+		"id": "needstrauma",
+		"label": "精神创伤",
+		"required": {
+		    "trauma": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "skill.division.exhausted"
+	}
+    },
+    {
+	"id": "skill.division.exhausted",
+	"label": "自我分裂（枯竭）",
+	"description": "人类的灵魂只能承受这么多。当我的痛苦即将从杯中溢出前，或许我可以将其中一些倒向这世界——予痛苦以形，使其得以行于世间。即使那形态面目可憎、凶猛残暴、且时刻饥饿。[使用此卡牌以将一份精神创伤变为一头友军碎狼。]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 360,
+	"decayTo": "skill.division",
+	"resaturate": true,
+	"icon": "skill.division"
+    },
+    {
+	"id": "hopelessness",
+	"label": "希望已逝",
+	"description": "世界无法回归过去，未来也不会更好。生即苦痛，死乃沉默。",
+	"aspects": {
+	    "winter": 2,
+	    "promise": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "antithesis",
+	"label": "<color=red><b>一 切 的 对 立 面</b><color=#005500>",
+	"description": "<color=red>万物都应被终结。<color=#005500>",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1,
+	},
+	"icon": "blacksquare",
+	"unique": true
+    },
+    {
+	"id": "wound.glorious",
+	"label": "辉光之伤",
+	"description": "一道辉煌的伤口，使人想起太阳的分裂。从这伤口中涌出的力量是如此恶毒，以至于任何见到我的人会将我视作无法忍耐的受诅之物。他们并没做错什么，在我身边待的越久，遭受湮灭的风险就越大。[此卡牌亦算作一道伤口，且会使任何中立单位转而攻击你。当你持有此卡牌时，每次产生“抗争”都会消灭随机一个敌军或友军。]",
+	"aspects": {
+	    "lantern": 6,
+	    "edge": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "local.infamy": 3
+	},
+	"unique": true
+    },
+    {
+	"id": "memento.exile",
+	"label": "流亡者之心",
+	"description": "它不能被称作是一具尸体，甚至连纪念品都算不上。",
+	"aspects": {
+	    "edge": 6,
+	    "heart": 6,
+	    "tool": 1,
+	    "long.blocker": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "memento.foe",
+	"label": "杜弗尔之眼",
+	"description": "没人能从清算人首领手里偷东西——但流亡者这么做了。现在，以一种独特的形式，我也这么做了。",
+	"aspects": {
+	    "winter": 6,
+	    "lantern": 6,
+	    "tool": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "klei",
+	"label": "<i>持钥人</i>",
+	"description": "“是，是，白城现已是一片废墟。我很清楚。这可不是我第一次站出来对抗历史的撼动了。我留在这里因为我需要你。而现在你找到我了。”",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "klei.casket",
+	"label": "铁棺（辉耀）",
+	"description": "<i>持钥人</i>亲自设计的独特容器，用于她所谓的“艰难日子的艰苦旅途”。她在里头等待，恢复，预测，并向她的白日之钥低语。每过几天，她会眨一眨眼。[当你身处战火摧残的地区时，某个盯上此物的危险人物或许会前来抢夺。你可以喂给<i>持钥人</i>一个朋友，来让你们变得更难被发现。]",
+	"aspects": {
+	    "ascension.marker.casket": 1,
+	    "legacyplotitem": 1
+	},
+	"slots": [
+	    {
+		"id": "needsshadow",
+		"actionid": "abandon",
+		"label": "朋友",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "friend.immortal": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "communicate",
+		"label": "意图",
+		"required": {
+		    "contemnant.story": 1
+		}
+	    },
+	],
+	"xtriggers": {
+	    "malign": "klei.casket.masked"
+	},
+	"unique": true
+    },
+    {
+	"id": "klei.casket.masked",
+	"label": "铁棺（朦胧）",
+	"description": "里面的丽姬亚并非沉眠——我不认为她曾入眠过——但从这容器中射出的不快光芒现已变得暗淡几分。[追猎<i>持钥人</i>的人更难发现她了——至少眼下如此。]",
+	"aspects": {
+	    "ascension.marker.casket": 1
+	},
+	"lifetime": 300,
+	"decayTo": "klei.casket",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "keyfigment",
+	"label": "钥之虚形",
+	"description": "白日之钥不具实形，但其形仍旧在我眼中留下烙印；白日之钥无法碰触，但我仍旧感到其正摩擦我的颅中血肉。[此卡牌亦算作一道精神创伤]",
+	"aspects": {
+	    "lantern": 6,
+	    "damage.mind": 1
+	},
+	"lifetime": 800
+    },
+    {
+	"id": "op.sergei",
+	"label": "衣衫褴褛的哥萨克人？",
+	"description": "“小狼——来这里。我累了。如果你有酒，分我一点。”",
+	"aspects": {
+	    "local": 1
+	},
+	"icon": "defeated.sergei"
+    },
+    {
+	"id": "plotitem.kazimirshashka",
+	"label": "卡济米尔的恰西克马刀",
+	"description": "一把刃已破碎的刀。当我握住它时，我能看到过去的灼热一瞥：</i>一座村庄燃烧，一个熟悉的哥萨克人坐在马背上冲我微笑。我是如何希望他死去。</i>这些并非我的憎恨，但有那么一瞬，它们如火焰般温暖，如火焰般熟悉。",
+	"icon": "weapon.kazimir"
+    },
+    {
+	"id": "op.sergei.comeforsword",
+	"label": "衣衫褴褛的哥萨克人？",
+	"description": "“你找到它了。真好心。现在我要取回它。”",
+	"aspects": {
+	    "local": 1
+	},
+	"slots": [
+	    {
+		"id": "needssword",
+		"label": "纪念品",
+		"required": {
+		    "plotitem.kazimirshashka": 1
+		}
+	    }
+	],
+	"icon": "defeated.sergei"
+    },
+    {
+	"id": "sergei.horn",
+	"label": "掠夺者的号角",
+	"description": "在沙皇暴政与哥萨克恐怖的年代，这号角宣布着食铁者和他的黑衣百人队的到来。到了这个世纪，黑衣百人队早已化作尘埃，而他们的领队也即将步他们的后尘——但吹起这号角吧，并见证那古老恐怖最后的亡灵带着黑衣与钢铁骑马前来。",
+	"aspects": {
+	    "supplies": 1,
+	    "uses.remaining": 3
+	},
+	"xtriggers": {
+	    "fatiguing": [
+		{
+		    "id": "uses.remaining",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "friend.sergei",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "damagehealth": "husk"
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.sergei",
+	"label": "食铁者",
+	"description": "对立双刃的另一半现已死去，我很好奇现在是什么支撑着他活着。是战争？是恐惧？还是对死得其所的渴望？或许这头狼只是在单纯的延长其最后的一息。但即使是将死之身，这裂分之狼的长生者仍几乎与他的全盛期一般凶猛。",
+	"aspects": {
+	    "friend": 1,
+	    "edgelong": 1,
+	    "edge": 20,
+	    "winter": 20,
+	    "friend.immortal": 1,
+	    "local": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.sergei.exhausted",
+	    "killmortal": "friend.sergei.exhausted",
+	    "killfriend": "friend.sergei.exhausted",
+	    "makecasualty": "friend.sergei.exhausted",
+	    "damagehealth": "op.sergei.postfight"
+	},
+	"icon": "sergei"
+    },
+    {
+	"id": "friend.sergei.exhausted",
+	"label": "食铁者",
+	"description": "对立双刃的另一半现已死去，我很好奇现在是什么支撑着他活着。是战争？是恐惧？还是对死得其所的渴望？或许这头狼只是在单纯的延长其最后的一息。但即使是将死之身，这裂分之狼的长生者仍几乎与他的全盛期一般凶猛。",
+	"aspects": {
+	    "friend": 1,
+	    "edgelong": 1,
+	    "exhausted": 1,
+	    "friend.immortal": 1,
+	    "local": 1
+	},
+	"xtriggers": {
+	    "damagehealth": "op.sergei.postfight"
+	},
+	"icon": "sergei",
+	"lifetime": 30,
+	"decayTo": "friend.sergei",
+	"resaturate": true
+    },
+    {
+	"id": "op.sergei.postfight",
+	"label": "食铁者",
+	"description": "<i>“一切都结束了。”</i>",
+	"aspects": {
+	    "local": 1
+	},
+	"icon": "defeated.sergei"
+    },
+    {
+	"id": "cross.first",
+	"label": "身覆甲壳的刺客！",
+	"description": "那<i>是</i>什么？",
+	"aspects": {
+	    "local": 1
+	},
+	"icon": "cross",
+	"verbicon": "crossverb"
+    },
+    {
+	"id": "contemplation.cross.1",
+	"label": "意图：不寻常的介壳种",
+	"description": "介壳种很久以前就已逃离，去往天空之后、世界之下、或是我们之内。是什么原因驱使着其中之一返回这一世界？又是为何它试图取走一位刃之长生者的性命？思绪伴着山楂香气在我脑内翻涌——在这场战争的阴影中肯定有神秘之物正在谋划。",
+	"aspects": {
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.cross.1",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "contemplation.cross.2"
+	}
+    },
+    {
+	"id": "challenge.contemplation.cross.1",
+	"label": "介壳种挑战1",
+	"aspects": {
+	    "needsknock": 8,
+	    "needsedge": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "contemplation.cross.2",
+	"label": "意图：双角斧的策略",
+	"description": "那指引这孤单的介壳种战士找上流亡者与其大敌之人是双角斧。有传言说双角斧也曾是一位刃之伟力，而复仇则为她最为锋锐的本质——难道她希望动摇纷争吗？通过歼灭一对对立双刃的方式来削弱刃之司辰的统治？我十分乐见流亡者被杀死，但我必须了解更多双角斧与她的冠军的动机，才好决定我应该怎么做。",
+	"aspects": {
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.cross.2",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": [
+		{
+		    "id": "contemplation.cross.3"
+		},
+		{
+		    "id": "op.axe",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	}
+    },
+    {
+	"id": "challenge.contemplation.cross.2",
+	"label": "介壳种挑战2",
+	"aspects": {
+	    "needsknock": 10,
+	    "needsedge": 10
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "contemplation.cross.3",
+	"label": "意图：大地之血",
+	"description": "流亡者与其大敌均是安泰俄斯的后裔——燧石与转轮的后裔。他们的死不仅会剥夺现司辰对纷争的控制，还会使安泰俄斯之血回归大地。而这会让双角斧深埋于地底的兄弟姐妹缓缓复苏。燧石。转轮。七蟠。狼反对此世——狼反对一切——但或许我能与这位双角斧选中的战士达成某些共识。毕竟我们都希望流亡者死。至于之后的事——就走着瞧吧。",
+	"aspects": {
+	    "contemplation": 1,
+	    "completed": 1
+	}
+    },
+    {
+	"id": "cross.summonsign",
+	"label": "约束之壳",
+	"description": "一块刻有这位被双角斧选做战时冠军的介壳种战士那无法发音名字的令牌。如果我将数滴血滴到这甲壳上，我的新盟友便会赶来，在战斗中支援我。",
+	"aspects": {
+	    "lore": 1,
+	    "uses.remaining": 3
+	},
+	"xtriggers": {
+	    "fatiguing": [
+		{
+		    "id": "uses.remaining",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "friend.cross",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "damagehealth": "husk"
+	}
+    },
+    {
+	"id": "friend.cross",
+	"label": "持矛盾者格尔凡戈",
+	"description": "石之子嗣、枭之士兵、高傲的淆翅族仍在历史的这一侧活动的最后一人。她并不喜爱人类，但她仍挥舞翅膀、鳞片、以及那尖锐的刺针与我合击，只因我们均为一个共同敌人的死亡而斗争。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "edge": 20,
+	    "knock": 12,
+	    "moth": 12,
+	    "friend.immortal": 1,
+	    "local": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.cross.exhausted",
+	    "killmortal": "friend.cross.exhausted",
+	    "killfriend": "friend.cross.exhausted",
+	    "makecasualty": "friend.cross.exhausted",
+	    "damagehealth": "op.cross.postfight"
+	},
+	"icon": "cross"
+    },
+    {
+	"id": "friend.cross.exhausted",
+	"label": "持矛盾者格尔凡戈",
+	"description": "石之子嗣、枭之士兵、高傲的淆翅族仍在历史的这一侧活动的最后一人。她并不喜爱人类，但她仍挥舞翅膀、鳞片、以及那尖锐的刺针与我合击，只因我们均为一个共同敌人的死亡而斗争。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "exhausted": 1,
+	    "friend.immortal": 1,
+	    "local": 1
+	},
+	"xtriggers": {
+	    "damagehealth": "op.cross.postfight"
+	},
+	"icon": "cross",
+	"lifetime": 30,
+	"decayTo": "friend.cross",
+	"resaturate": true
+    },
+    {
+	"id": "op.cross.postfight",
+	"label": "负伤之翅格尔凡戈",
+	"description": "现在，我们的共同目标已然达成，我们对彼此已经没用了。我很清楚，如果不是她负伤过重，她必定顺手取走我的性命——而她也很清楚我知晓这点。即便如此，在我接近她时，还是听到了类似话语的声响……",
+	"aspects": {
+	    "local": 1
+	},
+	"icon": "cross"
+    },
+    {
+	"id": "weapon.cross",
+	"label": "混种连枷",
+	"description": "这是介壳种战士格尔凡戈所用的“长枪”：如毒蛇般的长尾刺，冒着足以腐蚀岩石的猛毒。现在，这器官已被从原主的身上割下，并被当成一把恐怖的连枷，粉碎并腐蚀一切不幸被其沸腾的冲击命中之物。",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 12,
+	    "knock": 6,
+	    "moth": 6,
+	    "friend.immortal.blocker": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.cross.exhausted"
+	}
+    },
+    {
+	"id": "weapon.cross.exhausted",
+	"label": "混种连枷（枯竭）",
+	"description": "这是介壳种战士格尔凡戈所用的“长枪”：如毒蛇般的长尾刺，冒着足以腐蚀岩石的猛毒。现在，这器官已被从原主的身上割下，并被当成一把恐怖的连枷，粉碎并腐蚀一切不幸被其沸腾的冲击命中之物。",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "friend.immortal.blocker": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.cross.exhausted",
+	    "refresh": "weapon.cross"
+	},
+	"lifetime": 60,
+	"decayTo": "weapon.cross",
+	"icon": "weapon.cross",
+	"resaturate": true
+    },
+    {
+	"id": "contemplation.sobibor",
+	"label": "意图：比恐惧更强？",
+	"description": "每一只困兽都面临这个选择：死去，或得胜。流亡者和我说这两者最终并无不同，但也说那场战斗只是一时的事，所以这选择仍然重要。我会如何选择？",
+	"aspects": {
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "contemplation.sobibor.complete"
+	}
+    },
+    {
+	"id": "contemplation.sobibor.complete",
+	"label": "不可抑制的憎恨",
+	"description": "战败，又有何哉？一次败仗，并非输光；\n我们不可征服的意志，深思熟虑的报复。\n永世的仇恨，决不屈服或者放弃的勇气。\n\n——约翰·弥尔顿，<i>《失乐园》</i>",
+	"aspects": {
+	    "memory": 1,
+	    "edge": 33
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    }
+]
+}

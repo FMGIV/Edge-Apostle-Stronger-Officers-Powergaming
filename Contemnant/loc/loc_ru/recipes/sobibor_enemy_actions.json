@@ -1,0 +1,258 @@
+{
+"recipes": [
+    {
+	"id": "nightmare.cycle",
+	"actionid": "nightmare_action",
+	"label": "Вихри Кошмара...",
+	"startdescription": "Ветер свистит у столбов забора, и колючая проволока на горизонте дрожит в сумерках. Вдали лают собаки. Всё почти так же, как я помню, но этот кошмар не останется бездвижимым. Что-то придёт за мной.",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token.marinette": 1,
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "nightmare.hightrauma.convert"
+	    },
+	    {
+		"id": "nightmare.exileattack.trigger",
+		"chance": 40
+	    },
+	    {
+		"id": "nightmare.pickaction.router",
+		"chance": 40
+	    },
+	    {
+		"id": "nightmare.cycle"
+	    }
+	],
+	"extantreqs": {
+	    "sobibor.here": 1,
+	    "damage.mind": -3
+	},
+	"xpans": { 
+	    "intention.downtime": 1 
+	},
+    },
+    {
+	"id": "nightmare.pickaction.router",
+	"label": "Кошмар Нарастает!",
+	"startdescription": "Старые страхи и боль поднимаются на поверхность! Кошмар жаждет крови -",
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"internaldeck": {
+	    "spec": [
+		"decision.enemy.singleattack",
+		"decision.enemy.singleattack",
+		"decision.enemy.singleattack",
+		"decision.enemy.doubleattack",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "nightmare.singleattack.trigger"
+	    },
+	    {
+		"id": "nightmare.doubleattack.trigger"
+	    },
+	]
+    },
+    {
+	"id": "nightmare.singleattack.trigger",
+	"label": "The Nightmare Surges!",
+	"requirements": {
+	    "decision.enemy.singleattack": 1
+	},
+	"alt": [
+	    {
+		"id": "singleattack.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "nightmare.clear"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.doubleattack.trigger",
+	"label": "Кошмар Нарастает!",
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"alt": [
+	    {
+		"id": "doubleattack.1.startup",
+		"additional": true
+	    },
+	    {
+		"id": "doubleattack.2.startup",
+		"additional": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "nightmare.clear"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.clear",
+	"label": "Кошмар Нарастает!",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    },
+	    {
+		"id": "nightmare.cycle"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.exileattack.trigger",
+	"label": "Кошмар Нарастает!",
+	"startdescription": "Старые страхи и боль поднимаются на поверхность! Кошмар жаждет крови -",
+	"requirements": {
+	    "readiness.token.marinette": 8
+	},
+	"alt": [
+	    {
+		"id": "exile.attacks.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "nightmare.exileattack.clear"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.exileattack.clear",
+	"label": "Кошмар Нарастает!",
+	"startdescription": "Старые страхи и боль поднимаются на поверхность! Кошмар жаждет крови -",
+	"effects": {
+	    "readiness.token.marinette": -99
+	},
+	"linked": [
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    },
+	    {
+		"id": "nightmare.cycle"
+	    }
+	]
+    },
+    {
+	"id": "exile.attacks.startup",
+	"actionid": "marinette.attack",
+	"label": "Память о Монстре",
+	"startdescription": "'Ещё один урок'",
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsmarinette",
+		"label": "Изгнанник",
+		"required": {
+		    "foe.exilenightmare": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "decision.enemy.attack": 1,
+	    "decision.enemy.singleattack": 1
+	},
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.hightrauma.convert",
+	"actionid": "nightmare_action",
+	"label": "Кошмар отступает...",
+	"startdescription": "Ветер свистит у столбов забора, и колючая проволока на горизонте дрожит в сумерках. Вдали лают собаки. Всё почти так же, как я помню, но этот кошмар не останется бездвижимым. Что-то придёт за мной.",
+	"linked": [
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    }
+	],
+	"extantreqs": {
+	    "sobibor.here": 1,
+	    "damage.mind": 3
+	},
+	"xpans": { 
+	    "intention.assault": 1 
+	},
+    },
+    {
+	"id": "nightmare.hightrauma.cycle",
+	"actionid": "nightmare_action",
+	"label": "Кошмар отступает...",
+	"startdescription": "Ветер свистит у столбов забора, и колючая проволока на горизонте дрожит в сумерках. Вдали лают собаки. Всё почти так же, как я помню, но этот кошмар не останется бездвижимым. Что-то придёт за мной.",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token.marinette": 1,
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "nightmare.lowtrauma.convert"
+	    },
+	    {
+		"id": "nightmare.exileattack.trigger",
+		"chance": 40
+	    },
+	    {
+		"id": "nightmare.pickaction.router",
+		"chance": 40
+	    },
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    }
+	],
+	"extantreqs": {
+	    "sobibor.here": 1,
+	    "damage.mind": 3
+	},
+	"xpans": { 
+	    "intention.assault": 1 
+	},
+    },
+    {
+	"id": "nightmare.lowtrauma.convert",
+	"actionid": "nightmare_action",
+	"label": "Кошмар отступает...",
+	"startdescription": "Ветер свистит у столбов забора, и колючая проволока на горизонте дрожит в сумерках. Вдали лают собаки. Всё почти так же, как я помню, но этот кошмар не останется бездвижимым. Что-то придёт за мной.",
+	"linked": [
+	    {
+		"id": "nightmare.cycle"
+	    }
+	],
+	"extantreqs": {
+	    "sobibor.here": 1,
+	    "damage.mind": -3
+	},
+	"xpans": { 
+	    "intention.downtime": 1 
+	},
+    },
+]
+}

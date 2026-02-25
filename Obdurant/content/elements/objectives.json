@@ -1,0 +1,1175 @@
+{
+"elements": [
+    {
+	"id": "side.marker",
+	"label": "Side Marker",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "main.marker",
+	"label": "Main Marker",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "main.template",
+	"label": "Objective Main Template",
+	"aspects": {
+	    "main": 1,
+	    "objective": 1
+	},
+	"slots": [
+	    {
+		"id": "resources1",
+		"label": "Resources",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "resources2",
+		"label": "Resources",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "resources3",
+		"label": "Something More?",
+		"description": "A knot of power? A confluence? A sign of the earth, or the sky?",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "supplies": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "provisions1",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "provisions2",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "provisions3",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	]
+    },
+    {
+	"id": "side.template",
+	"label": "Objective Side Template",
+	"aspects": {
+	    "side": 1,
+	    "objective": 1
+	},
+	"slots": [
+	    {
+		"id": "resources1",
+		"label": "Resources",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "resources2",
+		"label": "Resources",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "resources3",
+		"label": "Something More?",
+		"description": "A knot of power? A confluence? A sign of the earth, or the sky?",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "supplies": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "provisions1",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "provisions2",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "main.withdraw",
+	"label": "Main Objective: Withdraw",
+	"description": "This position is quickly becoming untenable. We must provide sufficient cover against the German attack so that our allies may evacuate.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "resolution"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "main.eliminate",
+	"label": "Main Objective: Eliminate",
+	"description": "Local intelligence indicates a high profile target is present at our current position. If we can eliminate this target before moving on, that would bode well for the war effort.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "resolution"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "main.repossess",
+	"label": "Main Objective: Repossess",
+	"description": "A valuable asset has gone missing somewhere amidst the rubble and flame. The Germans are on the hunt for it - we cannot allow it to fall into their hands.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "resolution"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "main.sabotage",
+	"label": "Main Objective: Sabotage",
+	"description": "The position here is rife with valuable infrastructure - the kind we cannot take with us. Before moving on, we should ensure that the Wehrmacht cannot enjoy what we leave behind.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "resolution"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "main.stalingrad.north",
+	"label": "Main Objective: Stalingrad North",
+	"description": "The Germans assault the northern part of the city, even as the winter tightens and constricts the air about us. Blunt their advance through the streets.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "main.stalingrad.north.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "main.stalingrad",
+	"unique": true
+    },
+    {
+	"id": "main.stalingrad.north.complete",
+	"label": "COMPLETE: Stalingrad North",
+	"description": "Blood in the snow. We hold the north.",
+	"aspects": {
+	    "main": 1
+	},
+	"icon": "main.stalingrad.complete",
+	"slots": [
+	    {
+		"id": "needsmain",
+		"label": "West",
+		"required": {
+		    "main.stalingrad.west.complete": 1
+		}
+	    },
+	    {
+		"id": "needsmain2",
+		"label": "South",
+		"required": {
+		    "main.stalingrad.south.complete": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "main.stalingrad.west",
+	"label": "Main Objective: Stalingrad West",
+	"description": "Here the German vanguard gathers, a hammer racing towards the broad surface of an anvil. So we will make of the west a slaughtering ground.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "main.stalingrad.west.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.bombers",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "main.stalingrad",
+	"unique": true
+    },
+    {
+	"id": "main.stalingrad.west.complete",
+	"label": "COMPLETE: Stalingrad West",
+	"description": "The streets are littered with bodies. The west has fallen quiet.",
+	"aspects": {
+	    "main": 1
+	},
+	"icon": "main.stalingrad.complete",
+	"slots": [
+	    {
+		"id": "needsmain",
+		"label": "North",
+		"required": {
+		    "main.stalingrad.north.complete": 1
+		}
+	    },
+	    {
+		"id": "needsmain2",
+		"label": "South",
+		"required": {
+		    "main.stalingrad.south.complete": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "main.stalingrad.south",
+	"label": "Main Objective: Stalingrad South",
+	"description": "The south is afflicted with fighting, as is the rest of the city. But something that isn't an enemy soldier is fighting there, too - and fighting savagely. Clear the south and put it down.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "main.stalingrad.south.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.undead",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.splinter",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "main.stalingrad",
+	"unique": true
+    },
+    {
+	"id": "main.stalingrad.south.complete",
+	"label": "COMPLETE: Stalingrad South",
+	"description": "No more howls in the dark. Stillness in the south.",
+	"aspects": {
+	    "main": 1
+	},
+	"icon": "main.stalingrad.complete",
+	"slots": [
+	    {
+		"id": "needsmain",
+		"label": "North",
+		"required": {
+		    "main.stalingrad.north.complete": 1
+		}
+	    },
+	    {
+		"id": "needsmain2",
+		"label": "West",
+		"required": {
+		    "main.stalingrad.west.complete": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "side.cutoff",
+	"label": "Side Objective: A Supply Blockade",
+	"description": "Our supply convoys are harried and beset upon by the enemy. While this blockade stands, no provisions may reach us - breaking it must be an utmost priority if we are to sustain the war effort here. [While this card is on the table, you will not receive any Provisions from the Welcome Days event.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "husk"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.forest",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300,
+	"unique": true
+    },
+    {
+	"id": "side.adeptwinter",
+	"label": "Side Objective: Detain a Winter-Adept",
+	"description": "Adepts are a cagey sort, and the war's driven those unable to flee the country even deeper into hiding. One, however, is hiding here. They might disagree with being found, but they might disagree with being shot even more. [A chance to consult with a Winter-adept.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "friend.adeptwinter"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.nocturnal",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.undead",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "side.adeptlantern",
+	"label": "Side Objective: Detain a Lantern-Adept",
+	"description": "Adepts are a cagey sort, and the war's driven those unable to flee the country even deeper into hiding. One, however, is hiding here. They might disagree with being found, but they might disagree with being shot even more. [A chance to consult with a Lantern-adept.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "friend.adeptlantern"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.apollonian",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.greatseal",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "side.adeptgrail",
+	"label": "Side Objective: Detain a Grail-Adept",
+	"description": "Adepts are a cagey sort, and the war's driven those unable to flee the country even deeper into hiding. One, however, is hiding here. They might disagree with being found, but they might disagree with being shot even more. [A chance to consult with a Grail-adept.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "friend.adeptgrail"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.dionysian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "side.weaponscache",
+	"label": "Side Objective: Arms Cache",
+	"description": "A weapons convoy has been stranded beyond our lines. If we act quickly, we can seize those weapons for ourselves. [A chance to obtain a variety of Supplies.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "weaponscache.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.sniper",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "weaponscache.complete",
+	"label": "Arms Cache Loot",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "side.rescueallies",
+	"label": "Side Objective: Rescue Allies",
+	"description": "A contingent of our brothers-in-arms is pinned down by a hostile force! They'll be lost to us if we do not intervene - up, and to arms! [A chance to obtain new Allies.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "rescueallies.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.storms",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "rescueallies.complete",
+	"label": "Rescue Allies Loot",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "side.yuri",
+	"label": "Side Objective: Yuri Serenko",
+	"description": "A German mole was discovered in the fold, but he slipped away before Yuri could administer the proper justice. For him, apprehending the spy before he is extracted is not only a matter of tactical importance, but one of integrity. [A chance to recruit a new Ally.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "side.yuri.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.sniper",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.yuri.complete",
+	"label": "A German Spy",
+	"description": "Yuri will enjoy making an example out of this one.",
+	"aspects": {
+	    "prisoner": 1,
+	    "mortal": 1,
+	    "vault.completed": 1
+	},
+	"icon": "genericprisonerm"
+    },
+    {
+	"id": "side.iosef",
+	"label": "Side Objective: Iosef Volodin",
+	"description": "The penal battalion officer overseeing Iosef's contingent is an alleged collector of certain rare pleasures and artworks - the sort, Iosef suggests, the Party would not approve an officer of having. Iosef tells us that his retainer is searching for one such item here. If we get to it first, we might be able to strike a bargain for his freedom. [A chance to recruit a new Ally.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "side.iosef.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.serpent",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.iosef.complete",
+	"label": "'Chione at Abydos' (1938)",
+	"description": "A film adaptation of the infamous play by the same name. The OPRP - the Soviet Union's answer to the British Suppression Bureau - blacklisted this film in 1933, when its premiere in Leningrad induced muteness and 'visions of a pale woman' amongst the audience.",
+	"aspects": {
+	    "supplies": 1,
+	    "winter": 6,
+	    "vault.completed": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "side.konstantin",
+	"label": "Side Objective: Dr. Konstantin Ismailov",
+	"description": "The hospital where Dr. Ismailov and his comrades had previously been operating was taken by the Germans in their most recent offensive push, and it now lies within the bounds of Wehrmacht control. A particularly rare 'medical specimen' was among the things the doctor was forced to abandon when he fled. He'd like assistance in getting it back. [A chance to recruit a new Ally.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "side.konstantin.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.apollonian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.konstantin.complete",
+	"label": "Ichor Vitreous",
+	"description": "Dr. Ismailov's sought-after prize: a faintly luminous fluid in a glass vial.",
+	"aspects": {
+	    "supplies": 1,
+	    "lantern": 12,
+	    "vault.completed": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"icon": "ingredientlanternf"
+    },
+    {
+	"id": "side.nikolai",
+	"label": "Side Objective: Nikolai Belyaev",
+	"description": "Blackened handprints scorched on steel - a mischeivous lesser Name has been getting into the armoury, disfiguring machinery and rendering our arms unusable. Nikolai intends to find and extinguish this troublesome saboteur. [A chance to recruit a new Ally.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "side.nikolai.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.earthquake",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.nikolai.complete",
+	"label": "Impish Ash",
+	"description": "What remains of one of the Forge's miscreant bastards.",
+	"aspects": {
+	    "supplies": 1,
+	    "forge": 6,
+	    "vault.completed": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "side.ebrehel",
+	"label": "Path to the Sword-Keeper",
+	"description": "Ebrehel waits for me to claim it at the heart of the lake-grove. We'll have to cut through this labyrinthine forest to get to it, but our way will be harried by the creatures and forces of the Unseen Lake - and by the sword-keeper herself.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "nimiane"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.forest",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.voice",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.monastery",
+	"label": "Pechersk Lavra",
+	"description": "In the 1920s, an understanding between the Soviet government and the monks of the cave-monastery was brokered, and the place was officially (and invisibly) acknowledged as a sanctioned repository for 'unnatural phenomenon.' Of course, it was a somewhat open secret within the OPRP that the monastery had been housing (or imprisoning) things not-of-this-world since the 11th century. Now, though - Kyiv is under fire, and the army has pushed the monks out. Dangerous things are rousing below Pechersk Lavra, unattended. We should put them to rest.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "promise.medusa"
+		},
+		{
+		    "id": "weapon.skull",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.earthquake",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.growth",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "vaultlandbeyondforest1"
+    },
+    {
+	"id": "side.camilla",
+	"label": "A Skirmish in the Wilds?",
+	"description": "An unusually fierce battle rages on the outskirts of the city. Those who have come away from the fighting with their lives report that not all the combatants therein are human.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "friend.camilla"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.fog",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.warrior",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.labhite.grounded",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "vaultcontinent3"
+    },
+    {
+	"id": "side.office",
+	"label": "OPRP Regional Office",
+	"description": "The OPRP is the Soviet government's instrument for 'regulation of the unnatural, unexpected, and unholy.' It was indelibly corrupt, but I had been a beneficiary of that corruption, so I didn't mind when I worked there. This office, if memory serves, contained a few potent but troublesome items in its high-security storage vaults. Hopefully the shelling hasn't disturbed anything too dangerous.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "weapon.wormnail"
+		},
+		{
+		    "id": "tool.winter",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.undead",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.nocturnal",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.factory",
+	"label": "Harsk-Brumov Manufacturing",
+	"description": "After the Great War, Harsk-Brumov's firearm designs grew unorthodox and unusual, and their clientele grew smaller and stranger. This foundry on the city outskirts is one of the last places the company still builds weapons, and now the Germans have taken it over. We ought to take it back.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "weapon.revolver.5"
+		},
+		{
+		    "id": "tool.forge",
+		    "morpheffect": "spawn"
+		},
+		{
+		    "id": "supplies.explosives",
+		    "morpheffect": "spawn",
+		    "level": 3
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "vaultcapital3"
+    },
+    {
+	"id": "side.gallery",
+	"label": "Kusnetsov Gallery",
+	"description": "Prince Kusnetsov became fascinated with spiritual modes of healing late into his life, and travelled the Mediterranean for several years to indulge his interests. This gallery now holds many of the artefacts he procured - bought, stolen, unearthed - before his death in 1859.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "tool.heart"
+		},
+		{
+		    "id": "tool.grail",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.dionysian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.nest",
+	"label": "Labhite's Nest",
+	"description": "One of the Lionsmith's monsters has feathered a nest for itself in the woods beyond the city. It has been giving the Germans trouble, which is good, but a number of our own patrols have also been lost to the beast's predations. Rooting it out won't be easy - labhites are young, but they are terrors of the sky, and very strong.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "weapon.talon"
+		},
+		{
+		    "id": "tool.lantern",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.forest",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.labhite.grounded",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.labhite.airborne",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "vaultrendingmountains1"
+    },
+    {
+	"id": "side.voronezh",
+	"label": "Mist-Shrouded Path",
+	"description": "In the 12th century, a Ryazan prince fled his defeat towards Voronezh. He never made it to town. Local legends attribute his disappearance to betrayal and to wild beasts, but the oldest accounts say that in those days, when forests of black oak stood, the prince encountered something in the mists. The defeated sometimes find solace in the mists of a certain Name - and even though the forests are long gone, the mists are still here.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "tool.moth"
+		},
+		{
+		    "id": "tool.knock",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.forest",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.moonspace",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.dionysian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "rescuepartisans.complete",
+	"label": "Rescue Partisans Loot",
+	"lifetime": 1,
+	"isHidden": true
+    }
+]
+}

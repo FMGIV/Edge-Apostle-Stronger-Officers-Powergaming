@@ -1,0 +1,288 @@
+{
+"recipes": [
+    {
+	"id": "operate.escapemarinette",
+	"actionid": "operate",
+	"label": "Вырваться из окружения!",
+	"startdescription": "Там! В атаке Маринетт появляется брешь. Спасение будет на волосок от гибели, но это лучшее, на что я могу надеяться, пока меня преследует самая голодная из Лигений.",
+	"description": "Наконец, вырвались из лап Чаши. Пока что.\n\n[Вы больше не встретитесь с Маринетт и ее войсками, пока снова не пройдете по Разрушенной стране.]",
+	"requirements": {
+	    "op.escapemarinette": 5
+	},
+	"haltverb": {
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "produce.monster": 99,
+	    "reinforcements.*": 99,
+	    "foedebuff": 99,
+	    "huntingparty": 99,
+	    "commander.attack": 99,
+	    "marinette.attack": 99,
+	    "spit.grail": 99
+	},
+	"craftable": true,
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "operate.escapemarinette.continue",
+	    }
+	]
+    },
+    {
+	"id": "operate.escapemarinette.continue",
+	"label": "Вырваться из окружения!",
+	"startdescription": "Там! В атаке Маринетт появляется брешь. Спасение будет на волосок от гибели, но это лучшее, на что я могу надеяться, пока меня преследует самая голодная из Лигений.",
+	"description": "Наконец, вырвались из лап Чаши. Пока что.\n\n[Вы больше не встретитесь с Маринетт и ее войсками, пока в следующий раз не пройдете по Разрушенной стране.]",
+	"deleteverb": {
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "produce.monster": 99,
+	    "reinforcements.*": 99,
+	    "foedebuff": 99,
+	    "huntingparty": 99,
+	    "commander.attack": 99,
+	    "marinette.attack": 99,
+	    "spit.grail": 99
+	},
+	"purge": {
+	    "foe": 99,
+	    "foe.huntingparty": 99,
+	    "strife": 99
+	},
+	"effects": {
+	    "op.escapemarinette": -99,
+	    "token.escaped": 1
+	}
+    },
+    {
+	"id": "arrive.marinette.continue",
+	"label": "Охотничий отряд",
+	"startdescription": "Клейдухос шипит из своего сосуда. 'Моя не-сестра нашла меня. Будьте готовы.'",
+	"deleteverb": {
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "produce.monster": 99,
+	    "reinforcements.*": 99,
+	    "foedebuff": 99
+	},
+	"purge": {
+	    "foe": 99
+	},
+	"effects": {
+	    "foe.marinette": 1,
+	    "foe.bloodonhands.hidden": 1,
+	    "foe.ivory.hidden": 6,
+	    "foe.percussigant": 8,
+	    "foe.flesheater": 10
+	},
+	"alt": [
+	    {
+		"id": "huntingparty.cycle",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.cycle",
+	"actionid": "huntingparty",
+	"label": "На Охоте",
+	"startdescription": "Лигении хранят верность Алой Чаше, но Маринетт всегда была особенно восприимчива к ее требованиям. Ободренная началом войны, Чаша приказала Маринетт завладеть Ключом Дней - Ключом, который должен быть у меня. Позволит ли Закон Лигении владеть вторым Ключом? Я не знаю, но не могу допустить, чтобы Маринетт узнала наверняка.",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token": 1,
+	    "readiness.token.marinette": 1
+	},
+	"linked": [
+	    {
+		"id": "marinette.attack.router",
+		"chance": 45
+	    },
+	    {
+		"id": "huntingparty.pickaction.router",
+		"chance": 45
+	    },
+	    {
+		"id": "huntingparty.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "huntingparty.reinforcements",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "marinette.attack.router",
+	"label": "Охота Движется!",
+	"startdescription": "Силы Маринетт приближаются - готовьтесь пролить кровь!",
+	"requirements": {
+	    "readiness.token.marinette": 9
+	},
+	"alt": [
+	    {
+		"id": "marinette.attacks.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "marinette.attack.clear"
+	    }
+	]
+    },
+    {
+	"id": "marinette.attack.clear",
+	"label": "Охота Движется!",
+	"startdescription": "Силы Маринетт приближаются - готовьтесь пролить кровь!",
+	"effects": {
+	    "readiness.token.marinette": -99
+	},
+	"linked": [
+	    {
+		"id": "huntingparty.cycle"
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.pickaction.router",
+	"label": "Охота Движется!",
+	"startdescription": "Силы Маринетт приближаются - готовьтесь пролить кровь!",
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"deckeffects": {
+	    "decisions.enemy.low.contemnant": 1
+	},
+	"linked": [
+	    {
+		"id": "huntingparty.executeaction"
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.executeaction",
+	"label": "Охота Движется!",
+	"startdescription": "Силы Маринетт приближаются - готовьтесь пролить кровь!",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "huntingparty.clear"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "singleattack.startup",
+		"additional": true
+	    },
+	    {
+		"id": "destroysupplies.startup",
+		"additional": true
+	    },
+	    {
+		"id": "hide.startup",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.clear",
+	"label": "Охота Движется!",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "huntingparty.cycle"
+	    }
+	]
+    },
+    {
+	"id": "marinette.attacks.startup",
+	"actionid": "marinette.attack",
+	"label": "Сухая-Ведьма наносит удар!",
+	"startdescription": "'<sprite name=edge>. <sprite name=edge>. <sprite name=edge>!'",
+	"extantreqs": {
+	    "foe.marinette.recovering": -1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsmarinette",
+		"label": "Маринетт",
+		"required": {
+		    "marinette.marker": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "decision.enemy.attack": 1,
+	    "decision.enemy.singleattack": 1
+	},
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.reinforcements",
+	"actionid": "enemyaction.reinforcements",
+	"label": "Прилив Усиливается",
+	"startdescription": "Маринетт обращается к силам и прислужникам Чаши, чтобы заиметь помощь в охоте -",
+	"extantreqs": {
+	    "foe.huntingparty": -10
+	},
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"foe.ivory",
+		"foe.ivory",
+		"foe.ivory",
+		"foe.percussigant",
+		"foe.percussigant",
+		"foe.percussigant",
+		"foe.flesheater",
+		"foe.flesheater",
+		"foe.flesheater",
+		"foe.flesheater"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    }
+]
+}

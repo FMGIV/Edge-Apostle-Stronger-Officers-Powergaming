@@ -1,0 +1,361 @@
+{
+"recipes": [
+    {
+	"id": "wolfcycle.cycle",
+	"actionid": "wolfcycle",
+	"label": "狼之行进",
+	"startdescription": "从风的流向中，从战争的潮流中，我能感到狼的翻涌。他会显现在任何冲突诞下痛苦之地，故这段时间里，他显现在一切地方——但至少此刻，命运将他怒火的矛尖指向了别处。\n\n[现在裂分之狼的注意力正集中在别处。暂时没有什么大事会发生。]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "wolfcycle.change",
+		"chance": 20
+	    },
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.change",
+	"actionid": "wolfcycle",
+	"label": "狼之行进",
+	"extantreqs": {
+	    "duel.wilhelm": -1,
+	    "foe.marinette": -1,
+	    "foe.marinette.recovering": -1,
+	    "foe.marinette.hidden": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"seasondespair",
+		"seasondespair"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.turnrage"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.turnrage",
+	"actionid": "wolfcycle",
+	"label": "狼之行进",
+	"requirements": {
+	    "seasondespair": 1
+	},
+	"aspects": {
+	    "epiphany": 1
+	},
+	"effects": {
+	    "season": -1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle.rage"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.cycle.rage",
+	"actionid": "wolfcycle",
+	"label": "狼之行进",
+	"startdescription": "裂分之狼的阴影笼罩于战场之上。事态将开始变遭——然后变得比那更糟。\n\n[毁灭之力大量涌现。无论敌我皆将受苦。]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "wolfcycle.restore.duel"
+	    },
+	    {
+		"id": "wolfcycle.restore.marinette"
+	    },
+	    {
+		"id": "wolfcycle.restore",
+		"chance": 30
+	    },
+	    {
+		"id": "wolfcycle.cycle.rage"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "wolf.pickaction",
+		"additional": true,
+		"chance": 35
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.restore",
+	"actionid": "wolfcycle",
+	"label": "狼之行进",
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.restore.marinette",
+	"actionid": "wolfcycle",
+	"label": "狼之行进",
+	"extantreqs": {
+	    "foe.marinette": 1
+	},
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.restore.duel",
+	"actionid": "wolfcycle",
+	"label": "狼之行进",
+	"extantreqs": {
+	    "duel.wilhelm": 1
+	},
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "wolf.pickaction",
+	"actionid": "wolfevent",
+	"label": "迫近的阴影",
+	"startdescription": "白昼因鲜血与毫无希望的战斗暗淡；现实弯曲并尖啸；毁灭已然临近。裂分之狼行于此地，湮灭则如影随形。",
+	"extantreqs": {
+	    "duel.wilhelm": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.obliterate",
+		"draw.wolf.trauma",
+		"draw.wolf.hindrances",
+		"draw.wolf.enemies"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "wolf.begin.influence"
+	    },
+	    {
+		"id": "wolf.begin.obliterate"
+	    },
+	    {
+		"id": "wolf.begin.trauma"
+	    },
+	    {
+		"id": "wolf.begin.hindrances"
+	    },
+	    {
+		"id": "wolf.begin.enemies"
+	    },
+	    {
+		"id": "wolf.pickaction.clear"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "wolf.pickaction.clear",
+	"label": "纷争给予",
+	"effects": {
+	    "draw.wolf.influence": -99,
+	    "draw.wolf.obliterate": -99,
+	    "draw.wolf.trauma": -99,
+	    "draw.wolf.hindrances": -99,
+	    "draw.wolf.enemies": -99
+	},
+	"linked": [
+	    {
+		"id": "wolf.pickaction.again"
+	    }
+	]
+    },
+    {
+	"id": "wolf.pickaction.again",
+	"actionid": "wolfevent",
+	"label": "迫近的阴影",
+	"startdescription": "白昼因鲜血与毫无希望的战斗暗淡；现实弯曲并尖啸；毁灭已然临近。裂分之狼行于此地，湮灭则如影随形。",
+	"internaldeck": {
+	    "spec": [
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.obliterate",
+		"draw.wolf.trauma",
+		"draw.wolf.hindrances",
+		"draw.wolf.enemies"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "wolf.begin.influence"
+	    },
+	    {
+		"id": "wolf.begin.obliterate"
+	    },
+	    {
+		"id": "wolf.begin.trauma"
+	    },
+	    {
+		"id": "wolf.begin.hindrances"
+	    },
+	    {
+		"id": "wolf.begin.enemies"
+	    },
+	    {
+		"id": "wolf.pickaction.clear"
+	    }
+	],
+    },
+    {
+	"id": "wolf.begin.influence",
+	"label": "战争的排列",
+	"startdescription": "纷争之枢碾磨并撕咬、血液从中流下。明显的力量自世界表皮之下渗出——我可以活用这力量。",
+	"description": "灵魂所受的折磨对于入门修习武力之道者亦是武器。这些就是我的折磨，我的武器。",
+	"requirements": {
+	    "draw.wolf.influence": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"hatred",
+		"despair",
+		"agony"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    },
+    {
+	"id": "wolf.begin.obliterate",
+	"label": "狼之颚",
+	"startdescription": "我能听到那从世界的内面传来的声音——那是当某人聆听夜晚过久时，总会听见的寒冷、恐惧的隆响。我很清楚这是狼正在寻猎的标志。很快，某人或某物将不复存在。",
+	"description": "没有一点痕迹留下，但此处的空气仍沾满了狼的臭味。他的力量会在这世间再停留一会。",
+	"requirements": {
+	    "draw.wolf.obliterate": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "湮灭",
+		"required": {
+		    "friend": 1,
+		    "foe": 1
+		},
+		"forbidden": {
+		    "friend.named": 1,
+		    "foe.officer": 1,
+		    "marinette.marker": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"effects": {
+	    "friend": -99,
+	    "foe": -99,
+	    "hindrance.wolf": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "wolf.begin.trauma",
+	"label": "召回痛苦",
+	"startdescription": "狼在夜间以梦的形态前来。我又一次身处索比堡：铁丝栅栏、狂吠的狗、枯瘦的脸——以及那被称作流亡者的家伙。他们会把我带去<i>指挥官/i>的居所，而每个这样的晚上，我都会被“教育”",
+	"description": "有时，在流亡者的“课程”之后，我全身各处不是骨折就是出血，而守卫需要把我拖回铺位。另一些时候，流亡者则坚持我要被护送回去，并用一顿真正的晚餐与一场我至今仍记忆犹新的沐浴为我送行。那些夜晚，流亡者会在高悬的窗户内看着我走回去，并露出食肉动物的微笑。\n\n而后我便醒来。我无法哭泣。我只能沉默。",
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "damage.mind": -3
+	},
+	"requirements": {
+	    "draw.wolf.trauma": 1
+	},
+	"warmup": 10,
+	"effects": {
+	    "trauma": 1
+	}
+    },
+    {
+	"id": "wolf.begin.hindrances",
+	"label": "预兆与煽动",
+	"startdescription": "每当裂分之狼临近，现实便弯曲并尖啸。参差的日光；嚎吼的群星——这一切皆宣示着他的恶意。我们必须做好准备。",
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"requirements": {
+	    "draw.wolf.hindrances": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"hindrance.nocturnal",
+		"hindrance.wolf",
+		"hindrance.apollonian",
+		"hindrance.nocturnal",
+		"hindrance.wolf",
+		"hindrance.apollonian"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    },
+    {
+	"id": "wolf.begin.enemies",
+	"label": "预兆与煽动",
+	"startdescription": "每当狼行于大地时，更弱的憎恨与痛苦自他那肮脏的毛坯中被抖落，并在醒时世界带着恶意化形。未得复仇的死者，遭戮之人的痛苦，以及更糟的什么——它们将对我们露出獠牙。",
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "sobibor.here": -1
+	},
+	"requirements": {
+	    "draw.wolf.enemies": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"foe.splinter",
+		"foe.wrake",
+		"foe.wrake",
+		"foe.undead",
+		"foe.undead"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    }
+]
+}

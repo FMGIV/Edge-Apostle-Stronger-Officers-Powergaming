@@ -1,0 +1,1170 @@
+{
+"elements": [
+    {
+	"id": "op.endinghope",
+	"label": "Peace?",
+	"description": "This is the crossroads. If I still believe in renewal and rebuilding - in the persistence of this life in the face of the worst there is - then perhaps I could quit this road to vengeance. Perhaps I could escape the long shadow of war. Perhaps I could live again.",
+	"aspects": {
+	    "op": 1
+	},
+	"lifetime": 300,
+	"unique": true,
+	"slots": [
+	    {
+		"id": "needshope",
+		"label": "Hope",
+		"required": {
+		    "contemnant.memento": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "hatred",
+	"label": "Hatred",
+	"description": "'You tell me that my brother is my salvation? My salvation? Well then damn him. Damn him in every shape and form and guise. Do I see myself in him? Yes. I do. And what I see sickens me.'\n\n- Cormac McCarthy, <i>The Sunset Limited</i>",
+	"aspects": {
+	    "edge": 6,
+	    "memory": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "despair",
+	"label": "Despair",
+	"description": "The darkness that prowls at the mind's edge; the wolf that devours thought.",
+	"aspects": {
+	    "winter": 6,
+	    "memory": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "agony",
+	"label": "Agony",
+	"description": "Pain isn't everything. It's the only thing.",
+	"aspects": {
+	    "edge": 6,
+	    "winter": 6,
+	    "memory": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "contemnant.memento",
+	"label": "Hope",
+	"description": "The memory of that old world - of love, peace, potential - guttering now like a candle-flame in howling night. Will I return there, someday? To that place where war was only a three-letter word? If I carry this little light far enough, maybe then I will know.",
+	"aspects": {
+	    "heart": 6,
+	    "memento": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "contemnant.weapon",
+	"label": "Officer's Dagger",
+	"description": "The Exile's idea of a joke.",
+	"aspects": {
+	    "edge": 2,
+	    "weapon": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "contemnant.weapon.exhausted"
+	},
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "contemnant.weapon.exhausted",
+	"label": "Officer's Dagger (Readying)",
+	"description": "The Exile's idea of a joke.",
+	"aspects": {
+	    "exhausted": 1,
+	    "weapon": 1
+	},
+	"icon": "contemnant.weapon",
+	"uniquenessgroup": "uq.mosin",
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "contemnant.weapon"
+    },
+    {
+	"id": "contemnant.setupitem",
+	"label": "A Sanguine Sunset",
+	"description": "The day is dying, the shadows gather, and the hairs on the back of my neck stand on end - someone is coming.",
+	"aspects": {
+	    "op": 1
+	},
+	"icon": "op.sunset"
+    },
+    {
+	"id": "contemnant.mentor",
+	"label": "#PREVIOUSCHARACTERNAME#",
+	"description": "A ragged Libyan with a cruel smile - my torturer and teacher for a year at Sobibor. The others see only a foreign mercenary, but I know better. This one has shown me the truth of what they are.",
+	"aspects": {
+	    "friend": 1,
+	    "foe": 1,
+	    "edgelong": 1
+	}
+    },
+    {
+	"id": "contemnant.story",
+	"label": "And Why Not?",
+	"description": "'Of all the poor devils at Sobibor, you alone stood out to me. So, I took you for myself. Taught you pain. And now, in you, there is the seed of the Wolf's promise. Oh, yes - by this war's end you might very well be another crooked fang in his bloody mouth. And why not? Why not revenge? This world has given you reason enough to hate it. Carve out the parts that hope otherwise. Follow what secrets I've taught you to their root. Find the alukite in Vienna, and survive her. And then - then, maybe, we will speak again. I hope it is a very final sort of conversation. What do you owe to anyone, after all? I asked myself that question, once. Now, it's your turn.'",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "avowal": [
+		{
+		    "id": "marker.spoketosergeiaboutsword",
+		    "morpheffect": "mutate"
+		}
+	    ],
+	    "longded": [
+		{
+		    "id": "long.blocker",
+		    "morpheffect": "mutate"
+		}
+	    ],
+	},
+	"unique": true
+    },
+    {
+	"id": "contemnant.fragmentedge",
+	"label": "An Outlaw's Secret",
+	"description": "The one called Exile once told me: ‘a wolf cannot claim the protections of law, but nor is he constrained by them - and so we may inflict whatever we please on whomever we wish.’ It is not untrue.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 2,
+	    "winter": 2
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedge.grail",
+	    "add.knock": "contemnant.fragmentedge.knock",
+	    "add.lantern": "contemnant.fragmentedge.lantern",
+	    "fatiguing": "contemnant.fragmentedge.exhausted",
+	    "epiphany": "contemnant.fragmentedgeb"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedge.exhausted",
+	"label": "An Outlaw's Secret (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedge"
+	},
+	"lifetime": 300,
+	"decayTo": "contemnant.fragmentedge",
+	"icon": "contemnant.fragmentedge",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedgeb",
+	"label": "The Wolf's Lesson",
+	"description": "This is the truth the Divided One made manifest when he arose from the Sun’s blood. It cannot be recited, but when we wail unheard; when we gnash our teeth; when we tear flesh and our flesh is torn also - we come close.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgeb.grail",
+	    "add.knock": "contemnant.fragmentedgeb.knock",
+	    "add.lantern": "contemnant.fragmentedgeb.lantern",
+	    "fatiguing": "contemnant.fragmentedgeb.exhausted",
+	    "epiphany": "contemnant.fragmentedgec"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgeb.exhausted",
+	"label": "The Wolf's Lesson (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgeb"
+	},
+	"lifetime": 260,
+	"decayTo": "contemnant.fragmentedgeb",
+	"resaturate": true,
+	"icon": "contemnant.fragmentedgeb"
+    },
+    {
+	"id": "contemnant.fragmentedgec",
+	"label": "An Operation of the Splinter",
+	"description": "Ferocious exercises that heighten pain and amplify cruelty. Those who practise these movements are sometimes torn apart by the sheer intensity of motion required to perform them.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 6,
+	    "winter": 6
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgec.grail",
+	    "add.knock": "contemnant.fragmentedgec.knock",
+	    "add.lantern": "contemnant.fragmentedgec.lantern",
+	    "fatiguing": "contemnant.fragmentedgec.exhausted",
+	    "epiphany": "contemnant.fragmentedged"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgec.exhausted",
+	"label": "An Operation of the Splinter (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgec"
+	},
+	"lifetime": 220,
+	"decayTo": "contemnant.fragmentedgec",
+	"icon": "contemnant.fragmentedgec",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedged",
+	"label": "The Names of the Wolf",
+	"description": "Three natures hath the Wolf-Divided; he unmaketh; he unmaketh; at the last, he unmaketh. His Names are known to bring endings, but never peaceful endings.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 8,
+	    "winter": 8
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedged.grail",
+	    "add.knock": "contemnant.fragmentedged.knock",
+	    "add.lantern": "contemnant.fragmentedged.lantern",
+	    "fatiguing": "contemnant.fragmentedged.exhausted",
+	    "epiphany": "contemnant.fragmentedgee"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedged.exhausted",
+	"label": "The Names of the Wolf (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedged"
+	},
+	"lifetime": 180,
+	"decayTo": "contemnant.fragmentedged",
+	"icon": "contemnant.fragmentedged",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedgee",
+	"label": "The Cinnabar Forms",
+	"description": "Seven times seven techniques of unmaking.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 10,
+	    "winter": 10
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgee.grail",
+	    "add.knock": "contemnant.fragmentedgee.knock",
+	    "add.lantern": "contemnant.fragmentedgee.lantern",
+	    "fatiguing": "contemnant.fragmentedgee.exhausted",
+	    "epiphany": "contemnant.fragmentedgef"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgee.exhausted",
+	"label": "The Cinnabar Forms (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgee"
+	},
+	"lifetime": 140,
+	"decayTo": "contemnant.fragmentedgee",
+	"icon": "contemnant.fragmentedgee",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedgef",
+	"label": "Modes of the Division",
+	"description": "‘CAPUT GERAT LUPINUM - the Sun was divided, and here is its wound.’ These are the vicious precepts which tear life from flesh, and blood from light.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 12,
+	    "winter": 12
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgef.grail",
+	    "add.knock": "contemnant.fragmentedgef.knock",
+	    "add.lantern": "contemnant.fragmentedgef.lantern",
+	    "fatiguing": "contemnant.fragmentedgef.exhausted",
+	    "epiphany": "contemnant.fragmentedgeg"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgef.exhausted",
+	"label": "Modes of the Division (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgef"
+	},
+	"lifetime": 100,
+	"decayTo": "contemnant.fragmentedgef",
+	"icon": "contemnant.fragmentedgef",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedgeg",
+	"label": "Mysteries of Agony",
+	"description": "Cunning and Strength may each answer the other, but how might we answer Agony? With Hatred, the flame that consumes without; with Despair, the flame that consumes within. These are the twin rudiments of Agony - unite them, and be unmade.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 14,
+	    "winter": 14,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgeg.grail",
+	    "add.knock": "contemnant.fragmentedgeg.knock",
+	    "add.lantern": "contemnant.fragmentedgeg.lantern",
+	    "fatiguing": "contemnant.fragmentedgeg.exhausted",
+	    "epiphany": [
+		{
+		    "id": "wolf.weaponfragment",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgeg.exhausted",
+	"label": "Mysteries of Agony (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [You have mastered the Wolf's mysteries - as far as a mortal might master them, at least.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgeg"
+	},
+	"lifetime": 60,
+	"decayTo": "contemnant.fragmentedgeg",
+	"icon": "contemnant.fragmentedgeg",
+	"resaturate": true
+    },
+    {
+	"id": "contemplation.skill.unmake",
+	"label": "Contemplation: A Lost Technique?",
+	"description": "A Name of the Wolf-Divided presented me with this reviled, oft-supressed art of battle. It is savage, ruinous knowledge, and its natures will not yield to understanding easily.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.unmake"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.sustain",
+	"label": "Contemplation: A Lost Technique?",
+	"description": "A Name of the Wolf-Divided presented me with this reviled, oft-supressed art of battle. It is savage, ruinous knowledge, and its natures will not yield to understanding easily.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.sustain.dormant"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.division",
+	"label": "Contemplation: A Lost Technique?",
+	"description": "A Name of the Wolf-Divided presented me with this reviled, oft-supressed art of battle. It is savage, ruinous knowledge, and its natures will not yield to understanding easily.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.division"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "challenge.contemplation.wolf",
+	"label": "Wolf Master Skill Challenge ",
+	"aspects": {
+	    "needsedgewinter": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "skill.unmake",
+	"label": "Unmake",
+	"description": "Heart and hand; mind and soul; the flesh without and the red within and the white that lies deeper still - all of these, unmade. [You can use this card to instantly destroy almost any Enemy or Ally. This card's Edge will increase whenever it is used, but it will also produce a Trauma.]",
+	"aspects": {
+	    "edge": 1,
+	    "lore": 1
+	},
+	"xtriggers": {
+	    "fatiguing": [
+		{
+		    "id": "skill.unmake.exhausted"
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -99
+		},
+		{
+		    "id": "edge_timer",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "trauma",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Target",
+		"description": "Anyone.",
+		"required": {
+		    "friend": 1,
+		    "foe": 1,
+		    "neutral": 1
+		},
+		"forbidden": {
+		    "marinette.marker": 1,
+		    "foe.exile": 1,
+		    "foe.hidden": 1,
+		    "friend.immortal": 1
+		},
+		"consumes": true
+	   }
+	]
+    },
+    {
+	"id": "skill.unmake.exhausted",
+	"label": "Unmake (Exhausted)",
+	"description": "Heart and hand; mind and soul; the flesh without and the red within and the white that lies deeper still - all of these, unmade. [You can use this card to instantly destroy almost any Enemy or Ally. This card's Edge will increase whenever it is used, but it will also produce a Trauma]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 60,
+	"decayTo": "skill.unmake",
+	"resaturate": true,
+	"icon": "skill.unmake"
+    },
+    {
+	"id": "skill.sustain.active",
+	"label": "Torturous Sustention",
+	"description": "To be unmade is to be freed, at last, from suffering. The Wolf does not want me freed just yet. [While this card is active, no number of Wounds or Debilitations will be able to kill you. Use a Wolf-Divided's Shadow in Operate to maintain this card's active state; using Unmake while you possess this card has a chance to produce a Wolf-Divided's Shadow.]",
+	"lifetime": 480,
+	"xtriggers": {
+	    "employment": "skill.sustain.active"
+	},
+	"decayTo": "skill.sustain.dormant",
+	"aspects": {
+	    "sustain.marker": 1
+	}
+    },
+    {
+	"id": "skill.sustain.dormant",
+	"label": "Torturous Sustention",
+	"description": "To be unmade is to be freed, at last, from suffering. The Wolf does not want me freed just yet. [Place a Wolf-Divided's Shadow into Operate to activate this card. Also, using Unmake while you possess this card has a chance to produce a Wolf-Divided's Shadow.]",
+	"xtriggers": {
+	    "employment": "skill.sustain.active"
+	},
+	"aspects": {
+	    "sustain.marker": 1
+	}
+    },
+    {
+	"id": "skill.division",
+	"label": "Division of the Self",
+	"description": "The human soul can only endure so much. When the cup of my agony brims at last, I might pour some of it out into the world - give my pain a shape that can walk amongst the living, even though that shape be hideous and fierce and starving. [Use this card to turn a Trauma into an allied Wolf-Splinter.]",
+	"aspects": {
+	    "edge": 8,
+	    "winter": 8,
+	    "lore": 1
+	},
+	"slots": [
+	    {
+		"id": "needstrauma",
+		"label": "Trauma",
+		"required": {
+		    "trauma": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "skill.division.exhausted"
+	}
+    },
+    {
+	"id": "skill.division.exhausted",
+	"label": "Division of the Self (Exhausted)",
+	"description": "The human soul can only endure so much. When the cup of my agony brims at last, I might pour some of it out into the world - give my pain a shape that can walk amongst the living, even though that shape be hideous and fierce and starving. [Use this card to turn a Trauma into an allied Wolf-Splinter.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 360,
+	"decayTo": "skill.division",
+	"resaturate": true,
+	"icon": "skill.division"
+    },
+    {
+	"id": "hopelessness",
+	"label": "Hopelessness",
+	"description": "There is no going back, and there is no better future. Life is pain, and death a silence.",
+	"aspects": {
+	    "winter": 2,
+	    "promise": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "antithesis",
+	"label": "<color=red>ANTITHESIS <color=#005500>",
+	"description": "<color=red>All that is must be brought to an end.<color=#005500>",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1,
+	},
+	"icon": "blacksquare",
+	"unique": true
+    },
+    {
+	"id": "wound.glorious",
+	"label": "Vulneration-in-Glory",
+	"description": "A radiant wound that recalls the division of the Sun. So vile is the power that issues forth from it that all who see me will recognize I am a thing accursed and intolerable - indeed, linger for too long around me and risk the pain of annihilation. [This card counts as a wound and will cause Neutral units to attack you on sight. While you possess this card, a random Enemy or Ally may be destroyed whenever you generate Strife.]",
+	"aspects": {
+	    "lantern": 6,
+	    "edge": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "local.infamy": 3
+	},
+	"unique": true
+    },
+    {
+	"id": "memento.exile",
+	"label": "The Exile's Heart",
+	"description": "It doesn't really qualify as a cadaver, so much as a souvenir.",
+	"aspects": {
+	    "edge": 6,
+	    "heart": 6,
+	    "tool": 1,
+	    "long.blocker": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "memento.foe",
+	"label": "Duffoure's Eye",
+	"description": "No-one steals from a reckoner lord - but the Exile did. And now, in my own way, so have I.",
+	"aspects": {
+	    "winter": 6,
+	    "lantern": 6,
+	    "tool": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "klei",
+	"label": "Kleidouchos",
+	"description": "'Yes, yes, the White City is a ruin. I am aware. This is not the first time I have stood fast against the convulsions of History. I have remained because I had need of your presence. Now, I have it.'",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "klei.casket",
+	"label": "Iron Casket (Radiant)",
+	"description": "A unique vessel Kleidouchos had shaped for 'difficult travels in difficult days.' She waits inside, healing, anticipating, whispering to her shining Key. Every few days, she blinks. [While you are in the Ruined Country, someone very dangerous may come looking for this. Make it harder for them to find you by feeding Kleidouchos a friend.]",
+	"aspects": {
+	    "ascension.marker.casket": 1,
+	    "legacyplotitem": 1
+	},
+	"slots": [
+	    {
+		"id": "needsshadow",
+		"actionid": "abandon",
+		"label": "Friend",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "friend.immortal": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "communicate",
+		"label": "Intent",
+		"required": {
+		    "contemnant.story": 1
+		}
+	    },
+	],
+	"xtriggers": {
+	    "malign": "klei.casket.masked"
+	},
+	"unique": true
+    },
+    {
+	"id": "klei.casket.masked",
+	"label": "Iron Casket (Gloaming)",
+	"description": "Inside, the Ligiean does not exactly sleep - I do not think she sleeps at all - but the noxious light that shined from within the vessel is dimmer, now. [Kleidouchos's pursuers will have a harder time finding her - for now.]",
+	"aspects": {
+	    "ascension.marker.casket": 1
+	},
+	"lifetime": 300,
+	"decayTo": "klei.casket",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "keyfigment",
+	"label": "Key-Figment",
+	"description": "The Key of Days has no form, yet its shape is burned behind my eye; the Key of Days cannot be held, yet I can feel its scouring press against the flesh of my brain. [This card counts as a Trauma.]",
+	"aspects": {
+	    "lantern": 6,
+	    "damage.mind": 1
+	},
+	"lifetime": 800
+    },
+    {
+	"id": "op.sergei",
+	"label": "A Ragged Cossack?",
+	"description": "'Little wolf - come here. I am tired. Share your drink with me, if you have any.'",
+	"aspects": {
+	    "local": 1
+	},
+	"icon": "defeated.sergei"
+    },
+    {
+	"id": "plotitem.kazimirshashka",
+	"label": "Kazimir's Shashka",
+	"description": "A sabre with a shattered blade. When I hold it, I see searing glimpses of past: </i>a village burns, and a familiar cossack smiles down at me from horseback. How awfully I wish him dead.</i> These aren't my hatreds, but for a moment, they feel as familiar and warm as fire.",
+	"icon": "weapon.kazimir"
+    },
+    {
+	"id": "op.sergei.comeforsword",
+	"label": "A Ragged Cossack?",
+	"description": "'You found it. Very kind of you. I will have that, now.'",
+	"aspects": {
+	    "local": 1
+	},
+	"slots": [
+	    {
+		"id": "needssword",
+		"label": "Keepsake",
+		"required": {
+		    "plotitem.kazimirshashka": 1
+		}
+	    }
+	],
+	"icon": "defeated.sergei"
+    },
+    {
+	"id": "sergei.horn",
+	"label": "Marauder's Horn",
+	"description": "In the days of Cossack terror and tsarist tyranny, this horn heralded the sharp blades and stamping hooves of the Iron-Eater and his Black Hundred. Now, in this century, the Black Hundred is dust, its leader soon to follow - but blow the horn, and see the last phantom of that old terror ride again in black and steel.",
+	"aspects": {
+	    "supplies": 1,
+	    "uses.remaining": 3
+	},
+	"xtriggers": {
+	    "fatiguing": [
+		{
+		    "id": "uses.remaining",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+	    ],
+	    "damagehealth": "husk"
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.sergei",
+	"label": "The Iron-Eater",
+	"description": "With his dyad-partner dead, I can only wonder what sustains him now: the war? Fear? A desire for worthy death? Perhaps the Wolf is merely drawing out his last whimper of life. But, even fading, this Long of the Wolf-Divided remains nearly as ferocious as he was at the height of his ascendancy.",
+	"aspects": {
+	    "friend": 1,
+	    "edgelong": 1,
+	    "edge": 20,
+	    "winter": 20,
+	    "friend.immortal": 1,
+	    "local": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.sergei.exhausted",
+	    "killmortal": "friend.sergei.exhausted",
+	    "killfriend": "friend.sergei.exhausted",
+	    "makecasualty": "friend.sergei.exhausted",
+	    "damagehealth": "op.sergei.postfight"
+	},
+	"icon": "sergei"
+    },
+    {
+	"id": "friend.sergei.exhausted",
+	"label": "The Iron-Eater",
+	"description": "With his dyad-partner dead, I can only wonder what sustains him now: the war? Fear? A desire for worthy death? Perhaps the Wolf is merely drawing out his last whimper of life. But, even fading, this Long of the Wolf-Divided remains nearly as ferocious as he was at the height of his ascendancy.",
+	"aspects": {
+	    "friend": 1,
+	    "edgelong": 1,
+	    "exhausted": 1,
+	    "friend.immortal": 1,
+	    "local": 1
+	},
+	"xtriggers": {
+	    "damagehealth": "op.sergei.postfight"
+	},
+	"icon": "sergei",
+	"lifetime": 30,
+	"decayTo": "friend.sergei",
+	"resaturate": true
+    },
+    {
+	"id": "op.sergei.postfight",
+	"label": "The Iron-Eater",
+	"description": "<i>'Vse koncheno.'</i>",
+	"aspects": {
+	    "local": 1
+	},
+	"icon": "defeated.sergei"
+    },
+    {
+	"id": "cross.first",
+	"label": "A Carapaced Ambusher!",
+	"description": "What <i>is</i> that?",
+	"aspects": {
+	    "local": 1
+	},
+	"icon": "cross",
+	"verbicon": "crossverb"
+    },
+    {
+	"id": "contemplation.cross.1",
+	"label": "Contemplation: A Wayward Cross",
+	"description": "The Carapace Cross fled long ago, going behind the sky, below the world, or into us. What reason does one of their kind have for returning now? And why did it make an attempt on the life of an Edge-Long? Hawthorn thoughts stir in me - something secret works in the shadows of this war.",
+	"aspects": {
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.cross.1",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "contemplation.cross.2"
+	}
+    },
+    {
+	"id": "challenge.contemplation.cross.1",
+	"label": "Cross Challenge 1",
+	"aspects": {
+	    "needsknock": 8,
+	    "needsedge": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "contemplation.cross.2",
+	"label": "Contemplation: The Axe's Gambit",
+	"description": "The Horned Axe is the one directing this lone Cross-warrior to target the Exile and their Foe. It is sometimes said that the Axe was once an Edge-power, and Vengeance remains one of her sharpest natures - does she wish to destabilise the Corrivality? Weaken the hand of the reigning Edge Hours by eliminating a dyad? I have an interest in seeing the Exile slain, but I must understand more about the Axe and her champions's motivations before I decide what to do.",
+	"aspects": {
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.cross.2",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": [
+		{
+		    "id": "contemplation.cross.3"
+		},
+		{
+		    "id": "op.axe",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	}
+    },
+    {
+	"id": "challenge.contemplation.cross.2",
+	"label": "Cross Challenge 2",
+	"aspects": {
+	    "needsknock": 10,
+	    "needsedge": 10
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "contemplation.cross.3",
+	"label": "Contemplation: Blood of the Earth",
+	"description": "The Exile and their Foe are both of the line of Antaios - the line of the Flint and the Wheel. Not only will their deaths deprive the reigning Hours of the Corrivality, but returning Antaian blood to the earth will, slowly, rouse again the Axe's siblings buried beneath it. Flint. Wheel. Coil. The Wolf will oppose this - the Wolf opposes all - but perhaps I might find common cause with the Axe's chosen warrior. Both of us require the death of the Exile. As for afterwards - we will see.",
+	"aspects": {
+	    "contemplation": 1,
+	    "completed": 1
+	}
+    },
+    {
+	"id": "cross.summonsign",
+	"label": "Binding-Shell",
+	"description": "A token inscribed with the unutterable name of the Cross-warrior the Horned Axe has claimed as her wartime champion. If I allow a few judicious drops of my blood to stain the shell, my new ally will come to aid me in battle.",
+	"aspects": {
+	    "lore": 1,
+	    "uses.remaining": 3
+	},
+	"xtriggers": {
+	    "fatiguing": [
+		{
+		    "id": "uses.remaining",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+	    ],
+	    "damagehealth": "husk"
+	}
+    },
+    {
+	"id": "friend.cross",
+	"label": "Gyrvaengr, Spear-and-Shield",
+	"description": "Child of Stone, soldier of the Owl, and the last of the true, proud Glaeterfleoge still living on this side of History. She has no love for mankind, but she will wield her wings and scales and keen-pointed stingers in concert with me, for we both strive after the death of a common enemy.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "edge": 20,
+	    "knock": 12,
+	    "moth": 12,
+	    "friend.immortal": 1,
+	    "local": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.cross.exhausted",
+	    "killmortal": "friend.cross.exhausted",
+	    "killfriend": "friend.cross.exhausted",
+	    "makecasualty": "friend.cross.exhausted",
+	    "damagehealth": "op.cross.postfight"
+	},
+	"icon": "cross"
+    },
+    {
+	"id": "friend.cross.exhausted",
+	"label": "Gyrvaengr, Spear-and-Shield",
+	"description": "Child of Stone, soldier of the Owl, and the last of the true, proud Glaeterfleoge still living on this side of History. She has no love for mankind, but she will wield her wings and scales and keen-pointed stingers in concert with me, for we both strive after the death of a common enemy.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "exhausted": 1,
+	    "friend.immortal": 1,
+	    "local": 1
+	},
+	"xtriggers": {
+	    "damagehealth": "op.cross.postfight"
+	},
+	"icon": "cross",
+	"lifetime": 30,
+	"decayTo": "friend.cross",
+	"resaturate": true
+    },
+    {
+	"id": "op.cross.postfight",
+	"label": "Gyrvaengr, Wounded-Wing",
+	"description": "With our common goal now achieved, we have no more use for one another. I know she would have my life, too, were it not for the depth of her injuries - and she, in turn, knows that I know this. Yet, I can almost hear something like a voice when I approach her...",
+	"aspects": {
+	    "local": 1
+	},
+	"icon": "cross"
+    },
+    {
+	"id": "weapon.cross",
+	"label": "Hybrid-Flail",
+	"description": "The 'spear' wielded by the Cross-warrior Gyrvaengr: a viper-quick length of tail and stinger, hissing with venom furious enough to crack stone. Severed from the body, it can now be used a kind of morbid flail, crushing and corroding whatever is unlucky enough to suffer its seething impact.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 12,
+	    "knock": 6,
+	    "moth": 6,
+	    "friend.immortal.blocker": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.cross.exhausted"
+	}
+    },
+    {
+	"id": "weapon.cross.exhausted",
+	"label": "Hybrid-Flail (Exhausted)",
+	"description": "The 'spear' wielded by the Cross-warrior Gyrvaengr: a viper-quick length of stinger, hissing with venom furious enough to crack stone. Severed from the body, it can now be used a kind of morbid flail, crushing and corroding whatever is unlucky enough to suffer its seething impact.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "friend.immortal.blocker": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.cross.exhausted",
+	    "refresh": "weapon.cross"
+	},
+	"lifetime": 60,
+	"decayTo": "weapon.cross",
+	"icon": "weapon.cross",
+	"resaturate": true
+    },
+    {
+	"id": "contemplation.sobibor",
+	"label": "Contemplation: Stronger Than Fear?",
+	"description": "Every cornered animal faces a choice: death, or victory. The Exile told me these were the same in the end, but also that battle was a thing of the moment, and so the choice remains important. What will I choose?",
+	"aspects": {
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "contemplation.sobibor.complete",
+	    "benign": "husk"
+	}
+    },
+    {
+	"id": "contemplation.sobibor.complete",
+	"label": "Unconquerable Hate",
+	"description": "All is not lost; the unconquerable will,\nAnd study of revenge, immortal hate,\nAnd courage never to submit or yield.\n\n- John Milton, <i>Paradise Lost</i>",
+	"aspects": {
+	    "memory": 1,
+	    "edge": 33
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "benign": "husk"
+	}
+    }
+]
+}

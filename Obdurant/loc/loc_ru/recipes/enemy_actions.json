@@ -1,0 +1,2174 @@
+{
+"recipes": [
+    {
+	"id": "enemy.pickaction.high.contemnant",
+	"label": "Враг действует!",
+	"startdescription": "Раздается сигнал тревоги - наш противник мобилизуется!",
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"deckeffects": {
+	    "decisions.enemy.high.contemnant": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "enemy.executeaction.targetsoviets.pre",
+		"chance": 40
+	    },
+	    {
+		"id": "enemy.executeaction"
+	    }
+	]
+    },
+    {
+	"id": "enemy.pickaction.medium.contemnant",
+	"label": "Враг действует!",
+	"startdescription": "Раздается сигнал тревоги - наш противник мобилизуется!",
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"deckeffects": {
+	    "decisions.enemy.medium.contemnant": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "enemy.executeaction.targetsoviets.pre",
+		"chance": 40
+	    },
+	    {
+		"id": "enemy.executeaction"
+	    }
+	]
+    },
+    {
+	"id": "enemy.pickaction.low.contemnant",
+	"label": "Враг действует!",
+	"startdescription": "Раздается сигнал тревоги - наш противник мобилизуется!",
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"deckeffects": {
+	    "decisions.enemy.low.contemnant": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "enemy.executeaction.targetsoviets.pre",
+		"chance": 40
+	    },
+	    {
+		"id": "enemy.executeaction"
+	    }
+	]
+    },
+    {
+	"id": "enemy.executeaction.targetsoviets.pre",
+	"label": "Враг действует!",
+	"startdescription": "Раздается сигнал тревоги - наш противник мобилизуется!",
+	"tablereqs": {
+	    "soviet": 1,
+	    "german": 1
+	},
+	"effects": {
+	    "decision": -99
+	},
+	"linked": [
+	    {
+		"id": "enemy.executeaction.targetsoviets"
+	    }
+	]
+    },
+    {
+	"id": "enemy.executeaction.targetsoviets",
+	"label": "Враг действует!",
+	"startdescription": "Раздается сигнал тревоги - наш противник мобилизуется!",
+	"tablereqs": {
+	    "soviet": 1,
+	    "german": 1
+	},
+	"deckeffects": {
+	    "decisions.enemy.targetsoviets.low": 1
+	},
+	"linked": [
+	    {
+		"id": "enemy.executeaction.targetsoviets.continue"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "enemy.executeaction.targetsoviets.high"
+	    }
+	]
+    },
+    {
+	"id": "enemy.executeaction.targetsoviets.high",
+	"label": "Враг действует!",
+	"startdescription": "Раздается сигнал тревоги - наш противник мобилизуется!",
+	"tablereqs": {
+	    "soviet": 1,
+	    "german": 1
+	},
+	"extantreqs": {
+	    "strife.tracker": 4
+	},
+	"deckeffects": {
+	    "decisions.enemy.targetsoviets.high": 1
+	},
+	"linked": [
+	    {
+		"id": "enemy.executeaction.targetsoviets.continue"
+	    }
+	]
+    },
+    {
+	"id": "enemy.executeaction.targetsoviets.continue",
+	"label": "Враг действует!",
+	"startdescription": "Раздается сигнал тревоги - наш противник мобилизуется!",
+	"alt": [
+	    {
+		"id": "enemy.targetsoviets.startup",
+		"additional": true
+	    },
+	    {
+		"id": "enemy.doubleattack.1.startup.againstsoviets",
+		"additional": true
+	    },
+	    {
+		"id": "enemy.doubleattack.2.startup.againstsoviets",
+		"additional": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "enemy.clear"
+	    }
+	]
+    },
+    {
+	"id": "enemy.targetsoviets.startup",
+	"actionid": "enemyaction.single",
+	"label": "Вражеское наступление!",
+	"startdescription": "Вермахт предпринимает контрнаступление против солдат Красной Армии -",
+	"description": "В поле тихо. Немцы не смогли собрать людей для атаки.",
+	"requirements": {
+	    "decision.enemy.singleattack": 1,
+	    "decision.enemy.doubleattack": -1
+	},
+	"slots": [
+	    {
+		"id": "needsgerman",
+		"label": "Враг",
+		"required": {
+		    "german": 1
+		},
+		"forbidden": {
+		    "foe.officer": 1,
+		    "friend": 1,
+		    "soviet": 1,
+		    "otherworldly": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "enemy.targetsoviets"
+	    }
+	]
+    },
+    {
+	"id": "enemy.targetsoviets",
+	"label": "Вражеское наступление!",
+	"startdescription": "Вермахт предпринимает контрнаступление против солдат Красной Армии -",
+	"requirements": {
+	    "foe": 1
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Цель",
+		"required": {
+		    "soviet": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "enemy.targetsoviets.victory",
+		"chance": 40
+	    },
+	    {
+		"id": "enemy.targetsoviets.defeat"
+	    },
+	    {
+		"id": "enemy.nonefound"
+	    }
+	]
+    },
+    {
+	"id": "enemy.targetsoviets.victory",
+	"label": "Враг Побеждает!",
+	"startdescription": "Вдали я вижу, как русская линия обороны прорывается под натиском немецкой артиллерии и бомбардировок: это жестокая расправа, совершаемая со зверской эффективностью. Но немцы — не немцы, если не эффективны.",
+	"requirements": {
+	    "soviet": 1
+	},
+	"aspects": {
+	    "killsoviet": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "enemy.targetsoviets.defeat",
+	"label": "Враг Отступает!",
+	"startdescription": "Немецкая контратака захлебнулась в советских силах. Уступая в численности и вооружении, солдаты вермахта спешат вернуться на свои позиции. Фронт остаётся нетронутым; ни одна из сторон пока не одержала победу.",
+	"requirements": {
+	    "soviet": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "enemy.nonefound",
+	"label": "Ничего?",
+	"startdescription": "Немцы не смогли найти подходящего объекта для атаки.",
+    },
+    {
+	"id": "enemy.doubleattack.1.startup.againstsoviets",
+	"actionid": "enemyaction.double.1",
+	"label": "Атака клещами!",
+	"startdescription": "Враг разработал план двойного наступления против своего противника -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	},
+	"tablereqs": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Враг",
+		"required": {
+		    "german": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1,
+		    "otherworldly": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "enemy.targetsoviets"
+	    },
+	],
+	"warmup": 10
+    },
+    {
+	"id": "enemy.doubleattack.2.startup.againstsoviets",
+	"actionid": "enemyaction.double.2",
+	"label": "Атака клещами!",
+	"startdescription": "Враг разработал план двойного наступления против своего противника -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	},
+	"tablereqs": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "german": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1,
+		    "otherworldly": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "enemy.targetsoviets"
+	    },
+	],
+	"warmup": 10
+    },
+    {
+	"id": "contemplation.success.forge",
+	"label": "Понимание через Огонь",
+	"startdescription": "Мой сон кипит от несвязанных истин. Появляется ответ...",
+	"description": "Тайна становится явью.",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "ascend": 1
+	}
+    },
+    {
+	"id": "enemy.cycle.afraid_create",
+	"label": "Страх Становится Мной",
+	"startdescription": "Когда лев рычит, все остальные существа затаиваются в страхе, ибо они знают, что Царь Зверей вышел на поле боя. Итак, я Лев, и эти души - моя добыча. [Никакие враги не будут нападать на вас и мешать достижению Целей.]",
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"effects": {
+	    "signaller_afraid": 1
+	},
+	"linked": [
+	    {
+		"id": "enemy.cycle.afraid_continue"
+	    },
+	    {
+		"id": "enemy.cycle.afraid_end"
+	    }
+	]
+    },
+    {
+	"id": "enemy.cycle.afraid_continue",
+	"label": "Страх Становится Мной",
+	"startdescription": "Когда лев рычит, все остальные существа затаиваются в страхе, ибо они знают, что Царь Зверей вышел на поле боя. Итак, я Лев, и эти души - моя добыча. [Никакие враги не будут нападать на вас и мешать достижению Целей.]",
+	"warmup": 30,
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"linked": [
+	    {
+		"id": "enemy.cycle.afraid_continue"
+	    },
+	    {
+		"id": "enemy.cycle.afraid_end"
+	    }
+	]
+    },
+    {
+	"id": "enemy.cycle.afraid_end",
+	"label": "Страх Становится Мной",
+	"startdescription": "Когда лев рычит, все остальные существа затаиваются в страхе, ибо они знают, что Царь Зверей вышел на поле боя. Итак, я Лев, и эти души - моя добыча. [Никакие враги не будут нападать на вас и мешать достижению Целей.]",
+	"effects": {
+	    "signaller_afraid": -99
+	},
+	"linked": [
+	    {
+		"id": "enemy.cycle"
+	    }
+	]
+    },
+    {
+	"id": "produce.foemonster.begin.obdurant",
+	"actionid": "produce.monster",
+	"label": "Грядет что-то страшное",
+	"startdescription": "Запах крови и эхо агонии неизгладимо окрашивают здешний мир. Странные и ужасные враги вылезают вперед, привлеченные резней: нетерпеливые, голодные, полные ненависти.",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "foe.monster": -2,
+	    "obdurant.story": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "produce.foemonster.draw.obdurant"
+	    }
+	]
+    },
+    {
+	"id": "produce.foemonster.draw.obdurant",
+	"actionid": "produce.monster",
+	"label": "Грядет что-то страшное",
+	"startdescription": "Запах крови и эхо агонии неизгладимо окрашивают здешний мир. Странные и ужасные враги вылезают вперед, привлеченные резней: нетерпеливые, голодные, полные ненависти.",
+	"requirements": {
+	    "foe": -2
+	},
+	"deckeffects": {
+	    "enemies.occult.obdurant": 1
+	},
+	"linked": [
+	    {
+		"id": "produce.foemonster.draw.obdurant",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "produce.foemonster.begin.proterant",
+	"actionid": "produce.monster",
+	"label": "Грядет что-то страшное",
+	"startdescription": "Запах крови и эхо агонии неизгладимо окрашивают здешний мир. Странные и ужасные враги вылезают вперед, привлеченные резней: нетерпеливые, голодные, полные ненависти.",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "foe.monster": -2,
+	    "proterant.story": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "produce.foemonster.draw.proterant"
+	    }
+	]
+    },
+    {
+	"id": "produce.foemonster.draw.proterant",
+	"actionid": "produce.monster",
+	"label": "Грядет что-то страшное",
+	"startdescription": "Запах крови и эхо агонии неизгладимо окрашивают здешний мир. Странные и ужасные враги вылезают вперед, привлеченные резней: нетерпеливые, голодные, полные ненависти.",
+	"requirements": {
+	    "foe": -2
+	},
+	"deckeffects": {
+	    "enemies.occult.proterant": 1
+	},
+	"linked": [
+	    {
+		"id": "produce.foemonster.draw.proterant",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "attack.nodefense.warder",
+	"label": "Втянут в Гибельную Дверь",
+	"startdescription": "Клавигер размахивает связкой железных ключей и произносит какое-то потрескивающее слово - кажется, что-то на языке Вак. Пространство сворачивается. Цвета переливаются. И там, где стоят мои союзники, оболочка мира раздвигается, и их беззвучно затягивает в Обитель.",
+	"requirements": {
+	    "foe.warder": 1
+	},
+	"extantreqs": {
+	    "stasis.marker": -1
+	},
+	"aspects": {
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "warder.stasis.pre",
+		"additional": true
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "warder.stasis.pre",
+	"actionid": "stasis",
+	"label": "За Порогом",
+	"effects": {
+	    "stasis.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "warder.stasis"
+	    }
+	]
+    },
+    {
+	"id": "warder.stasis",
+	"actionid": "stasis",
+	"label": "За Порогом",
+	"startdescription": "Пропал из этого Измерения. Надолго ли? Я не знаю, и у меня нет времени об этом думать. Нужно продолжать двигаться.\n\n[Эти Союзники останутся в стазисе до истечения таймера и не отправятся с вами, если вы покинете Текущее Поле Боя до того, как они будут освобождены. Однако, пока не истечет таймер, Клавигеры Легиона не смогут поместить в стазис больше никого из ваших союзников.]",
+	"slots": [
+	    {
+		"id": "needsfriend1",
+		"label": "Союзник",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsfriend2",
+		"label": "Союзник",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "warder.stasis.tickdown",
+		"chance": 70
+	    },
+	    {
+		"id": "warder.stasis"
+	    }
+	]
+    },
+    {
+	"id": "warder.stasis.tickdown",
+	"label": "За Порогом",
+	"startdescription": "Пропал из этого Измерения. Надолго ли? Я не знаю, и у меня нет времени об этом думать. Нужно продолжать двигаться.\n\n[Эти Союзники останутся в стазисе до истечения таймера и не отправятся с вами, если вы покинете Текущее Поле Боя до того, как они будут освобождены. Однако, пока не истечет таймер, Клавигеры Легиона не смогут поместить в стазис больше никого из ваших союзников.]",
+	"description": "Кожа Мира прогибается, а затем рвется. Наши союзники бесцеремонно возвращаются в Явный Мир.",
+	"warmup": 240
+    },
+    {
+	"id": "enemy.cycle",
+	"actionid": "enemyaction",
+	"label": "Враг выжидает время",
+	"startdescription": "Наши враги здесь во всеоружии, но никто еще не предпринял никаких действий. Часы тикают незаметно. Быстро.",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "lake.enemyattack.prep",
+		"chance": 40
+	    },
+	    {
+		"id": "enemy.pickaction.router",
+		"chance": 40
+	    },
+	    {
+		"id": "enemy.cycle"
+	    }
+	]
+    },
+    {
+	"id": "lake.enemyattack.prep",
+	"label": "Враг действует!",
+	"startdescription": "Замечены подвижки - что-то приближается.",
+	"extantreqs": {
+	    "lake.here": 1
+	},
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "lake.niniameattack.startup",
+		"additional": true,
+		"chance": 60
+	    },
+	    {
+		"id": "lake.singleattack.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "enemy.clear"
+	    }
+	]
+    },
+    {
+	"id": "enemy.pickaction.router",
+	"label": "Враг действует!",
+	"startdescription": "",
+	"extantreqs": {
+	    "lake.here": -1
+	},
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"linked": [
+	    {
+		"id": "enemy.pickaction.high"
+	    },
+	    {
+		"id": "enemy.pickaction.medium"
+	    },
+	    {
+		"id": "enemy.pickaction.low"
+	    }
+	]
+    },
+    {
+	"id": "enemy.pickaction.high",
+	"label": "Враг действует!",
+	"startdescription": "Раздается сигнал тревоги - наш противник мобилизуется!",
+	"extantreqs": {
+	    "strife.tracker": 5
+	},
+	"deckeffects": {
+	    "decisions.enemy.high": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "enemy.executeaction"
+	    }
+	]
+    },
+    {
+	"id": "enemy.pickaction.medium",
+	"label": "Враг действует!",
+	"startdescription": "Раздается сигнал тревоги - наш противник мобилизуется!",
+	"extantreqs": {
+	    "strife.tracker": 3
+	},
+	"deckeffects": {
+	    "decisions.enemy.medium": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "enemy.executeaction"
+	    }
+	]
+    },
+    {
+	"id": "enemy.pickaction.low",
+	"label": "Враг действует!",
+	"startdescription": "Раздается сигнал тревоги - наш противник мобилизуется!",
+	"deckeffects": {
+	    "decisions.enemy.low": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "enemy.executeaction"
+	    }
+	]
+    },
+    {
+	"id": "enemy.executeaction",
+	"label": "Враг действует!",
+	"startdescription": "Раздается сигнал тревоги - наш противник мобилизуется! FNORD",
+	"linked": [
+	    {
+		"id": "enemy.clear"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "doubleattack.1.startup",
+		"additional": true
+	    },
+	    {
+		"id": "doubleattack.2.startup",
+		"additional": true
+	    },
+	    {
+		"id": "singleattack.startup",
+		"additional": true
+	    },
+	    {
+		"id": "destroysupplies.startup",
+		"additional": true
+	    },
+	    {
+		"id": "hide.startup",
+		"additional": true
+	    },
+	    {
+		"id": "infrastructure.startup",
+		"additional": true
+	    },
+	    {
+		"id": "cutoff.startup",
+		"additional": true
+	    },
+	    {
+		"id": "reinforcements.startup",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "enemy.clear",
+	"label": "Враг действует!",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "enemy.cycle"
+	    }
+	]
+    },
+    {
+	"id": "doubleattack.1.startup",
+	"actionid": "enemyaction.double.1",
+	"label": "Берут в клещи!",
+	"startdescription": "Два наших противника решили нанести удар одновременно - стратегия или чистое невезение? В любом случае, впереди нас может ожидать неприятная стычка.",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Враг",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "doubleattack.2.startup",
+	"actionid": "enemyaction.double.2",
+	"label": "Берут в клещи!",
+	"startdescription": "Два наших противника решили нанести удар одновременно - стратегия или чистое невезение? В любом случае, впереди нас может ожидать неприятная стычка.",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "singleattack.startup",
+	"actionid": "enemyaction.single",
+	"label": "Вражеское наступление!",
+	"startdescription": "Один из наших врагов стремится нанести нам удар-",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "decision.enemy.singleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Враг",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "lake.niniameattack.startup",
+	"actionid": "enemyaction.niniame",
+	"label": "Вражеское наступление!",
+	"startdescription": "Один из наших врагов стремится нанести нам удар-",
+	"tablereqs": {
+	    "uq.niniame": 1
+	},
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Враг",
+		"required": {
+		    "foe.niniame": 1,
+		    "foe.niniame.hidden": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "lake.singleattack.startup",
+	"actionid": "enemyaction.single",
+	"label": "Вражеское наступление!",
+	"startdescription": "Один из наших врагов стремится нанести нам удар-",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Враг",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "foe.niniame": 1,
+		    "foe.niniame.hidden": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "destroysupplies.startup",
+	"actionid": "enemyaction.destroysupplies",
+	"label": "Рейд по снабжению!",
+	"startdescription": "Наши хранилища припасов и ресурсов находятся под угрозой-",
+	"effects": {
+	    "decision.enemy.destroysupplies": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "decision.enemy.destroysupplies": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Враг",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "hide.startup",
+	"actionid": "enemyaction.hide",
+	"label": "Шифрование позиций",
+	"startdescription": "Противник отступает, чтобы скрыться.",
+	"aspects": {
+	    "concealidentity": 1
+	},
+	"requirements": {
+	    "decision.enemy.hide": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Враг",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.hidden": 1,
+		    "foe.rankofficer": 1
+		},
+		"greedy": true
+	    },
+	],
+	"warmup": 10
+    },
+    {
+	"id": "infrastructure.startup",
+	"actionid": "enemyaction.infrastructure",
+	"label": "Нацеливание на инфраструктуру!",
+	"startdescription": "Враг стремится перерезать жизненно важную артерию военных действий-",
+	"effects": {
+	    "decision.enemy.infrastructure": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "decision.enemy.infrastructure": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Враг",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "cutoff.startup",
+	"actionid": "enemyaction.cutoff",
+	"label": "Сдаем позиции!",
+	"startdescription": "Вражеские войска перемещаются по карте. Наши враги предприняли согласованные усилия, чтобы отрезать нас от наших линий снабжения-",
+	"requirements": {
+	    "decision.enemy.cutoff": 1
+	},
+	"effects": {
+	    "side.cutoff": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "reinforcements.startup",
+	"actionid": "enemyaction.reinforcements",
+	"label": "Вражеское подкрепление!",
+	"startdescription": "Еще в пути - немцы призывают перебросить больше своих сил на восток.",
+	"requirements": {
+	    "decision.enemy.reinforcements": 1
+	},
+	"linked": [
+	    {
+		"id": "reinforcements.pick"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "reinforcements.pick",
+	"label": "Вражеское подкрепление!",
+	"startdescription": "Ряды врага пополняются новой кровью и новой огневой мощью. Да будет так - мы убьем и их тоже.",
+	"requirements": {
+	    "foe": -4
+	},
+	"deckeffects": {
+	    "enemies": 1
+	},
+	"linked": [
+	    {
+		"id": "reinforcements.pick",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "nonefound",
+	"label": "Нет врагов?",
+	"startdescription": "Никто не собирается нападать на нас. Как-то это неправильно."
+    },
+    {
+	"id": "revealenemyidentity",
+	"label": "Организовать оборону",
+	"startdescription": "Враг приближается - сможем ли мы подняться им навстречу?\n\n[Защищайтесь, предоставив карту, равную любому из пороговых значений противника.]",
+	"requirements": {
+	    "foe.hidden": 1
+	},
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"linked": [
+	    {
+		"id": "revealenemyidentity.takeadditional"
+	    }
+	]
+    },
+    {
+	"id": "revealenemyidentity.takeadditional",
+	"label": "Организовать оборону",
+	"startdescription": "Враг приближается - сможем ли мы подняться им навстречу?\n\n[Защищайтесь, предоставив карту, равную любому из пороговых значений противника.]",
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "defend.opportunity"
+	    }
+	]
+    },
+    {
+	"id": "defend.opportunity",
+	"label": "Организовать оборону",
+	"startdescription": "Враг приближается - сможем ли мы подняться им навстречу?\n\n[Защищайтесь, предоставив карту, равную любому из пороговых значений противника.]",
+	"requirements": {
+	    "foe": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "Защита",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attack.nodefense.voice"
+	    },
+	    {
+		"id": "attack.nodefense.ostlingant"
+	    },
+	    {
+		"id": "attack.nodefense"
+	    },
+	    {
+		"id": "destroysupplies.nodefense"
+	    },
+	    {
+		"id": "infrastructure.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "defend.skill.deflect"
+	    },
+	    {
+		"id": "defend.aerial"
+	    },
+	    {
+		"id": "defend.ap"
+	    },
+	    {
+		"id": "defend.edge"
+	    },
+	    {
+		"id": "defend.winter"
+	    },
+	    {
+		"id": "defend.heart"
+	    },
+	    {
+		"id": "defend.grail"
+	    },
+	    {
+		"id": "defend.moth"
+	    },
+	    {
+		"id": "defend.lantern"
+	    },
+	    {
+		"id": "defend.forge"
+	    },
+	    {
+		"id": "defend.knock"
+	    },
+	    {
+		"id": "defend.forgemoth"
+	    },
+	    {
+		"id": "defend.edgelantern"
+	    },
+	    {
+		"id": "defend.edgewinter"
+	    },
+	    {
+		"id": "defend.edgeforge"
+	    },
+	    {
+		"id": "defend.knocklantern"
+	    },
+	    {
+		"id": "defend.edgeknock"
+	    }
+	]
+    },
+    {
+	"id": "defend.skill.deflect",
+	"label": "Нерушимая Защита",
+	"startdescription": "Меридианы моей души совпадают с меридианами моей плоти. Мои шрамы защищают меня. Я не могу быть ранен.",
+	"requirements": {
+	    "skill.deflect": 1
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.aerial",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "foe.aerial": 1,
+	    "friend.aerial": "foe.aerial"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.ap",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "foe.armoured": 1,
+	    "ap": "foe.armoured"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.edge",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.winter",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.heart",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.grail",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.moth",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.lantern",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.forge",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.knock",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needsknock": 1,
+	    "knock": "needsknock"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.forgemoth",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needsforgemoth": 1,
+	    "forge": "needsforgemoth",
+	    "moth": "needsforgemoth",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.edgelantern",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.edgewinter",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.edgeforge",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.knocklantern",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needsknocklantern": 1,
+	    "knock": "needsknocklantern",
+	    "lantern": "needsknocklantern",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "defend.edgeknock",
+	"label": "Успешная контратака!",
+	"startdescription": "Стойте и сражайтесь.",
+	"description": "Враг отброшен на этот раз.",
+	"requirements": {
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "makeadditional": 1
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+    {
+	"id": "attack.nodefense.voice",
+	"label": "Шепот Блаженства",
+	"startdescription": "В темноте она говорит с нами. О, как наши уши привыкли слушать, наши нервы привыкли расслабляться, наш разум привык забывать-",
+	"requirements": {
+	    "decision.enemy.attack": 1,
+	    "foe.voice": 1
+	},
+	"aspects": {
+	    "makeadditional": 1
+	},
+	"slots": [
+	    {
+		"id": "needsclue",
+		"label": "Зацепка",
+		"required": {
+		    "flock.clue": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "flock.clue": -1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "attack.nodefense.ostlingant",
+	"label": "Пронзительная Песня",
+	"startdescription": "Её звук разносится по затененной пустоши. Мое зрение трещит и проясняется; в моих ушах дрожь и рыдания. И когда снова наступает тишина, в моем черепе все еще звенит зловещее птичье пение...",
+	"requirements": {
+	    "decision.enemy.attack": 1,
+	    "foe.ostlingant": 1
+	},
+	"aspects": {
+	    "makeadditional": 1
+	},
+	"effects": {
+	    "trauma": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "attack.nodefense",
+	"label": "Защиты Нет!",
+	"startdescription": "Мы не могли собраться с силами, чтобы встретиться с нашим врагом в бою. Теперь мы ощутим последствия нашей слабости-",
+	"requirements": {
+	    "decision.enemy.attack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Союзник",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.nodefense.second",
+		"chance": 50
+	    },
+	    {
+		"id": "attack.conclude"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "attack.nodefense.second",
+	"label": "Защиты Нет!",
+	"startdescription": "Мы не могли собраться с силами, чтобы встретиться с нашим врагом в бою. Теперь мы ощутим последствия нашей слабости-",
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Союзник",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.conclude"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "attack.conclude",
+	"label": "Защиты Нет!",
+	"startdescription": "Кровь в воздухе. Жертвы.",
+	"aspects": {
+	    "makeadditional": 1,
+	    "makecasualty": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "attack.conclude.growth"
+	    },
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attack.conclude.growth",
+	"label": "Защиты Нет!",
+	"startdescription": "Кровь в воздухе. Жертвы.",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"aspects": {
+	    "makeadditional": 1,
+	    "killfriend": 1
+	},
+	"linked": [
+	    {
+		"id": "attack.conclude.growth.continue"
+	    }
+	]
+    },
+    {
+	"id": "attack.conclude.growth.continue",
+	"label": "Омерзительное Цветение",
+	"startdescription": "Прикосновение к Коронованному Росту обещает не смерть, но жизнь. Человек быстро учится бояться этого обещания.",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"aspects": {
+	    "growthinfect": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "destroysupplies.nodefense",
+	"label": "Потеря Ресурсов!",
+	"startdescription": "Наши ресурсы сгорают в огне!",
+	"requirements": {
+	    "decision.enemy.destroysupplies": 1
+	},
+	"slots": [
+	    {
+		"id": "needssupplies",
+		"label": "Припасы",
+		"required": {
+		    "supplies": 1,
+		    "weapon": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "debilitation": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "destroysupplies.nodefense",
+		"chance": 50
+	    },
+	    {
+		"id": "destroysupplies.conclude"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "destroysupplies.conclude",
+	"label": "Потеря Ресурсов!",
+	"startdescription": "Наши ресурсы сгорают в огне!",
+	"requirements": {
+	    "decision.enemy.destroysupplies": 1
+	},
+	"aspects": {
+	    "makeadditional": 1
+	},
+	"effects": {
+	    "supplies": -99,
+	    "weapon": -99
+	},
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	]
+    },
+    {
+	"id": "infrastructure.nodefense",
+	"label": "Превращено в руины!",
+	"startdescription": "Наши жизненно важные объекты разрушены!",
+	"requirements": {
+	    "decision.enemy.infrastructure": 1
+	},
+	"aspects": {
+	    "destroy": 1,
+	    "makeadditional": 1
+	},
+	"slots": [
+	    {
+		"id": "needsinfrastructure",
+		"label": "Инфраструктура",
+		"required": {
+		    "infrastructure": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	]
+    },
+    {
+	"id": "foe.elusive.conceal",
+	"label": "Неуловимый противник",
+	"startdescription": "Битва окончена, но среди густого дыма и лесов обломков нашему противнику удалось скрыться. Хитрец.",
+	"requirements": {
+	    "foe.elusive": 1
+	},
+	"aspects": {
+	    "concealidentity": 1
+	}
+    },
+    {
+	"id": "produce.foemonster.begin",
+	"actionid": "produce.monster",
+	"label": "Грядет что-то страшное",
+	"startdescription": "Запах крови и эхо агонии неизгладимо окрашивают здешний мир. Странные и ужасные враги вылезают вперед, привлеченные резней: нетерпеливые, голодные, полные ненависти.",
+	"extantreqs": {
+	    "strife.tracker": 3,
+	    "foe.monster": -4
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "produce.foemonster.draw"
+	    }
+	]
+    },
+    {
+	"id": "produce.foemonster.draw",
+	"actionid": "produce.monster",
+	"label": "Грядет что-то страшное",
+	"startdescription": "Запах крови и эхо агонии неизгладимо окрашивают здешний мир. Странные и ужасные враги вылезают вперед, привлеченные резней: нетерпеливые, голодные, полные ненависти.",
+	"requirements": {
+	    "foe": -2
+	},
+	"deckeffects": {
+	    "enemies.occult": 1
+	},
+	"linked": [
+	    {
+		"id": "produce.foemonster.draw",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "foe.lethal.kill",
+	"label": "Выживших нет",
+	"startdescription": "Крики смолкают. Кровь чернеет в лунном свете. Враг не проявил милосердия.",
+	"requirements": {
+	    "foe.lethal": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+]
+}

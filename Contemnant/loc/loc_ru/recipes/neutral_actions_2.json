@@ -1,0 +1,832 @@
+{
+"recipes": [
+    {
+	"id": "soviet.cycle.startup",
+	"actionid": "sovietaction",
+	"label": "Красная Армия Готовится",
+	"startdescription": "",
+	"effects": {
+	    "state.sovietsneutral": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "soviet.cycle.startup.aggro"
+	    }
+	]
+    },
+    {
+	"id": "soviet.cycle.startup.aggro",
+	"actionid": "sovietaction",
+	"label": "Красная Армия Готовится",
+	"startdescription": "",
+	"extantreqs": {
+	    "local.infamy": 3
+	},
+	"effects": {
+	    "state.sovietsaggro": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "soviet.cycle",
+	"label": "Красная Армия Готовится",
+	"startdescription": "@#state.sovietsneutral|Советская военная машина разрабатывает план дальнейшего продвижения на запад через Европу. Она нанесет удар по немцам здесь, и скоро.\n#state.sovietsaggro|Советская военная машина разрабатывает свой следующий план действий, но немцы больше не являются ее единственной заботой. Наши действия доказали, что мы достойны враждебности России (или, по крайней мере, отвращения) и они больше не будут такими дружелюбными.@",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.turnaggro.inflames"
+	    },
+	    {
+		"id": "soviet.turnaggro",
+		"chance": 50
+	    },
+	    {
+		"id": "aggro.turnstragglers.neutral"
+	    },
+	    {
+		"id": "aggro.turnstragglers.hired"
+	    },
+	    {
+		"id": "soviet.pickaction.aggro.high",
+		"chance": 40
+	    },
+	    {
+		"id": "soviet.pickaction.aggro.low",
+		"chance": 40
+	    },
+	    {
+		"id": "soviet.act.neutral",
+		"chance": 40
+	    },
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "soviet.turnaggro.inflames",
+	"label": "Красная Армия Готовится",
+	"startdescription": "",
+	"extantreqs": {
+	    "shrine.wolf": 1
+	},
+	"requirements": {
+	    "state.sovietsaggro": -1
+	},
+	"aspects": {
+	    "annoyance": 1
+	},
+	"xpans": { 
+	    "resentment": 1 
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "soviet.turnaggro",
+	"label": "Красная Армия Готовится",
+	"startdescription": "",
+	"extantreqs": {
+	    "local.infamy": 3
+	},
+	"requirements": {
+	    "state.sovietsaggro": -1
+	},
+	"aspects": {
+	    "annoyance": 1
+	},
+	"xpans": { 
+	    "resentment": 1 
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "aggro.turnstragglers.neutral",
+	"label": "Красная Армия Готовится",
+	"startdescription": "@#state.sovietsneutral|Советская военная машина разрабатывает план дальнейшего продвижения на запад через Европу. Она нанесет удар по немцам здесь, и скоро.\n#state.sovietsaggro|Советская военная машина разрабатывает свой следующий план действий, но немцы больше не являются ее единственной заботой. Наши действия доказали, что мы достойны враждебности России (или, по крайней мере, отвращения) и они больше не будут такими дружелюбными.@",
+	"xpans": { 
+	    "resentment": 1 
+	},
+	"extantreqs": {
+	    "state.sovietsaggro": 1
+	},
+	"tablereqs": {
+	    "neutral": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "aggro.turnstragglers.hired",
+	"label": "Красная Армия Готовится",
+	"startdescription": "@#state.sovietsneutral|Советская военная машина разрабатывает план дальнейшего продвижения на запад через Европу. Она нанесет удар по немцам здесь, и скоро.\n#state.sovietsaggro|Советская военная машина разрабатывает свой следующий план действий, но немцы больше не являются ее единственной заботой. Наши действия доказали, что мы достойны враждебности России (или, по крайней мере, отвращения) и они больше не будут такими дружелюбными.@",
+	"xpans": { 
+	    "resentment": 1 
+	},
+	"extantreqs": {
+	    "state.sovietsaggro": 1
+	},
+	"tablereqs": {
+	    "hired": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "soviet.act.neutral",
+	"label": "Красная Армия Действует!",
+	"startdescription": "Советская тревога приходит в жизнь! Российские войска мобилизуются и начинают действовать -",
+	"extantreqs": {
+	    "state.sovietsaggro": -1
+	},
+	"requirements": {
+	    "readiness.token": 3
+	},
+	"effects": {
+	    "readiness.token": -99
+	},
+	"alt": [
+	    {
+		"id": "soviet.pickaction.router.neutral",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "soviet.pickaction.router.neutral",
+	"actionid": "neutral.singleattack",
+	"label": "Красная Армия Действует!",
+	"internaldeck": {
+	    "spec": [
+		"signifier.reinforcements",
+		"signifier.singleattack",
+		"signifier.singleattack"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "soviet.neutral.singleattack"
+	    },
+	    {
+		"id": "soviet.neutral.reinforcements"
+	    },
+	    {
+		"id": "soviet.pickaction.router.neutral.again"
+	    }
+	]
+    },
+    {
+	"id": "soviet.pickaction.router.neutral.again",
+	"actionid": "neutral.singleattack",
+	"label": "Красная Армия Действует!",
+	"effects": {
+	    "signifier.reinforcements": -99,
+	    "signifier.singlettack": -99
+	},
+	"linked": [
+	    {
+		"id": "soviet.pickaction.router.neutral"
+	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.singleattack",
+	"actionid": "neutral.singleattack",
+	"label": "Красная Армия Атакует!",
+	"startdescription": "Русские переходят в наступление на своего противника -",
+	"description": "Они не смогли собрать людей для нанесения удара. Красная Армия утихает.",
+	"requirements": {
+	    "signifier.singleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Людской Ресурс",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "neutral.medic": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "soviet.neutral.singleattack.seektarget"
+	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.singleattack.seektarget",
+	"label": "Красная Армия Атакует!",
+	"startdescription": "Русские переходят в наступление на своего противника -",
+	"requirements": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Цель",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "remnant": 1,
+		    "foe.officer": 1,
+		    "foe.hidden": 1,
+		    "soviet": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "soviet.neutral.singleattack.victory",
+		"chance": 20
+	    },
+	    {
+		"id": "soviet.neutral.singleattack.defeat"
+	    },
+	    {
+		"id": "soviet.nonefound"
+	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.singleattack.victory",
+	"label": "Красная Армия Одерживает Верх!",
+	"startdescription": "Я наблюдаю за сражением издалека - наблюдаю, как русский контингент прорывается через немецкую оборону. Слышны отдаленные хлопки орудий, негромкий грохот снарядов, а затем та особая тишина, которая наступает после победы. Русские продвигаются вперед.",
+	"requirements": {
+	    "foe": 1
+	},
+	"effects": {
+	    "german": -99
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.singleattack.defeat",
+	"label": "Красная Армия Отброшена Назад!",
+	"startdescription": "Даже в предсмертных муках Вермахт остается грозным врагом. Русские понимают, что не в состоянии прорвать оборону немцев, и, истощив свои силы, они уходят с поля боя. Никто не остается победителем.",
+	"requirements": {
+	    "foe": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "soviet.nonefound",
+	"label": "Ничего не найдено?",
+	"startdescription": "Красная армия не могла найти цели для своей мощи.",
+    },
+    {
+	"id": "soviet.neutral.reinforcements",
+	"actionid": "neutral.reinforcements",
+	"label": "Красная Армия мобилизует свои Резервы",
+	"startdescription": "Советское командование выделило на эти цели больше ресурсов. В пути будет больше оружия, больше продовольствия и, конечно, больше живой силы.",
+	"description": "Тела вперед. Мясо в мясорубку.",
+	"extantreqs": {
+	    "soviet": -4
+	},
+	"requirements": {
+	    "signifier.reinforcements": 1
+	},
+	"warmup": 30,
+	"effects": {
+	    "neutral.infantry": 1
+	},
+	"deckeffects": {
+	    "soviet.reinforcements.neutral": 3
+    	}
+    },
+    {
+	"id": "soviet.pickaction.aggro.low",
+	"label": "Красная Армия Действует!",
+	"startdescription": "Советская тревога приходит в жизнь! Российские войска мобилизуются и начинают действовать -",
+	"requirements": {
+	    "readiness.token": 3
+	},
+	"extantreqs": {
+	    "state.sovietsaggro": 1
+	},
+	"deckeffects": {
+	    "deck.sovietactions.aggro.low": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.pickaction.aggro.low.continue"
+	    }
+	]
+    },
+    {
+	"id": "soviet.pickaction.aggro.low.continue",
+	"label": "Красная Армия Действует!",
+	"startdescription": "Советская тревога приходит в жизнь! Российские войска мобилизуются и начинают действовать -",
+	"alt": [
+	    {
+		"id": "aggro.startup.singleattack",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.hide",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.reinforcements",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "soviet.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "soviet.pickaction.aggro.high",
+	"label": "Красная Армия Действует!",
+	"startdescription": "Советская тревога приходит в жизнь! Российские войска мобилизуются и начинают действовать -",
+	"requirements": {
+	    "readiness.token": 3
+	},
+	"extantreqs": {
+	    "state.sovietsaggro": 1,
+	    "strife.tracker": 4
+	},
+	"deckeffects": {
+	    "deck.sovietactions.aggro.high": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.pickaction.aggro.high.continue"
+	    }
+	]
+    },
+    {
+	"id": "soviet.pickaction.aggro.high.continue",
+	"label": "Красная Армия Действует!",
+	"startdescription": "Советская тревога приходит в жизнь! Российские войска мобилизуются и начинают действовать -",
+	"alt": [
+	    {
+		"id": "aggro.startup.doubleattack.1",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.doubleattack.2",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.singleattack",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.hide",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.reinforcements",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "soviet.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "soviet.clear",
+	"label": "Красная Армия Действует!",
+	"startdescription": "",
+	"effects": {
+	    "draw.soviet.singleattack": -99,
+	    "draw.soviet.destroysupplies": -99,
+	    "draw.soviet.hide": -99,
+	    "draw.soviet.doubleattack": -99,
+	    "draw.soviet.reinforcements": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "aggro.startup.singleattack",
+	"actionid": "aggro.singleattack",
+	"label": "Красная Армия Атакует!",
+	"startdescription": "Русские переходят в наступление на своего противника -",
+	"description": "На фронте тихо. Красная Армия не предпринимает никаких действий.",
+	"requirements": {
+	    "draw.soviet.singleattack": 1
+	},
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Людская Сила",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "aggro.againstyou.singleattack.router",
+		"chance": 50
+	    },
+	    {
+		"id": "aggro.againstgerman.singleattack"
+	    }
+	]
+    },
+    {
+	"id": "aggro.againstyou.singleattack.router",
+	"label": "Красная Армия Атакует!",
+	"startdescription": "Русские переходят в наступление на своего противника -",
+	"requirements": {
+	    "soviet": 1
+	},
+	"linked": [
+	    {
+		"id": "aggro.againstyou.singleattack.revealhidden"
+	    },
+	    {
+		"id": "aggro.againstyou.singleattack.takeadditional"
+	    },
+	]
+    },
+    {
+	"id": "aggro.againstyou.singleattack.takeadditional",
+	"label": "Красная Армия Атакует!",
+	"startdescription": "Русские переходят в наступление на своего противника -",
+	"requirements": {
+	    "soviet": 1,
+	    "foe": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "defend.opportunity"
+	    }
+	]
+    },
+    {
+	"id": "aggro.againstyou.singleattack.revealhidden",
+	"label": "Красная Армия Атакует!",
+	"startdescription": "Русские переходят в наступление на своего противника -",
+	"requirements": {
+	    "foe.hidden": 1
+	},
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"linked": [
+	    {
+		"id": "aggro.againstyou.singleattack.takeadditional"
+	    }
+	]
+    },
+    {
+	"id": "aggro.againstgerman.singleattack",
+	"label": "Красная Армия Атакует!",
+	"startdescription": "Русские переходят в наступление на своего противника -",
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Цель",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "remnant": 1,
+		    "foe.officer": 1,
+		    "soviet": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "soviet.aggro.singleattack.victory",
+		"chance": 20
+	    },
+	    {
+		"id": "soviet.aggro.singleattack.defeat"
+	    },
+	    {
+		"id": "soviet.nonefound"
+	    }
+	]
+    },
+    {
+	"id": "soviet.aggro.singleattack.victory",
+	"label": "Красная Армия Одерживает Верх!",
+	"startdescription": "Я наблюдаю за сражением издалека - наблюдаю, как русский контингент прорывается через немецкую оборону. Слышны отдаленные хлопки орудий, негромкий грохот снарядов, а затем та особая тишина, которая наступает после победы. Русские продвигаются вперед.",
+	"requirements": {
+	    "foe": 2
+	},
+	"effects": {
+	    "german": -99
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "soviet.aggro.singleattack.defeat",
+	"label": "Красная Армия Отброшена Назад!",
+	"startdescription": "Даже в предсмертных муках Вермахт остается грозным врагом. Русские понимают, что не в состоянии прорвать оборону немцев, и, истощив свои силы, они уходят с поля боя. Никто не остается победителем.",
+	"requirements": {
+	    "foe": 2
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "aggro.startup.hide",
+	"actionid": "aggro.hide",
+	"label": "Красная Армия сдает Позиции",
+	"startdescription": "Противник отступает, чтобы скрыться.",
+	"requirements": {
+	    "draw.soviet.hide": 1
+	},
+	"aspects": {
+	    "concealidentity": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Сокрыть",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "hired": 1,
+		    "neutral": 1,
+		    "foe.hidden": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "aggro.startup.reinforcements",
+	"actionid": "aggro.reinforcements",
+	"label": "Красная Армия мобилизует свои Резервы",
+	"startdescription": "Советское командование выделило на эти цели больше ресурсов. В пути будет больше оружия, больше продовольствия и, конечно, больше живой силы.",
+	"description": "Тела вперед. Мясо в мясорубку.",
+	"requirements": {
+	    "draw.soviet.reinforcements": 1
+	},
+	"warmup": 30,
+	"effects": {
+	    "aggro.infantry": 1
+	},
+	"deckeffects": {
+	    "soviet.reinforcements.aggro": 2
+    	}
+    },
+    {
+	"id": "aggro.startup.doubleattack.1",
+	"actionid": "aggro.doubleattack.1",
+	"label": "Берут в клещи!",
+	"startdescription": "Красная Армия разработала план наступления с флангов на своих противников -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "draw.soviet.doubleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Людская Сила",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral": 1,
+		    "hired": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "soviet.nonefound"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "aggro.startup.doubleattack.1.againstgermans",
+		"chance": 40
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "aggro.startup.doubleattack.1.againstgermans",
+	"actionid": "aggro.doubleattack.1",
+	"label": "Берут в клещи!",
+	"startdescription": "Враг задумал двунаправленную атаку на своих противников -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	},
+	"tablereqs": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Людская сила",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral": 1,
+		    "hired": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "aggro.againstgerman.singleattack"
+	    },
+	],
+	"warmup": 10
+    },
+    {
+	"id": "aggro.startup.doubleattack.2",
+	"actionid": "aggro.doubleattack.2",
+	"label": "Берут в клещи!",
+	"startdescription": "Красная Армия разработала план наступления с флангов на своих противников -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "draw.soviet.doubleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Людская Сила",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral": 1,
+		    "hired": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "soviet.nonefound"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "aggro.startup.doubleattack.2.againstgermans",
+		"chance": 40
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "aggro.startup.doubleattack.2.againstgermans",
+	"actionid": "aggro.doubleattack.2",
+	"label": "Берут в клещи!",
+	"startdescription": "Враг задумал двунаправленную атаку на своих противников -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	},
+	"tablereqs": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Manpower",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral": 1,
+		    "hired": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "aggro.againstgerman.singleattack"
+	    },
+	],
+	"warmup": 10
+    },
+]
+}

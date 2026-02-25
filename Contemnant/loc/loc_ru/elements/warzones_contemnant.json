@@ -1,0 +1,3136 @@
+{
+"elements": [
+    {
+	"id": "sobibor",
+	"label": "Тот Старый Кошмар...",
+	"description": "Если я уйду достаточно далеко в холод, с Хранителем Ключа в качестве единственного источника света и как проводника, я могу погрузиться в знакомый сон – сон, воняющий грязью и пеплом. Мне не следует туда идти; я не могу туда вернуться. Но в этом ужасном месте есть нечто, с чем я должен столкнуться, что ждёт меня.[Эта карта останется до тех пор, пока вы не решите отправиться к ней, но союзники не смогут последовать за вами, а вы не сможете уйти, пока не достигнете своей цели.]",
+	"aspects": {
+	    "warzone": 1,
+	    "sobibor.marker": 1
+	},
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "sobibor.here"
+		},
+		{
+		    "id": "main.sobibor",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.exilenightmare",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.campguard",
+		    "morpheffect": "spawn",
+		    "level": 6
+		},
+		{
+		    "id": "foe.watchdog",
+		    "morpheffect": "spawn",
+		    "level": 6
+		},
+		{
+		    "id": "foe.searchlight",
+		    "morpheffect": "spawn",
+		    "level": 8
+		},
+		{
+		    "id": "foe.starvation",
+		    "morpheffect": "spawn",
+		    "level": 8
+		},
+		{
+		    "id": "foe.cold",
+		    "morpheffect": "spawn",
+		    "level": 8
+		},
+		{
+		    "id": "foe.grame.inactive",
+		    "morpheffect": "spawn",
+		    "level": 4
+		},
+		{
+		    "id": "foe.shade.inactive",
+		    "morpheffect": "spawn",
+		    "level": 4
+		},
+	    ]
+	}
+    },
+    {
+	"id": "sobibor.here",
+	"label": "Собибор",
+	"description": "Ад, созданный руками одних лишь людей; Ад, из которого я сбежал год назад; Ад, в который я вернулся, чтобы встретиться лицом к лицу и уничтожить тьму, поселившуюся в моем сердце из-за того, кого я ненавижу больше всего на свете.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "memory": 1,
+	    "sobibor.marker": 1,
+	    "long.blocker": 1
+	},
+    },   
+    {
+	"id": "wasteland.a.contemnant",
+	"label": "Разрушенная Страна",
+	"description": "Унылая, пустынная местность. Никто из тех, кто остаётся здесь, не делает этого по собственному желанию или по соображениям удобства. И всё же, я, возможно, отыщу здесь какую-то пользу. [В этом месте вы можете встретить странных врагов, но вы также можете найти полезные возможности и союзников, находясь здесь.]",
+	"aspects": {
+	    "warzone.current": 1,
+	    "wasteland": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+		"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"icon": "wasteland.contemnant"
+    },
+    {
+	"id": "wasteland.b.contemnant",
+	"label": "Разрушенная Страна",
+	"description": "Унылая, пустынная местность. Никто из тех, кто остаётся здесь, не делает этого по собственному желанию или по соображениям удобства. И всё же, я, возможно, отыщу здесь какую-то пользу. [В этом месте вы можете встретить странных врагов, но вы также можете найти полезные возможности и союзников, находясь здесь.]",
+	"aspects": {
+	    "warzone.current": 1,
+	    "wasteland": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+		"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"icon": "wasteland.contemnant"
+    },
+    {
+	"id": "kaunas",
+	"label": "Каунас",
+	"description": "Изгнанник сказал мне, что у них есть друг в Каунасе, из Железных Волков, много лет назад, когда он еще считался с Пепельным Числом. 'Пожиратель трупов,' он сказал мне. 'И пекарь сносной выпечки. Надеюсь, он мертв.'",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.a": 1,
+	    "warzone.haswolves": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.eliminate.contemnant",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "kaunas.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.sniper",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "kaunas.here",
+	"label": "Каунас",
+	"description": "Железный Волк прислуживал Чёрному Орлу здесь, во время оккупации, когда немцы пришли захватить Литву в начале войны. Но эта любовь угасла на корню, когда СС решили, что в их оркестре не нужна вторая скрипка, и распустило партию. Фашисты всегда заканчивают тем, что съедают своих же.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.a": 1,
+	    "warzone.haswolves": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "kaunas"
+    },
+    {
+	"id": "brest",
+	"label": "Брест",
+	"description": "Старый Брест неспокойно расположился на берегах реки Буг. Именно здесь немцы напали на Советский Союз, и кровопролитие здесь пропитано ядом, который, несомненно, нечто личное.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.a": 1,
+	    "warzone.haswolves": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.seize",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.kommandos.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.bombers.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "brest.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.sniper",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "brest.here",
+	"label": "Брест",
+	"description": "Брест стал местом двух кровавых побед Германии: первая - против поляков, сметенных волной 'Барбароссы'. Вторая - против Советов, которых австриец счел нужным предать менее чем через два года после заключения пакта со Сталиным. Ни я, ни Красная Армия не допустим третьей.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.a": 1,
+	    "warzone.haswolves": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "brest"
+    },
+    {
+	"id": "konigsberg",
+	"label": "Кёнигсберг",
+	"description": "Известие о бойне в Неммерсдорфе заставило многих жителей Кёнигсберга бежать из-за приближения Красной Армии. Они правильно делают, что бегут.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.a": 1,
+	    "warzone.haswolves": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.rout.contemnant",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "konigsberg.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 4
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.godbuilder",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.bombers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "konigsberg.here",
+	"label": "Кёнигсберг",
+	"description": "Осень в Кёнигсберге сменяется суровой зимой. Генералы Ляш и Черняховский играют в шахматы на улицах стрелками, танками и артиллерийскими орудиями, но, похоже, в этой игре нет явного победителя - пока нет. ",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.a": 1,
+	    "warzone.haswolves": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "konigsberg"
+    },
+    {
+	"id": "gdansk",
+	"label": "Гданьск",
+	"description": "В Гданьске разворачивается трехсторонняя битва. Немцы, русские и поляки сражаются друг с другом, улица с улицей и крыша с крышей. Я не знаю, с кем буду сражаться, когда прибуду туда, но уверен, что правильное решение придёт само собой, как только я обагрю руки свежей кровью.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.a": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.seize",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.kommandos.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.bombers.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "gdansk.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.sniper",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "gdansk.here",
+	"label": "Гданьск",
+	"description": "Война зародилась здесь, когда немцы пролили кровь на Вестерплатте. Это было всего пять лет назад, и все же мне кажется, что с тех пор я пережил пять жизней, полных боли. Теперь боевые действия между Советами, польской армией Крайовой и вермахтом продвигаются вверх по Висле со скоростью лесного пожара. Боль множится.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.a": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "gdansk"
+    },
+    {
+	"id": "grudziadz",
+	"label": "Грудзёндз",
+	"description": "Игровая площадка для <i>Айнзатцкоманд</i> посланных для содействия германизации захваченных польских земель. Было бы позором оставить их кровь непролитой.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.a": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.eliminate.contemnant",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.undead",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "grudziadz.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.sniper",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "grudziadz.here",
+	"label": "Грудзёндз",
+	"description": "Задолго до того, как Он нанес удар Эбрехелем по Золотым воротам Киева (или то были врата Града Невозведённого?), Первый король посадил здесь семя, из которого впоследствии вырос его город на Висле. Затем, когда замок был построен, тевтонцы водрузили Солнечный крест на крепостных валах и стенах. Теперь над Грудзендзом развевается другой крест - крючковатый. Я его снесу.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.a": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "grudziadz"
+    },
+    {
+	"id": "lodz",
+	"label": "Лодзь",
+	"description": "Официальные лица рейха говорят, что новое, благородное немецкое название этого города - 'Лицманштадт,' но когда я пролью здесь кровь врага, они скажут, что он умер в Лодзи.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.a": 1,
+	    "warzone.haswolves": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.breakout",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.kommandos.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "lodz.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.godbuilder",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "lodz.here",
+	"label": "Лодзь",
+	"description": "Яростное пламя Кузни преобразило это место в 19 веке: индустриализация, несправедливость, забастовки и восстания; кинотеатры, школы и подпольные газеты. В этом столетии все по-другому. Зима смыкает свои объятия вокруг Лодзи, и болезни опустошают гетто. То пламя промышленности, что ещё пылает здесь, было обращено на цели врага. ",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.a": 1,
+	    "warzone.haswolves": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "lodz"
+    },
+    {
+	"id": "warsaw",
+	"label": "Варшава",
+	"description": "Кампания тотального уничтожения в Варшаве: наказание за восстание в гетто. Немцы стремятся не просто убивать и изгонять людей, но и разрушить город до последнего камня. Смогли бы они это сделать? Стереть с лица земли целый город и его жителей? Волк глядит на горизонте, ожидая ответа.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.a": 1,
+	    "warzone.haswolves": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.breakout",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.sniper",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wrake",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wrake.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.bombers.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "warsaw.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.snipers",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.godbuilder",
+		    "morpheffect": "spawn",
+		    "level": 2
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "warsaw.here",
+	"label": "Варшава",
+	"description": "На развалинах королевской резиденции на разбомбленной Замковой площади лежит снег. Почерневшая груда книг тлеет у разрушенного входа в библиотеку Залуских, где работала <i>брандкоманда</i>. Кровь Августовского восстания так свежа, что, клянусь, я все еще слышу крики польских партизан, отражающиеся от каменных стен. Квартал за кварталом, улица за улицей, немцы стирают Варшаву с лица земли.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.a": 1,
+	    "warzone.haswolves": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "warsaw"
+    },
+    {
+	"id": "lublin",
+	"label": "Люблин",
+	"description": "Я помню, что до войны у меня были родственники в Люблине. Ветер треплет мое пальто, и я задаюсь вопросом, где они сейчас. Интересно, сбежали ли они, попали ли в плен или были расстреляны. Интересно, превратились ли они в пепел, и пронес ли этот пепел мимо меня западный ветер.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.a": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.breakout",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.kommandos.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.bombers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wrake",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.undead",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.undead.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "lublin.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.godbuilder",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "lublin.here",
+	"label": "Люблин",
+	"description": "Длинные тени лежат на Гродзенских воротах, которые на протяжении веков позволяли перевозить товары, людей и идеи между Солнечной и еврейской частями города. Но теперь тот, кто переступит порог ворот, увидит, что все витрины магазинов в еврейском квартале разбиты, а дома пусты. На окраине города раздаётся гудок поезда, отправляющегося в Майданек.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.a": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "lublin"
+    },
+    {
+	"id": "katowice",
+	"label": "Катовице",
+	"description": "Бои на южных окраинах еще не достигли самого Катовице, но советские танки уже скапливаются на холмах. К тому времени, когда мы доберемся до города, я подозреваю, что центральные пригороды уже превратятся в лес из щебня и обломков.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.a": 1,
+	    "warzone.haswolves": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.rout.contemnant",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.bombers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "katowice.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "katowice.here",
+	"label": "Катовице",
+	"description": "Несколько недель назад здесь был застрелен гестаповец, и немцы до сих пор гильотинируют подозреваемых на Рыночной площади. Польские повстанцы из Армии Крайовой помнят Кровавый понедельник.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.a": 1,
+	    "warzone.haswolves": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "katowice"
+    },
+    {
+	"id": "krakow",
+	"label": "Краков",
+	"description": "Изгнанник однажды рассказал мне о человеке, которого он знал в Кракове: 'Ицхак был умным малым и хорошим клиентом. Интересно, смог ли он уехать из Польши до того, как ситуация стала... <i>невыносимой</i> для его народа.' Он говорил об этом Ицхаке с сочувствием - но с таким сочувствием, какое проявляют к больному домашнему животному, а не к человеку.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.a": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.eliminate.contemnant",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.bombers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.bombers.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wrake.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "krakow.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 4
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.sniper",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.godbuilder",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "krakow.here",
+	"label": "Краков",
+	"description": "На холме генерал-губернатор излагает свои гнусные планы по смещению и ликвидации захваченного Вавельского замка. Внизу, в Краковском гетто, дрожащий ребенок мечтает о <i>карпатке</i> которую пекла его бабушка, когда осенью по воскресеньям становилось прохладно.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.a": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "krakow"
+    },
+    {
+	"id": "vienna",
+	"label": "Вена",
+	"description": "Белый Город. 'Там есть Лигейя, и она живет там очень долго,' Изгнанник сказал мне. 'Я всегда считал ее самой сварливой из семерых. Но ты все равно захочешь ее увидеть. Передай ей привет от меня.' ",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.rout.contemnant",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.kommandos.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.sniper",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.bombers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "vienna.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 5
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.sniper",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.bombers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.godbuilder",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "op.endinghope",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "vienna.here",
+	"label": "Вена",
+	"description": "Когда-то, в той далекой довоенной жизни, я играл здесь концерты. Мои воспоминания о том далеком времени - об аплодисментах, музыке и черно-белых клавишах под моими пальцами - были вырезаны из меня тем, кого называли Изгнанником. Теперь обугленные руины <i>Венской филармонии</i> единственное, что осталось в знак того, что эти невозможности когда-либо были реальностью.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "vienna"
+    },
+    {
+	"id": "brno",
+	"label": "Брно",
+	"description": "Артиллерия обстреливает восточные подступы к городу. Советские войска и немцы сражаются в этой жемчужине Моравии и ее окрестностях - две голодные собаки, дерущиеся из-за куска мяса.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.eliminate.contemnant",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 4
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.kommandos.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.bombers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.bombers.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "brno.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "brno.here",
+	"label": "Брно",
+	"description": "Президентский университет пуст, а выставочный комплекс заброшен. Перед замком Шпильберк стоит виселица. Первой республики больше нет; это дни Оккупации.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "brno"
+    },
+    {
+	"id": "prague",
+	"label": "Прага",
+	"description": "Чемберлен тщетно предлагал Чехословакию рейху, надеясь усмирить монстра, подкармливая его лакомыми кусочками. Как мы все теперь знаем, его план провалился. Но по всей стране, и особенно в Праге, все еще кипит недовольство. Тот, у кого есть спичка, может слишком легко превратить это неустойчивое равновесие в пожар.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.breakout",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.manhunters.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.sniper",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.bombers.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.undead.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "prague.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 4
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.medics",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.godbuilder",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "prague.here",
+	"label": "Прага",
+	"description": "Печально известные времена в Праге. Оккупация, бомбежки, возрождение гетто. Даже этот ужасный австриец приезжал сюда на парад много лет назад. Но Палач был убит здесь, когда граната чешского убийцы разорвала ему половину тела и оставила медленно умирать. Хорошие вещи все еще иногда случаются.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "prague"
+    },
+    {
+	"id": "liberec",
+	"label": "Либерец",
+	"description": "Жалкий Хенлейн играет губернатора Рейхсгау в больном Либереце - это его награда за поддержку аннексии еще до того, как Чемберлен и Даладье передали Чехословакию Австрийцу. Вместо этого кто-то должен был наградить его пулей. Лучше поздно чем никогда.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.eliminate.contemnant",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.warrior.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.hesukhine.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.serpent.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.echidniform.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "liberec.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.godbuilder",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "liberec.here",
+	"label": "Либерец",
+	"description": "Сгоревшие руины Старой синагоги вырисовываются на фоне голубого неба, словно зазубренная грудная клетка беспримесной ночи. Когда солнце садится, его почти не видно невооруженным глазом.  Но я всё ещё чувствую жар пожара, словно это место не переставало гореть уже лет пять.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "liberec"
+    },
+    {
+	"id": "dresden",
+	"label": "Дрезден",
+	"description": "Не так давно британская и американская авиация прошла здесь и разбомбила город в пух и прах. То, что осталось, поглотил огненный шторм, оставшийся после воздушных налетов союзников. Запах серы, дыма и озона разносится от останков Дрездена на многие десятки километров.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.seize",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wrake.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.undead.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.hesukhine.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "dresden.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 2
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "dresden.here",
+	"label": "Дрезден",
+	"description": "Фигура из песчаника улыбается со своего возвышения, добрая и неподвижная. Внизу, в развалинах разбомбленного города, царит тишина, и никто не отвечает на его приветствие.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведка",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "dresden"
+    },
+    {
+	"id": "wroclaw",
+	"label": "Вроцлав",
+	"description": "Оказавшись между наступлением Красной армии и наступлением зимы, многие мирные жители Вроцлава решили попытать счастья в бегстве - и проиграли. Дорога к городу усеяна телами бегущих, снег постепенно скрывает изможденные, безжизненные лица.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.rout.contemnant",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.manhunters.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.bombers.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wrake.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "wroclaw.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 4
+		},
+		{
+		    "id": "neutral.sniper",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.godbuilder",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.bombers",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 3
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "wroclaw.here",
+	"label": "Вроцлав",
+	"description": "Когда город был молод, все виды торговли шли сюда по Царской Дороге и Янтарному пути, и было известно, что Близнецы следят за перекрестками там. Время стерло эти старые дороги в пыль, и теперь во Вроцлаве ходят другие Часы: Секира. Мадругада. И Волк. ",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "wroclaw"
+    },
+    {
+	"id": "poznan",
+	"label": "Познань",
+	"description": "Этот высокомерный австриец объявил Познань <i>Фестунг:</i> город-крепость, который нельзя захватить. Как будто его заявление могло помешать наступлению Красной армии - или моему.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.eliminate.contemnant",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.manhunters.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.undead",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.undead.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.wrake",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.wrake.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.splinter",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.splinter.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "poznan.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.medic",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.sniper",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.godbuilder",
+		    "morpheffect": "spawn",
+		    "level": 3
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "poznan.here",
+	"label": "Познань",
+	"description": "На окраинах и улицах ветераны, которые отступили от вермахта под Сталинградом, с мрачным упорством рубили врага. Среди старых прусских укреплений громоздятся трупы. Вдохнёшь поглубже и почувствешь запах смерти, витающий в воздухе.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "poznan"
+    },
+    {
+	"id": "szczecin",
+	"label": "Щецин",
+	"description": "Впереди город, а по Одру плывут тела погибших. Я утоплю в воде еще многих, прежде чем закончу в Щецине.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.seize",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.kommandos.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.manhunters.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.undead.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.wrake.hidden",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "szczecin.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 4
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.engineers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.sniper",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.bombers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "neutral.godbuilder",
+		    "morpheffect": "spawn",
+		    "level": 2
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "szczecin.here",
+	"label": "Щецин",
+	"description": "Город Грифона, поверженный когтями Черного орла. Бомбардировки союзников превратили старую каменную кладку промышленного района в руины Одера, но немцы все еще продолжают сражаться.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "szczecin"
+    },
+    {
+	"id": "berlin",
+	"label": "Берлин",
+	"description": "Последние предсмертные судороги рейха сотрясают Берлин. Все мы знаем, что все кончено. Но, подобно голодным псам, народы будут тянуть, кусать и грызться из-за того, кому достанется пожирать трупы. А я? Я буду там, потому что хочу вырвать вонючее сердце рейха и почувствовать, как оно сокращается в моем кулаке.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.b": 1,
+	    "endgame": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "main.berlin.north",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "main.berlin.central",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "main.berlin.east",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.infantry.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.kommandos.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.sniper.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.tanks.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.artillery.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.bombers",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.bombers.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.manhunters.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.undead.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.splinter.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.wrake.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.undead.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "berlin.here"
+		},
+		{
+		    "id": "neutral.infantry",
+		    "morpheffect": "spawn",
+		    "level": 7
+		},
+		{
+		    "id": "neutral.scouts",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.sniper",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "neutral.tanks",
+		    "morpheffect": "spawn",
+		    "level": 5
+		},
+		{
+		    "id": "neutral.artillery",
+		    "morpheffect": "spawn",
+		    "level": 4
+		},
+		{
+		    "id": "neutral.bombers",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "neutral.godbuilder",
+		    "morpheffect": "spawn",
+		    "level": 3
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "berlin.here",
+	"label": "Берлин",
+	"description": "Берлин больше не город, а бойня. На каждой улице враг; для каждого врага - уничтожение. Если я убью достаточно людей, смогу ли я, наконец, отомстить? Нет, все погибшие мира сего не смогут заполнить пустоту, которую Волк оставил во мне. Но клыки судьбы - клыки Волка - не освободят меня. Только вперед. Когда над Берлином снова взойдет заря, я узнаю, какую судьбу заслужил.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.b": 1,
+	    "endgame": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "berlin"
+    },
+]
+}

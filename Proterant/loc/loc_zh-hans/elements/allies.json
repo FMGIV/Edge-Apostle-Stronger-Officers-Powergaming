@@ -1,0 +1,2520 @@
+{
+"elements": [
+    {
+	"id": "corpse.beast",
+	"label": "猛兽的尸骸",
+	"description": "它曾能自行移动。现已不能。",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "growthinfect": "foe.growth"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "friend.lion",
+	"label": "狮子",
+	"description": "<i>Panthera leo</i> 在世界各地，这种动物都被视作力量、荣誉、勇气的象征；并被尊为百兽之王与丛林之主——即使狮子并不生活在丛林中！这足以说明狮子的威名正是<i>如此</i>显赫。",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "edge": 4,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "fatiguing": "friend.lion.exhausted"
+	},
+    },
+    {
+	"id": "friend.lion.exhausted",
+	"label": "狮子（枯竭）",
+	"description": "<i>Panthera leo</i> 在世界各地，这种动物都被视作力量、荣誉、勇气的象征；并被尊为百兽之王与丛林之主——即使狮子并不生活在丛林中！这足以说明狮子的威名正是<i>如此</i>显赫。",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "refresh": "friend.lion"
+	},
+	"icon": "friend.lion",
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.lion"
+    },
+    {
+	"id": "friend.tiger",
+	"label": "老虎",
+	"description": "<i>Panthera tigris</i> 平均而言，老虎实际上比狮子更加巨大，也更加强力——但据传说所述，狮子比老虎要先被创造。要是反过来，那狮子匠或许就会被称作“老虎匠”。这名字可没“狮子匠”好听。",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "edge": 5,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "fatiguing": "friend.tiger.exhausted"
+	},
+    },
+    {
+	"id": "friend.tiger.exhausted",
+	"label": "老虎（枯竭）",
+	"description": "<i>Panthera tigris</i> 平均而言，老虎实际上比狮子更加巨大，也更加强力——但据传说所述，狮子比老虎要先被创造。要是反过来，那狮子匠或许就会被称作“老虎匠”。这名字可没“狮子匠”好听。",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": true
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "refresh": "friend.tiger"
+	},
+	"icon": "friend.tiger",
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.tiger"
+    },
+    {
+	"id": "friend.labhite",
+	"label": "友军狻猊",
+	"description": "<i>Leotherium pterobellus</i> 狻猊被认为是狮子匠最为美丽的子嗣。若你曾见到过狻猊飞行，你便会知晓为何——但若你见到狻猊飞行，死亡也就离你不远了。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "edge": 10,
+	    "friend.aerial": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labhite.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.labhite.wounded",
+	    "rebellion": "foe.labhite.grounded"
+	}
+    },
+    {
+	"id": "friend.labhite.exhausted",
+	"label": "友军狻猊（枯竭）",
+	"description": "<i>Leotherium pterobellus</i> 狻猊被认为是狮子匠最为美丽的子嗣。若你曾见到过狻猊飞行，你便会知晓为何——但若你见到狻猊飞行，死亡也就离你不远了。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labhite.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.labhite.wounded",
+	    "refresh": "friend.labhite"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.labhite",
+	"icon": "friend.labhite",
+	"resaturate": true
+    },
+    {
+	"id": "friend.labhite.wounded",
+	"label": "友军狻猊（负伤）",
+	"description": "[同时使用战地医师与友军工兵以治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.labhite"
+	},
+    },
+    {
+	"id": "friend.spathiurus",
+	"label": "友军刃尾兽",
+	"description": "<i>Leotherium ensiformes</i> 这些生物在研究怪物之人之间的俗称是“击剑狮子”。但不要想着与它们击剑——它们尾部末端的刃状附属物可以轻松穿刺一切钢铁或石头。当然，穿刺肉体则更加容易。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "edge": 8,
+	    "ap": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.spathiurus.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.spathiurus.wounded",
+	    "rebellion": "foe.spathiurus"
+	}
+    },
+    {
+	"id": "friend.spathiurus.exhausted",
+	"label": "友军刃尾兽（枯竭）",
+	"description": "<i>Leotherium ensiformes</i> 这些生物在研究怪物之人之间的俗称是“击剑狮子”。但不要想着与它们击剑——它们尾部末端的刃状附属物可以轻松穿刺一切钢铁或石头。当然，穿刺肉体则更加容易。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.spathiurus.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.spathiurus.wounded",
+	    "refresh": "friend.spathiurus"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.spathiurus",
+	"icon": "friend.spathiurus",
+	"resaturate": true
+    },
+    {
+	"id": "friend.spathiurus.wounded",
+	"label": "友军刃尾兽（负伤）",
+	"description": "[同时使用战地医师与友军工兵以治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.spathiurus"
+	},
+    },
+    {
+	"id": "friend.hesukhine",
+	"label": "友军匿形兽",
+	"description": "<i>Leotherium vitricutis</i>匿形兽和狮子匠的其他子嗣的不同之处，在于它的狡猾，耐心与寂静——在狩猎时，它们甚至会选择完全隐去身形。没有其他怪物如匿形兽般行事。不过话说回来，若有一位司辰将打破陈规，那位司辰必定是狮子匠。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "edge": 8,
+	    "winter": 8,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.hesukhine.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.hesukhine.wounded",
+	    "rebellion": "foe.hesukhine.hidden"
+	}
+    },
+    {
+	"id": "friend.hesukhine.exhausted",
+	"label": "友军匿形兽（枯竭）",
+	"description": "<i>Leotherium vitricutis</i>匿形兽和狮子匠的其他子嗣的不同之处，在于它的狡猾，耐心与寂静——在狩猎时，它们甚至会选择完全隐去身形。没有其他怪物如匿形兽般行事。不过话说回来，若有一位司辰将打破陈规，那位司辰必定是狮子匠。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.hesukhine.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.hesukhine.wounded",
+	    "refresh": "friend.hesukhine"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.hesukhine",
+	"icon": "friend.hesukhine",
+	"resaturate": true
+    },
+    {
+	"id": "friend.hesukhine.wounded",
+	"label": "友军匿形兽（负伤）",
+	"description": "[同时使用战地医师与友军工兵以治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.hesukhine"
+	},
+    },
+    {
+	"id": "friend.echidniform",
+	"label": "友军厄客德娜衍体",
+	"description": "因厄客德娜对狮子匠子嗣的腐化而产生的各式各样的畸变生物们并无正式的学名。因为这现在只是蛇鳞、猫皮、以及一些更为怪异的部分——我甚至无法确定这些部分的正体——所拼接而成的生物。若给予足够长的时间，它或许将发育为更加新颖，更加凶猛的生物。但对于我，以及我的目的来说，它现在已足够新颖与凶猛。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "edge": 12,
+	    "moth": 8,
+	    "grail": 8,
+	    "friend.aerial": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.echidniform.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.echidniform.wounded",
+	    "rebellion": "foe.echidniform.grounded"
+	},
+	"unique": true,
+	"uniquenessgroup": "uqechidniform"
+    },
+    {
+	"id": "friend.echidniform.exhausted",
+	"label": "友军厄客德娜衍体（枯竭）",
+	"description": "因厄客德娜对狮子匠子嗣的腐化而产生的各式各样的畸变生物们并无正式的学名。因为这现在只是蛇鳞、猫皮、以及一些更为怪异的部分——我甚至无法确定这些部分的正体——所拼接而成的生物。若给予足够长的时间，它或许将发育为更加新颖，更加凶猛的生物。但对于我，以及我的目的来说，它现在已足够新颖与凶猛。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.echidniform.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.echidniform.wounded",
+	    "refresh": "friend.echidniform"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.echidniform",
+	"icon": "friend.echidniform",
+	"resaturate": true,
+	"uniquenessgroup": "uqechidniform"
+    },
+    {
+	"id": "friend.echidniform.wounded",
+	"label": "友军厄客德娜衍体（负伤）",
+	"description": "[同时使用战地医师与友军工兵以治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.echidniform"
+	},
+	"uniquenessgroup": "uqechidniform"
+    },
+    {
+	"id": "friend.skaptodon",
+	"label": "友军剑齿兽",
+	"description": "<i>Leotherium skavodont</i> 潜地裂石的强大生物，当离开地下的黑暗与热力之后仍能变得更强。任何仍行于世间的剑齿兽都是独一无二的战士，其力量与凶猛几乎无人能敌。但狮子匠现已几乎不再制造剑齿兽。或许他认为它们已过时？[使用这一友军有概率产生地震。]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "edge": 18,
+	    "forge": 6,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.skaptodon.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.skaptodon.wounded",
+	    "rebellion": "foe.skaptodon"
+	},
+	"unique": true,
+	"uniquenessgroup": "uqskaptodon"
+    },
+    {
+	"id": "friend.skaptodon.exhausted",
+	"label": "友军剑齿兽（枯竭）",
+	"description": "<i>Leotherium skavodont</i> 潜地裂石的强大生物，当离开地下的黑暗与热力之后仍能变得更强。任何仍行于世间的剑齿兽都是独一无二的战士，其力量与凶猛几乎无人能敌。但狮子匠现已几乎不再制造剑齿兽。或许他认为它们已过时？[使用这一友军有概率产生地震。]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.skaptodon.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.skaptodon.wounded",
+	    "refresh": "friend.skaptodon"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.skaptodon",
+	"icon": "friend.skaptodon",
+	"resaturate": true,
+	"uniquenessgroup": "uqskaptodon",
+	"induces": [
+	    {
+		"id": "produce.earthquake.ally",
+		"chance": 40
+	    }
+	],
+    },
+    {
+	"id": "friend.skaptodon.wounded",
+	"label": "友军剑齿兽（负伤）",
+	"description": "[同时使用战地医师与友军工兵以治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.skaptodon"
+	},
+	"uniquenessgroup": "uqskaptodon"
+    },
+    {
+	"id": "friend.fiorenza.local",
+	"label": "菲奥伦扎·斯科桑蒂",
+	"description": "一位善良且富有活力的年轻女士，她将她的声音借给了四面楚歌的<i>抵抗运动</i>的战士们。她曾是学生，但现为士兵。",
+	"aspects": {
+	    "lantern": 4,
+	    "heart": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.fiorenza.local.wounded",
+	    "fatiguing": "friend.fiorenza.local.exhausted",
+	    "recruiting": "friend.fiorenza",
+	    "mortal.introduce": [
+		{
+		    "id": "side.fiorenza",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.fiorenza"
+    },
+    {
+	"id": "friend.fiorenza.local.exhausted",
+	"label": "菲奥伦扎·斯科桑蒂（枯竭）",
+	"description": "刚躲开几名希望与她调情的笨拙游击队员的菲奥伦扎正在给吉他调音，并让她的嗓子休息。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.fiorenza.local.wounded",
+	    "fatiguing": "friend.fiorenza.local.exhausted",
+	    "refresh": "friend.fiorenza.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.fiorenza.local",
+	"icon": "friend.fiorenza",
+	"resaturate": true
+    },
+    {
+	"id": "friend.fiorenza.local.wounded",
+	"label": "菲奥伦扎·斯科桑蒂（负伤）",
+	"description": "一位善良且富有活力的年轻女士，她将她的声音借给了四面楚歌的<i>抵抗运动</i>的战士们。她曾是学生，但现为士兵。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.fiorenza.local"
+	},
+	"icon": "friend.fiorenza.wounded"
+    },
+    {
+	"id": "friend.fiorenza",
+	"label": "菲奥伦扎·斯科桑蒂",
+	"description": "一位善良且富有活力的年轻女士，她将她的声音借给了四面楚歌的<i>抵抗运动</i>的战士们。她曾是学生，但现为士兵。",
+	"aspects": {
+	    "lantern": 4,
+	    "heart": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.fiorenza.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.fiorenza.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.fiorenza.exhausted",
+	"label": "菲奥伦扎·斯科桑蒂（枯竭）",
+	"description": "刚躲开几名希望与她调情的笨拙游击队员的菲奥伦扎正在给吉他调音，并让她的嗓子休息。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.fiorenza.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.fiorenza.exhausted",
+	    "refresh": "friend.fiorenza"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.fiorenza",
+	"icon": "friend.fiorenza",
+	"resaturate": true
+    },
+    {
+	"id": "friend.fiorenza.wounded",
+	"label": "菲奥伦扎·斯科桑蒂（负伤）",
+	"description": "一位善良且富有活力的年轻女士，她将她的声音借给了四面楚歌的<i>抵抗运动</i>的战士们。她曾是学生，但现为士兵。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.fiorenza"
+	}
+    },
+    {
+	"id": "friend.lorenzo.local",
+	"label": "洛伦佐·巴斯",
+	"description": "一位老练的厨师，也是一位外科医师代理。作为后者，他可堪一用；但实际上，他的<i>红烩牛肉</i>比他的手术刀救下了更多人。",
+	"aspects": {
+	    "forge": 4,
+	    "grail": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.lorenzo.local.wounded",
+	    "fatiguing": "friend.lorenzo.local.exhausted",
+	    "recruiting": "friend.lorenzo",
+	    "mortal.introduce": [
+		{
+		    "id": "side.lorenzo",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.lorenzo"
+    },
+    {
+	"id": "friend.lorenzo.local.exhausted",
+	"label": "洛伦佐·巴斯（枯竭）",
+	"description": "洛伦佐小心翼翼地把他的料理用具与手术用具分开放置。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.lorenzo.local.wounded",
+	    "fatiguing": "friend.lorenzo.local.exhausted",
+	    "refresh": "friend.lorenzo.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.lorenzo.local",
+	"icon": "friend.lorenzo",
+	"resaturate": true
+    },
+    {
+	"id": "friend.lorenzo.local.wounded",
+	"label": "洛伦佐·巴斯（负伤）",
+	"description": "一位老练的厨师，也是一位外科医师代理。作为后者，他可堪一用；但实际上，他的<i>红烩牛肉</i>比他的手术刀救下了更多人。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.lorenzo.local"
+	},
+	"icon": "friend.lorenzo.wounded"
+    },
+    {
+	"id": "friend.lorenzo",
+	"label": "洛伦佐·巴斯",
+	"description": "一位老练的厨师，也是一位外科医师代理。作为后者，他可堪一用；但实际上，他的<i>红烩牛肉</i>比他的手术刀救下了更多人。",
+	"aspects": {
+	    "forge": 4,
+	    "grail": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.lorenzo.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.lorenzo.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.lorenzo.exhausted",
+	"label": "洛伦佐·巴斯（枯竭）",
+	"description": "洛伦佐小心翼翼地把他的料理用具与手术用具分开放置。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.lorenzo.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.lorenzo.exhausted",
+	    "refresh": "friend.lorenzo"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.lorenzo",
+	"icon": "friend.lorenzo",
+	"resaturate": true
+    },
+    {
+	"id": "friend.lorenzo.wounded",
+	"label": "洛伦佐·巴斯（负伤）",
+	"description": "一位老练的厨师，也是一位外科医师代理。作为后者，他可堪一用；但实际上，他的<i>红烩牛肉</i>比他的手术刀救下了更多人。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.lorenzo"
+	}
+    },
+    {
+	"id": "friend.padre.local",
+	"label": "鲁杰罗神父",
+	"description": "一位神父，老兵……或许还是除灵师？这位好神父在上一次大战期间还只是牧师，在那时他发誓要除尽他所找到的一切邪恶——世界之内的如此，世界之外的亦然。",
+	"aspects": {
+	    "winter": 4,
+	    "knock": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.padre.local.wounded",
+	    "fatiguing": "friend.padre.local.exhausted",
+	    "recruiting": "friend.padre",
+	    "mortal.introduce": [
+		{
+		    "id": "side.padre",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.padre"
+    },
+    {
+	"id": "friend.padre.local.exhausted",
+	"label": "鲁杰罗神父（枯竭）",
+	"description": "我们的好神父正在祈祷：向钥匙的圣彼得祈祷；向门扉的圣亚割妮祈祷；向门关的半脸天使祈祷。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.padre.local.wounded",
+	    "fatiguing": "friend.padre.local.exhausted",
+	    "refresh": "friend.padre.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.padre.local",
+	"icon": "friend.padre",
+	"resaturate": true
+    },
+    {
+	"id": "friend.padre.local.wounded",
+	"label": "鲁杰罗神父（负伤）",
+	"description": "一位神父，老兵……或许还是除灵师？这位好神父在上一次大战期间还只是牧师，在那时他发誓要除尽他所找到的一切邪恶——世界之内的如此，世界之外的亦然。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.padre.local"
+	},
+	"icon": "friend.padre.wounded"
+    },
+    {
+	"id": "friend.padre",
+	"label": "鲁杰罗神父",
+	"description": "一位神父，老兵……或许还是除灵师？这位好神父在上一次大战期间还只是牧师，在那时他发誓要除尽他所找到的一切邪恶——世界之内的如此，世界之外的亦然。",
+	"aspects": {
+	    "knock": 4,
+	    "winter": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.padre.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.padre.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.padre.exhausted",
+	"label": "鲁杰罗神父（枯竭）",
+	"description": "我们的好神父正在祈祷：向钥匙的圣彼得祈祷；向门扉的圣亚割妮祈祷；向门关的半脸天使祈祷。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.padre.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.padre.exhausted",
+	    "refresh": "friend.padre"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.padre",
+	"icon": "friend.padre",
+	"resaturate": true
+    },
+    {
+	"id": "friend.padre.wounded",
+	"label": "鲁杰罗神父（负伤）",
+	"description": "一位神父，老兵……或许还是除灵师？这位好神父在上一次大战期间还只是牧师，在那时他发誓要除尽他所找到的一切邪恶——世界之内的如此，世界之外的亦然。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.padre"
+	}
+    },
+    {
+	"id": "friend.daria.local",
+	"label": "达莉亚·科尔西诺",
+	"description": "一位小有名气的游击队员，那些见过她战斗的人尊称她为“剃刀女士”。在这场战争之前，她或许是理发师，或许是囚犯，或许是杀人者，但她从未肯定任何猜测。",
+	"aspects": {
+	    "moth": 4,
+	    "edge": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.daria.local.wounded",
+	    "fatiguing": "friend.daria.local.exhausted",
+	    "recruiting": "friend.daria",
+	    "mortal.introduce": [
+		{
+		    "id": "side.daria",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.daria"
+    },
+    {
+	"id": "friend.daria.local.exhausted",
+	"label": "达莉亚·科尔西诺（枯竭）",
+	"description": "达莉亚后撤，退往树木后方，退往夜色之中。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.daria.local.wounded",
+	    "fatiguing": "friend.daria.local.exhausted",
+	    "refresh": "friend.daria.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.daria.local",
+	"icon": "friend.daria",
+	"resaturate": true
+    },
+    {
+	"id": "friend.daria.local.wounded",
+	"label": "达莉亚·科尔西诺（负伤）",
+	"description": "一位小有名气的游击队员，那些见过她战斗的人尊称她为“剃刀女士”。在这场战争之前，她或许是理发师，或许是囚犯，或许是杀人者，但她从未肯定任何猜测。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.daria.local"
+	},
+	"icon": "friend.daria.wounded"
+    },
+    {
+	"id": "friend.daria",
+	"label": "达莉亚·科尔西诺",
+	"description": "一位小有名气的游击队员，那些见过她战斗的人尊称她为“剃刀女士”。在这场战争之前，她或许是理发师，或许是囚犯，或许是杀人者，但她从未肯定任何猜测。",
+	"aspects": {
+	    "moth": 4,
+	    "edge": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.daria.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.daria.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.daria.exhausted",
+	"label": "达莉亚·科尔西诺（枯竭）",
+	"description": "达莉亚后撤，退往树木后方，退往夜色之中。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.daria.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.daria.exhausted",
+	    "refresh": "friend.daria"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.daria",
+	"icon": "friend.daria",
+	"resaturate": true
+    },
+    {
+	"id": "friend.daria.wounded",
+	"label": "达莉亚·科尔西诺（负伤）",
+	"description": "一位小有名气的游击队员，那些见过她战斗的人尊称她为“剃刀女士”。在这场战争之前，她或许是理发师，或许是囚犯，或许是杀人者，但她从未肯定任何猜测。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.daria"
+	}
+    },
+    {
+	"id": "friend.giorgiou",
+	"label": "M·乔吉奥",
+	"description": "走私商人、保险箱窃贼、以及业余（<i>十分</i>业余）的哲学家；被称为“流亡者”之人的一位老友。近些日子，他被人看到时总叼着香烟。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "knock": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.giorgiou.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.giorgiou.wounded",
+	    "mortal.introduce": [
+		{
+		    "id": "side.termoli",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.giorgiou.exhausted",
+	"label": "M·乔吉奥（枯竭）",
+	"description": "走私商人、出千惯犯、以及业余（<i>十分</i>业余）的哲学家；被称为“流亡者”之人的一位老友。近些日子，他被人看到时总叼着香烟。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.giorgiou.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.giorgiou.wounded",
+	    "refresh": "friend.giorgiou",
+	    "refreshally": "friend.giorgiou"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.giorgiou",
+	"icon": "friend.giorgiou",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "friend.giorgiou.wounded",
+	"label": "M·乔吉奥（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.giorgiou"
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.orsolina",
+	"label": "“深掘者”",
+	"description": "现在正追随欧索丽娜的游击队员只知道她年老且强大——但我仅需一瞥，就了解了她曾经历过什么，而她也同样能够看出我藏于内的年纪与力量。我们因此心照不宣地微笑。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "forge": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.orsolina.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.orsolina.wounded",
+	    "mortal.introduce": [
+		{
+		    "id": "side.campobasso",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "npc.delver"
+    },
+    {
+	"id": "friend.orsolina.exhausted",
+	"label": "“深掘者”（枯竭）",
+	"description": "现在正追随欧索丽娜的游击队员只知道她年老且强大——但我知晓她曾是何物，而她也同样能够看出我藏于内的年纪与力量。我们因此心照不宣地微笑。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.orsolina.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.orsolina.wounded",
+	    "refresh": "friend.orsolina",
+	    "refreshally": "friend.orsolina"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.orsolina",
+	"resaturate": true,
+	"unique": true,
+	"icon": "npc.delver"
+    },
+    {
+	"id": "friend.orsolina.wounded",
+	"label": "“深掘者”（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.orsolina"
+	},
+	"unique": true
+    },
+]
+}

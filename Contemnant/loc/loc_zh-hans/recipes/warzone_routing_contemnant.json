@@ -1,0 +1,698 @@
+{
+"recipes": [
+    {
+	"id": "hint.newwarzone.fromsobibor",
+	"actionid": "communicate",
+	"label": "自记忆的阴影中返回？",
+	"startdescription": "即使我一遍又一遍击打着这醒时梦魇的外墙，直到我的双拳白骨外露，我也无法重获自由。一个可憎的目标将我吸引至此，只有那目标被终结，我才能够离开。\n\n[你在完成主要目标之前无法离开索比堡。]",
+	"requirements": {
+	    "sobibor.here": 1
+	},
+	"extantreqs": {
+	    "main": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "newwarzone.fromsobibor",
+	"actionid": "communicate",
+	"label": "自记忆的阴影中返回",
+	"startdescription": "我已毁灭我之中恐惧那名为流亡者之人的部分。现在，我需要从这一半真实一半虚妄的梦魇中返回醒时世界。在那里我才能够最终满足我复仇的渴望。",
+	"description": "该前进了。",
+	"requirements": {
+	    "sobibor.here": 1
+	},
+	"extantreqs": {
+	    "main": -1
+	},
+	"effects": {
+	    "token.escaped": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"deckeffects": {
+	    "warzones.sector.b.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	],
+	"xpans": { 
+	    "benign": 1 
+	},
+	"furthermore": { "target": "~/tabletop[situationstorage]+", "aspects": { "benign": 1 } },
+    },
+    {
+	"id": "newwarzone.inflames.sectora",
+	"actionid": "communicate",
+	"label": "在混乱的掩护下逃离",
+	"startdescription": "血在街道上蔓延，火在废墟中起舞——我们将这座城市变作屠宰场。在我们今日种下的混乱中自此地消失实乃易事。",
+	"description": "我已把目光投向一个新的目的地。",
+	"requirements": {
+	    "shrine.wolf": 1,
+	    "sector.a": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"deckeffects": {
+	    "warzones.sector.a.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.inflames.sectorb",
+	"actionid": "communicate",
+	"label": "在混乱的掩护下逃离",
+	"startdescription": "血在街道上蔓延，火在废墟中起舞——我们将这座城市变作屠宰场。在我们今日种下的混乱中自此地消失实乃易事。",
+	"description": "我已把目光投向一个新的目的地。",
+	"requirements": {
+	    "shrine.wolf": 1,
+	    "sector.b": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"deckeffects": {
+	    "warzones.sector.b.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.kaunas",
+	"actionid": "communicate",
+	"label": "规划一条离开考纳斯的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "kaunas.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"warsaw",
+		"konigsberg",
+		"brest"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.brest",
+	"actionid": "communicate",
+	"label": "规划一条离开布列斯特的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "brest.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"warsaw",
+		"lublin",
+		"kaunas"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.konigsberg",
+	"actionid": "communicate",
+	"label": "规划一条离开柯尼斯堡的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "konigsberg.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"gdansk",
+		"kaunas"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.gdansk",
+	"actionid": "communicate",
+	"label": "规划一条离开格但斯克的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "gdansk.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"grudziadz",
+		"warsaw",
+		"konigsberg"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.grudziadz",
+	"actionid": "communicate",
+	"label": "规划一条离开格鲁琼兹的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "grudziadz.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"gdansk",
+		"lodz"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.lodz",
+	"actionid": "communicate",
+	"label": "规划一条离开罗兹的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "lodz.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"grudziadz",
+		"katowice",
+		"warsaw",
+		"lublin"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.warsaw",
+	"actionid": "communicate",
+	"label": "规划一条离开华沙特的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "warsaw.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"lodz",
+		"brest",
+		"lublin"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.lublin",
+	"actionid": "communicate",
+	"label": "规划一条离开卢布林的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "lublin.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"brest",
+		"krakow",
+		"warsaw",
+		"lodz"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.katowice",
+	"actionid": "communicate",
+	"label": "规划一条离开卡托维兹的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "katowice.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"lodz",
+		"krakow"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.krakow",
+	"actionid": "communicate",
+	"label": "规划一条离开克拉科夫的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "krakow.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"katowice",
+		"lodz",
+		"lublin"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.vienna",
+	"actionid": "communicate",
+	"label": "规划一条离开维也纳的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "vienna.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"brno",
+		"prague",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.brno",
+	"actionid": "communicate",
+	"label": "规划一条离开布尔诺的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "brno.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"prague",
+		"wroclaw",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.prague",
+	"actionid": "communicate",
+	"label": "规划一条离开布拉格的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "prague.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"brno",
+		"liberec",
+		"dresden"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.liberec",
+	"actionid": "communicate",
+	"label": "规划一条离开利贝雷茨的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "liberec.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"dresden",
+		"wroclaw",
+		"poznan"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.dresden",
+	"actionid": "communicate",
+	"label": "规划一条离开德累斯顿的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "dresden.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"prague",
+		"szczecin",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.wroclaw",
+	"actionid": "communicate",
+	"label": "规划一条离开弗罗茨瓦夫的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "wroclaw.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"brno",
+		"liberec",
+		"poznan"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.poznan",
+	"actionid": "communicate",
+	"label": "规划一条离开波兹南的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "poznan.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"szczecin",
+		"wroclaw"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.szczecin",
+	"actionid": "communicate",
+	"label": "规划一条离开什切青的路线？",
+	"startdescription": "我需要开辟一条前往更西方的路。我们能采取何种路线？",
+	"description": "前往柏林的下一步。",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "szczecin.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"poznan",
+		"dresden"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.distantdraw.a.contemnant",
+	"label": "前路坎坷",
+	"startdescription": "这次，前往我们下一个目的地的行军将会格外漫长。",
+	"description": "前往柏林的下一步。准备好行军吧。",
+	"requirements": {
+	    "warzone.distant": 1
+	},
+	"warmup": 60,
+	"deckeffects": {
+	    "warzones.sector.a.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "mutatewarzone.distant"
+	    },
+	    {
+		"id": "newwarzone.transfertosectorb.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.distantdraw.b.contemnant",
+	"label": "前路坎坷",
+	"startdescription": "这次，前往我们下一个目的地的行军将会格外漫长。",
+	"description": "前往柏林的下一步。准备好行军吧。",
+	"requirements": {
+	    "warzone.distant": 1
+	},
+	"warmup": 60,
+	"deckeffects": {
+	    "warzones.sector.b.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "mutatewarzone.distant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.transfertosectorb.contemnant",
+	"label": "前路坎坷",
+	"description": "前往柏林的下一步。准备好行军吧。",
+	"requirements": {
+	    "warzone": -1
+	},
+	"deckeffects": {
+	    "starting.warzones.sector.b.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "mutatewarzone.distant"
+	    },
+	    {
+		"id": "newwarzone.transfertosectorb.stillneedsnew.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.transfertosectorb.stillneedsnew.contemnant",
+	"label": "前路坎坷",
+	"description": "前往柏林的下一步。准备好行军吧。",
+	"requirements": {
+	    "warzone": -1
+	},
+	"deckeffects": {
+	    "warzones.sector.b.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "mutatewarzone.distant"
+	    }
+	]
+    },
+]
+}

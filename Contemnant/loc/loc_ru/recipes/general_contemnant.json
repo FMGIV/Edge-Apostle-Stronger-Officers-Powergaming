@@ -1,0 +1,2119 @@
+{
+"recipes": [
+    {
+	"id": "hint.recruit.refugees",
+	"actionid": "operate",
+	"label": "Убедить беженцев пойти за вами?",
+	"startdescription": "Эти люди были измучены страхом, болью, войной. Они с радостью присоединятся к нам, если я предложу им хоть малейшую помощь или надежду; Они примкнут к нам, если я заставлю их выбирать под дулом пистолета.",
+	"requirements": {
+	    "wandering.refugees": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.recruit.deserters",
+	"actionid": "operate",
+	"label": "Убедить дезертиров следовать за вами?",
+	"startdescription": "Одинокие; бесцельные; морально сомнительние и достаточно вооруженные - возможно, я смогу склонить этих бродяг на свою сторону демонстрацией силы или правильными словами о возможностях или страхе.",
+	"requirements": {
+	    "wandering.deserters": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.use.lookout",
+	"actionid": "operate",
+	"label": "Проконсультироваться с наблюдателем?",
+	"startdescription": "Один из нас - именно один - может выйти в ночь и попытаться обнаружить позиции противника. Им понадобится укрытие для наблюдения - и недюжина удачи.",
+	"requirements": {
+	    "friend.lookout": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.use.lookout.hidden",
+	"actionid": "operate",
+	"label": "Проконсультироваться с наблюдателем?",
+	"startdescription": "Один из нас - именно один - может выйти в ночь и попытаться обнаружить позиции противника. Им понадобится укрытие для наблюдения - и недюжина удачи.",
+	"requirements": {
+	    "friend.lookout.hidden": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.use.doctor",
+	"actionid": "operate",
+	"label": "Проконсультироваться с доктором?",
+	"startdescription": "Этот может исцелиться раненое тело - или обеспечить уход того, кого невозможно спасти.",
+	"requirements": {
+	    "friend.doctor": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.use.doctor.hidden",
+	"actionid": "operate",
+	"label": "Проконсультироваться с доктором?",
+	"startdescription": "Этот может исцелиться раненое тело - или обеспечить уход того, кого невозможно спасти.",
+	"requirements": {
+	    "friend.doctor.hidden": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.concealcasket",
+	"actionid": "abandon",
+	"label": "Скрыть свет Носителя ключа?",
+	"startdescription": "Клейдухос уверена, что кто-то придет за ее Ключом Дней, а Ключ отделяется от своего владельца только во время передачи - или когда владельца убивают и пожирают. Если бы я дал Клейдухос пропитание, у нее было бы достаточно сил, чтобы спрятаться от своих преследователей - временно.",
+	"requirements": {
+	    "klei.casket": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "communicate.givevicious.hopelessness",
+	"actionid": "communicate",
+	"label": "Рассказать союзнику о мрачной реальности",
+	"startdescription": "Даже после всего, что они перенесли, этот все еще цепляется за иллюзию сдержанности и достоинства. Я мог бы попытаться избавить их от этих иллюзий - заставить их понять, что нужно сделать, чтобы выжить.\n\n[Это может придать вашему союзнику аспект Жестокости, но также может привести к неудаче и заставить его покинуть вас.]",
+	"requirements": {
+	    "friend": 1,
+	    "vicious": -1,
+	    "hopelessness": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "communicate.givevicious.success",
+		"chance": 60
+	    },
+	    {
+		"id": "communicate.givevicious.failure",
+	    },
+	]
+    },
+    {
+	"id": "communicate.givevicious.failure",
+	"label": "Рассказать союзнику о мрачной реальности",
+	"startdescription": "На лице моего союзника застыла маска безмерного отвращения. Почти без слов они покидают меня, и я вытираю их слюну со своего лица, когда они уходят. У меня мелькнула мысль убить их, но я передумал. Я не уверен, почему.",
+	"effects": {
+	    "friend": -99
+	}
+    },
+    {
+	"id": "communicate.givevicious.success",
+	"label": "Рассказать союзнику о мрачной реальности",
+	"startdescription": "'Это все, что есть, и это ничего не значит. Ничего из этого. Теперь ты видишь, да? Ты видишь?''",
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "vicious",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "communicate.givevicious.antithesis",
+	"actionid": "communicate",
+	"label": "Показать Союзнику Волчью правду",
+	"startdescription": "Даже после всего, что они перенесли, этот все еще цепляется за иллюзию сдержанности и достоинства. Я мог бы попытаться сломать эти иллюзии - но я могу случайно сломать и их.\n\n[Это может придать вашему союзнику аспект Жестокости, но это также может привести к неудаче и свести их с ума.]",
+	"requirements": {
+	    "friend": 1,
+	    "vicious": -1,
+	    "antithesis": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "communicate.givevicious.success.antithesis",
+		"chance": 60
+	    },
+	    {
+		"id": "communicate.givevicious.failure.antithesis"
+	    },
+	]
+    },
+    {
+	"id": "communicate.givevicious.failure.antithesis",
+	"label": "Показать Союзнику Волчью правду",
+	"startdescription": "Всё начинается с шепота или невнятного бормотания, но затем начинаются слезы, дрожь и крики. По ночам, они все еще кричат.",
+	"effects": {
+	    "friend": -99,
+	    "friend.lunatic": 1
+	}
+    },
+    {
+	"id": "communicate.givevicious.success.antithesis",
+	"label": "Показать Союзнику Волчью правду",
+	"startdescription": "'Когда вспыхнет огонь, будет пир. Когда начнется пир, я найду тебя. Это я обещаю.'",
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "vicious",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "communicate.findallies.wasteland",
+	"actionid": "communicate",
+	"label": "Осмотреться в Разрушенную Стране в поисках потенциальных союзников?",
+	"startdescription": "Мы не можем быть единственной жалкой кучкой бродяг, пытающихся добраться куда-нибудь еще. Есть ли здесь, на безлюдных просторах страны, другие? Последует ли кто-то из них за нами?\n\n[Вы можете сделать это только один раз за прибытие в Разрушенную страну между зонами боевых действий.]",
+	"description": "Кто здесь рыщет?",
+	"requirements": {
+	    "warzone.current": 1,
+	    "wasteland.scouted": -1
+	},
+	"extantreqs": {
+	    "wasteland": 1,
+	    "contemnant.story": 1
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "wasteland.scouted",
+		"level": 1
+	    }
+	],
+	"internaldeck": {
+	    "spec": [
+		"wandering.refugees",
+		"wandering.refugees",
+		"wandering.refugees",
+		"wandering.refugees",
+		"wandering.deserters",
+		"wandering.deserters",
+		"wandering.deserters",
+		"husk",
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 60
+    },
+    {
+	"id": "heal.wound.contemnant.doctor",
+	"actionid": "abandon",
+	"label": "Залечить свою Рану",
+	"startdescription": "Этого будет достаточно.",
+	"description": "Проходит время в мед. палатке, а потом меня возвращают на поле боя.",
+	"requirements": {
+	    "provisions": 1,
+	    "friend.doctor": 1,
+	    "damage.body": 1,
+	    "debilitation": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "damage.body": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "heal.wound.contemnant.doctor.hidden",
+	"actionid": "abandon",
+	"label": "Залечить свою Рану",
+	"startdescription": "Этого будет достаточно.",
+	"description": "Проходит время в мед. палатке, а потом меня возвращают на поле боя.",
+	"requirements": {
+	    "provisions": 1,
+	    "friend.doctor.hidden": 1,
+	    "damage.body": 1,
+	    "debilitation": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "damage.body": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "lookout.revealhidden",
+	"actionid": "operate",
+	"label": "Послать одинокого дозорного понаблюдать за врагом",
+	"startdescription": "Одна пара глаз, одинокие в ночи. Они вернутся, чтобы рассказать что-нибудь о позиции противника. Надеюсь.\n\n[Это выявит Неизвестного Врага, но есть риск, что союзник использованный для этого умрёт.]",
+	"requirements": {
+	    "friend.lookout": 1,
+	    "foe.hidden": 1,
+	    "op": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "lookout.revealhidden.success",
+	    }
+	]
+    },
+    {
+	"id": "lookout.hidden.revealhidden",
+	"actionid": "operate",
+	"label": "Послать одинокого дозорного понаблюдать за врагом",
+	"startdescription": "Одна пара глаз, одинокие в ночи. Они вернутся, чтобы рассказать что-нибудь о позиции противника. Надеюсь.\n\n[Это выявит Неизвестного Врага, но есть риск, что союзник использованный для этого умрёт.]",
+	"requirements": {
+	    "friend.lookout.hidden": 1,
+	    "foe.hidden": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "lookout.revealhidden.success",
+	    }
+	]
+    },
+    {
+	"id": "lookout.revealhidden.success",
+	"label": "Послать одинокого дозорного понаблюдать за врагом",
+	"startdescription": "Вот они.",
+	"aspects": {
+	    "fatiguing": 1,
+	    "revealidentity": 1
+	},
+	"alt": [
+	    {
+		"id": "lookout.revealhidden.failure",
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "lookout.revealhidden.failure",
+	"label": "Послать одинокого дозорного понаблюдать за врагом",
+	"startdescription": "Из ночи никто не возвращается. Мой соратник, должно быть, мертв.",
+	"description": "Из ночи никто не возвращается. Мой соратник, должно быть, мертв.",
+	"requirements": {
+	    "friend.hidden": -1
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "doctor.killwounded",
+	"actionid": "operate",
+	"label": "Упокой",
+	"startdescription": "Доктор видит, что для этого все очень печально. Их страдания могли бы закончиться сейчас и навсегда, но в конечном счете это зависит от меня, а значит, скорбь будет моей тоже.",
+	"description": "'Ну-ну. Теперь все закончилось.'",
+	"requirements": {
+	    "friend.doctor": 1,
+	    "wounded": 1,
+	    "provisions": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.grief",
+		"mem.regret",
+		"mem.calm",
+		"trauma"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"effects": {
+	    "wounded": -99,
+	    "friend.corpses": 1
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "healcasualty.doctor",
+	"actionid": "operate",
+	"label": "Оказать медицинскую помощь раненому союзнику",
+	"startdescription": "Морфий и швы. Пилы, если необходимо.",
+	"description": "Готово. Они будут жить, чтобы сражаться ещё один день.",
+	"requirements": {
+	    "friend.doctor": 1,
+	    "wounded": 1,
+	    "provisions": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "healcomplete.medic"
+	    }
+	]
+    },
+    {
+	"id": "doctor.hidden.killwounded",
+	"actionid": "operate",
+	"label": "Упокой",
+	"startdescription": "Доктор видит, что для этого все очень печально. Их страдания могли бы закончиться сейчас и навсегда, но в конечном счете это зависит от меня, а значит, скорбь будет моей тоже.",
+	"description": "'Ну-ну. Теперь все закончилось.'",
+	"requirements": {
+	    "friend.doctor.hidden": 1,
+	    "wounded": 1,
+	    "provisions": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.grief",
+		"mem.regret",
+		"mem.calm",
+		"trauma"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"effects": {
+	    "wounded": -99,
+	    "friend.corpses": 1
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "healcasualty.doctor.hidden",
+	"actionid": "operate",
+	"label": "Оказать медицинскую помощь раненому союзнику",
+	"startdescription": "Морфий и швы. Пилы, если необходимо.",
+	"description": "Готово. Они будут жить, чтобы сражаться ещё один день.",
+	"requirements": {
+	    "friend.doctor.hidden": 1,
+	    "wounded": 1,
+	    "provisions": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "healcomplete.medic"
+	    }
+	]
+    },
+    {
+	"id": "cannibalize.corpse.unnatural",
+	"actionid": "abandon",
+	"label": "Пожрать убитое существо?",
+	"startdescription": "Труп - это своего рода мясо, хотя это мясо более необычное, чем большинство других. Если плоть не слишком несъедобна и не изуродована в боях, мы можем прибавить хорошую порцию рационам.\n\n[Это создаст Провизию, но Союзники что против бесчинства, могут покинуть вас.]",
+	"description": "Здесь всегда найдется достаточно еды, если только кто-то захочет есть так же, как крыса; как птица; как волк.",
+	"requirements": {
+	    "remnant": 1,
+	    "foe.corpse.unnatural": 1,
+	    "lore": -1,
+	    "klei.casket": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "remnant": -1,
+	    "provisions": 2
+	},
+	"craftable": true,
+	"warmup": 60,
+	"alt": [
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "cannibalize.corpse",
+	"actionid": "abandon",
+	"label": "Пожрать павших",
+	"startdescription": "Труп - это своего рода мясо. Мы срежем с трупа все, что сможем, при условии, что мясо не слишком несъедобное и не изуродовано в боях.\n\n[Это создаст Провизию, но Союзники что против бесчинства, могут покинуть вас.]",
+	"description": "Здесь всегда найдется достаточно еды, если только кто-то захочет есть так же, как крыса; как птица; как волк.",
+	"requirements": {
+	    "remnant": 1,
+	    "lore": -1,
+	    "klei.casket": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "remnant": -1,
+	    "provisions": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 25
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "abandon.buildweapon.wolf",
+	"actionid": "abandon",
+	"label": "Создать отвратительное оружие Разделенного Волка",
+	"startdescription": "Задолго до Интеркаляции иногда говорили, что 'Волк шел рядом с Солнцем.' У Королей-Без-Тени, Римской империи и Солнечной Церкви были свои гипотезы и ереси относительно того, что это означало, но все они сходились во мнении, что это означало, что Солнце-в-Великолепии всегда знало Агонию. Это оружие - само по себе ересь - подтверждает это.",
+	"description": "'О Высочайшее Солнце, Свет всех огней, дай нам узреть, как пройти по пути, впереди которого Слава, а позади - наши тени. А те нечестивцы, которые все еще упорствуют во тьме, рвут себе пятки скотским золотом.'",
+	"requirements": {
+	    "wolf.weaponfragment": 3
+	},
+	"effects": {
+	    "wolf.weaponfragment": -3,
+	    "weapon.hair": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "startup.desertion",
+	"actionid": "desertion",
+	"label": "Союзник предаёт меня!",
+	"startdescription": "На этот раз мои действия слишком отвратительны. Утром наш лагерь немного опустел - должно быть, наше последнее варварство убедило некоторых, что им лучше остаться в одиночестве, чем пробираться сквозь бойню со мной.",
+	"description": "У них не хватило духу на то, что мы делаем, но у меня хватило. Что мне с этим делать?",
+	"aspects": {
+	    "decline": 1,
+	    "fatiguing": 1
+	},
+	"tablereqs": {
+	    "friend": 1
+	},
+	"mutations": [
+	    {
+		"mutate": "repulsed",
+		"filter": "soviet",
+		"level": 1
+	    }
+	],
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Союзник",
+		"required": {
+		    "friend": 1,
+		    "hired": 1
+		},
+		"forbidden": {
+		    "vicious": 1,
+		    "otherworldly": 1,
+		    "edgelong": 1,
+		    "friend.named": 1,
+		    "prisoner": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "produce.localinfamy",
+	"actionid": "lurk",
+	"label": "Нежелательное Внимание",
+	"startdescription": "Слухи о нашем - <i>моём</i> - варварстве достигли ушей местного русского командования, и теперь они относятся к нам с большей осторожностью. Как будто я сделал что-то, чего еще не делали солдаты Красной Армии.",
+	"effects": {
+	    "reputation.infamy": 1
+	},
+	"extantreqs": {
+	    "wasteland": -1,
+	    "sobibor.here": -1 
+	},
+	"warmup": 10
+    },
+    {
+	"id": "hide.ally",
+	"actionid": "communicate",
+	"label": "Приказать Союзнику занять Засаду",
+	"startdescription": "В темноту. Наш враг не сможет найти нас или причинить нам вред. И когда мы решим нанести ещё один удар, у нас будет преимущество неожиданности...\n\n[Скрытый союзник не станет мишенью для большинства атакующих действий противника, а также будет иметь повышенные характеристики до следующего использования.]",
+	"description": "Здесь мы ждем. Здесь мы кипим от нетерпения.",
+	"aspects": {
+	    "concealidentity": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "hired": -1,
+	    "friend.hidden": -1,
+	    "op": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "op": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "loot.corpse.scavenger",
+	"actionid": "communicate",
+	"label": "Обыскать мертвых в поисках чего-нибудь полезного",
+	"startdescription": "Проверьте их рюкзаки и карманы; их напряженные и цепляющиеся руки.\n\n[У Мусорщиков больше шансов найти полезные припасы, и они работают намного быстрее.]",
+	"description": "Вот что мы нашли.",
+	"requirements": {
+	    "friend.dregscavengers": 1,
+	    "remnant": 1,
+	    "looted": -1,
+	    "foe.corpse.unnatural": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"mutations": [
+	    {
+		"filter": "remnant",
+		"mutate": "looted",
+		"level": 1
+	    }
+	],
+	"craftable": true,
+	"warmup": 15,
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"husk",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares",
+		"provisions",
+		"provisions"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "loot.corpse.scavenger.hidden",
+	"actionid": "communicate",
+	"label": "Обыскать мертвых в поисках чего-нибудь полезного",
+	"startdescription": "Проверьте их рюкзаки и карманы; их напряженные и цепляющиеся руки.\n\n[У Мусорщиков больше шансов найти полезные припасы, и они работают намного быстрее.]",
+	"description": "Вот что мы нашли.",
+	"requirements": {
+	    "friend.dregscavengers.hidden": 1,
+	    "remnant": 1,
+	    "looted": -1,
+	    "foe.corpse.unnatural": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"mutations": [
+	    {
+		"filter": "remnant",
+		"mutate": "looted",
+		"level": 1
+	    }
+	],
+	"craftable": true,
+	"warmup": 15,
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"husk",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares",
+		"provisions",
+		"provisions"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "loot.corpse",
+	"actionid": "communicate",
+	"label": "Обыскать мертвых в поисках чего-нибудь полезного",
+	"startdescription": "Проверьте их рюкзаки и карманы; их напряженные и цепляющиеся руки.\n\n[У Мусорщиков больше шансов найти полезные припасы, и они работают намного быстрее.]",
+	"description": "Вот что мы нашли.",
+	"requirements": {
+	    "friend.dregscavengers": -1,
+	    "friend": 1,
+	    "remnant": 1,
+	    "looted": -1,
+	    "foe.corpse.unnatural": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"mutations": [
+	    {
+		"filter": "remnant",
+		"mutate": "looted",
+		"level": 1
+	    }
+	],
+	"craftable": true,
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "recruit.refugees.heart",
+	"actionid": "operate",
+	"label": "Убедить беженцев пойти за вами?",
+	"startdescription": "'Мы пытаемся перебраться в более безопасное место. Мы предлагаем присоединиться к нам - я думаю, вместе у нас будет больше шансов.'",
+	"description": "'Пойдём с нами.'",
+	"requirements": {
+	    "wandering.refugees": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"effects": {
+	    "wandering.refugees": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.refugees.grail",
+	"actionid": "operate",
+	"label": "Убедить беженцев пойти за вами?",
+	"startdescription": "'Среди вас есть раненые? У нас есть кое-какие припасы и лекарства в запасе.'",
+	"description": "'Пойдём с нами.'",
+	"requirements": {
+	    "wandering.refugees": 1,
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"effects": {
+	    "wandering.refugees": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.refugees.edge",
+	"actionid": "operate",
+	"label": "Убедить беженцев пойти за вами?",
+	"startdescription": "'Присоеденяйтесь или умрите. Ваш выбор?.'",
+	"description": "'Умно.'",
+	"requirements": {
+	    "wandering.refugees": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "wandering.refugees": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.deserters.edge",
+	"actionid": "operate",
+	"label": "Убедить дезертиров пойти с вами?",
+	"startdescription": "'Присоеденяйтесь или умрите. Ваш выбор?'",
+	"description": "'Умно.'",
+	"requirements": {
+	    "wandering.deserters": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "wandering.deserters": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.deserters.winter",
+	"actionid": "operate",
+	"label": "Убедить дезертиров пойти с вами?",
+	"startdescription": "'Немцы вас расстреляют. Красная Армия тоже, теперь, когда вы сбежали. У вас нет шансов - если вы не присоединитесь к нам.'",
+	"description": "'Умно.'",
+	"requirements": {
+	    "wandering.deserters": 1,
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"effects": {
+	    "wandering.deserters": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.deserters.grail",
+	"actionid": "operate",
+	"label": "Убедить дезертиров пойти с вами?",
+	"startdescription": "'Вся эта боль и страдания - кому-то это выгодно. Почему не нам? Почему не <i>вам?</i> В конце концов, чем вы кому-то обязаны?'",
+	"description": "'Умно.'",
+	"requirements": {
+	    "wandering.deserters": 1,
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"effects": {
+	    "wandering.deserters": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "operate.startup.slaughterlocals.dregsoldier",
+	"actionid": "operate",
+	"label": "Пройтись по городу и убить местное население?",
+	"startdescription": "Я говорю своим людям, что они могут делать все, что им заблагорассудится, - лишь бы это причиняло боль.\n\n[Вы не можете делать это более одного раза в зоне боевых действий. Страдания и хаос распространятся, и любые полезные отношения, которые у вас могут быть с местными жителями и советскими войсками, будут навсегда разрушены. Разделенный Волк насладиться этим.]",
+	"requirements": {
+	    "friend.dregsoldier": 99,
+	    "warzone.current": 1,
+	    "op.wolfdivided": 1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.slaughterlocals.gunman",
+	"actionid": "operate",
+	"label": "Пройтись по городу и убить местное население",
+	"startdescription": "Я говорю своим людям, что они могут делать все, что им заблагорассудится, - лишь бы это причиняло боль.\n\n[Вы не можете делать это более одного раза в зоне боевых действий. Страдания и хаос распространятся, и любые полезные отношения, которые у вас могут быть с местными жителями и советскими войсками, будут навсегда разрушены. Разделенный Волк насладиться этим.]",
+	"requirements": {
+	    "friend.gunman": 99,
+	    "warzone.current": 1,
+	    "op.wolfdivided": 1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.slaughterlocals.dregsoldier.hidden",
+	"actionid": "operate",
+	"label": "Пройтись по городу и убить местное население",
+	"startdescription": "Я говорю своим людям, что они могут делать все, что им заблагорассудится, - лишь бы это причиняло боль.\n\n[Вы не можете делать это более одного раза в зоне боевых действий. Страдания и хаос распространятся, и любые полезные отношения, которые у вас могут быть с местными жителями и советскими войсками, будут навсегда разрушены. Разделенный Волк насладиться этим.]",
+	"requirements": {
+	    "friend.dregsoldier.hidden": 99,
+	    "warzone.current": 1,
+	    "op.wolfdivided": 1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.slaughterlocals.gunman.hidden",
+	"actionid": "operate",
+	"label": "Пройтись по городу и убить местное население",
+	"startdescription": "Я говорю своим людям, что они могут делать все, что им заблагорассудится, - лишь бы это причиняло боль.\n\n[Вы не можете делать это более одного раза в зоне боевых действий. Страдания и хаос распространятся, и любые полезные отношения, которые у вас могут быть с местными жителями и советскими войсками, будут навсегда разрушены. Разделенный Волк насладиться этим.]",
+	"requirements": {
+	    "friend.gunman.hidden": 99,
+	    "warzone.current": 1,
+	    "op.wolfdivided": 1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.gunman",
+	"actionid": "operate",
+	"label": "Изъять припасы у местного населения",
+	"startdescription": "Мы скажем, что это для военных целей. И так оно и есть. Но им это не понравится.\n\n[Это может обеспечить вас значительным количеством провизии, но навсегда разрушит любые полезные отношения, которые у вас могли бы сложиться с местными жителями. Вы не можете делать это более одного раза в каждой зоне боевых действий.]",
+	"requirements": {
+	    "friend.gunman": 1,
+	    "warzone.current": 1,
+	    "edge": 5,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.assistlocals.gunman",
+	"actionid": "operate",
+	"label": "Оказать помощь местному населению",
+	"startdescription": "Настали трудные времена. Возможно, мы сможем уделить немного времени и труда, чтобы облегчить страдания тех, кто не сражается.\n\n[Это может предоставить вам убежище и местных союзников для прохождения испытаний.]",
+	"requirements": {
+	    "friend.gunman": 1,
+	    "warzone.current": 1,
+	    "heart": 1,
+	    "warzone.abused": -1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "assistlocals.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 2,
+		    "filter": {
+			"edge": 1,
+			"heart": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.gunman.hidden",
+	"actionid": "operate",
+	"label": "Изъять припасы у местного населения",
+	"startdescription": "Мы скажем, что это для военных целей. И так оно и есть. Но им это не понравится.\n\n[Это может обеспечить вас значительным количеством провизии, но навсегда разрушит любые полезные отношения, которые у вас могли бы сложиться с местными жителями. Вы не можете делать это более одного раза в каждой зоне боевых действий.]",
+	"requirements": {
+	    "friend.gunman.hidden": 1,
+	    "warzone.current": 1,
+	    "edge": 5,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.assistlocals.gunman.hidden",
+	"actionid": "operate",
+	"label": "Оказать помощь местному населению",
+	"startdescription": "Настали трудные времена. Возможно, мы сможем уделить немного времени и труда, чтобы облегчить страдания тех, кто не сражается.\n\n[Это может предоставить вам убежище и местных союзников для прохождения испытаний.]",
+	"requirements": {
+	    "friend.gunman.hidden": 1,
+	    "warzone.current": 1,
+	    "heart": 1,
+	    "warzone.abused": -1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "assistlocals.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 2,
+		    "filter": {
+			"edge": 1,
+			"heart": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.dregsoldier",
+	"actionid": "operate",
+	"label": "Изъять припасы у местного населения",
+	"startdescription": "Мы скажем, что это для военных целей. И так оно и есть. Но им это не понравится.\n\n[Это может обеспечить вас значительным количеством провизии, но навсегда разрушит любые полезные отношения, которые у вас могли бы сложиться с местными жителями. Вы не можете делать это более одного раза в каждой зоне боевых действий.]",
+	"requirements": {
+	    "friend.dregsoldier": 1,
+	    "warzone.current": 1,
+	    "edge": 7,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "warzone.abused": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.dregsoldier.hidden",
+	"actionid": "operate",
+	"label": "Изъять припасы у местного населения",
+	"startdescription": "Мы скажем, что это для военных целей. И так оно и есть. Но им это не понравится.\n\n[Это может обеспечить вас значительным количеством провизии, но навсегда разрушит любые полезные отношения, которые у вас могли бы сложиться с местными жителями. Вы не можете делать это более одного раза в каждой зоне боевых действий.]",
+	"requirements": {
+	    "friend.dregsoldier.hidden": 1,
+	    "warzone.current": 1,
+	    "edge": 7,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "warzone.abused": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "communicate.klei.getcasket",
+	"actionid": "communicate",
+	"label": "Та, кто держит Ключ Дней",
+	"startdescription": "'Сын Дюффура подбил тебя на это. Он, как и мы, понимает, что Волк - это необходимость,' Клейдухос объясняет, указывая на себя. 'Если ты станешь его Именем, я помогу тебе, убийца людей. Не стоит забывать, что Волк имеет право на Рассвет. И я очень, очень давно хотела снова увидеть Рассвет.'",
+	"description": "'Имей в виду: я больше не на пике своих возможностей. Вена защитила меня от определенных корыстолюбивых группировок, но пребывание здесь по-прежнему обходится дорого. Те, кто хотел бы присвоить мой Ключ Дней, почувствовали мою слабость. Они придут за мной по дороге. Не дай мне быть съеденной.'",
+	"requirements": {
+	    "klei": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"effects": {
+	    "klei": -99,
+	    "klei.casket": 1
+	}
+    },
+    {
+	"id": "abandon.concealcasket",
+	"actionid": "abandon",
+	"label": "Сокрыть свет Носителя Ключа",
+	"startdescription": "'Хорошо, хорошо. С их кровью у меня будет достаточно сил, чтобы какое-то время отгонять воров.'",
+	"description": "'Я благодарна. А теперь вернемся к дороге и сосредоточимся.'",
+	"requirements": {
+	    "friend": 1,
+	    "klei.casket": 1
+	},
+	"aspects": {
+	    "malign": 1
+	},
+	"effects": {
+	    "friend": -99
+	},
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "communicate.getsobibor.klei",
+	"actionid": "communicate",
+	"label": "Спроси Лигению об Изгнаннике",
+	"startdescription": "'Мм. Я знаю о нём. Вы были бы дураком, если бы он вас не напугал. Знайте: Полковник отвечает на страх - решимостью; Львокузнец - смелостью. А у Волка есть другой путь.'",
+	"description": "'Вы не найдете ответа на свой страх в этом мире. Он был заложен в вас, и поэтому вы должны отправиться внутрь себя, чтобы искоренить его.'",
+	"requirements": {
+	    "klei.casket": 1,
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "sobibor": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"maxexecutions": 1
+    },
+    {
+	"id": "communicate.getmemories.klei",
+	"actionid": "communicate",
+	"label": "Обратитесь к свету Носителя Ключа",
+	"startdescription": "Присутствие Хранительницы Ключа горит, как свеча в ночи. Я могу молить ее о какой-то силе, но не все ее советы могут дойти до меня сквозь тьму этого ужасного сна.\n\n[Находясь в Собиборе, вы можете получить полезные воспоминания, поговорив с Клейдухос. Иногда это ни к чему не приведёт.]",
+	"description": "Что-то?",
+	"requirements": {
+	    "klei.casket": 1
+	},
+	"extantreqs": {
+	    "sobibor.here": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.ingenuity",
+		"mem.revelation",
+		"mem.calm",
+		"mem.joy",
+		"mem.taste",
+		"husk",
+		"husk",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 60
+    },
+    {
+	"id": "bloodonhands.executepseudogol",
+	"actionid": "execution",
+	"label": "Резня",
+	"startdescription": "Псевдогол визжит, как кошка, когда Белость разрывает его на части и бросает к себе подобным-",
+	"description": "'Пируйте. Пируйте.'",
+	"tablereqs": {
+	    "foe.flesheater": 1
+	},
+	"aspects": {
+	    "killflesheater": 1
+	},
+	"slots": [
+	    {
+		"id": "needsflesheater",
+		"label": "Мясо",
+		"required": {
+		    "foe.flesheater": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "createguards.ingluviate",
+	"actionid": "ingluviateguard",
+	"label": "Прикрывая Отступление",
+	"startdescription": "Впитывающий корчится и уползает прочь с гробом в глотке, а другие существа Чаши, защищают его побег -",
+	"extantreqs": {
+	    "foe.ingluviate.protect": -1
+	},
+	"slots": [
+	    {
+		"id": "needsguard",
+		"label": "Враг",
+		"required": {
+		    "foe.flesheater": 1,
+		    "foe.flesheater.hidden": 1,
+		    "foe.percussigant": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsguardanother",
+		"label": "Враг",
+		"required": {
+		    "foe.flesheater": 1,
+		    "foe.flesheater.hidden": 1,
+		    "foe.percussigant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "foe.flesheater",
+		"mutate": "foe.ingluviate.protect",
+		"level": 1
+	    },
+	    {
+		"filter": "foe.flesheater.hidden",
+		"mutate": "foe.ingluviate.protect",
+		"level": 1
+	    },
+	    {
+		"filter": "foe.percussigant",
+		"mutate": "foe.ingluviate.protect",
+		"level": 1
+	    },
+	],
+	"warmup": 10
+    },
+    {
+	"id": "produce.wolfshadow",
+	"actionid": "spit.winter",
+	"label": "Внимание Разделённого Волка",
+	"startdescription": "На душу набегает тень. Невыразимая боль скручивает меня изнутри. Я должен передать её кому-то другому, <i>кому</i> угодно -",
+	"effects": {
+	    "op.wolfdivided": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "find.sergei.first",
+	"label": "Странник?",
+	"startdescription": "Кто-то пересекает мне дорогу, когда я возвращаюсь со разведки. В этом человеке есть что-то особенное. Что-то родственное; что-то ужасное.",
+	"effects": {
+	    "op.sergei": 1
+	},
+	"maxexecutions": 1,
+	"extantreqs": {
+	    "runmarker.sergei": 1
+	}
+    },
+    {
+	"id": "speakwithsergei.first",
+	"actionid": "communicate",
+	"label": "Старый Казак",
+	"startdescription": "'Ты слишком... <i>добр,'</i> Казак шипит, словно с трудом подбирая слово. 'Ты не знаешь, кто я и что я сделал, и ты приветствуешь меня. Я учил своего сына остерегаться незнакомцев, но, полагаю, псы одной породы не могут не узнавать друг друга. Итак, ты приветствуешь меня.'",
+	"description": "'Ты напоминаешь мне его. Мой сын. Жалкий коротышка,' казак становится... задумчивым? 'Я ищу подарок на память о нем. Что-нибудь острое. Если ты случайно найдешь это, будь добр ещё раз, и верни мне его. Было бы лучше, чем если бы мне пришлось забирать это у тебя.'",
+	"requirements": {
+	    "op.sergei": 1
+	},
+	"furthermore": { 
+	    "target": "~/tabletop[situationstorage]+",
+	    "aspects": {
+		"avowal": 1 
+	    }
+	},
+	"xpans": { 
+	    "avowal": 1 
+	},
+	"effects": {
+	    "op.sergei": -99
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "findkazimirsword",
+	"label": "Реликвия Вражды?",
+	"startdescription": "Что-то зловеще поблескивает в темноте. Это может быть шрапнель или какой-нибудь зазубренный обломок, но инстинкты подсказывают мне подойти поближе и посмотреть...",
+	"description": "Что-то зловеще поблескивает в темноте. Это может быть шрапнель или какой-нибудь зазубренный обломок, но инстинкты подсказывают мне подойти поближе и посмотреть...\n\n[Приберегите это. Кто-нибудь придет за этим.]",
+	"extantreqs": {
+	    "marker.spoketosergeiaboutsword": 1
+	},
+	"maxexecutions": 1,
+	"effects": {
+	    "plotitem.kazimirshashka": 1
+	}
+    },
+    {
+	"id": "find.sergei.comeforsword",
+	"label": "Странник?",
+	"startdescription": "Внезапная тень на дороге. Кто-то знакомый пересекает мой путь, когда я возвращаюсь в лагерь с ночевки.",
+	"effects": {
+	    "op.sergei.comeforsword": 1
+	},
+	"extantreqs": {
+	    "plotitem.kazimirshashka": 1
+	},
+	"maxexecutions": 1
+    },
+    {
+	"id": "speakwithsergei.turninsword",
+	"actionid": "communicate",
+	"label": "Причитания ",
+	"startdescription": "Казак берет в руки сломанный клинок с каменным выражением лица. 'Когда он был еще мальчишкой, он ненавидел меня за то, что я отнял у него. Три маленькие жизни - это все, что отделяло его от одиночества. И ненависть сделала его сильнее. Когда он, наконец, стал мужчиной, он снова нашел меня...'",
+	"description": "'Он никогда не был моим сыном по крови, но случай - судьба - свел нас вместе. Судьба - это Часы. Проклятые. Безразличные. Сейчас Судьба смотрит на тебя. Прежде чем Волк заберет меня, я думаю, мне хотелось бы посмотреть, какую проклятую, безразличную тварь судьба вырежет из твоих костей.'",
+	"requirements": {
+	    "op.sergei.comeforsword": 1,
+	    "plotitem.kazimirshashka": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"effects": {
+	    "plotitem.kazimirshashka": -99,
+	    "op.sergei.comeforsword": -99,
+	    "sergei.horn": 1
+	}
+    },
+    {
+	"id": "hint.summon.friend.immortal.alreadyhere",
+	"actionid": "abandon",
+	"label": "Призвать на помощь могущественного союзника?",
+	"startdescription": "Почему? Они уже здесь.",
+	"requirements": {
+	    "uses.remaining": 1
+	},
+	"extantreqs": {
+	    "friend.immortal": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.summon.friend.immortal.denied",
+	"actionid": "abandon",
+	"label": "Призвать на помощь могущественного союзника?",
+	"startdescription": "Я мог бы попробовать, но никто бы не ответил.",
+	"requirements": {
+	    "uses.remaining": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "summon.friend.immortal",
+	"actionid": "abandon",
+	"label": "Призвать на помощь могущественного союзника",
+	"startdescription": "@#sergei.horn|Зловещий вой рога пронзает воздух и повисает в нем, словно труп на дереве. Вдалеке раздается грохот. Стук копыт.#cross.summonsign|Внешне ничто не указывает на то, что что-то произошло. Символ Крактрака, нацарапанный на корпусе, неподвижен. Но за небом что-то из другой эпохи движется, чтобы появиться и нанести удар -@",
+	"description": "@#friend.sergei|Верхом на коне, в черной мантии: Сталеглот. В его руке безжалостно сверкает сабля. 'Волчья работа. Приступим же, убийца людей.'#friend.cross|Воительница-Глэтерфлётинг встает на дыбы, как будто стоит по стойке 'смирно'. Ее мандибулы нетерпеливо щелкают. Сегодня мы оба жаждем крови, и мы оба ее получим.@",
+	"requirements": {
+	    "uses.remaining": 1
+	},
+	"extantreqs": {
+	    "sobibor.here": -1,
+	    "friend.immortal": -1,
+	    "friend.immortal.blocker": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "summon.friend.immortal.nomoreuses"
+	    }
+	]
+    },
+    {
+	"id": "summon.friend.immortal.nomoreuses",
+	"label": "Призвать на помощь могущественного союзника",
+	"startdescription": "@#friend.sergei|Верхом на коне, в черной мантии: Сталеглот. В его руке безжалостно сверкает сабля. 'Волчья работа. Приступим же, убийца людей.'#friend.cross|Воительница-Глэтерфлётинг встает на дыбы, как будто стоит по стойке смирно'. Ее мандибулы нетерпеливо щелкают. Сегодня мы оба жаждем крови, и мы оба ее получим.@",
+	"requirements": {
+	    "uses.remaining": -1
+	},
+	"effects": {
+	    "sergei.horn": -99,
+	    "cross.summonsign": -99
+	}
+    },
+    {
+	"id": "talktosergei.final",
+	"actionid": "communicate",
+	"label": "Последние Вздох",
+	"startdescription": "TКазак истекает кровью на снегу. 'Всё. Иллюзия больше не сохраниться. Думаю, это лучшее, на что я мог надеяться,' говорит он, умирая. 'Но ты - ты еще не умрешь. Я вижу дорогу, которая ждет тебя. <i>Чую</i> её. Ты увидишь, как обещание Волка наконец-то исполнится. Ты будешь худшим из нас.'",
+	"description": "'Убийца людей - ты доживешь до того, чтобы увидеть, как город, в котором ты родился, будет разрушен до последнего камня. Твоей рукой все это будет уничтожено.'",
+	"requirements": {
+	    "op.sergei.postfight": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"effects": {
+	    "op.sergei.postfight": -99,
+	    "weapon.sergei": 1
+	}
+    },
+    {
+	"id": "unmake.foe.ingluviate.engorged.hint",
+	"actionid": "abandon",
+	"label": "Красная Гвардия",
+	"startdescription": "Обычно это существо было бы легко убить, но, несмотря на вес, который оно теперь несет внутри, впитывающий остается на удивление быстрым - и это не говоря уже о других существах, все еще защищающих его от меня.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe.ingluviate.engorged": 1
+	},
+	"extantreqs": {
+	    "foe.ingluviate.protect": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "use.unmake.foe.ingluviate.engorged",
+	"actionid": "abandon",
+	"label": "Рассечение",
+	"startdescription": "Тень падает на мою душу, и ненависть, более глубокая и древняя, чем моя собственная, проходит сквозь меня - по моим венам, проникает в мои руки, обжигая. Я тянусь к своему врагу -",
+	"description": "Ничего не осталось. Совершенно ничего.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.ingluviate.engorged": 1
+	},
+	"extantreqs": {
+	    "foe.ingluviate.protect": -1
+	},
+	"effects": {
+	    "foe": -99,
+	    "klei.casket": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"op.wolfdivided",
+		"op.wolfdivided"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+    },
+    {
+	"id": "use.unmake.foe.marinette",
+	"actionid": "abandon",
+	"label": "Рассечение?",
+	"startdescription": "Маринетт не так-то легко уничтожить. Ее высохшие конечности жадно шипят, излучая невидимую древнюю силу. Если бы я попробовал это на ней, это лишь временно вывело бы ее из игры, и, к тому же, обошлось бы мне дорого.",
+	"description": "Что-то щелкает под красным саваном Лигении, и ее сухой, режущий крик разрывает мои барабанные перепонки. Ее пальцы из белой кости впиваются в мою плоть, и <i>боль</i> пронзает меня насквозь -",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.marinette": 1
+	},
+	"effects": {
+	    "wound.generic": 3,
+	    "trauma": 1,
+	    "foe.marinette.recovering": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "use.unmake.foe.marinette.hidden",
+	"actionid": "abandon",
+	"label": "Рассечение",
+	"startdescription": "Тень падает на мою душу, и ненависть, более глубокая и древняя, чем моя собственная, проходит сквозь меня - по моим венам, проникает в мои руки, обжигая. Я тянусь к своему врагу -",
+	"description": "Что-то щелкает под красным саваном Лигении, и ее сухой, режущий крик разрывает мои барабанные перепонки. Ее пальцы из белой кости впиваются в мою плоть, и <i>боль</i> пронзает меня насквозь -",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.marinette.hidden": 1
+	},
+	"effects": {
+	    "wound.generic": 3,
+	    "foe.marinette.recovering": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"op.wolfdivided",
+		"op.wolfdivided"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfoe": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "use.unmake.foe.officer",
+	"actionid": "abandon",
+	"label": "Рассечение",
+	"startdescription": "Тень падает на мою душу, и ненависть, более глубокая и древняя, чем моя собственная, проходит сквозь меня - по моим венам, проникает в мои руки, обжигая. Я тянусь к своему врагу -",
+	"description": "Ничего не осталось. Совершенно ничего.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.officer": 1
+	},
+	"extantreqs": {
+	    "foe.officerdetail": -1
+	},
+	"effects": {
+	    "foe": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "weakenenemies.detect",
+		"additional": true
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "use.unmake.foe",
+	"actionid": "abandon",
+	"label": "Рассечение",
+	"startdescription": "Тень падает на мою душу, и ненависть, более глубокая и древняя, чем моя собственная, проходит сквозь меня - по моим венам, проникает в мои руки, обжигая. Я тянусь к своему врагу -",
+	"description": "Ничего не осталось. Совершенно ничего.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": -1,
+	    "foe.marinette": -1,
+	    "foe.marinette.hidden": -1
+	},
+	"effects": {
+	    "foe": -99,
+	    "aggro.bombers.refuel": -99,
+	    "foe.bombers.refuel": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "use.unmake.neutral",
+	"actionid": "abandon",
+	"label": "Рассечение",
+	"startdescription": "Тень падает на мою душу, и ненависть, более глубокая и древняя, чем моя собственная, проходит сквозь меня - по моим венам, проникает в мои руки, обжигая. Я тянусь к своему врагу -",
+	"description": "Ничего не осталось. Совершенно ничего.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "neutral": 1
+	},
+	"effects": {
+	    "neutral": -99,
+	    "reputation.infamy": 3
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "unmake.getshadow",
+	"label": "Рассечение",
+	"startdescription": "Ничего не осталось. Совершенно ничего.",
+	"extantreqs": {
+	    "sustain.marker": 1
+	},
+	"effects": {
+	    "op.wolfdivided": 1
+	}
+    },
+    {
+	"id": "use.unmake.friend",
+	"actionid": "abandon",
+	"label": "Рассечение",
+	"startdescription": "Тень падает на мою душу, и ненависть, более глубокая и древняя, чем моя собственная, проникает в меня - по венам и в руки, обжигая. Я тянусь к тому, кто называет себя моим другом. -",
+	"description": "Ничего не осталось. Совершенно ничего.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "friend": 1
+	},
+	"effects": {
+	    "friend": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "use.sustain.refresh",
+	"actionid": "operate",
+	"label": "Умирающий, но не Мёртвый",
+	"startdescription": "Волк в своей самой кроткой форме позволит мне продолжать, хотя в противном случае я бы погиб. Его острые, вонючие зубы вонзятся в меня и сомкнутся вокруг, и моя жизнь не перейдет из этого мира в мир смерти, пока он держит меня.",
+	"description": "Волк вкушает без колебаний, глубоко и мучительно. Мне отказано в покое забвения.",
+	"requirements": {
+	    "op.wolfdivided": 1,
+	    "foe": -1,
+	    "friend": -1,
+	    "main": -1,
+	    "side": -1,
+	    "contemplation": -1
+	},
+	"extantreqs": {
+	    "sustain.marker": 1
+	},
+	"aspects": {
+	    "employment": 1
+	},
+	"effects": {
+	    "op.wolfdivided": -99
+	},
+	"slots": [
+	    {
+		"id": "needsskill",
+		"label": "Sustention",
+		"required": {
+		    "sustain.marker": 1
+		},
+		"greedy": true
+	    }
+	],
+	"craftable": true,
+	"warmup": 5
+    },
+    {
+	"id": "use.division.turnsplinters",
+	"actionid": "abandon",
+	"label": "Избавь меня от Отчаяния",
+	"startdescription": "Ужасающая боль пронзает меня изнутри. Я сгибаюсь пополам, стиснув зубы, когда чувствую, как что-то с криком вырывается из меня -",
+	"description": "Моя плоть не пострадала, но клубы вонючего серого пара клубятся над моей кожей, дрейфуя, а затем выделяясь, образуя глаза, когти, зубы -",
+	"requirements": {
+	    "skill.division": 1,
+	    "trauma": 1,
+	    "klei.casket": -1
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "wolftransform": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+    },
+    {
+	"id": "produce.flames",
+	"actionid": "spit.forge",
+	"label": "Пламя и Хаос",
+	"startdescription": "Разделенный волк поддерживает разрушающий огонь, пожирающий огонь, огонь, от которого остается только пепел! Здесь он рождается -",
+	"warmup": 10,
+	"effects": {
+	    "op.fire": 1
+	}
+    },
+    {
+	"id": "use.endinghope",
+	"actionid": "operate",
+	"label": "Отрекнуть от Волчьей Правды",
+	"startdescription": "Кровавая судьба, уготованная мне Изгнанником, не высечена в камне. Я мог бы отказаться от своей мести. Я мог бы сложить оружие и оставить своего врага на смерть и суд в чужих руках. Изгнанник назвал бы это слабостью, но, возможно, лучшая месть - это жить хорошо.\n\n[Это закончит игру.]",
+	"requirements": {
+	    "op.endinghope": 1,
+	    "contemnant.memento": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictory.contemnant.mp3",
+	"ending": "peaceending",
+	"achievements": [
+	    "hope.peaceending"
+	]
+    },
+    {
+	"id": "use.getcrosspromise",
+	"actionid": "operate",
+	"label": "Сова и Волк",
+	"startdescription": "Серебристые пятна лунного света освещают лесную подстилку. Из тени леса появляется живая реликвия истории: один из последних представителей Хитинового Креста и Орудие мести Рогатой-Секиры. Разделенный Волк даст понять, что я отмечен как его стая, и поэтому я могу быть на равных в этих переговорах общей вражды.",
+	"description": "Воин Креста и Я не разговариваем - речь плоти и речь Хитина слишком чужды друг другу, - но грубые образы слов жужжат в моей памяти: <i>Обезьяна. Враг. Ты. Исключения. Кровь. Земля. Возвращающийся. Возвращать. Приказы. Порвать. Два. Оба. Убивать. Убивать.</i>",
+	"requirements": {
+	    "op.axe": 1,
+	    "completed": 1,
+	    "op.time.night": 1,
+	    "op.wolfdivided": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"effects": {
+	    "cross.summonsign": 1,
+	    "op": -99,
+	    "completed": -99
+	}
+    },
+    {
+	"id": "talktocross.final",
+	"actionid": "communicate",
+	"label": "Окончание Перемирия",
+	"startdescription": "<i>Обезьяна. Перемирие. Больше нет. Следующий. Ты. Враг. Волк. Сова. Результат? Победитель? Будущее. Увидим.</i>",
+	"description": "Воин Креста обращается в бегство. Она удаляется до черной точки на горизонте, а затем исчезает за темно-синим занавесом неба.",
+	"requirements": {
+	    "op.cross.postfight": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"effects": {
+	    "op.cross.postfight": -99
+	},
+	"slots": [
+	    {
+		"id": "needsedge",
+		"label": "Сила?",
+		"description": "Она говорит. Я мог бы убить ее, если бы был достаточно силен и быстр.",
+		"required": {
+		    "edge": 20
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "talktocross.final.kill"
+	    }
+	]
+    },
+    {
+	"id": "talktocross.final.kill",
+	"label": "Раздавить Жука",
+	"startdescription": "Если наше перемирие окончено, то борьба начнется снова. Это быстро, как угасание света. Там, где когда-то стоял гордый воин, теперь лежит мертвая, тихая груда чешуи и крыльев. И эти черные, тысячегранные глаза больше ничего не увидят.",
+	"description": "Меня охватывает теплое ликование. В конце концов, это редкое удовольствие - иметь возможность убить кого-то последнего из своего вида.",
+	"requirements": {
+	    "edge": 20
+	},
+	"effects": {
+	    "op.cross.postfight": -99,
+	    "weapon.cross": 1
+	},
+    },
+    {
+	"id": "dispel.developingtrauma.hint",
+	"actionid": "operate",
+	"label": "Подавить Отчаяние, пока оно не укоренилось?",
+	"startdescription": "Отчаяние, словно яд, проникает в мою кровь, в самую мою душу. От него нужно избавиться с помощью соответствующих сил и Воспоминания, чтобы успокоить его.",
+	"requirements": {
+	    "developing": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "dispel.developingtrauma.heart",
+	"actionid": "operate",
+	"label": "Подавить Отчаяние, пока оно не укоренилось",
+	"startdescription": "Я должен сдержать прилив этой боли, чтобы она не захлестнула меня прежде, чем я смогу нанести удар по источнику своего страха. Сердце защитит меня от наступающего отчаяния.",
+	"description": "Вой затихает, и затем наступает тишина.",
+	"requirements": {
+	    "developing": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart",
+	    "memory": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "developing": -99,
+	    "memory": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "dispel.developingtrauma.lantern",
+	"actionid": "operate",
+	"label": "Quell despair before it takes root",
+	"startdescription": "Я должен сдержать прилив этой боли, чтобы она не захлестнула меня прежде, чем я смогу нанести удар по источнику своего страха. Лампада предотвратит приход наступающего отчаяния.",
+	"description": "Вой затихает, и затем наступает тишина.",
+	"requirements": {
+	    "developing": 1,
+	    "needslantern": 1,
+	    "lantern": "needslantern",
+	    "memory": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "developing": -99,
+	    "memory": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "dispel.trauma.shredsself",
+	"actionid": "abandon",
+	"label": "Жертва для Боли",
+	"startdescription": "Мне не нужен человек, отраженный в этих осколках памяти, - мне нужна моя месть. Итак, я принесу сейчас этого ягненка в жертву Волку, и он примет мою жертву.",
+	"description": "Частичка того, кем я был, ускользает во тьму и поглощается ею. Тяжесть сваливается с моих плеч. Катарсис.",
+	"requirements": {
+	    "shred.self": 1,
+	    "trauma": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "weaken.exilenightmare",
+	"actionid": "operate",
+	"label": "Уменьшая этот Кошмар",
+	"startdescription": "Я чувствую, как дрожит этот кошмар. По мере того, как накал моей ненависти растет, тень Изгнанника корчится и отступает. Я стискиваю зубы, когда она превращается в раскаленный добела пожар внутри меня - пламя, пламя!",
+	"description": "Кто боится большого, злого волка?\n\n[Порог Изгнанника был снижен.]",
+	"requirements": {
+	    "foe.exilenightmare": 1,
+	    "contemplation.sobibor.complete": 1
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "weaken": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"maxexecutions": 3
+    },
+    {
+	"id": "produce.developing.trauma",
+	"actionid": "despair",
+	"label": "Те, кто Ушел к Волку",
+	"startdescription": "Вот они стоят в полосатых лохмотьях, которые я тоже когда-то носил. Теперь они протягивают свои холодные руки, предлагая покой - не умиротворение, а именно тишину. Я принадлежу к ним, не так ли? Не так ли?",
+	"warmup": 10,
+	"effects": {
+	    "developing.trauma": 1
+	}
+    },
+    {
+	"id": "turnin.token.intent",
+	"actionid": "operate",
+	"label": "Страх, Рассечён",
+	"startdescription": "Итак, моя ненависть наконец-то оказалась сильнее моего страха. Кошмар содрогается.",
+	"description": "Ветры Собибора стихают у меня за спиной. Вся боль, которую я перенес там и от рук Изгнанника, - теперь я понимаю, что все это ничто. Я - агония и причина ее, и тот, кого называют Изгнанником, никогда больше не будет управлять моим страхом.",
+	"requirements": {
+	    "main.sobibor": 1,
+	    "token.intent": 1
+	},
+	"effects": {
+	    "main": -99
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "prisoner.withheart",
+	"actionid": "operate",
+	"label": "Утешение",
+	"startdescription": "Я буду помнить, как страдания роднили нас, каким бы коротким и далеким ни было то время.\n\n[Это создаст полезные Воспоминания.]",
+	"requirements": {
+	    "foe.prisoners": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.joy",
+		"mem.calm",
+		"mem.ingenuity",
+		"mem.rage",
+		"mem.taste"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"effects": {
+	    "foe.prisoners": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "prisoner.withedge",
+	"actionid": "operate",
+	"label": "Терзание",
+	"startdescription": "Я буду помнить, как страдания сделали нас менее человечными.\n\n[Это создаст Потрясение.]",
+	"requirements": {
+	    "foe.prisoners": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "trauma": 1,
+	    "foe.prisoners": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    }
+]
+}

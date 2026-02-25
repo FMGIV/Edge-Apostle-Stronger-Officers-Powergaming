@@ -1,0 +1,113 @@
+{
+"recipes": [
+{ "id": "obdurant.start.blocker", "craftable": true, "actionid": "operate",
+  "requirements": { "obdurant.setupitem": 1 }, "grandreqs": { "0=1": 1 },
+  "startdescription": "SOLDIER - YOU HAVE NOT INSTALLED AND/OR ENABLED THE ROOST! THIS MOD WILL NOT FUNCTION PROPERLY!",
+  "description": "ENABLE THE ROOST, SOLDIER!",
+},
+    {
+	"id": "obdurant.setup.a",
+	"actionid": "operate",
+	"label": "A Moment of Reprieve?",
+	"startdescription": "Snow dusts the earth as I trudge towards our perimeter. The men I command - weary, fierce, loyal - salute as I pass. All these men are my brothers, yes, but precious few of them I would call friend. At camp's edge, however, stands a fresh friend, waiting for me.",
+	"description": "'Hello,' they say to me, holding something out between their fingers. 'Cigarette?'",
+	"requirements": {
+	    "obdurant.setupitem": 1
+	},
+	"effects": {
+	    "obdurant.mentor": 1,
+	    "obdurant.setupitem": -1
+	},
+	"alt": [
+	    {
+		"id": "obdurant.setup.b",
+		"additional": true
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "obdurant.setup.b",
+	"actionid": "communicate",
+	"label": "Words from a Friend",
+	"startdescription": "My friend and I discuss the war: the dead, the victorious, and us. 'Your men have kept steady since the previous engagement - you lead well,' they say. There are embers of warmth in their voice. Cigarette smoke rolls over the landscape as we each exhale.",
+	"effects": {
+	    "mem.calm": 1
+	},
+	"warmup": 15
+    },
+    {
+	"id": "obdurant.setup.c",
+	"actionid": "communicate",
+	"label": "Farewell?",
+	"startdescription": "My friend grinds out their cigarette beneath their heel. 'This has been a refreshing affair. But I will be leaving, I think. My Foe's trajectory no longer intersects with yours, and I must keep my appointment with him,' they inform me. 'Before I depart, I would like to bestow upon you two things: my respect, and a secret.'",
+	"description": "'Many things have transpired to make this war a reality. The Edge Hours hold sacred contest here, and the prize is great, indeed: a Name. I have told you of Names. Once the dust is settled, there will be opportunity for one to be appointed. The Colonel would see that it is his. My Foe and I share a noble station; neither of us wish to be Named so. But someone must be, and I would wager that is you.'",
+	"requirements": {
+	    "obdurant.mentor": 1
+	},
+	"effects": {
+	    "obdurant.story": 1,
+	    "obdurant.mentor": -1
+	},
+	"alt": [
+	    {
+		"id": "obdurant.setup.d",
+		"additional": true
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "obdurant.setup.d",
+	"actionid": "recon",
+	"label": "A Soldier's Talents",
+	"startdescription": "My friend is gone in the morning, as they had promised. Their memory lingers. I recall things: who they were, how they fought, what they taught to me between drinks in the foxhole and in the blood of our enemies.",
+	"description": "War drives many, but few drive war. My friend was one of those few. I fought at their side and in their shadow; I trusted them and I, in turn, was trusted. This knifepoint of secret technique is one of their gifts to me, and I intend to use it.",
+	"effects": {
+	    "obdurant.fragmentedge": 1
+	},
+	"alt": [
+	    {
+		"id": "obdurant.setup.e",
+		"additional": true
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.setup.e",
+	"actionid": "abandon",
+	"label": "The Flesh, the Blood, the Bone",
+	"startdescription": "This, my mortal inventory -",
+	"effects": {
+	    "wound.eye": 1
+	},
+	"alt": [
+	    {
+		"id": "obdurant.setup.f",
+		"additional": true
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.setup.f",
+	"actionid": "mobilize",
+	"label": "Onwards",
+	"startdescription": "New marching orders from command. The Germans are on the move, and so we must be, too.",
+	"description": "Time to mobilise.",
+	"deckeffects": {
+	    "starting.warzones.sector.a": 1
+	},
+	"effects": {
+	    "provisions": 8,
+	    "friend.infantry": 2,
+	    "friend.medics": 1,
+	    "friend.scouts": 1
+	},
+	"warmup": 30
+    }
+]
+}

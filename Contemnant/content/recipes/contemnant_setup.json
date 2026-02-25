@@ -1,0 +1,239 @@
+{
+"recipes": [
+    {
+	"id": "contemnant.setup.a",
+	"actionid": "operate",
+	"label": "In From the Cold",
+	"startdescription": "The sun has set. The train of desperates that has followed me west for the past month grinds to a halt and sets down camp. Four of my comrades huddle with me around a small fire. We are silent together, until a visitor emerges from the night. My heart stops when I see them.",
+	"description": "'Scream, and you will all die tonight.'",
+	"requirements": {
+	    "contemnant.setupitem": 1
+	},
+	"effects": {
+	    "contemnant.mentor": 1,
+	    "contemnant.setupitem": -1,
+	    "mem.fear": 1,
+	    "friend.vanja": 1,
+	    "friend.tibor": 1,
+	    "friend.eva": 1,
+	    "friend.walther": 1
+	},
+	"alt": [
+	    {
+		"id": "contemnant.setup.b",
+		"additional": true
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "contemnant.setup.b",
+	"actionid": "communicate",
+	"label": "Rules of the Game",
+	"startdescription": "'Behave and listen, now. Things are in motion, and so I come to test you: a game, to see who can draw whose blood. If I win, I get to have the life of one of your little friends. If <i>you</i> win, then I will go, and leave you in... <i>peace.'</i> The Exile seems to choke on the word as they push it past their lips.",
+	"description": "'Here - to make it a little fairer. You're welcome.' The Exile tosses something down into the dirt by my feet.",
+	"effects": {
+	    "contemnant.weapon": 1
+	},
+	"warmup": 15
+    },
+    {
+	"id": "contemnant.setup.c",
+	"actionid": "communicate",
+	"label": "Saith the Wolf to the Lamb",
+	"startdescription": "'Remember - it is only a game.'",
+	"warmup": 5,
+	"requirements": {
+	    "contemnant.mentor": 1
+	},
+	"alt": [
+	    {
+		"id": "setup.startattack.exile.pre",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"contemnant.mentor": 1
+		    }
+		}
+	    }
+	],
+	"craftable": true
+    },
+    {
+	"id": "setup.startattack.exile.pre",
+	"actionid": "long.exile",
+	"label": "My Opponent Strikes!",
+	"effects": {
+	    "exile.attack.a": 1
+	},
+	"linked": [
+	    {
+		"id": "setup.startattack.exile"
+	    }
+	]
+    },
+    {
+	"id": "setup.startattack.exile",
+	"actionid": "long.exile",
+	"label": "My Opponent Strikes!",
+	"startdescription": "The Exile darts forward. There is steel so suddenly in their hand, and its jagged edge is so suddenly near -",
+	"description": "I cannot hear myself scream - perhaps the pain is so blinding-hot I have not yet regained the faculties to scream. The Exile wipes the blade. 'I'm afraid you lost.'",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"effects": {
+	    "wound.generic": 1
+	},
+	"alt": [
+	    {
+		"id": "contemnant.setup.d",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"contemnant.mentor": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "contemnant.setup.d",
+	"actionid": "abandon",
+	"label": "A Choice",
+	"startdescription": "'Rules are rules. Choose someone you'll miss the least,' the Exile smiles. 'Think about it for as long as you must.'",
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "contemnant.setup.d"
+	    }
+	],
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "A Choice",
+		"description": "Who will I condemn to death?",
+		"required": {
+		    "friend": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "contemnant.setup.d.choicemade"
+	    }
+	]
+    },
+    {
+	"id": "contemnant.setup.d.choicemade",
+	"label": "A Choice, Made",
+	"startdescription": "'Don't cry. I'm sure they didn't like you very much anyway.'",
+	"description": "My poor companion's eyes are dull glass, and the earth drinks their blood. This is, notably, the quickest I've ever seen the Exile kill someone. 'You have a long way to go,' the Exile starts again, 'before you're ready for what's to come.'",
+	"aspects": {
+	    "killfriend": 1
+	},
+	"requirements": {
+	    "friend": 2
+	},
+	"effects": {
+	    "contemnant.mentor": -99
+	},
+	"alt": [
+	    {
+		"id": "contemnant.setup.e",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "contemnant.setup.e",
+	"actionid": "recon",
+	"label": "The Coming Feast",
+	"startdescription": "'You're trying to escape all this, because you're weak and afraid. But there's something greater than your fear: <i>hate.</i> You hate those who starved you, worked you; you hate the world that allowed this to happen to you; you hate <i>me.</i> Don't you want us all to beg your forgiveness? For us to bleed and scream like you had to?'",
+	"description": "'Remember what I taught you: of the Hours of the Edge, the Wolf-Divided alone understands vengeance. As do his Names. There is a seat for a seventh among them - a last seat, before the feast begins. One with the proper hate might carve a path to that seat. You think on that.' The Exile draws back, a monster receding into shadow. 'We may meet again, before the end. I hope we do.'",
+	"effects": {
+	    "contemnant.fragmentedge": 1,
+	    "contemnant.story": 1,
+	    "contemnant.mentor": -1
+	},
+	"warmup": 30,
+	"alt": [
+	    {
+		"id": "contemnant.setup.f",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "contemnant.setup.f",
+	"actionid": "mobilize",
+	"label": "Onwards",
+	"startdescription": "The night passes in a blur of pain and grief. When I return to my senses, the sun has risen, my wound has been dressed, and my companion is still dead. I wince as I turn - the wound is not as dressed as I thought.",
+	"description": "The others are numb to the sight of the corpse in the light of dawn. Silently, I am thankful I must not speak of it as I devise our path forward. It goes either to Berlin, or to escape. The wind howls. I think, for the briefest of moments, about the Exile's proposal.",
+	"effects": {
+	    "provisions": 8,
+	    "friend.lookout": 2,
+	    "friend.doctor": 2,
+	    "friend.labourer": 1,
+	    "friend.gunman": 1
+	},
+	"deckeffects": {
+	    "starting.warzones.sector.a.germany": 1
+	},
+	"warmup": 30
+    },
+]
+}

@@ -1,0 +1,2152 @@
+{
+"recipes": [
+    {
+	"id": "hint.recruit.refugees",
+	"actionid": "operate",
+	"label": "劝诱难民跟随你？",
+	"startdescription": "这些人受恐惧、痛苦、战争困扰。只要我给他们提供哪怕一点希望或慰藉，他们就会立刻加入我们。当然，若我让他们在枪口下选择，他们也会立刻加入我们。",
+	"requirements": {
+	    "wandering.refugees": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.recruit.deserters",
+	"actionid": "operate",
+	"label": "劝诱逃兵跟随你？",
+	"startdescription": "孤身一人；没有目标；道德存疑；装备尚可——或许我可以使这些流浪者倒向我，通过展现力量，表述机遇，或者言及恐怖。",
+	"requirements": {
+	    "wandering.deserters": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.use.lookout",
+	"actionid": "operate",
+	"label": "与哨卫商讨？",
+	"startdescription": "我们之一——仅这一人——能够进入夜色并尝试揭露敌军的位置。此人需要一个藏身处以监视——以及大量的运气。",
+	"requirements": {
+	    "friend.lookout": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.use.lookout.hidden",
+	"actionid": "operate",
+	"label": "与哨卫商讨？",
+	"startdescription": "我们之一——仅这一人——能够进入夜色并尝试揭露敌军的位置。此人需要一个藏身处以监视——以及大量的运气。",
+	"requirements": {
+	    "friend.lookout.hidden": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.use.doctor",
+	"actionid": "operate",
+	"label": "与医生商讨？",
+	"startdescription": "此人可以治疗身体上的伤口——也可以确保无法救赎之人得到解脱。",
+	"requirements": {
+	    "friend.doctor": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.use.doctor.hidden",
+	"actionid": "operate",
+	"label": "与医生商讨？",
+	"startdescription": "此人可以治疗身体上的伤口——也可以确保无法救赎之人得到解脱。",
+	"requirements": {
+	    "friend.doctor.hidden": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.concealcasket",
+	"actionid": "abandon",
+	"label": "遮蔽持钥者的光芒？",
+	"startdescription": "“持钥人”很确定某人将会前来夺取她的白日之钥，并且一把钥匙与持钥者分离的情况只有借出钥匙——或是这持钥者已被杀害并吞噬。若我给“持钥人”提供一点养分，她就会有足够的力量来将她自身从追逐者的视野中隐藏——暂时隐藏。",
+	"requirements": {
+	    "klei.casket": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "communicate.givevicious.hopelessness",
+	"actionid": "communicate",
+	"label": "用残酷事实与一位友军对峙",
+	"startdescription": "即使经历了这一切痛苦，此人仍坚持着那约束与自尊的妄想。我可以尝试打碎他们的妄想——让他们明白为了活下去应该做什么。\n\n[这可以给你的友军添加“恶毒”性相，但这或许会失败，失败时这一友军将舍弃你。]",
+	"requirements": {
+	    "friend": 1,
+	    "vicious": -1,
+	    "hopelessness": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "communicate.givevicious.success",
+		"chance": 60
+	    },
+	    {
+		"id": "communicate.givevicious.failure",
+	    },
+	]
+    },
+    {
+	"id": "communicate.givevicious.failure",
+	"label": "用残酷事实与一位友军对峙",
+	"startdescription": "我盟友的脸扭曲为无底的厌恶。此人离开了，几乎不发一言，而我在离开之后才擦去其啐到我联赛的唾液。杀死此人的念头在我的脑海中出现了一瞬——但我决定不这么做。我不知道为什么。",
+	"effects": {
+	    "friend": -99
+	}
+    },
+    {
+	"id": "communicate.givevicious.success",
+	"label": "用残酷事实与一位友军对峙",
+	"startdescription": "“这就是一切，而其毫无意义。毫无意义。现在，你明白了吗？明白了吗？”",
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "vicious",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "communicate.givevicious.antithesis",
+	"actionid": "communicate",
+	"label": "向一位友军展示狼的真实",
+	"startdescription": "即使经历了这一切痛苦，此人仍坚持着那约束与自尊的妄想。我可以尝试打碎他们的妄想——但这或许只会打碎此人本身。\n\n[这可以给你的友军添加“恶毒”性相，但这或许会失败，失败时这一友军将陷入疯狂。]",
+	"requirements": {
+	    "friend": 1,
+	    "vicious": -1,
+	    "antithesis": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "communicate.givevicious.success.antithesis",
+		"chance": 60
+	    },
+	    {
+		"id": "communicate.givevicious.failure.antithesis"
+	    },
+	]
+    },
+    {
+	"id": "communicate.givevicious.failure.antithesis",
+	"label": "向一位友军展示狼的真实",
+	"startdescription": "一开始是呜咽，或者是低喃——但随后便是号泣，再然后是发抖，再然后是尖叫。直到入夜，此人仍在尖叫。",
+	"effects": {
+	    "friend": -99,
+	    "friend.lunatic": 1
+	}
+    },
+    {
+	"id": "communicate.givevicious.success.antithesis",
+	"label": "向一位友军展示狼的真实",
+	"startdescription": "“当火焰来临时，将会有一场饕宴。当饕宴来临时，我会找到你的。我保证。”",
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "vicious",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "communicate.findallies.wasteland",
+	"actionid": "communicate",
+	"label": "在战火摧残的地区搜寻潜在的友军？",
+	"startdescription": "我们必然不是那唯一一群希望前往别处的可怜流浪者。在这遍布死亡的穷乡僻壤，是否还存在其他人？其中是否会有与我们志愿相同的人？\n\n[你每次途径战火摧残的地区仅能搜寻一次潜在友军。]",
+	"description": "是谁在四处徘徊？",
+	"requirements": {
+	    "warzone.current": 1,
+	    "wasteland.scouted": -1
+	},
+	"extantreqs": {
+	    "wasteland": 1,
+	    "contemnant.story": 1
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "wasteland.scouted",
+		"level": 1
+	    }
+	],
+	"internaldeck": {
+	    "spec": [
+		"wandering.refugees",
+		"wandering.refugees",
+		"wandering.refugees",
+		"wandering.refugees",
+		"wandering.deserters",
+		"wandering.deserters",
+		"wandering.deserters",
+		"husk",
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 60
+    },
+    {
+	"id": "heal.wound.contemnant.doctor",
+	"actionid": "abandon",
+	"label": "治愈我的伤口",
+	"startdescription": "这样就行。",
+	"description": "在战地医师的帐篷中，时间流逝。然后我便返回战场。",
+	"requirements": {
+	    "provisions": 1,
+	    "friend.doctor": 1,
+	    "damage.body": 1,
+	    "debilitation": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "damage.body": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "heal.wound.contemnant.doctor.hidden",
+	"actionid": "abandon",
+	"label": "治愈我的伤口",
+	"startdescription": "这样就行。",
+	"description": "在战地医师的帐篷中，时间流逝。然后我便返回战场。",
+	"requirements": {
+	    "provisions": 1,
+	    "friend.doctor.hidden": 1,
+	    "damage.body": 1,
+	    "debilitation": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "damage.body": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "lookout.revealhidden",
+	"actionid": "operate",
+	"label": "派出哨卫孤身一人调查敌军",
+	"startdescription": "一双眼睛，居于黑夜，独身一人。此人将带着有关敌人位置的情报返回。希望如此。\n\n[这将揭露一个匿踪敌军的行踪——但用于该行动的友军有被杀死的风险。]",
+	"requirements": {
+	    "friend.lookout": 1,
+	    "foe.hidden": 1,
+	    "op": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "lookout.revealhidden.success",
+	    }
+	]
+    },
+    {
+	"id": "lookout.hidden.revealhidden",
+	"actionid": "operate",
+	"label": "派出哨卫孤身一人调查敌军",
+	"startdescription": "一双眼睛，居于黑夜，独身一人。此人将带着有关敌人位置的情报返回。希望如此。\n\n[这将揭露一个匿踪敌军的行踪——但用于该行动的友军有被杀死的风险。]",
+	"requirements": {
+	    "friend.lookout.hidden": 1,
+	    "foe.hidden": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "lookout.revealhidden.success",
+	    }
+	]
+    },
+    {
+	"id": "lookout.revealhidden.success",
+	"label": "派出哨卫孤身一人调查敌军",
+	"startdescription": "找到了。",
+	"aspects": {
+	    "fatiguing": 1,
+	    "revealidentity": 1
+	},
+	"alt": [
+	    {
+		"id": "lookout.revealhidden.failure",
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "lookout.revealhidden.failure",
+	"label": "派出哨卫孤身一人调查敌军",
+	"startdescription": "无人自黑夜中返回。我的朋友必定是死了。",
+	"description": "无人自黑夜中返回。我的朋友必定是死了。",
+	"requirements": {
+	    "friend.hidden": -1
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "doctor.killwounded",
+	"actionid": "operate",
+	"label": "终归沉寂",
+	"startdescription": "这位医生十分清楚此人的伤势有多糟糕。我们可以选择终结此人的痛苦——但最后下这决定的人是我，故这份悲伤也应由我承担。",
+	"description": "“好了，好了，都结束了。”",
+	"requirements": {
+	    "friend.doctor": 1,
+	    "wounded": 1,
+	    "provisions": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.grief",
+		"mem.regret",
+		"mem.calm",
+		"trauma"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"effects": {
+	    "wounded": -99,
+	    "friend.corpses": 1
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "healcasualty.doctor",
+	"actionid": "operate",
+	"label": "为负伤的友军提供医疗护理",
+	"startdescription": "吗啡与缝线。若必要，还有骨锯。",
+	"description": "完成了。他们将活下去，继续战斗。",
+	"requirements": {
+	    "friend.doctor": 1,
+	    "wounded": 1,
+	    "provisions": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "healcomplete.medic"
+	    }
+	]
+    },
+    {
+	"id": "doctor.hidden.killwounded",
+	"actionid": "operate",
+	"label": "终归沉寂",
+	"startdescription": "这位医生十分清楚此人的伤势有多糟糕。我们可以选择终结此人的痛苦——但最后下这决定的人是我，故这份悲伤也应由我承担。",
+	"description": "“好了，好了，都结束了。”",
+	"requirements": {
+	    "friend.doctor.hidden": 1,
+	    "wounded": 1,
+	    "provisions": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.grief",
+		"mem.regret",
+		"mem.calm",
+		"trauma"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"effects": {
+	    "wounded": -99,
+	    "friend.corpses": 1
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "healcasualty.doctor.hidden",
+	"actionid": "operate",
+	"label": "为负伤的友军提供医疗护理",
+	"startdescription": "吗啡与缝线。若必要，还有骨锯。",
+	"description": "完成了。他们将活下去，继续战斗。",
+	"requirements": {
+	    "friend.doctor.hidden": 1,
+	    "wounded": 1,
+	    "provisions": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "healcomplete.medic"
+	    }
+	]
+    },
+    {
+	"id": "cannibalize.corpse.unnatural",
+	"actionid": "abandon",
+	"label": "吞噬被杀的生物？",
+	"startdescription": "尸体也是肉的一种，不过这肉比大部分肉都要奇怪。但只要这块肉不是完全不能吃、并且并未因战斗损毁太多，我们便可以收获相当数量的口粮。\n\n[这将产出补给品，但或许会让那些没有勇气咽下这种食物的友军离开。]",
+	"description": "只要人乐意与鼠、鸟和狼吃一样的东西，那就总能找到足以果腹的事物。",
+	"requirements": {
+	    "remnant": 1,
+	    "foe.corpse.unnatural": 1,
+	    "lore": -1,
+	    "klei.casket": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "remnant": -1,
+	    "provisions": 2
+	},
+	"craftable": true,
+	"warmup": 60,
+	"alt": [
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "cannibalize.corpse",
+	"actionid": "abandon",
+	"label": "食用死者",
+	"startdescription": "尸体也是肉的一种。只要这块肉不是完全不能吃、并且并未因战斗损毁太多，我们就会将其从死者身上切下。\n\n[这将产出补给品，但或许会让那些没有勇气咽下这种食物的友军离开。]",
+	"description": "只要人乐意与鼠、鸟和狼吃一样的东西，那就总能找到足以果腹的事物。",
+	"requirements": {
+	    "remnant": 1,
+	    "lore": -1,
+	    "klei.casket": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "remnant": -1,
+	    "provisions": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 25
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "abandon.buildweapon.wolf",
+	"actionid": "abandon",
+	"label": "使裂分之狼的一件可憎武器显现",
+	"startdescription": "早在置闰的许久以前，就已存在“狼行于太阳之侧”的说法。无影诸王的国度，罗马帝国与太阳教会都对这句话有着各自的官方假说与异端学说——但他们全部认同一点：这句话表明骄阳亦熟知痛苦。这件武器——其本身便是一个异端——正是其实证。",
+	"description": "“噢，高悬之日，光中之光——你给予我们视野，让我们得以前进，向着辉光，背向阴影前进。而对那些仍留存于阴影中的邪恶之人——你用野兽般的金光贯穿其脚踵。”",
+	"requirements": {
+	    "wolf.weaponfragment": 3
+	},
+	"effects": {
+	    "wolf.weaponfragment": -3,
+	    "weapon.hair": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "startup.desertion",
+	"actionid": "desertion",
+	"label": "一位友军背弃了我！",
+	"startdescription": "这一次，我的行为过于可憎。到了早上，我们的营地又空虚了一分——我们最近的蛮行使某人确信独自一人前行好过与我们一同在这屠杀中跋涉。",
+	"description": "此人没有勇气面对我们所做之事——但我有。我又怎能理解此人呢？",
+	"aspects": {
+	    "decline": 1,
+	    "fatiguing": 1
+	},
+	"tablereqs": {
+	    "friend": 1
+	},
+	"mutations": [
+	    {
+		"mutate": "repulsed",
+		"filter": "soviet",
+		"level": 1
+	    }
+	],
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "友军",
+		"required": {
+		    "friend": 1,
+		    "hired": 1
+		},
+		"forbidden": {
+		    "vicious": 1,
+		    "otherworldly": 1,
+		    "edgelong": 1,
+		    "friend.named": 1,
+		    "prisoner": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "produce.localinfamy",
+	"actionid": "lurk",
+	"label": "不欢迎的监视",
+	"startdescription": "有关我们所做的事——<i>我</i>所做的事——的传闻传到了当地俄军指挥部的耳中，现在他们对我们更警戒了。搞得好像我做过的那些事红军就没做过一样W。",
+	"effects": {
+	    "reputation.infamy": 1
+	},
+	"extantreqs": {
+	    "wasteland": -1,
+	    "sobibor.here": -1 
+	},
+	"warmup": 10
+    },
+    {
+	"id": "hide.ally",
+	"actionid": "communicate",
+	"label": "命令一位友军躲藏起来",
+	"startdescription": "前往暗处。我们的敌人无法找到我们，也无法危害我们。当我们决定再次出击时，那将会是一次意料之外的袭击……\n\n[处于隐匿状态的友军不会被大部分敌军袭击选为目标，并且直到下一次被使用之前，其性相将大幅提升。]",
+	"description": "我们在此等待。我们在此预见。我们在此戒备。",
+	"aspects": {
+	    "concealidentity": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "hired": -1,
+	    "friend.hidden": -1,
+	    "op": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "op": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "loot.corpse.scavenger",
+	"actionid": "communicate",
+	"label": "从死者身上搜寻有用之物",
+	"startdescription": "检查他们的行囊与口袋，还有他们僵直紧握的手。\n\n[拾荒者在搜寻尸体时有更高概率找到可用的补给，且速度更快。]",
+	"description": "这就是我们找到的东西。",
+	"requirements": {
+	    "friend.dregscavengers": 1,
+	    "remnant": 1,
+	    "looted": -1,
+	    "foe.corpse.unnatural": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"mutations": [
+	    {
+		"filter": "remnant",
+		"mutate": "looted",
+		"level": 1
+	    }
+	],
+	"craftable": true,
+	"warmup": 15,
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"husk",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares",
+		"provisions",
+		"provisions"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "loot.corpse.scavenger.hidden",
+	"actionid": "communicate",
+	"label": "从死者身上搜寻有用之物",
+	"startdescription": "检查他们的行囊与口袋，还有他们僵直紧握的手。\n\n[拾荒者在搜寻尸体时有更高概率找到可用的补给，且速度更快。]",
+	"description": "这就是我们找到的东西。",
+	"requirements": {
+	    "friend.dregscavengers.hidden": 1,
+	    "remnant": 1,
+	    "looted": -1,
+	    "foe.corpse.unnatural": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"mutations": [
+	    {
+		"filter": "remnant",
+		"mutate": "looted",
+		"level": 1
+	    }
+	],
+	"craftable": true,
+	"warmup": 15,
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"husk",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares",
+		"provisions",
+		"provisions"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "loot.corpse",
+	"actionid": "communicate",
+	"label": "从死者身上搜寻有用之物",
+	"startdescription": "检查他们的行囊与口袋，还有他们僵直紧握的手。\n\n[这将产生一些可用的补给，但有概率什么都找不到。]",
+	"description": "这就是我们找到的东西。",
+	"requirements": {
+	    "friend.dregscavengers": -1,
+	    "friend": 1,
+	    "remnant": 1,
+	    "looted": -1,
+	    "foe.corpse.unnatural": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"mutations": [
+	    {
+		"filter": "remnant",
+		"mutate": "looted",
+		"level": 1
+	    }
+	],
+	"craftable": true,
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "recruit.refugees.heart",
+	"actionid": "operate",
+	"label": "劝诱难民跟随你？",
+	"startdescription": "“我们正尝试前往更加安全的地方。你想加入？我们很欢迎的——我认为，多一个人，就多一分活下去的希望。”",
+	"description": "“现在，一起来吧。”",
+	"requirements": {
+	    "wandering.refugees": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"effects": {
+	    "wandering.refugees": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.refugees.grail",
+	"actionid": "operate",
+	"label": "劝诱难民跟随你？",
+	"startdescription": "“你们之中有伤者吗？我们有一些多出来的补给和药品。”",
+	"description": "“现在，一起来吧。”",
+	"requirements": {
+	    "wandering.refugees": 1,
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"effects": {
+	    "wandering.refugees": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.refugees.edge",
+	"actionid": "operate",
+	"label": "劝诱难民跟随你？",
+	"startdescription": "“加入或死，选吧。”",
+	"description": "“明智的选择。”",
+	"requirements": {
+	    "wandering.refugees": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "wandering.refugees": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.deserters.edge",
+	"actionid": "operate",
+	"label": "劝诱逃兵跟随你？",
+	"startdescription": "“加入或死，选吧。”",
+	"description": "“明智的选择。”",
+	"requirements": {
+	    "wandering.deserters": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "wandering.deserters": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.deserters.winter",
+	"actionid": "operate",
+	"label": "劝诱逃兵跟随你？",
+	"startdescription": "“德军会用子弹招呼你们。红军也会，因为你们已是逃兵。你们没机会活下去的——除非加入我们。”",
+	"description": "“明智的选择。”",
+	"requirements": {
+	    "wandering.deserters": 1,
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"effects": {
+	    "wandering.deserters": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.deserters.grail",
+	"actionid": "operate",
+	"label": "劝诱逃兵跟随你？",
+	"startdescription": "“总有人从你受的一切苦与难中获益。那为何获益的不能是我们，不能是<i>你</i>？说到底，你也不欠谁什么，不是吗？”",
+	"description": "“明智的选择。”",
+	"requirements": {
+	    "wandering.deserters": 1,
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"effects": {
+	    "wandering.deserters": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "operate.startup.slaughterlocals.dregsoldier",
+	"actionid": "operate",
+	"label": "穿过城区并屠杀本地平民",
+	"startdescription": "我告诉我的人随他们去，他们想做什么都可以——只要那能伤人。\n\n[你在一个战区只能如此做一次。痛苦与混沌将会蔓延，你与本地人或苏军之间的一切友好关系将永久毁灭。裂分之狼会享受这场杀戮。]",
+	"requirements": {
+	    "friend.dregsoldier": 99,
+	    "warzone.current": 1,
+	    "op.wolfdivided": 1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.slaughterlocals.gunman",
+	"actionid": "operate",
+	"label": "穿过城区并屠杀本地平民",
+	"startdescription": "我告诉我的人随他们去，他们想做什么都可以——只要那能伤人。\n\n[你在一个战区只能如此做一次。痛苦与混沌将会蔓延，你与本地人或苏军之间的一切友好关系将永久毁灭。裂分之狼会享受这场杀戮。]",
+	"requirements": {
+	    "friend.gunman": 99,
+	    "warzone.current": 1,
+	    "op.wolfdivided": 1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.slaughterlocals.dregsoldier.hidden",
+	"actionid": "operate",
+	"label": "穿过城区并屠杀本地平民",
+	"startdescription": "我告诉我的人随他们去，他们想做什么都可以——只要那能伤人。\n\n[你在一个战区只能如此做一次。痛苦与混沌将会蔓延，你与本地人或苏军之间的一切友好关系将永久毁灭。裂分之狼会享受这场杀戮。]",
+	"requirements": {
+	    "friend.dregsoldier.hidden": 99,
+	    "warzone.current": 1,
+	    "op.wolfdivided": 1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.slaughterlocals.gunman.hidden",
+	"actionid": "operate",
+	"label": "穿过城区并屠杀本地平民",
+	"startdescription": "我告诉我的人随他们去，他们想做什么都可以——只要那能伤人。\n\n[你在一个战区只能如此做一次。痛苦与混沌将会蔓延，你与本地人或苏军之间的一切友好关系将永久毁灭。裂分之狼会享受这场杀戮。]",
+	"requirements": {
+	    "friend.gunman.hidden": 99,
+	    "warzone.current": 1,
+	    "op.wolfdivided": 1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.gunman",
+	"actionid": "operate",
+	"label": "从本地人处强征补给",
+	"startdescription": "我们会说这都是为了赢得这场战争，实际上也确实如此。但他们不会喜欢的。\n\n[这将会给予你相当数量的补给品，但会永久毁灭你与本地人之间的一切友好关系。你在一个战区只能如此做一次。]",
+	"requirements": {
+	    "friend.gunman": 1,
+	    "warzone.current": 1,
+	    "edge": 5,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.assistlocals.gunman",
+	"actionid": "operate",
+	"label": "向本地人提供援助",
+	"startdescription": "世事艰难。或许我们可以抽出一些时间与劳力来安抚无法战斗之人的痛苦。\n\n[你通过的挑战越多，你就能够获得越多资源，像住所与本地人友军。]",
+	"requirements": {
+	    "friend.gunman": 1,
+	    "warzone.current": 1,
+	    "heart": 1,
+	    "warzone.abused": -1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "assistlocals.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 2,
+		    "filter": {
+			"edge": 1,
+			"heart": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.gunman.hidden",
+	"actionid": "operate",
+	"label": "从本地人处强征补给",
+	"startdescription": "我们会说这都是为了赢得这场战争，实际上也确实如此。但他们不会喜欢的。\n\n[这将会给予你相当数量的补给品，但会永久毁灭你与本地人之间的一切友好关系。你在一个战区只能如此做一次。]",
+	"requirements": {
+	    "friend.gunman.hidden": 1,
+	    "warzone.current": 1,
+	    "edge": 5,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.assistlocals.gunman.hidden",
+	"actionid": "operate",
+	"label": "向本地人提供援助",
+	"startdescription": "世事艰难。或许我们可以抽出一些时间与劳力来安抚无法战斗之人的痛苦。\n\n[你通过的挑战越多，你就能够获得越多资源，像住所与本地人友军。]",
+	"requirements": {
+	    "friend.gunman.hidden": 1,
+	    "warzone.current": 1,
+	    "heart": 1,
+	    "warzone.abused": -1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "assistlocals.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 2,
+		    "filter": {
+			"edge": 1,
+			"heart": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.dregsoldier",
+	"actionid": "operate",
+	"label": "从本地人处强征补给",
+	"startdescription": "我们会说这都是为了赢得这场战争，实际上也确实如此。但他们不会喜欢的。\n\n[这将会给予你相当数量的补给品，但会永久毁灭你与本地人之间的一切友好关系。你在一个战区只能如此做一次。]",
+	"requirements": {
+	    "friend.dregsoldier": 1,
+	    "warzone.current": 1,
+	    "edge": 7,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "warzone.abused": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.dregsoldier.hidden",
+	"actionid": "operate",
+	"label": "从本地人处强征补给",
+	"startdescription": "我们会说这都是为了赢得这场战争，实际上也确实如此。但他们不会喜欢的。\n\n[这将会给予你相当数量的补给品，但会永久毁灭你与本地人之间的一切友好关系。你在一个战区只能如此做一次。]",
+	"requirements": {
+	    "friend.dregsoldier.hidden": 1,
+	    "warzone.current": 1,
+	    "edge": 7,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "warzone.abused": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "communicate.klei.getcasket",
+	"actionid": "communicate",
+	"label": "持有白日之钥的她",
+	"startdescription": "“杜弗尔的孩子怂恿你这么做。想必其认为狼是必需的，就像我们一样。”“持钥人”一面对她自己比划着什么，一面解释道。“如果你将成为他的具名者，人之杀手，那我会协助你。人们不会忘记狼也有权带来拂晓。而我渴望再次见到拂晓很久，很久了。”",
+	"description": "“但是你要注意：我的力量已不再如全盛时期那般。维也纳从一支特别的贪婪部队手中保护了我，但留在这里仍让我付出了代价。那些意欲篡夺我的白日之钥者已然感知到我的衰弱。他们必定会在路上前来袭击。不要让我被吃掉。”",
+	"requirements": {
+	    "klei": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"effects": {
+	    "klei": -99,
+	    "klei.casket": 1
+	}
+    },
+    {
+	"id": "abandon.concealcasket",
+	"actionid": "abandon",
+	"label": "遮蔽持钥者的光芒",
+	"startdescription": "“很好，很好。有了此人的血，我应该就能拿出足够的力量躲避那些窃贼一段时间。”",
+	"description": "“我感谢你。现在，集中精神，继续前进。”",
+	"requirements": {
+	    "friend": 1,
+	    "klei.casket": 1
+	},
+	"aspects": {
+	    "malign": 1
+	},
+	"effects": {
+	    "friend": -99
+	},
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "communicate.getsobibor.klei",
+	"actionid": "communicate",
+	"label": "向丽姬亚问及流亡者",
+	"startdescription": "“嗯。我知道这人。如果这人无法使你恐惧，那你肯定是个十足的傻瓜。现在听着：上校以决心回应恐惧，狮子匠以勇气回应，而裂分之狼则有他自己的方式。”",
+	"description": "“在这个世界你是找不到你恐惧的解答的。那恐惧根植于你之内，所以你必须前往你自己的内部以铲除它。”",
+	"requirements": {
+	    "klei.casket": 1,
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "sobibor": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"maxexecutions": 1
+    },
+    {
+	"id": "communicate.getmemories.klei",
+	"actionid": "communicate",
+	"label": "向持钥者的光芒寻求指引",
+	"startdescription": "The Key-Bearer's presence burns like a candle in the night. I can supplicate it for some power, but not all her counsel may reach me through the darkness of this terrible dream.\n\n[当你身处索比堡时，你可以通过与“持钥人”对话获得有用的回忆。但有时你会什么都得不到。]",
+	"description": "Something?",
+	"requirements": {
+	    "klei.casket": 1
+	},
+	"extantreqs": {
+	    "sobibor.here": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.ingenuity",
+		"mem.revelation",
+		"mem.calm",
+		"mem.joy",
+		"mem.taste",
+		"husk",
+		"husk",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 60
+    },
+    {
+	"id": "bloodonhands.executepseudogol",
+	"actionid": "execution",
+	"label": "屠宰",
+	"startdescription": "那无餍亡者发出尖叫，那骨白者则将其扭曲撕裂，并抛给其同类——",
+	"description": "“现在，吃吧。大口吃吧。”",
+	"tablereqs": {
+	    "foe.flesheater": 1
+	},
+	"aspects": {
+	    "killflesheater": 1
+	},
+	"slots": [
+	    {
+		"id": "needsflesheater",
+		"label": "肉",
+		"required": {
+		    "foe.flesheater": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "createguards.ingluviate",
+	"actionid": "ingluviateguard",
+	"label": "掩护撤退",
+	"startdescription": "吞食者扭曲并蠕动着离开，连带着其腹中的那棺材，其它杯之仆从则动了起来，保护其逃亡——",
+	"extantreqs": {
+	    "foe.ingluviate.protect": -1
+	},
+	"slots": [
+	    {
+		"id": "needsguard",
+		"label": "敌军",
+		"required": {
+		    "foe.flesheater": 1,
+		    "foe.flesheater.hidden": 1,
+		    "foe.percussigant": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsguardanother",
+		"label": "敌军",
+		"required": {
+		    "foe.flesheater": 1,
+		    "foe.flesheater.hidden": 1,
+		    "foe.percussigant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "foe.flesheater",
+		"mutate": "foe.ingluviate.protect",
+		"level": 1
+	    },
+	    {
+		"filter": "foe.flesheater.hidden",
+		"mutate": "foe.ingluviate.protect",
+		"level": 1
+	    },
+	    {
+		"filter": "foe.percussigant",
+		"mutate": "foe.ingluviate.protect",
+		"level": 1
+	    },
+	],
+	"warmup": 10
+    },
+    {
+	"id": "produce.wolfshadow",
+	"actionid": "spit.winter",
+	"label": "裂分之狼的注意",
+	"startdescription": "一道阴影掠过灵魂。一股难以言说的痛苦在我之内扭曲。我必须把它交给他人，交给<i>任何人</i>都行——",
+	"effects": {
+	    "op.wolfdivided": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "find.sergei.first",
+	"label": "流浪者？",
+	"startdescription": "自侦察中返回时，我遇到了一个人。此人身边有着某种气场。某种同类的糟糕气场。",
+	"effects": {
+	    "op.sergei": 1
+	},
+	"maxexecutions": 1,
+	"extantreqs": {
+	    "runmarker.sergei": 1
+	}
+    },
+    {
+	"id": "speakwithsergei.first",
+	"actionid": "communicate",
+	"label": "老哥萨克人",
+	"startdescription": "“你还是太……<i>善良</i>了，”这哥萨克人嘶声说道，仿佛在纠结用词。“你不知道我是谁，也不知道我干了什么，就如此欢迎我。我曾教我的儿子小心陌生人，但共群之猎犬总是能认出彼此的，我想。而你正是因此才欢迎我的。”",
+	"description": "“你让我回忆起他，回忆起我的儿子。可怜的小子，”这哥萨克人变得……伤感？“我正在寻找属于他的一件纪念品，那是一件锋利的东西。如果你恰好找到了它，那就再为善一次，把它还给我吧。这总好过我动手从你那里抢过来。”",
+	"requirements": {
+	    "op.sergei": 1
+	},
+	"furthermore": { 
+	    "target": "~/tabletop[situationstorage]+",
+	    "aspects": {
+		"avowal": 1 
+	    }
+	},
+	"xpans": { 
+	    "avowal": 1 
+	},
+	"effects": {
+	    "op.sergei": -99
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "findkazimirsword",
+	"label": "仇怨的遗物？",
+	"startdescription": "某物在黑暗中闪着恶意的光。那可能是弹片，也可能是锯齿状的残骸，但我的本能告诉我，我得靠近仔细看看……",
+	"description": "某物在黑暗中闪着恶意的光。那可能是弹片，也可能是锯齿状的残骸，但我的本能告诉我，我得靠近仔细看看……\n\n[保管好此物。某人会为拿回此物前来。]",
+	"extantreqs": {
+	    "marker.spoketosergeiaboutsword": 1
+	},
+	"maxexecutions": 1,
+	"effects": {
+	    "plotitem.kazimirshashka": 1
+	}
+    },
+    {
+	"id": "find.sergei.comeforsword",
+	"label": "流浪者？",
+	"startdescription": "一道阴影突然出现在路中央。一张熟面孔出现在了我自黑夜返回营地的路上。",
+	"effects": {
+	    "op.sergei.comeforsword": 1
+	},
+	"extantreqs": {
+	    "plotitem.kazimirshashka": 1
+	},
+	"maxexecutions": 1
+    },
+    {
+	"id": "speakwithsergei.turninsword",
+	"actionid": "communicate",
+	"label": "悲叹",
+	"startdescription": "这哥萨克人伸手接过这把折断的利刃，如石头一般面无表情。“当他还是个小男孩的时候，他憎恨着我，因为我从他身边夺走了三条命，而这已经足够让他变得孤身一人。憎恨使他变得更强。当他长大成人之后，他又一次找上了我……”",
+	"description": "“他一直都不是我亲生的儿子，但偶然——或者说命运——把我们绑在了一起。命运就是那些司辰。那些漠不关心的该死家伙。现在，命运的双眼正注视着你。在狼带我走之前，我很乐意见证命运会用你的骨头雕刻出什么样的漠不关心的该死玩意。”",
+	"requirements": {
+	    "op.sergei.comeforsword": 1,
+	    "plotitem.kazimirshashka": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"effects": {
+	    "plotitem.kazimirshashka": -99,
+	    "op.sergei.comeforsword": -99,
+	    "sergei.horn": 1
+	}
+    },
+    {
+	"id": "hint.summon.friend.immortal.alreadyhere",
+	"actionid": "abandon",
+	"label": "召来一位强力友军协助？",
+	"startdescription": "为何？此人已经在此。",
+	"requirements": {
+	    "uses.remaining": 1
+	},
+	"extantreqs": {
+	    "friend.immortal": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.summon.friend.immortal.denied",
+	"actionid": "abandon",
+	"label": "召来一位强力友军协助？",
+	"startdescription": "我可呼唤——但无人会回应。",
+	"requirements": {
+	    "uses.remaining": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "summon.friend.immortal.sergei",
+	"actionid": "abandon",
+	"label": "召来一位强力友军协助",
+	"startdescription": "号角发出的凄凉哀号久久悬于空气中，就像悬于树上的尸体。远处传来一阵隆响。是马蹄声。",
+	"description": "在马背上，是一袭黑衣的食铁者。他手中的利刃闪烁着残酷的寒光。“狼的工作。让我们开始吧，人之杀手。”",
+	"requirements": {
+	    "sergei.horn": 1,
+	    "uses.remaining": 1
+	},
+	"extantreqs": {
+	    "sobibor.here": -1,
+	    "friend.immortal": -1,
+	    "friend.immortal.blocker": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "friend.sergei": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "summon.friend.immortal.nomoreuses"
+	    }
+	]
+    },
+    {
+	"id": "summon.friend.immortal.cross",
+	"actionid": "abandon",
+	"label": "召来一位强力友军协助",
+	"startdescription": "明面上，任何事都没有发生。甲壳上的解踪语铭文毫无动静。但自天空之后，来自另一个时代的某物出现并开始攻击——",
+	"description": "这位淆翅种战士以后肢着地，直立于地上，如一位立正的士兵一般。她的双颚不耐烦地敲击。今日，我们都寻求流血，而我们也都将得到。",
+	"requirements": {
+	    "cross.summonsign": 1,
+	    "uses.remaining": 1
+	},
+	"extantreqs": {
+	    "sobibor.here": -1,
+	    "friend.immortal": -1,
+	    "friend.immortal.blocker": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "friend.cross": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "summon.friend.immortal.nomoreuses"
+	    }
+	]
+    },
+    {
+	"id": "summon.friend.immortal.nomoreuses",
+	"label": "召来一位强力友军协助",
+	"startdescription": "@#friend.sergei|在马背上，是一袭黑衣的食铁者。他手中的利刃闪烁着残酷的寒光。“狼的工作。让我们开始吧，人之杀手。”#friend.cross|这位淆翅种战士以后肢着地，直立于地上，如一位立正的士兵一般。她的双颚不耐烦地敲击。今日，我们都寻求流血，而我们也都将得到。@",
+	"requirements": {
+	    "uses.remaining": -1
+	},
+	"effects": {
+	    "sergei.horn": -99,
+	    "cross.summonsign": -99
+	}
+    },
+    {
+	"id": "talktosergei.final",
+	"actionid": "communicate",
+	"label": "临终一息",
+	"startdescription": "这哥萨克人流着血倒在雪地里。“看来，要结束了。这份虚妄已不再持续。我想，这已经是我能期望的最好的结局了，”他正在死亡。“不过，你——你还不会死在这里。我能够看见那等着你的道路。<i>嗅闻</i>它吧。在最后，你将得到狼的应许。你将会成为我们中最糟糕的那个。”",
+	"description": "“人之杀手——你将把你出生的城市摧毁，不留一砖一瓦。你的双手将让那里的一切崩塌。”",
+	"requirements": {
+	    "op.sergei.postfight": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"effects": {
+	    "op.sergei.postfight": -99,
+	    "weapon.sergei": 1
+	}
+    },
+    {
+	"id": "unmake.foe.ingluviate.engorged.hint",
+	"actionid": "abandon",
+	"label": "赤红守御",
+	"startdescription": "在正常情况下，这生物算不上难杀，但尽管它的体内现有一个沉重物件，这吞食者的动作仍意外地迅捷——更别提还有许多其它生物挡在我与它之间。",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe.ingluviate.engorged": 1
+	},
+	"extantreqs": {
+	    "foe.ingluviate.protect": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "use.unmake.foe.ingluviate.engorged",
+	"actionid": "abandon",
+	"label": "毁灭",
+	"startdescription": "阴影落在了我灵魂之上，比我的憎恨更加古老深邃的憎恶在我之中涌动——流过我的血管，汇聚至我的双手，我伸手抓住敌人-——",
+	"description": "什么都没剩下。一点痕迹都没有。",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.ingluviate.engorged": 1
+	},
+	"extantreqs": {
+	    "foe.ingluviate.protect": -1
+	},
+	"effects": {
+	    "foe": -99,
+	    "klei.casket": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"op.wolfdivided",
+		"op.wolfdivided"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+    },
+    {
+	"id": "use.unmake.foe.marinette",
+	"actionid": "abandon",
+	"label": "毁灭？",
+	"startdescription": "玛丽内特不会这么简单地被毁灭。她干枯的四肢因不可见的古老力量嘶嘶作响。尝试对她使用这一技艺只能令她暂时退出战斗，并令我付出很大的代价。",
+	"description": "在这丽姬亚的红色罩衣下有什么断裂了，而她干枯、锐利的尖啸贯穿我的耳膜。她仅剩白骨的手指挖入我的血肉，也一并挖入我体内流动的<i>痛苦</i>——",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.marinette": 1
+	},
+	"effects": {
+	    "wound.generic": 3,
+	    "trauma": 1,
+	    "foe.marinette.recovering": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "use.unmake.foe.marinette.hidden",
+	"actionid": "abandon",
+	"label": "毁灭",
+	"startdescription": "阴影落在了我灵魂之上，比我的憎恨更加古老深邃的憎恶在我之中涌动——流过我的血管，汇聚至我的双手，我伸手抓住敌人-——",
+	"description": "在这丽姬亚的红色罩衣下有什么断裂了，而她干枯、锐利的尖啸贯穿我的耳膜。她仅剩白骨的手指挖入我的血肉，也一并挖入我体内流动的<i>痛苦</i>——",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.marinette.hidden": 1
+	},
+	"effects": {
+	    "wound.generic": 3,
+	    "foe.marinette.recovering": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"op.wolfdivided",
+		"op.wolfdivided"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfoe": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "use.unmake.foe.officer",
+	"actionid": "abandon",
+	"label": "毁灭",
+	"startdescription": "阴影落在了我灵魂之上，比我的憎恨更加古老深邃的憎恶在我之中涌动——流过我的血管，汇聚至我的双手，我伸手抓住敌人-——",
+	"description": "什么都没剩下。一点痕迹都没有。",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.officer": 1
+	},
+	"extantreqs": {
+	    "foe.officerdetail": -1
+	},
+	"effects": {
+	    "foe": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "weakenenemies.detect",
+		"additional": true
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "use.unmake.foe",
+	"actionid": "abandon",
+	"label": "毁灭",
+	"startdescription": "阴影落在了我灵魂之上，比我的憎恨更加古老深邃的憎恶在我之中涌动——流过我的血管，汇聚至我的双手，我伸手抓住敌人-——",
+	"description": "什么都没剩下。一点痕迹都没有。",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": -1,
+	    "foe.marinette": -1,
+	    "foe.marinette.hidden": -1
+	},
+	"effects": {
+	    "foe": -99,
+	    "aggro.bombers.refuel": -99,
+	    "foe.bombers.refuel": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "use.unmake.neutral",
+	"actionid": "abandon",
+	"label": "毁灭",
+	"startdescription": "阴影落在了我灵魂之上，比我的憎恨更加古老深邃的憎恶在我之中涌动——流过我的血管，汇聚至我的双手，我伸手抓住敌人-——",
+	"description": "什么都没剩下。一点痕迹都没有。",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "neutral": 1
+	},
+	"effects": {
+	    "neutral": -99,
+	    "reputation.infamy": 3
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "unmake.getshadow",
+	"label": "毁灭",
+	"startdescription": "什么都没剩下。一点痕迹都没有。",
+	"extantreqs": {
+	    "sustain.marker": 1
+	},
+	"effects": {
+	    "op.wolfdivided": 1
+	}
+    },
+    {
+	"id": "use.unmake.friend",
+	"actionid": "abandon",
+	"label": "毁灭",
+	"startdescription": "阴影落在了我灵魂之上，比我的憎恨更加古老深邃的憎恶在我之中涌动——流过我的血管，汇聚至我的双手，我伸手抓住那自称为我朋友的人-——",
+	"description": "什么都没剩下。一点痕迹都没有。",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "friend": 1
+	},
+	"effects": {
+	    "friend": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "use.sustain.refresh",
+	"actionid": "operate",
+	"label": "总在死亡，从未死去",
+	"startdescription": "狼大发慈悲，允许我在本应死去时继续活着。他那散发臭味的弯曲利齿将咬住并固定我。他固定着我的这段时间里，我的性命将不会从梦境的这一侧离开。",
+	"description": "狼一口咬下，毫不犹豫。这一咬极深，也极痛苦。名为“湮灭”的安宁又一次离我而去。",
+	"requirements": {
+	    "op.wolfdivided": 1,
+	    "foe": -1,
+	    "friend": -1,
+	    "main": -1,
+	    "side": -1,
+	    "contemplation": -1
+	},
+	"extantreqs": {
+	    "sustain.marker": 1
+	},
+	"aspects": {
+	    "employment": 1
+	},
+	"effects": {
+	    "op.wolfdivided": -99
+	},
+	"slots": [
+	    {
+		"id": "needsskill",
+		"label": "维持",
+		"required": {
+		    "sustain.marker": 1
+		},
+		"greedy": true
+	    }
+	],
+	"craftable": true,
+	"warmup": 5
+    },
+    {
+	"id": "use.division.turnsplinters",
+	"actionid": "abandon",
+	"label": "释放我的绝望",
+	"startdescription": "惊人的痛苦在我体内翻涌。我身体对折，牙关紧闭，因我感到有什么正在撕裂我，并随着尖叫从我之中钻出——",
+	"description": "我的血肉毫发无损，但那恶臭的灰色气雾打着旋离开我的身体。它漂浮在空中，而后开始变化，形成眼睛，爪子，牙齿——",
+	"requirements": {
+	    "skill.division": 1,
+	    "trauma": 1,
+	    "klei.casket": -1
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "wolftransform": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+    },
+    {
+	"id": "produce.flames",
+	"actionid": "spit.forge",
+	"label": "火焰与混乱",
+	"startdescription": "裂分之狼支持那摧毁一切的火焰，吞噬万物的火焰，仅余灰烬的火焰！这火焰已在此诞生——",
+	"warmup": 10,
+	"effects": {
+	    "op.fire": 1
+	}
+    },
+    {
+	"id": "use.endinghope",
+	"actionid": "operate",
+	"label": "否定狼",
+	"startdescription": "流亡者为我安排的那血腥命运并未完全确定。我可以选择放弃我的复仇。我可以放下武器，让其他人去审判或杀死我的敌人。流亡者会称此为“软弱”——但或许好好活着才是最好的复仇。\n\n[这将会结束本局游戏。]",
+	"requirements": {
+	    "op.endinghope": 1,
+	    "contemnant.memento": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictory.contemnant.mp3",
+	"ending": "peaceending",
+	"achievements": [
+	    "hope.peaceending"
+	]
+    },
+    {
+	"id": "use.getcrosspromise",
+	"actionid": "operate",
+	"label": "枭与狼",
+	"startdescription": "银白月光的斑点照亮了森林的地面。一位历史的活化石从林木的阴影中走出。那是最后的介壳种之一，也是双角斧复仇计划里的棋子之一。裂分之狼将表明我受他所注视，故我能够与她平等地谈判有关共同敌人的事。",
+	"description": "那位介壳种战士和我都没有说话——因肉之语言与鳞之语言对彼此而言过于迥异——但这些词语的粗略印象在我脑中嗡鸣：<i>猿猴。敌人。你。例外。大地。之血。归来。我将。回归。命令。断绝。二人。一同。杀死。杀死。</i>",
+	"requirements": {
+	    "op.axe": 1,
+	    "completed": 1,
+	    "op.time.night": 1,
+	    "op.wolfdivided": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"effects": {
+	    "cross.summonsign": 1,
+	    "op": -99,
+	    "completed": -99
+	}
+    },
+    {
+	"id": "talktocross.final",
+	"actionid": "communicate",
+	"label": "停战的终结",
+	"startdescription": "<i>猿猴。停战。仅此。一次。下次。你。敌人。狼。枭。孰胜？孰败？我们。走着。瞧。</i>",
+	"description": "那介壳种战士起飞，很快远去的她就变为了地平线上的一个黑点，然后她便消失在那深蓝的天幕之后。",
+	"requirements": {
+	    "op.cross.postfight": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"effects": {
+	    "op.cross.postfight": -99
+	},
+	"slots": [
+	    {
+		"id": "needsedge",
+		"label": "力量？",
+		"description": "她正在讲话。如果我够强，并且够快，我就能杀死她。",
+		"required": {
+		    "edge": 20
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "talktocross.final.kill"
+	    }
+	]
+    },
+    {
+	"id": "talktocross.final.kill",
+	"label": "碾碎虫豸",
+	"startdescription": "若我们的停战协议已经结束，那么抗争便从此刻重新开始。掐灭光芒的过程十分迅速。那高傲的战士曾站立之处现仅余一堆死寂的鳞与翅。那漆黑的千面之眼已无法再看见了。",
+	"description": "一股温暖的欢欣流过我的身体。毕竟，杀死某种事物最后残余的个体也是一种罕见的愉悦。",
+	"requirements": {
+	    "edge": 20
+	},
+	"effects": {
+	    "op.cross.postfight": -99,
+	    "weapon.cross": 1
+	},
+    },
+    {
+	"id": "dispel.developingtrauma.hint",
+	"actionid": "operate",
+	"label": "在绝望扎根前将其消除？",
+	"startdescription": "绝望就像混入我的血液与灵魂中的猛毒。我必须使用适合的力量将其吸出，以及一份记忆将其平息。",
+	"requirements": {
+	    "developing": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "dispel.developingtrauma.heart",
+	"actionid": "operate",
+	"label": "在绝望扎根前将其消除",
+	"startdescription": "我必须阻挡这痛苦之潮，否则它就会在我击倒我恐惧的源头之前将我淹没。心将减缓绝望的到来。",
+	"description": "狂嚎止息，而后此处仅余静默。",
+	"requirements": {
+	    "developing": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart",
+	    "memory": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "developing": -99,
+	    "memory": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "dispel.developingtrauma.lantern",
+	"actionid": "operate",
+	"label": "在绝望扎根前将其消除",
+	"startdescription": "我必须阻挡这痛苦之潮，否则它就会在我击倒我恐惧的源头之前将我淹没。灯将抵御绝望的到来。",
+	"description": "狂嚎止息，而后此处仅余静默。",
+	"requirements": {
+	    "developing": 1,
+	    "needslantern": 1,
+	    "lantern": "needslantern",
+	    "memory": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "developing": -99,
+	    "memory": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "dispel.trauma.shredsself",
+	"actionid": "abandon",
+	"label": "对痛苦的供奉",
+	"startdescription": "我不再需要这些记忆的碎片中映出的那个人——我需要的是复仇。所以我会把这羔羊作为祭品献给狼，而他将接受。",
+	"description": "又有一点曾经的自我被丢入黑暗，并被吞噬。一份重担从我的肩上离开。一次精神的发泄。",
+	"requirements": {
+	    "shred.self": 1,
+	    "trauma": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "weaken.exilenightmare",
+	"actionid": "operate",
+	"label": "削减梦魇",
+	"startdescription": "我能感到那梦魇正在颤抖，每当我的憎恨燃烧的更加炽热，流亡者的阴影便扭曲并缩小。我咬牙切齿，感受我之中的憎恨变化为白热的火焰——火焰，火焰！",
+	"description": "是谁在害怕那大坏狼？\n\n[流亡者的阈值降低了。]",
+	"requirements": {
+	    "foe.exilenightmare": 1,
+	    "contemplation.sobibor.complete": 1
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "weaken": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"maxexecutions": 3
+    },
+    {
+	"id": "produce.developing.trauma",
+	"actionid": "despair",
+	"label": "已前往狼身边之人",
+	"startdescription": "他们在那，穿着我也曾穿过的条纹破布。现在，他们那寒冷的收伸了过来，向我提供沉默——并非安宁，而是沉默。我本应和他们在一起，不是吗？<i>不是吗？</i>",
+	"warmup": 10,
+	"effects": {
+	    "developing.trauma": 1
+	}
+    },
+    {
+	"id": "turnin.token.intent",
+	"actionid": "operate",
+	"label": "毁灭恐惧",
+	"startdescription": "此刻，我的憎恨证明了它比我的恐惧更强大。这梦魇正瑟瑟发抖。",
+	"description": "索比堡的风在我身后止息。我在那里，在流亡者手上承受的一切痛苦——我认识到了它们都毫无价值。我即为痛苦，我即为施以痛苦之人，那名为流亡者的别想再命令我的恐惧。",
+	"requirements": {
+	    "main.sobibor": 1,
+	    "token.intent": 1
+	},
+	"effects": {
+	    "main": -99
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "prisoner.withheart",
+	"actionid": "operate",
+	"label": "慰藉",
+	"startdescription": "我将回忆痛苦是如何将我们变为亲朋，即使那情谊遥远且短暂。\n\n[这将产生有用的回忆。]",
+	"requirements": {
+	    "foe.prisoners": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.joy",
+		"mem.calm",
+		"mem.ingenuity",
+		"mem.rage",
+		"mem.taste"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"effects": {
+	    "foe.prisoners": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "prisoner.withedge",
+	"actionid": "operate",
+	"label": "苦痛",
+	"startdescription": "我将回忆痛苦是如何将我们变得愈加非人。\n\n[这将产生精神创伤。]",
+	"requirements": {
+	    "foe.prisoners": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "trauma": 1,
+	    "foe.prisoners": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    }
+]
+}

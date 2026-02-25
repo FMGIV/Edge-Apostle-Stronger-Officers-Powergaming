@@ -1,0 +1,614 @@
+{
+"recipes": [
+    {
+	"id": "corrivality.first",
+	"actionid": "corrivality",
+	"label": "驱动世界的引擎",
+	"effects": {
+	    "corrivality.stalemate": 1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.cycle",
+	"actionid": "corrivality",
+	"label": "驱动世界的引擎",
+	"startdescription": "吾友在别处与他的大敌相争，但刃之长生者的行动将影响战争的走向。他们相争的结果将如波纹一般扩散至前线，而后至后方。\n\n[流亡者与大敌的决斗现在正处于僵持状态。暂时没有什么大事会发生。]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "corrivality.change",
+		"chance": 20
+	    },
+	    {
+		"id": "corrivality.cycle"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.change",
+	"actionid": "corrivality",
+	"label": "驱动世界的引擎",
+	"extantreqs": {
+	    "duel.wilhelm": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"seasonambitions",
+		"seasonambitions",
+		"seasondespair",
+		"seasondespair"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "corrivality.turnexileadvantage"
+	    },
+	    {
+		"id": "corrivality.turnfoeadvantage"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.turnexileadvantage",
+	"actionid": "corrivality",
+	"label": "驱动世界的引擎",
+	"requirements": {
+	    "seasonambitions": 1
+	},
+	"aspects": {
+	    "epiphany": 1
+	},
+	"effects": {
+	    "season": -1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle.exile"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.cycle.exile",
+	"actionid": "corrivality",
+	"label": "驱动世界的引擎",
+	"startdescription": "吾友在与其大敌的争斗中正占据上风。战争之潮将向着对我们有利的方向扭转。\n\n[你的部队将更有胆量面对战斗，并且战争之力会为你带来优势。]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "corrivality.restore.duel"
+	    },
+	    {
+		"id": "corrivality.restore",
+		"chance": 30
+	    },
+	    {
+		"id": "corrivality.cycle.exile"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "exile.pickbuff",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "corrivality.turnfoeadvantage",
+	"actionid": "corrivality",
+	"label": "驱动世界的引擎",
+	"requirements": {
+	    "seasondespair": 1
+	},
+	"aspects": {
+	    "depiphany": 1
+	},
+	"effects": {
+	    "season": -1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle.foe"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.cycle.foe",
+	"actionid": "corrivality",
+	"label": "驱动世界的引擎",
+	"startdescription": "大敌使吾友居于下风。赤红的战争之潮将扭转为不利于我们。\n\n[你的部队将面对更多，更强的敌军，并且战争之力会给你带来别的不幸。]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "corrivality.restore.duel"
+	    },
+	    {
+		"id": "corrivality.restore",
+		"chance": 30
+	    },
+	    {
+		"id": "corrivality.cycle.foe"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "foe.pickdebuff",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "corrivality.restore",
+	"actionid": "corrivality",
+	"label": "驱动世界的引擎",
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.restore.duel",
+	"actionid": "corrivality",
+	"label": "驱动世界的引擎",
+	"extantreqs": {
+	    "duel.wilhelm": 1
+	},
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle"
+	    }
+	]
+    },
+    {
+	"id": "exile.pickbuff",
+	"actionid": "exilebuff",
+	"label": "纷争给予",
+	"startdescription": "如池中的波纹一般，流亡者与其大敌的斗争向外扩散至世界上所有战场，为战斗中的人们带去好运与厄运。现在，流亡者正使其大敌处于劣势——他的力量正高涨，我的力量也是如此。",
+	"extantreqs": {
+	    "duel.wilhelm": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.exile.influence",
+		"draw.exile.banishhindrance",
+		"draw.exile.banishtrauma",
+		"draw.exile.weakenenemy"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "exile.begin.banishhindrance"
+	    },
+	    {
+		"id": "exile.begin.banishtrauma"
+	    },
+	    {
+		"id": "exile.begin.influence"
+	    },
+	    {
+		"id": "exile.begin.weakenenemy"
+	    },
+	    {
+		"id": "exile.pickbuff.clear"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "exile.pickbuff.clear",
+	"label": "纷争给予",
+	"effects": {
+	    "draw.exile.influence": -99,
+	    "draw.exile.banishhindrance": -99,
+	    "draw.exile.banishtrauma": -99,
+	    "draw.exile.weakenenemy": -99
+	},
+	"linked": [
+	    {
+		"id": "exile.pickbuff.again"
+	    }
+	]
+    },
+    {
+	"id": "exile.pickbuff.again",
+	"actionid": "exilebuff",
+	"label": "纷争给予",
+	"startdescription": "如池中的波纹一般，流亡者与其大敌的斗争向外扩散至世界上所有战场，为战斗中的人们带去好运与厄运。现在，流亡者正使其大敌处于劣势——他的力量正高涨，我的力量也是如此。",
+	"internaldeck": {
+	    "spec": [
+		"draw.exile.influence",
+		"draw.exile.banishhindrance",
+		"draw.exile.banishtrauma",
+		"draw.exile.weakenenemy"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "exile.begin.banishhindrance"
+	    },
+	    {
+		"id": "exile.begin.banishtrauma"
+	    },
+	    {
+		"id": "exile.begin.influence"
+	    },
+	    {
+		"id": "exile.begin.weakenenemy"
+	    },
+	    {
+		"id": "exile.pickbuff.clear"
+	    }
+	]
+    },
+    {
+	"id": "exile.begin.banishhindrance",
+	"label": "前路已被扫清",
+	"startdescription": "恶劣的天气，暗藏危险的地形，以及恶性的力量会使我们的行动更加困难。不过今天，一个这样的障碍将被解决——",
+	"description": "拨云见日。",
+	"requirements": {
+	    "draw.exile.banishhindrance": 1
+	},
+	"tablereqs": {
+	    "hindrance": 1
+	},
+	"slots": [
+	    {
+		"id": "needshindrance",
+		"label": "障碍",
+		"required": {
+		    "hindrance": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "hindrance": -99
+	},
+	"warmup": 10
+    },
+    {
+	"id": "exile.begin.banishtrauma",
+	"label": "复苏的灵魂",
+	"startdescription": "我曾怀有何种怀疑？我曾允许何种恐惧侵入我之内？若我的灵魂被悔恨遮蔽，让这一刻带来利刃般的清明。",
+	"description": "悔恨即为弱点。",
+	"requirements": {
+	    "draw.exile.banishtrauma": 1
+	},
+	"tablereqs": {
+	    "trauma": 1
+	},
+	"slots": [
+	    {
+		"id": "needstrauma",
+		"label": "精神创伤",
+		"required": {
+		    "trauma": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "trauma": -99
+	},
+	"warmup": 10
+    },
+    {
+	"id": "exile.begin.influence",
+	"label": "战争的排列",
+	"startdescription": "纷争之枢互相锁定，并以有利于我们的排列转动。明显的力量自世界表皮之下渗出——我可以活用这力量。",
+	"description": "神秘的力量与神秘的决心自我之中被抽出。这些就是居于内部的武器。",
+	"requirements": {
+	    "draw.exile.influence": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"cunning",
+		"patience",
+		"wisdom"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    },
+    {
+	"id": "exile.begin.weakenenemy",
+	"label": "动摇的敌军",
+	"startdescription": "大敌正被流亡者步步紧逼；随着他的动摇，我们的敌军也动摇。",
+	"description": "即使他们尚未与我们交战，他们也已被击败。",
+	"requirements": {
+	    "draw.exile.weakenenemy": 1
+	},
+	"tablereqs": {
+	    "foe": 1
+	},
+	"slots": [
+	    {
+		"id": "needsfoe",
+		"label": "敌军",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "weakened": 1,
+		    "foe.rankofficer": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "weaken": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "foe.pickdebuff",
+	"actionid": "foedebuff",
+	"label": "纷争夺取",
+	"startdescription": "如池中的波纹一般，流亡者与其大敌的斗争向外扩散至世界上所有战场，为战斗中的人们带去好运与厄运。现在，大敌正果断地发起攻势——我们的苦难将增加。",
+	"extantreqs": {
+	    "duel.wilhelm": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.foe.enemy",
+		"draw.foe.hindrance",
+		"draw.foe.exhaust",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "foe.begin.enemy"
+	    },
+	    {
+		"id": "foe.begin.hindrance"
+	    },
+	    {
+		"id": "foe.begin.exhaust"
+	    },
+	    {
+		"id": "foe.pickdebuff.clear"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "foe.pickdebuff.clear",
+	"label": "纷争夺取",
+	"effects": {
+	    "draw.foe.enemy": -99,
+	    "draw.foe.hindrance": -99,
+	    "draw.foe.exhaust": -99
+	},
+	"linked": [
+	    {
+		"id": "foe.pickdebuff.again"
+	    }
+	]
+    },
+    {
+	"id": "foe.pickdebuff.again",
+	"actionid": "foedebuff",
+	"label": "纷争夺取",
+	"startdescription": "如池中的波纹一般，流亡者与其大敌的斗争向外扩散至世界上所有战场，为战斗中的人们带去好运与厄运。现在，大敌正果断地发起攻势——我们的苦难将增加。",
+	"internaldeck": {
+	    "spec": [
+		"draw.foe.enemy",
+		"draw.foe.hindrance",
+		"draw.foe.exhaust"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "foe.begin.enemy"
+	    },
+	    {
+		"id": "foe.begin.hindrance"
+	    },
+	    {
+		"id": "foe.begin.exhaust"
+	    },
+	    {
+		"id": "foe.pickdebuff.clear"
+	    }
+	],
+    },
+    {
+	"id": "foe.begin.enemy",
+	"label": "敌军聚集",
+	"startdescription": "纷争向着胜利的反方向转动。战争之风带来更多敌手。",
+	"description": "是故我们的敌意持续。",
+	"requirements": {
+	    "draw.foe.enemy": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.first.enemy"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "foe.first.enemy",
+	"label": "敌军聚集",
+	"startdescription": "纷争向着胜利的反方向转动。战争之风带来更多敌手。",
+	"description": "是故我们的敌意持续。",
+	"requirements": {
+	    "foe": -4
+	},
+	"deckeffects": {
+	    "enemies.occult": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.first.enemy",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "foe.begin.hindrance",
+	"label": "敌对环境",
+	"startdescription": "环境可能在瞬间转变为障碍；好运可能在转眼间反转为厄运。战场，就像海洋一样，猛烈且狂野——",
+	"description": "——而现在，战场变得更加狂野。",
+	"requirements": {
+	    "draw.foe.hindrance": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "foe.begin.exhaust",
+	"label": "疲惫与失效",
+	"startdescription": "大敌之力高涨，是故我们的力量低落。人们的脚步变慢，士气下降，武器卡壳并失效，甚至我也可能感到某种强大负担的压力施加于我的身上，并因此退缩。",
+	"description": "无人曾言战争简单。",
+	"requirements": {
+	    "draw.foe.exhaust": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "枯竭",
+		"required": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "lore": 1,
+		    "loc.hospital": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "remnant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "exile.begin.influence.proterant",
+	"label": "战争的排列",
+	"startdescription": "纷争之枢互相锁定，并以有利于我们的排列转动。明显的力量自世界表皮之下渗出——我可以活用这力量。",
+	"description": "神秘的力量与神秘的决心自我之中被抽出。这些就是居于内部的武器。",
+	"requirements": {
+	    "draw.exile.influence": 1
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"strength",
+		"anger",
+		"courage"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    },
+    {
+	"id": "foe.first.enemy.obdurant",
+	"label": "敌军聚集",
+	"startdescription": "纷争向着胜利的反方向转动。战争之风带来更多敌手。",
+	"description": "是故我们的敌意持续。",
+	"requirements": {
+	    "foe": -3
+	},
+	"extantreqs": {
+	    "obdurant.story": 1
+	},
+	"deckeffects": {
+	    "enemies.occult.obdurant": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.first.enemy.obdurant",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "foe.first.enemy.proterant",
+	"label": "敌军聚集",
+	"startdescription": "纷争向着胜利的反方向转动。战争之风带来更多敌手。",
+	"description": "是故我们的敌意持续。",
+	"requirements": {
+	    "foe": -3
+	},
+	"extantreqs": {
+	    "proterant.story": 1,
+	    "craterfield.here": -1
+	},
+	"deckeffects": {
+	    "enemies.occult.proterant": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.first.enemy.proterant",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "foe.begin.hindrance.obdurant",
+	"label": "敌对环境",
+	"startdescription": "环境可能在瞬间转变为障碍；好运可能在转眼间反转为厄运。战场，就像海洋一样，猛烈且狂野——",
+	"description": "——而现在，战场变得更加狂野。",
+	"requirements": {
+	    "draw.foe.hindrance": 1
+	},
+	"extantreqs": {
+	    "obdurant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.obdurant": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "foe.begin.hindrance.proterant",
+	"label": "敌对环境",
+	"startdescription": "环境可能在瞬间转变为障碍；好运可能在转眼间反转为厄运。战场，就像海洋一样，猛烈且狂野——",
+	"description": "——而现在，战场变得更加狂野。",
+	"requirements": {
+	    "draw.foe.hindrance": 1
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.proterant": 1
+	},
+	"warmup": 10
+    },
+]
+}

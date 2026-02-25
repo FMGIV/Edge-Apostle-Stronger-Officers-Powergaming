@@ -1,0 +1,1068 @@
+{
+"elements": [
+    {
+	"id": "friend.corpses",
+	"label": "Fallen Allies",
+	"description": "They fought, and now they rest.",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "growthinfect": "foe.growth",
+	    "raiseshattered": "friend.risen",
+	    "promotiontodisciple": "friend.conscript"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "friend.scouts",
+	"label": "Ally Scouting Party",
+	"description": "The sharp ears and quick feet of our contingent.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 4,
+	    "lantern": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.scouts.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.scouts.wounded"
+	},
+	"slots": [
+	    {
+		"id": "needshindrance",
+		"actionid": "operate",
+		"label": "Environment",
+		"required": {
+		    "hindrance.snows": 1,
+		    "hindrance.storms": 1,
+		    "hindrance.fog": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.scouts.exhausted",
+	"label": "Ally Scouting Party (Exhausted)",
+	"description": "The sharp ears and quick feet of our contingent.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.scouts.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.scouts.wounded",
+	    "refresh": "friend.scouts",
+	    "refreshally": "friend.scouts"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.scouts",
+	"icon": "friend.scouts",
+	"resaturate": true
+    },
+    {
+	"id": "friend.scouts.wounded",
+	"label": "Ally Scouting Party (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.scouts"
+	},
+    },
+    {
+	"id": "friend.infantry",
+	"label": "Ally Infantry Company",
+	"description": "No matter the stakes or the battlefield, at war's heart is always this strange thing: man.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "edge": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.infantry.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.infantry.wounded"
+	},
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Intent",
+		"required": {
+		    "edge": 1,
+		    "heart": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.infantry.exhausted",
+	"label": "Ally Infantry Company (Exhausted)",
+	"description": "No matter the stakes or the battlefield, at war's heart is always this strange thing: man.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.infantry.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.infantry.wounded",
+	    "refresh": "friend.infantry",
+	    "refreshally": "friend.infantry"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.infantry",
+	"icon": "friend.infantry",
+	"resaturate": true
+    },
+    {
+	"id": "friend.infantry.wounded",
+	"label": "Ally Infantry Company (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.infantry"
+	},
+    },
+    {
+	"id": "friend.medics",
+	"label": "Ally Field Medics",
+	"description": "Doctors, surgeons, nurses. Any fighting man who wishes to make it past his first serious injury should treat these men and women with the utmost respect.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "heart": 6,
+	    "grail": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.medics.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.medics.wounded"
+	},
+	"slots": [
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "Casualty",
+		"required": {
+		    "wounded": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.medics.exhausted",
+	"label": "Ally Field Medics (Exhausted)",
+	"description": "Doctors, surgeons, nurses. Any fighting man who wishes to make it past his first serious injury should treat these men and women with the utmost respect.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.medics.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.medics.wounded",
+	    "refresh": "friend.medics",
+	    "refreshally": "friend.medics"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.medics",
+	"icon": "friend.medics",
+	"resaturate": true
+    },
+    {
+	"id": "friend.medics.wounded",
+	"label": "Ally Field Medics (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.medics"
+	},
+    },
+    {
+	"id": "friend.engineers",
+	"label": "Ally Engineers' Company",
+	"description": "If I need a bridge raised or a trench dug, it will be these men I call upon; if I need a building dynamited or an enemy position blown apart, it will be these men I call upon.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "forge": 6,
+	    "knock": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.engineers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.engineers.wounded"
+	},
+	"slots": [
+	    {
+		"id": "needsdamaged",
+		"actionid": "operate",
+		"label": "Damaged",
+		"required": {
+		    "damaged": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"actionid": "operate",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "operate",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.engineers.exhausted",
+	"label": "Ally Engineers' Company (Exhausted)",
+	"description": "If I need a bridge raised or a trench dug, it will be these men I call upon; if I need a building dynamited or an enemy position blown apart, it will be these men I call upon.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.engineers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.engineers.wounded",
+	    "refresh": "friend.engineers",
+	    "refreshally": "friend.engineers"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.engineers",
+	"icon": "friend.engineers",
+	"resaturate": true
+    },
+    {
+	"id": "friend.engineers.wounded",
+	"label": "Ally Engineers' Company (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.engineers"
+	}
+    },
+    {
+	"id": "friend.tanks",
+	"label": "Ally Armoured Company",
+	"description": "A big gun and some armour on a pair of treads. Terrifyingly simple, terrifyingly effective.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "forge": 4,
+	    "edge": 12
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.tanks.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.tanks.damaged"
+	}
+    },
+    {
+	"id": "friend.tanks.exhausted",
+	"label": "Ally Armoured Company (Exhausted)",
+	"description": "A big gun and some armour on a pair of treads. Terrifyingly simple, terrifyingly effective.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.tanks.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.tanks.damaged"
+	},
+	"lifetime": 160,
+	"decayTo": "friend.tanks",
+	"icon": "friend.tanks",
+	"resaturate": true
+    },
+    {
+	"id": "friend.tanks.damaged",
+	"label": "Ally Armoured Company (Damaged)",
+	"description": "[Use Engineers to initiate repairs for this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "damaged": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.tanks"
+	},
+    },
+    {
+	"id": "friend.artillery",
+	"label": "Ally Artillery",
+	"description": "Mortars and other heavy guns, capable of raining death at great range. Astoundingly destructive, but immobile and not good for much else save direct bombardment.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 10,
+	    "edge": 18
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.artillery.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.artillery.damaged"
+	}
+    },
+    {
+	"id": "friend.artillery.exhausted",
+	"label": "Ally Artillery (Exhausted)",
+	"description": "Mortars and other heavy guns, capable of raining death at great range. Astoundingly destructive, but immobile and not good for much else save direct bombardment.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 10,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.artillery.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.artillery.damaged"
+	},
+	"lifetime": 280,
+	"decayTo": "friend.artillery",
+	"icon": "friend.artillery",
+	"resaturate": true
+    },
+    {
+	"id": "friend.artillery.damaged",
+	"label": "Ally Artillery (Damaged)",
+	"description": "[Use Engineers to initiate repairs for this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 10,
+	    "damaged": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.artillery"
+	},
+    },
+    {
+	"id": "friend.bombers",
+	"label": "Ally Bomber Squadron",
+	"description": "Friends in the sky - a welcome sight.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "friend.aerial": 1,
+	    "edge": 12
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.bombers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.bombers.damaged"
+	}
+    },
+    {
+	"id": "friend.bombers.exhausted",
+	"label": "Ally Bomber Squadron (Exhausted)",
+	"description": "Friends in the sky - a welcome sight.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.bombers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.bombers.damaged"
+	},
+	"lifetime": 160,
+	"decayTo": "friend.bombers",
+	"icon": "friend.bombers",
+	"resaturate": true
+    },
+    {
+	"id": "friend.bombers.damaged",
+	"label": "Ally Bomber Squadron (Damaged)",
+	"description": "[Use Engineers to initiate repairs for this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "damaged": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.bombers"
+	},
+    },
+    {
+	"id": "friend.militia",
+	"label": "Ally Volunteer Militia",
+	"description": "It takes more than a rifle and a bit of fighting spirit to make a man a soldier. But not that much more, I suppose.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "edge": 4,
+	    "heart": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.militia.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.militia.wounded"
+	},
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Intent",
+		"required": {
+		    "edge": 1,
+		    "heart": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.militia.exhausted",
+	"label": "Ally Volunteer Militia (Exhausted)",
+	"description": "It takes more than a rifle and a bit of fighting spirit to make a man a soldier. But not that much more, I suppose.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.militia.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.militia.wounded",
+	    "refresh": "friend.militia",
+	    "refreshally": "friend.militia"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.militia",
+	"icon": "friend.militia",
+	"resaturate": true
+    },
+    {
+	"id": "friend.militia.wounded",
+	"label": "Ally Volunteer Militia (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.militia"
+	},
+    },
+    {
+	"id": "friend.sniper",
+	"label": "Ally Sniper",
+	"description": "Solitary, patient, observant. And accurate.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 4,
+	    "winter": 4,
+	    "lantern": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.sniper.wounded"
+	}
+    },
+    {
+	"id": "friend.sniper.exhausted",
+	"label": "Ally Sniper (Exhausted)",
+	"description": "Solitary, patient, observant. And accurate.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.sniper.wounded",
+	    "refresh": "friend.sniper",
+	    "refreshally": "friend.sniper"
+	},
+	"lifetime": 70,
+	"decayTo": "friend.sniper",
+	"icon": "friend.sniper",
+	"resaturate": true
+    },
+    {
+	"id": "friend.sniper.wounded",
+	"label": "Ally Sniper (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.sniper"
+	}
+    },
+    {
+	"id": "friend.adeptwinter",
+	"label": "A Winter-Adept",
+	"description": "'This war will end, eventually. Everything does.'",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "prisoner": 1,
+	    "winter": 8
+	},
+	"slots": [
+	    {
+		"id": "needsdead",
+		"actionid": "operate",
+		"label": "Corpses",
+		"required": {
+		    "foe.corpses": 1,
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.adeptwinter.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adeptwinter.wounded"
+	}
+    },
+    {
+	"id": "friend.adeptwinter.exhausted",
+	"label": "A Winter-Adept (Exhausted)",
+	"description": "'This war will end eventually. Everything does.'",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "exhausted": 1,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.adeptwinter.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adeptwinter.wounded",
+	    "refresh": "friend.adeptwinter",
+	    "refreshally": "friend.adeptwinter"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.adeptwinter",
+	"icon": "friend.adeptwinter",
+	"resaturate": true
+    },
+    {
+	"id": "friend.adeptwinter.wounded",
+	"label": "A Winter-Adept (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "wounded": 1,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.adeptwinter"
+	},
+	"icon": "adept.wounded"
+    },
+    {
+	"id": "friend.adeptlantern",
+	"label": "A Lantern-Adept",
+	"description": "'Assistance? I don't really have a choice, do I? Very well - I can show you, but I cannot make you understand.'",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "prisoner": 1,
+	    "lantern": 8
+	},
+	"slots": [
+	    {
+		"id": "needscontamination",
+		"actionid": "operate",
+		"label": "Contamination",
+		"required": {
+		    "hindrance.worms": 1,
+		    "hindrance.cannibalism": 1,
+		    "hindrance.dionysian": 1,
+		    "hindrance.apollonian": 1,
+		    "hindrance.nocturnal": 1,
+		    "hindrance.moonspace": 1,
+		    "hindrance.lionsmith": 1,
+		    "hindrance.wolf": 1,
+		    "hindrance.colonel": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.adeptlantern.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adeptlantern.wounded"
+	},
+	"icon": "thuglanternmoth"
+    },
+    {
+	"id": "friend.adeptlantern.exhausted",
+	"label": "A Lantern-Adept (Exhausted)",
+	"description": "'Assistance? I don't really have a choice, do I? Very well - I can show you, but I cannot make you understand.'",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "exhausted": 1,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.adeptlantern.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adeptlantern.wounded",
+	    "refresh": "friend.adeptlantern",
+	    "refreshally": "friend.adeptlantern"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.adeptlantern",
+	"icon": "thuglanternmoth",
+	"resaturate": true
+    },
+    {
+	"id": "friend.adeptlantern.wounded",
+	"label": "A Lantern-Adept (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "wounded": 1,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.adeptlantern"
+	},
+	"icon": "adept.wounded"
+    },
+    {
+	"id": "friend.adeptgrail",
+	"label": "A Grail-Adept",
+	"description": "'You want something from me - I understand that! And if you don't shoot, I'm certain we can reach an arrangement.'",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "prisoner": 1,
+	    "grail": 8
+	},
+	"slots": [
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "Wounded",
+		"required": {
+		    "wounded": 1,
+		    "wound.eye": 1,
+		    "wound.ear": 1,
+		    "wound.hand": 1,
+		    "wound.leg": 1,
+		    "damage.body": 1
+		},
+		"forbidden": {
+		    "debilitation": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.adeptgrail.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adeptgrail.wounded"
+	}
+    },
+    {
+	"id": "friend.adeptgrail.exhausted",
+	"label": "A Grail-Adept (Exhausted)",
+	"description": "'You want something from me - I understand that! And if you don't shoot, I'm certain we can reach an arrangement.'",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "exhausted": 1,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.adeptgrail.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adeptgrail.wounded",
+	    "refresh": "friend.adeptgrail",
+	    "refreshally": "friend.adeptgrail"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.adeptgrail",
+	"icon": "friend.adeptgrail",
+	"resaturate": true
+    },
+    {
+	"id": "friend.adeptgrail.wounded",
+	"label": "A Grail-Adept (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "wounded": 1,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.adeptgrail"
+	},
+	"icon": "adept.wounded"
+    },
+    {
+	"id": "friend.chaima",
+	"label": "Lalla Chaima",
+	"description": "An old hunting acquaintance of my friend, the Exile. She is older now, and not as quick, but she has grown deathly patient and unerringly accurate.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "edge": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.chaima.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.chaima.wounded",
+	    "mortal.introduce": [
+		{
+		    "id": "side.nest",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.chaima.exhausted",
+	"label": "Lalla Chaima (Exhausted)",
+	"description": "An old hunting acquaintance of my friend, the Exile. She is older now, and not as quick, but she has grown deathly patient and unerringly accurate.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.chaima.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.chaima.wounded",
+	    "refresh": "friend.chaima",
+	    "refreshally": "friend.chaima"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.chaima",
+	"icon": "friend.chaima",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "friend.chaima.wounded",
+	"label": "Lalla Chaima (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.chaima"
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.zulfiya",
+	"label": "Zulfiya Zhakirova",
+	"description": "When my friend worked for the reckoner mob, Zulfiya had been one of their clients. 'Zulfiya's a good one,' they told me. 'Peculiar in the way the Wood makes people peculiar, though.'",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "moth": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.zulfiya.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.zulfiya.wounded",
+	    "mortal.introduce": [
+		{
+		    "id": "side.voronezh",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.zulfiya.exhausted",
+	"label": "Zulfiya Zhakirova (Exhausted)",
+	"description": "When my friend worked for the reckoner mob, Zulfiya had been one of their clients. 'Zulfiya's a good one,' they told me. 'Peculiar in the way the Wood makes people peculiar, though.'",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.zulfiya.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.zulfiya.wounded",
+	    "refresh": "friend.zulfiya",
+	    "refreshally": "friend.zulfiya"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.zulfiya",
+	"icon": "friend.zulfiya",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "friend.zulfiya.wounded",
+	"label": "Zulfiya Zhakirova (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.zulfiya"
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.risen",
+	"label": "Shattered Risen",
+	"description": "The dead are poor compatriots. They lack initiative and have little in the way of <i>esprit de corps.</i> But they cannot feel afraid, and never refuse an order.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "edge": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "killfriend": "mem.grief",
+	    "makecasualty": "mem.grief",
+	    "refresh": "friend.conscript"
+	},
+	"lifetime": 300,
+	"decayTo": "mem.grief",
+	"icon": "spirit_wintera_edge"
+    },
+    {
+	"id": "friend.conscript",
+	"label": "Conscript",
+	"description": "The Elegiast knows the names of all the dead, but the soldierly dead pass first through the Colonel's hands. Sometimes, when we invoke his power, we may call those soldiers back to duty.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "edge": 6,
+	    "winter": 6
+	},
+	"xtriggers": {
+	    "killfriend": "mem.grief",
+	    "makecasualty": "mem.grief",
+	    "refresh": "friend.conscript"
+	},
+	"lifetime": 400,
+	"decayTo": "mem.grief"
+    }
+]
+}

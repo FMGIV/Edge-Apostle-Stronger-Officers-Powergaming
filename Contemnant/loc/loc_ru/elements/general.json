@@ -1,0 +1,373 @@
+{
+"elements": [
+    {
+	"id": "wound.generic",
+	"label": "Рана",
+	"description": "Я должен немедленно позаботиться об этом. [Пять Ранений или Увечий уьют вас.]",
+	"aspects": {
+	    "damage.body": 1,
+	    "winter": 4,
+	    "knock": 4
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Помощь",
+		"required": {
+		    "recruited.medic": 1,
+		    "friend.doctor": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 300,
+	"decayTo": "debilitation.generic"
+    },
+    {
+	"id": "debilitation.generic",
+	"label": "Увечье",
+	"description": "Часть моей жизни покинула меня и больше не вернется. [Пять Ранений или Увечий уьют вас.]",
+	"aspects": {
+	    "damage.body": 1,
+	    "debilitation": 1,
+	    "winter": 4
+	},
+	"decayTo": "debilitation.generic"
+    },
+    {
+	"id": "mountingdespair",
+	"label": "Нарастающий Ужас",
+	"description": "Волк приближается. [Оставленное без внимания, это станет Потрясением.]",
+	"lifetime": 180,
+	"decayTo": "trauma",
+	"aspects": {
+	    "needsheart": 8,
+	    "needslantern": 8,
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresources1",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "needsresources2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "needsresources3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "knock": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "reputation.infamy",
+	"label": "Бесславие",
+	"description": "Есть поступки, которые слишком отвратительны, чтобы с ними можно было мириться - даже на войне. [Три или более карты бесславия приведут к тому, что нейтральные подразделения в текущей зоне боевых действий станут враждебными по отношению к вам.]",
+	"aspects": {
+	    "local.infamy": 1
+	}
+    },
+    {
+	"id": "retribution",
+	"label": "Возмездие",
+	"description": "Моя месть, измеряемая пролитой вражеской кровью и их растоптанными трупами. [Показатель вашей жестокости и бесчеловечности как участника Совражества. Если вы дойдете до конца, эта карта может повлиять на то, каким он будет.]"
+    },
+    {
+	"id": "shrine.wolf",
+	"label": "Город в Огне",
+	"description": "Десятки зданий сгорают. На улицах лежат убитые невинные. Немецкие и советские войска пытаются спастись от хаоса и огня. И под всем этим скрывается какой-то безымянный запах, исходящий из-под кожи мира - не дым, не смола, не кровь. Что-то еще.",
+	"aspects": {
+	    "location": 1,
+	    "shrine.wolf.marker": 1,
+	    "local.infamy": 3,
+	    "warzone.current": 1
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"actionid": "mobilize",
+		"label": "Намерение",
+		"description": "Зачем я пришёл?",
+		"required": {
+		    "lore": 1,
+		    "contemplation": 1,
+		    "legacyplotitem": 1,
+		    "winter": 2,
+		    "memento": 1,
+		    "weapon": 1,
+		    "grail": 1,
+		    "lantern": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "completed": 1
+		}
+	    },
+	    {
+		"id": "needsscout",
+		"actionid": "recon",
+		"label": "Разведчики",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"icon": "city.inflames"
+    },
+    {
+	"id": "tool.lantern.contemnant",
+	"label": "Соколиный Глаз",
+	"description": "Позолоченная подзорная труба, украшенная кольцевым крестом Солнечной Церкви или, возможно, Империи-Без-Тени. Посмотрев в нее, можно увидеть залитое дневным светом небо и белые пески совершенно другой страны.",
+	"aspects": {
+	    "tool": 1,
+	    "lantern": 6
+	}
+    },
+    {
+	"id": "tool.forge.contemnant",
+	"label": "Аленький Цветок",
+	"description": "Слова, которые нужно произносить, подмигивая: огонь раскрой, а дым скрой. Скажешь ли чего, как пламя добьется своего?",
+	"aspects": {
+	    "tool": 1,
+	    "forge": 6
+	}
+    },
+    {
+	"id": "tool.winter.contemnant",
+	"label": "Шелковистый посетитель",
+	"description": "Заядлый друг. Лучше не трогать его голыми руками.",
+	"aspects": {
+	    "tool": 1,
+	    "winter": 6
+	},
+    },
+    {
+	"id": "tool.heart.contemnant",
+	"label": "Потрепанный дневник Врача",
+	"description": "Импровизированная коллекция личных записей, медицинских методик и заклинаний для сердца, тайно привезенная в Павиак врачом Сопротивления, который был похоронен, а позже казнен там. Имя на внутренней стороне обложки гласит: 'Г. Джаннингс.'",
+	"aspects": {
+	    "tool": 1,
+	    "heart": 6
+	}
+    },
+    {
+	"id": "tool.grail.contemnant",
+	"label": "Необыкновенный детёныш",
+	"description": "Образец гротескных немецких экспериментов по разведению монстров в замке Хоуска. Он не живой, но и не совсем мертвый. Но, само собой, неподвижный.",
+	"aspects": {
+	    "tool": 1,
+	    "grail": 6
+	}
+    },
+    {
+	"id": "tool.moth.contemnant",
+	"label": "Рог Йет-гончей ",
+	"description": "Давным-давно йеты использовались на Островах для охоты на нечистых и нечестивцев. Их вид - или звери очень похожей породы - использовались в Третьей войне червей, чтобы вынюхивать самых хитрых из Червей, что могли прятаться в темных закоулках траншей или в душах смертных.",
+	"aspects": {
+	    "tool": 1,
+	    "moth": 6
+	}
+    },
+    {
+	"id": "tool.knock.contemnant",
+	"label": "Противоречивый ключ",
+	"description": "Ключ от часов бесполезен для такого большого механизма, как 'Орлой'. Тем не менее, много веков назад часовщику было приказано спрятать его здесь для того, кто придет позже. Или его оставил здесь вчера праздный немецкий солдат? У Януса два лица и два рта. 'Что' и 'когда' неясны в том, что касается его указов.",
+	"aspects": {
+	    "tool": 1,
+	    "knock": 6
+	}
+    },
+    {
+	"id": "op.escapemarinette",
+	"label": "Путь Побега?",
+	"description": "По мере того, как мы пробиваемся сквозь силы Маринетт, возможность побега становится все менее и менее реальной. Еще немного...",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsescape1",
+		"required": {
+		    "op.escapemarinette": 1
+		}
+	    },
+	    {
+		"id": "needsescape2",
+		"required": {
+		    "op.escapemarinette": 1
+		}
+	    },
+	    {
+		"id": "needsescape3",
+		"required": {
+		    "op.escapemarinette": 1
+		}
+	    },
+	    {
+		"id": "needsescape4",
+		"required": {
+		    "op.escapemarinette": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "shred.self",
+	"label": "Остатки Себя",
+	"description": "Старые яркие воспоминания о том, кем я был раньше. До войны. Я больше не могу извлечь из них особой пользы - я даже не узнаю того человека, которым, как утверждают эти обрывки, я когда-то был, - но если мой страх угрожает поглотить меня, я могу насытить его этими жалкими остатками. [Эта карта может быть использована для уничтожения Потрясения.]",
+	"aspects": {
+	    "memory": 1,
+	    "lantern": 4
+	},
+	"slots": [
+	    {
+		"id": "needstrauma",
+		"label": "Потрясение",
+		"required": {
+		    "trauma": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"icon": "huskending"
+    },
+    {
+	"id": "state.sovietsneutral",
+	"label": "Положение: Нейтралитет Союза",
+	"lifetime": 1,
+	"isHidden": true,
+	"xtriggers": {
+	    "annoyance": "state.sovietsaggro"
+	}
+    },
+    {
+	"id": "state.sovietsaggro",
+	"label": "Положение: Агрессия Союза",
+	"lifetime": 1,
+	"isHidden": true,
+	"verbicon": "sovietaction.aggro"
+    },
+    {
+	"id": "signifier.singleattack",
+	"label": "Признак одиночной атаки",
+	"lifetime": 1,
+	"isHidden": true,
+	"verbicon": "neutral.singleattack"
+    },
+    {
+	"id": "signifier.reinforcements",
+	"label": "Признак подкрепления",
+	"lifetime": 1,
+	"isHidden": true,
+	"verbicon": "neutral.reinforcements"
+    },
+    {
+	"id": "draw.wolf.influence",
+	"label": "Привлечь влияние Волка",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wolf.obliterate",
+	"label": "Привлечь Волчью кару",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wolf.trauma",
+	"label": "Привлечь Волчью травму",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wolf.hindrances",
+	"label": "Привлечь Волчью помеху",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wolf.enemies",
+	"label": "Привлечь влияние Волка",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.singleattack",
+	"label": "Одиночная атака Союза",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.destroysupplies",
+	"label": "Союз уничтожает припасы",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.hide",
+	"label": "Союз скрылся",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.doubleattack",
+	"label": "Двойная атака Союза",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.reinforcements",
+	"label": "Подкрепление Союза",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "long.bossfight.marker",
+	"label": "Маркер битвы с Вечным",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "travel.blocker": 1
+	}
+    },
+]
+}

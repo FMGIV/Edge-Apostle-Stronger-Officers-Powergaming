@@ -1,0 +1,535 @@
+{
+"elements": [
+    {
+	"id": "contemnant.story",
+	"label": "And Why Not?",
+	"description": "'Of all the poor devils at Sobibor, you alone stood out to me. So, I took you for myself. Taught you pain. And now, in you, there is the seed of the Wolf's promise. Oh, yes - by this war's end you might very well be another crooked fang in his bloody mouth. And why not? Why not revenge? This world has given you reason enough to hate it. Carve out the parts that hope otherwise. Follow what secrets I've taught you to their root. Find the alukite in Vienna, and survive her. And then - then, maybe, we will speak again. I hope it is a very final sort of conversation. What do you owe to anyone, after all? I asked myself that question, once. Now, it's your turn.'",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "avowal": [
+		{
+		    "id": "marker.spoketosergeiaboutsword",
+		    "morpheffect": "mutate"
+		}
+	    ],
+	    "longded": [
+		{
+		    "id": "long.blocker",
+		    "morpheffect": "mutate"
+		}
+	    ],
+	},
+	"unique": true
+    },
+    {
+	"id": "contemnant.weapon",
+	"label": "Officer's Dagger",
+	"description": "The Exile's idea of a joke.",
+	"aspects": {
+	    "edge": 2,
+	    "weapon": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "contemnant.weapon.exhausted"
+	},
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "wound.generic",
+	"label": "A Wound",
+	"description": "I should have this looked at immediately. [A total of five Wounds and Debilitations will kill you.]",
+	"aspects": {
+	    "damage.body": 1,
+	    "winter": 4,
+	    "knock": 4
+	},
+	"lifetime": 300,
+	"decayTo": "debilitation.generic"
+    },
+    {
+	"id": "reputation.infamy",
+	"label": "Infamy",
+	"description": "There are acts too unspeakable to be tolerated - even in war. [Three or more instances of Infamy will cause Neutral units in the Current Warzone to become hostile to you.]",
+	"aspects": {
+	    "local.infamy": 1
+	}
+    },
+    {
+	"id": "skill.sustain.active",
+	"label": "Torturous Sustention",
+	"description": "To be unmade is to be freed, at last, from suffering. The Wolf does not want me freed just yet. [While this card is active, no number of Wounds or Debilitations will be able to kill you. Use a Wolf-Divided's Shadow in Operate to maintain this card's active state; using Unmake while you possess this card has a chance to produce a Wolf-Divided's Shadow.]",
+	"lifetime": 480,
+	"xtriggers": {
+	    "employment": "skill.sustain.active"
+	},
+	"decayTo": "skill.sustain.dormant",
+	"aspects": {
+	    "sustain.marker": 1
+	}
+    },
+    {
+	"id": "skill.sustain.dormant",
+	"label": "Torturous Sustention",
+	"description": "To be unmade is to be freed, at last, from suffering. The Wolf does not want me freed just yet. [Place a Wolf-Divided's Shadow into Operate to activate this card. Also, using Unmake while you possess this card has a chance to produce a Wolf-Divided's Shadow.]",
+	"xtriggers": {
+	    "employment": "skill.sustain.active"
+	},
+	"aspects": {
+	    "sustain.marker": 1
+	}
+    },
+    {
+	"id": "wolf.neutral",
+	"label": "The Wolf: Prowling",
+	"description": "The brunt of the Wolf-Divided's ire is, mercifully, elsewhere.",
+	"xtriggers": {
+	    "epiphany": "wolf.rage"
+	},
+	"verbicon": "wolfcycle.neutral"
+    },
+    {
+	"id": "wolf.rage",
+	"label": "The Wolf: Rage",
+	"description": "The wrath of the Wolf-Divided ignites the world around us.",
+	"xtriggers": {
+	    "depiphany": "wolf.neutral"
+	},
+	"verbicon": "wolfcycle.active"
+    },
+    {
+	"id": "foe.ingluviate.engorged",
+	"label": "Ingluviate (Engorged)",
+	"description": "What is without, within. [Kill this Enemy to reclaim the Iron Casket.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "needsedgegrail": 8,
+	    "foe.unsubtle": 1,
+	    "otherworldly": 1,
+	    "detectivetemptation": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ingluviate.engorged",
+	    "killfoe": [
+		{
+		    "id": "foe.corpse.unnatural"
+		},
+		{
+		    "id": "klei.casket",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+    },
+    {
+	"id": "side.rescuerefugees",
+	"label": "Side Objective: Aid Refugees",
+	"description": "Another band of desperates is stuck between death at German hands or at Russian hands. It would take some work to bring them to safety - but they would be indebted to me afterwards. [A chance to obtain new Allies.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "rescuerefugees.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "rescuerefugees.complete",
+	"label": "Rescue Refugees Loot",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.hintcontemnant.lore",
+	"label": "Draw: Lore Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.retributions",
+	"label": "Draw: Retributions Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.antithesis",
+	"label": "Draw: Antithesis Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.vulneration",
+	"label": "Draw: Vulneration Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.kleidouchos",
+	"label": "Draw: Kleidouchos Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.killexile",
+	"label": "Draw: Kill Exile Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.berlin",
+	"label": "Draw: Berlin Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.peace",
+	"label": "Draw: Peace Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "op.church.contemnant",
+	"label": "Opportunity: A Church",
+	"description": "A place for those who still have faith. I am not certain I have any of that left, but perhaps the quiet space of the ruin will offer me a useful realisation.",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"label": "Intent",
+		"required": {
+		    "heart": 1
+		}
+	    }
+	],
+	"lifetime": 300,
+	"icon": "op.church"
+    },
+    {
+	"id": "op.farm.contemnant",
+	"label": "Opportunity: A Farm",
+	"description": "Some place the bandits and crows haven't completely picked over. We could convince the remaining farmers to furnish us with food and drink - men with guns are famously convincing, after all.",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"label": "Intent",
+		"required": {
+		    "grail": 1,
+		    "edge": 1
+		}
+	    }
+	],
+	"lifetime": 300,
+	"icon": "op.farm"
+    },
+    {
+	"id": "wound.glorious",
+	"label": "Vulneration-in-Glory",
+	"description": "A radiant wound that recalls the division of the Sun. So vile is the power that issues forth from it that all who see me will recognize I am a thing accursed and intolerable - indeed, linger for too long around me and risk the pain of annihilation. [This card counts as a wound and will cause Neutral units to attack you on sight. While you possess this card, a random Enemy or Ally may be destroyed whenever you generate Strife.]",
+	"aspects": {
+	    "lantern": 6,
+	    "edge": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "local.infamy": 3
+	},
+	"unique": true
+    },
+    {
+	"id": "sobibor.here",
+	"label": "Sobibor",
+	"description": "A hell built by the hands of men alone; a hell I was set free from a year ago; a hell I have returned to, so I might face and kill the darkness lodged in my heart by one I hate above all others.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "memory": 1,
+	    "sobibor.marker": 1,
+	    "long.blocker": 1
+	},
+    },
+    {
+	"id": "op.axe",
+	"label": "A Moment of Division",
+	"description": "The scent of hawthorn lingers on my flesh. My shadow is a void of black on the stone. Someplace dark, a soldier of ancient days awaits me, the shadow of an old god at her back. I must meet her, and with the proper intercession.",
+	"aspects": {
+	    "op": 1
+	},
+	"unique": true,
+	"slots": [
+	    {
+		"id": "needscompleted",
+		"label": "Contemplation",
+		"required": {
+		    "completed": 1
+		}
+	    },
+	    {
+		"id": "needstime",
+		"label": "Time",
+		"required": {
+		    "op": 1
+		}
+	    },
+	    {
+		"id": "needspower",
+		"label": "Authority",
+		"required": {
+		    "op": 1
+		}
+	    },
+	],
+	"icon": "op.horned"
+    },
+    {
+	"id": "neutral.corpses",
+	"label": "Fallen Soviets",
+	"description": "They fought. They fell.",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "growthinfect": "foe.growth",
+	    "raiseshattered": "friend.risen",
+	    "promotiontodisciple": "friend.conscript",
+	    "killsoviet": "neutral.corpses"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "developing.trauma",
+	"label": "Mounting Dread",
+	"description": "The dying of the spirit, brought closer and closer, inch by inch. [This will become Trauma if left alone.]",
+	"aspects": {
+	    "op": 1,
+	    "needsheart": 8,
+	    "needslantern": 8,
+	    "developing": 1
+	},
+	"xtriggers": { 
+	    "benign": "husk"
+	},
+	"lifetime": 180,
+	"decayTo": "trauma",
+	"slots": [
+	    {
+		"id": "needssomething1",
+		"label": "Resources",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    },
+	    {
+		"id": "needssomething2",
+		"label": "Resources",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    }
+	],
+	"resaturate": true
+    },
+    {
+	"id": "developing.permatrauma",
+	"label": "Inexorable Terror",
+	"description": "The Wolf is coming. [This will become Bone-Deep Trauma if left alone.]",
+	"aspects": {
+	    "op": 1,
+	    "needsheart": 12,
+	    "needslantern": 12,
+	    "developing": 1
+	},
+	"xtriggers": { 
+	    "benign": "husk"
+	},
+	"lifetime": 180,
+	"decayTo": "permatrauma",
+	"slots": [
+	    {
+		"id": "needssomething1",
+		"label": "Resources",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    },
+	    {
+		"id": "needssomething2",
+		"label": "Resources",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    },
+	    {
+		"id": "needssomething3",
+		"label": "Resources",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    }
+	],
+	"resaturate": true
+    },
+    {
+	"id": "permatrauma",
+	"label": "Bone-Deep Trauma",
+	"description": "The spirit can only endure so much. [A total of five Traumas will break you. This card will remain until you leave Sobibor.]",
+	"aspects": {
+	    "winter": 6,
+	    "damage.mind": 1
+	},
+	"xtriggers": { 
+	    "benign": "husk"
+	}
+    },
+    {
+	"id": "main.seize.rewardrouter",
+	"label": "Seize Successful!",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "main.breakout.rewardrouter",
+	"label": "Breakout Successful!",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "traveltransition.marker",
+	"label": "Travel Transition Marker",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "readiness.token.marinette",
+	"label": "Readiness: Marinette",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "token.escaped",
+	"label": "Eluded Marinette...",
+	"description": "For now, the dry chattering of the Lady of Wires and her avid hunters is behind me. [You will not encounter Marinette and her forces again until the next time you pass through the Ruined Country.]",
+    },
+    {
+	"id": "token.intent",
+	"label": "Intent to Annihilate",
+	"description": "The one called Exile once demanded my fear. No longer. [You will no longer suffer Trauma when encountering the Exile, and can use this card to initiate a final confrontation with them or their Foe.]",
+	"aspects": {
+	    "challenge": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "runmarker.sergei",
+	"label": "Run Marker: Sergei",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "runmarker.cross",
+	"label": "Run Marker: Gyrvaengr",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "sidesobibor.complete",
+	"label": "A Forgotten Light: Complete",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "foe.grame.inactive",
+	"label": "An Unseen Rage...",
+	"description": "At the nightmare's edge, I can hear a ravenous growling - faint, but definite. [This card will become active once you have at least three instances of Trauma.]",
+	"aspects": {
+	    "foe.nightmare": 1
+	},
+	"xtriggers": {
+	    "intention.assault": "foe.grame"
+	},
+	"icon": "foe.unknown"
+    },
+    {
+	"id": "foe.shade.inactive",
+	"label": "A Lurking Sorrow...",
+	"description": "At the nightmare's edge, I can hear a dozen soft voices weeping - faint, but definite. [This card will become active once you have at least three instances of Trauma.]",
+	"aspects": {
+	    "foe.nightmare": 1
+	},
+	"xtriggers": {
+	    "intention.assault": "foe.shade"
+	},
+	"icon": "foe.unknown"
+    },
+]
+}

@@ -1,0 +1,835 @@
+{
+"recipes": [
+    {
+	"id": "soviet.cycle.startup",
+	"actionid": "sovietaction",
+	"label": "The Red Army Prepares",
+	"startdescription": "",
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "state.sovietsneutral": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "soviet.cycle.startup.aggro"
+	    }
+	]
+    },
+    {
+	"id": "soviet.cycle.startup.aggro",
+	"actionid": "sovietaction",
+	"label": "The Red Army Prepares",
+	"startdescription": "",
+	"extantreqs": {
+	    "local.infamy": 3
+	},
+	"effects": {
+	    "state.sovietsaggro": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "soviet.cycle",
+	"label": "The Red Army Prepares",
+	"startdescription": "@#state.sovietsneutral|The Soviet war machine devises a plan to further its western advance through Europe. It will strike against the Germans here, and soon.\n#state.sovietsaggro|The Soviet war machine devises its next course of action, but the Germans are no longer its only concern. Our actions have proven us worthy of Russian enmity (or at least abhorrence) and they won't be so friendly, anymore.@",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.turnaggro.inflames"
+	    },
+	    {
+		"id": "soviet.turnaggro",
+		"chance": 50
+	    },
+	    {
+		"id": "aggro.turnstragglers.neutral"
+	    },
+	    {
+		"id": "aggro.turnstragglers.hired"
+	    },
+	    {
+		"id": "soviet.pickaction.aggro.high",
+		"chance": 40
+	    },
+	    {
+		"id": "soviet.pickaction.aggro.low",
+		"chance": 40
+	    },
+	    {
+		"id": "soviet.act.neutral",
+		"chance": 40
+	    },
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "soviet.turnaggro.inflames",
+	"label": "The Red Army Prepares",
+	"startdescription": "",
+	"extantreqs": {
+	    "shrine.wolf": 1
+	},
+	"requirements": {
+	    "state.sovietsaggro": -1
+	},
+	"aspects": {
+	    "annoyance": 1
+	},
+	"xpans": { 
+	    "resentment": 1 
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "soviet.turnaggro",
+	"label": "The Red Army Prepares",
+	"startdescription": "",
+	"extantreqs": {
+	    "local.infamy": 3
+	},
+	"requirements": {
+	    "state.sovietsaggro": -1
+	},
+	"aspects": {
+	    "annoyance": 1
+	},
+	"xpans": { 
+	    "resentment": 1 
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "aggro.turnstragglers.neutral",
+	"label": "The Red Army Prepares",
+	"startdescription": "@#state.sovietsneutral|The Soviet war machine devises a plan to further its western advance through Europe. It will strike against the Germans here, and soon.\n#state.sovietsaggro|The Soviet war machine devises its next course of action, but the Germans are no longer its only concern. Our actions have proven us worthy of Russian enmity (or at least abhorrence) and they won't be so friendly, anymore.@",
+	"xpans": { 
+	    "resentment": 1 
+	},
+	"extantreqs": {
+	    "state.sovietsaggro": 1
+	},
+	"tablereqs": {
+	    "neutral": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "aggro.turnstragglers.hired",
+	"label": "The Red Army Prepares",
+	"startdescription": "@#state.sovietsneutral|The Soviet war machine devises a plan to further its western advance through Europe. It will strike against the Germans here, and soon.\n#state.sovietsaggro|The Soviet war machine devises its next course of action, but the Germans are no longer its only concern. Our actions have proven us worthy of Russian enmity (or at least abhorrence) and they won't be so friendly, anymore.@",
+	"xpans": { 
+	    "resentment": 1 
+	},
+	"extantreqs": {
+	    "state.sovietsaggro": 1
+	},
+	"tablereqs": {
+	    "hired": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "soviet.act.neutral",
+	"label": "The Red Army Acts!",
+	"startdescription": "The Soviet alarm rings out! Russian troops mobilise and rouse to action -",
+	"extantreqs": {
+	    "state.sovietsaggro": -1
+	},
+	"requirements": {
+	    "readiness.token": 3
+	},
+	"effects": {
+	    "readiness.token": -99
+	},
+	"alt": [
+	    {
+		"id": "soviet.pickaction.router.neutral",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "soviet.pickaction.router.neutral",
+	"actionid": "neutral.singleattack",
+	"label": "The Red Army Acts!",
+	"internaldeck": {
+	    "spec": [
+		"signifier.reinforcements",
+		"signifier.singleattack",
+		"signifier.singleattack"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "soviet.neutral.singleattack"
+	    },
+	    {
+		"id": "soviet.neutral.reinforcements"
+	    },
+	    {
+		"id": "soviet.pickaction.router.neutral.again"
+	    }
+	]
+    },
+    {
+	"id": "soviet.pickaction.router.neutral.again",
+	"actionid": "neutral.singleattack",
+	"label": "The Red Army Acts!",
+	"effects": {
+	    "signifier.reinforcements": -99,
+	    "signifier.singlettack": -99
+	},
+	"linked": [
+	    {
+		"id": "soviet.pickaction.router.neutral"
+	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.singleattack",
+	"actionid": "neutral.singleattack",
+	"label": "The Red Army Attacks!",
+	"startdescription": "The Russians move to orchestrate an offensive against their adversary -",
+	"description": "They could not muster the manpower to strike. The Red Army is silent.",
+	"requirements": {
+	    "signifier.singleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Manpower",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "neutral.medic": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "soviet.neutral.singleattack.seektarget"
+	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.singleattack.seektarget",
+	"label": "The Red Army Attacks!",
+	"startdescription": "The Russians move to orchestrate an offensive against their adversary -",
+	"requirements": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Target",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "remnant": 1,
+		    "foe.officer": 1,
+		    "foe.hidden": 1,
+		    "soviet": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "soviet.neutral.singleattack.victory",
+		"chance": 20
+	    },
+	    {
+		"id": "soviet.neutral.singleattack.defeat"
+	    },
+	    {
+		"id": "soviet.nonefound"
+	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.singleattack.victory",
+	"label": "The Red Army Prevails!",
+	"startdescription": "I watch the battle from afar - watch the Russian contingent wash over the German defense. There is the distant popping of the guns, the low boom of shellfire, and then that particular silence that comes after victory. The Russians move onwards.",
+	"requirements": {
+	    "foe": 1
+	},
+	"effects": {
+	    "german": -99
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.singleattack.defeat",
+	"label": "The Red Army is Beaten Back!",
+	"startdescription": "Even in its death throes, the Wehrmacht remains a redoubtable enemy. The Russians find themselves unable to break the German line, and with their strength now expended, they withdraw from the field. No-one is the victor.",
+	"requirements": {
+	    "foe": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "soviet.nonefound",
+	"label": "None Found?",
+	"startdescription": "The Red Army could find no target for its might.",
+    },
+    {
+	"id": "soviet.neutral.reinforcements",
+	"actionid": "neutral.reinforcements",
+	"label": "The Red Army Draws on its Reserves",
+	"startdescription": "Soviet command has allocated more resources to its efforts here. En route are more weapons, more food - and of course, more manpower.",
+	"description": "Bodies to the front. Meat to the grinder.",
+	"extantreqs": {
+	    "soviet": -4
+	},
+	"requirements": {
+	    "signifier.reinforcements": 1
+	},
+	"warmup": 30,
+	"effects": {
+	    "neutral.infantry": 1
+	},
+	"deckeffects": {
+	    "soviet.reinforcements.neutral": 3
+    	}
+    },
+    {
+	"id": "soviet.pickaction.aggro.low",
+	"label": "The Red Army Acts!",
+	"startdescription": "The Soviet alarm rings out! Russian troops mobilise and rouse to action -",
+	"requirements": {
+	    "readiness.token": 3
+	},
+	"extantreqs": {
+	    "state.sovietsaggro": 1
+	},
+	"deckeffects": {
+	    "deck.sovietactions.aggro.low": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.pickaction.aggro.low.continue"
+	    }
+	]
+    },
+    {
+	"id": "soviet.pickaction.aggro.low.continue",
+	"label": "The Red Army Acts!",
+	"startdescription": "The Soviet alarm rings out! Russian troops mobilise and rouse to action -",
+	"alt": [
+	    {
+		"id": "aggro.startup.singleattack",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.hide",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.reinforcements",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "soviet.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "soviet.pickaction.aggro.high",
+	"label": "The Red Army Acts!",
+	"startdescription": "The Soviet alarm rings out! Russian troops mobilise and rouse to action -",
+	"requirements": {
+	    "readiness.token": 3
+	},
+	"extantreqs": {
+	    "state.sovietsaggro": 1,
+	    "strife.tracker": 4
+	},
+	"deckeffects": {
+	    "deck.sovietactions.aggro.high": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.pickaction.aggro.high.continue"
+	    }
+	]
+    },
+    {
+	"id": "soviet.pickaction.aggro.high.continue",
+	"label": "The Red Army Acts!",
+	"startdescription": "The Soviet alarm rings out! Russian troops mobilise and rouse to action -",
+	"alt": [
+	    {
+		"id": "aggro.startup.doubleattack.1",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.doubleattack.2",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.singleattack",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.hide",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.reinforcements",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "soviet.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "soviet.clear",
+	"label": "The Red Army Acts!",
+	"startdescription": "",
+	"effects": {
+	    "draw.soviet.singleattack": -99,
+	    "draw.soviet.destroysupplies": -99,
+	    "draw.soviet.hide": -99,
+	    "draw.soviet.doubleattack": -99,
+	    "draw.soviet.reinforcements": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "aggro.startup.singleattack",
+	"actionid": "aggro.singleattack",
+	"label": "The Red Army Attacks!",
+	"startdescription": "The Russians move to orchestrate an offensive against their next target -",
+	"description": "The front is quiet. The Red Army makes no move.",
+	"requirements": {
+	    "draw.soviet.singleattack": 1
+	},
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Manpower",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "aggro.againstyou.singleattack.router",
+		"chance": 50
+	    },
+	    {
+		"id": "aggro.againstgerman.singleattack"
+	    }
+	]
+    },
+    {
+	"id": "aggro.againstyou.singleattack.router",
+	"label": "The Red Army Attacks!",
+	"startdescription": "The Russians move to orchestrate an offensive against their next target -",
+	"requirements": {
+	    "soviet": 1
+	},
+	"linked": [
+	    {
+		"id": "aggro.againstyou.singleattack.revealhidden"
+	    },
+	    {
+		"id": "aggro.againstyou.singleattack.takeadditional"
+	    },
+	]
+    },
+    {
+	"id": "aggro.againstyou.singleattack.takeadditional",
+	"label": "The Red Army Attacks!",
+	"startdescription": "The Russians move to orchestrate an offensive against their next target -",
+	"requirements": {
+	    "soviet": 1,
+	    "foe": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "defend.opportunity"
+	    }
+	]
+    },
+    {
+	"id": "aggro.againstyou.singleattack.revealhidden",
+	"label": "The Red Army Attacks!",
+	"startdescription": "The Russians move to orchestrate an offensive against their next target -",
+	"requirements": {
+	    "foe.hidden": 1
+	},
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"linked": [
+	    {
+		"id": "aggro.againstyou.singleattack.takeadditional"
+	    }
+	]
+    },
+    {
+	"id": "aggro.againstgerman.singleattack",
+	"label": "The Red Army Attacks!",
+	"startdescription": "The Russians move to orchestrate an offensive against their next target -",
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Target",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "remnant": 1,
+		    "foe.officer": 1,
+		    "soviet": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "soviet.aggro.singleattack.victory",
+		"chance": 20
+	    },
+	    {
+		"id": "soviet.aggro.singleattack.defeat"
+	    },
+	    {
+		"id": "soviet.nonefound"
+	    }
+	]
+    },
+    {
+	"id": "soviet.aggro.singleattack.victory",
+	"label": "The Red Army Prevails!",
+	"startdescription": "I watch the battle from afar - watch the Russian contingent wash over the German defense. There is the distant popping of the guns, the low boom of shellfire, and then that particular silence that comes after victory. The Russians move onwards.",
+	"requirements": {
+	    "foe": 2
+	},
+	"effects": {
+	    "german": -99
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "soviet.aggro.singleattack.defeat",
+	"label": "The Red Army is Beaten Back!",
+	"startdescription": "Even in its death throes, the Wehrmacht remains a redoubtable enemy. The Russians find themselves unable to break the German line, and with their strength now expended, they withdraw from the field. No-one is the victor.",
+	"requirements": {
+	    "foe": 2
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "aggro.startup.hide",
+	"actionid": "aggro.hide",
+	"label": "The Red Army Scrambles Positions",
+	"startdescription": "An adversary withdraws to shroud themselves.",
+	"requirements": {
+	    "draw.soviet.hide": 1
+	},
+	"aspects": {
+	    "concealidentity": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Hiding",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "hired": 1,
+		    "neutral": 1,
+		    "foe.hidden": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "aggro.startup.reinforcements",
+	"actionid": "aggro.reinforcements",
+	"label": "The Red Army Draws on its Reserves",
+	"startdescription": "Soviet command has allocated more resources to its efforts here. En route are more weapons, more food - and of course, more manpower.",
+	"description": "Bodies to the front. Meat to the grinder.",
+	"requirements": {
+	    "draw.soviet.reinforcements": 1
+	},
+	"warmup": 30,
+	"effects": {
+	    "aggro.infantry": 1
+	},
+	"deckeffects": {
+	    "soviet.reinforcements.aggro": 2
+    	}
+    },
+    {
+	"id": "aggro.startup.doubleattack.1",
+	"actionid": "aggro.doubleattack.1",
+	"label": "A Pincer Attack!",
+	"startdescription": "The Red Army has devised a double-fronted attack against its adversaries -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "draw.soviet.doubleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Manpower",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral": 1,
+		    "hired": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "soviet.nonefound"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "aggro.startup.doubleattack.1.againstgermans",
+		"chance": 40
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "aggro.startup.doubleattack.1.againstgermans",
+	"actionid": "aggro.doubleattack.1",
+	"label": "A Pincer Attack!",
+	"startdescription": "The enemy has devised a double-fronted attack against its adversaries -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	},
+	"tablereqs": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Manpower",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral": 1,
+		    "hired": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "aggro.againstgerman.singleattack"
+	    },
+	],
+	"warmup": 10
+    },
+    {
+	"id": "aggro.startup.doubleattack.2",
+	"actionid": "aggro.doubleattack.2",
+	"label": "A Pincer Attack!",
+	"startdescription": "The Red Army has devised a double-fronted attack against its adversaries -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "draw.soviet.doubleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Manpower",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral": 1,
+		    "hired": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "soviet.nonefound"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "aggro.startup.doubleattack.2.againstgermans",
+		"chance": 40
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "aggro.startup.doubleattack.2.againstgermans",
+	"actionid": "aggro.doubleattack.2",
+	"label": "A Pincer Attack!",
+	"startdescription": "The enemy has devised a double-fronted attack against its adversaries -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	},
+	"tablereqs": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Manpower",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral": 1,
+		    "hired": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "aggro.againstgerman.singleattack"
+	    },
+	],
+	"warmup": 10
+    },
+]
+}

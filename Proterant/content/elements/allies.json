@@ -1,0 +1,2558 @@
+{
+"elements": [
+    {
+	"id": "corpse.beast",
+	"label": "Beast Carcass",
+	"description": "This could move on its own, once. No longer.",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "growthinfect": "foe.growth"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "friend.lion",
+	"label": "Lion",
+	"description": "<i>Panthera leo.</i> Recognized everywhere as a symbol of strength, honour, and courage; lord of the beasts and king of the jungle - and lions do not even live in jungles! A lion's reputation is just <i>that</i> eminent.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "edge": 4,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "fatiguing": "friend.lion.exhausted"
+	},
+    },
+    {
+	"id": "friend.lion.exhausted",
+	"label": "Lion (Exhausted)",
+	"description": "<i>Panthera leo.</i> Recognized everywhere as a symbol of strength, honour, and courage; lord of the beasts and king of the jungle - and lions do not even live in jungles! A lion's reputation is just <i>that</i> eminent.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "refresh": "friend.lion"
+	},
+	"icon": "friend.lion",
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.lion"
+    },
+    {
+	"id": "friend.tiger",
+	"label": "Tiger",
+	"description": "<i>Panthera tigris.</i> Tigers, on average, are actually both bigger and stronger than lions - but lions, legend relates, were made first. If it were the other way around, perhaps he'd be the 'Tigersmith' instead. Hardly as charming.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "edge": 5,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "fatiguing": "friend.tiger.exhausted"
+	},
+    },
+    {
+	"id": "friend.tiger.exhausted",
+	"label": "Tiger (Exhausted)",
+	"description": "<i>Panthera tigris.</i> Tigers, on average, are actually both bigger and stronger than lions - but lions, legend relates, were made first. If it were the other way around, perhaps he'd be the 'Tigersmith' instead. Hardly as charming.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": true
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "refresh": "friend.tiger"
+	},
+	"icon": "friend.tiger",
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.tiger"
+    },
+    {
+	"id": "friend.labhite",
+	"label": "Ally Labhite",
+	"description": "<i>Leotherium pterobellus.</i> Considered to be the most beautiful of the Lionsmith's children. If you've ever seen one in flight, you'd understand why - but if you've seen one in flight, you're also probably about to die.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "edge": 10,
+	    "friend.aerial": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labhite.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.labhite.wounded",
+	    "rebellion": "foe.labhite.grounded"
+	}
+    },
+    {
+	"id": "friend.labhite.exhausted",
+	"label": "Ally Labhite (Exhausted)",
+	"description": "<i>Leotherium pterobellus.</i> Considered to be the most beautiful of the Lionsmith's children. If you've ever seen one in flight, you'd understand why - but if you've seen one in flight, you're also probably about to die.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labhite.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.labhite.wounded",
+	    "refresh": "friend.labhite"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.labhite",
+	"icon": "friend.labhite",
+	"resaturate": true
+    },
+    {
+	"id": "friend.labhite.wounded",
+	"label": "Ally Labhite (Wounded)",
+	"description": "[Use both a Field Medic and Ally Engineers to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.labhite"
+	},
+    },
+    {
+	"id": "friend.spathiurus",
+	"label": "Ally Spathiurus",
+	"description": "<i>Leotherium ensiformes.</i> Colloquially referred to as 'fencing lions' by teratologists, but don't try fencing with one. The appendage at the end of one's tail can pierce and cut through any substance conceivable: stone, steel, flesh. Especially flesh.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "edge": 8,
+	    "ap": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.spathiurus.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.spathiurus.wounded",
+	    "rebellion": "foe.spathiurus"
+	}
+    },
+    {
+	"id": "friend.spathiurus.exhausted",
+	"label": "Ally Spathiurus (Exhausted)",
+	"description": "<i>Leotherium ensiformes.</i> Colloquially referred to as 'fencing lions' by teratologists, but don't try fencing with one. The appendage at the end of one's tail can pierce and cut through any substance conceivable: stone, steel, flesh. Especially flesh.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.spathiurus.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.spathiurus.wounded",
+	    "refresh": "friend.spathiurus"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.spathiurus",
+	"icon": "friend.spathiurus",
+	"resaturate": true
+    },
+    {
+	"id": "friend.spathiurus.wounded",
+	"label": "Ally Spathiurus (Wounded)",
+	"description": "[Use both a Field Medic and Ally Engineers to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.spathiurus"
+	},
+    },
+    {
+	"id": "friend.hesukhine",
+	"label": "Ally Hesukhine",
+	"description": "<i>Leotherium vitricutis.</i> Hesukhines are unusual among the Lionsmith's children for their subtlety, patience, and silence - they might even choose to do away with visible shape while on the hunt. No other monster operates as a hesukhine does. Then again, if any Hour would break from convention, it would be the Lionsmith.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "edge": 8,
+	    "winter": 8,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.hesukhine.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.hesukhine.wounded",
+	    "rebellion": "foe.hesukhine.hidden"
+	}
+    },
+    {
+	"id": "friend.hesukhine.exhausted",
+	"label": "Ally Hesukhine (Exhausted)",
+	"description": "<i>Leotherium vitricutis.</i> Hesukhines are unusual among the Lionsmith's children for their subtlety, patience, and silence - they might even choose to do away with visible shape while on the hunt. No other monster operates as a hesukhine does. Then again, if any Hour would break from convention, it would be the Lionsmith.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.hesukhine.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.hesukhine.wounded",
+	    "refresh": "friend.hesukhine"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.hesukhine",
+	"icon": "friend.hesukhine",
+	"resaturate": true
+    },
+    {
+	"id": "friend.hesukhine.wounded",
+	"label": "Ally Hesukhine (Wounded)",
+	"description": "[Use both a Field Medic and Ally Engineers to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.hesukhine"
+	},
+    },
+    {
+	"id": "friend.echidniform",
+	"label": "Ally Echidniform",
+	"description": "There is no formal name for the diverse aberrations that result from Echidna's corruptions of the Lionsmith's children. A patchwork of serpent-scale and cat-hide and parts stranger still - it is unsure of what it exactly is. With enough time, it might mature into something newer and fiercer. But for my purposes, it is new and fierce enough.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "edge": 12,
+	    "moth": 8,
+	    "grail": 8,
+	    "friend.aerial": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.echidniform.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.echidniform.wounded",
+	    "rebellion": "foe.echidniform.grounded"
+	},
+	"unique": true,
+	"uniquenessgroup": "uqechidniform"
+    },
+    {
+	"id": "friend.echidniform.exhausted",
+	"label": "Ally Echidniform (Exhausted)",
+	"description": "There is no formal name for the diverse aberrations that result from Echidna's corruptions of the Lionsmith's children. A patchwork of serpent-scale and cat-hide and parts stranger still - it is unsure of what it exactly is. With enough time, it might mature into something newer and fiercer. But for my purposes, it is new and fierce enough.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.echidniform.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.echidniform.wounded",
+	    "refresh": "friend.echidniform"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.echidniform",
+	"icon": "friend.echidniform",
+	"resaturate": true,
+	"uniquenessgroup": "uqechidniform"
+    },
+    {
+	"id": "friend.echidniform.wounded",
+	"label": "Ally Echidniform (Wounded)",
+	"description": "[This Ally will regenerate if wounded, but you can use a Field Medic and Ally Engineers to heal this Ally faster.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.echidniform"
+	},
+	"uniquenessgroup": "uqechidniform",
+	"lifetime": 60,
+	"decayTo": "friend.echidniform"
+    },
+    {
+	"id": "friend.skaptodon",
+	"label": "Ally Skaptodon",
+	"description": "<i>Leotherium skavodont.</i> Mighty movers of earth and splitters of stone, who grow mightier still when left in the heat and the dark found below ground. Any skaptodons who still walk the earth today are singular combatants, near-unrivaled in ferocity and raw strength. But the Lionsmith now seldom makes skaptodons. Perhaps he now finds them antique. [Using this Ally anywhere has a chance of creating an earthquake.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "edge": 18,
+	    "forge": 6,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.skaptodon.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.skaptodon.wounded",
+	    "rebellion": "foe.skaptodon"
+	},
+	"unique": true,
+	"uniquenessgroup": "uqskaptodon"
+    },
+    {
+	"id": "friend.skaptodon.exhausted",
+	"label": "Ally Skaptodon (Exhausted)",
+	"description": "<i>Leotherium skavodont.</i> Mighty movers of earth and splitters of stone, who grow mightier still when left in the heat and the dark found below ground. Any skaptodons who still walk the earth today are singular combatants, near-unrivaled in ferocity and raw strength. But the Lionsmith now seldom makes skaptodons. Perhaps he finds them antique.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.skaptodon.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.skaptodon.wounded",
+	    "refresh": "friend.skaptodon"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.skaptodon",
+	"icon": "friend.skaptodon",
+	"resaturate": true,
+	"uniquenessgroup": "uqskaptodon",
+	"induces": [
+	    {
+		"id": "produce.earthquake.ally",
+		"chance": 40
+	    }
+	],
+    },
+    {
+	"id": "friend.skaptodon.wounded",
+	"label": "Ally Skaptodon (Wounded)",
+	"description": "[Use both a Field Medic and Ally Engineers to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.skaptodon"
+	},
+	"uniquenessgroup": "uqskaptodon"
+    },
+    {
+	"id": "friend.fiorenza.local",
+	"label": "Fiorenza Scorsanti",
+	"description": "A kind, spirited young lady who has lent her voice to the beleaguered fighters of <i>la Resistenza.</i> Once a student; now a soldier.",
+	"aspects": {
+	    "lantern": 4,
+	    "heart": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.fiorenza.local.wounded",
+	    "fatiguing": "friend.fiorenza.local.exhausted",
+	    "recruiting": "friend.fiorenza",
+	    "mortal.introduce": [
+		{
+		    "id": "side.fiorenza",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.fiorenza"
+    },
+    {
+	"id": "friend.fiorenza.local.exhausted",
+	"label": "Fiorenza Scorsanti (Exhausted)",
+	"description": "Fiorenza, having evaded the clumsy partisan or two trying to flirt with her, is tuning her guitar and resting her voice.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.fiorenza.local.wounded",
+	    "fatiguing": "friend.fiorenza.local.exhausted",
+	    "refresh": "friend.fiorenza.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.fiorenza.local",
+	"icon": "friend.fiorenza",
+	"resaturate": true
+    },
+    {
+	"id": "friend.fiorenza.local.wounded",
+	"label": "Fiorenza Scorsanti (Wounded)",
+	"description": "A kind, spirited young lady who has lent her voice to the beleaguered fighters of <i>la Resistenza.</i> Once a student; now a soldier. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.fiorenza.local"
+	},
+	"icon": "friend.fiorenza.wounded"
+    },
+    {
+	"id": "friend.fiorenza",
+	"label": "Fiorenza Scorsanti",
+	"description": "A kind, spirited young lady who has lent her voice to the beleaguered fighters of <i>la Resistenza.</i> Once a student; now a soldier.",
+	"aspects": {
+	    "lantern": 4,
+	    "heart": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.fiorenza.wounded"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.fiorenza.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.fiorenza.exhausted",
+	"label": "Fiorenza Scorsanti (Exhausted)",
+	"description": "Fiorenza, having evaded the clumsy partisan or two trying to flirt with her, is tuning her guitar and resting her voice.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.fiorenza.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.fiorenza.exhausted",
+	    "refresh": "friend.fiorenza"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.fiorenza",
+	"icon": "friend.fiorenza",
+	"resaturate": true
+    },
+    {
+	"id": "friend.fiorenza.wounded",
+	"label": "Fiorenza Scorsanti (Wounded)",
+	"description": "A kind, spirited young lady who has lent her voice to the beleaguered fighters of <i>la Resistenza.</i> Once a student; now a soldier. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.fiorenza"
+	}
+    },
+    {
+	"id": "friend.lorenzo.local",
+	"label": "Lorenzo Bassi",
+	"description": "Seasoned cook and acting surgeon. He is serviceable as the latter, but in truth, his <i>spezzatino</i> saves more lives than his scalpel.",
+	"aspects": {
+	    "forge": 4,
+	    "grail": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.lorenzo.local.wounded",
+	    "fatiguing": "friend.lorenzo.local.exhausted",
+	    "recruiting": "friend.lorenzo",
+	    "mortal.introduce": [
+		{
+		    "id": "side.lorenzo",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.lorenzo"
+    },
+    {
+	"id": "friend.lorenzo.local.exhausted",
+	"label": "Lorenzo Bassi (Exhausted)",
+	"description": "Lorenzo keeps his cooking utensils scrupulously separate from his surgical implements.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.lorenzo.local.wounded",
+	    "fatiguing": "friend.lorenzo.local.exhausted",
+	    "refresh": "friend.lorenzo.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.lorenzo.local",
+	"icon": "friend.lorenzo",
+	"resaturate": true
+    },
+    {
+	"id": "friend.lorenzo.local.wounded",
+	"label": "Lorenzo Bassi (Wounded)",
+	"description": "Seasoned cook and acting surgeon. He is serviceable as the latter, but in truth, his <i>spezzatino</i> saves more lives than his scalpel. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.lorenzo.local"
+	},
+	"icon": "friend.lorenzo.wounded"
+    },
+    {
+	"id": "friend.lorenzo",
+	"label": "Lorenzo Bassi",
+	"description": "Seasoned cook and acting surgeon. He is serviceable as the latter, but in truth, his <i>spezzatino</i> saves more lives than his scalpel.",
+	"aspects": {
+	    "forge": 4,
+	    "grail": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.lorenzo.wounded"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.lorenzo.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.lorenzo.exhausted",
+	"label": "Lorenzo Bassi (Exhausted)",
+	"description": "Lorenzo keeps his cooking utensils scrupulously separate from his surgical implements.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.lorenzo.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.lorenzo.exhausted",
+	    "refresh": "friend.lorenzo"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.lorenzo",
+	"icon": "friend.lorenzo",
+	"resaturate": true
+    },
+    {
+	"id": "friend.lorenzo.wounded",
+	"label": "Lorenzo Bassi (Wounded)",
+	"description": "Seasoned cook and acting surgeon. He is serviceable as the latter, but in truth, his <i>spezzatino</i> saves more lives than his scalpel. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.lorenzo"
+	}
+    },
+    {
+	"id": "friend.padre.local",
+	"label": "Padre Ruggiero",
+	"description": "Priest, veteran... exorcist? The good father was a chaplain during the Great War, and it was then he swore an oath to stamp out wickedness wherever he could find it in the world - and also outside it.",
+	"aspects": {
+	    "winter": 4,
+	    "knock": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.padre.local.wounded",
+	    "fatiguing": "friend.padre.local.exhausted",
+	    "recruiting": "friend.padre",
+	    "mortal.introduce": [
+		{
+		    "id": "side.padre",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.padre"
+    },
+    {
+	"id": "friend.padre.local.exhausted",
+	"label": "Padre Ruggiero (Exhausted)",
+	"description": "The good father is at his prayers: to St. Peter of the Keys; to St. Agnes of the Gate; to the half-faced angel of the Threshold.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.padre.local.wounded",
+	    "fatiguing": "friend.padre.local.exhausted",
+	    "refresh": "friend.padre.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.padre.local",
+	"icon": "friend.padre",
+	"resaturate": true
+    },
+    {
+	"id": "friend.padre.local.wounded",
+	"label": "Padre Ruggiero (Wounded)",
+	"description": "Priest, veteran... exorcist? The good father was a chaplain during the Great War, and it was then he swore an oath to stamp out wickedness wherever he could find it in the world - and also outside it. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.padre.local"
+	},
+	"icon": "friend.padre.wounded"
+    },
+    {
+	"id": "friend.padre",
+	"label": "Padre Ruggiero",
+	"description": "Priest, veteran... exorcist? The good father was a chaplain during the Great War, and it was then he swore an oath to stamp out wickedness wherever he could find it in the world - and also outside it.",
+	"aspects": {
+	    "knock": 4,
+	    "winter": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.padre.wounded"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.padre.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.padre.exhausted",
+	"label": "Padre Ruggiero (Exhausted)",
+	"description": "The good father is at his prayers: to St. Peter of the Keys; to St. Agnes of the Gate; to the half-faced angel of the Threshold.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.padre.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.padre.exhausted",
+	    "refresh": "friend.padre"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.padre",
+	"icon": "friend.padre",
+	"resaturate": true
+    },
+    {
+	"id": "friend.padre.wounded",
+	"label": "Padre Ruggiero (Wounded)",
+	"description": "Priest, veteran... exorcist? The good father was a chaplain during the Great War, and it was then he swore an oath to stamp out wickedness wherever he could find it in the world - and also outside it. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.padre"
+	}
+    },
+    {
+	"id": "friend.daria.local",
+	"label": "Daria Corsino",
+	"description": "A partisan fighter of some renown. She is called 'La Rasoia' by those who have seen her in action, and before the war she was either a barber, a convict, or a murderer. She will not tell which it was.",
+	"aspects": {
+	    "moth": 4,
+	    "edge": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.daria.local.wounded",
+	    "fatiguing": "friend.daria.local.exhausted",
+	    "recruiting": "friend.daria",
+	    "mortal.introduce": [
+		{
+		    "id": "side.daria",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.daria"
+    },
+    {
+	"id": "friend.daria.local.exhausted",
+	"label": "Daria Corsino (Exhausted)",
+	"description": "Daria has receded behind the trees and into night.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.daria.local.wounded",
+	    "fatiguing": "friend.daria.local.exhausted",
+	    "refresh": "friend.daria.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.daria.local",
+	"icon": "friend.daria",
+	"resaturate": true
+    },
+    {
+	"id": "friend.daria.local.wounded",
+	"label": "Daria Corsino (Wounded)",
+	"description": "A partisan fighter of some renown. She is called 'La Rasoia' by those who have seen her in action, and before the war she was either a barber, a convict, or a murderer. She will not tell which it was. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.daria.local"
+	},
+	"icon": "friend.daria.wounded"
+    },
+    {
+	"id": "friend.daria",
+	"label": "Daria Corsino",
+	"description": "A partisan fighter of some renown. She is called 'La Rasoia' by those who have seen her in action, and before the war she was either a barber, a convict, or a murderer. She will not tell which it was.",
+	"aspects": {
+	    "moth": 4,
+	    "edge": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.daria.wounded"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.daria.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.daria.exhausted",
+	"label": "Daria Corsino (Exhausted)",
+	"description": "Daria has receded behind the trees and into night.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.daria.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.daria.exhausted",
+	    "refresh": "friend.daria"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.daria",
+	"icon": "friend.daria",
+	"resaturate": true
+    },
+    {
+	"id": "friend.daria.wounded",
+	"label": "Daria Corsino (Wounded)",
+	"description": "A partisan fighter of some renown. She is called 'La Rasoia' by those who have seen her in action, and before the war she was either a barber, a convict, or a murderer. She will not tell which it was. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.daria"
+	}
+    },
+    {
+	"id": "friend.giorgiou",
+	"label": "M. Giorgiou",
+	"description": "Smuggler, safecracker, and amateur (<i>very</i> amateur) philosopher; a friend of the one called Exile. He is not seen without a cigarette these days.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "knock": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.giorgiou.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.giorgiou.wounded",
+	    "mortal.introduce": [
+		{
+		    "id": "side.termoli",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.giorgiou.exhausted",
+	"label": "M. Giorgiou (Exhausted)",
+	"description": "Smuggler, cardsharp, and amateur (<i>very</i> amateur) philosopher; a friend of the one called Exile. He is not seen without a cigarette these days.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.giorgiou.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.giorgiou.wounded",
+	    "refresh": "friend.giorgiou",
+	    "refreshally": "friend.giorgiou"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.giorgiou",
+	"icon": "friend.giorgiou",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "friend.giorgiou.wounded",
+	"label": "M. Giorgiou (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.giorgiou"
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.orsolina",
+	"label": "'La Scavatrice'",
+	"description": "The partisan squadron that now follows Orsolina knows only that she is strong and old - but I can tell what she had been with only a look, and likewise she can see the age and power that hides in me. We smile knowingly over this.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "forge": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.orsolina.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.orsolina.wounded",
+	    "mortal.introduce": [
+		{
+		    "id": "side.campobasso",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "npc.delver"
+    },
+    {
+	"id": "friend.orsolina.exhausted",
+	"label": "'La Scavatrice' (Exhausted)",
+	"description": "The partisan squadron that now follows Orsolina knows only that she is strong and old - but I can tell what she was, and likewise she can see the age and power that hides in me. We smile knowingly over this.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.orsolina.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.orsolina.wounded",
+	    "refresh": "friend.orsolina",
+	    "refreshally": "friend.orsolina"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.orsolina",
+	"resaturate": true,
+	"unique": true,
+	"icon": "npc.delver"
+    },
+    {
+	"id": "friend.orsolina.wounded",
+	"label": "'La Scavatrice' (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.orsolina"
+	},
+	"unique": true
+    },
+]
+}

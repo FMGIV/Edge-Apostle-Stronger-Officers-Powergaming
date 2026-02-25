@@ -1,0 +1,1314 @@
+{
+"elements": [
+    {
+	"id": "proterant.memento",
+	"label": "Латунный медальон",
+	"description": "'Когда-нибудь я стану воспоминанием, а ты будешь ходить по земле, как и прежде - так что держи это рядом, чтобы я могла ходить с тобой, когда мои кости превратятся в пыль.'",
+	"aspects": {
+	    "heart": 4,
+	    "memento": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "proterant.weapon",
+	"label": "Моделло 38",
+	"description": "<i>Moschetto Automatico Beretta Modello 1938.</i> Он не заклинит в моих руках если он знает, что для него лучше.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.weapon.exhausted"
+	},
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "proterant.weapon.exhausted",
+	"label": "Моделло 38 (Подготавливается)",
+	"description": "<i>Moschetto Automatico Beretta Modello 1938.</i> Он не заклинит в моих руках если он знает, что для него лучше..",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"lifetime": 120,
+	"resaturate": true,
+	"decayTo": "proterant.weapon",
+	"icon": "proterant.weapon",
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "proterant.setupitem",
+	"label": "Золотой Закат",
+	"description": "Из-за горизонта появляется новый день. Я и раньше видел восход солнца - больше раз, чем любой обычный смертный. Но сегодня что-то изменилось. Я предвкушаю отъезд.",
+	"aspects": {
+	    "op": 1
+	},
+	"icon": "op.dawn"
+    },
+    {
+	"id": "proterant.mentor",
+	"label": "#PREVIOUSCHARACTERNAME#",
+	"description": "Ухмыляющийся ливиец с горящими глазами. Остальные видят в нем только партизанского капитана, но я-то знаю лучше. Этот человек доверил мне правду о том, кто он такой.",
+	"aspects": {
+	    "friend": 1,
+	    "edgelong": 1
+	}
+    },
+    {
+	"id": "proterant.story",
+	"label": "Ставка Изгнанника",
+	"description": "'Я скажу прямо: Львокузнец хочет себе новое Имя. Это значит что ему нужны крепкие, сильные парни. Им будешь ты. Но тебе нужно будет стать сильнее, и тебе нужно будет доказать это кровью. Тебе нужно будет узнать парочку вещей о монстрах, так что возможно тебе нужно будет поговорить с Ехидной. Ещё я что-то слышал про праздник в Монтекассино - Львокузнец готовит Сюрприз. Ты не должен это пропустить. А, вот ещё что: Я заключил пари со своим Врагом на то, хватит ли у тебя духу стать Именем. Так, если не ради славы, сделай это ради своего старого друга! Я безгранично верю в тебя. Но немного удачи не повредит, а?'",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "proterant.fragmentedge",
+	"label": "Секрет Молота",
+	"description": "Прикосновение молота куёт; Прикосновение молота разрушает. Те, кто изучает учение Львокузнеца, хорошо знают эти две природы и то, как их использовать.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 2,
+	    "forge": 1,
+	    "heart": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedge.exhausted",
+	    "epiphany": "proterant.fragmentedgeb"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "proterant.fragmentedge.exhausted",
+	"label": "Секрет Молота (Готовится)",
+	"description": "Я должен подождать пока оно восстановится чтобы снова его использовать. [Улучшение вашего Знания Грани уменьшит его время восстановления и усилит его.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedge"
+	},
+	"lifetime": 300,
+	"decayTo": "proterant.fragmentedge",
+	"icon": "proterant.fragmentedge",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedgeb",
+	"label": "Урок Шапура",
+	"description": "«Это урок, который Сын Великого нашел в сломанном клинке. Даже сейчас он сверкает под Персидским солнцем, как осколки металла». Мой друг иногда бормотал это, когда мы сидели за чашкой вина.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 4,
+	    "forge": 2,
+	    "heart": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgeb.exhausted",
+	    "epiphany": "proterant.fragmentedgec"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgeb.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgeb.exhausted",
+	"label": "Урок Шапура (Готовится)",
+	"description": "Я должен подождать пока оно восстановится чтобы снова его использовать. [Улучшение вашего Знания Грани уменьшит его время восстановления и усилит его.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgeb"
+	},
+	"lifetime": 260,
+	"decayTo": "proterant.fragmentedgeb",
+	"resaturate": true,
+	"icon": "fragmentedgeb.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgec",
+	"label": "Операция Лабита",
+	"description": "Серия таинственных практик, для которых требуется усердие и ужас.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 6,
+	    "forge": 3,
+	    "heart": 3
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgec.exhausted",
+	    "epiphany": "proterant.fragmentedged"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgec.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgec.exhausted",
+	"label": "Операция Лабита (Готовится)",
+	"description": "Мне понадобится время на восстановление, прежде чем я снова смогу этим воспользоваться. [Улучшение вашего Знания Грани уменьшит его время восстановления и усилит его.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgec"
+	},
+	"lifetime": 220,
+	"decayTo": "proterant.fragmentedgec",
+	"icon": "fragmentedgec.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedged",
+	"label": "Имена Львокузнеца",
+	"description": "По меркам Часов Львокузнец ещё молод, но по меркам войны он стар. Его Имена — новобранцы, и их зачитывание обладает дикой силой.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 8,
+	    "forge": 4,
+	    "heart": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedged.exhausted",
+	    "epiphany": "proterant.fragmentedgee"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedged.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedged.exhausted",
+	"label": "Имена Львокузнеца (Готовится)",
+	"description": "Мне понадобится время на восстановление, прежде чем я снова смогу этим воспользоваться. [Улучшение вашего Знания Грани уменьшит его время восстановления и усилит его.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedged"
+	},
+	"lifetime": 180,
+	"decayTo": "proterant.fragmentedged",
+	"icon": "fragmentedged.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedgee",
+	"label": "Медные формы",
+	"description": "Семью семь техник ломания кости.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 10,
+	    "forge": 5,
+	    "heart": 5
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgee.exhausted",
+	    "epiphany": "proterant.fragmentedgef"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgee.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgee.exhausted",
+	"label": "Медные формы (Готовится)",
+	"description": "Мне понадобится время на восстановление, прежде чем я снова смогу этим воспользоваться. [Улучшение вашего Знания Грани уменьшит его время восстановления и усилит его.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgee"
+	},
+	"lifetime": 140,
+	"decayTo": "proterant.fragmentedgee",
+	"icon": "fragmentedgee.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedgef",
+	"label": "Завершение рукояти",
+	"description": "Я оружие, что должно быть разбито и перековано заново — без изъяна. Соперничество между моей плотью и моей волей, наконец, станет неопровержимым.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 12,
+	    "forge": 6,
+	    "heart": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgef.exhausted",
+	    "epiphany": "proterant.fragmentedgeg"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgef.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgef.exhausted",
+	"label": "Завершение рукояти (Готовится)",
+	"description": "Мне понадобится время на восстановление, прежде чем я снова смогу этим воспользоваться. [Улучшение вашего Знания Грани уменьшит его время восстановления и усилит его.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgef"
+	},
+	"lifetime": 100,
+	"decayTo": "proterant.fragmentedgef",
+	"icon": "fragmentedgef.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedgeg",
+	"label": "Разбитые тайны",
+	"description": "С каждым возрождением я получаю больше силы. Всё, что было разбито, перековывается заново. Всё, что не было разбито, должно быть перековано.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 14,
+	    "forge": 7,
+	    "heart": 7,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgeg.exhausted",
+	    "epiphany": [
+		{
+		    "id": "lionsmith.weaponfragment",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Что-то с чего можно поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgeg.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgeg.exhausted",
+	"label": "Разбитые тайны (Готовится)",
+	"description": "Мне понадобится время на восстановление, прежде чем я снова смогу этим воспользоваться. [Улучшение вашего Знания Грани уменьшит его время восстановления и усилит его.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgeg"
+	},
+	"lifetime": 60,
+	"decayTo": "proterant.fragmentedgeg",
+	"icon": "fragmentedgeg.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "chain.strength",
+	"label": "Дар: Сила",
+	"description": "В те дни, когда Кремень обрабатывала звезды и камни, было известно: земля - древнейшая сила. Давным-давно я наслаждался земными таинствами, и так я вырос - и остаюсь - сильным.",
+	"aspects": {
+	    "edge": 6,
+	    "chain": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "chain.strength.exhausted"
+	}
+    },
+    {
+	"id": "chain.strength.exhausted",
+	"label": "Дар: Сила (Переутомление)",
+	"description": "В те дни, когда Кремний обрабатывала звезды и камни, было известно: земля - древнейшая сила. Давным-давно я наслаждался земными таинствами, и так я вырос - и остаюсь - сильным.",
+	"aspects": {
+	    "exhausted": 1,
+	    "chain": 1
+	},
+	"lifetime": 90,
+	"decayTo": "chain.strength",
+	"resaturate": true,
+	"icon": "chain.strength"
+    },
+    {
+	"id": "chain.stone",
+	"label": "Дар: Камень",
+	"description": "До того, как мы подчинили себе металл и приручили огонь, камень дал нам возможность проливать кровь. Я изучал камень в юности, и поэтому я мельком увидел, как мы придавали Камню форму, а Камень формировал нас.",
+	"aspects": {
+	    "heart": 6,
+	    "forge": 6,
+	    "chain": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "chain.stone.exhausted"
+	}
+    },
+    {
+	"id": "chain.stone.exhausted",
+	"label": "Дар: Камень (Переутомление)",
+	"description": "До того, как мы подчинили себе металл и приручили огонь, камень дал нам возможность проливать кровь. Я изучал камень в юности, и поэтому я мельком увидел, как мы придавали Камню форму, а Камень формировал нас.",
+	"aspects": {
+	    "exhausted": 1,
+	    "chain": 1
+	},
+	"lifetime": 90,
+	"decayTo": "chain.stone",
+	"resaturate": true,
+	"icon": "chain.stone"
+    },
+    {
+	"id": "chain.scale",
+	"label": "Дар: Хитин",
+	"description": "Хитиновый Крест - те мудрые и могущественные, что пришли раньше и стали нами, - знали, как Плоть может противостоять Времени, своему врагу. Я ближе других к природе Креста, которая дремлет во многих, и поэтому я выстоял против Времени так же, как когда-то выстоял Крест.",
+	"aspects": {
+	    "heart": 6,
+	    "moth": 6,
+	    "chain": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "chain.scale.exhausted"
+	}
+    },
+    {
+	"id": "chain.scale.exhausted",
+	"label": "Дар: Хитин (Переутомление)",
+	"description": "Хитиновый Крест - те мудрые и могущественные, что пришли раньше и стали нами, - знали, как Плоть может противостоять Времени, своему врагу. Я ближе других к природе Креста, которая дремлет во многих, и поэтому я выстоял против Времени так же, как когда-то выстоял Крест.",
+	"aspects": {
+	    "exhausted": 1,
+	    "chain": 1
+	},
+	"lifetime": 90,
+	"decayTo": "chain.scale",
+	"resaturate": true,
+	"icon": "chain.scale"
+    },
+    {
+	"id": "constructions.a",
+	"label": "Конструкции: Дадгах",
+	"description": "'Львы могут быть созданы, не как дети, не как слова, но как оружие.' В Империи-Без-Тени, эти слова были мудростью. [Вы можете использовать эту карту для рукотворного создания некоторых творений Львокузнеца.]",
+	"aspects": {
+	    "lore": 1,
+	    "ability": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing1",
+		"label": "Компоненты",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing2",
+		"label": "Компоненты",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing3",
+		"label": "Компоненты",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "constructions.b",
+	"label": "Конструкции: Адаран",
+	"description": "'Львокузнец делает монстров чтобы одолеть Трибуна.' Крылатые, когтистые, клыкастые - Во всех своих направлениях, Дети Львокузнеца сделаны для войны против врага, и против друг-друга. [Вы можете использовать эту карту для рукотворного создания сильных творений Львокузнеца]",
+	"aspects": {
+	    "lore": 1,
+	    "ability": 1,
+	},
+	"slots": [
+	    {
+		"id": "needsthing1",
+		"label": "Компоненты",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing2",
+		"label": "Компоненты",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing3",
+		"label": "Компоненты",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing4",
+		"label": "Компоненты",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "constructions.c",
+	"label": "Конструкции: Бехрам",
+	"description": "'Дети Львокузнеца рождены прикосновением молота; Сломаны прикосновением молота; Перекованы прикосновением молота.' Старшие дети Львокузнеца не всегда переживают своего воспитания, но те, что выживают, разверзают землю своей поступью и сотрясают небеса своей силой. [Вы можете использовать эту карту для рукотворного создания сильнейших творений Львокузнеца.]",
+	"aspects": {
+	    "lore": 1,
+	    "ability": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing1",
+		"label": "Компоненты",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing2",
+		"label": "Компоненты",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing3",
+		"label": "Компоненты",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing4",
+		"label": "Компоненты",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing5",
+		"label": "Компоненты",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "contemplation.skill.swoleup",
+	"label": "Созерцание: Утраченная техника?",
+	"description": "Имя Львокузнеца поделилось со мной этим тайным методом ведения боя. Это древнее, неподатливое знание, и его природа нелегко поддается пониманию",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.lionsmith",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.swoleup.dormant"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.intimidate",
+	"label": "Созерцание: Утраченная техника?",
+	"description": "Имя Львокузнеца поделилось со мной этим тайным методом ведения боя. Это древнее, неподатливое знание, и его природа нелегко поддается пониманию",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.lionsmith",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.intimidate.dormant"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.refreshself",
+	"label": "Созерцание: Утраченная техника?",
+	"description": "Имя Львокузнеца поделилось со мной этим тайным методом ведения боя. Это древнее, неподатливое знание, и его природа нелегко поддается пониманию",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.lionsmith",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.refreshself"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "challenge.contemplation.lionsmith",
+	"label": "Lionsmith Master Skill Challenge ",
+	"aspects": {
+	    "needsedgeforge": 8,
+	    "needsedgeheart": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "skill.swoleup.dormant",
+	"label": "Сила Соперника (Дремлет)",
+	"description": "Великан Антайос - самый могущественный из врагов Львокузнеца, за исключением Полковника. Когда Львокузнец еще был смертным, он убил Антайоса, но тот так восхищался отвагой своего врага, что оставил эту технику в память о нем. И поэтому самые сильные, неподражаемые ученики Львокузнеца могут призвать силу Антея, хотя бы на мгновение. [Активируйте эту карту, чтобы на короткое время придать ей большое количетсво Грани.]",
+	"aspects": {
+	    "lore": 1
+	},
+	"xtriggers": {
+	    "ascend": "skill.swoleup.active",
+	    "fatiguing": "skill.swoleup.exhausted"
+	}
+    },
+    {
+	"id": "skill.swoleup.active",
+	"label": "Сила Соперника",
+	"description": "Великан Антайос - самый могущественный из врагов Львокузнеца, за исключением Полковника. Когда Львокузнец еще был смертным, он убил Антайоса, но тот так восхищался отвагой своего врага, что оставил эту технику в память о нем. И поэтому самые сильные, неподражаемые ученики Львокузнеца могут призвать силу Антея, хотя бы на мгновение. [Активируйте эту карту, чтобы на короткое время придать ей большое количетсво Грани.]",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 30
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.swoleup.exhausted"
+	},
+	"lifetime": 30,
+	"decayTo": "skill.swoleup.exhausted"
+    },
+    {
+	"id": "skill.swoleup.exhausted",
+	"label": "Сила Соперника (Переутомление)",
+	"description": "Великан Антайос - самый могущественный из врагов Львокузнеца, за исключением Полковника. Когда Львокузнец еще был смертным, он убил Антайоса, но тот так восхищался отвагой своего врага, что оставил эту технику в память о нем. И поэтому самые сильные, неподражаемые ученики Львокузнеца могут призвать силу Антея, хотя бы на мгновение. [Эта карта скоро вернётся в дремлющее состояние.]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.swoleup.exhausted",
+	    "refresh": "skill.swoleup.dormant"
+	},
+	"lifetime": 160,
+	"decayTo": "skill.swoleup.dormant",
+	"resaturate": true,
+	"icon": "skill.swoleup.dormant"
+    },
+    {
+	"id": "skill.refreshself",
+	"label": "Неутомимое наступление",
+	"description": "Совершенствование себя, направляющее всю энергию души на полное уничтожение противника. Ярость и выносливость, необходимые для поддержания этих процессов, обычно проявляются только в Вечных, но смертный - очень сильный, очень смелый смертный - может ограниченно использовать эти приемы, чтобы наносить удары со скоростью и свирепостью, которые в противном случае были бы невозможны. [Вы можете использовать эту карту, чтобы обновить любое оружие или карту Знаний.]",
+	"aspects": {
+	    "lore": 1,
+	    "heart": 8
+	},
+	"slots": [
+	    {
+		"id": "needsexhausted",
+		"label": "Exhausted",
+		"required": {
+		    "exhausted": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "skill.refreshself.exhausted",
+	    "refresh": "skill.refreshself",
+	    "fatiguing.onlyrefreshself": "skill.refreshself.exhausted"
+	}
+    },
+    {
+	"id": "skill.refreshself.exhausted",
+	"label": "Неутомимое наступление (Переутомление)",
+	"description": "Совершенствование себя, направляющее всю энергию души на полное уничтожение противника. Ярость и выносливость, необходимые для поддержания этих процессов, обычно проявляются только в Вечных, но смертный - очень сильный, очень смелый смертный - может ограниченно использовать эти приемы, чтобы наносить удары со скоростью и свирепостью, которые в противном случае были бы невозможны. [Вы можете использовать эту карту, чтобы обновить любое оружие или карту Знаний.]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.refreshself.exhausted",
+	    "refresh": "skill.refreshself",
+	    "fatiguing.onlyrefreshself": "skill.refreshself.exhausted"
+	},
+	"icon": "skill.refreshself",
+	"resaturate": true,
+	"lifetime": 280,
+	"decayTo": "skill.refreshself"
+    },
+    {
+	"id": "skill.intimidate.dormant",
+	"label": "Крик Завоевателя (Дремлет)",
+	"description": "Мужество покинет души людей; львы затаятся и устрашаться; даже небо содрогнется, когда я пролью кровь. Услышьте меня и бойтесь. [Активируйте эту карту, чтобы временно не дать врагам предпринять какие-либо наступательные действия против вас. Также, эта карта вызывает Землетрясение]",
+	"aspects": {
+	    "lore": 1
+	},
+	"xtriggers": {
+	    "ascend": "skill.intimidate.active",
+	    "fatiguing": "skill.intimidate.exhausted"
+	}
+    },
+    {
+	"id": "skill.intimidate.active",
+	"label": "Крик Завоевателя",
+	"description": "Мужество покинет души людей; львы затаятся и устрашаться; даже небо содрогнется, когда я пролью кровь. Услышьте меня и бойтесь. [Активируйте эту карту, чтобы временно не дать врагам предпринять какие-либо наступательные действия против вас. Также, эта карта вызывает Землетрясение]",
+	"xtriggers": {
+	    "fatiguing": "skill.intimidate.exhausted"
+	},
+	"lifetime": 180,
+	"decayTo": "skill.intimidate.exhausted"
+    },
+    {
+	"id": "skill.intimidate.exhausted",
+	"label": "Крик Завоевателя (Переутомление)",
+	"description": "Мужество покинет души людей; львы затаятся и устрашаться; даже небо содрогнется, когда я пролью кровь. Услышьте меня и бойтесь. [Эта карта скоро вернётся в дремлющее состояние.]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.intimidate.exhausted",
+	    "refresh": "skill.intimidate.dormant"
+	},
+	"lifetime": 300,
+	"decayTo": "skill.intimidate.dormant",
+	"resaturate": true,
+	"icon": "skill.intimidate.dormant"
+    },
+    {
+	"id": "mission.camilla.a",
+	"label": "Наблюдение: Континенталь",
+	"description": "Места свирепейших битв манят Вечных Грани как кровь манит акул. Оставаясь незамеченными в рядах армий народов, они пересекают континенты, чтобы добраться до своих заклятых врагов. Таким образом, Континенталь не является нашим прямым врагом, но она не откажется от возможности испытать свои силы против армии на своем пути. Есть ли способ избавиться от неё?",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.warmaker.a",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.camilla.b"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.camilla.a",
+	"label": "Continental Challenge A",
+	"aspects": {
+	    "needslantern": 8,
+	    "needsedge": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.camilla.b",
+	"label": "Наблюдение: Диада Континенталь",
+	"description": "Каждый Вечный Грани - лишь одна половина Диады: клятвы двух бессмертных, скованных вместе в вечной битве. Возможно, это то, что нас интересует. Заклятый враг Континенталь должен быть где-то на передовой - если мы хотим избавиться от неё, первым разумным шагом может стать поиск её врага.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.camilla.b",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.camilla.c"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.camilla.b",
+	"label": "Continental Challenge B",
+	"aspects": {
+	    "needslantern": 12,
+	    "needsedge": 12
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.camilla.c",
+	"label": "Наблюдение: Континенталь и Воевода",
+	"description": "Он был союзником Континенталь против Британцев, однажды - под солнцем Нового Мира. Возможно, он также был ее любовником. Но он отказался от её предложения вернутся с ней во Францию, помогать Корсиканцу и его новой империи. За двенадцать лет между Францией и остальной Европой произошло семь войн, и только когда Коалиция в отчаянии призвала на помощь древнее обещание, Воевода вернулся, чтобы отразить наступление французов. Он с горечью заявил, что это был его долг; Континенталь не согласилась. И более ста лет спустя они все еще расходятся во мнениях.",
+	"aspects": {
+	    "contemplation": 1,
+	    "completed": 1
+	}
+    },
+    {
+	"id": "friend.wilhelm",
+	"label": "Воевода",
+	"description": "Здоровенный немец с веселым лицом, одетый в старинную ливрею прусского майора. При нем нет оружия - похоже, он не собирается им себя позорить. Его кулаки, несомненно, надежны и неумолимы, как молоты.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "wilhelm"
+    },
+    {
+	"id": "token.wilhelm",
+	"label": "Золотая Спринтия",
+	"description": "'Старая реликвия прежних времен, когда Солнце было другим. Я не видел ни этого Солнца, ни его красок, - сказал мне Воевода. 'Но даже его образ по-прежнему будет требовать уважения'. Он предложил, чтобы я предложил это в месте силы, чтобы пообщаться с моим другом, Изгнанником, чтобы он помог организовать 'мусвашир' с Континенталь. Но я не должен делать этого предложения, пока не буду готов встретиться с ней лицом к лицу.",
+	"aspects": {
+	    "legacyplotitem": 1,
+	    "dream.lionsmith": 1
+	},
+	"icon": "compensationd"
+    },
+    {
+	"id": "letter.fromexile.refusal",
+	"label": "Ответ Изгнанника",
+	"description": "'Дорогой друг,\n\nЯ надеюсь, что для тебя война проходит так же успешно, как и для меня. Мы с моим Врагом весело проводим время на севере. Кровь, стрельба и всегда знакомое тепло ненависти. Мы могли бы вернуться на юг, чтобы навестить Ортуччио (видите ли, там жила семья моего Врага), но увы - посмотрим, куда нас заведет война!\n\nПерейдём к сути дела. <i>Мусвашир</i> - Тебе нужен секундант, который мог бы поручиться за тебя на дуэли, и я с сожалением вынужден сказать, что это не могу быть я. Честно говоря, мы с моим Врагом слишком увлечены нашими распрями, и ни я, ни он не можем отсрочить нашу вражду. Ты будешь разочарован этим. И, как бы там ни было, мне жаль.\n\nНо не скажу, что я совсем плохой друг. Я знаю кое-кого, кто может тебе помочь. Если ты захочешь связаться с ним, тебе нужно будет провести небольшую церемонию. Он оценит, если ты предложишь ему оружие (хорошее, заметь). После этого просто скажи ему, что ты собираешься организовать <i>мусвашир</i> и я уверен, он тебе поможет. Он любит такие вещи.\n\nУдачи тебе и смотри, чтобы тебя не убили.\n\n- #PREVIOUSCHARACTERNAME#'",
+	"aspects": {
+	    "legacyplotitem": 1
+	},
+	"icon": "letter.fromexile"
+    },
+    {
+	"id": "friend.maccabee",
+	"label": "Иуда, Молот",
+	"description": "Убийца Селевкидов; Бог-Мятежник; Имя-Чемпион Львокузнеца. Я не знаю, как моему другу удалось подружиться с Именем, но у меня все равно нет времени размышлять об этом. Лучше буду говорить быстро.",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"lifetime": 60
+    },
+    {
+	"id": "letter.fromwilhelm",
+	"label": "Ответ Воеводы",
+	"description": "Хрустящая открытка-телеграмма. В ней говорится следующее:\n\n'ДОБЛЕСТНЫЙ ПАРТИЗАН <b>-(ПАУЗА)-</b>\n\nДОЛЖЕН ПРИЗНАТЬСЯ, ЧТО ВАШ ВЫБОР СЕКУНДАНТА МЕНЯ УДИВИЛ <b>-(ПАУЗА)-</b> МЫ ВЕЧНЫЕ ОСТОРОЖНО ВЗАИМОДЕЙСТВУЕМ С ИМЕНАМИ <b>-(ПАУЗА)-</b> КАК БЫ ТО НИ БЫЛО, ТЕПЕРЬ Я ПОЛУЧИЛ ВСЕ ПОДТВЕРЖДЕНИЯ, НЕОБХОДИМЫЕ ДЛЯ СОСТАВЛЕНИЯ НАДЛЕЖАЩИХ ПРОТОКОЛОВ ВЫЗОВА <b>-(ПАУЗА)-</b> МОЙ ДОРОГОЙ ВРАГ С НЕТЕРПЕНИЕМ ЖДЕТ НАЧАЛА СОСТЯЗАНИЯ И, СОГЛАСНО ПРАВИЛАМ, ОСТАВИТ ВАС В ПОКОЕ ДО НАЗНАЧЕННОГО ВРЕМЕНИ <b>-(ПАУЗА)-</b>\n\nПРИБУДЬТЕ К ЧЕРТЕ ГОРОДА ЧЕРЕЗ 7 ДНЕЙ ИЛИ БУДЬТЕ УНИЧТОЖЕНЫ <b>-(ПАУЗА)-</b> ПУКНТУАЛЬНОСТЬ НЕ ПОДЛЕЖИТ ОБЖАЛОВАНИЮ <b>-(ПАУЗА)-</b>'\n\n- ВИЛЬХЕЛЬМ СЕИФРИТЗ ТРАГЕНДОРН",
+	"aspects": {
+	    "legacyplotitem": 1
+	}
+    },
+    {
+	"id": "duel.wilhelm.proterant",
+	"label": "Воевода",
+	"description": "Здоровенный немец с веселым лицом, одетый в старинную ливрею прусского майора. Он прибыл, чтобы выступить в качестве представителя своего врага, Континенталь.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "wilhelm"
+    },
+    {
+	"id": "duel.camilla.proterant",
+	"label": "Континенталь",
+	"description": "Властная, покрытая поразительными шрамами женщина, одетая в форму и плащ французского офицера. Вот кому я бросил вызов, <i>Мусвашир.</i>",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1,
+	    "duel.marker": 1
+	},
+	"icon": "camilla"
+    },
+    {
+	"id": "duel.maccabee",
+	"label": "Иуда, Молот",
+	"description": "Маловероятный друг <i>моего</i> маловероятного друга; Имя Львокузнеца, который предоставил свои полномочия в качестве моего секунданта в <i>Мусвашир.</i>",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1
+	},
+	"icon": "friend.maccabee"
+    },
+    {
+	"id": "friend.echidna",
+	"label": "Ехидна",
+	"description": "Мать Монстров видала лучшие деньки. Что-то вонзилось ей в живот, и вываливающиеся кишки дымятся и извиваются, как черно-красные змеи. Ее рот окроплён кровью. 'Не волнуйся, милый', - говорит она с удивительным самообладанием. 'Они не мои'.",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "broodscent",
+	"label": "След Потомства",
+	"description": "'Следуй своему нюху, милый - в конце концов, желудок на самом деле может указывать только на что-то одно. Боккастрано пахнет по-особенному: как горячая медь, как дождь, как корица и воск; Он убивает безследно и ест тихо. И Оркул пахнет как порченое мясо - целая телега порченого мяса. Когда закончишь, принеси мне мой обед, и тогда мы сможем еще немного поговорить.'",
+	"aspects": {
+	    "scentscout": 1
+	}
+    },
+    {
+	"id": "dinnerbell",
+	"label": "Обеденный Колокольчик",
+	"description": "Небольшой латунный колокольчик, намного тяжелее чем выглядит. 'Позвони, когда подашь моё блюдо, и я примчусь,' Ехидна сказала мне. 'Но имей в виду - я не терпеливая женщина и не люблю тратить время впустую. Если к моему приезду обед не будет готов, Я больше не буду с тобой возиться.'",
+	"aspects": {
+	    "legacyplotitem": 1
+	}
+    }, 
+    {
+	"id": "corpse.orcul",
+	"label": "Туша Оркула",
+	"description": "Гигант больше не злится.",
+	"aspects": {
+	    "remnant": 1
+	}
+    },
+    {
+	"id": "corpse.boccastrano",
+	"label": "Туша Боккастрано",
+	"description": "Лукавый блеск исчез из его глаз.",
+	"aspects": {
+	    "remnant": 1
+	}
+    },
+    {
+	"id": "friend.echidna.enroute",
+	"label": "Ехидна в Пути",
+	"description": "Ехидна тащит своё раненое тело сквозь Итальянские земли пока мы говорим. Она услышала звон Колокола, и её голод манит её к нему - к нам.",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"unique": true,
+	"lifetime": 300,
+	"decayTo": "friend.echidna.turnin",
+	"icon": "echidna.enroute"
+    },
+    {
+	"id": "friend.echidna.turnin",
+	"label": "Ехидна",
+	"description": "Лигейя все еще хромает, и ее раны еще не полностью срослись, но она уже здесь. Ее когтистые руки беспокойно сгибаются и разгибаются - она голодна. 'Как поживают мои сыновья?' - спрашивает она меня.",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"slots": [
+	    {
+		"id": "needscorpse1",
+		"label": "Orcul",
+		"required": {
+		    "corpse.orcul": 1
+		}
+	    },
+	    {
+		"id": "needscorpse2",
+		"label": "Boccastrano",
+		"required": {
+		    "corpse.boccastrano": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "friend.echidna"
+    },
+    {
+	"id": "token.echidna",
+	"label": "Помощь Ехидны",
+	"description": "Мать Монстров хорошо отобедала плотью своих Детей, благодаря мне. В благодарность, она пообещала мне Жгучий Ключ для моего Возвышения. И теперь, когда придёт время - Когда Рим возгорится и день будет красен от крови - Дикая дверь откроется мне.",
+	"icon": "apostleforge.pillar5"
+    },
+    {
+	"id": "corpse.jerome",
+	"label": "Джером Александр, Убит",
+	"description": "Безжалостный человек, который в конце концов получил столько же милости, сколько и дал. Он пожертвовал всеми принципами, которые у него были, на алтаре собственных амбиций - даже привязанностью того, кто любил его.",
+	"aspects": {
+	    "remnant": 1,
+	    "legacyplotitem": 1
+	},
+	"slots": [
+	    {
+		"id": "needslionel",
+		"actionid": "abandon",
+		"label": "Лионель",
+		"required": {
+		    "corpse.lionel": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "corpse.lionel",
+	"label": "Лионель Саксон, Убит",
+	"description": "Благородный человек, с которым мне посчастливилось встретиться лицом к лицу в битве и, в конце концов, победить. Его величайшей ошибкой было то, что он отвел глаза от зла того, кого любил, но он позаботился о том, чтобы искупить свою ошибку.",
+	"aspects": {
+	    "remnant": 1,
+	    "legacyplotitem": 1
+	},
+	"slots": [
+	    {
+		"id": "needsjerome",
+		"actionid": "abandon",
+		"label": "Джером",
+		"required": {
+		    "corpse.jerome": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "token.star",
+	"label": "Пламя Внутри",
+	"description": "Небесный огонь пропитал мою плоть и дух. Я цел; Я силён; Ни один шрам больше не посмеет появится на мне. [Вместо превращения в Увечья, ваши Раны теперь будут лечиться и заростать сами по себе через время.]",
+    },
+    {
+	"id": "draw.hintproterant.lore",
+	"label": "Draw: Lore Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.breakchains",
+	"label": "Draw: Break Chains",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.makemonsters",
+	"label": "Draw: Make Monsters",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.star",
+	"label": "Draw: Star",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.echidna",
+	"label": "Draw: Echidna",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.musvashir",
+	"label": "Draw: Musvashir",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.main",
+	"label": "Draw: Main Objectives",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.rome",
+	"label": "Draw: Rome",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.nodebilitations",
+	"label": "Draw: No Debilitations",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+]
+}

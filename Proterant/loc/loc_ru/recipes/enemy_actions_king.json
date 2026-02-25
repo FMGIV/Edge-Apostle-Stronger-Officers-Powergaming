@@ -1,0 +1,676 @@
+{
+"recipes": [
+    {
+	"id": "king.cycle",
+	"actionid": "action.king",
+	"label": "Люди Короля Выжидают Своего Часа...",
+	"startdescription": "Начищенные до блеска сапоги и винтовки маршируют под солнцем. Эти люди скоро сделают свой ход.",
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "king.pickaction.router",
+		"chance": 40
+	    },
+	    {
+		"id": "king.cycle.afraid_create"
+	    },
+	    {
+		"id": "king.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "king.reinforcements",
+		"additional": true,
+		"chance": 50
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "king.reinforcements",
+	"actionid": "reinforcements.king",
+	"label": "Вся Королевская Рать",
+	"startdescription": "Когда наступил рассвет, мы обнаружили, что еще больше людей Короля пришли укрепить свои позиции. Проблематично.",
+	"extantreqs": {
+	    "faction.king": -6,
+	    "corpse.jerome": -1
+	},
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"foe.riflemen",
+		"foe.riflemen",
+		"foe.riflemen",
+		"foe.riflemen",
+		"foe.riflemen",
+		"foe.phlogisticant",
+		"foe.phlogisticant",
+		"foe.phlogisticant",
+		"foe.engine",
+		"foe.engine",
+		"foe.engine"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "king.cycle.afraid_create",
+	"label": "Страх Становится Мной",
+	"startdescription": "Когда лев рычит, все остальные существа затаиваются в страхе, ибо они знают, что Царь Зверей вышел на поле боя. Итак, я Лев, и эти души - моя добыча. [Никакие враги не будут нападать на вас и мешать достижению Целей.]",
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"effects": {
+	    "signaller_afraid_king": 1
+	},
+	"linked": [
+	    {
+		"id": "king.cycle.afraid_continue"
+	    },
+	    {
+		"id": "king.cycle.afraid_end"
+	    }
+	]
+    },
+    {
+	"id": "king.cycle.afraid_continue",
+	"label": "Страх Становится Мной",
+	"startdescription": "Когда лев рычит, все остальные существа затаиваются в страхе, ибо они знают, что Царь Зверей вышел на поле боя. Итак, я Лев, и эти души - моя добыча. [Никакие враги не будут нападать на вас и мешать достижению Целей.]",
+	"warmup": 30,
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"linked": [
+	    {
+		"id": "king.cycle.afraid_continue"
+	    },
+	    {
+		"id": "king.cycle.afraid_end"
+	    }
+	]
+    },
+    {
+	"id": "king.cycle.afraid_end",
+	"label": "Страх Становится Мной",
+	"startdescription": "Когда лев рычит, все остальные существа затаиваются в страхе, ибо они знают, что Царь Зверей вышел на поле боя. Итак, я Лев, и эти души - моя добыча. [Никакие враги не будут нападать на вас и мешать достижению Целей.]",
+	"effects": {
+	    "signaller_afraid_king": -99
+	},
+	"linked": [
+	    {
+		"id": "king.cycle"
+	    }
+	]
+    },
+    {
+	"id": "king.pickaction.router",
+	"label": "Королевский Силы действуют!",
+	"startdescription": "Сирена воет - наш противник мобилизуется!",
+	"extantreqs": {
+	    "skill.intimidate.active": -1
+	},
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"alt": [
+	    {
+		"id": "jerome.attack.startup",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "king.singleattack.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "king.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "king.clear",
+	"label": "Королевские силы действуют!",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "king.cycle"
+	    }
+	]
+    },
+    {
+	"id": "king.singleattack.startup",
+	"actionid": "attack.king",
+	"label": "Вражеское наступление!",
+	"startdescription": "Один из наших врагов пытается нанести нам удар -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Враг",
+		"required": {
+		    "faction.king": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqjerome": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "found.riflemen"
+	    },
+	    {
+		"id": "found.otherkingenemy"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "found.riflemen",
+	"label": "Вражеское наступление!",
+	"startdescription": "Этот вражеский отряд движется в ногу со своими товарищами -",
+	"requirements": {
+	    "foe.coordinated": 1,
+	    "foe.riflemen": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe.riflemen": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqjerome": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "target.legion",
+		"chance": 40
+	    },
+	    {
+		"id": "king.defend.opportunity.pre"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "found.otherkingenemy",
+	"label": "Вражеское наступление!",
+	"startdescription": "Один из наших врагов пытается нанести нам удар -",
+	"requirements": {
+	    "faction.king": 1
+	},
+	"linked": [
+	    {
+		"id": "target.legion",
+		"chance": 40
+	    },
+	    {
+		"id": "king.defend.opportunity.pre"
+	    }
+	]
+    },
+    {
+	"id": "target.legion",
+	"label": "Против Легиона Порога?",
+	"startdescription": "Мы все сражаемся за звезду - это значит, что мы все сражаемся друг с другом. На этот раз люди Короля выбрали другую цель.",
+	"tablereqs": {
+	    "faction.legion": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "faction.legion": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqlionel": 1,
+		    "foe.malkin": 1,
+		    "foe.malkin.hidden": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "target.legion.defeat",
+		"chance": 35
+	    },
+	    {
+		"id": "target.legion.victory"
+	    }
+	]
+    },
+    {
+	"id": "target.legion.defeat",
+	"label": "Люди Короля Не Одержали Верх",
+	"startdescription": "Тупик - заторможенное наступление. Легион остался на своих позициях; Англичане выходят из боя с минимальными потерями. Бойцы отступают и исчезают.",
+    },
+    {
+	"id": "target.legion.victory",
+	"label": "Люди Короля Одержали Верх!",
+	"startdescription": "Когда стрельба стихает, поле боя усеяно мертвыми Легионерами. На земле остаются отпечатки сапог людей Короля, на которых видны трупы павших. Они продвинулись дальше.",
+	"aspects": {
+	    "killlegion": 1
+	}
+    },
+    {
+	"id": "king.defend.opportunity.pre",
+	"label": "Вражеское наступление!",
+	"startdescription": "",
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "defend.opportunity"
+	    }
+	]
+    },
+    {
+	"id": "jerome.attack.startup",
+	"actionid": "attack.jerome",
+	"label": "Командир Действует!",
+	"startdescription": "'Отступитесь. Я выступаю по поручению Короля.'",
+	"tablereqs": {
+	    "uqjerome": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"slots": [
+	    {
+		"id": "needsjerome",
+		"label": "Enemy",
+		"required": {
+		    "uqjerome": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"internaldeck": {
+	    "spec": [
+		"decision.enemy.doubleattack",
+		"decision.enemy.doubleattack",
+		"decision.enemy.attack",
+		"decision.enemy.reinforcements"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "jerome.physicalattack"
+	    },
+	    {
+		"id": "jerome.dreamattack.pre"
+	    },
+	    {
+		"id": "jerome.orderguard"
+	    }
+	]
+    },
+    {
+	"id": "jerome.physicalattack",
+	"label": "Безжалостное нападение!",
+	"startdescription": "'В наши дни я не особо утруждаю себя боевыми действиями на земле. Но время от времени солдат чувствует себя обязанным проливать кровь собственными руками. И я всё ещё <i>очень</i> хорош в этом.'\n\n[Джером пытается причинить вам и вашим союзникам физический вред. Защищайтесь, предоставив карту, равную любому из его пороговых значений.]",
+	"requirements": {
+	    "decision.enemy.attack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "Defense",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "defend.edge"
+	    },
+	    {
+		"id": "defend.edgelantern"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "jerome.dreamattack.pre",
+	"label": "Меч, Невидим",
+	"startdescription": "",
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": -14
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": -8
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 6
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 6
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 6
+	    }
+	],
+	"linked": [
+	    {
+		"id": "jerome.dreamattack"
+	    }
+	]
+    },
+    {
+	"id": "jerome.dreamattack",
+	"label": "Меч, Невидим",
+	"startdescription": "В Обители, Джером держит в руке ужасный, пронзительный свет, и когда я закрываю глаза, то вижу его сияние под своими веками. Он приближается.\n\n[Джером пытается нанести вам травму. Защищайтесь, предоставив карту, равную любому из его пороговых значений.]",
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "Defense",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "tool": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "jerome.dreamattack.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "dreamattack.defend.lantern"
+	    },
+	    {
+		"id": "dreamattack.defend.heart"
+	    },
+	    {
+		"id": "dreamattack.defend.moth"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "jerome.dreamattack.nodefense",
+	"label": "Меч, Невидим",
+	"startdescription": "Мой разум кипит; чувства поглощают друг друга. Я сжимаю в руках пряди собственных волос. Во рту ощущается привкус жгучего озона. Свет - слишком много света. Воспринять - значит умереть.",
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "dreamattack.defend.lantern",
+	"label": "Обереги подняты, Обереги выдержали",
+	"startdescription": "Свет отступает. Моя душа защищена.",
+	"requirements": {
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "dreamattack.defend.heart",
+	"label": "Обереги подняты, Обереги выдержали",
+	"startdescription": "Свет отступает. Моя душа защищена.",
+	"requirements": {
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "dreamattack.defend.moth",
+	"label": "Обереги подняты, Обереги выдержали",
+	"startdescription": "Свет отступает. Моя душа защищена.",
+	"requirements": {
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "jerome.orderguard",
+	"label": "Фронтовое Мясо",
+	"startdescription": "'Скорее ко мне, прямо сейчас! Ваша страна ожидает успеха - ваш <i>Король</i> ожидает успеха!'\n\n[Джером может приказать другим противникам охранять его, защищая от нападения до тех пор, пока они не будут убиты.]",
+	"requirements": {
+	    "decision.enemy.reinforcements": 1
+	},
+	"slots": [
+	    {
+		"id": "needsking",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsking2",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "faction.king",
+		"mutate": "foe.guardjerome",
+		"level": 1
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "foe.guardjerome",
+		"level": 0
+	    }
+	],
+	"warmup": 15
+    }
+]
+}

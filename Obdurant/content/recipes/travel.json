@@ -1,0 +1,1764 @@
+{
+"recipes": [
+    {
+	"id": "travel.sobibor.cannot",
+	"actionid": "mobilize",
+	"label": "Not Upon the Road",
+	"startdescription": "At the Key-Bearer's counseling, I will not begin my journey inwards while on the road. 'Those who pursue my Key cannot follow us into the folds of a nightmare - save one. And if she finds us there, all is lost.'\n\n[You cannot commence your journey inwards while in the Ruined Country.]",
+	"requirements": {
+	    "sobibor": 1
+	},
+	"extantreqs": {
+	    "wasteland": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "travel.longbossfight",
+	"actionid": "mobilize",
+	"label": "No Retreat, No Quarter",
+	"startdescription": "They are too close, too near now. I won't be able to get away - all I can do now is stand, or die.\n\n[You cannot leave your Current Warzone when you have engaged an Edge-Long this way.]",
+	"requirements": {
+	    "warzone": 1
+	},
+	"extantreqs": {
+	    "long.bossfight.marker": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "travel.stillbloodlust",
+	"actionid": "mobilize",
+	"label": "NO",
+	"startdescription": "Leave? No - I will not leave this place; not until I am knee-deep in the blood of my enemies.\n\n[You cannot leave your Current Warzone while under the influence of Bloodlust.]",
+	"requirements": {
+	    "warzone": 1
+	},
+	"extantreqs": {
+	    "battlehunger": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "travel.lake.alreadyhint",
+	"actionid": "mobilize",
+	"label": "Once, But Not Twice",
+	"startdescription": "I should remember - one who departs from the lake can never again return there.",
+	"requirements": {
+	    "lake.vision": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "travel.craterfield",
+	"actionid": "mobilize",
+	"label": "Pursue a Heaven-Sent Prize?",
+	"startdescription": "The star that the Lionsmith has sent touched down some distance north of here. Gather our arms, our nerve, and march onwards. That star's light and fire will be mine.\n\n[You will only be able to travel to this place once, and only from Montecassino.]",
+	"requirements": {
+	    "craterfield": 1,
+	    "provisions": 3
+	},
+	"extantreqs": {
+	    "battlehunger": -1
+	},
+	"effects": {
+	    "wasteland.b.italy": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "travel.wasteland.ironeater",
+	"actionid": "mobilize",
+	"label": "Pursue the Iron-Eater?",
+	"startdescription": "This is not quite <i>musvashir,</i> but the Iron-Eater is a mighty foe. If I can force his surrender, maybe the Edge Hours will take note of that. There will be a steep price in blood.\n\n[You are about to leave the Current Warzone to do battle with an Edge-Long. Ensure you and your Allies are prepared for a gruelling fight.]",
+	"requirements": {
+	    "wasteland.ironeater": 1,
+	    "provisions": 3
+	},
+	"extantreqs": {
+	    "battlehunger": -1
+	},
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"label": "Departing...",
+		"required": {
+		    "warzone.current": 1
+		},
+		"greedy": true
+	    }
+	],
+	"craftable": true,
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "travel.wasteland.mutatesectora.proterant"
+	    },
+	    {
+		"id": "travel.wasteland.mutatesectorb.proterant"
+	    },
+	    {
+		"id": "travel.wasteland.mutatesectora"
+	    },
+	    {
+		"id": "travel.wasteland.mutatesectorb"
+	    },
+	    {
+		"id": "travel.wasteland.loop"
+	    }
+	]
+    },
+    {
+	"id": "travel.wasteland.loop",
+	"actionid": "mobilize",
+	"label": "Pursue the Iron-Eater?",
+	"startdescription": "This is not quite <i>musvashir,</i> but the Iron-Eater is a mighty foe. If I can force his surrender, maybe the Edge Hours will take note of that. There will be a steep price in blood.\n\n[You are about to leave the Current Warzone to do battle with an Edge-Long. Ensure you and your Allies are prepared for a gruelling fight.]",
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"label": "Departing...",
+		"required": {
+		    "warzone.current": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "travel.wasteland.mutatesectora.proterant"
+	    },
+	    {
+		"id": "travel.wasteland.mutatesectorb.proterant"
+	    },
+	    {
+		"id": "travel.wasteland.mutatesectora"
+	    },
+	    {
+		"id": "travel.wasteland.mutatesectorb"
+	    },
+	    {
+		"id": "travel.wasteland.loop"
+	    }
+	]
+    },
+    {
+	"id": "travel.wasteland.mutatesectora",
+	"label": "Pursue the Iron-Eater?",
+	"requirements": {
+	    "sector.a": 1
+	},
+	"mutations": [
+	    {
+		"filter": "wasteland.ironeater",
+		"mutate": "sector.a",
+		"level": 1
+	    }
+	],
+	"effects": {
+	    "wasteland.a": 1,
+	    "warzone.current": -1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends.sergei"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "travel.wasteland.mutatesectorb.proterant"
+	    }
+	]
+    },
+    {
+	"id": "travel.wasteland.mutatesectorb",
+	"label": "Pursue the Iron-Eater?",
+	"requirements": {
+	    "sector.b": 1
+	},
+	"mutations": [
+	    {
+		"filter": "wasteland.ironeater",
+		"mutate": "sector.b",
+		"level": 1
+	    }
+	],
+	"effects": {
+	    "wasteland.b": 1,
+	    "warzone.current": -1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends.sergei"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "travel.wasteland.mutatesectorb.proterant"
+	    }
+	]
+    },
+    {
+	"id": "travel.wasteland.mutatesectora.proterant",
+	"label": "Pursue the Iron-Eater?",
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"requirements": {
+	    "sector.a": 1
+	},
+	"mutations": [
+	    {
+		"filter": "wasteland.ironeater",
+		"mutate": "sector.a",
+		"level": 1
+	    }
+	],
+	"effects": {
+	    "wasteland.a.italy": 1,
+	    "warzone.current": -1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends.sergei"
+	    }
+	]
+    },
+    {
+	"id": "travel.wasteland.mutatesectorb.proterant",
+	"label": "Pursue the Iron-Eater?",
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"requirements": {
+	    "sector.b": 1
+	},
+	"mutations": [
+	    {
+		"filter": "wasteland.ironeater",
+		"mutate": "sector.b",
+		"level": 1
+	    }
+	],
+	"effects": {
+	    "wasteland.b.italy": 1,
+	    "warzone.current": -1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends.sergei"
+	    }
+	]
+    },
+    {
+	"id": "travel.lake",
+	"actionid": "mobilize",
+	"label": "Depart for an Ancient Place?",
+	"startdescription": "I am not keen on the discussions I'll be having with our cartographers regarding our next destination. The place I intend to go is not marked on any map, nor known by any name of human invention - but perhaps my dreams can show the way.\n\n[You are about to leave for a place normally kept hidden by certain Hours. You can acquire A Vision of the Lake multiple times, but will only be able to travel to it once.]",
+	"requirements": {
+	    "lake.vision": 1,
+	    "provisions": 3
+	},
+	"extantreqs": {
+	    "battlehunger": -1
+	},
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"label": "Departing...",
+		"required": {
+		    "warzone.current": 1
+		},
+		"greedy": true
+	    }
+	],
+	"craftable": true,
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "travel.lake.mutatesectora"
+	    },
+	    {
+		"id": "travel.lake.mutatesectorb"
+	    },
+	    {
+		"id": "travel.lake.loop"
+	    }
+	],
+	"maxexecutions": 1
+    },
+    {
+	"id": "travel.lake.loop",
+	"actionid": "mobilize",
+	"label": "Depart for an Ancient Place?",
+	"startdescription": "I am not keen on the discussions I'll be having with our cartographers regarding our next destination. The place I intend to go is not marked on any map, nor known by any name of human invention - but perhaps my dreams can show the way.\n\n[You are about to leave for a place normally kept hidden by certain Hours. You can acquire A Vision of the Lake multiple times, but will only be able to travel to it once.]",
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"label": "Departing...",
+		"required": {
+		    "warzone.current": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "travel.lake.mutatesectora"
+	    },
+	    {
+		"id": "travel.lake.mutatesectorb"
+	    },
+	    {
+		"id": "travel.lake.loop"
+	    }
+	]
+    },
+    {
+	"id": "travel.lake.mutatesectora",
+	"label": "Depart for an Ancient Place?",
+	"requirements": {
+	    "sector.a": 1
+	},
+	"mutations": [
+	    {
+		"filter": "lake.vision",
+		"mutate": "sector.a",
+		"level": 1
+	    }
+	],
+	"effects": {
+	    "warzone.current": -1,
+	    "wasteland.a": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	]
+    },
+    {
+	"id": "travel.lake.mutatesectorb",
+	"label": "Depart for an Ancient Place?",
+	"requirements": {
+	    "sector.b": 1
+	},
+	"mutations": [
+	    {
+		"filter": "lake.vision",
+		"mutate": "sector.b",
+		"level": 1
+	    }
+	],
+	"effects": {
+	    "warzone.current": -1,
+	    "wasteland.b": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	]
+    },
+    {
+	"id": "travel.warzone.hint",
+	"actionid": "mobilize",
+	"label": "Prepare to depart?",
+	"startdescription": "The journey forward will require Provisions to fend off starvation and fatigue.",
+	"extantreqs": {
+	    "main": -1
+	},
+	"requirements": {
+	    "warzone": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "travel.warzone.mainobjectiveincomplete.hint",
+	"actionid": "mobilize",
+	"label": "Depart without attaining a Main Objective?",
+	"startdescription": "Perhaps our enemies are too many, perhaps our manpower would be better spent elsewhere - but if we are leaving now, we are leaving with unfinished business. ",
+	"extantreqs": {
+	    "main": 1,
+	    "battlehunger": -1
+	},
+	"requirements": {
+	    "warzone": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "travel.firstwarzone.proterant",
+	"actionid": "mobilize",
+	"label": "Prepare to depart",
+	"startdescription": "The war is waiting for us. Onwards.\n\n[Departing will cut short all actions at the current location and leave behind all Enemies, Complications, Secondary Objectives, and Opportunities. Your travels will take you through the Ruined Country, which is the remote and dangerous waste that lies between your current location and your intended destination.]",
+	"requirements": {
+	    "warzone": 1,
+	    "provisions": 3
+	},
+	"extantreqs": {
+	    "battlehunger": -1,
+	    "proterant.story": 1
+	},
+	"effects": {
+	    "wasteland.a.italy": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"warmup": 10,
+	"craftable": true,
+	"maxexecutions": 1
+    },
+    {
+	"id": "travel.warzone.sector.a.proterant",
+	"actionid": "mobilize",
+	"label": "Prepare to depart",
+	"startdescription": "The war is waiting for us. Onwards.\n\n[Departing will cut short all actions at the current location and leave behind all Enemies, Complications, Secondary Objectives, and Local Opportunities. Your travels will take you through the Ruined Country, which is the remote and dangerous waste that lies between your current location and your intended destination.]",
+	"requirements": {
+	    "warzone": 1,
+	    "provisions": 3,
+	    "sector.a": 1
+	},
+	"extantreqs": {
+	    "battlehunger": -1,
+	    "proterant.story": 1
+	},
+	"effects": {
+	    "wasteland.a.italy": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "travel.warzone.sector.b.proterant",
+	"actionid": "mobilize",
+	"label": "Prepare to depart",
+	"startdescription": "The war is waiting for us. Onwards.\n\n[Departing will cut short all actions at the current location and leave behind all Enemies, Complications, Secondary Objectives, and Local Opportunities. Your travels will take you through the Ruined Country, which is the remote and dangerous waste that lies between your current location and your intended destination.]",
+	"requirements": {
+	    "warzone": 1,
+	    "provisions": 3,
+	    "sector.b": 1,
+	    "craterfield": -1
+	},
+	"extantreqs": {
+	    "battlehunger": -1,
+	    "proterant.story": 1
+	},
+	"effects": {
+	    "wasteland.b.italy": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "travel.firstwarzone",
+	"actionid": "mobilize",
+	"label": "Prepare to depart",
+	"startdescription": "The war is waiting for us. Onwards.\n\n[Departing will cut short all actions at the current location and leave behind all Enemies, Complications, Secondary Objectives, and Opportunities. Your travels will take you through the Ruined Country, which is the remote and dangerous waste that lies between your current location and your intended destination.]",
+	"requirements": {
+	    "warzone": 1,
+	    "provisions": 3
+	},
+	"effects": {
+	    "wasteland.a": 1
+	},
+	"extantreqs": {
+	    "battlehunger": -1,
+	    "obdurant.story": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"warmup": 10,
+	"craftable": true,
+	"maxexecutions": 1
+    },
+    {
+	"id": "travel.warzone.sector.a",
+	"actionid": "mobilize",
+	"label": "Prepare to depart",
+	"startdescription": "The war is waiting for us. Onwards.\n\n[Departing will cut short all actions at the current location and leave behind all Enemies, Complications, Secondary Objectives, and Local Opportunities. Your travels will take you through the Ruined Country, which is the remote and dangerous waste that lies between your current location and your intended destination.]",
+	"requirements": {
+	    "warzone": 1,
+	    "provisions": 3,
+	    "sector.a": 1
+	},
+	"extantreqs": {
+	    "battlehunger": -1,
+	    "obdurant.story": 1
+	},
+	"effects": {
+	    "wasteland.a": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "travel.warzone.sector.b",
+	"actionid": "mobilize",
+	"label": "Prepare to depart",
+	"startdescription": "The war is waiting for us. Onwards.\n\n[Departing will cut short all actions at the current location and leave behind all Enemies, Complications, Secondary Objectives, and Local Opportunities. Your travels will take you through the Ruined Country, which is the remote and dangerous waste that lies between your current location and your intended destination.]",
+	"requirements": {
+	    "warzone": 1,
+	    "provisions": 3,
+	    "sector.b": 1
+	},
+	"extantreqs": {
+	    "battlehunger": -1,
+	    "obdurant.story": 1
+	},
+	"effects": {
+	    "wasteland.b": 1
+	},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "travelslot.takefriends",
+	"label": "Preparing to Depart",
+	"startdescription": "We are leaving.\n\n[Allies who are not able to leave the Current Warzone with you will be left behind.]",
+	"extantreqs": {
+	    "battlehunger": -1
+	},
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Ally",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "local": 1,
+		    "remnant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "travelslot.friendfound"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "travelslot.abort.longbossfight"
+	    },
+	    {
+		"id": "travelslot.end"
+	    }
+	]
+    },
+    {
+	"id": "travelslot.takefriends.sergei",
+	"label": "Preparing to Depart",
+	"startdescription": "We are leaving.\n\n[Allies who are not able to leave the Current Warzone with you will be left behind.]",
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Ally",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "travelslot.friendfound"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "travelslot.end"
+	    }
+	]
+    },
+    {
+	"id": "travelslot.friendfound",
+	"label": "Departing...",
+	"startdescription": "'Get moving.'",
+	"requirements": {
+	    "friend": 1
+	},
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "friend.departing",
+		"level": 1
+	    },
+	    {
+		"filter": "friend.departing",
+		"mutate": "friend",
+		"level": -1
+	    }
+	],
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	]
+    },
+    {
+	"id": "travelslot.abort.longbossfight",
+	"label": "No Running Now",
+	"startdescription": "I have issued my challenge to an Edge-Long, and they have come to accept. Now there will be no retreat nor quarter, save death.",
+	"mutations": [
+	    {
+		"filter": "friend.departing",
+		"mutate": "friend",
+		"level": 0
+	    },
+	    {
+		"filter": "friend",
+		"mutate": "friend.departing",
+		"level": 0
+	    }
+	],
+	"extantreqs": {
+	    "long.bossfight.marker": 1
+	}
+    },
+    {
+	"id": "travelslot.end",
+	"label": "Outward-Bound",
+	"startdescription": "War behind us; war ahead.",
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "travelling.cycle.haltverbs",
+		"additional": true,
+		"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"lake.vision": 1,
+			"warzone": 1
+		    }
+		}
+	    },
+	    {
+		"id": "time.first.contemnant",
+		"additional": true
+	    },
+	    {
+		"id": "time.first.proterant",
+		"additional": true
+	    },
+	    {
+		"id": "time.first.obdurant",
+		"additional": true
+	    },
+	    {
+		"id": "corrivality.first",
+		"additional": true
+	    },
+	    {
+		"id": "wolfcycle.first",
+		"additional": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "friend.departing",
+		"mutate": "friend",
+		"level": 0
+	    },
+	    {
+		"filter": "friend",
+		"mutate": "friend.departing",
+		"level": 0
+	    }
+	],
+	"burnimage": "marching"
+    },
+    {
+	"id": "travelling.cycle.haltverbs",
+	"actionid": "ticktock",
+	"label": "Marching...",
+	"startdescription": "Our footfalls are a steady beat; our exhaustion informs us we yet live.\n\n[Progress will accumulate as you move through the Ruined Country; this will accumulate more slowly if you are travelling with a large force of allies. Once three Progress is reached, you will have the chance to move on to the next Warzone. If your destination is Remote, reaching the next Warzone will require four Progress.]",
+	"haltverb": {
+	    "operate": 1,
+	    "abandon": 1,
+	    "recon": 1,
+	    "communicate": 1,
+	    "mobilize": 1,
+	    "operation.edge": 99,
+	    "operation.heart": 99,
+	    "operation.forge": 99,
+	    "main": 99,
+	    "side": 99,
+	    "side.2": 99,
+	    "side.3": 99,
+	    "resupply": 99,
+	    "hindrances.verb": 99,
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "enemyaction.niniame": 99,
+	    "friend.verb": 99,
+	    "fatality": 99,
+	    "spit.*": 99,
+	    "long.wilhelm": 99,
+	    "long.sergei": 99,
+	    "long.camilla": 99,
+	    "explorevault_casualty": 99,
+	    "edgelong.wounds": 99,
+	    "produce.monster": 99,
+	    "action.legion": 99,
+	    "action.king": 99,
+	    "attack.jerome": 99,
+	    "attack.king": 99,
+	    "attack.legion": 99,
+	    "attack.lionel": 99,
+	    "explosion": 99,
+	    "fallingstar": 99,
+	    "reinforcements.*": 99,
+	    "stasis": 99,
+	    "verb.retaliatory": 99,
+	    "sovietaction": 99,
+	    "neutral.reinforcements": 99,
+	    "neutral.singleattack": 99,
+	    "sovietaction.aggro": 99,
+	    "aggro.destroysupplies": 99,
+	    "aggro.doubleattack.1": 99,
+	    "aggro.doubleattack.2": 99,
+	    "aggro.hide": 99,
+	    "aggro.reinforcements": 99,
+	    "aggro.singleattack": 99,
+	    "execution": 99,
+	    "flesheater.verb": 99,
+	    "ingluviate.guard": 99,
+	    "marinette.arrival": 99,
+	    "resupply.yellow": 99,
+	    "lurk": 99,
+	    "spit.grail": 99,
+	    "commander.attack": 99,
+	    "disgruntle": 99,
+	    "marinettearrival": 99,
+	    "nightmare_action": 99
+	},
+	"linked": [
+	    {
+		"id": "travelling.cycle.purge"
+	    }
+	]
+    },
+    {
+	"id": "travelling.cycle.purge",
+	"actionid": "ticktock",
+	"label": "Marching...",
+	"startdescription": "Our footfalls are a steady beat; our exhaustion informs us we yet live.\n\n[Progress will accumulate as you move through the Ruined Country; this will accumulate more slowly if you are travelling with a large force of allies. Once three Progress is reached, you will have the chance to move on to the next Warzone. If your destination is Remote, reaching the next Warzone will require four Progress.]",
+	"deleteverb": {
+	    "side": 99,
+	    "side.2": 99,
+	    "side.3": 99,
+	    "resupply": 99,
+	    "hindrances.verb": 99,
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "enemyaction.niniame": 99,
+	    "friend.verb": 99,
+	    "fatality": 99,
+	    "spit.*": 99,
+	    "long.wilhelm": 99,
+	    "long.sergei": 99,
+	    "long.camilla": 99,
+	    "explorevault_casualty": 99,
+	    "edgelong.wounds": 99,
+	    "action.legion": 99,
+	    "action.king": 99,
+	    "attack.jerome": 99,
+	    "attack.king": 99,
+	    "attack.legion": 99,
+	    "attack.lionel": 99,
+	    "explosion": 99,
+	    "fallingstar": 99,
+	    "reinforcements.king": 99,
+	    "reinforcements.legion": 99,
+	    "stasis": 99,
+	    "verb.retaliatory": 99,
+	    "sovietaction": 99,
+	    "neutral.reinforcements": 99,
+	    "neutral.singleattack": 99,
+	    "sovietaction.aggro": 99,
+	    "aggro.destroysupplies": 99,
+	    "aggro.doubleattack.1": 99,
+	    "aggro.doubleattack.2": 99,
+	    "aggro.hide": 99,
+	    "aggro.reinforcements": 99,
+	    "aggro.singleattack": 99,
+	    "execution": 99,
+	    "flesheater.verb": 99,
+	    "ingluviate.guard": 99,
+	    "marinette.arrival": 99,
+	    "resupply.yellow": 99,
+	    "lurk": 99,
+	    "spit.grail": 99,
+	    "nightmare_action": 99
+	},
+	"purge": {
+	    "foe.bombers.refuel": 99,
+	    "aggro.bombers.refuel": 99,
+	    "objective": 99,
+	    "location": 99,
+	    "hindrance": 99,
+	    "warzone.current": 99,
+	    "strife": 99,
+	    "friend": 99,
+	    "foe": 99,
+	    "side": 99,
+	    "infrastructure": 99,
+	    "infrastructure.destroyed": 99,
+	    "local": 99,
+	    "warzone.current": 99,
+	    "reputation.infamy": 99,
+	    "mem.eva": 99,
+	    "mem.walther": 99,
+	    "mem.vanja": 99,
+	    "mem.tibor": 99,
+	    "foe.grame.inactive": 99,
+	    "foe.shade.inactive": 99,
+	    "niniame.reviving": 99
+	},
+	"furthermore": [
+	    { 
+		"target": "~/exterior",
+		"effects": { 
+		    "[warzone] && [sobibor]=0": -99,
+		    "foe.bombers.refuel": -99,
+		    "[op] && ![op.axe] && ![broodscent]": -99
+		} 
+	    } 
+	],
+	"linked": [
+	    {
+		"id": "travelling.cycle"
+	    }
+	]
+    },
+    {
+	"id": "travelling.cycle",
+	"actionid": "ticktock",
+	"label": "Marching...",
+	"startdescription": "Our footfalls are a steady beat; our exhaustion informs us we yet live.\n\n[Progress will accumulate as you move through the Ruined Country; this will accumulate more slowly if you are travelling with a large force of allies. Once three Progress is reached, you will have the chance to move on to the next Warzone. If your destination is Distant, reaching the next Warzone will require four Progress.]",
+	"warmup": 60,
+	"extantreqs": {
+	    "duel.wilhelm": -1,
+	    "foe.huntingparty": -1
+	},
+	"linked": [
+	    {
+		"id": "halt.travel.huntingparty"
+	    },
+	    {
+		"id": "halt.travel.longbossfight"
+	    },
+	    {
+		"id": "halt.travel.duel"
+	    },
+	    {
+		"id": "halt.travel.battlehunger"
+	    },
+	    {
+		"id": "travelling.cycle.complete.remote"
+	    },
+	    {
+		"id": "travelling.cycle.complete"
+	    },
+	    {
+		"id": "travelling.cycle.makeprogress_contemnant",
+		"chance": 60
+	    },
+	    {
+		"id": "travelling.cycle.makeprogress_forcesizesmall",
+		"chance": 70
+	    },
+	    {
+		"id": "travelling.cycle.makeprogress_forcesizemedium",
+		"chance": 40
+	    },
+	    {
+		"id": "travelling.cycle.makeprogress_forcesizelarge",
+		"chance": 25
+	    },
+	    {
+		"id": "travelling.cycle"
+	    }
+	]
+    },
+    {
+	"id": "travelling.cycle.makeprogress_contemnant",
+	"actionid": "ticktock",
+	"label": "Progress on the March",
+	"startdescription": "We mark our steps taken on the map. Closer, now.\n\n[Progress has been achieved.]",
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "halt.travel.huntingparty"
+	    },
+	    {
+		"id": "halt.travel.longbossfight"
+	    },
+	    {
+		"id": "halt.travel.duel"
+	    },
+	    {
+		"id": "halt.travel.battlehunger"
+	    },
+	    {
+		"id": "travelling.cycle.complete.remote"
+	    },
+	    {
+		"id": "travelling.cycle.complete"
+	    },
+	    {
+		"id": "travelling.cycle"
+	    }
+	],
+	"warmup": 30,
+	"extantreqs": {
+	    "contemnant.story": 1
+	}
+    },
+    {
+	"id": "travelling.cycle.makeprogress_forcesizesmall",
+	"actionid": "ticktock",
+	"label": "Progress on the March",
+	"startdescription": "We mark our steps taken on the map. Closer, now.\n\n[Progress has been achieved.]",
+	"requirements": {
+	    "forcesize": -7
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "halt.travel.duel"
+	    },
+	    {
+		"id": "halt.travel.battlehunger"
+	    },
+	    {
+		"id": "travelling.cycle.complete.remote"
+	    },
+	    {
+		"id": "travelling.cycle.complete"
+	    },
+	    {
+		"id": "travelling.cycle"
+	    }
+	],
+	"warmup": 30,
+	"extantreqs": {
+	    "contemnant.story": -1
+	}
+    },
+    {
+	"id": "travelling.cycle.makeprogress_forcesizemedium",
+	"actionid": "ticktock",
+	"label": "Progress on the March",
+	"startdescription": "We mark our steps taken on the map. Closer, now.\n\n[Progress has been achieved.]",
+	"requirements": {
+	    "forcesize": -13
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "halt.travel.duel"
+	    },
+	    {
+		"id": "halt.travel.battlehunger"
+	    },
+	    {
+		"id": "travelling.cycle.complete.remote"
+	    },
+	    {
+		"id": "travelling.cycle.complete"
+	    },
+	    {
+		"id": "travelling.cycle"
+	    }
+	],
+	"warmup": 30,
+	"extantreqs": {
+	    "contemnant.story": -1
+	}
+    },
+    {
+	"id": "travelling.cycle.makeprogress_forcesizelarge",
+	"actionid": "ticktock",
+	"label": "Progress on the March",
+	"startdescription": "We mark our steps taken on the map. Closer, now.\n\n[Progress has been achieved.]",
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "halt.travel.duel"
+	    },
+	    {
+		"id": "halt.travel.battlehunger"
+	    },
+	    {
+		"id": "travelling.cycle.complete.remote"
+	    },
+	    {
+		"id": "travelling.cycle.complete"
+	    },
+	    {
+		"id": "travelling.cycle"
+	    }
+	],
+	"warmup": 30,
+	"extantreqs": {
+	    "contemnant.story": -1
+	}
+    },
+    {
+	"id": "travelling.cycle.complete",
+	"actionid": "ticktock",
+	"label": "Out from the Ruined Country?",
+	"startdescription": "The march comes to its close - time to leave.\n\n[You can proceed to the next Warzone once three Progress is reached. If instead you choose to double back into the Ruined Country, Progress may disappear, and you will have to wait again for it to return to three.]",
+	"requirements": {
+	    "progression": 3,
+	    "distant": -1
+	},
+	"extantreqs": {
+	    "foe.huntingparty": -1,
+	    "duel.wilhelm": -1
+	},
+	"slots": [
+	    {
+		"id": "needswasteland",
+		"label": "Departure?",
+		"description": "Where are we now? Where will we be?",
+		"required": {
+		    "warzone.current": 1
+		},
+		"consumes": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "huntingparty.expelwarzone"
+	    },
+	    {
+		"id": "havebloodlust.expelwarzone"
+	    },
+	    {
+		"id": "halt.travel.longbossfight"
+	    },
+	    {
+		"id": "halt.travel.duel"
+	    },
+	    {
+		"id": "travelling.cycle.downgrade",
+		"chance": 50
+	    },
+	    {
+		"id": "travelling.cycle.complete"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "travelling.cycle.complete.haltverbs"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "travelling.cycle.complete.remote",
+	"actionid": "ticktock",
+	"label": "Out from the Ruined Country?",
+	"startdescription": "The march comes to its close - time to leave.\n\n[You can proceed to the next Warzone once three Progress is reached. If instead you choose to double back into the Ruined Country, Progress may disappear, and you will have to wait again for it to return to four.]",
+	"requirements": {
+	    "progression": 4,
+	    "distant": 1
+	},
+	"extantreqs": {
+	    "foe.huntingparty": -1,
+	    "duel.wilhelm": -1
+	},
+	"slots": [
+	    {
+		"id": "needswasteland",
+		"label": "Departure?",
+		"description": "Where are we now? Where will we be?",
+		"required": {
+		    "warzone.current": 1
+		},
+		"consumes": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "longbossfight.expelwarzone"
+	    },
+	    {
+		"id": "huntingparty.expelwarzone"
+	    },
+	    {
+		"id": "havebloodlust.expelwarzone"
+	    },
+	    {
+		"id": "halt.travel.longbossfight"
+	    },
+	    {
+		"id": "halt.travel.duel"
+	    },
+	    {
+		"id": "travelling.cycle.downgrade",
+		"chance": 50
+	    },
+	    {
+		"id": "travelling.cycle.complete.remote"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "travelling.cycle.complete.haltverbs"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "travelling.cycle.downgrade",
+	"actionid": "ticktock",
+	"label": "Back and Around, Again",
+	"startdescription": "We move backwards. A few more days, I think - a few more days spent in this blasted hollow of countryside, looking for something.\n\n[Progress has been lost.]",
+	"effects": {
+	    "progression": -1
+	},
+	"linked": [
+	    {
+		"id": "travelling.cycle"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "travelling.cycle.complete.haltverbs",
+	"actionid": "ticktock",
+	"label": "Out from the Ruined Country",
+	"startdescription": "Egress. Out of the frying pan -",
+	"extantreqs": {
+	    "duel.wilhelm": -1,
+	    "duel.camilla": -1,
+	    "bloodlust": -1,
+	    "long.bossfight.marker": -1,
+	    "foe.huntingparty": -1
+	},
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"haltverb": {
+	    "operate": 1,
+	    "abandon": 1,
+	    "recon": 1,
+	    "communicate": 1,
+	    "mobilize": 1,
+	    "main": 99,
+	    "side": 99,
+	    "side.2": 99,
+	    "side.3": 99,
+	    "resupply": 99,
+	    "hindrances.verb": 99,
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "enemyaction.niniame": 99,
+	    "friend.verb": 99,
+	    "fatality": 99,
+	    "spit.*": 99,
+	    "long.wilhelm": 99,
+	    "long.sergei": 99,
+	    "long.camilla": 99,
+	    "explorevault_casualty": 99,
+	    "edgelong.wounds": 99,
+	    "action.legion": 99,
+	    "action.king": 99,
+	    "produce.monster": 99,
+	    "disgruntle": 99,
+	    "marinettearrival": 99,
+	    "huntingparty": 99
+	},
+	"linked": [
+	    {
+		"id": "travelling.cycle.complete.purge"
+	    }
+	]
+    },
+    {
+	"id": "travelling.cycle.complete.purge",
+	"actionid": "ticktock",
+	"label": "Out from the Ruined Country",
+	"startdescription": "Egress. Out of the frying pan -",
+	"deleteverb": {
+	    "side": 99,
+	    "side.2": 99,
+	    "side.3": 99,
+	    "resupply": 99,
+	    "hindrances.verb": 99,
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "friend.verb": 99,
+	    "fatality": 99,
+	    "spit.*": 99,
+	    "long.wilhelm": 99,
+	    "long.sergei": 99,
+	    "long.camilla": 99,
+	    "explorevault_casualty": 99,
+	    "edgelong.wounds": 99,
+	    "action.legion": 99,
+	    "action.king": 99,
+	    "produce.monster": 99
+	},
+	"purge": {
+	    "foe.bombers.refuel": 99,
+	    "objective": 99,
+	    "location": 99,
+	    "hindrance": 99,
+	    "warzone.current": 99,
+	    "foe": 99,
+	    "strife": 99,
+	    "side": 99,
+	    "infrastructure": 99,
+	    "infrastructure.destroyed": 99,
+	    "local": 99,
+	    "warzone.current": 99
+	},
+	"aspects": {
+	    "arriving": 1
+	},
+	"linked": [
+	    {
+		"id": "travelling.cycle.arriving.two"
+	    }
+	],
+	"furthermore": [
+	    { 
+		"target": "~/exterior",
+		"effects": { 
+		    "[op] && ![op.axe] && ![broodscent]": -99
+		} 
+	    } 
+	],
+    },
+    {
+	"id": "travelling.cycle.arriving.two",
+	"label": "Out from the Ruined Country",
+	"startdescription": "Egress. Out of the frying pan -",
+	"aspects": {
+	    "arriving.two": 1
+	},
+	"linked": [
+	    {
+		"id": "travelling.cycle.complete.exit"
+	    }
+	]
+    },
+    {
+	"id": "travelling.cycle.complete.exit",
+	"actionid": "ticktock",
+	"label": "Out from the Ruined Country",
+	"startdescription": "Egress. Out of the frying pan -",
+	"description": "- and once more into the fire.\n\n@#kaunas.here|The Exile told me they had a friend in Kaunas with the Iron Wolf, years ago when they still reckoned with the Tally. 'An eater of corpses,' they told me. 'And a maker of passable pastries. I hope he is dead.'#brest.here|Old Brest lies uneasily at the banks of the Bug River. This is where Germans turned on the Soviet Union, and bloodshed here is laced with a venom that seems undeniably personal.#konigsberg.here|News of the slaughter at Nemmersdorf has caused many in Konigsberg to flee the coming of the Red Army. They're right to run.#gdansk.here|A three-sided battle erupts at Gdansk. There, the Germans, the Russians, and the Polish partisans fight one another, street to street and rooftop to rooftop. I am unsure who I'll fight once I arrive there, but I'm sure the right decision will make itself clear once I get some fresh blood on my hands.#grudziadz.here|A playground for the <i>Einsatzkommandos</i> sent in to facilitate Germanization of seized Polish lands. It would be a shame to leave their blood unspilled.#lodz.here|The officials of the Reich say the that city's new, noble German name is 'Litzmannstadt,' but when I spill an enemy's blood here, they will say he died in Lodz.#warsaw.here|A campaign of total annihilation in Warsaw: punishment for the uprising in the ghetto. The Germans endeavour not merely to kill and expel the people, but to pull the city down to its very last stone. Could they do it? Strike an entire city and her people from the face of the earth? The Wolf walks on the horizon, expecting an answer.#lublin.here|I remember I had relatives in Lublin, before the war. A wind tugs at my coat, and I wonder where those relatives are now. I wonder if they escaped, or were imprisoned, or were shot. I wonder if they became ashes, and if those ashes had already blown past me on a westward wind.#katowice.here|The fighting in the south outskirts has not reached Katowice proper yet, but Soviet tanks gather on the hills. By the time we get to the city, I suspect the downtown suburbs will have already been reduced to a forest of rubble and detritus.#krakow.here|The Exile once reminisced to me about a man they knew in Krakow: 'Yitzchok was a smart one, and a good customer. I wonder if he was able to leave Poland before things became... <i>untenable</i> for his people.' He spoke of this Yitzchok with sympathy - but the kind of sympathy one offers a sick pet, and not a human being.#vienna.here|The White City. 'There's a Ligeian there, and she's lived there a very long time,' the Exile told me. 'The grumpiest of the seven, I always thought. But you'll want to see her, regardless. Tell her I said hello.'#brno.here|Artillery pounds along the city's eastern approach. Soviets and Germans do battle in and around this jewel of Moravia, two starving dogs fighting over a shred of meat.#prague.here|Chamberlain vainly offered Czechoslovakia up to the Reich, hoping to pacify the monster by feeding it morsels. His plan failed, as we all now know. But simmerings of resentment still burn across the country, and in Prague, especially. A man with a match could turn this uneasy balance into a conflagration all too easily.#liberec.here|Wretched Henlein plays governor for the Reichsgau in ailing Liberec - his reward for supporting the annexation even before Chamberlain and Daladier handed Czechoslovakia to the Austrian. Someone should have rewarded him with a bullet, instead. Better late than never.#dresden.here|Not so long ago, the British and American air fleet came through here, and bombed the city to nothing. What was left was consumed in the firestorm left by the Allied air raids. The stench of sulphur, smoke, and ozone drifts off Dresden's corpse for miles.#wroclaw.here|Caught between the advance of the Red Army and the hand of winter, many of Wroclaw's civilians decided to take their chances running - and lost. The road to the city proper is littered with the bodies of the fleeing, snow gradually burying each gaunt, spiritless face.#poznan.here|That contemptuous Austrian declared Poznan to be <i>Festung:</i> a stronghold city, and not to be lost. As if his declaration could hold back the Red Army's coming - or mine.#szczecin|The city lies ahead, and bodies drift down the Oder River. I'll put many more in the water before I'm done in Szczecin.#berlin.here|The Reich's last death spasms wrack Berlin. All of us know it is over. But like starving dogs, the nations will pull and bite and gnash over who gets to devour the carcass. And I? I will have my day in Berlin, because I want to rip out the Reich's foetid heart and feel it crumple in my fist.#paestum.here|The earliest Allied landings occurred here. American infantrymen rushed up the beachheads in the first day, but the Germans have been quick to set up a defence. Fighting has spread in and around the small town. Let us help these <i>Americani</i> find their footing in Italy.#potenza.here|War in high-perched Potenza, along the spine of the Appenine mountains. The fresh mountain air should do us some good as we go about our bloody work.#salerno.here|Bloody beach landings by the British and Americans near the port of Salerno. German machine gun nests carve up the coast. The Allies are here to help us, but who's going to help them? Let's see what we can do.#benevento.here|St. Bartholomew's city has been thoroughly tenderised by a generous Allied bombing run, but enough Germans remain that the city will still be an effort to liberate. Go among the stones, the fires, and strike down the occupiers.#napoli.here|The <i>Napolitani</i> have heard the call to arms! Radio reports confirm that the people have thrown the city into glorious chaos, rising up against the German occupiers ahead of any Allied arrival. Haste is what we need now. I will not let such a flame die out.#campobasso.here|Canadian troops carved out a small foothold here, purchased painstakingly with blood and steel. Thanks to them, more allies trickle into Campobasso day by day - but a hefty garrison of Germans retains control of the city centre and the northern outskirts. Dislodging them will be a strenous, but noble work.#termoli.here|A storm of steel amasses - the British send forth their tanks against the entrenched Germans, whose thundering panzers froth and smoke like the hounds of hell. The combat will be a mess of gore and fire. Not being there this instant makes my fists ache longingly.#minturno.here|Minturno is one of several stronghold-towns on the Gustav Line. Allied air support thrums in the skies above and behind. How much will the bombs bleed the town's defenders? How many lives will we have to end on the ground, by hand? The bombs are falling, now. If we go to Minturno, we will find out.#gaeta.here|The German occupiers, realizing the strategic importance of the port city, have declared an exclusion zone over Gaeta. Hundreds of <i>gaetani</i>, expelled from their homes, beg intervention and liberation. Something as paltry as an exclusory declaration won't stop me from obliging them.#montecassino.here|The broad face of the Gustav Line glowers at the soldiers and partisans come to liberate the valley. On the rocky hills, the Germans have almost every advantage: elevation, visibility, protection. To advance within the range of their artillery is death. But Montecassino is the gateway to Rome - the death of its defenders is thus non-negotiable.#pontecorvo.here|That wretched Austrian initially named the defensive line passing through this town after himself. Fearing for his image should it be breached (and it will), it was renamed after one of his sorry generals only a few short weeks ago. Soon he'll have to withdraw more than just his name from Italy.#ortucchio.here|In the region of Abruzzo, southeast of <i>il Lago Fucino</i>, Ortucchio lies as quiet as a corpse. No battle rages here. Yet, a small force of Germans is en route to the small town. Nothing good could have drawn them here, because there is nothing good in Ortucchio. Not after the Incident.#ortona.here|Wave after wave of Allied soldiers crashes and breaks upon a determined German defence here - 'Little Stalingrad', they're calling it on the radio. Lets see for ourselves how determined these <i>fascisti</i> really are.#valmontone.here|An important stop, the Allies say, on the warpath to Rome - so important, in fact, that they rained bombs upon it for nearly a week. That still wasn't enough to uproot the fascist defenders. We will move in to clean up.#velletri.here|Anothing bracing point on the Caesar Line, crumbling now as our comrades converge on Rome. German desperation is palpable in the air. They might do something drastic to delay liberation's furious approach.#anzio.here|Between the marshes and the mountains, the Allies struggle to drag themselves north, to Anzio, then to Rome. The Wehrmacht's Winter Line has made it a painful process. There will be more pain before it's finally over, but with our help, we can ensure most of it will be the enemy's.#rome.here|All roads, it is said, lead to Rome. Well, here is the road.#vilna.here|We have not held Vilna for more than two years, and now the Germans come to seize our partition of Lithuania. There will be consequences to face if we let them do it.#bialystok.here|The speartip of the German invasion fell here. Defence is increasingly tenuous; the Wehrmacht pushes forward relentlessly; the Polish despise both us and them. Let's make a smooth exit while that is still a possibility.#minsk.here|We stole the bones of Lithuanian-Polish industry and shipped them here to do their work: foundries, factories, diggers and rail-layers. They have done such admirable work for us - let us not allow them to be shamed by having to work in the employ of the Germans.#vitebsk.here|Vitebsk - we will have to give up this playing-piece in time. But even if we cannot hold the city against the Wehrmacht indefinitely, there are other victories we can seek among the stones and the streets.#orsha.here|On the fork of the Dneiper and the Arshytsa, there is Orsha. The two waterways have made it important enough to fight over; on that, both we and the Germans agree.#smolensk.here|Another fine jewel of Soviet industry: food, textiles, manufacturing, even the processing of actual jewels. If we cannot abscond with this jewel, then neither will the Germans. We must go to work with decisive swiftness and a generous number of demolition charges.#vyazma.here|Long has Vyazma been a brute deterrent against invaders striving towards Moscow. An encirclement by the Wehrmacht has broken apart the defences here, and we'll have to make do with the pieces.#rzhev.here|Another mean encirclement by the enemy has already resulted in the decimation and dissolution of a large part of our force here. Now those who remain thrash against the tightening jaws of the German war machine, and against the coming of the pitiless snows.#bryansk.here|Bryansk will be in the hands of the Germans soon, but they won't hold it for long if we have anything to say about it. After Stalingrad, we'll return here for what belongs to us.#kyiv.here|The long soul of the Rus, now under inexorable threat. The wolves close in on all sides. Stem the bleeding long enough so that we may draw our industry east.#kursk.here|The fields outside the city crawl with German tanks and mean, armoured things. This battlefield is meant only for mean, armoured things, I think. But we have our orders. No shirking.#livny.here|Another small buffer between east and west. This small town is characteristically Russian: it bears its pain quietly, no matter how many years of tribulation pass.#voronezh.here|This is the centre point of the Black Earth region, where the rich soil holds now the bones of forced industrialization like sudden, new muscles; where railway-arteries stretch to Moscow upon land that was once darkest forest.#kharkov.here|Kharkiv is the product of Stalin's hardline for industrial strength in the Soviet Union. Even when people starved in the streets during the Holodomor, Kharkiv's factories churned with dutiful fire and smoke. The arrival of the Wehrmacht may upset the routine of work. It may.#uman.here|The Luftwaffe have harried and bombed the troops passing through Uman into despair and exhaustion. Mechanised infantry have been reduced to mere footsoldiers carrying rifles. We had best withdraw from the city with those servicemen who can still fight.#odessa.here|The city's seat upon the Black Sea has made it desirable to the Germans as an object of conquest, and desirable to us as a position we must hold onto for as long as possible. It won't last forever - but we do not need forever.#perekop.here|After the Revolution, the Bolsheviks built farming towns here, and trade ensued. The Germans come to take the place, now; to sever the bridge between Crimea and Ukraine. They will likely have it, but that does not mean we need to leave the place in a condition fit for having.#izyum.here|The Germans destroyed a large salient of our troops on the outskirts of the city - a disastrous miscalculation by the luminaries of the Red Army. Days are numbered in Izium. Blood flows plentifully.@",
+	"effects": {
+	    "wasteland.a": -1,
+	    "wasteland.b": -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "local",
+		"level": 1
+	    }
+	],
+	"alt": [
+	    {
+		"id": "enemy.cycle",
+		"additional": true
+	    },
+	    {
+		"id": "soviet.cycle.startup",
+		"additional": true
+	    },
+	    {
+		"id": "travelling.officerpresent",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"foe.rankofficer": 1
+		    }
+		}
+	    },
+	    {
+		"id": "crater.setupguard.jerome",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"uqjerome": 1
+		    }
+		}
+	    }
+	],
+	"purge": {
+	    "token.escaped": 99
+	}
+    },
+    {
+	"id": "travelling.officerpresent",
+	"actionid": "spit.grail",
+	"label": "Protection Detail",
+	"startdescription": "A officer of the Wehrmacht lairs here - no doubt some of the local enemy contingent has been dispatched to wait on him and ensure his safety.",
+	"requirements": {
+	    "foe.officer": 1
+	},
+	"slots": [
+	    {
+		"id": "needsfoe",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1,
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "foe.bombers": 1,
+		    "foe.bombers.hidden": 1,
+		    "foe.artillery": 1,
+		    "foe.artillery.hidden": 1,
+		    "foe.tanks": 1,
+		    "foe.tanks.hidden": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "travelling.officerpresent.secondfoe"
+	    }
+	]
+    },
+    {
+	"id": "travelling.officerpresent.secondfoe",
+	"actionid": "spit.grail",
+	"label": "Protection Detail",
+	"startdescription": "A officer of the Wehrmacht lairs here - no doubt some of the local enemy contingent has been dispatched to wait on him and ensure his safety.",
+	"slots": [
+	    {
+		"id": "needsfoe",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1,
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "foe.bombers": 1,
+		    "foe.bombers.hidden": 1,
+		    "foe.artillery": 1,
+		    "foe.artillery.hidden": 1,
+		    "foe.tanks": 1,
+		    "foe.tanks.hidden": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "assigndetail"
+	    }
+	]
+    },
+    {
+	"id": "assigndetail",
+	"actionid": "spit.grail",
+	"label": "Protection Detail",
+	"startdescription": "A officer of the Wehrmacht lairs here - no doubt some of the local enemy contingent has been dispatched to wait on him and ensure his safety.",
+	"mutations": [
+	    {
+		"filter": "foe",
+		"mutate": "foe.officerdetail",
+		"level": 1
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unassignofficer"
+	    }
+	]
+    },
+    {
+	"id": "unassignofficer",
+	"actionid": "spit.grail",
+	"label": "Protection Detail",
+	"startdescription": "A officer of the Wehrmacht lairs here - no doubt some of the local enemy contingent has been dispatched to wait on him and ensure his safety.",
+	"mutations": [
+	    {
+		"filter": "foe.officer",
+		"mutate": "foe.officerdetail",
+		"level": -1
+	    }
+	]
+    },
+    {
+	"id": "crater.setupguard.jerome",
+	"actionid": "spit.lantern",
+	"label": "Fodder to the Front",
+	"startdescription": "'Quickly to it, now! Your country expects success - your <i>King</i> expects success!'\n\n[Jerome can command other Enemies to guard him, preventing him from being attacked until they are slain.]",
+	"slots": [
+	    {
+		"id": "needsking",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsking2",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "faction.king",
+		"mutate": "foe.guardjerome",
+		"level": 1
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "foe.guardjerome",
+		"level": 0
+	    }
+	],
+	"warmup": 15,
+	"maxexecutions": 1,
+	"extantreqs": {
+	    "uqjerome": 1
+	}
+    },
+    {
+	"id": "halt.travel.longbossfight",
+	"label": "No Running Now",
+	"startdescription": "I have issued my challenge to an Edge-Long, and they have come to accept. Now there will be no retreat nor quarter, save death.",
+	"extantreqs": {
+	    "long.bossfight.marker": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "travelling.cycle.complete.remote"
+	    },
+	    {
+		"id": "travelling.cycle.complete"
+	    },
+	    {
+		"id": "travelling.cycle"
+	    },
+	    {
+		"id": "halt.travel.longbossfight"
+	    }
+	]
+    },
+    {
+	"id": "halt.travel.duel",
+	"label": "In Sight of the Hours Who Struggle",
+	"startdescription": "I am obligated to stand my ground by the ancient rules of <i>musvashir,</i> or I tempt shame and obliteration. Until I am either raised victorious over my opponent or struck down defeated, I will remain here.",
+	"extantreqs": {
+	    "duel.marker": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "travelling.cycle.complete.remote"
+	    },
+	    {
+		"id": "travelling.cycle.complete"
+	    },
+	    {
+		"id": "travelling.cycle"
+	    },
+	    {
+		"id": "halt.travel.duel"
+	    }
+	]
+    },
+    {
+	"id": "halt.travel.battlehunger",
+	"label": "NO",
+	"startdescription": "Leave? No - I will not leave this place; not until I am knee-deep in the blood of my enemies.\n\n[You cannot leave your Current Warzone while under the influence of Bloodlust.]",
+	"extantreqs": {
+	    "battlehunger": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "halt.travel.battlehunger"
+	    },
+	    {
+		"id": "travelling.cycle.complete.remote"
+	    },
+	    {
+		"id": "travelling.cycle.complete"
+	    },
+	    {
+		"id": "travelling.cycle"
+	    }
+	]
+    },
+    {
+	"id": "travel.rome.mundane",
+	"actionid": "mobilize",
+	"label": "The Surrender of Rome, 1944",
+	"startdescription": "The capitol, given up by the occupiers, belongs to the people once more. Our march to Rome is full of cheer and rejoicing. We have won the city without having to lift a finger; no blood need be shed.\n\nWhy, then, do I feel so defeated?",
+	"requirements": {
+	    "rome.mundane": 1
+	},
+	"warmup": 60,
+	"craftable": true,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictory.proterant.mp3",
+	"linked": [
+	    {
+		"id": "proterant.ending.high"
+	    },
+	    {
+		"id": "proterant.ending.med"
+	    },
+	    {
+		"id": "proterant.ending.low"
+	    }
+	],
+	"burnimage": "liberated"
+    },
+    {
+	"id": "havebloodlust.expelwarzone",
+	"label": "NO",
+	"extantreqs": {
+	    "battlehunger": 1
+	},
+	"linked": [
+	    {
+		"id": "halt.travel.battlehunger"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "expelwarzone",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "expelwarzone",
+	"actionid": "spit.moth",
+	"label": "NO",
+	"startdescription": "Leave? No - I will not leave this place; not until I am knee-deep in the blood of my enemies.\n\n[You cannot leave your Current Warzone while under the influence of Bloodlust.]",
+	"warmup": 10,
+	"effects": {
+	    "wasteland.a.italy": 1
+	},
+	"alt": [
+	    {
+		"id": "expelwarzone.sectorb"
+	    }
+	]
+    },
+    {
+	"id": "expelwarzone.sectorb",
+	"actionid": "spit.moth",
+	"label": "NO",
+	"startdescription": "Leave? No - I will not leave this place; not until I am knee-deep in the blood of my enemies.\n\n[You cannot leave your Current Warzone while under the influence of Bloodlust.]",
+	"warmup": 10,
+	"extantreqs": {
+	    "sector.b": 1
+	},
+	"effects": {
+	    "wasteland.b.italy": 1
+	},
+    },
+    {
+	"id": "halt.travel.huntingparty",
+	"label": "Cornered!",
+	"startdescription": "No quarter! The Dry-Witch and her hunters have us hemmed in, and we cannot break free of Marinette's pursuit without thinning her forces first.",
+	"extantreqs": {
+	    "foe.huntingparty": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "travelling.cycle.complete.remote"
+	    },
+	    {
+		"id": "travelling.cycle.complete"
+	    },
+	    {
+		"id": "travelling.cycle"
+	    },
+	    {
+		"id": "halt.travel.huntingparty"
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.expelwarzone",
+	"label": "Cornered!",
+	"extantreqs": {
+	    "foe.huntingparty": 1
+	},
+	"linked": [
+	    {
+		"id": "halt.travel.huntingparty"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "expelwarzone.contemnant",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "expelwarzone.contemnant",
+	"actionid": "spit.moth",
+	"label": "NO",
+	"startdescription": "No quarter! The Dry-Witch and her hunters have us hemmed in, and we cannot break free of Marinette's pursuit without thinning her forces first.\n\n[You cannot leave the Ruined Country while Marinette is hounding you.]",
+	"warmup": 10,
+	"extantreqs": {
+	    "foe.huntingparty": 1
+	},
+	"effects": {
+	    "wasteland.b.contemnant": 1
+	},
+    },
+    {
+	"id": "longbossfight.expelwarzone",
+	"label": "Cornered!",
+	"extantreqs": {
+	    "long.bossfight.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "halt.travel.longbossfight"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "expelwarzone.contemnant.longbossfight",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "expelwarzone.contemnant.longbossfight",
+	"actionid": "spit.moth",
+	"label": "No Running Now",
+	"startdescription": "I have issued my challenge to an Edge-Long, and they have come to accept. Now there will be no retreat nor quarter, save death.",
+	"warmup": 10,
+	"extantreqs": {
+	    "long.bossfight.marker": 1
+	},
+	"effects": {
+	    "wasteland.b.contemnant": 1
+	},
+    },
+]
+}

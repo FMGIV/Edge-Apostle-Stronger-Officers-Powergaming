@@ -1,0 +1,1039 @@
+{
+"recipes": [
+    {
+	"id": "duelwon.mutatewound",
+	"label": "不朽敌手之血",
+	"startdescription": "一股鲜红的血液喷出，染红了雪地。其他长生者突然满是兴致。战争制造者蹒跚着后退。",
+	"description": "我的对手触摸他的身侧，我的攻击就落在那儿，而他的手被染红。他缓缓露出微笑，并看向我。“出色的一击。”",
+	"slots": [
+	    {
+		"id": "needslong",
+		"label": "战争制造者",
+		"required": {
+		    "duel.wilhelm": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "duel.wilhelm",
+		"mutate": "long_wound",
+		"level": 1
+	    }
+	],
+	"warmup": 30,
+	"achievements": [
+	    "victory.warmaker"
+	]
+    },
+    {
+	"id": "communicate.defeated.sergei.proterant",
+	"actionid": "communicate",
+	"label": "投降",
+	"startdescription": "我独自进入雪原，找到了躺在一棵树下的食铁者。他的马安静地在一旁等待。他并未在我接近时做出任何动作——但他出了声，这表明他还活着。“为了用我的手亲自将你剥皮，我什么不能付出？”他低语道。“但我累了。非常累了。”他的声音如同碎裂的玻璃一般。“你为你的战利品来此，不是吗？为了那能够向台阶上的人展示的荣誉印记。”那长生者啐了一口。“好吧，现在我又能怎样？过来，我会给予你那荣誉。”",
+	"description": "食铁者的触碰痛苦——然后那痛苦便结束。他又一次躺倒，靠着树，完全不再活动。“我已尽我所能坚持活着。但我早就死在了我杀掉那男孩的那一天。我那亲爱的男孩……”那长生者的面色变得阴沉。“我希望矮子将军将你收入他的名下。我希望你和他和其他所有人活的够久以见证事物的终结。我希望这终结伤到你们。”除此之外食铁者便不再说话，他的眼睛变得茫然。他胸膛中的呼吸变浅。当我转身离去时，我觉得我听到他在抽泣。",
+	"requirements": {
+	    "defeated.sergei": 1
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"effects": {
+	    "defeated.sergei": -99,
+	    "mark.surrender": 1
+	}
+    },
+   {
+	"id": "communicate.duel.exile",
+	"actionid": "communicate",
+	"label": "友人的建议",
+	"startdescription": "吾友与我握手。“好，好。我就知道我当时看到的潜力没错。”他笑着说。“你已经走了很远。但这一次——这一次将会是你有生以来面对的最为困难的战斗。所以，请允许我在开始前最后给你一些助言……”",
+	"description": "“他远比你要强，因此他将从一开始就采取攻势。而你要做的不是与他抢夺攻势——而是采取守势，等到破绽出现在你眼前再出手。只要你坚持的够久，破绽总会出现的。”",
+	"warmup": 10,
+	"requirements": {
+	    "duel.exile": 1
+	},
+	"effects": {
+	    "patience": 1,
+	    "duel.exile": -1
+	},
+	"craftable": true
+    },
+    {
+	"id": "communicate.duel.foe",
+	"actionid": "communicate",
+	"label": "大敌的建议",
+	"startdescription": "杜弗尔——吾友称他为“大敌”——抽着香烟，站在离其他人更远一点的地方。所以我在发现他自我身后逼近时吃了一惊。他给了我一根香烟，我认为拒绝是不明智的。“那边那人认为你有足以具名的勇气，”他一面说，一面朝着流亡者的方向点头。“但我还没像他那么确信。你的第一步会是什么？你打算如何获胜？”",
+	"description": "杜弗尔的喉头发出低笑。“你让我想起了年轻时候的自己。”他把他的烟头扔到地上，并用鞋跟踏灭。“祝你好运。”",
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsedge",
+		"label": "答复？",
+		"required": {
+		    "edge": 1
+		}
+	    }
+	],
+	"requirements": {
+	    "duel.foe": 1
+	},
+	"effects": {
+	    "cunning": 1,
+	    "duel.foe": -1
+	},
+	"craftable": true
+    },
+    {
+	"id": "communicate.duel.warmaker.hint",
+	"actionid": "communicate",
+	"label": "无需多言",
+	"startdescription": "<i>狮鼠之斗</i>的规则禁止决斗者在战斗结束之前有任何形式的交流。故直到我们二人之一让另一人流血之前，我不会对战争制造者说话，他亦不会对我说话。",
+	"requirements": {
+	    "duel.wilhelm": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "communicate.duel.camilla",
+	"actionid": "communicate",
+	"label": "狮鼠之斗",
+	"startdescription": "战争制造者站在我的对面，大陆之敌与吾友则站在我们中间。“如伤疤护民官挑战巨蛇，”大陆之敌开始致辞。“亦如亚历山大挑战黄金将军——我们于此见证一次伟大且荣耀的挑战。”而后则是吾友致辞：“在斗争之司辰的注视下，以斗争之司辰的传统律法，两位决斗者将战斗，直到有一方流血。首先受伤之人将败北。请决斗者做好准备。预备——”",
+	"description": "“开始！”",
+	"requirements": {
+	    "duel.camilla": 1
+	},
+	"effects": {
+	    "duel.camilla": -1
+	},
+	"craftable": true,
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "duelling.pre",
+		"additional": true
+	    }
+	],
+	"playAudioTrack": "warmakerduel.mp3"
+    },
+    {
+	"id": "duelling.pre",
+	"actionid": "long.wilhelm",
+	"label": "决斗开始！",
+	"startdescription": "战争制造者向前冲出——",
+	"slots": [
+	    {
+		"id": "needswarmaker",
+		"label": "战争制造者",
+		"required": {
+	 	    "duel.wilhelm": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "duelling.longattack.pre"
+	    }
+	],
+	"burnimage": "duelling"
+    },
+    {
+	"id": "duelling.longattack.pre",
+	"label": "我的对手作出攻击！",
+	"internaldeck": {
+	    "spec": [
+		"wilhelm.attack.a",
+		"wilhelm.attack.a",
+		"wilhelm.attack.a",
+		"wilhelm.attack.b",
+		"wilhelm.attack.b",
+		"wilhelm.attack.c",
+		"wilhelm.attack.c"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "duelling.longattack"
+	    }
+	]
+    },
+    {
+	"id": "duelling.longattack",
+	"label": "我的对手作出攻击！",
+	"startdescription": "@#wilhelm.attack.a|战争制造者以可怖地速度接近我，他强力的拳头正加速朝我挥来——#wilhelm.attack.b|随着一次使地面开裂的重踏，战争制造者使大地摇晃，而后当他看到我失去平衡时，他快速冲来——#wilhelm.attack.c|随着一声费力的低哼，战争制造者举起手臂攻击我，而我在他的手中看见了火焰——@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "duelling.wounded"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "duelling.skill.deflect"
+	    },
+	    {
+		"id": "duelling.respond.edge"
+	    },
+	    {
+		"id": "duelling.respond.winter"
+	    },
+	    {
+		"id": "duelling.respond.edgewinter"
+	    }
+	]
+    },
+    {
+	"id": "duelling.skill.deflect",
+	"label": "我之守御无可侵犯",
+	"startdescription": "我灵魂的中点与血肉的中点重合。我的伤疤即为装甲。我将不受创伤。",
+	"requirements": {
+	    "skill.deflect": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.edge",
+	"label": "以力敌力",
+	"startdescription": "我要是尝试直接抵挡战争制造者向我挥出的任何一击，那我就是白痴。我灵巧地改变了他拳头地方向。他只击中了空气。",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.winter",
+	"label": "以冬灭夏",
+	"startdescription": "他的手中有火，而我的手中则有冬。当我们的力量相撞时发出了巨大的嘶嘶声，并冒出了大量蒸汽。力量本身则互相抵消。",
+	"requirements": {
+	    "needswinter": 1,
+	    "winter": "needswinter",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.edgewinter",
+	"label": "狡诈与耐心",
+	"startdescription": "这一次我过于迅捷，或是过于谨慎，战争制造者的策略并未使我失衡。即使我脚下的大地开裂，意图吞噬我，我也毫不动摇。故我并未中招。",
+	"requirements": {
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear"
+	    }
+	]
+    },
+    {
+	"id": "duelling.clear",
+	"label": "",
+	"effects": {
+	    "decision": -99
+	},
+	"alt": [
+	    {
+		"id": "eject.exhausted",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.cycle"
+	    }
+	]
+    },
+    {
+	"id": "eject.exhausted",
+	"actionid": "spit.moth",
+	"label": "枯竭！",
+	"startdescription": "我使用了这些资源以对付我的对手，在我能再次使用它们之前，我需要等待——",
+	"warmup": 10
+    },
+    {
+	"id": "duelling.cycle",
+	"label": "对抗不朽者",
+	"startdescription": "数秒经过。勉强够我喘口气。我与战争制造者互相绕着圈移动。",
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "duelling.longattack.pre",
+		"chance": 30
+	    },
+	    {
+		"id": "duelling.cycle"
+	    }
+	]
+    },
+    {
+	"id": "produce.opening",
+	"actionid": "scandal",
+	"label": "龙鳞之隙？",
+	"startdescription": "刃之长生者的力量与韧性不会衰减分毫。但我开始发现他们的厌倦会积累，即使只有些许。再坚持守势一会儿——",
+	"effects": {
+	    "long.opening": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "duelling.wounded",
+	"label": "被击倒",
+	"startdescription": "当战争制造者击打我时，他是以大地之力与坠星之猛进行击打。我感到我体内之物弯曲并破裂。在场外，吾友面部抽搐，杜弗尔则摇了摇头。",
+	"description": "我无法自行站起，但战争制造者单手把我拉起。“依照这圣礼的规则，你的性命现在归我所有，”他对我如此说。“但我用不着战败士兵的性命。你将不会再次见到我与我亲爱的宿敌了。”他的手重拍在我的肩上，这让我几近再次摔倒。“抱歉，吾友。那位置永远不可能属于你了。”而后长生者们各自离去，仅留我一人在此。",
+	"alt": [
+	    {
+		"id": "edgelong.spitout.wounds",
+		"additional": true
+	    }
+	],
+	"haltverb": {
+	    "operate": 99
+	},
+	"effects": {
+	    "duel.wilhelm": -99,
+	    "mark.shame": 1
+	},
+	"playAudioTrack": "duelend.mp3",
+	"warmup": 30
+    },
+    {
+	"id": "operate.strike.edgelong.pre",
+	"actionid": "operate",
+	"label": "进行一次几近不可能的攻击？",
+	"startdescription": "我必须在这一击上用上我的全部。任何比这更弱的一击都不足够。\n\n[你需要提供大量的刃以使这场豪赌的胜率不再为0。但你总有概率失败。]",
+	"requirements": {
+	    "long.opening": 3
+	},
+	"extantreqs": {
+	    "foe.sergei": -1
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.edgelong",
+	"actionid": "operate",
+	"label": "进行一次几近不可能的攻击？",
+	"startdescription": "我必须在这一击上用上我的全部。任何比这更弱的一击都不足够。\n\n[你需要提供大量的刃以使这场豪赌的胜率不再为0。但你总有概率失败。]",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "operate.strike.edgelong.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.failure"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.edgelong.success",
+	"label": "进行一次几近不可能的攻击",
+	"startdescription": "每一秒都如同一年。世界仿佛屏住了呼吸。我的手以命定的精确移动。",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.failure",
+		"chance": 30
+	    },
+	    {
+		"id": "operate.strike.edgelong.success.complete"
+	    }
+	]
+    },	
+    {
+	"id": "operate.strike.edgelong.failure",
+	"label": "我的攻击未达预期！",
+	"startdescription": "我的一击打在刃之长生者的身上就像子弹打在战舰上。没有任何血流出。",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "long.opening": -2
+	}
+    },
+    {
+	"id": "operate.strike.edgelong.success.complete",
+	"label": "不朽敌手之血",
+	"startdescription": "一股鲜红的血液喷出，染红了雪地。战争制造者蹒跚着后退。",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "long.opening": -99
+	},
+	"haltverb": {
+	    "long.wilhelm": 99,
+	    "scandal": 99,
+	    "spit.moth": 99
+	},
+	"purge": {
+	    "long.opening": 99
+	},
+	"linked": [
+	    {
+		"id": "duelwon.mutatewound"
+	    }
+	],
+	"playAudioTrack": "duelend.mp3"
+    },
+    {
+	"id": "duelwon.mutatewound",
+	"label": "不朽敌手之血",
+	"startdescription": "一股鲜红的血液喷出，染红了雪地。突然的兴趣充斥着其他长生者。战争制造者蹒跚着后退。",
+	"description": "我的对手触摸他的身侧，我的攻击就落在那儿，而他的手被染红。他缓缓露出微笑，并看向我。“出色的一击。”",
+	"slots": [
+	    {
+		"id": "needslong",
+		"label": "The Warmaker",
+		"required": {
+		    "duel.wilhelm": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "duel.wilhelm",
+		"mutate": "long_wound",
+		"level": 1
+	    }
+	],
+	"warmup": 30,
+	"achievements": [
+	    "victory.warmaker"
+	]
+    },
+    {
+	"id": "communicate.wilhelm.aftervictory",
+	"actionid": "communicate",
+	"label": "鼠胜过狮",
+	"startdescription": "战争制造者将双手扣在背后。“恭喜，”他对我微笑。“我们与斗争之司辰承认你的力量与勇气；你的技巧与决意。”在场外，其他的长生者们带着敬意沉默地注视着。吾友几乎抑制不住他的笑容。杜弗尔看上去一脸钦佩。",
+	"description": "我与我的对手握手，他倾身在我耳边低语：“若你<i>得以</i>具名，你最好小心一点。我们之一或许会试着挑战你，就像你所做的那样。”他说这话的温暖语气不像是在威胁——更像是同事之间的承诺。“现在去吧，人之杀手。寻得你的命运。”",
+	"requirements": {
+	    "duel.wilhelm": 1,
+	    "long_wound": 1
+	},
+	"effects": {
+	    "duel.wilhelm": -99,
+	    "mark.musvashir": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "fightingsergei.longattack.pre",
+	"label": "我的对手作出攻击！",
+	"internaldeck": {
+	    "spec": [
+		"sergei.attack.a",
+		"sergei.attack.a",
+		"sergei.attack.a",
+		"sergei.attack.b",
+		"sergei.attack.b",
+		"sergei.attack.c",
+		"sergei.attack.c"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "fightingsergei.longattack"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.longattack",
+	"label": "食铁者攻击了！",
+	"startdescription": "@#sergei.attack.a|马背上的食铁者即是钢铁的旋风。他前路上的一切都会被他砍倒——#sergei.attack.b|我们的敌人吹响了他的号角，而后一股强大的气流使严冬之雪环绕战场。我们的人尖叫又沉默——食铁者正在风暴内移动！#sergei.attack.c|食铁者带着他的来复枪骑过我们的侧翼，在他身后跟随者一百名惨白的，早已死去的骑手，他们手上的或长或短的燧发枪正瞄准我们，随时待发——@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "fightingsergei.wounded"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "fightingsergei.skill.deflect"
+	    },
+	    {
+		"id": "fightingsergei.respond.edge"
+	    },
+	    {
+		"id": "fightingsergei.respond.forge"
+	    },
+	    {
+		"id": "fightingsergei.respond.edgeforge"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.skill.deflect",
+	"label": "我之守御无可侵犯",
+	"startdescription": "我灵魂的中点与血肉的中点重合。我的伤疤即为装甲。我将不受创伤。",
+	"requirements": {
+	    "skill.deflect": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 70
+	    }
+	],
+	"linked": [
+	    {
+		"id": "fightingsergei.clear"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.respond.edge",
+	"label": "对抗凶刃",
+	"startdescription": "我们集合了足够多的部队，暂时逼退了那只老狼。他回转马头，以避开我们的齐射——",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	},
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 70
+	    }
+	],
+	"linked": [
+	    {
+		"id": "fightingsergei.clear"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.respond.forge",
+	"label": "以夏溃冬",
+	"startdescription": "我们大炮的可怖火力将那幻影袭击者化作飞灰，食铁者的攻势在硝烟中消散。",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge",
+	},
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 70
+	    }
+	],
+	"linked": [
+	    {
+		"id": "fightingsergei.clear"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.respond.edgeforge",
+	"label": "影中的微光",
+	"startdescription": "火焰在风暴中提供光芒。我们之中仍然或者的那些人背靠着背，以我们的武器对抗潜行于风暴中的食铁者。最后我们成功将他驱逐回黑暗中。",
+	"requirements": {
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge",
+	},
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 70
+	    }
+	],
+	"linked": [
+	    {
+		"id": "fightingsergei.clear"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.clear",
+	"label": "",
+	"effects": {
+	    "decision": -99
+	},
+	"alt": [
+	    {
+		"id": "eject.used",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "fightingsergei.cycle"
+	    }
+	]
+    },
+    {
+	"id": "eject.used",
+	"actionid": "spit.moth",
+	"label": "枯竭！",
+	"startdescription": "我们的武器需要重新装填。我们中的活人则需要跨过尸体，忘记死者。我们不能被死者拖慢脚步——",
+	"warmup": 10,
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "fightingsergei.cycle",
+	"label": "对抗不朽者",
+	"startdescription": "马蹄声在山谷中回响。狂风呼啸。",
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "fightingsergei.longattack.pre",
+		"chance": 30
+	    },
+	    {
+		"id": "fightingsergei.cycle"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.wounded",
+	"label": "被斩下",
+	"startdescription": "食铁者撕裂了我们的阵线，自我们中间穿过。那恐惧极其巨大，那痛苦无法描述。",
+	"effects": {
+	    "decision": -99
+	},
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "edgelong.spitout.wounds",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "fightingsergei.cycle"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.sergei.pre",
+	"actionid": "operate",
+	"label": "对食铁者进行一次几近不可能的攻击？",
+	"startdescription": "我必须在这一击上用上我的全部。任何比这更弱的一击都不足够。\n\n[你需要提供大量的刃以使这场豪赌的胜率不再为0。但你总有概率失败。]",
+	"extantreqs": {
+	    "foe.sergei": 1
+	},
+	"requirements": {
+	    "long.opening": 3
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "operate.strike.sergei"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.sergei",
+	"actionid": "operate",
+	"label": "进行一次几近不可能的攻击？",
+	"startdescription": "我必须在这一击上用上我的全部。任何比这更弱的一击都不足够。\n\n[你需要提供大量的刃以使这场豪赌的胜率不再为0。但你总有概率失败。]",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "operate.strike.sergei.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "operate.strike.sergei.failure"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.sergei.success",
+	"label": "进行一次几近不可能的攻击",
+	"startdescription": "每一秒都如同一年。世界仿佛屏住了呼吸。我的手以命定的精确移动。",
+	"description": "这一切都仅仅是为了作出一击。",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"aspects": {
+	    "killfriend": 1,
+	    "killmortal": 1,
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "wound.sergei": 1,
+	    "long.opening": -2
+	},
+	"linked": [
+	    {
+		"id": "defeat.sergei.haltverb"
+	    }
+	]
+    },	
+    {
+	"id": "operate.strike.sergei.failure",
+	"label": "我的攻击未达预期！",
+	"startdescription": "我的一击打在刃之长生者的身上就像子弹打在战舰上。没有任何血流出。",
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "long.opening": -2
+	}
+    },
+    {
+	"id": "defeat.sergei.haltverb",
+	"label": "食铁者倒下了！",
+	"extantreqs": {
+	    "wound.sergei": 3
+	},
+	"haltverb": {
+	    "long.sergei": 99
+	},
+	"linked": [
+	    {
+		"id": "defeat.sergei"
+	    }
+	]
+    },
+    {
+	"id": "defeat.sergei",
+	"label": "食铁者倒下了！",
+	"startdescription": "我的敌人被从马背上丢下——现在正是我的机会！我全力打击，而我这一击命中了食铁者头颅的侧面。那儿出现了一道巨大骇人的裂缝，那长生者则在痛苦与狂怒中发出嚎叫。他挥动手臂驱赶我，而后骑上马背逃离。当我起身，我能够看到他在雪中留下了一道血迹，向我们指示了他逃跑的方向。",
+	"extantreqs": {
+	    "wound.sergei": 3
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needssergei",
+		"label": "食铁者",
+		"required": {
+		    "duel.sergei": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "duel.sergei": -1,
+	    "defeated.sergei": 1,
+	    "long.opening": -99
+	},
+	"playAudioTrack": "ironeatersurrender.mp3",
+	"achievements": [
+	    "victory.ironeater"
+	]
+    },
+    {
+	"id": "communicate.defeated.sergei",
+	"actionid": "communicate",
+	"label": "投降",
+	"startdescription": "我独自进入雪原，找到了躺在一棵树下的食铁者。他的马安静地在一旁等待。他并未在我接近时做出任何动作——但他出了声，这表明他还活着。“为了用我的手亲自将你剥皮，我什么不能付出？”他低语道。“但我累了。非常累了。”他的声音如同碎裂的玻璃一般。“你为你的战利品来此，不是吗？为了那能够向台阶上的人展示的荣誉印记。”那长生者啐了一口。“好吧，现在我又能怎样？过来，我会给予你那荣誉。”",
+	"description": "食铁者的触碰痛苦——然后那痛苦便结束。他又一次躺倒，靠着树，完全不再活动。“我已尽我所能坚持活着。但我早就死在了我杀掉那男孩的那一天。我那亲爱的男孩……”那长生者的面色变得阴沉。“我希望目盲之人将你收入他的名下。我希望你和他和其他所有人活的够久以见证事物的终结。我希望这终结伤到你们。”除此之外食铁者便不再说话，他的眼睛变得茫然。他胸膛中的呼吸变浅。当我转身离去时，我觉得我听到他在抽泣。",
+	"requirements": {
+	    "defeated.sergei": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"effects": {
+	    "defeated.sergei": -99,
+	    "mark.surrender": 1
+	}
+    }
+]
+}

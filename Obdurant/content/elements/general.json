@@ -1,0 +1,1579 @@
+{
+"elements": [
+    {
+	"id": "corrivality.stalemate",
+	"label": "Corrivality: Stalemate",
+	"description": "As of now, neither the Exile nor their Foe can claim the upper hand over the other. Nothing significant will occur, yet.",
+	"xtriggers": {
+	    "epiphany": "corrivality.exile",
+	    "depiphany": "corrivality.foe"
+	}
+    },
+    {
+	"id": "corrivality.exile",
+	"label": "Corrivality: Exile's Advantage",
+	"description": "My friend is giving their Foe a thrashing.",
+	"xtriggers": {
+	    "depiphany": "corrivality.stalemate"
+	},
+	"verbicon": "corrivality.exile"
+    },
+    {
+	"id": "corrivality.foe",
+	"label": "Corrivality: Foe's Advantage",
+	"description": "The Foe has my friend on the run, again.",
+	"xtriggers": {
+	    "depiphany": "corrivality.stalemate"
+	},
+	"verbicon": "corrivality.foe"
+    },
+    {
+	"id": "nothing",
+	"label": "Nothing",
+	"description": "Unremarkable and uneventful.",
+	"icon": "strategy.downtime.revealed",
+	"lifetime": 1
+    },
+    {
+	"id": "days.silence",
+	"label": "Silent Days",
+	"description": "So much of war is waiting.",
+	"aspects": {
+	    "season": 1
+	},
+	"icon": "seasonsilence"
+    },
+    {
+	"id": "days.dream",
+	"label": "Transcendent Days",
+	"description": "These are the nights that are ripe for dreaming.",
+	"aspects": {
+	    "season": 1
+	},
+	"icon": "ascensionenlightenmenta"
+    },
+    {
+	"id": "days.hindrances",
+	"label": "Inclement Days",
+	"description": "The heavens send down their troubles.",
+	"aspects": {
+	    "season": 1
+	},
+	"icon": "hindrance.storms"
+    },
+    {
+	"id": "days.resupply",
+	"label": "Welcome Days",
+	"description": "Food for the hungry, relief for the weary.",
+	"aspects": {
+	    "season": 1
+	},
+	"icon": "rarity.grail"
+    },
+    {
+	"id": "days.conclusion",
+	"label": "Bleak Days",
+	"description": "A conclusion?",
+	"aspects": {
+	    "season": 1
+	},
+	"icon": "apostlelantern.pillar2"
+    },
+    {
+	"id": "days.strife",
+	"label": "Fierce Days",
+	"description": "And the fires shall climb higher.",
+	"aspects": {
+	    "season": 1
+	},
+	"icon": "influenceedgee"
+    },
+    {
+	"id": "provisions",
+	"label": "Provisions",
+	"description": "Bullets, bandages, brittle tins of meat.",
+	"aspects": {
+	    "supplies": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "resolution",
+	"label": "Resolution",
+	"description": "I have seen matters to their end. [A measure of your repute and capability as a participant in the Corrivality. If you live to hang up your arms, this card will influence how your life proceeds thereafter.]",
+    },
+    {
+	"id": "progression",
+	"label": "Progress",
+	"description": "Towards an end.",
+	"lifetime": 1,
+	"icon": "progress"
+    },
+    {
+	"id": "strife",
+	"label": "Strife",
+	"description": "When we fight, we fuel the Corrivality and help drive its titanic convolutions. In turn, the Corrivality inflames and excites the warring world around us. The one called Exile described the phenomenon as 'beautiful.' [As Strife increases, your Enemies will become more aggressive and more numerous. A terrifying force may be drawn to your location once Strife reaches seven.]",
+	"aspects": {
+	    "strife.tracker": 1
+	},
+	"induces": [
+	    {
+		"id": "vulneration.killrandom",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "trauma",
+	"label": "Trauma",
+	"description": "The spirit can only endure so much. [A total of five Traumas will break you.]",
+	"aspects": {
+	    "winter": 6,
+	    "damage.mind": 1
+	},
+	"xtriggers": { 
+	    "wolftransform": "friend.splinter"
+	},
+	"lifetime": 1000
+    },
+    {
+	"id": "test.transform",
+	"label": "Make Splinters",
+	"aspects": {
+	    "lore": 1
+	}
+    },
+    {
+	"id": "mem.regret",
+	"label": "Memory: Regret",
+	"description": "There are always choices, and so there are always regrets.",
+	"aspects": {
+	    "winter": 4,
+	    "forge": 4,
+	    "influence": 1,
+	    "memory": 1
+	},
+	"lifetime": 180
+    },
+    {
+	"id": "mem.joy",
+	"label": "Memory: Joy",
+	"description": "There was a better time, once. I am sure of it.",
+	"aspects": {
+	    "heart": 4,
+	    "lantern": 4,
+	    "influence": 1,
+	    "memory": 1
+	},
+	"lifetime": 180,
+	"icon": "contentment"
+    },
+    {
+	"id": "mem.rage",
+	"label": "Memory: Rage",
+	"description": "Anger - anger is a weapon.",
+	"aspects": {
+	    "edge": 4,
+	    "heart": 4,
+	    "influence": 1,
+	    "memory": 1
+	},
+	"lifetime": 180,
+	"icon": "rage"
+    },
+    {
+	"id": "mem.fear",
+	"label": "Memory: Fear",
+	"description": "In the shadows of the soul are the things we wish we could forget.",
+	"aspects": {
+	    "winter": 4,
+	    "moth": 4,
+	    "influence": 1,
+	    "memory": 1
+	},
+	"lifetime": 180,
+	"icon": "dread"
+    },
+    {
+	"id": "mem.calm",
+	"label": "Memory: Calm",
+	"description": "And so at the eye of the tempest: peace.",
+	"aspects": {
+	    "winter": 4,
+	    "heart": 4,
+	    "influence": 1,
+	    "memory": 1
+	},
+	"lifetime": 180,
+	"icon": "tranquillity"
+    },
+    {
+	"id": "mem.grief",
+	"label": "Memory: Grief",
+	"description": "Pain and sorrow.",
+	"aspects": {
+	    "winter": 4,
+	    "edge": 4,
+	    "influence": 1,
+	    "memory": 1
+	},
+	"lifetime": 180,
+	"icon": "apostlelantern.pillar2"
+    },
+    {
+	"id": "mem.ingenuity",
+	"label": "Memory: Ingenuity",
+	"description": "The first beginnings of a good plan.",
+	"aspects": {
+	    "lantern": 4,
+	    "forge": 4,
+	    "influence": 1,
+	    "memory": 1
+	},
+	"lifetime": 180,
+	"icon": "insight"
+    },
+    {
+	"id": "mem.taste",
+	"label": "Memory: Taste",
+	"description": "Dwelling on those thoughts which induce desire.",
+	"aspects": {
+	    "grail": 4,
+	    "moth": 4,
+	    "influence": 1,
+	    "memory": 1
+	},
+	"lifetime": 180,
+	"icon": "ascensionsensationa"
+    },
+    {
+	"id": "mem.unexpected",
+	"label": "Memory: Unexpected",
+	"description": "Sometimes there is no logic to follow. Sometimes the dots don't have to connect.",
+	"aspects": {
+	    "knock": 4,
+	    "moth": 4,
+	    "influence": 1,
+	    "memory": 1
+	},
+	"lifetime": 180,
+	"icon": "ascensionchangec"
+    },
+    {
+	"id": "mem.revelation",
+	"label": "Memory: Revelation",
+	"description": "I SEE.",
+	"aspects": {
+	    "lantern": 4,
+	    "moth": 4,
+	    "influence": 1,
+	    "memory": 1
+	},
+	"lifetime": 180,
+	"icon": "fascination"
+    },
+    {
+	"id": "cunning",
+	"label": "Cunning",
+	"description": "'All warfare is based on deception.'\n\n- Sun Tzu, <i>The Art of War</i>",
+	"aspects": {
+	    "edge": 6,
+	    "influence": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "wisdom",
+	"label": "Wisdom",
+	"description": "A soldier must know how best to manoeuvre the pieces on the board - and also how best to sacrifice them.",
+	"aspects": {
+	    "lantern": 6,
+	    "influence": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "patience",
+	"label": "Patience",
+	"description": "That which surpasses strength.",
+	"aspects": {
+	    "winter": 6,
+	    "influence": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "wound.eye",
+	"label": "A Wounded Face",
+	"description": "I should have this looked at immediately. [A total of five Wounds and Debilitations will kill you.]",
+	"aspects": {
+	    "knock": 4,
+	    "winter": 4,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "malign": "debilitation.eye",
+	    "brilliant": "wound.eye.healing"
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Medics",
+		"required": {
+		    "friend.medics": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 300,
+	"decayTo": "debilitation.eye"
+    },
+    {
+	"id": "wound.hand",
+	"label": "A Pierced Hand",
+	"description": "I should have this looked at immediately. [A total of five Wounds and Debilitations will kill you.]",
+	"aspects": {
+	    "knock": 4,
+	    "winter": 4,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "malign": "debilitation.hand",
+	    "brilliant": "wound.hand.healing"
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Medics",
+		"required": {
+		    "friend.medics": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 300,
+	"decayTo": "debilitation.hand"
+    },
+    {
+	"id": "wound.leg",
+	"label": "A Shattered Knee",
+	"description": "I should have this looked at immediately. [A total of five Wounds and Debilitations will kill you.]",
+	"aspects": {
+	    "knock": 4,
+	    "winter": 4,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "malign": "debilitation.leg",
+	    "brilliant": "wound.leg.healing"
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Medics",
+		"required": {
+		    "friend.medics": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 300,
+	"decayTo": "debilitation.leg"
+    },
+    {
+	"id": "wound.ear",
+	"label": "A Ripped Ear",
+	"description": "I should have this looked at immediately. [A total of five Wounds and Debilitations will kill you.]",
+	"aspects": {
+	    "knock": 4,
+	    "winter": 4,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "malign": "debilitation.ear",
+	    "brilliant": "wound.ear.healing"
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Medics",
+		"required": {
+		    "friend.medics": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 300,
+	"decayTo": "debilitation.ear"
+    },
+    {
+	"id": "debilitation.eye",
+	"label": "A Missing Eye",
+	"description": "Half the world is as night. [A total of five Wounds and Debilitations will kill you.]",
+	"aspects": {
+	    "winter": 4,
+	    "debilitation": 1,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "epiphany": "debilitation.eye.colonel"
+	}
+    },
+    {
+	"id": "debilitation.hand",
+	"label": "An Amputated Hand",
+	"description": "I suppose I can only use small arms, now. [A total of five Wounds and Debilitations will kill you.]",
+	"aspects": {
+	    "winter": 4,
+	    "debilitation": 1,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "epiphany": "debilitation.hand.colonel"
+	}
+    },
+    {
+	"id": "debilitation.leg",
+	"label": "An Amputated Leg",
+	"description": "If I were a horse, they would just have shot me. [A total of five Wounds and Debilitations will kill you.]",
+	"aspects": {
+	    "winter": 4,
+	    "debilitation": 1,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "epiphany": "debilitation.leg.colonel"
+	}
+    },
+    {
+	"id": "debilitation.ear",
+	"label": "A Deafened Ear",
+	"description": "Gunfire, or rainfall? Sometimes I cannot tell. [A total of five Wounds and Debilitations will kill you.]",
+	"aspects": {
+	    "winter": 4,
+	    "debilitation": 1,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "epiphany": "debilitation.ear.colonel"
+	}
+    },
+    {
+	"id": "loc.hospital",
+	"label": "Field Hospital",
+	"description": "A well-equipped medical facility is a welcome blessing to any soldier. Unfortunate, then, that all we have is this place. [Wounded Allies can be healed here.]",
+	"aspects": {
+	    "infrastructure": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "loc.hospital.exhausted",
+	    "destroy": "loc.hospital.destroyed"
+	},
+	"slots": [
+	    {
+		"id": "needswounded1",
+		"label": "Casualty",
+		"required": {
+		    "wounded": 1,
+		    "wound.eye": 1,
+		    "wound.hand": 1,
+		    "wound.leg": 1,
+		    "wound.ear": 1,
+		    "damage.body": 1
+		},
+		"forbidden": {
+		    "debilitation": 1,
+		    "remnant": 1,
+		    "friend.monster": 1
+		}
+	    },
+	    {
+		"id": "needswounded2",
+		"label": "Casualty",
+		"required": {
+		    "wounded": 1,
+		    "wound.eye": 1,
+		    "wound.hand": 1,
+		    "wound.leg": 1,
+		    "wound.ear": 1,
+		    "damage.body": 1
+		},
+		"forbidden": {
+		    "debilitation": 1,
+		    "remnant": 1,
+		    "friend.monster": 1
+		}
+	    },
+	    {
+		"id": "needswounded3",
+		"label": "Casualty",
+		"required": {
+		    "wounded": 1,
+		    "wound.eye": 1,
+		    "wound.hand": 1,
+		    "wound.leg": 1,
+		    "wound.ear": 1,
+		    "damage.body": 1
+		},
+		"forbidden": {
+		    "debilitation": 1,
+		    "remnant": 1,
+		    "friend.monster": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "loc.hospital.exhausted",
+	"label": "Field Hospital (Exhausted)",
+	"description": "A well-equipped medical facility is a welcome blessing to any soldier. Unfortunate, then, that all we have is this place. [Wounded Allies can be healed here.]",
+	"aspects": {
+	    "infrastructure": 1
+	},
+	"xtriggers": {
+	    "destroy": "loc.hospital.destroyed"
+	},
+	"lifetime": 300,
+	"decayTo": "loc.hospital",
+	"icon": "loc.hospital",
+	"resaturate": true
+    },
+    {
+	"id": "loc.hospital.destroyed",
+	"label": "Field Hospital (Destroyed)",
+	"description": "No place for the wounded, now. [You can restore this card with Engineers and Provisions.]",
+	"aspects": {
+	    "infrastructure.destroyed": 1
+	},
+	"xtriggers": {
+	    "restore": "loc.hospital"
+	},
+	"slots": [
+	    {
+		"id": "needsengineers",
+		"label": "Manpower",
+		"required": {
+		    "friend.engineers": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "loc.commtower",
+	"label": "Communications Post",
+	"description": "Words on wires. Pick up the receiver - someone is listening. [While this card is on the board, you will be able to quickly request reinforcements.]",
+	"aspects": {
+	    "infrastructure": 1
+	},
+	"xtriggers": {
+	    "destroy": "loc.commtower.destroyed"
+	}
+    },
+    {
+	"id": "loc.commtower.destroyed",
+	"label": "Communications Post (Destroyed)",
+	"description": "Who will hear us now? [You can restore this card with Engineers and Provisions.]",
+	"aspects": {
+	    "infrastructure.destroyed": 1
+	},
+	"xtriggers": {
+	    "restore": "loc.commtower"
+	},
+	"slots": [
+	    {
+		"id": "needsengineers",
+		"label": "Manpower",
+		"required": {
+		    "friend.engineers": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "loc.barracks",
+	"label": "Barracks",
+	"description": "A roof to keep out the rain, and walls to keep out the rest. Our comrades will be able to lodge here comfortably enough.",
+	"aspects": {
+	    "infrastructure": 1,
+	    "room": 10
+	},
+	"xtriggers": {
+	    "destroy": "loc.barracks.destroyed"
+	}
+    },
+    {
+	"id": "loc.barracks.destroyed",
+	"label": "Barracks (Destroyed)",
+	"description": "Not really that suitable for sleeping, anymore. [You can restore this card with Engineers and Provisions.]",
+	"aspects": {
+	    "infrastructure.destroyed": 1
+	},
+	"xtriggers": {
+	    "restore": "loc.barracks"
+	},
+	"slots": [
+	    {
+		"id": "needsengineers",
+		"label": "Manpower",
+		"required": {
+		    "friend.engineers": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "loc.farm",
+	"label": "Requisitioned Farm",
+	"description": "Old hay and coarse earth. At least we aren't sleeping outside.",
+	"aspects": {
+	    "infrastructure": 1,
+	    "room": 6
+	},
+	"xtriggers": {
+	    "destroy": "husk"
+	}
+    },
+    {
+	"id": "loc.church",
+	"label": "Requisitioned Church",
+	"description": "God is watching.",
+	"aspects": {
+	    "infrastructure": 1,
+	    "room": 4
+	},
+	"xtriggers": {
+	    "destroy": "husk"
+	}
+    },
+    {
+	"id": "op.madrugad",
+	"label": "The Madrugad's Shadow",
+	"description": "Here is that unerring cold that waits in the hours that precede the sun; here the Madrugad makes her tally.",
+	"aspects": {
+	    "winter": 6,
+	    "forge": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.velvet",
+	"label": "The Velvet's Shadow",
+	"description": "The coiling of the roots, the safety of the shadows, the rumbling in the mists - these mark the presence of the Velvet.",
+	"aspects": {
+	    "heart": 6,
+	    "moth": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.beachcomber",
+	"label": "The Beachcomber's Shadow",
+	"description": "Shrapnel gleams like silver, and bone beckons like finest porcelain. That greedy, seeking Hour called Beachcomber has come to roost.",
+	"aspects": {
+	    "grail": 6,
+	    "knock": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.thecolonel",
+	"label": "The Colonel's Shadow",
+	"description": "Sights and sounds grow duller, and colours leak from the world. The cold on my neck feels like the press of a knife. The Colonel watches from on high.",
+	"aspects": {
+	    "edge": 6,
+	    "winter": 4,
+	    "lantern": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.thelionsmith",
+	"label": "The Lionsmith's Shadow",
+	"description": "A boastful heat rises in the cold; fires hiss and laugh. Thoughts that do not stoke anger become difficult to hold onto. The Lionsmith is here in attendance.",
+	"aspects": {
+	    "edge": 6,
+	    "forge": 4,
+	    "heart": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.wolfdivided",
+	"label": "The Wolf-Divided's Shadow",
+	"description": "That scent which is neither tar nor blood nor ozone. The Wolf-Divided's rage boils beneath the air.",
+	"aspects": {
+	    "edge": 6,
+	    "winter": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300,
+	"icon": "op.wolf"
+    },
+    {
+	"id": "op.wolves",
+	"label": "Wolves",
+	"description": "'Whoever feeds the wolf in the winter will be eaten by him in the spring.'\n\n- Greek Proverb",
+	"aspects": {
+	    "edge": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.dove",
+	"label": "A Dove",
+	"description": "A bird of peace - perhaps it is lost.",
+	"aspects": {
+	    "winter": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.cat",
+	"label": "Cats",
+	"description": "Amiable little killers.",
+	"aspects": {
+	    "grail": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300,
+	"icon": "op.cats"
+    },
+    {
+	"id": "op.ruins",
+	"label": "Ruins",
+	"description": "Crumbling edifices and old masonry provide what protection they can.",
+	"aspects": {
+	    "heart": 4,
+	    "forge": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.sewers",
+	"label": "Sewers",
+	"description": "Where the shadows survive, so can we.",
+	"aspects": {
+	    "grail": 4,
+	    "moth": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.highplace",
+	"label": "Heights",
+	"description": "To strike from up on high.",
+	"aspects": {
+	    "edge": 4,
+	    "lantern": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300,
+	"icon": "op.heights"
+    },
+    {
+	"id": "op.fire",
+	"label": "Flames",
+	"description": "Fire is the winter that warms and the spring that consumes.",
+	"aspects": {
+	    "forge": 4,
+	    "edge": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.snows",
+	"label": "Snows",
+	"description": "We have learnt winter's measure, and will be at home in it.",
+	"aspects": {
+	    "winter": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.storms",
+	"label": "Storms",
+	"description": "The rain on our backs is a rejuvenation. Baptism.",
+	"aspects": {
+	    "heart": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.fog",
+	"label": "Fog",
+	"description": "Mists are a gift from the Velvet, so long as one can figure how to appreciate them.",
+	"aspects": {
+	    "moth": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.time.dawn",
+	"label": "Dawn",
+	"description": "Sunrise, when the world is clean.",
+	"aspects": {
+	    "lantern": 4,
+	    "knock": 4,
+	    "op": 1
+	},
+	"lifetime": 60,
+	"icon": "op.dawn"
+    },
+    {
+	"id": "op.time.noon",
+	"label": "Noon",
+	"description": "From here, the sun can only decline.",
+	"aspects": {
+	    "lantern": 4,
+	    "winter": 4,
+	    "op": 1
+	},
+	"lifetime": 60
+    },
+    {
+	"id": "op.time.sunset",
+	"label": "Sunset",
+	"description": "Sunset, when the light is richer.",
+	"aspects": {
+	    "forge": 4,
+	    "winter": 4,
+	    "op": 1
+	},
+	"lifetime": 60,
+	"icon": "op.sunset"
+    },
+    {
+	"id": "op.time.night",
+	"label": "Night",
+	"description": "Under darkness.",
+	"aspects": {
+	    "winter": 4,
+	    "moth": 4,
+	    "op": 1
+	},
+	"lifetime": 60,
+	"icon": "op.night"
+    },
+    {
+	"id": "op.church",
+	"label": "Opportunity: A Church",
+	"description": "A place of faith, but not of power. I could quarter some of my men here if I needed to, or perhaps the quiet space might lead me to a useful realization.",
+	"aspects": {
+	    "op": 1
+	},
+	"xtriggers": {
+	    "recruiting": "loc.church"
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"label": "Intent",
+		"required": {
+		    "heart": 1,
+		    "edge": 1
+		}
+	    }
+	],
+	"lifetime": 300
+    },
+    {
+	"id": "op.farm",
+	"label": "Opportunity: A Farm",
+	"description": "We could convince the farmers to furnish us with food and drink - men with guns are famously convincing, after all - or perhaps we would rather use their land for lodgings.",
+	"aspects": {
+	    "op": 1
+	},
+	"xtriggers": {
+	    "recruiting": "loc.farm"
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"label": "Intent",
+		"required": {
+		    "grail": 1,
+		    "edge": 1
+		}
+	    }
+	],
+	"lifetime": 300
+    },
+    {
+	"id": "supplies.apmunitions",
+	"label": "Armour-Piercing Munitions",
+	"description": "Perhaps one day there will be armour that cannot be penetrated by any weapon. But we have yet to reach that day.",
+	"aspects": {
+	    "edge": 6,
+	    "ap": 1,
+	    "supplies": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "supplies.explosives",
+	"label": "Explosives",
+	"description": "Force and fire, sealed up in clever machinery and eager to be unbound.",
+	"aspects": {
+	    "edge": 4,
+	    "forge": 4,
+	    "weapon": 1,
+	    "supplies": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "supplies.flares",
+	"label": "Flare Shells",
+	"description": "A little light for the long dark. [This can be used to reveal Hidden Enemies.]",
+	"aspects": {
+	    "lantern": 6,
+	    "supplies": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "tool.moth",
+	"label": "Secret-Scarred Stone",
+	"description": "Don't look, don't tell, don't know. Much heavier than it looks.",
+	"aspects": {
+	    "moth": 6,
+	    "tool": 1
+	}
+    },
+    {
+	"id": "tool.lantern",
+	"label": "Solar Fragment",
+	"description": "A token by which one may recall Glory.",
+	"aspects": {
+	    "lantern": 6,
+	    "tool": 1
+	},
+	"icon": "toollanternb"
+    },
+    {
+	"id": "tool.forge",
+	"label": "Shahpur's Nails",
+	"description": "Each one is solid taenite-iron and runs as long as an arm, more akin to a railroad spike than any sort of nail. I would need a sledgehammer to drive this into anything.",
+	"aspects": {
+	    "forge": 6,
+	    "tool": 1
+	}
+    },
+    {
+	"id": "tool.winter",
+	"label": "Mycological Sample T-13",
+	"description": "<i>Digitium regius.</i> I encountered this strain of fungus on one of my last cases with the OPRP. The fact they have not yet incinerated this sample peturbs me, but with a war on, even the most unseemly things can be useful as weapons.",
+	"aspects": {
+	    "winter": 6,
+	    "tool": 1
+	}
+    },
+    {
+	"id": "tool.heart",
+	"label": "Kusnetsov's Eye",
+	"description": "In his twilight years, Prince Kusnetsov became convinced of the notion that he had been cursed, and went bizarre lengths to purify himself. He procured this pearl in the Dry Country, intending to pulverize and consume it, but later found himself unable to do so - the pearl, Prince Kusnetsov claimed, would 'speak in two voices' against any decision he made to blemish it.",
+	"aspects": {
+	    "heart": 6,
+	    "tool": 1
+	}
+    },
+    {
+	"id": "tool.grail",
+	"label": "Dulcet Violin",
+	"description": "An exquisite violin shaped from Tyrolean maple, commissioned from the esteemed tradition of Peregaldi luthiers in the 19th century. It almost feels wrong for me to be handling such a delicate, beautiful instrument - and I don't know how to play it, either.",
+	"aspects": {
+	    "grail": 6,
+	    "tool": 1
+	}
+    },
+    {
+	"id": "tool.knock",
+	"label": "Apocryphal Key",
+	"description": "St. Peter was given two keys: one gold that would give him power to open and bind the gates of Heaven, and one silver that would permit him authority over any door on Earth. This key is not either of them, but those doors that are neither in Heaven nor on Earth will listen to it.",
+	"aspects": {
+	    "knock": 6,
+	    "tool": 1
+	}
+    },
+    {
+	"id": "decision.enemy.singleattack",
+	"label": "Decision: Single Attack",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.destroysupplies",
+	"label": "Decision: Destroy Supplies",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.hide",
+	"label": "Decision: Hide",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.infrastructure",
+	"label": "Decision: Target Infrastructure",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.cutoff",
+	"label": "Decision: Cutoff Supplies",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.reinforcements",
+	"label": "Decision: Reinforcements",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.doubleattack",
+	"label": "Decision: Two-Pronged Attack",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.attack",
+	"label": "Decision: Two-Pronged Attack",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "readiness.token",
+	"label": "Readiness Token",
+	"isHidden": true,
+	"lifetime": 1,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.eye",
+	"label": "Draw: Eye",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.hand",
+	"label": "Draw: Hand",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.ear",
+	"label": "Draw: Ear",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.leg",
+	"label": "Draw: Leg",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.exile.influence",
+	"label": "Draw: Influence",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.exile.banishtrauma",
+	"label": "Draw: Banish Trauma",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.exile.weakenenemy",
+	"label": "Draw: Influence",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.exile.banishhindrance",
+	"label": "Draw: Influence",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.foe.enemy",
+	"label": "Draw: Enemy",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.foe.hindrance",
+	"label": "Draw: Hindrance",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.foe.exhaust",
+	"label": "Draw: Exhaust",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.colonel.1",
+	"label": "Draw: Colonel Dream 1",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.colonel": 1
+	}
+    },
+    {
+	"id": "draw.colonel.2",
+	"label": "Draw: Colonel Dream 2",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.colonel": 1
+	}
+    },
+    {
+	"id": "draw.colonel.3",
+	"label": "Draw: Colonel Dream 3",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.colonel": 1
+	}
+    },
+    {
+	"id": "draw.lionsmith.1",
+	"label": "Draw: Lionsmith Dream 1",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.lionsmith": 1
+	}
+    },
+    {
+	"id": "draw.lionsmith.2",
+	"label": "Draw: Lionsmith Dream 2",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.lionsmith": 1
+	}
+    },
+    {
+	"id": "draw.lionsmith.3",
+	"label": "Draw: Lionsmith Dream 3",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.lionsmith": 1
+	}
+    },
+    {
+	"id": "draw.wolf.1",
+	"label": "Draw: Wolf Dream 1",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.wolf": 1
+	}
+    },
+    {
+	"id": "draw.wolf.2",
+	"label": "Draw: Wolf Dream 2",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.wolf": 1
+	}
+    },
+    {
+	"id": "draw.wolf.3",
+	"label": "Draw: Wolf Dream 3",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.wolf": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.lore",
+	"label": "Draw: Lore Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.debilitations",
+	"label": "Draw: Debilitations Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.ebrehel",
+	"label": "Draw: Ebrehel Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.medusa",
+	"label": "Draw: Medusa Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.musvashir",
+	"label": "Draw: Musvashir Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.main",
+	"label": "Draw: Main Objectives Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.stalingrad",
+	"label": "Draw: Stalingrad Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "challenge.shakedown.1",
+	"label": "Shakedown Challenge 1",
+	"aspects": {
+	    "minedge": 5,
+	    "minwinter": 5,
+	    "complication": 1,
+	    "opx.speaklocals": 1
+	},
+	"xtriggers": {
+	    "next": "challenge.shakedown.2"
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "challenge.shakedown.2",
+	"label": "Shakedown Challenge 2",
+	"aspects": {
+	    "minedge": 10,
+	    "minwinter": 10,
+	    "complication": 1,
+	    "opx.speaklocals": 1
+	},
+	"xtriggers": {
+	    "next": "challenge.shakedown.3"
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "challenge.shakedown.3",
+	"label": "Shakedown Challenge 3",
+	"aspects": {
+	    "minedge": 15,
+	    "minwinter": 15,
+	    "complication": 1,
+	    "opx.speaklocals": 1
+	},
+	"xtriggers": {
+	    "next": "end.shakedown"
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "end.shakedown",
+	"label": "End Shakedown",
+	"aspects": {
+	    "opx.speaklocals": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "challenge.assistlocals.1",
+	"label": "Assist Locals Challenge 1",
+	"aspects": {
+	    "minheart": 5,
+	    "mingrail": 5,
+	    "complication": 1,
+	    "opx.speaklocals": 1
+	},
+	"xtriggers": {
+	    "next": "challenge.assistlocals.2"
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "challenge.assistlocals.2",
+	"label": "Assist Locals Challenge 2",
+	"aspects": {
+	    "minheart": 10,
+	    "mingrail": 10,
+	    "complication": 1,
+	    "opx.speaklocals": 1
+	},
+	"xtriggers": {
+	    "next": "challenge.assistlocals.3"
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "challenge.assistlocals.3",
+	"label": "Assist Locals Challenge 3",
+	"aspects": {
+	    "minheart": 15,
+	    "mingrail": 15,
+	    "complication": 1,
+	    "opx.speaklocals": 1
+	},
+	"xtriggers": {
+	    "next": "end.assistlocals"
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "end.assistlocals",
+	"label": "End Assist Locals",
+	"aspects": {
+	    "opx.speaklocals": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "countdown.identifier",
+	"label": "Countdown Identifier",
+	"aspects": {
+	    "long.blocker": 1
+	},
+	"lifetime": 1,
+	"isHidden": true,
+	"verbicon": "countdown"
+    }
+]
+}

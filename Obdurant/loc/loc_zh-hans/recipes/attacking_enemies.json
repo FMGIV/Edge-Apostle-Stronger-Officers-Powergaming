@@ -1,0 +1,2152 @@
+{
+"recipes": [
+    {
+	"id": "attackenemy.hint.contemnant",
+	"actionid": "operate",
+	"label": "筹划一次对敌军的袭击？",
+	"startdescription": "敌军就在前方。我需要一种策略，以及执行策略的人力和资源。或者，在我两者都缺的时候，一个乐意去死，我也不在乎将其抛弃的棋子。\n\n[投入的性相达到敌人的任一阈值即可对其进行袭击。投入的性相超越对应阈值至少5阶则能够保证这次袭击必定成功。或者投入一名友军与至少10阶的<b>刃</b>或<b>铸</b>，以做绝境一搏。]",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.ingluviateguarded.hint",
+	"actionid": "operate",
+	"label": "赤红守御",
+	"startdescription": "在正常情况下，这生物算不上难杀，但尽管它的体内现有一个沉重物件，这吞食者的动作仍意外地迅捷——更别提还有许多其它生物挡在我与它之间。",
+	"requirements": {
+	    "foe.ingluviate.engorged": 1
+	},
+	"extantreqs": {
+	    "foe.ingluviate.protect": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackingluviate.edgegrail.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "赤杯最为显著的本性为其折磨，而在折磨中痛苦与愉悦亲若兄弟。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	    "foe.ingluviate.engorged": 1
+	},
+	"extantreqs": {
+	    "foe.ingluviate.protect": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgegrail]": 5,
+	    "[grail]-[needsedgegrail]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackingluviate.edgegrail",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。此处存有对痛苦的胃口，而我将使其餍足。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	    "foe.ingluviate.engorged": 1
+	},
+	"extantreqs": {
+	    "foe.ingluviate.protect": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.malkin.dispel",
+	"actionid": "operate",
+	"label": "遣返巨型灵猫",
+	"startdescription": "没有了持钥者稳定它的存在，这双角斧的巨大仆从无法在我们的世界长存。它的身躯如烛火般摇曳；它的咆哮歪曲并消逝，化作白噪声——",
+	"description": "——然后它便彻底消逝。残留于此的仅有空气中的山楂气味，再无他物。",
+	"requirements": {
+	    "foe.malkin": 1
+	},
+	"extantreqs": {
+	    "foe.warder": -1,
+	    "foe.warder.hidden": -1
+	},
+	"effects": {
+	    "foe.malkin": -99
+	},
+	"warmup": 10,
+	"craftable": true
+    },
+    {
+	"id": "attackenemy.boccastranoguarded.hint",
+	"actionid": "operate",
+	"label": "长兽守护幼兽",
+	"startdescription": "这一敌军被另一敌军守护——那守护者过于凶猛与危险，以至于我们无法无视它。看来，即使这对兄弟堕落又残暴，但他们似乎确实在互相守望。",
+	"requirements": {
+	    "uqbrood": 1,
+	    "guarded": 1
+	},
+	"extantreqs": {
+	    "guard": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.guardjerome.hint",
+	"actionid": "operate",
+	"label": "筹划一次对敌军的袭击？",
+	"startdescription": "我们的目标仍受到保护。\n\n[在杀死所有具有护卫：杰罗姆性相的敌军之前，你无法攻击杰罗姆·亚历山大。]",
+	"requirements": {
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.guardlionel.hint",
+	"actionid": "operate",
+	"label": "筹划一次对敌军的袭击？",
+	"startdescription": "我们的目标仍受到保护。\n\n[在杀死所有具有护卫：莱昂内尔性相的敌军之前，你无法攻击莱昂内尔·撒克逊。]",
+	"requirements": {
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.officerdetailstill.hint",
+	"actionid": "operate",
+	"label": "筹划一次对敌军军官的袭击？",
+	"startdescription": "我们的目标仍受到保护。\n\n[在杀死所有军官的特遣队之前，你无法攻击敌军军官。]",
+	"requirements": {
+	    "foe.officer": 1
+	},
+	"extantreqs": {
+	    "foe.officerdetail": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.hint",
+	"actionid": "operate",
+	"label": "筹划一次对敌军的袭击？",
+	"startdescription": "敌军就在前方。我需要一种策略，以及执行策略的人力和资源。\n\n[投入的性相达到敌人的任一阈值即可对其进行袭击。投入的性相超越对应阈值至少5阶则能够保证这次袭击必定成功。]",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": -1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.hidden.hint",
+	"actionid": "operate",
+	"label": "筹划一次对匿踪敌军的袭击？",
+	"startdescription": "正面向着不知底细的敌军冲去是一个确定会带来毁灭的战术。\n\n[袭击匿踪的敌军能够揭露其行踪，但袭击本身通常会失败。]",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.hidden.useeye",
+	"actionid": "operate",
+	"label": "使用我的不视之眼揭露敌军行踪",
+	"startdescription": "在这只眼的注视下，他们无处藏身。",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": 1,
+	    "debilitation.eye.colonel": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"aspects": {
+	    "revealidentity": 1,
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "attackenemy.hidden.useflare",
+	"actionid": "operate",
+	"label": "使用闪光弹揭露敌军行踪",
+	"startdescription": "这不是太阳，但对于我们的目的而言已足够明亮。辨认，而后攻击。",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": 1,
+	    "supplies.flares": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"aspects": {
+	    "revealidentity": 1,
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "attackenemy.hidden",
+	"actionid": "operate",
+	"label": "筹划一次对敌军的袭击",
+	"startdescription": "前进，进入那浓密的黑暗。我们将找到敌军，或是他们将找到我们。",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": 1,
+	    "provisions": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.failure",
+		"chance": 70
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.moth.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用难料战术的压倒性袭击",
+	"startdescription": "灵巧地穿越森林地阴影，避开漏下的点点月光，我们将开展攻击。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"grandreqs": { "[moth]-[needsmoth]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.lantern.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用无情战术的压倒性袭击",
+	"startdescription": "绝对的确定自上方降临。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"grandreqs": { "[lantern]-[needslantern]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.forge.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用机敏战术的压倒性袭击",
+	"startdescription": "我们的敌人将被变化，我们的敌人将被消灭。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"grandreqs": { "[forge]-[needsforge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.jerome.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用暴力战术的压倒性袭击",
+	"startdescription": "两虎相争必有一伤，而我们更加强大。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.lionel.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用暴力战术的压倒性袭击",
+	"startdescription": "两虎相争必有一伤，而我们更加强大。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用暴力战术的压倒性袭击",
+	"startdescription": "两虎相争必有一伤，而我们更加强大。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "foe.officer": -1,
+	    "uqjerome": -1,
+	    "uqlionel": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.officer.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用暴力战术的压倒性袭击",
+	"startdescription": "两虎相争必有一伤，而我们更加强大。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "foe.officer": 1
+	},
+	"extantreqs": {
+	    "foe.officerdetail": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.winter.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用耐心战术的压倒性袭击",
+	"startdescription": "我们的耐心带去死亡，我们的寂静带去终结。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"grandreqs": { "[winter]-[needswinter]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.phlogisticantwinter"
+	    },
+	    {
+		"id": "attackenemy.success.undeadwinter"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.heart.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用不休战术的压倒性袭击",
+	"startdescription": "前进，前进——血肉的鼓动催促我们不断向前。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"grandreqs": { "[heart]-[needsheart]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.grail.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用渴求战术的压倒性袭击",
+	"startdescription": "痛苦与愉悦渗出同一种红。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"grandreqs": { "[grail]-[needsgrail]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.warriorgrail"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.knock.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用弥散战术的压倒性袭击",
+	"startdescription": "钥匙将洞穿门扉，刀刃将洞穿血肉，我们将洞穿敌军。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsknock": 1,
+	    "knock": "needsknock"
+	},
+	"grandreqs": { "[knock]-[needsknock]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.serpentknock"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.aerial.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次压倒性的空中袭击",
+	"startdescription": "天空属于我们。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "foe.aerial": 1,
+	    "friend.aerial": "foe.aerial"
+	},
+	"grandreqs": { "[friend.aerial]-[foe.aerial]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.ap.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用特化武器的压倒性袭击",
+	"startdescription": "我们的枪炮将震撼大地，削去山头。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "foe.armoured": 1,
+	    "ap": "foe.armoured"
+	},
+	"grandreqs": { "[ap]-[foe.armoured]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.forgemoth.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "铸与蛾——变化与毁灭与适应与其他一切。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsforgemoth": 1,
+	    "forge": "needsforgemoth",
+	    "moth": "needsforgemoth"
+	},
+	"grandreqs": { 
+	    "[forge]-[needsforgemoth]": 5,
+	    "[moth]-[needsforgemoth]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern.jerome.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "刃与灯是亲密的战友。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	    "uqjerome": 1,
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgelantern]": 5,
+	    "[lantern]-[needsedgelantern]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "刃与灯是亲密的战友。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	    "uqjerome": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgelantern]": 5,
+	    "[lantern]-[needsedgelantern]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgewinter.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "因此我们带去痛苦。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter"
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgewinter]": 5,
+	    "[winter]-[needsedgewinter]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeforge.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "力量与天资的野蛮汇聚。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge"
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeforge]": 5,
+	    "[forge]-[needsedgeforge]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.knocklantern.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "钥匙与光芒。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsknocklantern": 1,
+	    "knock": "needsknocklantern",
+	    "lantern": "needsknocklantern"
+	},
+	"grandreqs": { 
+	    "[knock]-[needsknocklantern]": 5,
+	    "[lantern]-[needsknocklantern]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock.lionel.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "刃开启血肉，诞下伤口。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeknock]": 5,
+	    "[knock]-[needsedgeknock]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "刃开启血肉，诞下伤口。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	    "uqlionel": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeknock]": 5,
+	    "[knock]-[needsedgeknock]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeheart.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "即使是需求连续的力量，其自身也不总是连续的。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart"
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeheart]": 5,
+	    "[heart]-[needsedgeheart]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgegrail.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "赤杯最为显著的本性为其折磨，而在折磨中痛苦与愉悦亲若兄弟。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	    "foe.ingluviate.engorged": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgegrail]": 5,
+	    "[grail]-[needsedgegrail]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgemoth.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "以耳贴地，以鼻向空。我们如猛兽般巡猎，如猛兽般袭击。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgemoth": 1,
+	    "edge": "needsedgemoth",
+	    "moth": "needsedgemoth"
+	},
+	"extantreqs": {
+	    "guard": -1
+	},
+	"grandreqs": { 	    
+	    "[edge]-[needsedgemoth]": 5,
+	    "[moth]-[needsedgemoth]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.winterheart.overwhelm",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的压倒性袭击",
+	"startdescription": "活力之盾与终结之剑在此齐聚。看他们该如何抵挡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needswinterheart": 1,
+	    "winter": "needswinterheart",
+	    "heart": "needswinterheart"
+	},
+	"grandreqs": { 	    
+	    "[winter]-[needswinterheart]": 5,
+	    "[heart]-[needswinterheart]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.moth",
+	"actionid": "operate",
+	"label": "筹划一次采用难料战术的袭击",
+	"startdescription": "谈话到此为止。现在是时候让欺骗与隐秘派上用场了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.lantern",
+	"actionid": "operate",
+	"label": "筹划一次采用无情战术的袭击",
+	"startdescription": "谈话到此为止。现在是时候驱除阴影了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.forge",
+	"actionid": "operate",
+	"label": "筹划一次采用机敏战术的袭击",
+	"startdescription": "谈话到此为止。现在是时将机械与火焰带上战场了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.jerome",
+	"actionid": "operate",
+	"label": "筹划一次采用暴力战术的袭击",
+	"startdescription": "谈话到此为止。现在是时候让力量决定胜负了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.lionel",
+	"actionid": "operate",
+	"label": "筹划一次采用暴力战术的袭击",
+	"startdescription": "谈话到此为止。现在是时候让力量决定胜负了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge",
+	"actionid": "operate",
+	"label": "筹划一次采用暴力战术的袭击",
+	"startdescription": "谈话到此为止。现在是时候让力量决定胜负了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "foe.officer": -1,
+	    "uqjerome": -1,
+	    "uqlionel": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.officer",
+	"actionid": "operate",
+	"label": "筹划一次采用暴力战术的袭击",
+	"startdescription": "谈话到此为止。现在是时候让力量决定胜负了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "foe.officer": 1
+	},
+	"extantreqs": {
+	    "foe.officerdetail": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.winter",
+	"actionid": "operate",
+	"label": "筹划一次采用耐心战术的袭击",
+	"startdescription": "谈话到此为止。现在是时候给敌军带去终结了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.phlogisticantwinter"
+	    },
+	    {
+		"id": "attackenemy.success.undeadwinter"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.heart",
+	"actionid": "operate",
+	"label": "筹划一次采用不休战术的袭击",
+	"startdescription": "谈话到此为止。现在是时候开始一段永不休止的攻击了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.grail",
+	"actionid": "operate",
+	"label": "筹划一次采用渴望战术的袭击",
+	"startdescription": "谈话到此为止。现在是时候让渴望占据主导了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.warriorgrail"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.knock",
+	"actionid": "operate",
+	"label": "筹划一次采用弥散战术的袭击",
+	"startdescription": "谈话到此为止。现在是时候让道路展现于我们面前了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsknock": 1,
+	    "knock": "needsknock"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.serpentknock"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.aerial",
+	"actionid": "operate",
+	"label": "筹划一次空中袭击",
+	"startdescription": "谈话到此为止。现在是时候让天空充满战火了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "foe.aerial": 1,
+	    "friend.aerial": "foe.aerial"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.ap",
+	"actionid": "operate",
+	"label": "筹划一次采用特化武器的袭击",
+	"startdescription": "谈话到此为止。现在是时候让这些道具证明它们的价值了。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "foe.armoured": 1,
+	    "ap": "foe.armoured"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.forgemoth",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。才智与欺诈将助我们赢得胜利。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsforgemoth": 1,
+	    "forge": "needsforgemoth",
+	    "moth": "needsforgemoth"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern.jerome",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。武力与光芒将助我们赢得胜利。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。武力与光芒将助我们赢得胜利。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	    "uqjerome": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgewinter",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。痛苦与耐心将助我们赢得胜利。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeforge",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。力量与火焰将助我们赢得胜利。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.knocklantern",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。净化与拆解应该能够解决这一问题。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsknocklantern": 1,
+	    "knock": "needsknocklantern",
+	    "lantern": "needsknocklantern"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock.lionel",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。剑刃与钥匙将助我们赢得胜利。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。剑刃与钥匙将助我们赢得胜利。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	    "uqlionel": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeheart",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。我们的武力是不可抑制的武力。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgegrail",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。此处存有对痛苦的胃口，而我将使其餍足。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	    "foe.ingluviate.engorged": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgemoth",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。现在，激情升于心，憎恨升于手。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgemoth": 1,
+	    "edge": "needsedgemoth",
+	    "moth": "needsedgemoth"
+	},
+	"extantreqs": {
+	    "guard": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.winterheart",
+	"actionid": "operate",
+	"label": "筹划一次采用双重战术的袭击",
+	"startdescription": "谈话到此为止。在生命与死亡的交界处存在有力的安宁，其名为平衡。",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needswinterheart": 1,
+	    "winter": "needswinterheart",
+	    "heart": "needswinterheart"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.complicate",
+	"label": "险恶的概率！",
+	"startdescription": "我们的攻势完全按照计划执行，但战斗的走向仍然不明确。我可以选择让战斗得出结果，无论这结果是好是坏——或者我也可以让我的人撤退。\n\n[你可以放入你的纪念品以终止攻击，保护任何使用的友军。若你未如此做，攻击将会继续，并以友军胜利或敌军胜利之一结束。]",
+	"requirements": {
+	    "foe.voice": -1,
+	    "foe.ostlingant": -1
+	},
+	"slots": [
+	    {
+		"id": "needsmemento",
+		"label": "A Decision?",
+		"required": {
+		    "memento": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.failure",
+		"chance": 40
+	    },
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "attackenemy.retreat"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure",
+	"label": "失败！",
+	"startdescription": "@#foe.nightmare|我精神的武装无法击败这一敌人。我仍是恐惧的奴仆，而非恐惧的主人。#|攻势被挫败了！伤者匆忙撤退，死者则被留在原地——敌人的防御比我预测的更加完善。@",
+	"aspects": {
+	    "fatiguing": 1,
+	    "revealidentity": 1
+	},
+	"linked": [
+	    {
+		"id": "attackenemy.failure.growth"
+	    },
+	    {
+		"id": "attackenemy.failure.makecasualty"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "foe.braced",
+		"mutate": "foe.braced",
+		"level": -1,
+		"additive": true
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure.growth",
+	"label": "失败！",
+	"startdescription": "攻势被挫败了！伤者匆忙撤退，死者则被留在原地——敌人的防御比我预测的更加完善。",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"aspects": {
+	    "killfriend": 1,
+	},
+	"linked": [
+	    {
+		"id": "attackenemy.failure.growthcontinue"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure.growthcontinue",
+	"label": "绽放的憎恶",
+	"startdescription": "戴冠之孳的触碰承诺的不是死亡，而是生命。人们很快便学会畏惧这承诺。",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"aspects": {
+	    "growthinfect": 1
+	}
+    },
+    {
+	"id": "attackenemy.failure.makecasualty",
+	"label": "失败！",
+	"startdescription": "攻势被挫败了！伤者匆忙撤退，死者则被留在原地——敌人的防御比我预测的更加完善。",
+	"aspects": {
+	    "makecasualty": 1,
+	},
+	"alt": [
+	    {
+		"id": "attackenemy.failure.killfriends",
+		"chance": 30
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure.killfriends",
+	"label": "惨败！",
+	"startdescription": "行动完全失败了——事态急转直下，化作灾难。我战友的鲜血染红了战场。\n\n[攻击失败时，使用的友军有小概率直接死亡，而非负伤。]",
+	"requirements": {
+	    "friend": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "attackenemy.success",
+	"label": "胜利！",
+	"startdescription": "敌人在我们的脚边倒下，在战争结束之前，更多的敌人将会如此。今天是个好日子，但这只是沧海一粟。",
+	"aspects": {
+	    "killfoe": 1,
+	    "fatiguing": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe.officerdetail",
+		"mutate": "foe.officerdetail",
+		"level": -1
+	    },
+	    {
+		"filter": "foe.guardjerome",
+		"mutate": "foe.guardjerome",
+		"level": -1
+	    },
+	    {
+		"filter": "battlehunger",
+		"mutate": "battlehunger",
+		"level": -1,
+		"additive": true
+	    },
+	    {
+		"filter": "foe.ingluviate.protect",
+		"mutate": "foe.ingluviate.protect",
+		"level": 0
+	    },
+	],
+	"alt": [
+	    {
+		"id": "produce.escape",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.escape.marinette",
+		"additional": true,
+		"chance": 100
+	    },
+	    {
+		"id": "produce.escape.bloodonhands",
+		"additional": true,
+		"chance": 100
+	    },
+	    {
+		"id": "resilient.survived",
+		"chance": 30
+	    },
+	    {
+		"id": "braced.survived"
+	    },
+	    {
+		"id": "defeateddefiant.turnintofriend",
+	    },
+	    {
+		"id": "produce.monsterlesson",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "jerome.setupguard",
+		"additional": true,
+		"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"uqjerome": 1
+		    }
+		}
+	    },
+	    {
+		"id": "lionel.retaliate",
+		"additional": true,
+	    }
+	],
+	"linked": [
+	    {
+		"id": "used.shotgun.collateral",
+		"chance": 60
+	    },
+	    {
+		"id": "used.gaebolg.producewrake"
+	    },
+	    {
+		"id": "orcul.slain"
+	    },
+	    {
+		"id": "jerome.slain"
+	    },
+	    {
+		"id": "lionel.slain"
+	    },
+	    {
+		"id": "clear.bloodlust"
+	    },
+	    {
+		"id": "clear.broodscent"
+	    },
+	    {
+		"id": "startup.clear.malkin"
+	    },
+	]
+    },
+    {
+	"id": "resilient.survived",
+	"label": "敌人仍存！",
+	"startdescription": "这真令人沮丧——我们的目标过于狡猾，或过于强大，以致于我们敏捷的袭击没能击倒他们。\n\n[适应力强的敌军有时会从本应杀死他们的攻击中生存。]",
+	"description": "这真令人沮丧——我们的目标过于狡猾，或过于强大，以致于我们敏捷的袭击没能击倒他们。\n\n[适应力强的敌军有时会从本应杀死他们的攻击中生存。]",
+	"requirements": {
+	    "foe.resilient": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "braced.survived",
+	"label": "敌人仍存！",
+	"startdescription": "过于坚固——这一目标面对一次本应行之有效的攻势却毫不动摇。但下次它就不能如此了。\n\n[持有“稳固”性相的敌军永远能从第一次对其进行的攻击中存活。]",
+	"description": "过于坚固——这一目标面对一次本应行之有效的攻势却毫不动摇。但下次它就不能如此了。\n\n[持有“稳固”性相的敌军永远能从第一次对其进行的攻击中存活。]",
+	"requirements": {
+	    "foe.braced": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe.braced",
+		"mutate": "foe.braced",
+		"level": -1,
+		"additive": true
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.success.warriorgrail",
+	"label": "胜利！",
+	"startdescription": "在其衰退地状态下，这只怪兽的食欲成为了它的主宰。赤红技艺的诱惑让我们拥有满足它的手段，故它将会吞食我们为它准备好的任何“食物”，而非吞食我们。",
+	"aspects": {
+	    "dissolution": 1,
+	    "fatiguing": 1
+	},
+	"requirements": {
+	    "foe.warrior": 1,
+	    "grail": 8
+	}
+    },
+    {
+	"id": "attackenemy.success.serpentknock",
+	"label": "胜利！",
+	"startdescription": "是眼泪——这只巨蛇在流泪吗？它回想起了什么？它姐妹的那流血的手臂？来自她的手冰冷的触摸？无论那是什么，这巨蛇的悲痛已使其不再能战斗。我们将不受伤离去。",
+	"aspects": {
+	    "dissolution": 1,
+	    "fatiguing": 1
+	},
+	"requirements": {
+	    "foe.serpent": 1,
+	    "knock": 8
+	}
+    },
+    {
+	"id": "attackenemy.success.undeadwinter",
+	"label": "胜利！",
+	"startdescription": "在很久，很久以前，战争便已结束；而现在，我们让它们知晓。苦痛褪为平静，那些疲倦、褴褛者亦褪为纯白。最后，一切重归寂静。",
+	"aspects": {
+	    "dissolution": 1,
+	    "fatiguing": 1
+	},
+	"requirements": {
+	    "foe.undead": 1,
+	    "winter": 8
+	}
+    },
+    {
+	"id": "attackenemy.success.phlogisticantwinter",
+	"label": "胜利！",
+	"startdescription": "这狂暴的火焰终被熄灭。在聚集于此的冬之力下，这灵体的狂怒开始减弱。很快，它已只是噼啪作响的余火。再之后，便仅余灰烬。",
+	"aspects": {
+	    "dissolution": 1,
+	    "fatiguing": 1
+	},
+	"requirements": {
+	    "foe.phlogisticant": 1,
+	    "winter": 8
+	}
+    },
+    {
+	"id": "attackenemy.retreat",
+	"label": "撤退！",
+	"startdescription": "我的资源，我的人手——他们不应该在此刻被浪费。我给出信号，而后攻势转向，变作撤退。",
+	"description": "烟气自我们尝试并失败的地点冒起。这是一次挫折，我们的人会筋疲力尽，情绪低落，但至少他们完整地返回了。",
+	"requirements": {
+	    "memento": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.success.officer",
+	"label": "胜利！",
+	"startdescription": "敌人在我们的脚边倒下，在战争结束之前，更多的敌人将会如此。今天是个好日子，但这只是沧海一粟。",
+	"requirements": {
+	    "foe.officer": 1
+	},
+	"aspects": {
+	    "killfoe": 1,
+	    "fatiguing": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe.officerdetail",
+		"mutate": "foe.officerdetail",
+		"level": -1
+	    },
+	    {
+		"filter": "battlehunger",
+		"mutate": "battlehunger",
+		"level": -1,
+		"additive": true
+	    }
+	],
+	"alt": [
+	    {
+		"id": "weakenenemies.detect",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "used.gaebolg.producewrake"
+	    },
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "weakenenemies.detect",
+	"actionid": "scandal",
+	"label": "胜利！",
+	"startdescription": "德军以其高效自傲。但现在我们杀死了其负责指挥的军官之一，他们的效能已被折损。\n\n[当前战区的其他敌军的阈值将会降低。]",
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "weakened": 1,
+		    "uqbrood": 1,
+		    "soviet": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "weakenenemies.detect.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "weakenenemies.conclude"
+	    }
+	]
+    },
+    {
+	"id": "weakenenemies.detect.success",
+	"label": "胜利！",
+	"startdescription": "德军以其高效自傲。但现在我们杀死了其负责指挥的军官之一，他们的效能已被折损。\n\n[当前战区的其他敌军的阈值将会降低。]",
+	"requirements": {
+	    "foe": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe",
+		"mutate": "foe.placeholder",
+		"level": 1
+	    },
+	    {
+		"filter": "foe.placeholder",
+		"mutate": "foe",
+		"level": -1
+	    }
+	],
+	"linked": [
+	    {
+		"id": "weakenenemies.detect"
+	    }
+	]
+    },
+    {
+	"id": "weakenenemies.conclude",
+	"label": "胜利！",
+	"startdescription": "德军以其高效自傲。但现在我们杀死了其负责指挥的军官之一，他们的效能已被折损。\n\n[当前战区的其他敌军的阈值将会降低。]",
+	"aspects": {
+	    "weaken": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe.placeholder",
+		"mutate": "foe",
+		"level": 0
+	    },
+	    {
+		"filter": "foe",
+		"mutate": "foe.placeholder",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "clear.bloodlust",
+	"label": "胜利！",
+	"startdescription": "",
+	"requirements": {
+	    "bloodlust": 1,
+	    "battlehunger": -1
+	},
+	"effects": {
+	    "bloodlust": -99
+	}
+    },
+    {
+	"id": "jerome.setupguard",
+	"actionid": "spit.lantern",
+	"label": "撤退与掩护",
+	"startdescription": "“不，不……不该是这样。我拒绝接受。我<i>拒绝</i>以败者之身死去。”",
+	"requirements": {
+	    "monster.wound": -1,
+	    "uqjerome": 1
+	},
+	"slots": [
+	    {
+		"id": "needsking",
+		"label": "敌军",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsking2",
+		"label": "敌军",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "faction.king",
+		"mutate": "foe.guardjerome",
+		"level": 1
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "foe.guardjerome",
+		"level": 0
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "jerome.slain",
+	"label": "不再预见之人",
+	"startdescription": "杰罗姆的脸因震惊而变得惨白。看来他完全没有考虑失败的可能。“新王陛下——我明明被选中了。这是为何？你是怎么……”这英国人最后的话语在喉中断绝，而后他便倒下，他便死去。",
+	"requirements": {
+	    "monster.wound": 2,
+	    "uqjerome": 1
+	},
+	"aspects": {
+	    "longded": 1
+	},
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "lionel.retaliate",
+	"actionid": "spit.knock",
+	"label": "以伤还伤",
+	"startdescription": "莱昂内尔因这一击踉跄了一瞬，但也仅是一瞬。很快他的四肢便再次活动。他高举武器，缩短距离——",
+	"warmup": 15,
+	"requirements": {
+	    "foe.retaliatory": 1
+	},
+	"linked": [
+	    {
+		"id": "givewound.drawagain"
+	    }
+	]
+    },
+    {
+	"id": "lionel.slain",
+	"label": "解除职务",
+	"startdescription": "莱昂内尔捂住身侧，但无法阻止那道红色污渍的扩散。他的眼神坚定如钢。“闯入者，你对你将会使世界变成什么样一无所知。”当然，他是错的。但我让他带着这幻想死去。",
+	"requirements": {
+	    "monster.wound": 2,
+	    "uqlionel": 1
+	},
+	"aspects": {
+	    "longded": 1
+	},
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "orcul.slain",
+	"label": "巨兽倒下了！",
+	"startdescription": "奥库尔的身躯发出悲鸣并倾斜，如同沉默的战舰一般。血从它身上的各处伤口流出。它的肢体无法继续支撑那庞大的身躯。随着一声巨响，它倒下了。在几次小心的戳刺之后，我们判断它已死去，终于。",
+	"requirements": {
+	    "monster.wound": 3
+	},
+	"aspects": {
+	    "killfoe": 1
+	},
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "clear.broodscent",
+	"label": "胜利！",
+	"requirements": {
+	    "corpse.boccastrano": 1
+	},
+	"purge": {
+	    "broodscent": 99
+	}
+    },
+    {
+	"id": "startup.clear.malkin",
+	"label": "胜利！",
+	"extantreqs": {
+	    "foe.malkin": 1,
+	    "foe.warder": -1,
+	    "foe.warder.hidden": -1
+	},
+	"alt": [
+	    {
+		"id": "clear.malkin",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "clear.malkin",
+	"actionid": "banishing",
+	"label": "遣返巨型灵猫",
+	"startdescription": "没有了持钥者稳定它的存在，这双角斧的巨大仆从无法在我们的世界长存。它的身躯如烛火般摇曳；它的咆哮歪曲并消逝，化作白噪声——",
+	"description": "——然后它便彻底消逝。残留于此的仅有空气中的山楂气味，再无他物。",
+	"extantreqs": {
+	    "foe.malkin": 1
+	},
+	"slots": [
+	    {
+		"id": "needsmalkin",
+		"label": "巨型灵猫",
+		"required": {
+		    "foe.malkin": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "clear.malkin"
+	    }
+	],
+	"effects": {
+	    "foe.malkin": -99,
+	    "foe.malkin.hidden": -99
+	},
+	"warmup": 10
+    },
+    {
+	"id": "defeateddefiant.turnintofriend",
+	"label": "遵循名为“强大”的法则",
+	"startdescription": "真正的自由无法被给予，只能被取得。如果某人缺少取得它的力量，那他便无法获得自由。这正是一切忠诚遵循的法则，也是一切背叛遵循的法则。",
+	"requirements": {
+	    "rebelled": 1
+	},
+	"aspects": {
+	    "recruiting": 1,
+	    "fatiguing": 1
+	},
+	"mutations": [
+	    {
+		"filter": "otherworldly",
+		"mutate": "rebelled",
+		"level": -1
+	    },
+	    {
+		"filter": "battlehunger",
+		"mutate": "battlehunger",
+		"level": -1,
+		"additive": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    }
+]
+}

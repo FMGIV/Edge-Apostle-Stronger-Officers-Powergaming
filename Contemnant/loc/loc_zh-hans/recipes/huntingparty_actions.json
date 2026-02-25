@@ -1,0 +1,288 @@
+{
+"recipes": [
+    {
+	"id": "operate.escapemarinette",
+	"actionid": "operate",
+	"label": "逃离包围圈！",
+	"startdescription": "在那！玛丽内特攻势的缺口变得明晰。这是一场九死一生的逃离——但当遭到最为饥渴的丽姬亚追猎时，这已经是我最大的希望。",
+	"description": "我们暂时逃离了赤杯的攫握。\n\n[直到你下一次行经战火摧残的地区前，你都不会再遇见玛丽内特和她的部队。]",
+	"requirements": {
+	    "op.escapemarinette": 5
+	},
+	"haltverb": {
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "produce.monster": 99,
+	    "reinforcements.*": 99,
+	    "foedebuff": 99,
+	    "huntingparty": 99,
+	    "commander.attack": 99,
+	    "marinette.attack": 99,
+	    "spit.grail": 99
+	},
+	"craftable": true,
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "operate.escapemarinette.continue",
+	    }
+	]
+    },
+    {
+	"id": "operate.escapemarinette.continue",
+	"label": "逃离包围圈！",
+	"startdescription": "在那！玛丽内特攻势的缺口变得明晰。这是一场九死一生的逃离——但当遭到最为饥渴的丽姬亚追猎时，这已经是我最大的希望。",
+	"description": "我们暂时逃离了赤杯的攫握。\n\n[直到你下一次行经战火摧残的地区前，你都不会再遇见玛丽内特和她的部队。]",
+	"deleteverb": {
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "produce.monster": 99,
+	    "reinforcements.*": 99,
+	    "foedebuff": 99,
+	    "huntingparty": 99,
+	    "commander.attack": 99,
+	    "marinette.attack": 99,
+	    "spit.grail": 99
+	},
+	"purge": {
+	    "foe": 99,
+	    "foe.huntingparty": 99,
+	    "strife": 99
+	},
+	"effects": {
+	    "op.escapemarinette": -99,
+	    "token.escaped": 1
+	}
+    },
+    {
+	"id": "arrive.marinette.continue",
+	"label": "猎团前来",
+	"startdescription": "持钥人在关着她的容器内低声嘶鸣。“我的原姐妹找上门来了。做好准备。”",
+	"deleteverb": {
+	    "enemyaction": 99,
+	    "enemyaction.single": 99,
+	    "enemyaction.double.1": 99,
+	    "enemyaction.double.2": 99,
+	    "enemyaction.cutoff": 99,
+	    "enemyaction.destroysupplies": 99,
+	    "enemyaction.hide": 99,
+	    "enemyaction.infrastructure": 99,
+	    "enemyaction.reinforcements": 99,
+	    "produce.monster": 99,
+	    "reinforcements.*": 99,
+	    "foedebuff": 99
+	},
+	"purge": {
+	    "foe": 99
+	},
+	"effects": {
+	    "foe.marinette": 1,
+	    "foe.bloodonhands.hidden": 1,
+	    "foe.ivory.hidden": 6,
+	    "foe.percussigant": 8,
+	    "foe.flesheater": 10
+	},
+	"alt": [
+	    {
+		"id": "huntingparty.cycle",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.cycle",
+	"actionid": "huntingparty",
+	"label": "正在巡猎",
+	"startdescription": "丽姬亚们效忠于赤杯，但玛丽内特总是那个特别乐于接受她要求的。因战争的爆发变得更加大胆的赤杯命令玛丽内特夺取白日之钥——那我所必须的钥匙。法则会准许一位丽姬亚同时持有两把钥匙吗？我不知道，但我不能放任玛丽内特去尝试。",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token": 1,
+	    "readiness.token.marinette": 1
+	},
+	"linked": [
+	    {
+		"id": "marinette.attack.router",
+		"chance": 45
+	    },
+	    {
+		"id": "huntingparty.pickaction.router",
+		"chance": 45
+	    },
+	    {
+		"id": "huntingparty.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "huntingparty.reinforcements",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "marinette.attack.router",
+	"label": "猎团行动了！",
+	"startdescription": "玛丽内特的部队接近——准备让它们流血！",
+	"requirements": {
+	    "readiness.token.marinette": 9
+	},
+	"alt": [
+	    {
+		"id": "marinette.attacks.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "marinette.attack.clear"
+	    }
+	]
+    },
+    {
+	"id": "marinette.attack.clear",
+	"label": "猎团行动了！",
+	"startdescription": "玛丽内特的部队接近——准备让它们流血！",
+	"effects": {
+	    "readiness.token.marinette": -99
+	},
+	"linked": [
+	    {
+		"id": "huntingparty.cycle"
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.pickaction.router",
+	"label": "猎团行动了！",
+	"startdescription": "玛丽内特的部队接近——准备让它们流血！",
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"deckeffects": {
+	    "decisions.enemy.low.contemnant": 1
+	},
+	"linked": [
+	    {
+		"id": "huntingparty.executeaction"
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.executeaction",
+	"label": "猎团行动了！",
+	"startdescription": "玛丽内特的部队接近——准备让它们流血！",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "huntingparty.clear"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "singleattack.startup",
+		"additional": true
+	    },
+	    {
+		"id": "destroysupplies.startup",
+		"additional": true
+	    },
+	    {
+		"id": "hide.startup",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.clear",
+	"label": "猎团行动了！",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "huntingparty.cycle"
+	    }
+	]
+    },
+    {
+	"id": "marinette.attacks.startup",
+	"actionid": "marinette.attack",
+	"label": "干涸女巫作出攻击！",
+	"startdescription": "“<sprite name=edge>，<sprite name=edge>，<sprite name=edge>！”",
+	"extantreqs": {
+	    "foe.marinette.recovering": -1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsmarinette",
+		"label": "玛丽内特",
+		"required": {
+		    "marinette.marker": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "decision.enemy.attack": 1,
+	    "decision.enemy.singleattack": 1
+	},
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	]
+    },
+    {
+	"id": "huntingparty.reinforcements",
+	"actionid": "enemyaction.reinforcements",
+	"label": "浪潮涌起",
+	"startdescription": "玛丽内特汲取赤杯的力量与追奉者以协助她的追猎——",
+	"extantreqs": {
+	    "foe.huntingparty": -10
+	},
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"foe.ivory",
+		"foe.ivory",
+		"foe.ivory",
+		"foe.percussigant",
+		"foe.percussigant",
+		"foe.percussigant",
+		"foe.flesheater",
+		"foe.flesheater",
+		"foe.flesheater",
+		"foe.flesheater"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    }
+]
+}

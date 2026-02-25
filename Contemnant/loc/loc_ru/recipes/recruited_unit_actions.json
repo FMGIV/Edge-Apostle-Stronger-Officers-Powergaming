@@ -1,0 +1,107 @@
+{
+"recipes": [
+    {
+	"id": "recruit.soviet",
+	"actionid": "communicate",
+	"label": "Заключить союз с местными советскими войсками",
+	"startdescription": "Мы им не нравимся, но они также голодны и в отчаянии. Они сядут за стол переговоров, и сделка будет заключена.",
+	"description": "Мы с руководителем группы не пожимаем друг другу руки, но он коротко кивает мне, прежде чем уйти. Они придут, когда нужно.",
+	"requirements": {
+	    "repulsed": -1,
+	    "price.provisions": 1,
+	    "provisions": "price.provisions"
+	},
+	"craftable": true,
+	"warmup": 15,
+	"aspects": {
+	    "recruiting": 1
+	}
+    },
+    {
+	"id": "heal.wound.recruited",
+	"actionid": "abandon",
+	"label": "Залечить свою Рану",
+	"startdescription": "Этого будет достаточно.",
+	"description": "Проходит время в мед. палатке, а потом меня возвращают на поле боя.",
+	"requirements": {
+	    "provisions": 1,
+	    "recruited.medic": 1,
+	    "damage.body": 1,
+	    "debilitation": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "damage.body": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "healcasualty.medic.recruited",
+	"actionid": "operate",
+	"label": "Оказать медицинскую помощь раненому союзнику",
+	"startdescription": "Морфий и швы. Пилы, если необходимо.",
+	"description": "Готово. Они будут жить, чтобы сражаться ещё один день.",
+	"requirements": {
+	    "recruited.medic": 1,
+	    "wounded": 1,
+	    "provisions": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "healcomplete.medic"
+	    }
+	]
+    },
+    {
+	"id": "healcomplete.medic",
+	"label": "Provide medical attention to a wounded ally",
+	"aspects": {
+	    "restorehealth": 1
+	}
+    },
+    {
+	"id": "turnhindrance.scouts.recruited",
+	"actionid": "operate",
+	"label": "Послать разведчиков для понимания обстановки",
+	"startdescription": "Изменения в небе и воздухе могут представлять угрозу для неподготовленных, но мои разведчики могут придумать способ обратить даже это в нашу пользу.\n\n[Это превратит Препятствие в полезную Возможность.]",
+	"description": "Всё можно превратить в инструмент - или оружие.",
+	"requirements": {
+	    "recruited.scouts": 1,
+	    "hindrance": 1,
+	    "provisions": 1
+	},
+	"aspects": {
+	    "turnhindrance": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "repairdamaged.engineers.recruited",
+	"actionid": "operate",
+	"label": "Дать приказ о ремонте техники",
+	"startdescription": "Чинить сталь не всегда проще, чем плоть, но при наличии подходящих инструментов это такая же работа, как и любая другая.",
+	"description": "И готово. Машины возвращены в строй.",
+	"requirements": {
+	    "recruited.engineers": 1,
+	    "damaged": 1,
+	    "provisions": 2
+	},
+	"aspects": {
+	    "restorehealth": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+]
+}

@@ -1,0 +1,107 @@
+{
+"recipes": [
+    {
+	"id": "recruit.soviet",
+	"actionid": "communicate",
+	"label": "与当地苏联部队结盟",
+	"startdescription": "他们不喜欢我们——但他们也饥饿且走投无路。他们会上这谈判桌，然后协议将达成。",
+	"description": "这分队的队长并未和我握手，但他在离去时向我点头。当我呼叫时他们会来的。",
+	"requirements": {
+	    "repulsed": -1,
+	    "price.provisions": 1,
+	    "provisions": "price.provisions"
+	},
+	"craftable": true,
+	"warmup": 15,
+	"aspects": {
+	    "recruiting": 1
+	}
+    },
+    {
+	"id": "heal.wound.recruited",
+	"actionid": "abandon",
+	"label": "治愈我的伤口",
+	"startdescription": "这样就行。",
+	"description": "在战地医师的帐篷中，时间流逝。然后我便返回战场。",
+	"requirements": {
+	    "provisions": 1,
+	    "recruited.medic": 1,
+	    "damage.body": 1,
+	    "debilitation": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "damage.body": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "healcasualty.medic.recruited",
+	"actionid": "operate",
+	"label": "为负伤的友军提供医疗护理",
+	"startdescription": "吗啡与缝线。若必要，还有骨锯。",
+	"description": "完成了。他们将活下去。",
+	"requirements": {
+	    "recruited.medic": 1,
+	    "wounded": 1,
+	    "provisions": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "healcomplete.medic"
+	    }
+	]
+    },
+    {
+	"id": "healcomplete.medic",
+	"label": "为负伤的友军提供医疗护理",
+	"aspects": {
+	    "restorehealth": 1
+	}
+    },
+    {
+	"id": "turnhindrance.scouts.recruited",
+	"actionid": "operate",
+	"label": "派遣斥候研究地形分布",
+	"startdescription": "天空与大气的广泛活动能够威胁未做准备者，但我的斥候可以设计一种甚至能将这一点化作我们优势的方法。\n\n[这将把一个障碍转化为一个有用的机会。]",
+	"description": "万物均可用合适的方法化为工具——甚至化为武器。",
+	"requirements": {
+	    "recruited.scouts": 1,
+	    "hindrance": 1,
+	    "provisions": 1
+	},
+	"aspects": {
+	    "turnhindrance": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "repairdamaged.engineers.recruited",
+	"actionid": "operate",
+	"label": "命令维修损坏的机械",
+	"startdescription": "修补钢铁并不总是比修补血肉更加简单，但只要有合适的工具，这就与其他工作无异。",
+	"description": "完成了。这个战争引擎已回归战斗队列、",
+	"requirements": {
+	    "recruited.engineers": 1,
+	    "damaged": 1,
+	    "provisions": 2
+	},
+	"aspects": {
+	    "restorehealth": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+]
+}

@@ -1,0 +1,107 @@
+{
+"recipes": [
+    {
+	"id": "recruit.soviet",
+	"actionid": "communicate",
+	"label": "Arrange an alliance with local Soviet forces",
+	"startdescription": "They don't like us - but they're also hungry and desperate. They'll come to the table, and a deal will be struck.",
+	"description": "The contingent leader and I do not shake hands, but he gives me a terse nod before leaving. They'll come when I call.",
+	"requirements": {
+	    "repulsed": -1,
+	    "price.provisions": 1,
+	    "provisions": "price.provisions"
+	},
+	"craftable": true,
+	"warmup": 15,
+	"aspects": {
+	    "recruiting": 1
+	}
+    },
+    {
+	"id": "heal.wound.recruited",
+	"actionid": "abandon",
+	"label": "Heal my Wound",
+	"startdescription": "This will do.",
+	"description": "Time passes in the medic's tent, and then I am returned to the field.",
+	"requirements": {
+	    "provisions": 1,
+	    "recruited.medic": 1,
+	    "damage.body": 1,
+	    "debilitation": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "damage.body": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "healcasualty.medic.recruited",
+	"actionid": "operate",
+	"label": "Provide medical attention to a wounded ally",
+	"startdescription": "Morphine and stitches. Saws, if necessary.",
+	"description": "And done. They'll live to fight another day.",
+	"requirements": {
+	    "recruited.medic": 1,
+	    "wounded": 1,
+	    "provisions": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "healcomplete.medic"
+	    }
+	]
+    },
+    {
+	"id": "healcomplete.medic",
+	"label": "Provide medical attention to a wounded ally",
+	"aspects": {
+	    "restorehealth": 1
+	}
+    },
+    {
+	"id": "turnhindrance.scouts.recruited",
+	"actionid": "operate",
+	"label": "Send scouts to learn the measure of the land",
+	"startdescription": "The broad movements of the sky and the air can threaten the unprepared, but my scouts can devise a way to turn even this to our advantage.\n\n[This will convert a Hindrance into a useful Opportunity.]",
+	"description": "There is a way to turn everything into a tool - a weapon.",
+	"requirements": {
+	    "recruited.scouts": 1,
+	    "hindrance": 1,
+	    "provisions": 1
+	},
+	"aspects": {
+	    "turnhindrance": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "repairdamaged.engineers.recruited",
+	"actionid": "operate",
+	"label": "Order repairs on damaged machinery",
+	"startdescription": "Mending steel isn't always simpler than mending flesh, but with the proper tools it is a job like any other.",
+	"description": "And done. These engines of war are returned to fighting order.",
+	"requirements": {
+	    "recruited.engineers": 1,
+	    "damaged": 1,
+	    "provisions": 2
+	},
+	"aspects": {
+	    "restorehealth": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+]
+}

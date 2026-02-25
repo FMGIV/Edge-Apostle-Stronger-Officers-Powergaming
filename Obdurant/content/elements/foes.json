@@ -1,0 +1,2321 @@
+{
+"elements": [
+    {
+	"id": "foe.corpses",
+	"label": "Fallen Enemies",
+	"description": "They fought. They lost.",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "raiseshattered": "friend.risen",
+	    "promotiontodisciple": "friend.conscript"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "foe.corpse.unnatural",
+	"label": "Inhuman Remains",
+	"description": "What is left of a fiercer opponent.",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 6,
+	    "winter": 6,
+	    "otherworldly": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "foe.template",
+	"label": "Foe Template",
+	"aspects": {
+	    "foe": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresources1",
+		"label": "Resources",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    },
+	    {
+		"id": "needsresources2",
+		"label": "Resources",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    },
+	    {
+		"id": "needsresources3",
+		"label": "Something More?",
+		"description": "A knot of power? A confluence? A sign of the earth, or the sky?",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "friend": 1,
+		    "supplies": 1,
+		    "weapon": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "foe.infantry",
+	"label": "Enemy Infantry Company",
+	"description": "Man, the weapon.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 8,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.infantry",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.infantry.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.infantry.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.infantry.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.infantry",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.kommando",
+	"label": "Enemy Kommandotruppe",
+	"description": "Formidable skirmishers and ambush tacticians, trained in tactics that emphasize aggression and manoeuvrability behind enemy lines.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedge": 8,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.kommando",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.kommando.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.kommando.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.kommando.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.kommando",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.sniper",
+	"label": "Enemy Sniper",
+	"description": "A skilled marksman, positioned advantageously, can hold back a hundred men. Someone silent or sneaky might be able to close in on him undetected.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needswinter": 8,
+	    "needsmoth": 8,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.sniper",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.sniper.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.sniper.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.sniper.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.sniper",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.officer",
+	"label": "Enemy Officer",
+	"description": "One of the Wehrmacht's preening luminaries. Killing them would throw the enemy's operations into chaos, but officers seldom travel without protection.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "foe.rankofficer": 1,
+	    "needsedge": 4,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.officer",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.officer.hidden"
+	}
+    },
+    {
+	"id": "foe.officer.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.officer.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.officer"
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.tanks",
+	"label": "Enemy Armoured Company",
+	"description": "A German tank is a fearsome machine. Facing it head-on would require a serious amount of direct firepower, but specialized munitions may allow us to circumvent an otherwise brutal fight.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 14,
+	    "needsforge": 10,
+	    "foe.armoured": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.tanks",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.tanks.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.tanks.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.tanks.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.tanks",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.bombers",
+	"label": "Enemy Bomber Squadron",
+	"description": "First there is the thrum of the rotors, then the long whistle of the descent, and then the scream of new fire.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 20,
+	    "foe.aerial": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.bombers",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.bombers.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ]
+	},
+	"lifetime": 180,
+	"decayTo": "foe.bombers.refuel"
+    },
+    {
+	"id": "foe.bombers.refuel",
+	"label": "Enemy Bomber Squadron (Refueling)",
+	"description": "The Luftwaffe contingent plaguing us has withdrawn to refuel and rearm. They won't be gone forever.",
+	"lifetime": 240,
+	"decayTo": "foe.bombers",
+	"icon": "foe.bombers",
+	"resaturate": true
+    },
+    {
+	"id": "foe.bombers.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.bombers.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.bombers",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.artillery",
+	"label": "Enemy Artillery",
+	"description": "A heavy gun emplacement watched by German engineers and enemy patrols. A brute force assault might work - we could storm the position, destroy the guns. Or a saboteur might leave the engineers a very loud, very forceful surprise.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 20,
+	    "needsforgemoth": 4,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.artillery",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.artillery.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.artillery.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.artillery.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.artillery",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.manhunters",
+	"label": "Enemy Menschenjäger Company",
+	"description": "An infantry detachment led by initiates of the fatal arts. Force alone will not suffice here - we must equal whatever adeptry they bring to field with some of our own.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedgelantern": 8,
+	    "needsedgewinter": 8,
+	    "needsedgeforge": 8,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.manhunters",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.manhunters.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.manhunters.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.manhunters.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.manhunters",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.undead",
+	"label": "Anguished Dead",
+	"description": "Not all the dead see the end of war. We can banish them with force and weaponry, but the secrets of Winter might offer a way to lay them to rest.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 14,
+	    "needswinter": 8
+	},
+	"xtriggers": {
+	    "refresh": "foe.undead",
+	    "killfoe": "trauma",
+	    "dissolution": "mem.calm",
+	    "concealidentity": "foe.undead.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.undead.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.undead.hidden",
+	    "killfoe": "trauma",
+	    "revealidentity": "foe.undead",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.warrior",
+	"label": "Shamed Warrior",
+	"description": "The Lionsmith's monsters are bound by certain honours. If one disgraces itself by consuming that which they have not slain themselves, he will revoke their strength and intellect. This monster had gotten greedy, and the pains of its degeneration have rendered it half-mad, but even in its death throes it will prove a nasty foe.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 14,
+	    "needsgrail": 8,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.warrior",
+	    "killfoe": "foe.corpse.unnatural",
+	    "dissolution": "mem.taste",
+	    "concealidentity": "foe.warrior.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.warrior.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.warrior.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.warrior",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.serpent",
+	"label": "Younger Sister",
+	"description": "A monstrous serpent, come to glut itself on the battlefield dead. Its crushing strength and dreadful venoms might be overcome in battle, but Knock might offer us a way to placate it.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 14,
+	    "needsknock": 8,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.serpent",
+	    "killfoe": "foe.corpse.unnatural",
+	    "dissolution": "mem.grief",
+	    "concealidentity": "foe.serpent.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.serpent.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.serpent.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.serpent",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.growth",
+	"label": "Fruitful Dead",
+	"description": "Corpses touched by a power from Nowhere, set again in the world as a walking, budding disease. Scour it with fire, or with light. [This Enemy will turn Allies it kills into more instances of itself.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needslantern": 10,
+	    "needsforge": 10,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.growth",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.growth.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.growth.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.growth.hidden",
+	    "killfoe": "trauma",
+	    "revealidentity": "foe.growth",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.splinter",
+	"label": "Wolf-Splinter",
+	"description": "A prowling shard of lean grey malice. No weapons we wield can harm it, but we can send it whimpering back to the Wood with enough light or constancy.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needslantern": 14,
+	    "needsheart": 14,
+	    "foe.lethal": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.splinter",
+	    "killfoe": "trauma",
+	    "concealidentity": "foe.splinter.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.splinter.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.splinter.hidden",
+	    "killfoe": "trauma",
+	    "revealidentity": "foe.splinter",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.niniame",
+	"label": "Niniame",
+	"description": "Protectress-beast of the Unseen Lake and elder sister of the sword-keeper, who bore her away at great cost when the Serpent-Mother demanded her death. She did not always have fangs; she did not always have scales and talons - but she still holds dear her younger sister.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedgeknock": 10,
+	    "needsedgeheart": 10,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "uq.niniame": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.niniame",
+	    "killfoe": "niniame.reviving",
+	    "concealidentity": "foe.niniame.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgeheart",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsedgeheart",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.niniame.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "uq.niniame": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.niniame.hidden",
+	    "killfoe": "niniame.reviving",
+	    "revealidentity": "foe.niniame"
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "niniame.reviving",
+	"label": "Niniame, Mending",
+	"description": "The power which keeps the lake hidden also keeps the protectress-beast from ever truly ending. She'll be back for us.",
+	"lifetime": 300,
+	"resaturate": true,
+	"decayTo": "foe.niniame",
+	"icon": "foe.niniame"
+    },
+    {
+	"id": "foe.ostlingant",
+	"label": "Ostlingant",
+	"description": "Minor servants of the Aviform Hours, known as secret-carriers and minstrel-deceivers. They do not fly by daylight - nor anywhere in the waking world, for that matter - and their songs are not meant for mortal ears. [If this Enemy's attack goes undefended, it will inflict Trauma upon you.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needswinter": 8,
+	    "needsmoth": 8,
+	    "needsgrail": 8
+	},
+	"xtriggers": {
+	    "refresh": "foe.ostlingant",
+	    "killfoe": "mem.unexpected",
+	    "concealidentity": "foe.ostlingant.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.ostlingant.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ostlingant.hidden",
+	    "killfoe": "mem.unexpected",
+	    "revealidentity": "foe.ostlingant",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.voice",
+	"label": "A Voice in the Mists?",
+	"description": "'Turn back, turn back...' [If this Enemy's attack goes undefended, it will destroy Whispers on Wings if one can be found.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needswinter": 10,
+	    "needsmoth": 10,
+	    "nonlethal": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.voice",
+	    "killfoe": "mem.calm",
+	    "concealidentity": "foe.voice.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.voice.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.voice.hidden",
+	    "killfoe": "mem.calm",
+	    "revealidentity": "foe.voice",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.labhite.grounded",
+	"label": "Enemy Labhite (Grounded)",
+	"description": "The youngest of the Lionsmith's children, and the most beautiful. Labhites are especially fierce on the wing, but one on the ground is no easy foe, either. Its strength is monstrous, and its body glows with candescent heat.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 16,
+	    "needsforge": 12,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.labhite.wounded",
+	    "refresh": "foe.labhite.grounded",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.labhite.grounded.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"lifetime": 180,
+	"decayTo": "foe.labhite.airborne",
+	"icon": "foe.labhite"
+    },
+    {
+	"id": "foe.labhite.grounded.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.labhite.wounded",
+	    "refresh": "foe.labhite.grounded.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.labhite.grounded",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.labhite.airborne",
+	"label": "Enemy Labhite (Airborne)",
+	"description": "The youngest of the Lionsmith's children, and the most beautiful. Labhites are especially fierce on the wing, armed with burning-breath and razor-talons to decimate those unfortunate enough to have drawn their wrath.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 26,
+	    "foe.aerial": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.labhite.wounded",
+	    "refresh": "foe.labhite.airborne",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.labhite.airborne.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"lifetime": 180,
+	"decayTo": "foe.labhite.grounded",
+	"icon": "foe.labhite"
+    },
+    {
+	"id": "foe.labhite.airborne.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.labhite.wounded",
+	    "refresh": "foe.labhite.airborne.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.labhite.airborne",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.spathiurus",
+	"label": "Enemy Spathiurus",
+	"description": "These have been colloquially referred to as 'fencing lions' by teratologists. Don't try to fence with one, though - the blade-like appendage at the end of its tail can pierce and cut through almost any substance: steel, stone, flesh. Especially flesh.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 14,
+	    "needsforge": 12,
+	    "foe.lethal": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.spathiurus.wounded",
+	    "refresh": "foe.spathiurus",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.spathiurus.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.spathiurus.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.spathiurus.wounded",
+	    "refresh": "foe.spathiurus.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.spathiurus",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.hesukhine",
+	"label": "Enemy Hesukhine",
+	"description": "Unusually patient, quiet, and perhaps even 'shy,' hesukhines are the most subtle of the Lionsmith's children. On the hunt, a hesukhine's operating standard is to go unseen - specifically, to go unseen until it is too late.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 16,
+	    "needswinter": 12,
+	    "foe.elusive": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.hesukhine.wounded",
+	    "refresh": "foe.hesukhine",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.hesukhine.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.hesukhine.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.hesukhine.wounded",
+	    "refresh": "foe.hesukhine.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.hesukhine",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.echidniform.grounded",
+	"label": "Enemy Echidniform (Grounded)",
+	"description": "Temptation is a great enemy of honour. Those of the Lionsmith's warriors who submit to the seductions of the Ligeian Echidna lose their honour, but also undergo a great change. In them grow new innovations, new strengths, and most of all, new hungers.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 24,
+	    "needsedgegrail": 10,
+	    "foe.resilient": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.echidniform.wounded",
+	    "refresh": "foe.echidniform.grounded",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.echidniform.grounded.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"lifetime": 120,
+	"decayTo": "foe.echidniform.airborne",
+	"icon": "foe.echidniform"
+    },
+    {
+	"id": "foe.echidniform.grounded.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.echidniform.wounded",
+	    "refresh": "foe.echidniform.grounded.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.echidniform.grounded",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.echidniform.airborne",
+	"label": "Enemy Echidniform (Airborne)",
+	"description": "Temptation is a great enemy of honour. Those of the Lionsmith's warriors who submit to the seductions of the Ligeian Echidna lose their honour, but also undergo a great transformation. In them grow new innovations, new strengths, and most of all, new hungers.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 30,
+	    "needsedgegrail": 12,
+	    "foe.aerial": 2,
+	    "foe.resilient": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.echidniform.wounded",
+	    "refresh": "foe.echidniform.airborne",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.echidniform.airborne.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "foe.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+	    ]
+	},
+	"lifetime": 120,
+	"decayTo": "foe.echidniform.grounded",
+	"icon": "foe.echidniform"
+    },
+    {
+	"id": "foe.echidniform.airborne.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.echidniform.wounded",
+	    "refresh": "foe.echidniform.airborne.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.echidniform.airborne",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "foe.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.skaptodon",
+	"label": "Enemy Skaptodon",
+	"description": "Burrowing giants, armed with claws and fangs that part stone like water. When one comes above ground, it is usually to part something else, like men, or tanks, or anything else that might be unlucky enough to come across a skaptodon in battle. [This Enemy has a chance to produce Earthquakes whenever it performs any action.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 28,
+	    "needsedgeforge": 10,
+	    "foe.resilient": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.skaptodon.wounded",
+	    "refresh": "foe.skaptodon",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.skaptodon.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"induces": [
+	    {
+		"id": "produce.earthquake",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "foe.skaptodon.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "recruiting": "friend.skaptodon.wounded",
+	    "refresh": "foe.skaptodon.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.skaptodon",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true,
+	"induces": [
+	    {
+		"id": "produce.earthquake"
+	    }
+	]
+    },
+    {
+	"id": "foe.cross",
+	"label": "Reclaimer",
+	"description": "The Carapace Cross fled the world when we took it from them. Why have they come back?",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 16,
+	    "needsmoth": 10,
+	    "needsgrail": 10,
+	    "foe.armoured": 1,
+	    "foe.resilient": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.cross",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.cross.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.cross.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.cross.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.cross",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    }
+]
+}

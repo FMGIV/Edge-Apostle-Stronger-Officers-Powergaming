@@ -1,0 +1,1169 @@
+{
+"elements": [
+    {
+	"id": "side.marker",
+	"label": "Побочный Маркер",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "main.marker",
+	"label": "Основной Маркер",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "main.template",
+	"label": "Основной шаблон цели",
+	"aspects": {
+	    "main": 1,
+	    "objective": 1
+	},
+	"slots": [
+	    {
+		"id": "resources1",
+		"label": "Ресурсы",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "resources2",
+		"label": "Ресурсы",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "resources3",
+		"label": "Что-то ещё?",
+		"description": "Узел силы? Стечение обстоятельств? Условия погоды или местности?",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "supplies": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "provisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "provisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "provisions3",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	]
+    },
+    {
+	"id": "side.template",
+	"label": "Шаблон Побочного задания",
+	"aspects": {
+	    "side": 1,
+	    "objective": 1
+	},
+	"slots": [
+	    {
+		"id": "resources1",
+		"label": "Ресурсы",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "resources2",
+		"label": "Ресурсы",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "resources3",
+		"label": "Что-то ещё?",
+		"description": "Узел силы? Стечение обстоятельств? Условия погоды или местности?",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "supplies": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "provisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "provisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "main.withdraw",
+	"label": "Основная цель: Отход",
+	"description": "Эта позиция быстро становится несостоятельной. Мы должны обеспечить достаточное прикрытие от нападения немцев, чтобы наши союзники могли эвакуироваться.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "resolution"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "main.eliminate",
+	"label": "Основная цель: Устранить",
+	"description": "Местная разведка указывает на то, что на нашей текущей позиции находится высокопоставленная цель. Если мы сможем уничтожить эту цель, прежде чем двигаться дальше, это будет хорошим предзнаменованием для военных действий.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "resolution"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "main.repossess",
+	"label": "Основная цель: Отбить",
+	"description": "Ценный актив пропал где-то среди обломков и пламени. Немцы охотятся за ним - мы не можем допустить, чтобы он попал к ним в руки.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "resolution"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "main.sabotage",
+	"label": "Основная цель: Саботаж",
+	"description": "Положение здесь изобилует ценной инфраструктурой - такой, которую мы не можем взять с собой. Прежде чем двигаться дальше, мы должны убедиться, что вермахт не сможет наслаждаться тем, что мы оставляем позади.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "resolution"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "main.stalingrad.north",
+	"label": "Главная цель: Север Сталинграда",
+	"description": "Немцы атакуют северную часть города, несмотря на то, что зима сгущает воздух вокруг нас. Требуется замедлить их продвижение по улицам.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "main.stalingrad.north.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "main.stalingrad",
+	"unique": true
+    },
+    {
+	"id": "main.stalingrad.north.complete",
+	"label": "ВЫПОЛНЕНО: Север Сталинграда",
+	"description": "Кровь на снегу. Мы удерживаем север.",
+	"aspects": {
+	    "main": 1
+	},
+	"icon": "main.stalingrad.complete",
+	"slots": [
+	    {
+		"id": "needsmain",
+		"label": "Запад",
+		"required": {
+		    "main.stalingrad.west.complete": 1
+		}
+	    },
+	    {
+		"id": "needsmain2",
+		"label": "Юг",
+		"required": {
+		    "main.stalingrad.south.complete": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "main.stalingrad.west",
+	"label": "Главная цель: Запад Сталинграда",
+	"description": "Здесь собирается немецкий авангард, молот устремляется к широкой поверхности наковальни. Вследствии, запад города препратится в место бойни.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "main.stalingrad.west.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.bombers",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "main.stalingrad",
+	"unique": true
+    },
+    {
+	"id": "main.stalingrad.west.complete",
+	"label": "ВЫПОЛНЕНО: Запад Сталинграда",
+	"description": "Улицы усеяны телами. На западе воцарилась тишина.",
+	"aspects": {
+	    "main": 1
+	},
+	"icon": "main.stalingrad.complete",
+	"slots": [
+	    {
+		"id": "needsmain",
+		"label": "Север",
+		"required": {
+		    "main.stalingrad.north.complete": 1
+		}
+	    },
+	    {
+		"id": "needsmain2",
+		"label": "Юг",
+		"required": {
+		    "main.stalingrad.south.complete": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "main.stalingrad.south",
+	"label": "Главная цель: Юг Сталинграда",
+	"description": "Юг охвачен боевыми действиями, как и остальная часть города. Нечто, не являющееся вражеским солдатом, тоже сражается там - и сражается жестоко. Зачистите юг и подавите его.",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "main.stalingrad.south.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.undead",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.splinter",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "main.stalingrad",
+	"unique": true
+    },
+    {
+	"id": "main.stalingrad.south.complete",
+	"label": "ВЫПОЛНЕНО: Юг Сталинграда",
+	"description": "Больше никаких завываний в темноте. Тишина на юге.",
+	"aspects": {
+	    "main": 1
+	},
+	"icon": "main.stalingrad.complete",
+	"slots": [
+	    {
+		"id": "needsmain",
+		"label": "Север",
+		"required": {
+		    "main.stalingrad.north.complete": 1
+		}
+	    },
+	    {
+		"id": "needsmain2",
+		"label": "Запад",
+		"required": {
+		    "main.stalingrad.west.complete": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "side.cutoff",
+	"label": "Побочная цель: Блокада",
+	"description": "Враг преследует наши колонны снабжения. Пока сохраняется эта блокада, к нам не поступит никакой провизии - ее преодоление должно быть первостепенной задачей, если мы хотим поддерживать военные усилия здесь. [Пока эта карта лежит на столе, вы не получите никаких ресурсов от события Хорошие Дни.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "husk"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.forest",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 400,
+	"unique": true
+    },
+    {
+	"id": "side.adeptwinter",
+	"label": "Побочная цель: Перехватить адепта Зимы",
+	"description": "Адепты - люди скрытные, и война загнала тех, кто не смог бежать из страны, еще глубже в подполье. Один, однако, всё ещё прячется здесь. Им может не понравиться то, что их нашли, но еще больше им не понравится, если их застрелят. [Возможность обратиться к адепту Зимы.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "friend.adeptwinter"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.nocturnal",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.undead",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "side.adeptlantern",
+	"label": "Побочная цель: Перехватить адепта Лампады",
+	"description": "Адепты - люди скрытные, и война загнала тех, кто не смог бежать из страны, еще глубже в подполье. Один, однако, всё ещё прячется здесь. Им может не понравиться то, что их нашли, но еще больше им не понравится, если их застрелят. [Возможность обратиться к адепту Лампады.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "friend.adeptlantern"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.apollonian",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.greatseal",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "side.adeptgrail",
+	"label": "Побочная цель: Перехватить адепта Чаши",
+	"description": "Адепты - люди скрытные, и война загнала тех, кто не смог бежать из страны, еще глубже в подполье. Один, однако, всё ещё прячется здесь. Им может не понравиться то, что их нашли, но еще больше им не понравится, если их застрелят. [Возможность обратиться к адепту Лампады.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "friend.adeptgrail"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.dionysian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "side.weaponscache",
+	"label": "Побочная цель: Тайник с оружием",
+	"description": "Колонна с оружием застряла за нашими линиями обороны. Если мы будем действовать быстро, то сможем завладеть этим оружием сами. [Шанс получить разнообразные припасы.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "weaponscache.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.sniper",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "weaponscache.complete",
+	"label": "Добыча из тайника с оружием",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "side.rescueallies",
+	"label": "Побочная цель: Спасти союзников",
+	"description": "Отряд наших товарищей в окружении враждебными силами! Они будут потеряны, если мы не вмешаемся - вперед, к оружию! [Шанс заполучить новых союзников.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "rescueallies.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.storms",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "rescueallies.complete",
+	"label": "Полученные союзники",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "side.yuri",
+	"label": "Побочная цель: Юрий Серенко",
+	"description": "В рядах был обнаружен немецкий 'крот', но он ускользнул прежде, чем Юра смог свершить должное правосудие. Для него задержание шпиона до того, как тот скроется, является вопросом не только тактической важности, но и чести. [Шанс завербовать нового союзника.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "side.yuri.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.sniper",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.yuri.complete",
+	"label": "Немецкий шпион",
+	"description": "Юрию захочется сделать из него пример.",
+	"aspects": {
+	    "prisoner": 1,
+	    "mortal": 1,
+	    "vault.completed": 1
+	},
+	"icon": "genericprisonerm"
+    },
+    {
+	"id": "side.iosef",
+	"label": "Побочная цель: Иосиф Володин",
+	"description": "Офицер штрафного батальона, надзирающий за отрядом Иосифа, якобы коллекционирует определенные редкие вещицы и произведения искусства - такого рода удовольствия, по мнению Иосифа, партия не одобрила бы в наличии у офицера. Иосиф говорит нам, что его подчиненный ищет здесь кое-какой предмет. Если мы доберемся первыми, возможно, сможем договриться о его свободе. [Шанс завербовать нового союзника.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "side.iosef.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.serpent",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.iosef.complete",
+	"label": "'Хиона в Абидосе' (1938)",
+	"description": "Экранизация печально известной одноименной пьесы. ОПРП - аналог британского Бюро Подавления в Советском Союзе - внесло этот фильм в черный список в 1933 году, когда его премьера в Ленинграде вызвала у зрителей немоту и 'видения о бледной женщине'.",
+	"aspects": {
+	    "supplies": 1,
+	    "winter": 6,
+	    "vault.completed": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "side.konstantin",
+	"label": "Побочная цель: Доктор Константин Исмаилов",
+	"description": "Больница, где ранее оперировали доктор Исмаилов и его товарищи, была захвачена немцами в ходе их последнего наступления, и теперь она находится под контролем вермахта. Особенно редкий 'медицинский образец' был среди вещей, которые доктор был вынужден оставить, когда бежал. Ему нужна помощь, чтобы вернуть его обратно. [Шанс завербовать нового союзника.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "side.konstantin.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.apollonian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.konstantin.complete",
+	"label": "Стекловидный ихор",
+	"description": "Долгожданный приз доктора Исмаилова: слабо светящаяся жидкость в стеклянном флаконе.",
+	"aspects": {
+	    "supplies": 1,
+	    "lantern": 12,
+	    "vault.completed": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"icon": "ingredientlanternf"
+    },
+    {
+	"id": "side.nikolai",
+	"label": "Побочная цель: Николай Беляев",
+	"description": "Почерневшие отпечатки ладоней, выжженные на стали - зловредное мелкое Имя проникло в арсенал, уродуя оборудование и делая наше оружие непригодным для использования. Николай намерен найти и обезвредить этого надоедливого диверсанта. [Шанс завербовать нового союзника.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "side.nikolai.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.earthquake",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.nikolai.complete",
+	"label": "Озорной Пепел",
+	"description": "То, что осталось от одного из негодных выродков Кузни.",
+	"aspects": {
+	    "supplies": 1,
+	    "forge": 6,
+	    "vault.completed": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "side.ebrehel",
+	"label": "Путь к Хранителю меча",
+	"description": "Эбрехель ждет, когда я заявлю на него права, в самом сердце озерной рощи. Нам придется срезать путь через этот лес-лабиринт, чтобы добраться до него, но наш путь будет прегражден существами и силами Невидимого озера - и самой хранительницей меча.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "nimiane"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.forest",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.voice",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.monastery",
+	"label": "Печерская лавра",
+	"description": "В 1920-х годах при посредничестве советского правительства и монахов пещерного монастыря было достигнуто взаимопонимание, и это место было официально (и незаметно) признано санкционированным хранилищем 'неестественных явлений'. Конечно, в ОПРП не было секретом, что с 11-го века в монастыре размещалось (или, скорее, было заключено) нечто не от мира сего. Сейчас же Киев находится под обстрелом, и армия вытеснила монахов вон. Под Печерской Лаврой без присмотра творятся опасные вещи. Мы должны положить им конец.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "promise.medusa"
+		},
+		{
+		    "id": "weapon.skull",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.earthquake",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.growth",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "vaultlandbeyondforest1"
+    },
+    {
+	"id": "side.camilla",
+	"label": "Схватка в дикой местности?",
+	"description": "На окраинах города разгорается необычайно ожесточенный бой. Те, кто спасся от боевых действий, сообщают, что не все участвующие в них комбатанты - люди.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "friend.camilla"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.fog",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.warrior",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.labhite.grounded",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "vaultcontinent3"
+    },
+    {
+	"id": "side.office",
+	"label": "Региональное отделение ОПРП",
+	"description": "ОПРП - инструмент советского правительства для 'регулирования неестественного, непредвиденного и нечестивого'. Оно было неизгладимо коррумпировано, но я был бенефициаром этой коррупции, поэтому не возражал, когда работал там. В этом отделении, если мне не изменяет память, в хранилищах повышенной секретности хранилось несколько сильнодействующих, и в то же время вызывающих беспокойство вещей. Надеюсь, обстрел не потревожил ничего чересчур опасного.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "weapon.wormnail"
+		},
+		{
+		    "id": "tool.winter",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.undead",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.nocturnal",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.factory",
+	"label": "Производство в Харске-Брумове",
+	"description": "После Великой войны разработки огнестрельного оружия Харск-Брумова стали неортодоксальными и необычными, а их клиентура стала меньше и страннее. Этот литейный цех на окраине города - одно из последних мест, где компания все еще производит оружие, и теперь им завладели немцы. Мы должны отбить его обратно.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "weapon.revolver.5"
+		},
+		{
+		    "id": "tool.forge",
+		    "morpheffect": "spawn"
+		},
+		{
+		    "id": "supplies.explosives",
+		    "morpheffect": "spawn",
+		    "level": 3
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "vaultcapital3"
+    },
+    {
+	"id": "side.gallery",
+	"label": "Галерея Кузнецова",
+	"description": "Князь Кузнецов в конце своей жизни увлекся духовными методами исцеления и в течение нескольких лет путешествовал по Средиземноморью, чтобы удовлетворить свои интересы. В этой галерее сейчас хранятся многие артефакты, которые он приобрел - купил, украл, раскопал - до момента своей смерти в 1859 году.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "tool.heart"
+		},
+		{
+		    "id": "tool.grail",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.dionysian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.nest",
+	"label": "Гнездо Лабхита",
+	"description": "Одно из чудовищ Кузнеца Львов свило себе гнездо из перьев в лесу за городом. Это доставляло немцам неприятности, что хорошо, но и несколько наших собственных патрулей также были потеряны из-за хищничества зверя. Искоренить его будет нелегко - лабхиты молоды, но они наводят ужас в небе и очень сильны.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "weapon.talon"
+		},
+		{
+		    "id": "tool.lantern",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.forest",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.labhite.grounded",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.labhite.airborne",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "vaultrendingmountains1"
+    },
+    {
+	"id": "side.voronezh",
+	"label": "Путь, окутанный туманом",
+	"description": "В 12 веке рязанский князь бежал после поражения в Воронеж. Он так и не добрался до города. Местные легенды приписывают его исчезновение предательству и диким зверям, но самые древние свидетельства гласят, что в те дни, когда стояли леса черного дуба, князь столкнулся с чем-то в тумане. Побежденные иногда находят утешение в туманах одного Имени - и хотя лесов давно нет, туманы все еще здесь.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "tool.moth"
+		},
+		{
+		    "id": "tool.knock",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.forest",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.moonspace",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.dionysian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+]
+}

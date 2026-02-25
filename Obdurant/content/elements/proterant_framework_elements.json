@@ -1,0 +1,1071 @@
+{
+"elements": [
+    {
+	"id": "friend.fiorenza.local",
+	"label": "Fiorenza Scorsanti",
+	"description": "A kind, spirited young lady who has lent her voice to the beleaguered fighters of <i>la Resistenza.</i> Once a student; now a soldier.",
+	"aspects": {
+	    "lantern": 4,
+	    "heart": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.fiorenza.local.wounded",
+	    "fatiguing": "friend.fiorenza.local.exhausted",
+	    "recruiting": "friend.fiorenza",
+	    "mortal.introduce": [
+		{
+		    "id": "side.fiorenza",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.fiorenza"
+    },
+    {
+	"id": "friend.lorenzo.local",
+	"label": "Lorenzo Bassi",
+	"description": "Seasoned cook and acting surgeon. He is serviceable as the latter, but in truth, his <i>spezzatino</i> saves more lives than his scalpel.",
+	"aspects": {
+	    "forge": 4,
+	    "grail": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.lorenzo.local.wounded",
+	    "fatiguing": "friend.lorenzo.local.exhausted",
+	    "recruiting": "friend.lorenzo",
+	    "mortal.introduce": [
+		{
+		    "id": "side.lorenzo",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.lorenzo"
+    },
+    {
+	"id": "friend.padre.local",
+	"label": "Padre Ruggiero",
+	"description": "Priest, veteran... exorcist? The good father was a chaplain during the Great War, and it was then he swore an oath to stamp out wickedness wherever he could find it in the world - and also outside it.",
+	"aspects": {
+	    "winter": 4,
+	    "knock": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.padre.local.wounded",
+	    "fatiguing": "friend.padre.local.exhausted",
+	    "recruiting": "friend.padre",
+	    "mortal.introduce": [
+		{
+		    "id": "side.padre",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.padre"
+    },
+    {
+	"id": "friend.daria.local",
+	"label": "Daria Corsino",
+	"description": "A partisan fighter of some renown. She is called 'La Rasoia' by those who have seen her in action, and before the war she was either a barber, a convict, or a murderer. She will not tell which it was.",
+	"aspects": {
+	    "moth": 4,
+	    "edge": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.daria.local.wounded",
+	    "fatiguing": "friend.daria.local.exhausted",
+	    "recruiting": "friend.daria",
+	    "mortal.introduce": [
+		{
+		    "id": "side.daria",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.daria"
+    },
+    {
+	"id": "strength",
+	"label": "Strength",
+	"description": "'I-I am going to be a storm-a flame-\nI need to fight whole armies alone;\nI have ten hearts; I have a hundred arms;\nI feel too strong to war with mortals-\nBRING ME GIANTS!'\n\n- Edmond Rostand, <i>Cyrano de Bergerac</i>",
+	"aspects": {
+	    "edge": 6,
+	    "influence": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "anger",
+	"label": "Anger",
+	"description": "Shatter our chains, break our oaths; raise our voices and bare our fists. No defiance is possible without anger.",
+	"aspects": {
+	    "forge": 6,
+	    "influence": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "courage",
+	"label": "Courage",
+	"description": "That which overwhelms patience.",
+	"aspects": {
+	    "heart": 6,
+	    "influence": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "wound.eye.healing",
+	"label": "A Wounded Face",
+	"description": "My wound hisses with heat. When it's gone, not even a scar will remain. [A total of five Wounds and Debilitations will kill you, but this Wound will heal over time, rather than become a Debilitation.]",
+	"aspects": {
+	    "knock": 4,
+	    "forge": 4,
+	    "damage.body": 1
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Medics",
+		"required": {
+		    "friend.medics": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 240
+    },
+    {
+	"id": "wound.hand.healing",
+	"label": "A Pierced Hand",
+	"description": "My wound hisses with heat. When it's gone, not even a scar will remain. [A total of five Wounds and Debilitations will kill you, but this Wound will heal over time, rather than become a Debilitation.]",
+	"aspects": {
+	    "knock": 4,
+	    "forge": 4,
+	    "damage.body": 1
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Medics",
+		"required": {
+		    "friend.medics": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 240
+    },
+    {
+	"id": "wound.leg.healing",
+	"label": "A Shattered Knee",
+	"description": "My wound hisses with heat. When it's gone, not even a scar will remain. [A total of five Wounds and Debilitations will kill you, but this Wound will heal over time, rather than become a Debilitation.]",
+	"aspects": {
+	    "knock": 4,
+	    "forge": 4,
+	    "damage.body": 1
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Medics",
+		"required": {
+		    "friend.medics": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 240
+    },
+    {
+	"id": "wound.ear.healing",
+	"label": "A Ripped Ear",
+	"description": "My wound hisses with heat. When it's gone, not even a scar will remain. [A total of five Wounds and Debilitations will kill you, but this Wound will heal over time, rather than become a Debilitation.]",
+	"aspects": {
+	    "knock": 4,
+	    "forge": 4,
+	    "damage.body": 1
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Medics",
+		"required": {
+		    "friend.medics": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 240
+    },
+    {
+	"id": "lesson.monsters.a",
+	"label": "Monstrous Insights",
+	"description": "Knowledge on the disassembly of monsters, which is naturally useful for their assembly, too. The Lionsmith teaches: to understand a thing, take it apart. [Combine enough of these to comprehend further methods for the manufacture of monsters.]",
+	"aspects": {
+	    "forge": 2,
+	    "edge": 2,
+	    "grail": 2,
+	    "lesson": 1,
+	    "lore": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "converttob": "lesson.monsters.b",
+	    "converttoc": "lesson.monsters.c"
+	},
+	"slots": [
+	    {
+		"id": "needslesson1",
+		"required": {
+		    "lesson": 1
+		}
+	    },
+	    {
+		"id": "needslesson2",
+		"required": {
+		    "lesson": 1
+		}
+	    },
+	    {
+		"id": "needslesson3",
+		"required": {
+		    "lesson": 1
+		}
+	    },
+	    {
+		"id": "needslesson4",
+		"required": {
+		    "lesson": 1
+		}
+	    }
+	],
+	"icon": "lesson.monsters"
+    },
+    {
+	"id": "lesson.monsters.b",
+	"label": "Monstrous Insights",
+	"description": "Knowledge on the disassembly of monsters, which is naturally useful for their assembly, too. The Lionsmith teaches: to understand a thing, take it apart. [Combine enough of these to comprehend further methods for the manufacture of monsters.]",
+	"aspects": {
+	    "forge": 2,
+	    "edge": 2,
+	    "grail": 2,
+	    "lesson": 1,
+	    "lore": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needslesson1",
+		"required": {
+		    "lesson": 1
+		}
+	    },
+	    {
+		"id": "needslesson2",
+		"required": {
+		    "lesson": 1
+		}
+	    },
+	    {
+		"id": "needslesson3",
+		"required": {
+		    "lesson": 1
+		}
+	    },
+	    {
+		"id": "needslesson4",
+		"required": {
+		    "lesson": 1
+		}
+	    },
+	    {
+		"id": "needslesson5",
+		"required": {
+		    "lesson": 1
+		}
+	    }, 
+	    {
+		"id": "needslesson6",
+		"required": {
+		    "lesson": 1
+		}
+	    },
+	    {
+		"id": "needslesson7",
+		"required": {
+		    "lesson": 1
+		}
+	    },
+	    {
+		"id": "needslesson8",
+		"required": {
+		    "lesson": 1
+		}
+	    },
+	    {
+		"id": "needslesson9",
+		"required": {
+		    "lesson": 1
+		}
+	    },
+	],
+	"icon": "lesson.monsters"
+    },
+    {
+	"id": "lesson.monsters.c",
+	"label": "Monstrous Insights",
+	"description": "Knowledge on the disassembly of monsters, which is naturally useful for their assembly, too. The Lionsmith teaches: to understand a thing, take it apart. [You have reached the summit of mortal knowledge when it comes to smithing monsters, but even then, all knowledge remains useful.]",
+	"aspects": {
+	    "forge": 2,
+	    "edge": 2,
+	    "grail": 2,
+	    "lesson": 1,
+	    "lore": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"icon": "lesson.monsters"
+    },
+    {
+	"id": "bloodlust",
+	"label": "Bloodlust",
+	"description": "I WILL CRACK THE BONES OF COURAGEOUS MEN! I WILL BLOT THE HORIZON WITH VALOROUS CORPSES! I WILL HAVE BATTLE, IF ONLY A WORTHY ENEMY WOULD GIVE IT TO ME!",
+	"aspects": {
+	    "battlehunger": 3,
+	    "edge": 4,
+	    "grail": 4,
+	    "heart": 4
+	},
+	"uniquenessgroup": "uqbloodlust",
+	"lifetime": 2400
+    },
+    {
+	"id": "proterant.story",
+	"label": "The Exile's Bet",
+	"description": "'I'll say it plain: the Lionsmith is looking for a new Name. That means he needs tough, strong bastards. That means you. But you'll need to be stronger, and you'll need to prove it with blood. You'll need to learn a thing or two about monsters, so maybe you'll need to talk to Echidna. And I've heard something about a celebration at Montecassino - the Lionsmith's preparing a surprise. Don't want to miss that. Oh, and a note: I've made a wager with my Foe on whether or not you've actually got the mettle to be Named. So, if not for the glory, do it for your old friend! I have the utmost faith in you. But a little luck can't hurt, eh?'",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "broodscent",
+	"label": "Brood Scent",
+	"description": "'Follow your nose, sweetie - the stomach can really only indicate one thing, after all. Boccastrano smells peculiar: like hot brass, like rain, like cinnamon and wax; he kills clean and eats quietly. And Orcul smells like meat gone bad - a cart's worth of meat gone bad. When you've finished, come bring me my dinner, and then we can talk some more.'",
+	"aspects": {
+	    "scentscout": 1
+	}
+    },
+    {
+	"id": "skill.intimidate.active",
+	"label": "Conqueror's Cry",
+	"description": "Courage will flee the souls of men; lions will lie low and meek; even the sky will tremble when I bellow blood. Hear me, and be afraid. [This card will remain active until the timer expires, preventing all Enemy actions against you for the duration.]",
+	"xtriggers": {
+	    "fatiguing": "skill.intimidate.exhausted"
+	},
+	"lifetime": 180,
+	"decayTo": "skill.intimidate.exhausted"
+    },
+    {
+	"id": "signaller_afraid",
+	"label": "Conqueror's Cry - In Effect",
+	"description": "None dare face me in battle. [No Enemies will attack you or interfere with Objectives.]",
+	"lifetime": 1,
+	"icon": "skill.intimidate.active",
+	"verbicon": "afraid"
+    },
+    {
+	"id": "signaller_afraid_king",
+	"label": "Conqueror's Cry - In Effect",
+	"description": "None dare face me in battle. [No Enemies will attack you or interfere with Objectives.]",
+	"lifetime": 1,
+	"icon": "skill.intimidate.active",
+	"verbicon": "action.king.afraid"
+    },
+    {
+	"id": "signaller_afraid_legion",
+	"label": "Conqueror's Cry - In Effect",
+	"description": "None dare face me in battle. [No Enemies will attack you or interfere with Objectives.]",
+	"lifetime": 1,
+	"icon": "skill.intimidate.active",
+	"verbicon": "action.legion.afraid"
+    },
+    {
+	"id": "foe.warder",
+	"label": "Légion Claviger",
+	"description": "Keepers of the borders between this world and the Mansus. They can permit passage if they wish, but they are best at forbidding it. [This Enemy can place your Allies in temporary stasis.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsknock": 10,
+	    "needsedge": 10,
+	    "faction.legion": 1,
+	    "warder.mark": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.warder",
+	    "killlegion": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.warder.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "stasis.marker",
+	"label": "Stasis Marker",
+	"description": "Denotes that a claviger's stasis ability is currently in effect.",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "foe.phlogisticant",
+	"label": "Phlogisticant",
+	"description": "Free from its cage of glass and steel, this wicked flame greedily devours all that it touches. The fierceness with which it burns isn't sustainable - but I don't think it much cares.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needswinter": 10,
+	    "needsedge": 6,
+	    "needsforge": 6,
+	    "foe.explosive": 1,
+	    "faction.king": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.phlogisticant",
+	    "killking": "foe.phlogisticant.exploding",
+	    "killfoe": "foe.phlogisticant.exploding",
+	    "dissolution": "husk",
+	    "concealidentity": "foe.phlogisticant.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+      "id": "montecassino.here",
+      "label": "Montecassino",
+      "description": "On the highmost hill of Cassino once stood Apollo's temple. Then came Benedetto da Norsia, who raised the Invictine cross over the pagan icons and established the famous abbey. But now on the highmost hill there is only a blasted ruin, where German soldiers sleep in the aftermath of Allied bombing. It is said that Eternity is cruel, but History never brought forth into the world a thing it did not intend to destroy. <i>C'est la guerre.</i>",
+      "aspects": {
+        "warzone.current": 1,
+        "sector.b": 1,
+	"shrine.lionsmith.marker": 1
+      },
+      "slots": [
+        {
+          "id": "needsscout",
+          "actionid": "recon",
+          "label": "Scouts",
+          "required": {
+            "friend.scouts": 1
+          }
+        }
+      ],
+      "unique": true,
+      "icon": "montecassino"
+    },
+    {
+	"id": "craterfield",
+	"label": "Cradle of the Star",
+	"description": "A stray light in the sky - a distant spark of empyrean fire, struck from the ceiling of heaven by the Lionsmith's hammer. I can feel its light calling me north, even from here. I must follow after it.",
+	"aspects": {
+	    "warzone": 1,
+	    "sector.b": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "foe.riflemen",
+		    "morpheffect": "spawn",
+		    "level": 4
+		},
+		{
+		    "id": "foe.riflemen.hidden",
+		    "morpheffect": "spawn",
+		    "level": 4
+		},
+		{
+		    "id": "foe.engine",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.engine.hidden",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.phlogisticant.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.jerome",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "arriving.two": [
+		{
+		    "id": "foe.boundsmen",
+		    "morpheffect": "spawn",
+		    "level": 2
+		},
+		{
+		    "id": "foe.boundsmen.hidden",
+		    "morpheffect": "spawn",
+		    "level": 6
+		},
+		{
+		    "id": "foe.warder",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.warder.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.malkin",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.lionel",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		   "id": "craterfield.here"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "token.star",
+	"label": "Flame of the Interior",
+	"description": "The fire of heaven has imbrued my flesh and spirit. I am seamless; I am strong; I will never scar again. [Rather than turn into Debilitations, your wounds will now heal and disappear by themselves over time.]",
+    },
+    {
+	"id": "craterfield.here",
+	"label": "Cradle of the Star",
+	"description": "Fateful night in Montecassino. Streaks and ribbons of flinty light make the sky strange. The smoke of one great battle billows behind; the fire of another waits ahead. The Lionsmith's gift waits to be claimed - but I am not the only one trying to claim it. Hasten, hasten.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.b": 1,
+	    "long.blocker": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+	 	"actionid": "recon",
+		"label": "Scouts",
+		"required": {
+		    "friend.scouts": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "craterfield"
+    },
+    {
+	"id": "rome.mundane",
+	"label": "Rome",
+	"description": "The Germans and their allies have withdrawn from Rome, declaring it an open city - they have surrendered! Cheering crowds will meet us as we march in; adoring hands will throw flowers of victory. I tell myself this is good; my country is almost free. This is good, isn't it?",
+        "aspects": {
+            "warzone": 1
+        },
+	"slots": [
+        {
+          "id": "needsprovisions1",
+          "label": "Provisions",
+          "required": {
+            "provisions": 1
+          },
+          "consumes": true
+        },
+        {
+          "id": "needsprovisions2",
+          "label": "Provisions",
+          "required": {
+            "provisions": 1
+          },
+          "consumes": true
+        },
+        {
+          "id": "needsprovisions3",
+          "label": "Provisions",
+          "required": {
+            "provisions": 1
+          },
+          "consumes": true
+        }
+        ],
+	"unique": true,
+	"xtriggers": {
+	    "exalted": "rome"
+	}
+    },
+    {
+	"id": "proterant.story",
+	"label": "The Exile's Bet",
+	"description": "'I'll say it plain: the Lionsmith is looking for a new Name. That means he needs tough, strong bastards. That means you. But you'll need to be stronger, and you'll need to prove it with blood. You'll need to learn a thing or two about monsters, so maybe you'll need to talk to Echidna. And I've heard something about a celebration at Montecassino - the Lionsmith's preparing a surprise. Don't want to miss that. Oh, and a note: I've made a wager with my Foe on whether or not you've actually got the mettle to be Named. So, if not for the glory, do it for your old friend! I have the utmost faith in you. But a little luck can't hurt, eh?'",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "duel.wilhelm.proterant",
+	"label": "The Warmaker",
+	"description": "A hulking, jolly-faced German decorated in the antique livery of a Prussian major. He has come to act as the representative of his enemy, the Continental.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "wilhelm"
+    },
+    {
+	"id": "duel.camilla.proterant",
+	"label": "The Continental",
+	"description": "An imperious, strikingly-scarred woman draped in the fatigues and field cloak of a French officer. This is whom I have challenged to <i>musvashir.</i>",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1,
+	    "duel.marker": 1
+	},
+	"icon": "camilla"
+    },
+    {
+	"id": "duel.maccabee",
+	"label": "Judah the Hammer",
+	"description": "An unlikely friend of <i>my</i> unlikely friend; a Name of the Lionsmith, who has lent his authority to act as my second in <i>musvashir.</i>",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1
+	},
+	"icon": "friend.maccabee"
+    },
+   {
+	"id": "constructions.a",
+	"label": "Constructions: Dadgah",
+	"description": "'Lions can be created, not as children are created, nor as words are created, but as weapons are created.' In the Shadowless Empire, these words were wisdom. [You can use this card to craft certain creations of the Lionsmith.]",
+	"aspects": {
+	    "lore": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing1",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing2",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing3",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "constructions.b",
+	"label": "Constructions: Adaran",
+	"description": "'The Lionsmith makes monsters to defeat the Tribune.' Winged, clawed, fanged - in all their dimensions, the Lionsmith's children are made for war against the enemy, and against each other. [You can use this card to craft certain stronger creations of the Lionsmith.]",
+	"aspects": {
+	    "lore": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing1",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing2",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing3",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing4",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "constructions.c",
+	"label": "Constructions: Behram",
+	"description": "'The Lionsmith's children are born by the hammer's touch; broken by the hammer's touch; reforged by the hammer's touch.' The Lionsmith's eldest children do not always survive their upbringing, but those which do crack the earth with their step and shake the sky with their strength. [You can use this card to craft some of the strongest creations of the Lionsmith.]",
+	"aspects": {
+	    "lore": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing1",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing2",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing3",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing4",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing5",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    }
+	]
+    },
+]
+}

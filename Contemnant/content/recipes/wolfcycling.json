@@ -1,0 +1,363 @@
+{
+"recipes": [
+    {
+	"id": "wolfcycle.cycle",
+	"actionid": "wolfcycle",
+	"label": "The Procession of the Wolf",
+	"startdescription": "I can feel the writhing of the Wolf in the turning of the wind, in the currents of the war. He is manifest wherever conflict sires pain, and so these days he is manifest everywhere - but at this moment, fate has spared us the worst of his wrath.\n\n[For now, the Wolf's attention is focused elsewhere. Nothing significant will occur, yet.]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "wolfcycle.change",
+		"chance": 20
+	    },
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.change",
+	"actionid": "wolfcycle",
+	"label": "The Procession of the Wolf",
+	"extantreqs": {
+	    "duel.wilhelm": -1,
+	    "foe.marinette": -1,
+	    "foe.marinette.recovering": -1,
+	    "foe.marinette.hidden": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"seasondespair",
+		"seasondespair"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.turnrage"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.turnrage",
+	"actionid": "wolfcycle",
+	"label": "The Procession of the Wolf",
+	"requirements": {
+	    "seasondespair": 1
+	},
+	"aspects": {
+	    "epiphany": 1
+	},
+	"effects": {
+	    "season": -1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle.rage"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.cycle.rage",
+	"actionid": "wolfcycle",
+	"label": "The Procession of the Wolf",
+	"startdescription": "The Wolf-Divided's shadow is cast long over the field of battle. Things are about to get worse - and then, worse than that.\n\n[Destructive forces are abound in the world. Friends and enemies alike will suffer.]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "wolfcycle.restore.duel"
+	    },
+	    {
+		"id": "wolfcycle.restore.marinette"
+	    },
+	    {
+		"id": "wolfcycle.restore",
+		"chance": 30
+	    },
+	    {
+		"id": "wolfcycle.cycle.rage"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "wolf.pickaction",
+		"additional": true,
+		"chance": 35
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.restore",
+	"actionid": "wolfcycle",
+	"label": "The Procession of the Wolf",
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.restore.marinette",
+	"actionid": "wolfcycle",
+	"label": "The Procession of the Wolf",
+	"extantreqs": {
+	    "foe.marinette": 1
+	},
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.restore.duel",
+	"actionid": "wolfcycle",
+	"label": "The Procession of the Wolf",
+	"extantreqs": {
+	    "duel.wilhelm": 1
+	},
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "wolf.pickaction",
+	"actionid": "wolfevent",
+	"label": "The Coming Shadow",
+	"startdescription": "The days darken with blood and hopeless battle; reality buckles and screams; annihilation looms. The Wolf-Divided walks here, and oblivion walks with him.",
+	"extantreqs": {
+	    "duel.wilhelm": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.obliterate",
+		"draw.wolf.trauma",
+		"draw.wolf.hindrances",
+		"draw.wolf.enemies"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "wolf.begin.influence"
+	    },
+	    {
+		"id": "wolf.begin.obliterate"
+	    },
+	    {
+		"id": "wolf.begin.trauma"
+	    },
+	    {
+		"id": "wolf.begin.hindrances"
+	    },
+	    {
+		"id": "wolf.begin.enemies"
+	    },
+	    {
+		"id": "wolf.pickaction.clear"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "wolf.pickaction.clear",
+	"label": "The Corrivality Giveth",
+	"effects": {
+	    "draw.wolf.influence": -99,
+	    "draw.wolf.obliterate": -99,
+	    "draw.wolf.trauma": -99,
+	    "draw.wolf.hindrances": -99,
+	    "draw.wolf.enemies": -99
+	},
+	"linked": [
+	    {
+		"id": "wolf.pickaction.again"
+	    }
+	]
+    },
+    {
+	"id": "wolf.pickaction.again",
+	"actionid": "wolfevent",
+	"label": "The Coming Shadow",
+	"startdescription": "The days darken with blood and hopeless battle; annihilation looms. The Wolf-Divided walks here, and oblivion walks with him.",
+	"internaldeck": {
+	    "spec": [
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.obliterate",
+		"draw.wolf.trauma",
+		"draw.wolf.hindrances",
+		"draw.wolf.enemies"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "wolf.begin.influence"
+	    },
+	    {
+		"id": "wolf.begin.obliterate"
+	    },
+	    {
+		"id": "wolf.begin.trauma"
+	    },
+	    {
+		"id": "wolf.begin.hindrances"
+	    },
+	    {
+		"id": "wolf.begin.enemies"
+	    },
+	    {
+		"id": "wolf.pickaction.clear"
+	    }
+	],
+    },
+    {
+	"id": "wolf.begin.influence",
+	"label": "The Alignments of War",
+	"startdescription": "The hinges of the Corrivality grind and gnash, dripping with blood. Palpable power bleeds through the skin of the world - something I can use.",
+	"description": "The torments of the spirit can become weapons for those initiated in the ways of force. Here are my torments; here are my weapons.",
+	"requirements": {
+	    "draw.wolf.influence": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"hatred",
+		"despair",
+		"agony"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    },
+    {
+	"id": "wolf.begin.obliterate",
+	"label": "The Jaws of the Wolf",
+	"startdescription": "There is a sound I can hear behind the world - a cold, dread rumbling that comes whenever one listens in the night too long. I know well the signs of the Wolf on his hunt. Soon enough, someone or something will cease to be.",
+	"description": "Not a trace remains, but the Wolf's stink still tarnishes the air. His power will remain in the world for a little while longer.",
+	"requirements": {
+	    "draw.wolf.obliterate": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Oblivion",
+		"required": {
+		    "friend": 1,
+		    "foe": 1
+		},
+		"forbidden": {
+		    "friend.named": 1,
+		    "foe.officer": 1,
+		    "marinette.marker": 1,
+		    "friend.immortal": 1,
+		    "foe.exile": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"effects": {
+	    "friend": -99,
+	    "foe": -99,
+	    "hindrance.wolf": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "wolf.begin.trauma",
+	"label": "Suffering, Recalled",
+	"startdescription": "The Wolf comes by night in the shape of a dream. I am in Sobibor, again: the wire fences, the baying dogs, the gaunt faces - and then there is the one called Exile. They would have me taken to their quarters in the <i>kommandant's</i> residence, and I would be 'educated' on those nights.",
+	"description": "Sometimes, after the Exile's lessons, the guards would have to drag me back to the bunks, broken and bleeding in a dozen places. At others, they would insist I be escorted back, sent off with a real dinner and a bath still numbingly fresh on my senses. The Exile would watch me walk back on those nights, smiling predaciously from the high window.\n\nThen, I wake, and I cannot cry. All I am is quiet.",
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "damage.mind": -3
+	},
+	"requirements": {
+	    "draw.wolf.trauma": 1
+	},
+	"warmup": 10,
+	"effects": {
+	    "trauma": 1
+	}
+    },
+    {
+	"id": "wolf.begin.hindrances",
+	"label": "Omens and Agitations",
+	"startdescription": "Reality buckles and screams when the Wolf-Divided draws near. The jaggedness of sunlight, the howling of the stars - these herald his malignities. We must brace for this.",
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"requirements": {
+	    "draw.wolf.hindrances": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"hindrance.nocturnal",
+		"hindrance.wolf",
+		"hindrance.apollonian",
+		"hindrance.nocturnal",
+		"hindrance.wolf",
+		"hindrance.apollonian"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    },
+    {
+	"id": "wolf.begin.enemies",
+	"label": "Omens and Agitations",
+	"startdescription": "When the Wolf takes the field, lesser hatreds and agonies shed from his foul hide, viciously incarnate in the waking world. The unavenged dead, the anguish of the slain, and things worse still - they will all take arms against us.",
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "sobibor.here": -1
+	},
+	"requirements": {
+	    "draw.wolf.enemies": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"foe.splinter",
+		"foe.wrake",
+		"foe.wrake",
+		"foe.undead",
+		"foe.undead"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    }
+]
+}

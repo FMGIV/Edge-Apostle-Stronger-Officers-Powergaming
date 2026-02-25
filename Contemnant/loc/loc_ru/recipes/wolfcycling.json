@@ -1,0 +1,361 @@
+{
+"recipes": [
+    {
+	"id": "wolfcycle.cycle",
+	"actionid": "wolfcycle",
+	"label": "Шествие Волка",
+	"startdescription": "Я чувствую, как корчится Волк в порывах ветра, в потоках войны. Он является везде, где конфликт порождает боль, а потому в наши дни он является повсюду – но пока что судьба сберегла нас от худшего из воплощений его гнева.\n\n[Внимание Волка направилось куда-то ещё. Ничего существенного пока не произойдёт.]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "wolfcycle.change",
+		"chance": 20
+	    },
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.change",
+	"actionid": "wolfcycle",
+	"label": "Шествие Волка",
+	"extantreqs": {
+	    "duel.wilhelm": -1,
+	    "foe.marinette": -1,
+	    "foe.marinette.recovering": -1,
+	    "foe.marinette.hidden": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"seasondespair",
+		"seasondespair"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.turnrage"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.turnrage",
+	"actionid": "wolfcycle",
+	"label": "Шествие Волка",
+	"requirements": {
+	    "seasondespair": 1
+	},
+	"aspects": {
+	    "epiphany": 1
+	},
+	"effects": {
+	    "season": -1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle.rage"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.cycle.rage",
+	"actionid": "wolfcycle",
+	"label": "Шествие Волка",
+	"startdescription": "Разделенный Волк отбрасывает свою длинную тень на поле битвы. Ситуация вот-вот ухудшится, а затем станет ещё хуже.\n\n[В мире полно разрушительных сил. И друзья, и враги пострадают одинаково.]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "wolfcycle.restore.duel"
+	    },
+	    {
+		"id": "wolfcycle.restore.marinette"
+	    },
+	    {
+		"id": "wolfcycle.restore",
+		"chance": 30
+	    },
+	    {
+		"id": "wolfcycle.cycle.rage"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "wolf.pickaction",
+		"additional": true,
+		"chance": 35
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.restore",
+	"actionid": "wolfcycle",
+	"label": "Шествие Волка",
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.restore.marinette",
+	"actionid": "wolfcycle",
+	"label": "Шествие Волка",
+	"extantreqs": {
+	    "foe.marinette": 1
+	},
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "wolfcycle.restore.duel",
+	"actionid": "wolfcycle",
+	"label": "Шествие Волка",
+	"extantreqs": {
+	    "duel.wilhelm": 1
+	},
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfcycle.cycle"
+	    }
+	]
+    },
+    {
+	"id": "wolf.pickaction",
+	"actionid": "wolfevent",
+	"label": "Грядущая Тень",
+	"startdescription": "Дни омрачаются кровью и безнадежностью битвы; трещит и кричит реальность; надвигается уничтожение. Разделенный Волк бредёт здесь, и забвение вместе с ним.",
+	"extantreqs": {
+	    "duel.wilhelm": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.obliterate",
+		"draw.wolf.trauma",
+		"draw.wolf.hindrances",
+		"draw.wolf.enemies"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "wolf.begin.influence"
+	    },
+	    {
+		"id": "wolf.begin.obliterate"
+	    },
+	    {
+		"id": "wolf.begin.trauma"
+	    },
+	    {
+		"id": "wolf.begin.hindrances"
+	    },
+	    {
+		"id": "wolf.begin.enemies"
+	    },
+	    {
+		"id": "wolf.pickaction.clear"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "wolf.pickaction.clear",
+	"label": "Дары Совражества",
+	"effects": {
+	    "draw.wolf.influence": -99,
+	    "draw.wolf.obliterate": -99,
+	    "draw.wolf.trauma": -99,
+	    "draw.wolf.hindrances": -99,
+	    "draw.wolf.enemies": -99
+	},
+	"linked": [
+	    {
+		"id": "wolf.pickaction.again"
+	    }
+	]
+    },
+    {
+	"id": "wolf.pickaction.again",
+	"actionid": "wolfevent",
+	"label": "Грядущая Тень",
+	"startdescription": "Дни омрачаются кровью и безнадежностью битвы; трещит и кричит реальность; надвигается уничтожение. Разделенный Волк бредёт здесь, и забвение вместе с ним.",
+	"internaldeck": {
+	    "spec": [
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.influence",
+		"draw.wolf.obliterate",
+		"draw.wolf.trauma",
+		"draw.wolf.hindrances",
+		"draw.wolf.enemies"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "wolf.begin.influence"
+	    },
+	    {
+		"id": "wolf.begin.obliterate"
+	    },
+	    {
+		"id": "wolf.begin.trauma"
+	    },
+	    {
+		"id": "wolf.begin.hindrances"
+	    },
+	    {
+		"id": "wolf.begin.enemies"
+	    },
+	    {
+		"id": "wolf.pickaction.clear"
+	    }
+	],
+    },
+    {
+	"id": "wolf.begin.influence",
+	"label": "Баланс Войны",
+	"startdescription": "Механизм Совражества скрипит и скрежещет, истекая кровью. Сквозь оболочку мира просачивается ощутимая сила - та, что я смогу использовать.",
+	"description": "Муки духа могут стать оружием для тех, кто посвящен в пути силы. Вот мои муки; вот мое оружие.",
+	"requirements": {
+	    "draw.wolf.influence": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"hatred",
+		"despair",
+		"agony"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    },
+    {
+	"id": "wolf.begin.obliterate",
+	"label": "Волчьи Челюсти",
+	"startdescription": "Порой я слышу звук за пределами мира – холодный, ужасающий рокот, который раздается всякий раз, когда кто-то слишком долго вслушивается в ночь. Я хорошо знаю признаки Волка, вышедшего на охоту. Скоро кто-то или что-то перестанет существовать.",
+	"description": "Не осталось и следа, но зловоние Волка всё ещё отравляет воздух. Его сила задержится в мире, но ненадолго.",
+	"requirements": {
+	    "draw.wolf.obliterate": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Забвение",
+		"required": {
+		    "friend": 1,
+		    "foe": 1
+		},
+		"forbidden": {
+		    "friend.named": 1,
+		    "foe.officer": 1,
+		    "marinette.marker": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"effects": {
+	    "friend": -99,
+	    "foe": -99,
+	    "hindrance.wolf": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "wolf.begin.trauma",
+	"label": "Память о Страданиях",
+	"startdescription": "Волк приходит ночью в образе сна. Я снова в Собиборе: проволочные ограждения, лай собак, измождённые лица – и, наконец, тот, кого называют Изгнанником. Меня отведут в покои резиденции <i>коменданта</i>, чтобы в эту ночь заняться моим 'обучением'.",
+	"description": "Иногда, после уроков Изгнанника, охранникам приходилось тащить меня обратно на койку, переломанного и кровоточащего в десятке мест. В иной раз, меня настойчиво провожали обратно после отличного ужина и до одурения освежающей ванны. В те ночи Изгнанник смотрел, как я иду обратно, хищно улыбаясь из высокого окна.\n\nА потом я просыпаюсь не в силах плакать. Просто молчу.",
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "damage.mind": -3
+	},
+	"requirements": {
+	    "draw.wolf.trauma": 1
+	},
+	"warmup": 10,
+	"effects": {
+	    "trauma": 1
+	}
+    },
+    {
+	"id": "wolf.begin.hindrances",
+	"label": "Предзнаменования и Волнения",
+	"startdescription": "Реальность корчится и кричит, когда приближается Разделенный Волк. Ослепительный оскал солнца, завывание звезд - глашатаи его злодеяний. Мы должны быть готовы.",
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"requirements": {
+	    "draw.wolf.hindrances": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"hindrance.nocturnal",
+		"hindrance.wolf",
+		"hindrance.apollonian",
+		"hindrance.nocturnal",
+		"hindrance.wolf",
+		"hindrance.apollonian"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    },
+    {
+	"id": "wolf.begin.enemies",
+	"label": "Предзнаменования и Волнения",
+	"startdescription": "Когда Волк выходит на поле боя, из его мерзкой шкуры исторгаются мелкие воплощения ненависти и мук, чтобы бродить в мире яви. Неотомщённые мертвецы, страдания убитых и даже нечто худшее – все поднимутся против нас.",
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "sobibor.here": -1
+	},
+	"requirements": {
+	    "draw.wolf.enemies": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"foe.splinter",
+		"foe.wrake",
+		"foe.wrake",
+		"foe.undead",
+		"foe.undead"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    }
+]
+}

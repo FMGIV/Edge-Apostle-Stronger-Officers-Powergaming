@@ -1,0 +1,612 @@
+{
+"recipes": [
+    {
+	"id": "visit.shrinewolf.getskill",
+	"actionid": "mobilize",
+	"label": "在狼的阴影中寻求",
+	"startdescription": "我对毁灭的技艺的理解已达到凡人的极限。或许现在我需要的是不朽的知识。\n\n[这将使你获得精神创伤。]",
+	"description": "我闭上双眼。在阴影中，我听到了裂分之狼的具名者，苍白的柯艾勒的悲泣。她将我拥入怀中，用她被海水浸透的白骨手臂抚摸我。她的触摸是如此痛苦，我想尖叫，但我无法移动。“人之杀手，”她低语道，海水从她的嘴里涌出。“吾予汝以花，其将盛放为绝望。”",
+	"requirements": {
+	    "shrine.wolf.marker": 1,
+	    "edge": 14,
+	    "skill.unmake": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"contemplation.skill.unmake",
+		"contemplation.skill.sustain",
+		"contemplation.skill.division"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false
+	},
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+	"warmup": 60,
+	"craftable": true,
+	"maxexecutions": 3
+    },
+    {
+	"id": "visit.shrinewolf.getweapon",
+	"actionid": "mobilize",
+	"label": "在狼的阴影中寻求",
+	"startdescription": "少有神祠或纪念碑以狼的名义建立。但在他的力量聚集之处——在痛苦永久玷污世界之处——声称追随他的人或将寻得理解。\n\n[这将使你获得精神创伤。]",
+	"description": "我在倒塌的石砖与灰烬之中找到了一份赠礼。",
+	"requirements": {
+	    "shrine.wolf.marker": 1,
+	    "edge": 14,
+	    "skill.unmake": -1
+	},
+	"effects": {
+	    "weapon.hair": 1,
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+	"warmup": 60,
+	"craftable": true
+    },
+    {
+	"id": "visit.shrinewolf.lore",
+	"actionid": "mobilize",
+	"label": "在狼的阴影中寻求",
+	"startdescription": "少有神祠或纪念碑以狼的名义建立。但在他的力量聚集之处——在痛苦永久玷污世界之处——声称追随他的人或将寻得理解。\n\n[这将使你获得精神创伤。]",
+	"description": "我紧握自己，指甲嵌入肉中，我止不住哭泣，即便那痛苦已离去。",
+	"requirements": {
+	    "shrine.wolf.marker": 1,
+	    "lore": 1,
+	    "edge": 1,
+	    "skill.unmake": -1,
+	    "skill.division": -1
+	},
+	"aspects": {
+	    "epiphany": 1
+	},
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+	"warmup": 60,
+	"craftable": true
+    },
+    {
+	"id": "hint.visit.shrinewolf.dedicategrail.alreadymade",
+	"actionid": "mobilize",
+	"label": "向裂分之狼献上赤红的祭品？",
+	"startdescription": "我已向狼献上了一份特定的祭品。我不应献上另一份。",
+	"requirements": {
+	    "grail": 1
+	},
+	"extantreqs": {
+	    "dedication.made": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.visit.shrinewolf.dedicateknock.alreadymade",
+	"actionid": "mobilize",
+	"label": "向裂分之狼献上致命的祭品？",
+	"startdescription": "我已向狼献上了一份特定的祭品。我不应献上另一份。",
+	"requirements": {
+	    "knock": 1
+	},
+	"extantreqs": {
+	    "dedication.made": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.visit.shrinewolf.dedicatelantern.alreadymade",
+	"actionid": "mobilize",
+	"label": "向裂分之狼献上辉煌的祭品？",
+	"startdescription": "我已向狼献上了一份特定的祭品。我不应献上另一份。",
+	"requirements": {
+	    "lantern": 1
+	},
+	"extantreqs": {
+	    "dedication.made": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "visit.shrinewolf.dedicateknock",
+	"actionid": "mobilize",
+	"label": "向裂分之狼献上致命的祭品？",
+	"startdescription": "狼会接受任何事物，而后他将吞噬一切，无论何物。\n\n[这将减半你的狼之密传的<b>冬</b>性相，但将加上等量的<b>启</b>性相。在此之后，你将无法进行另一次祭献。]",
+	"requirements": {
+	    "knock": 1,
+	    "wound.generic": -1
+	},
+	"craftable": true,
+	"effects": {
+	    "knock": -99
+	},
+	"linked": [
+	    {
+		"id": "visit.shrinewolf.dedicateknock.continue"
+	    }
+	],
+	"extantreqs": {
+	    "dedication.made": -1
+	}
+    },
+    {
+	"id": "visit.shrinewolf.dedicateknock.wound",
+	"actionid": "mobilize",
+	"label": "向裂分之狼献上致命的祭品？",
+	"startdescription": "狼会接受任何事物，而后他将吞噬一切，无论何物。\n\n[这将减半你的狼之密传的<b>冬</b>性相，但将加上等量的<b>启</b>性相。在此之后，你将无法进行另一次祭献。]",
+	"requirements": {
+	    "knock": 1,
+	    "wound.generic": 1
+	},
+	"craftable": true,
+	"effects": {
+	    "wound.generic": -99,
+	    "debilitation.generic": 1
+	},
+	"linked": [
+	    {
+		"id": "visit.shrinewolf.dedicateknock.continue"
+	    }
+	],
+	"extantreqs": {
+	    "dedication.made": -1
+	}
+    },
+    {
+	"id": "visit.shrinewolf.dedicateknock.continue",
+	"label": "向裂分之狼献上致命的祭品？",
+	"startdescription": "狼会接受任何事物，而后他将吞噬一切，无论何物。\n\n[这将减半你的狼之密传的<b>冬</b>性相，但将加上等量的<b>启</b>性相。在此之后，你将无法进行另一次祭献。]",
+	"description": "随着一声可怖的撕裂声，我的祭品被从世界上扯离，正在消失——但我无法忍受那我的牺牲换取来的可憎赠礼。",
+	"slots": [
+	    {
+		"id": "needslore",
+		"label": "密传",
+		"required": {
+		    "lore": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "visit.shrinewolf.dedicateknock.success"
+	    }
+	],
+	"warmup": 60
+    },
+    {
+	"id": "visit.shrinewolf.dedicateknock.success",
+	"label": "向裂分之狼献上致命的祭品",
+	"startdescription": "“太阳曾被分裂，其伤口化作名为裂分之狼的司辰……”",
+	"description": "太阳曾被分裂，其伤口化作名为裂分之狼的司辰。他们说，所有创口都是门洞；他们还说，所有门都通往某处。那么，狼通往何处呢？通过他那流着涎水的双颚组成的门关，然后你就会知晓。",
+	"requirements": {
+	    "lore": 1,
+	    "edge": 1,
+	    "winter": 1,
+	    "skill.unmake": -1,
+	    "skill.division": -1
+	},
+	"aspects": {
+	    "add.knock": 1
+	},
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+    },
+    {
+	"id": "visit.shrinewolf.dedicategrail",
+	"actionid": "mobilize",
+	"label": "向裂分之狼献上赤红的祭品？",
+	"startdescription": "狼会接受任何事物，而后他将吞噬一切，无论何物。\n\n[这将减半你的狼之密传的<b>冬</b>性相，但将加上等量的<b>杯</b>性相。在此之后，你将无法进行另一次祭献。]",
+	"requirements": {
+	    "grail": 1
+	},
+	"craftable": true,
+	"effects": {
+	    "grail": -99
+	},
+	"linked": [
+	    {
+		"id": "visit.shrinewolf.dedicategrail.continue"
+	    }
+	],
+	"extantreqs": {
+	    "dedication.made": -1
+	}
+    },
+    {
+	"id": "visit.shrinewolf.dedicategrail.continue",
+	"label": "向裂分之狼献上赤红的祭品？",
+	"startdescription": "狼会接受任何事物，而后他将吞噬一切，无论何物。\n\n[这将减半你的狼之密传的<b>冬</b>性相，但将加上等量的<b>杯</b>性相。在此之后，你将无法进行另一次祭献。]",
+	"description": "随着一声可怖的撕裂声，我的祭品被从世界上扯离，正在消失——但我无法忍受那我的牺牲换取来的可憎赠礼。",
+	"slots": [
+	    {
+		"id": "needslore",
+		"label": "密传",
+		"required": {
+		    "lore": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "visit.shrinewolf.dedicategrail.success"
+	    }
+	],
+	"warmup": 60
+    },
+    {
+	"id": "visit.shrinewolf.dedicategrail.success",
+	"label": "向裂分之狼献上赤红的祭品",
+	"startdescription": "“在世界的终末有着一张餐桌……”",
+	"description": "在世界的终末有着一张餐桌，狼与他的具名者坐在桌旁，饥饿地等待纷争之火吞噬世界的那一天。那一天正在来临。而当烈焰最终将那一切焚毁之时，狼将与所有侍奉他的人共赴饕宴。",
+	"requirements": {
+	    "lore": 1,
+	    "edge": 1,
+	    "winter": 1,
+	    "skill.unmake": -1,
+	    "skill.division": -1
+	},
+	"aspects": {
+	    "add.grail": 1
+	},
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+    },
+    {
+	"id": "visit.shrinewolf.dedicatelantern",
+	"actionid": "mobilize",
+	"label": "向裂分之狼献上辉煌的祭品？",
+	"startdescription": "狼会接受任何事物，而后他将吞噬一切，无论何物。\n\n[这将减半你的狼之密传的<b>冬</b>性相，但将加上等量的<b>灯</b>性相。在此之后，你将无法进行另一次祭献。]",
+	"requirements": {
+	    "lantern": 1
+	},
+	"craftable": true,
+	"effects": {
+	    "lantern": -99
+	},
+	"linked": [
+	    {
+		"id": "visit.shrinewolf.dedicatelantern.continue"
+	    }
+	],
+	"extantreqs": {
+	    "dedication.made": -1
+	}
+    },
+    {
+	"id": "visit.shrinewolf.dedicatelantern.continue",
+	"label": "向裂分之狼献上辉煌的祭品？",
+	"startdescription": "狼会接受任何事物，而后他将吞噬一切，无论何物。\n\n[这将减半你的狼之密传的<b>冬</b>性相，但将加上等量的<b>灯</b>性相。在此之后，你将无法进行另一次祭献。]",
+	"description": "随着一声可怖的撕裂声，我的祭品被从世界上扯离，正在消失——但我无法忍受那我的牺牲换取来的可憎赠礼。",
+	"slots": [
+	    {
+		"id": "needslore",
+		"label": "密传",
+		"required": {
+		    "lore": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "visit.shrinewolf.dedicatelantern.success"
+	    }
+	],
+	"warmup": 60
+    },
+    {
+	"id": "visit.shrinewolf.dedicatelantern.success",
+	"label": "向裂分之狼献上辉煌的祭品",
+	"startdescription": "“裂分之狼同样身为骄阳的分裂自我之一……”",
+	"description": "裂分之狼同样身为骄阳的分裂自我之一，故或许有朝一日将由他带来拂晓。那拂晓将如血污般猩红，而迎来这拂晓的世界将是一片由骨骸与灰烬组成的，最为静寂的白。但无论如何，那都是拂晓。",
+	"requirements": {
+	    "lore": 1,
+	    "edge": 1,
+	    "winter": 1,
+	    "skill.unmake": -1,
+	    "skill.division": -1
+	},
+	"aspects": {
+	    "add.lantern": 1
+	},
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+    },
+    {
+	"id": "visit.shrinewolf.usespear",
+	"actionid": "mobilize",
+	"label": "太阳的苦痛",
+	"startdescription": "“太阳曾被分裂，此即其伤口。”我将那矛尖指向我裸露的胸膛。吹过这废墟的风呼啸得更加猛烈\n\n[这将使你获得精神创伤。]",
+	"description": "\r\n    <i>好</i>\r\n           <i>痛</i>",
+	"requirements": {
+	    "spear.useable": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"mutations": [
+	    {
+		"filter": "spear.useable",
+		"mutate": "spear.useable",
+		"level": -1
+	    },
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+	"effects": {
+	    "wound.glorious": 1,
+	    "trauma": 1
+	}
+    },
+    {
+	"id": "visit.shrinewolf.gethopelessness",
+	"actionid": "mobilize",
+	"label": "舍弃希望",
+	"startdescription": "没有希望。这世界上没有任何希望。\n\n[这将使你获得精神创伤。]",
+	"requirements": {
+	    "shrine.wolf.marker": 1,
+	    "contemnant.memento": 1
+	},
+	"effects": {
+	    "contemnant.memento": -99,
+	    "hopelessness": 1,
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+	"craftable": true,
+	"warmup": 60
+    },
+    {
+	"id": "visit.shrinewolf.hopelessness",
+	"actionid": "mobilize",
+	"label": "向狼之阴影呐喊我的绝望",
+	"startdescription": "当一个灵魂舍弃了救赎与重生，那它将依赖什么而活？它将去往何处？它将退化成何种摸样？",
+	"requirements": {
+	    "shrine.wolf.marker": 1,
+	    "hopelessness": 1
+	},
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "develophopelessness"
+	    }
+	]
+    },
+    {
+	"id": "develophopelessness",
+	"label": "向狼之阴影呐喊我的绝望",
+	"startdescription": "当一个灵魂舍弃了救赎与重生，那它将依赖什么而活？它将去往何处？它将退化成何种摸样？",
+	"description": "无人见证我的眼泪。我孤身一人身处这屠杀中。",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "某物？",
+		"required": {
+		    "foe.corpses": 1,
+		    "friend.corpses": 1,
+		    "wound.generic": 1,
+		    "debilitation.generic": 1
+		}
+	    }
+	],
+	"warmup": 60,
+	"alt": [
+	    {
+		"id": "develophopelessness.enemies"
+	    },
+	    {
+		"id": "develophopelessness.allies"
+	    },
+	    {
+		"id": "develophopelessness.self"
+	    }	
+	]
+    },
+    {
+	"id": "develophopelessness.enemies",
+	"label": "我的敌人",
+	"startdescription": "我记得很清楚，那扒光我们衣服、迫使我们挨饿的地方所悬挂的旗帜。我记得很清楚，那时的殴打与嘲笑。我记得很清楚，这全部都是<i>他们</i>干的好事。",
+	"description": "带钩十字，漆黑猎鹰。带刺铁丝与靴跟。他们把我们的尸体成打堆在埋狗都太浅的墓穴中。我会让他们理解他们曾对我做过的事。<b>我会让他们理解</b>。",
+	"requirements": {
+	    "foe.corpses": 1
+	},
+	"mutations": [
+	    {
+		"filter": "hopelessness",
+		"mutate": "hopeless.enemies",
+		"level": 1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    },
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    }
+	],
+	"maxexecutions": 1,
+	"linked": [
+	    {
+		"id": "develophopelessness.allthree"
+	    }
+	]
+    },
+    {
+	"id": "develophopelessness.allies",
+	"label": "我的盟友",
+	"startdescription": "究竟是怎样的世界才能容许这种苦难行于此间？当我被自己的同胞丢进监狱时，正义与博爱又在何方？你们，当暴乱愈发剧烈，火车塞满尸体时，只是在一旁看着的你们——你们也是同罪，所有人都是。",
+	"description": "人类——你们是多么善良，多么无辜啊，安稳舒适地躺卧在床。当我们哭喊求救时你们充耳不闻。当我们苦干，挨饿，并被燃烧直至什么都不剩，连名字都留不下时，你们只是用睡眼看着。你们看不见自己手上的鲜血——但你们需要为此负责。",
+	"requirements": {
+	    "friend.corpses": 1
+	},
+	"mutations": [
+	    {
+		"filter": "hopelessness",
+		"mutate": "hopeless.allies",
+		"level": 1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    },
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    }
+	],
+	"maxexecutions": 1,
+	"linked": [
+	    {
+		"id": "develophopelessness.allthree"
+	    }
+	]
+    },
+    {
+	"id": "develophopelessness.self",
+	"label": "我自己",
+	"startdescription": "我已褪下名为礼节的服饰，并用它换来了憎恨。我不希望我的痛苦被治愈，反而希望给一切未受痛苦之人也施加同样的痛苦。我是一个恶毒且可憎的存在。而我因此狂喜。",
+	"description": "可悲生物。如野兽般被憎恨，如人般憎恨他人。你能否回忆起任何不在血中寻得的愉悦？能否回忆起你母亲的面容？记住，当世界的尸体在火堆上焚烧时，你应与它一同焚烧。",
+	"requirements": {
+	    "damage.body": 1
+	},
+	"mutations": [
+	    {
+		"filter": "hopelessness",
+		"mutate": "hopeless.self",
+		"level": 1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    },
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    }
+	],
+	"maxexecutions": 1,
+	"linked": [
+	    {
+		"id": "develophopelessness.allthree"
+	    }
+	]
+    },
+    {
+	"id": "develophopelessness.allthree",
+	"label": "完全的憎恨",
+	"startdescription": "一切苦痛，一切伤悲——它们打开了使狼进入我之内的通道。随着他一起到来的还有我为理解狼所想必需的，那最终的残酷顿悟——",
+	"description": "潜力与希望；愉悦与背生；一切美好与糟糕的事物；以及将带来这些事物的明日——我拒斥它们。我厌憎它们。我乐见它们被洞穿，被撕碎，化作灰烬随风飘散。我绝不原谅。",
+	"requirements": {
+	    "hopeless.enemies": 1,
+	    "hopeless.allies": 1,
+	    "hopeless.self": 1
+	},
+	"effects": {
+	    "hopelessness": -99,
+	    "antithesis": 1
+	},
+	"warmup": 30
+    }
+]
+}

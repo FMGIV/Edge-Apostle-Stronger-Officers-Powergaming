@@ -1,0 +1,554 @@
+{
+"recipes": [
+    {
+	"id": "startup.produce.phlogisticant",
+	"actionid": "spit.grail",
+	"label": "Flames Unbound",
+	"startdescription": "The machinery is broken, defeated - but from the wreck, a conflagration erupts! Back, get back -",
+	"warmup": 10,
+	"internaldeck": {
+	    "spec": [
+		"foe.phlogisticant",
+		"foe.phlogisticant",
+		"foe.phlogisticant",
+		"nothing"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true,
+	    "defaultcard": "nothing"
+	}
+    },
+    {
+	"id": "produce.earthquake.ally",
+	"actionid": "spit.forge",
+	"label": "My Ally's Strength Shakes the Earth!",
+	"startdescription": "The ground beneath our enemies shudders and fractures -",
+	"effects": {
+	    "op.earthquake": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "produce.explosion",
+	"actionid": "explosion",
+	"label": "An Explosion!",
+	"startdescription": "Force and fire rip mercilessly through the air -",
+	"linked": [
+	    {
+		"id": "produce.explosion.random",
+		"chance": 50
+	    },
+	    {
+		"id": "produce.explosion.yourself"
+	    }
+	]
+    },
+    {
+	"id": "produce.explosion.random",
+	"actionid": "explosion",
+	"label": "An Explosion!",
+	"startdescription": "Force and fire rip mercilessly through the air -",
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Casualty",
+		"required": {
+		    "friend": 1,
+		    "foe": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"aspects": {
+	    "makecasualty": 1,
+	    "killfoe": 1
+	}
+    },
+    {
+	"id": "produce.explosion.yourself",
+	"actionid": "explosion",
+	"label": "An Explosion!",
+	"startdescription": "Force and fire rip mercilessly through the air -",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "givewound.clear"
+	    }
+	]
+    },
+    {
+	"id": "activate.skill.swoleup",
+	"actionid": "abandon",
+	"label": "Summon the strength of the remnant-giant",
+	"startdescription": "Blood burns in my veins. My teeth grind like locked swords. Stronger, always stronger - but they have no idea <i>how</i> strong.",
+	"description": "STRANGLE THE SKY. STILL THE SEA. ANY CREATURE THAT WALKS THIS EARTH WILL FIND AN END IN ME.",
+	"requirements": {
+	    "skill.swoleup.dormant": 1
+	},
+	"aspects": {
+	    "ascend": 1
+	},
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "activate.skill.intimidate",
+	"actionid": "abandon",
+	"label": "Loose a petrifying roar",
+	"startdescription": "I double over, every muscle in my body taut with rage. I cannot see anything but red. My lungs fill with air, but when I open my mouth, the sound that comes - the <i>sound</i> -",
+	"description": "The ground cracks. Birds tumble dead from the sky. Trees twist and fall. The echo of my voice carries forth a challenge none will dare answer: face me, and die.",
+	"requirements": {
+	    "skill.intimidate.dormant": 1
+	},
+	"aspects": {
+	    "ascend": 1
+	},
+	"effects": {
+	    "op.earthquake": 1
+	},
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "use.skill.refreshself",
+	"actionid": "abandon",
+	"label": "Unshackle the vicious flame of the spirit",
+	"startdescription": "My soul surges up against the interiors of my body, illuminating the forms of my flesh with molten light. The world seems to move at a glacier's pace. My shadow flees me.",
+	"description": "Witness me: I do not tire and I do not end. Within the span of a heartbeat I could kill ten men; within the span of a breath I could kill a hundred.",
+	"requirements": {
+	    "skill.refreshself": 1,
+	    "exhausted": 1
+	},
+	"aspects": {
+	    "refresh": 1,
+	    "fatiguing.onlyrefreshself": 1
+	},
+	"craftable": true,
+	"warmup": 5
+    },
+    {
+	"id": "abandon.buildweapon.lionsmith",
+	"actionid": "abandon",
+	"label": "Assemble a sacred weapon of the Lionsmith",
+	"startdescription": "In the forms of beasts, in the forms of monsters, the warrior-smiths of the Shadowless Empire would find inspiration for their own arts and armaments. The weapon I intend to fashion would be familiar to their order.",
+	"description": "The 'sharp-birds' are seldom seen now - killed by labhites, or by the Lionsmith himself in his younger days. But the elegance of their design has persisted, and indeed, this weapon is a very pretty thing to kill with.",
+	"requirements": {
+	    "lionsmith.weaponfragment": 3
+	},
+	"effects": {
+	    "lionsmith.weaponfragment": -3,
+	    "weapon.stymphalian": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "banish.chasseur.knock",
+	"actionid": "operate",
+	"label": "Banish the last traces of an enemy",
+	"startdescription": "Sometimes, you just have to tell somebody twice.",
+	"description": "Gone - and for good, this time.",
+	"requirements": {
+	    "foe.chasseur.reviving": 1,
+	    "knock": 6
+	},
+	"aspects": {
+	    "follower_scar_knock": 1,
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "banish.chasseur.edge",
+	"actionid": "operate",
+	"label": "Banish the last traces of an enemy",
+	"startdescription": "Sometimes, you have to tell somebody twice.",
+	"description": "Gone - and for good, this time.",
+	"requirements": {
+	    "foe.chasseur.reviving": 1,
+	    "edge": 6
+	},
+	"aspects": {
+	    "follower_scar_edge": 1,
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "banish.chasseur.winter",
+	"actionid": "operate",
+	"label": "Banish the last traces of an enemy",
+	"startdescription": "Sometimes, you just have to tell somebody twice.",
+	"description": "Gone - and for good, this time.",
+	"requirements": {
+	    "foe.chasseur.reviving": 1,
+	    "winter": 6
+	},
+	"aspects": {
+	    "follower_scar_winter": 1,
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "communicate.wilhelm",
+	"actionid": "communicate",
+	"label": "Meeting the Warmaker",
+	"startdescription": "The Warmaker wipes what blood he can from his uniform and doffs his cap, politely inclining his head at me. 'A well-fought bout on your part. Wilhelm Tragendorn,' he introduces himself. 'To what do I owe the pleasure, brave partisan?'",
+	"description": "The man wipes his nose with a very small handkerchief - or perhaps it is normal-sized, and his fist that is unsuitably large. 'Well? Cat's got your tongue, does it?'",
+	"requirements": {
+	    "friend.wilhelm": 1,
+	    "associate": -1
+	},
+	"slots": [
+	    {
+		"id": "needschoice",
+		"label": "Topic",
+		"required": {
+		    "contemplation": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "communicate.wilhelm.stopcontinental"
+	    },
+	    {
+		"id": "communicate.wilhelm.musvashir"
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "communicate.wilhelm.stopcontinental",
+	"label": "Regarding the Continental...",
+	"startdescription": "The Warmaker sighs - almost longingly - when I bring up the subject of his mortal enemy. 'My dearest enemy!' he muses. 'I do wonder where she is, now that you bring it up. I've been having such a wonderful time that I've not realised - she's <i>late.</i> And she is never late for our little contests.' He taps his chin thoughtfully. 'Well, if she really is on your tail, perhaps we can solve both our conundrums at once.'",
+	"description": "'Come. We shall draw her here, and I will take her off your hands for good.'",
+	"requirements": {
+	    "mission.camilla.c": 1
+	},
+	"effects": {
+	    "mission.camilla.c": -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend.wilhelm",
+		"mutate": "edge",
+		"level": 24
+	    },
+	    {
+		"filter": "friend.wilhelm",
+		"mutate": "forge",
+		"level": 12
+	    },
+	    {
+		"filter": "friend.wilhelm",
+		"mutate": "heart",
+		"level": 12
+	    },
+	    {
+		"filter": "friend.wilhelm",
+		"mutate": "associate",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "communicate.wilhelm.musvashir",
+	"label": "A Challenge in the Ancient Mode",
+	"startdescription": "When I bring up the Exile and the matter of their wager, the Warmaker becomes intrigued. 'So, Duffoure's child thinks you're the real thing? Very bold of them to nominate you. So young, and so vocal,' the Warmaker says. He thinks for a moment. Then, he starts laughing. 'War makes for the most exceptional circumstances, does it not? Very well - if you seek <i>musvashir</i>, I will assent to this.'",
+	"description": "'There are rules we must observe before we may proceed - rules even the Lionsmith follows. Each participant requires the services of a delegate, so that the challenged and the challenger may communicate without coming face-to-face. Naturally, I will be my enemy's second. Find a suitable associate to serve as yours, and arrangements can begin in earnest.'",
+	"requirements": {
+	    "proterant.story": 1
+	},
+	"effects": {
+	    "token.wilhelm": 1,
+	    "friend.wilhelm": -1
+	},
+	"purge": {
+	    "mission.camilla.c": 99
+	}
+    },
+    {
+	"id": "speak.maccabee",
+	"actionid": "communicate",
+	"label": "Speak with a Name of the Lionsmith",
+	"startdescription": "'Time is short, killer of men,' the Name huffs impatiently. 'Speak plainly, and make your intentions known to me.'",
+	"description": "The Name grunts irritatedly. Who likes having their time wasted?",
+	"requirements": {
+	    "friend.maccabee": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing",
+		"label": "Subject",
+		"required": {
+		    "legacyplotitem": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "speak.maccabee.success"
+	    }
+	]
+    },
+    {
+	"id": "speak.maccabee.success",
+	"actionid": "communicate",
+	"label": "A Challenge in the Ancient Mode",
+	"startdescription": "'Ah, the Sacred Indictment,' the Name muses fondly. 'The General favoured the one who challenged him this way - following in this tradition is a noble thing. A disappointment that our mutual friend cannot find the time to attend. A child of earth should know better.'",
+	"description": "'Hear me: I will stand on your behalf when the time comes. This <i>Warmaker...</i> I am aware of him. A young immortal, but your friend is younger still. I will speak to him - see that his enemy hears of your audacity, and your intentions.'",
+	"requirements": {
+	    "legacyplotitem": 1,
+	    "letter.fromexile.refusal": 1
+	},
+	"effects": {
+	    "friend.maccabee": -99
+	},
+	"alt": [
+	    {
+		"id": "contacting.warmaker.maccabee",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "contacting.warmaker.maccabee",
+	"actionid": "sendingletter",
+	"label": "My Second is Travelling...",
+	"startdescription": "Old Judah the Hammer makes his way to the Warmaker, to tell him I am worthy to challenge his nemesis to <i>musvashir.</i> I hope he isn't too frightened by a Name suddenly appearing before him - Long do have so many reasons to fear Names.",
+	"warmup": 180,
+	"alt": [
+	    {
+		"id": "produce.letterfromwilhelm",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duel.countdown.pre"
+	    }
+	]
+    },
+    {
+	"id": "produce.letterfromwilhelm",
+	"actionid": "exclaim.sh",
+	"label": "A Message!",
+	"startdescription": "A cat finds me at dawn, nosing my hand with its snout as I cast off sleep's drowsiness. A telegram is tied to a string around its neck.",
+	"warmup": 10,
+	"effects": {
+	    "letter.fromwilhelm": 1
+	}
+    },
+    {
+	"id": "meet.echidna.first",
+	"actionid": "spit.forge",
+	"label": "A Trail of Blood...",
+	"startdescription": "We find the threshed carcass of a large beast in the countryside. The creature is - or seems to have been - an aberrant concoction of several different animals: great wings, serpent scales, unnervingly human eyes. Something had gorged on its flesh, and left a bloody trail on the earth. Southwards.",
+	"description": "The blood trail leads to a stinking cave opened into the rocky side of a hill. There is a rough, pained sound coming from within - hissing? Wheezing? In the gloom past the cave's mouth, I think I can make out the shape of something...",
+	"effects": {
+	    "friend.echidna": 1
+	},
+	"maxexecutions": 1,
+	"warmup": 30
+    },
+    {
+	"id": "speak.echidna",
+	"actionid": "communicate",
+	"label": "The Mother of Monsters",
+	"startdescription": "The Ligeian smells us even before we can see her. 'That scent - which of you served with Duffoure's child?' she asks, forked tongue tasting the air. Her eyes hone in on me. 'Aha. You - <i>you</i> reek of destiny. Be a dear and come closer, sweetie. I think we have some important things to discuss.'",
+	"description": "I tell the Ligeian of the one called Exile, and the wager they made on my fate. She nods, smiling, like she's forgotten she's been disemboweled. 'Of <i>course</i> this is no chance meeting; the Lionsmith brought you here, and when he weaves fate, there is no subtlety,' Echidna says. Her taloned hand seems to heft an object that isn't there. 'You need the Key. And I need dinner. But as you can see, my sons have complaints about being eaten,' she mutters, gesturing to her mutilated body. 'I was careless. But if you do me this favour, I can open a Door for you.'",
+	"requirements": {
+	    "friend.echidna": 1
+	},
+	"effects": {
+	    "broodscent": 1,
+	    "dinnerbell": 1,
+	    "friend.echidna": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "communicate.ringdinnerbell.alreadycomplete",
+	"actionid": "communicate",
+	"label": "Ring the Bell?",
+	"startdescription": "I have already guaranteed the Ligeian's assistance by helping her deal with her sons. Ringing this bell again would serve no purpose.",
+	"requirements": {
+	    "dinnerbell": 1
+	},
+	"extantreqs": {
+	    "token.echidna": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "communicate.ringdinnerbell.already",
+	"actionid": "communicate",
+	"label": "Ring the Bell?",
+	"startdescription": "Echidna is, by her own account, not a patient woman. I've called her once and not held up my end of our bargain - she won't waste her time by coming again.",
+	"requirements": {
+	    "dinnerbell": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "communicate.ringdinnerbell",
+	"actionid": "communicate",
+	"label": "Ring the Bell",
+	"startdescription": "The bell's is deceptively heavy - I need both hands to lift it. Should I ring it now? Do I have Echidna's meal in order?",
+	"description": "The sound of the bell timbre is like the rolling of distant thunder. A brief smell wafts through the air - burning oil, and singed blood. I lower my arms. Now we must wait.",
+	"requirements": {
+	    "dinnerbell": 1
+	},
+	"effects": {
+	    "friend.echidna.enroute": 1
+	},
+	"craftable": true,
+	"warmup": 10,
+	"maxexecutions": 1
+    },
+    {
+	"id": "speak.echidna.turnin",
+	"actionid": "communicate",
+	"label": "A Family Dinner",
+	"startdescription": "My men haul the titanic carcasses out to the Ligeian, who cannot help but lick her lips. 'They were strong boys. If you killed them, then I suppose Duffoure's child was wise to bet on you. Strength and strength,' she muses. 'I'd share, but... I am greedy when I am hungry. And I am <i>hungry.'</i>",
+	"description": "Echidna does her best to speak as she tears through mouthfuls of flesh. 'You said you're heading for Rome. Last time I was there, the emperor was still feeding Christians to the lions. Lovely city. But it belongs to the Colonel, you know?' she says, licking blood from her lips. 'That's probably why the Lionsmith wants someone Named there. The boy's always been such a delinquent.' She laughs. 'Well, if everything goes right for you, I'll see you in Rome. Now, if you'll excuse me, I'd like to take my dinner in peace. Toodles!'\n\n[Echidna and her Biting Key will find you in Rome, if and when the time comes.]",
+	"requirements": {
+	    "friend.echidna.turnin": 1,
+	    "corpse.orcul": 1,
+	    "corpse.boccastrano": 1
+	},
+	"effects": {
+	    "token.echidna": 1,
+	    "friend.echidna.turnin": -1,
+	    "corpse.orcul": -1,
+	    "corpse.boccastrano": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "hint.onlyjerome",
+	"actionid": "abandon",
+	"label": "To Scatter Two Armies?",
+	"startdescription": "I've broken one of the New King's sharpest swords, and even now his forces here are in disarray - but the contingent from the Légion du Seuil still has its commander. He'll have to die, too. Then the way to the star will be open.",
+	"requirements": {
+	    "corpse.jerome": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "hint.onlylionel",
+	"actionid": "abandon",
+	"label": "To Scatter Two Armies?",
+	"startdescription": "For all his fight and nerve, the Lieutenant-Ostiary is dead at last - but the King's Rifles are still making trouble on their commander's orders. He'll have to die, too. Then the way to the star will be open.",
+	"requirements": {
+	    "corpse.lionel": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "get.main.star",
+	"actionid": "abandon",
+	"label": "The Path to the Star Lies Open",
+	"startdescription": "The forces of my adversaries scatter to the wind. Pockets of resistance remain, but without their commanders, they have ceased to be any true threat. Now, nothing stands between me and my heaven-sent prize.",
+	"description": "There - onwards.",
+	"requirements": {
+	    "corpse.jerome": 1,
+	    "corpse.lionel": 1
+	},
+	"effects": {
+	    "main.star": 1,
+	    "remnant": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "operate.endinginitiate.proterant",
+	"actionid": "operate",
+	"label": "The Liberation of Rome, 1944",
+	"startdescription": "The belltowers still standing echo somberly across the city - a dirge for our enemies, and for ruined Rome. But tomorrow is coming, and soon the future will demand of us our nerve to rebuild, to reforge this wounded country. So, when night comes, we light our candles and our fires, and raise again the flag of a free Italy over Rome.",
+	"requirements": {
+	    "main": 3
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"warmup": 60,
+	"craftable": true,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictory.proterant.mp3",
+	"linked": [
+	    {
+		"id": "ascendname.lionsmith"
+	    }
+	],
+	"burnimage": "liberated"
+    },
+    {
+	"id": "ascendname.lionsmith",
+	"label": "DESTINY",
+	"startdescription": "And then, I am no longer in Rome; around me is the cobalt haze of the Mansus. The Savage Door looms ahead, cracked and groaning from all the terrible force I had brought to bear in Rome. Echidna goes before me, turning her calamitous Key with taloned hands. The Door shatters. Fire takes me. I am strong and stronger; I am seamless; I have made monsters. There is a light.",
+	"extantreqs": {
+	    "constructions.c": 1,
+	    "token.star": 1,
+	    "token.echidna": 1,
+	    "ascend.check": 2,
+	    "resolution": 11,
+	    "chain": -1,
+	    "debilitation": -1
+	},
+	"warmup": 60,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictoryascend.proterant.mp3",
+	"ending": "majorlionsmithvictory",
+	"achievements": [
+	    "ending.nameascensionlionsmith"
+	]
+    },
+    {
+	"id": "proterant.ending.high",
+	"label": "The Surrender of Rome, 1944",
+	"extantreqs": {
+	    "resolution": 14
+	},
+	"ending": "proterant.high",
+	"achievements": [
+	    "ending.highresolution.proterant"
+	]
+    },
+    {
+	"id": "proterant.ending.med",
+	"label": "The Surrender of Rome, 1944",
+	"extantreqs": {
+	    "resolution": 7
+	},
+	"ending": "proterant.med",
+	"achievements": [
+	    "ending.medresolution.proterant"
+	]
+    },
+    {
+	"id": "proterant.ending.low",
+	"label": "The Surrender of Rome, 1944",
+	"ending": "proterant.low",
+	"achievements": [
+	    "ending.lowresolution.proterant"
+	]
+    },
+]
+}

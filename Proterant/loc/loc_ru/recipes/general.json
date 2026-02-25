@@ -1,0 +1,554 @@
+{
+"recipes": [
+    {
+	"id": "startup.produce.phlogisticant",
+	"actionid": "spit.grail",
+	"label": "Огни Освобождены",
+	"startdescription": "Техника разбита, повержена - но из обломков вырывается пламя! Назад, назад -",
+	"warmup": 10,
+	"internaldeck": {
+	    "spec": [
+		"foe.phlogisticant",
+		"foe.phlogisticant",
+		"foe.phlogisticant",
+		"nothing"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true,
+	    "defaultcard": "nothing"
+	}
+    },
+    {
+	"id": "produce.earthquake.ally",
+	"actionid": "spit.forge",
+	"label": "Сила моего Союзника сотрясает Землю!",
+	"startdescription": "Земля под ногами наших врагов содрогается и раскалывается -",
+	"effects": {
+	    "op.earthquake": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "produce.explosion",
+	"actionid": "explosion",
+	"label": "Взрыв!",
+	"startdescription": "Сила и Огонь безжалостно рассекают воздух -",
+	"linked": [
+	    {
+		"id": "produce.explosion.random",
+		"chance": 50
+	    },
+	    {
+		"id": "produce.explosion.yourself"
+	    }
+	]
+    },
+    {
+	"id": "produce.explosion.random",
+	"actionid": "explosion",
+	"label": "Взрыв!",
+	"startdescription": "Сила и Огонь безжалостно рассекают воздух -",
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Проишествие",
+		"required": {
+		    "friend": 1,
+		    "foe": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"aspects": {
+	    "makecasualty": 1,
+	    "killfoe": 1
+	}
+    },
+    {
+	"id": "produce.explosion.yourself",
+	"actionid": "explosion",
+	"label": "Взрыв!",
+	"startdescription": "Сила и Огонь безжалостно рассекают воздух -",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "givewound.clear"
+	    }
+	]
+    },
+    {
+	"id": "activate.skill.swoleup",
+	"actionid": "abandon",
+	"label": "Призовите силу остатка-гиганта",
+	"startdescription": "Кровь бурлит в моих жилах. Мои зубы скрежещут, как скрещенные мечи. Сильнее, всегда сильнее - но они понятия не имеют <i>насколько</i> сильнее.",
+	"description": "ЗАДУШИТЬ НЕБО. ОСТАНОВИТЬ МОРЕ. ЛЮБОЕ СУЩЕСТВО, КОТОРОЕ ХОДИТ ПО ЭТОЙ ЗЕМЛЕ, НАЙДЕТ СМЕРТЬ ВО МНЕ.",
+	"requirements": {
+	    "skill.swoleup.dormant": 1
+	},
+	"aspects": {
+	    "ascend": 1
+	},
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "activate.skill.intimidate",
+	"actionid": "abandon",
+	"label": "Издать ошеломляющий рев",
+	"startdescription": "Я сгибаюсь пополам, каждый мускул в моем теле напрягается от ярости. Я не вижу ничего, кроме красного. Мои легкие наполняются воздухом, но когда я открываю рот, звук, который вырывается - этот <i>звук</i> -",
+	"description": "Земля трещит. Птицы замертво падают с неба. Деревья скручиваются и падают. Эхо моего голоса бросает вызов, на который никто не осмелится ответить: Встреться со мной лицом к лицу и Умри.",
+	"requirements": {
+	    "skill.intimidate.dormant": 1
+	},
+	"aspects": {
+	    "ascend": 1
+	},
+	"effects": {
+	    "op.earthquake": 1
+	},
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "use.skill.refreshself",
+	"actionid": "abandon",
+	"label": "Освободить свирепое пламя духа",
+	"startdescription": "Моя душа сталкивается с внутренностями моего тела, освещая формы моей плоти расплавленным светом. Кажется, что мир движется со скоростью ледника. Моя тень не успевает за мной.",
+	"description": "Посмотрите на меня: я не устаю и не сдаюсь. В мгновение ока я мог бы убить десять человек.; за одно дыхание я мог бы убить сотню.",
+	"requirements": {
+	    "skill.refreshself": 1,
+	    "exhausted": 1
+	},
+	"aspects": {
+	    "refresh": 1,
+	    "fatiguing.onlyrefreshself": 1
+	},
+	"craftable": true,
+	"warmup": 5
+    },
+    {
+	"id": "abandon.buildweapon.lionsmith",
+	"actionid": "abandon",
+	"label": "Собрать священное оружие Львокузеца",
+	"startdescription": "В образах зверей и чудовищ воины-кузнецы Империи-без-Тени могли бы черпать вдохновение для своего собственного искусства и вооружения. Оружие, которое я собираюсь создать, было бы знакомо их ордену.",
+	"description": " 'Острые птицы' теперь встречаются редко - их убивали Лабиты или сам Львокузнец в молодые годы. Но изящество их конструкции сохранилось, и действительно, это оружие очень красиво, чтобы убивать им.",
+	"requirements": {
+	    "lionsmith.weaponfragment": 3
+	},
+	"effects": {
+	    "lionsmith.weaponfragment": -3,
+	    "weapon.stymphalian": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "banish.chasseur.knock",
+	"actionid": "operate",
+	"label": "Уничтожить последние следы врага",
+	"startdescription": "Иногда, кому-то стоит повторить дважды.",
+	"description": "Мёртв - и на этот раз навсегда.",
+	"requirements": {
+	    "foe.chasseur.reviving": 1,
+	    "knock": 6
+	},
+	"aspects": {
+	    "follower_scar_knock": 1,
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "banish.chasseur.edge",
+	"actionid": "operate",
+	"label": "Уничтожить последние следы врага",
+	"startdescription": "Иногда, кому-то стоит повторить дважды.",
+	"description": "Мёртв - и на этот раз навсегда.",
+	"requirements": {
+	    "foe.chasseur.reviving": 1,
+	    "edge": 6
+	},
+	"aspects": {
+	    "follower_scar_edge": 1,
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "banish.chasseur.winter",
+	"actionid": "operate",
+	"label": "Уничтожить последние следы врага",
+	"startdescription": "Иногда, кому-то стоит повторить дважды.",
+	"description": "Мёртв - и на этот раз навсегда.",
+	"requirements": {
+	    "foe.chasseur.reviving": 1,
+	    "winter": 6
+	},
+	"aspects": {
+	    "follower_scar_winter": 1,
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "communicate.wilhelm",
+	"actionid": "communicate",
+	"label": "Встреча с Воеводой",
+	"startdescription": "Воевода, насколько это возможно, вытирает кровь со своей формы и снимает фуражку, вежливо наклоняя голову в мою сторону. - Отличный бой с вашей стороны. Вильгельм Трагендорн, - представляется он. - Чем обязан такому удовольствию, храбрый партизан?'",
+	"description": "Мужчина вытирает нос очень маленьким носовым платком - или, может быть, он нормального размера, а кулак у него непозволительно большой. 'Ну что? Язык проглотил, не так ли?'",
+	"requirements": {
+	    "friend.wilhelm": 1,
+	    "associate": -1
+	},
+	"slots": [
+	    {
+		"id": "needschoice",
+		"label": "Тема",
+		"required": {
+		    "contemplation": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "communicate.wilhelm.stopcontinental"
+	    },
+	    {
+		"id": "communicate.wilhelm.musvashir"
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "communicate.wilhelm.stopcontinental",
+	"label": "По поводу Континенталь...",
+	"startdescription": "Воевода вздыхает - почти с тоской - когда я заговариваю о его смертельном враге. 'Мой самый дорогой враг!' - размышляет он. 'Мне действительно интересно, где она, раз уж ты заговорил об этом. Я так чудесно проводил время, что и не заметил, что она <i>опаздывает</i>. И она никогда не опаздывает на наши маленькие противостояния. Он задумчиво постукивает себя по подбородку. Что ж, если она действительно у вас на хвосте, возможно, мы сможем убить двух зайцев одним выстрелом.'",
+	"description": "'Идемте. Мы приведем ее сюда, и я навсегда избавлю тебя от нее.'",
+	"requirements": {
+	    "mission.camilla.c": 1
+	},
+	"effects": {
+	    "mission.camilla.c": -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend.wilhelm",
+		"mutate": "edge",
+		"level": 24
+	    },
+	    {
+		"filter": "friend.wilhelm",
+		"mutate": "forge",
+		"level": 12
+	    },
+	    {
+		"filter": "friend.wilhelm",
+		"mutate": "heart",
+		"level": 12
+	    },
+	    {
+		"filter": "friend.wilhelm",
+		"mutate": "associate",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "communicate.wilhelm.musvashir",
+	"label": "Испытание Древности",
+	"startdescription": "Когда я заговорил об Изгнаннике и их пари, Воевода был заинтригован. 'Итак, Дитя Дюффура считает, что ты того стоишь? Очень смело с его стороны выдвинуть тебя. Такой молодой и такой красноречивый', - говорит Воевода. Он на мгновение задумывается. Затем начинает смеяться. - Война создает самые исключительные обстоятельства, не так ли? Очень хорошо - если ты ищешь <i>мусвашира</i>, я одобрю его.'",
+	"description": "'Есть правила, которые мы должны соблюдать, прежде чем начнем, - правила, которым следует даже Львокузнец. Каждому участнику требуются услуги делегата, чтобы вызываемый и претендент могли общаться, не сталкиваясь лицом к лицу. Естественно, я буду секундантом своего врага. Найдите подходящего помощника, который послужит вам, и вы сможете приступить к серьезным переговорам.'",
+	"requirements": {
+	    "proterant.story": 1
+	},
+	"effects": {
+	    "token.wilhelm": 1,
+	    "friend.wilhelm": -1
+	},
+	"purge": {
+	    "mission.camilla.c": 99
+	}
+    },
+    {
+	"id": "speak.maccabee",
+	"actionid": "communicate",
+	"label": "Говорить с Именем Львокузнеца",
+	"startdescription": "'Времени мало, убийца людей,' Имя нетерпеливо фыркает. 'Говори прямо и сообщи мне о своих намерениях.'",
+	"description": "Имя раздраженно ворчит. Кому нравится тратить свое время впустую?",
+	"requirements": {
+	    "friend.maccabee": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing",
+		"label": "Subject",
+		"required": {
+		    "legacyplotitem": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "speak.maccabee.success"
+	    }
+	]
+    },
+    {
+	"id": "speak.maccabee.success",
+	"actionid": "communicate",
+	"label": "Испытание Древности",
+	"startdescription": "'Ах, Священный Поединок,'  Имя с интересом продолжает. 'Генерал благосклонно отнесся к тому, кто бросил ему вызов таким образом, - следовать этой традиции благородно. Досадно, что наш общий друг не может найти времени, чтобы присутствовать. Дитя земли должно знать лучше.'",
+	"description": "'Выслушай меня: Я буду выступать на твоей стороне, когда придет время.. Этот <i>Воевода...</i> Я знаю о нем. Молодой бессмертный, но твой друг еще моложе. Я поговорю с ним - прослежу, чтобы его враг услышал о твоей дерзости и твоих намерениях.'",
+	"requirements": {
+	    "legacyplotitem": 1,
+	    "letter.fromexile.refusal": 1
+	},
+	"effects": {
+	    "friend.maccabee": -99
+	},
+	"alt": [
+	    {
+		"id": "contacting.warmaker.maccabee",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "contacting.warmaker.maccabee",
+	"actionid": "sendingletter",
+	"label": "Мой Секундант в дороге...",
+	"startdescription": "Старый Иуда, Молот, направляется к Воеводе, чтобы сказать ему о моём достоинстве чтобы бросить вызов его заклятому врагу, <i>мусвашир.</i> Я надеюсь, что он не слишком испугается внезапно появившегося перед ним Имени - у Вечных много причин бояться Имён.",
+	"warmup": 180,
+	"alt": [
+	    {
+		"id": "produce.letterfromwilhelm",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duel.countdown.pre"
+	    }
+	]
+    },
+    {
+	"id": "produce.letterfromwilhelm",
+	"actionid": "exclaim.sh",
+	"label": "Сообщение!",
+	"startdescription": "Кот находит меня на рассвете, тычется мордой в мою руку, пока я прогоняю сонливость. На шее у него привязана телеграмма, на шнурке.",
+	"warmup": 10,
+	"effects": {
+	    "letter.fromwilhelm": 1
+	}
+    },
+    {
+	"id": "meet.echidna.first",
+	"actionid": "spit.forge",
+	"label": "Кровавый след...",
+	"startdescription": "В сельской местности мы находим разделанную тушу крупного зверя. Это существо представляет собой - или кажется, что представляло - причудливую смесь нескольких разных животных: огромные крылья, змеиная чешуя, пугающе человеческие глаза. Что-то вгрызлось в его плоть и оставило кровавый след на земле. На юг.",
+	"description": "Кровавый след ведет в зловонную пещеру, вырубленную в скалистом склоне холма. Изнутри доносится грубый, полный боли звук - шипение? Хрип? В полумраке у входа в пещеру, мне кажется, я могу различить очертания чего-то...",
+	"effects": {
+	    "friend.echidna": 1
+	},
+	"maxexecutions": 1,
+	"warmup": 30
+    },
+    {
+	"id": "speak.echidna",
+	"actionid": "communicate",
+	"label": "Мать Монстров",
+	"startdescription": "Лигейя учуяла нас еще до того, как мы ее увидели. - Этот запах - кто из вас служил с дитям Дюффура? - спрашивает она, вкушая воздух раздвоенным языком. Её взгляд прикован ко мне. - Ага. От тебя... От <i>тебя</i> несет судьбой. Будь умницей и подойди поближе, милый. Думаю, нам нужно обсудить кое-что важное.'",
+	"description": "Я рассказываю Лигее о том, кого называют Изгнанником, и о пари, которое он заключили на мою судьбу. Она кивает, улыбаясь, словно забыв, что ее выпотрошили. ' <i>Конечно</i> это не случайная встреча; Львокузец привел тебя сюда, и когда он плетет судьбу, нет никакой тонкости,' говорит Ехидна. Ее когтистая рука, кажется, поднимает предмет, которого там нет. 'Тебе нужен Ключ. А Мне нужен Обед. Но, как видишь, мои сыновья жалуются на то, что их едят,' бормочет она, указывая на свое изуродованное тело. 'Я была неосторожена. Но если ты окажешь мне эту услугу, я смогу открыть Дверь для тебя.'",
+	"requirements": {
+	    "friend.echidna": 1
+	},
+	"effects": {
+	    "broodscent": 1,
+	    "dinnerbell": 1,
+	    "friend.echidna": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "communicate.ringdinnerbell.alreadycomplete",
+	"actionid": "communicate",
+	"label": "Позвонить в Колокольчик?",
+	"startdescription": "Я уже помог Лигении, помогая ей разобраться с ее сыновьями. Повторный звон в этот колокол ни к чему не приведет.",
+	"requirements": {
+	    "dinnerbell": 1
+	},
+	"extantreqs": {
+	    "token.echidna": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "communicate.ringdinnerbell.already",
+	"actionid": "communicate",
+	"label": "Позвонить в Колокольчик?",
+	"startdescription": "Ехидна, по ее собственным словам, не из терпеливых женщин. Я призвал её один раз и не выполнил свою часть нашей сделки - она не станет тратить время, приходя снова.",
+	"requirements": {
+	    "dinnerbell": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "communicate.ringdinnerbell",
+	"actionid": "communicate",
+	"label": "Позвонить в Колокольчик?",
+	"startdescription": "Колокольчик кажется обманчиво тяжелым - мне нужны обе руки, чтобы его поднять. Стоит ли мне звонить в него сейчас? Приготовил ли я обед для Ехидны?",
+	"description": "Звук колокола напоминает раскаты далекого грома. В воздухе витает короткий запах - горящего масла и запекшейся крови. Я опускаю руки. Теперь мы ждём.",
+	"requirements": {
+	    "dinnerbell": 1
+	},
+	"effects": {
+	    "friend.echidna.enroute": 1
+	},
+	"craftable": true,
+	"warmup": 10,
+	"maxexecutions": 1
+    },
+    {
+	"id": "speak.echidna.turnin",
+	"actionid": "communicate",
+	"label": "Семейный Ужин",
+	"startdescription": "Мои люди оттаскивают туши титанов к Лигейе, еле сдерживаясь и облизываясь. - Они были сильными мальчиками. Если вы их убили, то, полагаю, дитя Дюффура поступил мудро, сделав ставку на вас. Сила и сила,' размышляет она. 'Я б поделилась, но... Я жадна когда голодна. А я <i>Голодна.'</i>",
+	"description": "Ехидна изо всех сил старается говорить, раздирая плоть ртом. 'Ты сказал, что направляешься в Рим. Когда я была там в последний раз, Император все еще скармливал христиан львам. Прекрасный город. Но он предналежит Полковнику, знаешь?' говорит она, слизывая кровь с своих губ. 'Вероятно, именно поэтому Львкузнец хочет, чтобы там кого-то Наименовали. Мальчик всегда был таким хулиганом.' Она смеётся. 'Что ж, если у вас все пойдет хорошо, увидимся в Риме. А теперь, если позволите, я хотела бы спокойно поужинать, Покеда!'\n\n[Ехидна и её Жгучий ключ найдут вас в Риме, если и когда придёт время.]",
+	"requirements": {
+	    "friend.echidna.turnin": 1,
+	    "corpse.orcul": 1,
+	    "corpse.boccastrano": 1
+	},
+	"effects": {
+	    "token.echidna": 1,
+	    "friend.echidna.turnin": -1,
+	    "corpse.orcul": -1,
+	    "corpse.boccastrano": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "hint.onlyjerome",
+	"actionid": "abandon",
+	"label": "Разбить обе Армии?",
+	"startdescription": "Я сломал один из острейших мечей Нового Короля, и даже сейчас его войска здесь в смятении, но контенгента Легиона Порога все еще есть командир. Ему тоже придется умереть. Тогда путь к звезде будет открыт.",
+	"requirements": {
+	    "corpse.jerome": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "hint.onlylionel",
+	"actionid": "abandon",
+	"label": "Разбить Обе Армии?",
+	"startdescription": "Несмотря на всю свою стойкость и выдержку, Лейтенант-Остиарий наконец-то мертв, но Королевские Стрелки по приказу своего командира все еще создают проблемы. Ему тоже придется умереть. Тогда путь к звезде будет открыт.",
+	"requirements": {
+	    "corpse.lionel": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "get.main.star",
+	"actionid": "abandon",
+	"label": "Путь к Звезде открыт",
+	"startdescription": "Силы моих противников рассеиваются по ветру. Очаги сопротивления остаются, но без своих командиров они перестали представлять реальную угрозу. Теперь ничто не стоит между мной и моей наградой, ниспосланной небесами.",
+	"description": "Туда - вперёд.",
+	"requirements": {
+	    "corpse.jerome": 1,
+	    "corpse.lionel": 1
+	},
+	"effects": {
+	    "main.star": 1,
+	    "remnant": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "operate.endinginitiate.proterant",
+	"actionid": "operate",
+	"label": "Освобождение Рима, 1944",
+	"startdescription": "Все еще стоящие колокольни эхом разносятся по городу - это похоронная песнь по нашим врагам и по разрушенному Риму. Но завтра настанет, и скоро будущее потребует от нас решимости восстановить, перековать эту израненную страну. Итак, когда наступает ночь, мы зажигаем наши свечи и костры и снова поднимаем флаг свободной Италии над Римом.",
+	"requirements": {
+	    "main": 3
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"warmup": 60,
+	"craftable": true,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictory.proterant.mp3",
+	"linked": [
+	    {
+		"id": "ascendname.lionsmith"
+	    }
+	],
+	"burnimage": "liberated"
+    },
+    {
+	"id": "ascendname.lionsmith",
+	"label": "СУДЬБА",
+	"startdescription": "И потом, я больше не в Риме; меня окружает кобальтовая дымка Обители. Впереди зияет Дверь, треснувшая и стонущая от той страшной силы, которую я обрушил на нее в Риме. Ехидна идет впереди меня, поворачивая свой ужасный ключ когтистыми лапами. Дверь разлетается вдребезги. Огонь поглощает меня. Я силён и становлюсь сильнее; На мне нет швов; Я создал монстров. Там есть свет.",
+	"extantreqs": {
+	    "constructions.c": 1,
+	    "token.star": 1,
+	    "token.echidna": 1,
+	    "ascend.check": 2,
+	    "resolution": 12,
+	    "chain": -1,
+	    "debilitation": -1
+	},
+	"warmup": 60,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictoryascend.proterant.mp3",
+	"ending": "majorlionsmithvictory",
+	"achievements": [
+	    "ending.nameascensionlionsmith"
+	]
+    },
+    {
+	"id": "proterant.ending.high",
+	"label": "Сдача Рима, 1944",
+	"extantreqs": {
+	    "resolution": 14
+	},
+	"ending": "proterant.high",
+	"achievements": [
+	    "ending.highresolution.proterant"
+	]
+    },
+    {
+	"id": "proterant.ending.med",
+	"label": "The Surrender of Rome, 1944",
+	"extantreqs": {
+	    "resolution": 7
+	},
+	"ending": "proterant.med",
+	"achievements": [
+	    "ending.medresolution.proterant"
+	]
+    },
+    {
+	"id": "proterant.ending.low",
+	"label": "Сдача Рима, 1944",
+	"ending": "proterant.low",
+	"achievements": [
+	    "ending.lowresolution.proterant"
+	]
+    },
+]
+}

@@ -1,0 +1,1176 @@
+{
+"elements": [
+    {
+	"id": "op.endinghope",
+	"label": "Мир?",
+	"description": "Это перепутье. Если я все еще верю в возрождение и перестройку - в стойкость этой жизни перед лицом худшего, что может быть, - тогда, возможно, я смог бы свернуть с этого пути Мести. Возможно, я смог бы избежать длинной тени войны. Возможно, я смог бы жить снова.",
+	"aspects": {
+	    "op": 1
+	},
+	"lifetime": 300,
+	"unique": true,
+	"slots": [
+	    {
+		"id": "needshope",
+		"label": "Надежда",
+		"required": {
+		    "contemnant.memento": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "hatred",
+	"label": "Ненависть",
+	"description": "'Ты говоришь мне, что мой ближний - мое спасение? Мое Cпасение? Что ж, тогда будь оно проклято. Будь он проклято во всех проявлениях, формах и обличьях. Вижу ли я в нем себя? Да. Я вижу. И то, что я вижу, вызывает у меня отвращение.'\n\n- Кормак Маккарти, <i>Сансет Лимитед</i>",
+	"aspects": {
+	    "edge": 6,
+	    "memory": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "despair",
+	"label": "Отчаяние",
+	"description": "Тьма, что бродит на краю сознания; Волк, пожирающий мысли.",
+	"aspects": {
+	    "winter": 6,
+	    "memory": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "agony",
+	"label": "Агония",
+	"description": "Боль - это не всё. Это единственное, у нас что есть.",
+	"aspects": {
+	    "edge": 6,
+	    "winter": 6,
+	    "memory": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "contemnant.memento",
+	"label": "Надежда",
+	"description": "Память о том старом мире - о любви, покое, потенциале - тает, как пламя свечи в завывающей ночи. Вернусь ли я туда когда-нибудь? В то место, где война была всего лишь словом из пяти букв? Если я пронесу этот крохотный огонек достаточно далеко, то, быть может, узнаю.",
+	"aspects": {
+	    "heart": 6,
+	    "memento": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "contemnant.weapon",
+	"label": "Офицерский кинжал",
+	"description": "Шутка Изгнанника.",
+	"aspects": {
+	    "edge": 2,
+	    "weapon": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "contemnant.weapon.exhausted"
+	},
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "contemnant.weapon.exhausted",
+	"label": "Офицерский кинжал (Подготовка)",
+	"description": "Шутка Изгнанника.",
+	"aspects": {
+	    "exhausted": 1,
+	    "weapon": 1
+	},
+	"icon": "contemnant.weapon",
+	"uniquenessgroup": "uq.mosin",
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "contemnant.weapon"
+    },
+    {
+	"id": "contemnant.setupitem",
+	"label": "Алый Закат",
+	"description": "День угасает, сгущаются тени, и волосы у меня на затылке встают дыбом - кто-то приближается..",
+	"aspects": {
+	    "op": 1
+	},
+	"icon": "op.sunset"
+    },
+    {
+	"id": "contemnant.mentor",
+	"label": "#PREVIOUSCHARACTERNAME#",
+	"description": "Изодранный ливиец с жестокой улыбкой - мой мучитель и учитель в течение года в Собиборе. Остальные видят в нем только иностранного наемника, но я-то знаю. Этот человек показал мне, кто он такой на самом деле.",
+	"aspects": {
+	    "friend": 1,
+	    "foe": 1,
+	    "edgelong": 1
+	}
+    },
+    {
+	"id": "contemnant.story",
+	"label": "А почему нет?",
+	"description": "'Из всех бедняг в Собиборе ты один выделялся для меня. Поэтому я взял тебя к себе. Научил тебя причинять боль. И теперь в тебе есть семя Волчьего обетования. О, да, к концу этой войны ты вполне можешь стать еще одним кривым клыком в его окровавленном рту. А почему бы и нет? Почему бы не отомстить? Этот мир дал тебе достаточно причин ненавидеть его. Вырежь те части, которые надеются на обратное. Следуй секретам, которым я вас научил, до конца. Найдите Лигению в Вене и переживите ее. И тогда - тогда, возможно, мы поговорим снова. Я надеюсь, что это будет наш финальный разговор. В конце концов, разве ты кому-то обязан? Однажды я задал себе этот вопрос. Теперь твоя очередь.'",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "avowal": [
+		{
+		    "id": "marker.spoketosergeiaboutsword",
+		    "morpheffect": "mutate"
+		}
+	    ],
+	    "longded": [
+		{
+		    "id": "long.blocker",
+		    "morpheffect": "mutate"
+		}
+	    ],
+	},
+	"unique": true
+    },
+    {
+	"id": "contemnant.fragmentedge",
+	"label": "Тайна Преступника",
+	"description": "Тот, кого называют Изгнанником, однажды сказал мне: ‘волк не может претендовать на защиту закона, но и не ограничен им - и поэтому мы можем причинять все, что нам заблагорассудится, кому пожелаем.’ В этом нет ничего неправдивого.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 2,
+	    "winter": 2
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedge.grail",
+	    "add.knock": "contemnant.fragmentedge.knock",
+	    "add.lantern": "contemnant.fragmentedge.lantern",
+	    "fatiguing": "contemnant.fragmentedge.exhausted",
+	    "epiphany": "contemnant.fragmentedgeb"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedge.exhausted",
+	"label": "Тайна Преступника (Переутомление)",
+	"description": "Мне придется подождать, пока оно восстановится, прежде чем использовать снова. [С каждым улучшением техники восстановление будет происходить быстрее, а её сила расти.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedge"
+	},
+	"lifetime": 300,
+	"decayTo": "contemnant.fragmentedge",
+	"icon": "contemnant.fragmentedge",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedgeb",
+	"label": "Волчий Урок",
+	"description": "Это истина, которую явил Разделенный, когда восстал из крови Солнца. Ее нельзя пересказать, но когда наши стенания никто не услышит; когда мы скрежещем зубами; когда мы разрываем плоть, и наша плоть разрывается тоже - мы приближаемся к ней.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgeb.grail",
+	    "add.knock": "contemnant.fragmentedgeb.knock",
+	    "add.lantern": "contemnant.fragmentedgeb.lantern",
+	    "fatiguing": "contemnant.fragmentedgeb.exhausted",
+	    "epiphany": "contemnant.fragmentedgec"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgeb.exhausted",
+	"label": "Волчий Урок (Переутомление)",
+	"description": "Мне придется подождать, пока оно восстановится, прежде чем использовать снова. [С каждым улучшением техники восстановление будет происходить быстрее, а её сила расти.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgeb"
+	},
+	"lifetime": 260,
+	"decayTo": "contemnant.fragmentedgeb",
+	"resaturate": true,
+	"icon": "contemnant.fragmentedgeb"
+    },
+    {
+	"id": "contemnant.fragmentedgec",
+	"label": "Осколочная Операция",
+	"description": "Жестокие упражнения, которые повышают боль и усиливают жестокость. Те, кто практикует эти движения, иногда просто разрываются на части от интенсивности, необходимой для их выполнения.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 6,
+	    "winter": 6
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgec.grail",
+	    "add.knock": "contemnant.fragmentedgec.knock",
+	    "add.lantern": "contemnant.fragmentedgec.lantern",
+	    "fatiguing": "contemnant.fragmentedgec.exhausted",
+	    "epiphany": "contemnant.fragmentedged"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgec.exhausted",
+	"label": "Осколочная Операция (Переутомление)",
+	"description": "Мне придется подождать, пока оно восстановится, прежде чем использовать снова. [С каждым улучшением техники восстановление будет происходить быстрее, а её сила расти.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgec"
+	},
+	"lifetime": 220,
+	"decayTo": "contemnant.fragmentedgec",
+	"icon": "contemnant.fragmentedgec",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedged",
+	"label": "Имена Волка",
+	"description": "Три естества есьм у Волка Разделëнного; Он уничтожает; Он уничтожает; И ещë раз уничтожает. Его Имена известны тем, что приносят конец, но никогда - мирный.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 8,
+	    "winter": 8
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedged.grail",
+	    "add.knock": "contemnant.fragmentedged.knock",
+	    "add.lantern": "contemnant.fragmentedged.lantern",
+	    "fatiguing": "contemnant.fragmentedged.exhausted",
+	    "epiphany": "contemnant.fragmentedgee"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedged.exhausted",
+	"label": "Имена Волка (Переутомление)",
+	"description": "Мне придется подождать, пока оно восстановится, прежде чем использовать снова. [С каждым улучшением техники восстановление будет происходить быстрее, а её сила расти.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedged"
+	},
+	"lifetime": 180,
+	"decayTo": "contemnant.fragmentedged",
+	"icon": "contemnant.fragmentedged",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedgee",
+	"label": "Киноварные Формы",
+	"description": "Семью семь техник разрушения.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 10,
+	    "winter": 10
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgee.grail",
+	    "add.knock": "contemnant.fragmentedgee.knock",
+	    "add.lantern": "contemnant.fragmentedgee.lantern",
+	    "fatiguing": "contemnant.fragmentedgee.exhausted",
+	    "epiphany": "contemnant.fragmentedgef"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgee.exhausted",
+	"label": "Киноварные Формы (Переутомление)",
+	"description": "Мне придется подождать, пока оно восстановится, прежде чем использовать снова. [С каждым улучшением техники восстановление будет происходить быстрее, а её сила расти.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgee"
+	},
+	"lifetime": 140,
+	"decayTo": "contemnant.fragmentedgee",
+	"icon": "contemnant.fragmentedgee",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedgef",
+	"label": "Методы Разделения",
+	"description": "‘CAPUT GERAT LUPINUM - Солнце было Разделено, и вот его Рана.’ Это порочные предписания, которые отрывают жизнь от плоти, а кровь от света.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 12,
+	    "winter": 12
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgef.grail",
+	    "add.knock": "contemnant.fragmentedgef.knock",
+	    "add.lantern": "contemnant.fragmentedgef.lantern",
+	    "fatiguing": "contemnant.fragmentedgef.exhausted",
+	    "epiphany": "contemnant.fragmentedgeg"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgef.exhausted",
+	"label": "Методы Разделения (Переутомление)",
+	"description": "Мне придется подождать, пока оно восстановится, прежде чем использовать снова. [С каждым улучшением техники восстановление будет происходить быстрее, а её сила расти.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgef"
+	},
+	"lifetime": 100,
+	"decayTo": "contemnant.fragmentedgef",
+	"icon": "contemnant.fragmentedgef",
+	"resaturate": true
+    },
+    {
+	"id": "contemnant.fragmentedgeg",
+	"label": "Тайны Агонии",
+	"description": "Хитрость и Сила могут ответить друг другу, но как мы можем ответить Агонии? Ненавистью, пламенем, что поглощает снаружи; Отчаянием, пламенем, пожирающим изнутри. Это два начала Агонии - соедините их, и будете уничтожены.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 14,
+	    "winter": 14,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "add.grail": "contemnant.fragmentedgeg.grail",
+	    "add.knock": "contemnant.fragmentedgeg.knock",
+	    "add.lantern": "contemnant.fragmentedgeg.lantern",
+	    "fatiguing": "contemnant.fragmentedgeg.exhausted",
+	    "epiphany": [
+		{
+		    "id": "wolf.weaponfragment",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1,
+		    "neutral.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "contemnant.fragmentedgeg.exhausted",
+	"label": "Тайны Агонии (Переутомление)",
+	"description": "Мне придется подождать, пока оно восстановится, прежде чем использовать снова. [Вы овладели тайнами Волка - по крайней мере, настолько, насколько это возможно для смертного.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "refresh": "contemnant.fragmentedgeg"
+	},
+	"lifetime": 60,
+	"decayTo": "contemnant.fragmentedgeg",
+	"icon": "contemnant.fragmentedgeg",
+	"resaturate": true
+    },
+    {
+	"id": "contemplation.skill.unmake",
+	"label": "Созерцание: Утраченная техника?",
+	"description": "Имя Разделенно Волка открыло мне это страшное, часто замалчиваемое искусство боя. Это жестокое, разрушительное знание, и его природа не поддастся обычному разуму.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.unmake"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.sustain",
+	"label": "Созерцание: Утраченная техника?",
+	"description": "Имя Разделенно Волка открыло мне это страшное, часто замалчиваемое искусство боя. Это жестокое, разрушительное знание, и его природа не поддастся обычному разуму.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.sustain.dormant"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.division",
+	"label": "Созерцание: Утраченная техника?",
+	"description": "Имя Разделенно Волка открыло мне это страшное, часто замалчиваемое искусство боя. Это жестокое, разрушительное знание, и его природа не поддастся обычному разуму.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.division"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "challenge.contemplation.wolf",
+	"label": "Испытание высшего умения Волка ",
+	"aspects": {
+	    "needsedgewinter": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "skill.unmake",
+	"label": "Разделение",
+	"description": "Сердце и рука; разум и душа; плоть снаружи, и красное внутри, и белое, что скрывается еще глубже, - все оно Разделенное. [Вы можете использовать эту карту, чтобы мгновенно уничтожить практически любого врага или союзника. Грань этой карты будет увеличиваться при каждом ее использовании, но это также приведет к Потрясению.]",
+	"aspects": {
+	    "edge": 1,
+	    "lore": 1
+	},
+	"xtriggers": {
+	    "fatiguing": [
+		{
+		    "id": "skill.unmake.exhausted"
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -99
+		},
+		{
+		    "id": "edge_timer",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "trauma",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Цель",
+		"description": "Ктонибудь.",
+		"required": {
+		    "friend": 1,
+		    "foe": 1,
+		    "neutral": 1
+		},
+		"forbidden": {
+		    "marinette.marker": 1,
+		    "foe.exile": 1
+		},
+		"consumes": true
+	   }
+	]
+    },
+    {
+	"id": "skill.unmake.exhausted",
+	"label": "Рассечение (Переутомление)",
+	"description": "Сердце и рука; разум и душа; плоть снаружи, и красное внутри, и белое, что скрывается еще глубже, - все оно Разделенное. [Вы можете использовать эту карту, чтобы мгновенно уничтожить практически любого врага или союзника. Грань этой карты будет увеличиваться при каждом ее использовании, но это также приведет к Потрясению.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 60,
+	"decayTo": "skill.unmake",
+	"resaturate": true,
+	"icon": "skill.unmake"
+    },
+    {
+	"id": "skill.sustain.active",
+	"label": "Мучительное Поддержание",
+	"description": "Быть уничтоженным - значит, наконец, освободиться от страданий. Волк пока не желает моего освобождения. [Пока эта карта активна, никакое число Ран или Увечий не убьёт вас. Используйте Тень Разделённого Волка в Действии чтобы поддерживать эту карту в активном состоянии; при использовании Уничтожения, пока у вас есть эта карта, даёт шанс создать Тень Разделенного Волка.]",
+	"lifetime": 480,
+	"xtriggers": {
+	    "employment": "skill.sustain.active"
+	},
+	"decayTo": "skill.sustain.dormant",
+	"aspects": {
+	    "sustain.marker": 1
+	}
+    },
+    {
+	"id": "skill.sustain.dormant",
+	"label": "Мучительное Поддержание",
+	"description": "Быть уничтоженным - значит, наконец, освободиться от страданий. Волк пока не желает моего освобождения. [Поместите Тень Разделенного Волка в Действие, чтобы активировать эту карту. Кроме того, при использовании Уничтожения, пока у вас есть эта карта, даёт шанс создать Тень Разделенного Волка.]",
+	"xtriggers": {
+	    "employment": "skill.sustain.active"
+	},
+	"aspects": {
+	    "sustain.marker": 1
+	}
+    },
+    {
+	"id": "skill.division",
+	"label": "Разделение Себя",
+	"description": "Человеческая душа может вынести не так уж много. Когда чаша моих страданий, наконец, наполнится до краев, я, возможно, изолью часть ее в мир - придам своей боли форму, которая сможет ходить среди живых, даже если эта форма будет отвратительной, свирепой и изголодавшейся. [Используйте эту карту чтобы превратить Потрясение в союзного Осколочного Волка.]",
+	"aspects": {
+	    "edge": 8,
+	    "winter": 8,
+	    "lore": 1
+	},
+	"slots": [
+	    {
+		"id": "needstrauma",
+		"label": "Потрясение",
+		"required": {
+		    "trauma": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "skill.division.exhausted"
+	}
+    },
+    {
+	"id": "skill.division.exhausted",
+	"label": "Разделение Себя (Переутомление)",
+	"description": "Человеческая душа может вынести не так уж много. Когда чаша моих страданий наконец наполнится до краев, я, возможно, изолью часть ее в мир - придам своей боли форму, которая сможет ходить среди живых, даже если эта форма будет отвратительной, свирепой и изголодавшейся. [Используйте эту карту чтобы превратить Потрясение в союзного Осколочного Волка.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 360,
+	"decayTo": "skill.division",
+	"resaturate": true,
+	"icon": "skill.division"
+    },
+    {
+	"id": "hopelessness",
+	"label": "Безнадежность",
+	"description": "Пути назад нет, и лучшего будущего не предвидится. Жизнь - это боль, а смерть - тишина.",
+	"aspects": {
+	    "winter": 2,
+	    "promise": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "antithesis",
+	"label": "<color=red>АНТИТЕЗА <color=#005500>",
+	"description": "<color=red>Всему, что есть, должен быть положен конец.<color=#005500>",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1,
+	},
+	"icon": "blacksquare",
+	"unique": true
+    },
+    {
+	"id": "wound.glorious",
+	"label": "Осквернение-во-Славе",
+	"description": "Сияющая рана, напоминающая о разделении Солнца. Сила, исходящая от нее, настолько отвратительна, что каждый, кто увидит меня, поймет, что я проклят и мерзок - и более того, любой, кто будет слишком долго находиться рядом со мной, рискует подвергнуться боли уничтожения. [Эта карта считается ранением и заставит нейтралов атаковать вас, как только вы прибудете на поле боя. Пока у вас есть эта карта, случайный враг или союзник может быть уничтожен всякий раз, когда вы создаете Раздор.]",
+	"aspects": {
+	    "lantern": 6,
+	    "edge": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "local.infamy": 3
+	},
+	"unique": true
+    },
+    {
+	"id": "memento.exile",
+	"label": "Сердце Изгнанника",
+	"description": "На самом деле это не столько труп, сколько сувенир.",
+	"aspects": {
+	    "edge": 6,
+	    "heart": 6,
+	    "tool": 1,
+	    "long.blocker": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "memento.foe",
+	"label": "Глаз Дюффура",
+	"description": "Никто не крадет у лорда-считальца, но Изгнанник это сделал. И теперь, по-своему, я тоже.",
+	"aspects": {
+	    "winter": 6,
+	    "lantern": 6,
+	    "tool": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "klei",
+	"label": "Клейдухос",
+	"description": "'Да, да, Белый город превратился в руины. Я в курсе. Это не первый раз, когда я стойко противлюсь конвульсиям Истории. Я осталась, потому что нуждалась в вашем присутствии. Теперь я его заполучила.'",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "klei.casket",
+	"label": "Железный гроб (Сияющий)",
+	"description": "Уникальный сосуд который Клейдухос создала для 'сложных путешествий в сложные времена.' Она ждет внутри, исцеляясь, предвкушая, шепча своему сияющему Ключу. Каждые несколько дней она моргает. [Пока вы будете находиться в Разрушенной стране, кто-то очень опасный может отправиться на поиски. Усложните им поиск, скормив Клейдухос друга.]",
+	"aspects": {
+	    "ascension.marker.casket": 1,
+	    "legacyplotitem": 1
+	},
+	"slots": [
+	    {
+		"id": "needsshadow",
+		"actionid": "abandon",
+		"label": "Друг",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "friend.immortal": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "contemnant.story": 1
+		}
+	    },
+	],
+	"xtriggers": {
+	    "malign": "klei.casket.masked"
+	},
+	"unique": true
+    },
+    {
+	"id": "klei.casket.masked",
+	"label": "Железный Гроб (Мрачнеющий)",
+	"description": "Внутри, Лигения точно не спит - я не думаю, что она вообще спит, - но ядовитый свет, исходивший изнутри сосуда, теперь стал более тусклым. [Преследователям Клейдухос будет труднее найти ее - пока что.]",
+	"aspects": {
+	    "ascension.marker.casket": 1
+	},
+	"lifetime": 300,
+	"decayTo": "klei.casket",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "keyfigment",
+	"label": "Ключ-вымысел",
+	"description": "У Ключа Дней нет формы, но его очертания выжжены у меня перед глазами; Ключ Дней невозможно удержать, и все же я чувствую, как он пронизывает плоть моего мозга. [Эта карта считается Потрясением.]",
+	"aspects": {
+	    "lantern": 6,
+	    "damage.mind": 1
+	},
+	"lifetime": 800
+    },
+    {
+	"id": "op.sergei",
+	"label": "Потрёпанный Казак?",
+	"description": "'Волчёнок - подойди. Я устал. Поделись со мной выпиской, если таковая имеется.'",
+	"aspects": {
+	    "local": 1
+	},
+	"icon": "defeated.sergei"
+    },
+    {
+	"id": "plotitem.kazimirshashka",
+	"label": "Шашка Казимира",
+	"description": "Сабля с обломанным лезвием. Когда я держу ее в руках, я вижу обжигающие проблески прошлого.: </i> горит деревня, и знакомый казак улыбается мне сверху, сидя на коне. Как бы я хотел, чтобы он умер.</i> Это не моя ненависть, но на мгновение она кажется такой же знакомой и теплой, как огонь.",
+	"icon": "weapon.kazimir"
+    },
+    {
+	"id": "op.sergei.comeforsword",
+	"label": "Потрёпанный Казак?",
+	"description": "'Ты нашёл его. Очень любезно с твоей стороны. Отдай его мне, сейчас же.'",
+	"aspects": {
+	    "local": 1
+	},
+	"slots": [
+	    {
+		"id": "needssword",
+		"label": "Подарок",
+		"required": {
+		    "plotitem.kazimirshashka": 1
+		}
+	    }
+	],
+	"icon": "defeated.sergei"
+    },
+    {
+	"id": "sergei.horn",
+	"label": "Рог мародера",
+	"description": "Во времена казацкого террора и царской тирании этот рог возвещал об острых клинках и топоте копыт Сталеглота и его Черной сотни. Сейчас, в этом столетии, Черная сотня превратилась в прах, ее лидер скоро последует за ней - но протрубите в рог, и вы увидите, как последний призрак того старого ужаса снова проедет в чёрный одениях и сталью в руках.",
+	"aspects": {
+	    "supplies": 1,
+	    "uses.remaining": 3
+	},
+	"xtriggers": {
+	    "fatiguing": [
+		{
+		    "id": "uses.remaining",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "friend.sergei",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "damagehealth": "husk"
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.sergei",
+	"label": "Сталеглот",
+	"description": "Теперь, когда его совраг мертв, я могу лишь гадать, что поддерживает в нём жизнь сейчас: война? Страх? Желание достойной смерти? Возможно, Старый Волк просто издает свой последний стон в жизни. Но, даже угасая, этот Вечный Разделённого Волка остается почти таким же свирепым, каким он был на пике своего могущества.",
+	"aspects": {
+	    "friend": 1,
+	    "edgelong": 1,
+	    "edge": 20,
+	    "winter": 20,
+	    "friend.immortal": 1,
+	    "local": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.sergei.exhausted",
+	    "killmortal": "friend.sergei.exhausted",
+	    "killfriend": "friend.sergei.exhausted",
+	    "makecasualty": "friend.sergei.exhausted",
+	    "damagehealth": "op.sergei.postfight"
+	},
+	"icon": "sergei"
+    },
+    {
+	"id": "friend.sergei.exhausted",
+	"label": "Сталеглот",
+	"description": "Теперь, когда его совраг мертв, я могу лишь гадать, что поддерживает в нём жизнь сейчас: война? Страх? Желание достойной смерти? Возможно, Старый Волк просто издает свой последний стон в жизни. Но, даже угасая, этот Вечный Разделённого Волка остается почти таким же свирепым, каким он был на пике своего могущества.",
+	"aspects": {
+	    "friend": 1,
+	    "edgelong": 1,
+	    "exhausted": 1,
+	    "friend.immortal": 1,
+	    "local": 1
+	},
+	"xtriggers": {
+	    "damagehealth": "op.sergei.postfight"
+	},
+	"icon": "sergei",
+	"lifetime": 30,
+	"decayTo": "friend.sergei",
+	"resaturate": true
+    },
+    {
+	"id": "op.sergei.postfight",
+	"label": "Сталеглот",
+	"description": "<i>'Всё кончено.'</i>",
+	"aspects": {
+	    "local": 1
+	},
+	"icon": "defeated.sergei"
+    },
+    {
+	"id": "cross.first",
+	"label": "Хитиновая засада!",
+	"description": "Что <i>это</i> такое?",
+	"aspects": {
+	    "local": 1
+	},
+	"icon": "cross",
+	"verbicon": "crossverb"
+    },
+    {
+	"id": "contemplation.cross.1",
+	"label": "Созерцание: Своенравный Крест",
+	"description": "Хитиновый Крест давным-давно сбежал, скрывшись за небом, под землей или в нас самих. По какой причине один из их сородичей вернулся сейчас? И почему он покушался на жизнь Вечного Грани? Во мне шевелятся боярышниковые мысли - что-то тайное скрывается в тени этой войны.",
+	"aspects": {
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.cross.1",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "contemplation.cross.2"
+	}
+    },
+    {
+	"id": "challenge.contemplation.cross.1",
+	"label": "Испытание Хитина 1",
+	"aspects": {
+	    "needsknock": 8,
+	    "needsedge": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "contemplation.cross.2",
+	"label": "Созерцание: Гамбит Секиры",
+	"description": "Рогатая-Секира - та, кто направляет этого одинокого воина на Изгнанника и Врага. Иногда говорят, что Секира когда-то была силой Грани, и Мстительность остается одной из ее самых острых черт - хочет ли она дестабилизировать Совражество? Ослабить хват правящих Часов Грани, уничтожив диаду? Я заинтересован в смерти Изгнанника, но я должен больше узнать о Секире и мотивах её чемпиона, прежде чем решу, что делать.",
+	"aspects": {
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.cross.2",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": [
+		{
+		    "id": "contemplation.cross.3"
+		},
+		{
+		    "id": "op.axe",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	}
+    },
+    {
+	"id": "challenge.contemplation.cross.2",
+	"label": "Испытание Хитина 2",
+	"aspects": {
+	    "needsknock": 10,
+	    "needsedge": 10
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "contemplation.cross.3",
+	"label": "Созерцание: Кровь Земли",
+	"description": "Изгнанник и его Враг принадлежат к линии Антея - линии Кремня и Колеса. Их смерть не только ослабит влияние 'царствующие часов' на Совражество, но и вернет земле антейскую кровь, которая постепенно снова пробудит погребенных под ней братьев и сестер Секиры. Кремень. Колесо. Витки. Волк будет против этого - Волк противостоит всему, - но, возможно, я смогу найти общий язык с избранным воином Секиры. Мы оба требуем смерти Изгнанника. Что касается дальнейшего - посмотрим.",
+	"aspects": {
+	    "contemplation": 1,
+	    "completed": 1
+	}
+    },
+    {
+	"id": "cross.summonsign",
+	"label": "Обязующая Ракушка",
+	"description": "Знак, на котором выгравировано невыразимое имя воина хитинового креста, которого Рогатая-Секира провозгласила своим чемпионом во время войны. Если я позволю нескольким каплям моей крови окрасить панцирь, мой новый союзник придет мне на помощь в битве.",
+	"aspects": {
+	    "lore": 1,
+	    "uses.remaining": 3
+	},
+	"xtriggers": {
+	    "fatiguing": [
+		{
+		    "id": "uses.remaining",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "friend.cross",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+	    ],
+	    "damagehealth": "husk"
+	}
+    },
+    {
+	"id": "friend.cross",
+	"label": "Гирваенгр, Копьё-и-Щит",
+	"description": "Дитя Камня, Солдат Совы, и последний из истинных, гордый Глэтерфлётинг все еще живущая по эту сторону истории. Она не питает любви к человечеству, но она будет орудовать своими крыльями, чешуей и острыми жалами сообща со мной, ибо мы оба стремимся уничтожить общего врага.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "edge": 20,
+	    "knock": 12,
+	    "moth": 12,
+	    "friend.immortal": 1,
+	    "local": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.cross.exhausted",
+	    "killmortal": "friend.cross.exhausted",
+	    "killfriend": "friend.cross.exhausted",
+	    "makecasualty": "friend.cross.exhausted",
+	    "damagehealth": "op.cross.postfight"
+	},
+	"icon": "cross"
+    },
+    {
+	"id": "friend.cross.exhausted",
+	"label": "Гирваенгр, Копьё-и-Щит",
+	"description": "Дитя Камня, Солдат Совы, и последний из истинных, гордый Глэтерфлётинг все еще живущая по эту сторону истории. Она не питает любви к человечеству, но она будет орудовать своими крыльями, чешуей и острыми жалами сообща со мной, ибо мы оба стремимся уничтожить общего врага.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "exhausted": 1,
+	    "friend.immortal": 1,
+	    "local": 1
+	},
+	"xtriggers": {
+	    "damagehealth": "op.cross.postfight"
+	},
+	"icon": "cross",
+	"lifetime": 30,
+	"decayTo": "friend.cross",
+	"resaturate": true
+    },
+    {
+	"id": "op.cross.postfight",
+	"label": "Гирваенгр, Раненное-Крыло",
+	"description": "Теперь, когда наша общая цель достигнута, мы больше не нужны друг другу. Я знаю, что у нее была бы такая же жизнь, как и у меня, если бы не глубина ее ран, и она, в свою очередь, знает, что я это знаю. И все же, когда я подхожу к ней, я почти слышу что-то похожее на голос...",
+	"aspects": {
+	    "local": 1
+	},
+	"icon": "cross"
+    },
+    {
+	"id": "weapon.cross",
+	"label": "Гибрид-Цеп",
+	"description": "'Копьё' коим владела воин Хитинового Креста Гирваенгр: длинный, как у гадюки, хвост и жало, шипящие с ядом, способным расколоть камень. Отделенный от тела, он теперь может использоваться как своего рода смертоносный цеп, сокрушающий и разъедающий все, чему не повезло пострадать от его обжигающего удара.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 12,
+	    "knock": 6,
+	    "moth": 6,
+	    "friend.immortal.blocker": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.cross.exhausted"
+	}
+    },
+    {
+	"id": "weapon.cross.exhausted",
+	"label": "Гибрид-Цеп (Подготовка)",
+	"description": "'Копьё' коим владела воин Хитинового Креста Гирваенгр: длинный, как у гадюки, хвост и жало, шипящие с ядом, способным расколоть камень. Отделенный от тела, он теперь может использоваться как своего рода смертоносный цеп, сокрушающий и разъедающий все, чему не повезло пострадать от его обжигающего удара.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "friend.immortal.blocker": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.cross.exhausted",
+	    "refresh": "weapon.cross"
+	},
+	"lifetime": 60,
+	"decayTo": "weapon.cross",
+	"icon": "weapon.cross",
+	"resaturate": true
+    },
+    {
+	"id": "contemplation.sobibor",
+	"label": "Созерцание: Сильнее чем Страх?",
+	"description": "Каждый загнанный в угол зверь стоит перед выбором: смерть или победа. Изгнанник сказал мне, что в конце концов это одно и то же, но также и то, что битва - это момент, и поэтому выбор остается важным. Что я выберу?",
+	"aspects": {
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "contemplation.sobibor.complete"
+	}
+    },
+    {
+	"id": "contemplation.sobibor.complete",
+	"label": "Непобедимая Ненависть",
+	"description": "Еще не все потеряно; непоколебимая воля,\n Жажда мщения, наша непримиримая ненависть,\n Мужество. Никогда мы не уступим, никогда не покоримся.\n\n- Джон Мильтон, <i>Потерянный Рай</i>",
+	"aspects": {
+	    "memory": 1,
+	    "edge": 33
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    }
+]
+}

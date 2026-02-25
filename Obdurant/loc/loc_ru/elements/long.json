@@ -1,0 +1,291 @@
+{
+"elements": [
+    {
+	"id": "draw.wilhelm",
+	"label": "Исход - Вильгельм",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.sergei",
+	"label": "Исход - Сергей",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "wilhelm.first",
+	"label": "Воевода",
+	"description": "'ТРУСЫ! Выйдите и сразитесь со мной! Любой, кто погибнет от моих рук, погибнет героем!'",
+	"aspects": {
+	    "edgelong": 1,
+	    "foe": 1,
+	    "foe.wilhelm": 1
+	},
+	"decayTo": "mission.wilhelm.a",
+	"icon": "wilhelm"
+    },
+    {
+	"id": "sergei.first",
+	"label": "Сталеглот",
+	"description": "'Стой, беги, умоляй - неважно. От меня не избавиться.' [Иногда Сталеглот будет целиться во Врагов на столе, но раны, которые он наносит, моментально становятся Увечьями.]",
+	"aspects": {
+	    "edgelong": 1,
+	    "foe": 1,
+	    "foe.sergei": 1
+	},
+	"decayTo": "mission.sergei.a",
+	"icon": "sergei"
+    },
+    {
+	"id": "wilhelm",
+	"label": "Воевода",
+	"description": "'ТРУСЫ! Выйдите и сразитесь со мной! Любой, кто погибнет от моих рук, погибнет героем!'",
+	"aspects": {
+	    "edgelong": 1,
+	    "foe": 1,
+	    "foe.wilhelm": 1
+	}
+    },
+    {
+	"id": "sergei",
+	"label": "Сталеглот",
+	"description": "'Стой, беги, умоляй - неважно. От меня не избавиться.' [Иногда Сталеглот будет целиться во Врагов на столе, но раны, которые он наносит, моментально становятся Увечьями.]",
+	"aspects": {
+	    "edgelong": 1,
+	    "foe": 1,
+	    "foe.sergei": 1
+	}
+    },
+    {
+	"id": "mission.wilhelm.a",
+	"label": "Наблюдение: Воевода",
+	"description": "Места свирепейших битв манят Вечных Грани как кровь манит акул. Оставаясь незамеченными в рядах армий народов, они пересекают континенты, чтобы добраться до своих заклятых врагов. Таким образом, Воевода не является нашим прямым врагом, но он не откажется от возможности испытать свои силы против армии на своем пути. Есть ли способ избавиться от него?",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.warmaker.a",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.wilhelm.b"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.warmaker.a",
+	"label": "Испытание Воеводы А",
+	"aspects": {
+	    "needsforge": 8,
+	    "needsedge": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.wilhelm.b",
+	"label": "Наблюдение: Диада Воеводы",
+	"description": "Каждый Вечный Грани - лишь одна половина Диады: клятвы двух бессмертных, скованных вместе в вечной битве и вечном стремлении. Возможно, это то, что нас интересует. Заклятый враг Воеводы должен быть где-то на передовой - если мы хотим избавиться от него, первым разумным шагом может стать поиск его врага.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.warmaker.b",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.wilhelm.c"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.warmaker.b",
+	"label": "Испытание Воеводы Б",
+	"aspects": {
+	    "needsforge": 12,
+	    "needsedge": 12
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.wilhelm.c",
+	"label": "Наблюдение: Воевода и Континенталь",
+	"description": "Когда-то, под солнцем Нового Света, она была товарищем Воеводы в битве против британцев. Возможно, она была и его любовницей. Но она вернулась во Францию, когда Корсиканец провозгласил себя императором, и предложила служить ему мечом. Затем за двенадцать лет произошло семь войн между Францией и остальной Европой, и Континенталь покорно направила свои клинки против британцев, русских, австрийцев — и против Воеводы. Она с горечью заявила, что это ее долг; Воевода не согласился. И более ста лет спустя они все еще расходятся во мнениях.",
+	"aspects": {
+	    "contemplation": 1,
+	    "completed": 1
+	}
+    },
+    {
+	"id": "mission.sergei.a",
+	"label": "Наблюдение: Сталеглот",
+	"description": "Места свирепейших битв манят Вечных Грани как кровь манит акул. Оставаясь незамеченными в рядах армий народов, они пересекают континенты, чтобы добраться до своих заклятых врагов. Таким образом, Сталеглот не является нашим прямым врагом, но он не пощадит ни мужчин, ни женщин, что окажутся на его пути. Есть ли способ избавиться от него?",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.ironeater.a",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.sergei.b"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.ironeater.a",
+	"label": "Испытание Сталеглота А",
+	"aspects": {
+	    "needswinter": 8,
+	    "needsedge": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.sergei.b",
+	"label": "Наблюдение: Диада Сталеглота",
+	"description": "Все Вечные Грани - лишь одна половина Диады: клятва двух бессмертных, скованных вместе в вечной битве и вечном стремлении. Мало что может остановить Диаду посреди битвы, охваченную ненавистью и страстью, как это обычно бывает. Возможно, это то, что нас интересует. Заклятый враг Сталеглота должен быть где-то на передовой - если мы хотим избавиться от него, первым разумным шагом может стать поиск его врага.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.ironeater.b",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.sergei.c"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.ironeater.b",
+	"label": "Испытание Воеводы Б",
+	"aspects": {
+	    "needswinter": 12,
+	    "needsedge": 12
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.sergei.c",
+	"label": "Наблюдение: Сталеглот и Сирота",
+	"description": "Одной зимней ночью в Древней Руси Сталеглот создал мальчика, который станет его злейшим врагом. Любопытство ли заставило его пощадить ребенка, даже после убийства его семьи? Апатия? Возможно, он и сам не помнит. Со временем, однако, мальчик попал под опеку сонма монахов и воспитывался с помощью псалмов, поста и молитвы. Но в глубине души мальчик молился только об одном. Желанного он не получил - и через триста лет, когда Красные сражались с Белыми на склонах Российской Империи, Сталеглот отправил Сироту повидаться со своей семьей.",
+	"aspects": {
+	    "contemplation": 1,
+	    "impossible": 1,
+	    "completed": 1,
+	    "edge": 1
+	}
+    },
+    {
+	"id": "long.opening",
+	"label": "Брешь?",
+	"description": "Защита Вечного Грани почти непробиваема. Почти.",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsopening",
+		"label": "Слабость",
+		"required": {
+		    "long.opening": 1
+		}
+	    },
+	    {
+		"id": "needsopening2",
+		"label": "Слабость",
+		"required": {
+		    "long.opening": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "wilhelm.attack.a",
+	"label": "Атака Вильгельма А",
+	"aspects": {
+	    "needsedge": 20,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "wilhelm.attack.b",
+	"label": "Атака Вильгельма Б",
+	"aspects": {
+	    "needsedgewinter": 8,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "wilhelm.attack.c",
+	"label": "Атака Вильгельма С",
+	"aspects": {
+	    "needswinter": 10,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "long.breakthrough.challenge",
+	"label": "Испытание изобличения Вечного",
+	"aspects": {
+	    "needsedge": 25,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "blocker.wilhelmandcamilla",
+	"label": "Воспоминание: Союз Вражды",
+	"description": "Воевода теперь сражается со своим бессмертным врагом, Континенталью. Они заняты попытками убить друг друга, и я сомневаюсь, что я увижу кого-либо из них снова. [Ни один Вечный Грани не придет атаковать вас.]",
+	"aspects": {
+	    "long.blocker": 1,
+	    "edge": 4
+	}
+    },
+    {
+	"id": "sergei.attack.a",
+	"label": "Атака Сергея А",
+	"aspects": {
+	    "needsedge": 20,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "sergei.attack.b",
+	"label": "Атака Сергея Б",
+	"aspects": {
+	    "needsedgeforge": 8,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "sergei.attack.c",
+	"label": "Атака Сергея А",
+	"aspects": {
+	    "needsforge": 10,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    }
+]
+}

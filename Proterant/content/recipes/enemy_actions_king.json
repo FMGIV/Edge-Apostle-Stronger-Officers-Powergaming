@@ -1,0 +1,676 @@
+{
+"recipes": [
+    {
+	"id": "king.cycle",
+	"actionid": "action.king",
+	"label": "The King's Men Bide Their Time...",
+	"startdescription": "Polished boots and spotless rifles march under the sun. These men will make a move soon.",
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "king.pickaction.router",
+		"chance": 40
+	    },
+	    {
+		"id": "king.cycle.afraid_create"
+	    },
+	    {
+		"id": "king.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "king.reinforcements",
+		"additional": true,
+		"chance": 50
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "king.reinforcements",
+	"actionid": "reinforcements.king",
+	"label": "All the King's Men",
+	"startdescription": "When dawn comes, we find more of the King's men have come to reinforce the position. Troublesome.",
+	"extantreqs": {
+	    "faction.king": -6,
+	    "corpse.jerome": -1
+	},
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"foe.riflemen",
+		"foe.riflemen",
+		"foe.riflemen",
+		"foe.riflemen",
+		"foe.riflemen",
+		"foe.phlogisticant",
+		"foe.phlogisticant",
+		"foe.phlogisticant",
+		"foe.engine",
+		"foe.engine",
+		"foe.engine"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "king.cycle.afraid_create",
+	"label": "Terror Becomes Me",
+	"startdescription": "When the lion roars, all other creatures lie low in fear, for they know the king of beasts has taken the field. And so I am a lion, and these souls my prey. [No Enemies will attack you or interfere with Objectives.]",
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"effects": {
+	    "signaller_afraid_king": 1
+	},
+	"linked": [
+	    {
+		"id": "king.cycle.afraid_continue"
+	    },
+	    {
+		"id": "king.cycle.afraid_end"
+	    }
+	]
+    },
+    {
+	"id": "king.cycle.afraid_continue",
+	"label": "Terror Becomes Me",
+	"startdescription": "When the lion roars, all other creatures lie low in fear, for they know the king of beasts has taken the field. And so I am a lion, and these souls my prey. [No Enemies will attack you or interfere with Objectives.]",
+	"warmup": 30,
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"linked": [
+	    {
+		"id": "king.cycle.afraid_continue"
+	    },
+	    {
+		"id": "king.cycle.afraid_end"
+	    }
+	]
+    },
+    {
+	"id": "king.cycle.afraid_end",
+	"label": "Terror Becomes Me",
+	"startdescription": "When the lion roars, all other creatures lie low in fear, for they know the king of beasts has taken the field. And so I am a lion, and these souls my prey. [No Enemies will attack you or interfere with Objectives.]",
+	"effects": {
+	    "signaller_afraid_king": -99
+	},
+	"linked": [
+	    {
+		"id": "king.cycle"
+	    }
+	]
+    },
+    {
+	"id": "king.pickaction.router",
+	"label": "The King's Forces Act!",
+	"startdescription": "The alarm cries out - our adversary mobilises!",
+	"extantreqs": {
+	    "skill.intimidate.active": -1
+	},
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"alt": [
+	    {
+		"id": "jerome.attack.startup",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "king.singleattack.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "king.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "king.clear",
+	"label": "The King's Forces Act!",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "king.cycle"
+	    }
+	]
+    },
+    {
+	"id": "king.singleattack.startup",
+	"actionid": "attack.king",
+	"label": "A Hostile Offensive!",
+	"startdescription": "One of our enemies seeks to strike at us -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqjerome": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "found.riflemen"
+	    },
+	    {
+		"id": "found.otherkingenemy"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "found.riflemen",
+	"label": "A Hostile Offensive!",
+	"startdescription": "This enemy unit moves in lockstep with its comrades -",
+	"requirements": {
+	    "foe.coordinated": 1,
+	    "foe.riflemen": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe.riflemen": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqjerome": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "target.legion",
+		"chance": 40
+	    },
+	    {
+		"id": "king.defend.opportunity.pre"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "found.otherkingenemy",
+	"label": "A Hostile Offensive!",
+	"startdescription": "One of our enemies seeks to strike at us -",
+	"requirements": {
+	    "faction.king": 1
+	},
+	"linked": [
+	    {
+		"id": "target.legion",
+		"chance": 40
+	    },
+	    {
+		"id": "king.defend.opportunity.pre"
+	    }
+	]
+    },
+    {
+	"id": "target.legion",
+	"label": "Against the Légion du Seuil?",
+	"startdescription": "We're all fighting over the star - that means we're all fighting each other. And this time, the King's men have chosen a different target.",
+	"tablereqs": {
+	    "faction.legion": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "faction.legion": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqlionel": 1,
+		    "foe.malkin": 1,
+		    "foe.malkin.hidden": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "target.legion.defeat",
+		"chance": 35
+	    },
+	    {
+		"id": "target.legion.victory"
+	    }
+	]
+    },
+    {
+	"id": "target.legion.defeat",
+	"label": "The King's Men Have Not Prevailed",
+	"startdescription": "Deadlock - a stuttering offensive. The Légion remains entrenched; the Englishmen withdraw from the engagement with minimal losses. Combatants recede and vanish.",
+    },
+    {
+	"id": "target.legion.victory",
+	"label": "The King's Men Have Prevailed!",
+	"startdescription": "When the gunfire settles, the battlefield is littered with dead legionnaires. The bootprints of the King's men mark the earth, mark the corpses of the fallen. They have moved on.",
+	"aspects": {
+	    "killlegion": 1
+	}
+    },
+    {
+	"id": "king.defend.opportunity.pre",
+	"label": "A Hostile Offensive!",
+	"startdescription": "",
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "defend.opportunity"
+	    }
+	]
+    },
+    {
+	"id": "jerome.attack.startup",
+	"actionid": "attack.jerome",
+	"label": "A Commander Takes Action!",
+	"startdescription": "'Move aside. I stand on business for the King.'",
+	"tablereqs": {
+	    "uqjerome": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"slots": [
+	    {
+		"id": "needsjerome",
+		"label": "Enemy",
+		"required": {
+		    "uqjerome": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"internaldeck": {
+	    "spec": [
+		"decision.enemy.doubleattack",
+		"decision.enemy.doubleattack",
+		"decision.enemy.attack",
+		"decision.enemy.reinforcements"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "jerome.physicalattack"
+	    },
+	    {
+		"id": "jerome.dreamattack.pre"
+	    },
+	    {
+		"id": "jerome.orderguard"
+	    }
+	]
+    },
+    {
+	"id": "jerome.physicalattack",
+	"label": "A Merciless Assault!",
+	"startdescription": "'I don't much bother fighting boots-on-ground these days. But, now and then, a soldier feels compelled to shed blood with his own two hands. And I am still <i>very</i> good at that.'\n\n[Jerome is attempting to do you and your Allies physical harm. Defend by providing a card to equal any of his Thresholds.]",
+	"requirements": {
+	    "decision.enemy.attack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "Defense",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "defend.edge"
+	    },
+	    {
+		"id": "defend.edgelantern"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "jerome.dreamattack.pre",
+	"label": "The Sword Unseen",
+	"startdescription": "",
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": -14
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": -8
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 6
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 6
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 6
+	    }
+	],
+	"linked": [
+	    {
+		"id": "jerome.dreamattack"
+	    }
+	]
+    },
+    {
+	"id": "jerome.dreamattack",
+	"label": "The Sword Unseen",
+	"startdescription": "In the Mansus, Jerome carries a horrid, piercing light in his hand, and when I close my eyes I can see its glow beneath my eyelids. It is coming closer.\n\n[Jerome is attempting to inflict Trauma upon you. Defend by providing a card to equal any of his Thresholds.]",
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "Defense",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "tool": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "jerome.dreamattack.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "dreamattack.defend.lantern"
+	    },
+	    {
+		"id": "dreamattack.defend.heart"
+	    },
+	    {
+		"id": "dreamattack.defend.moth"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "jerome.dreamattack.nodefense",
+	"label": "The Sword Unseen",
+	"startdescription": "My mind seethes; my senses devour one another. I find fistfuls of my own hair in my hands. The taste of some burning ozone lingers in my mouth. Light - there is too much light. To perceive is to die.",
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "dreamattack.defend.lantern",
+	"label": "Wards Raised, Wards Withstand",
+	"startdescription": "The light recedes. My soul is protected.",
+	"requirements": {
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "dreamattack.defend.heart",
+	"label": "Wards Raised, Wards Withstand",
+	"startdescription": "The light recedes. My soul is protected.",
+	"requirements": {
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "dreamattack.defend.moth",
+	"label": "Wards Raised, Wards Withstand",
+	"startdescription": "The light recedes. My soul is protected.",
+	"requirements": {
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "jerome.orderguard",
+	"label": "Fodder to the Front",
+	"startdescription": "'Quickly to it, now! Your country expects success - your <i>King</i> expects success!'\n\n[Jerome can command other Enemies to guard him, preventing him from being attacked until they are slain.]",
+	"requirements": {
+	    "decision.enemy.reinforcements": 1
+	},
+	"slots": [
+	    {
+		"id": "needsking",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsking2",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "faction.king",
+		"mutate": "foe.guardjerome",
+		"level": 1
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "foe.guardjerome",
+		"level": 0
+	    }
+	],
+	"warmup": 15
+    }
+]
+}

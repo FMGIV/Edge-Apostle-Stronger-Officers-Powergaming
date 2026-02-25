@@ -1,0 +1,445 @@
+{
+"recipes": [
+    {
+	"id": "visitshrine.lionsmith.chain",
+	"actionid": "mobilize",
+	"label": "打破誓言，重获自由",
+	"startdescription": "为了我或许将为之物，我将摧毁我现为之物。这一过程不会愉快。\n\n[这将使你被“嗜血”充满。]",
+	"description": "我头晕目眩；皮肤仿佛火烧一般灼热。狮子匠（或是他的某个具名者）将我身上古老的赠礼取走，并在其脚下粉碎。曾经有着力量之处现在仅余虚弱。但重铸之前必先毁坏。我将忍受。",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "chain": 1
+	},
+	"effects": {
+	    "bloodlust": 1,
+	    "shrinelionsmith": -99,
+	    "chain": -99
+	},
+	"warmup": 60,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger"
+	    }
+	]
+    },
+    {
+	"id": "visitshrine.lionsmith.getmonsterlorealready",
+	"actionid": "mobilize",
+	"label": "实战教学",
+	"startdescription": "神祠里的具名者们不会再给予我更多关于制造怪物的指引。若我希望了解怪物，或许我应该自己去找几只。",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "foe.corpse.unnatural": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "visitshrine.blocked.chain",
+	"actionid": "mobilize",
+	"label": "石之誓言？",
+	"startdescription": "我曾向名为燧石的残余之力发过誓，这誓言至今仍束缚着我的血肉与灵魂——是故我无法从这个地方获得力量，至少现在如此。但狮子匠本人也曾粉碎自己的誓言，故他能够给予我一条通往自由之道。\n\n[当你仍持有带“束缚”的卡牌时，你将无法进行大部分朝圣行动。]",
+	"requirements": {
+	    "shrinelionsmith": 1
+	},
+	"extantreqs": {
+	    "chain": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "visitshrine.lionsmith.debilitation",
+	"actionid": "mobilize",
+	"label": "重铸被毁之物？",
+	"startdescription": "狮子匠厌弃伤疤。若我以不完美为耻，我首先要做的就是修复自身。\n\n[使用非人的残骸与至少强达12级的<b>铸</b>，你将能够治好一处残疾。但这一过程并不迅速。]",
+	"description": "我仍不完美。",
+	"requirements": {
+	    "debilitation": 1,
+	    "shrinelionsmith": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"slots": [
+	    {
+		"id": "needsmaterial1",
+		"label": "材料",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+	    },
+	    {
+		"id": "needsmaterial2",
+		"label": "材料",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+	    },
+	    {
+		"id": "needsmaterial3",
+		"label": "材料",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+	    }
+	],
+	"alt": [
+	    {
+		"id": "healdebilitation"
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "healdebilitation",
+	"label": "反抗者的重铸",
+	"startdescription": "狮子匠蔑视伤疤。我可以站在他如熔炉般的神祠内，并让我残缺的血肉接受重铸被毁之物的仪式。白日铸炉掌管一种类似但不那么野蛮的魔法——但狮子匠并不相信那些没有痛苦的赦罪之仪。",
+	"requirements": {
+	    "foe.corpse.unnatural": 1,
+	    "forge": 12
+	},
+	"linked": [
+	    {
+		"id": "healdebilitation.continue"
+	    }
+	]
+    },
+    {
+	"id": "healdebilitation.continue",
+	"label": "反抗者的重铸",
+	"startdescription": "无烟之火吞没我的身躯，我的血肉破裂并悲鸣，仿佛铁匠锤下的金属。我的血液已被熔融。这感觉就像我被燃烧了好几个晚上。",
+	"description": "火焰退去。烟雾盘旋在我的血肉——我崭新的血肉上。它就像新出炉的武器一般光亮且强烈。我再次变得完整，伤疤已无处可寻。被毁之物可被重铸，且重铸后将会更强。\n\n不过，如果能够避免，那我确实，<i>确实</i>不想再经历一次了。",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "debilitation": -99,
+	    "shrinelionsmith": -99,
+	    "strength": 1
+	},
+	"warmup": 150
+    },
+    {
+	"id": "visit.shrinelionsmith.getskill",
+	"actionid": "mobilize",
+	"label": "去铜之神祠朝圣",
+	"startdescription": "我对狮子匠技艺的理解已达到凡人的极限。或许现在我需要的是不朽的知识。\n\n[这将使你被“嗜血”充满。]",
+	"description": "我的视野被烧至金黄。在灼热的光芒中，我听到了具名者“锤子”老犹大那可怖的脚步声，和他持于拳中之火的噼啪爆裂声。“听我说，人之杀手，”他以炮火与钟鸣的低沉声音说。“这是一件武器，而这是它的本质。”",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "proterant.fragmentedgeg": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"contemplation.skill.swoleup",
+		"contemplation.skill.refreshself",
+		"contemplation.skill.intimidate"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "bloodlust": 1
+	},
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger"
+	    }
+	],
+	"warmup": 60,
+	"craftable": true,
+	"maxexecutions": 3
+    },
+    {
+	"id": "visit.shrinelionsmith.getweapon",
+	"actionid": "mobilize",
+	"label": "去铜之神祠朝圣",
+	"startdescription": "狮子匠神祠中的气味明亮如炽热的黄铜，腥臭如大型的猫科动物。我已经掌握了他的奥义。如果我在他的神祠里冥想，或许会找到一些留给我的东西。\n\n[这将使你被“嗜血”充满。]",
+	"description": "我在祭坛下方找到了一件很久之前留给我的东西。",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "proterant.fragmentedgeg": 1
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "weapon.stymphalian": 1,
+	    "bloodlust": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger"
+	    }
+	],
+	"warmup": 60,
+	"craftable": true
+    },
+    {
+	"id": "visitshrine.lionsmith.lore",
+	"actionid": "mobilize",
+	"label": "去铜之神祠朝圣",
+	"startdescription": "狮子匠神祠中的气味明亮如炽热的黄铜，腥臭如大型的猫科动物。在此冥想会让我更深刻地理解狮子匠具名者教导的技巧。\n\n[这将使你被“嗜血”充满。]",
+	"description": "我正变得更加强大。",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "lore": 1,
+	    "edge": 1,
+	    "forge": 1,
+	    "heart": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"aspects": {
+	    "epiphany": 1
+	},
+	"effects": {
+	    "bloodlust": 1,
+	    "shrinelionsmith": -99
+	},
+	"warmup": 60,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger"
+	    }
+	]
+    },
+    {
+	"id": "mutate.morebattlehunger",
+	"label": "去铜之神祠朝圣",
+	"requirements": {
+	    "battlehunger": -5
+	},
+	"mutations": [
+	    {
+		"filter": "bloodlust",
+		"mutate": "battlehunger",
+		"level": 1,
+		"additive": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger",
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "visit.shrinelionsmith.getmonsterlore",
+	"actionid": "mobilize",
+	"label": "狮型行业",
+	"startdescription": "猫，无论大小，均是狮子匠善行的象征——或是他愤怒的象征。习得猫是如何被勤奋之人所创造是通往更伟大的方法和更庞大的怪物的第一步。\n\n[这将使你被“嗜血”充满。]",
+	"description": "这些就是无影帝国的战士工匠与兜颈贵胄所知的构筑怪物的模式与方法。现在我也加入了知晓这一知识者的行列。",
+	"requirements": {
+	    "foe.corpse.unnatural": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "remnant": -99,
+	    "constructions.a": 1,
+	    "bloodlust": 1
+	},
+	"warmup": 60,
+	"craftable": true,
+	"maxexecutions": 1,
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger",
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "visit.shrinelionsmith.contemplation",
+	"actionid": "mobilize",
+	"label": "在铜之神祠寻求建议",
+	"startdescription": "若一个意图的本质避开我，我可以前往神祠寻求真实。狮子匠的具名者或许会为我提供如何加入他们行列的建议——只要我带去了合适的供品。",
+	"description": "神祠毫无动静。没有具名者注意到我。",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "contemplation": 1,
+	    "promise": -1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"slots": [
+	    {
+		"id": "needsoffering",
+		"label": "供品",
+		"required": {
+		    "foe.corpses": 1,
+		    "foe.corpse.unnatural": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "visit.shrinelionsmith.contemplation.success"
+	    }
+	],
+	"warmup": 60,
+	"craftable": true
+    },
+    {
+	"id": "visit.shrinelionsmith.contemplation.success",
+	"actionid": "mobilize",
+	"label": "金之启示",
+	"startdescription": "神祠内的空气变得灼热。我的视野仿佛熔融，不久后我只能看见金黄。有什么来到此处。",
+	"description": "我能够听到具名者“锤子”老犹大那自傲的阔步行进声，因他穿过门关前来教导我。“人之杀手，”他如此告知我。“听我说：我授予你真实的一角。”",
+	"requirements": {
+	    "remnant": 1
+	},
+	"aspects": {
+	    "ascend": 1
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "remnant": -99
+	}
+    },
+    {
+	"id": "visit.shrinelionsmith.offertoken",
+	"actionid": "mobilize",
+	"label": "在祭坛供奉一枚古金币",
+	"startdescription": "林鸮，斗争那不显要的具名者，通常栖息于刃之司辰的神祠中的不得见之所。或许我可以用这枚古币吸引其中之一的注意——以及协助。在此之上，为它提供一顿饱餐也没有坏处。",
+	"description": "神祠毫无动静。没有东西在火焰中移动。",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "token.wilhelm": 1,
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"slots": [
+	    {
+		"id": "needsoffering",
+		"label": "供品",
+		"required": {
+		    "foe.corpses": 1,
+		    "foe.corpse.unnatural": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "visit.shrinelionsmith.offertoken.success"
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "visit.shrinelionsmith.offertoken.success",
+	"actionid": "mobilize",
+	"label": "费用已然支付",
+	"startdescription": "振翅声从我上方的阴影中传来——一名多翼者向下攀至祭坛以接受我的供品，它的利爪敲击石块。它以其所能做到的最为优雅的方式填饱了它的肚子。当它用餐完毕后，它示意我靠近，并低语道：“人之杀手——你所求为何？”我则拿出了我写给吾友的信。",
+	"description": "那林鸮鸣了一声，用其带利爪的手从我手上拿走信件。并未再发一言，它飞入了阴影。",
+	"requirements": {
+	    "remnant": 1
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "remnant": -99,
+	    "token.wilhelm": -99
+	},
+	"alt": [
+	    {
+		"id": "sendingletter.exile.proterant",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "sendingletter.exile.proterant",
+	"actionid": "sendingletter",
+	"label": "我的信息正在传达……",
+	"startdescription": "我派出的多翼信使将把我的信息带给流亡者——在适当的时刻。而后吾友将写下一封回信（我希望那会是同意代表我的应允），而后那信使需要再次飞翔。我现在能做的只有耐心等待。",
+	"warmup": 300,
+	"alt": [
+	    {
+		"id": "produce.letterfromexile.proterant",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "produce.letterfromexile.proterant",
+	"actionid": "exclaim.sh",
+	"label": "一封信件！",
+	"startdescription": "当最为明亮的黎明来临，一只多翼者在我独自一人位于营地边界时找到我。它其中一只带利爪的手中是一个淡白、洁净的信封——",
+	"warmup": 10,
+	"effects": {
+	    "letter.fromexile.refusal": 1
+	}
+    },
+    {
+	"id": "visit.shrinelionsmith.getmaccabee",
+	"actionid": "mobilize",
+	"label": "联系吾友的一位友人",
+	"startdescription": "吾友的熟人仅会在特定的仪式举行时来临。我必须在神祠脚下点起火焰；我必须割开手臂，让血流出——到这里为止对追随黄金将军足够久之人而言，都算是基础、不麻烦的仪礼。而后这个仪式必须以牺牲一把武器，一把好的武器作结。\n\n[这一行动仅能进行一次。]",
+	"description": "武器在我手中化为碎片。火焰如金色的花一般绽放。火舌和火弧跃出，落在地上，此时一个身影从火中迈出：先是一条手臂，一条腿，然后是黄铜的脸上如太阳般的双眼。这位具名者举起他的石锤，向我问候。“人之杀手，”他如此告知我。“你为何唤我来此？”",
+	"requirements": {
+	    "weapon": 1,
+	    "proterant.weapon": -1
+	},
+	"extantreqs": {
+	    "letter.fromexile.refusal": 1,
+	    "chain": -1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"effects": {
+	    "friend.maccabee": 1,
+	    "shrinelionsmith": -99,
+	    "weapon": -99,
+	    "bloodlust": 1
+	},
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger",
+		"chance": 50
+	    }
+	],
+	"maxexecutions": 1
+    }
+]
+}

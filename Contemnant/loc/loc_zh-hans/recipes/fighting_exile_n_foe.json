@@ -1,0 +1,1088 @@
+{
+"recipes": [
+    {
+	"id": "hint.longwound.exile",
+	"actionid": "operate",
+	"label": "终结一对对立双刃？",
+	"startdescription": "据说刃之长生者不会以被其死敌杀死以外的方式死亡，但我曾听说另一则不同的流言：一位刃之长生者可以被毁灭，只要其与对立双刃的另一半同时被杀死。同时与两位刃之长生者战斗并杀死他们无异于天方夜谭，但，若我渴望复仇——若我渴望得到狼的应许——我就必须终结流亡者和他的大敌，两人一起。",
+	"requirements": {
+	    "longwound.exile": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.longwound.foe",
+	"actionid": "operate",
+	"label": "终结一对对立双刃？",
+	"startdescription": "据说刃之长生者不会以被其死敌杀死以外的方式死亡，但我曾听说另一则不同的流言：一位刃之长生者可以被毁灭，只要其与对立双刃的另一半同时被杀死。同时与两位刃之长生者战斗并杀死他们无异于天方夜谭，但，若我渴望复仇——若我渴望得到狼的应许——我就必须终结流亡者和他的大敌，两人一起。",
+	"requirements": {
+	    "longwound.foe": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attack.exile.pre",
+	"actionid": "operate",
+	"label": "完美的一击？",
+	"startdescription": "我的所有狂怒、痛苦、与对报应的渴望——我需要将这一切灌注进接下来的关键一击当中。\n\n[你需要提供大量的刃以使这场豪赌的胜率不再为0。但你总有概率失败。]",
+	"requirements": {
+	    "opening.exile": 3
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"linked": [
+	    {
+		"id": "attack.exile.continue"
+	    }
+	],
+	"craftable": true
+    },
+    {
+	"id": "attack.exile.continue",
+	"label": "完美的一击？",
+	"startdescription": "我的所有狂怒、痛苦、与对报应的渴望——我需要将这一切灌注进接下来的关键一击当中。\n\n[你需要提供大量的刃以使这场豪赌的胜率不再为0。但你总有概率失败。]",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "attack.exile.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.exile.failure"
+	    }
+	]
+    },
+    {
+	"id": "attack.exile.success",
+	"label": "完美的一击？",
+	"startdescription": "当我突破流亡者的守御时，一阵燃烧的欢欣浪潮流遍我的全身。我想要撕下他的肉，品尝他的血，回报他细致地折磨我的每一个夜晚——",
+	"description": "即便用上了这一切，我仍然只能命中一击——但这一击足够深，足以让永生不死之人担忧。",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"aspects": {
+	    "killfriend": 1,
+	    "killmortal": 1,
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "longwound.exile": 1,
+	    "opening.exile": -2
+	},
+	"linked": [
+	    {
+		"id": "attack.exile.failure",
+		"chance": 20
+	    }
+	]
+    },
+    {
+	"id": "attack.exile.failure",
+	"label": "我的攻击未达预期！",
+	"startdescription": "我的一击打在刃之长生者的身上就像子弹打在战舰上。“真不走运。”流亡者讥讽道。",
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "opening.exile": 1,
+	    "longwound.exile": -99
+	}
+    },
+    {
+	"id": "attack.foe.pre",
+	"actionid": "operate",
+	"label": "完美的一击？",
+	"startdescription": "我的所有狂怒、痛苦、与对报应的渴望——我需要将这一切灌注进接下来的关键一击当中。\n\n[你需要提供大量的刃以使这场豪赌的胜率不再为0。但你总有概率失败。]",
+	"requirements": {
+	    "opening.foe": 3
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"linked": [
+	    {
+		"id": "attack.foe.continue"
+	    }
+	],
+	"craftable": true
+    },
+    {
+	"id": "attack.foe.continue",
+	"label": "完美的一击？",
+	"startdescription": "我的所有狂怒、痛苦、与对报应的渴望——我需要将这一切灌注进接下来的关键一击当中。\n\n[你需要提供大量的刃以使这场豪赌的胜率不再为0。但你总有概率失败。]",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "attack.foe.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.foe.failure"
+	    }
+	]
+    },
+    {
+	"id": "attack.foe.success",
+	"label": "完美的一击？",
+	"startdescription": "仿佛受到了神灵的启示那般，我找到了杜弗尔牢那不可破的防御的一个盲点。角度收敛，力量相合，我的手飞奔向前——",
+	"description": "即便用上了这一切，我仍然只能命中一击——但这一击足够深，足以让永生不死之人担忧。",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"aspects": {
+	    "killfriend": 1,
+	    "killmortal": 1,
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "longwound.foe": 1,
+	    "opening.foe": -2
+	},
+	"linked": [
+	    {
+		"id": "attack.foe.failure",
+		"chance": 20
+	    }
+	]
+    },
+    {
+	"id": "attack.foe.failure",
+	"label": "我的攻击未达预期！",
+	"startdescription": "我的一击打在刃之长生者的身上就像子弹打在战舰上。“过于草率。”大敌嗤笑。",
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "opening.foe": -1,
+	    "longwound.foe": -99
+	}
+    },
+    {
+	"id": "contemnant.usechallenge",
+	"label": "毫不畏惧",
+	"startdescription": "@#foe.exile|“你那眼神……所以，你终于决定要亲手复仇了？好吧，狼已经等你找到勇气等的够久了。来吧，让我们感到骄傲。”#foe.duffoure|“我明白了。你已经成为了那人希望你成为之物。既然如此，不会再有更多追逐了——我会杀了你，<i>现在就杀</i>。”@\n\n[一旦你开始这场战斗，便无法回头。]",
+	"requirements": {
+	    "challenge": 1
+	},
+	"effects": {
+	    "long.bossfight.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "intro.bossfight.exile"
+	    },
+	    {
+		"id": "intro.bossfight.foe"
+	    }
+	]
+    },
+    {
+	"id": "intro.bossfight.exile",
+	"label": "永生者的战斗",
+	"startdescription": "",
+	"requirements": {
+	    "foe.exile": 1
+	},
+	"effects": {
+	    "long.bossfight.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "exile.attacks.pre"
+	    }
+	]
+    },
+    {
+	"id": "intro.bossfight.foe",
+	"label": "永生者的战斗",
+	"startdescription": "",
+	"requirements": {
+	    "foe.duffoure": 1
+	},
+	"effects": {
+	    "long.bossfight.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.attacks.pre"
+	    }
+	]
+    },
+    {
+	"id": "exile.bossfight.cycle",
+	"label": "永生者的战斗",
+	"startdescription": "流亡者如野兽般移动，其每个肢体，每根手指，每根头发都满溢着杀戮的意图。其咆哮般的呼吸使冬日的空气变得闷热。下一瞬，其或许就会再次突袭——",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "exile.attacks.pre",
+		"chance": 40
+	    },
+	    {
+		"id": "exile.bossfight.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "exiletrauma.contemnant.duringduel",
+		"additional": true,
+		"chance": 15
+	    },
+	    {
+		"id": "summonfoe.musicstart",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "exile.attacks.pre",
+	"label": "流亡者攻击了！",
+	"internaldeck": {
+	    "spec": [
+		"exile.attack.a",
+		"exile.attack.a",
+		"exile.attack.a",
+		"exile.attack.b",
+		"exile.attack.b",
+		"exile.attack.c",
+		"exile.attack.c"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "exile.attacks"
+	    }
+	]
+    },
+    {
+	"id": "exile.attacks",
+	"label": "流亡者攻击了！",
+	"startdescription": "@#exile.attack.a|流亡者向前冲刺，两把利刃犹如两颗意欲撕扯我血肉的恶毒利齿——#exile.attack.b|在溜过我的守御之后，流亡者的利齿深深刺入了我的脖颈。痛苦立刻随之而来：白热的痛苦，强烈到足以使眼前一片漆黑。我挣扎着，尝试将其推开——#exile.attack.c|流亡者划开手掌，再用力握紧拳头，让其拳头被血染红。当其将手向前刺出，一根炽热、血腥的尖刺自空气中出现，并飞速向我袭来——@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "exile.woundsyou"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "exile.respond.friend.immortal"
+	    },
+	    {
+		"id": "exile.respond.edge"
+	    },
+	    {
+		"id": "exile.respond.grail"
+	    },
+	    {
+		"id": "exile.respond.edgegrail"
+	    }
+	]
+    },
+    {
+	"id": "exile.woundsyou",
+	"label": "鲁莽的嘲笑",
+	"startdescription": "“如果你需要时间缓口气，那就说嘛。”",
+	"effects": {
+	    "decision": -99
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "exilestartup.edgelong.spitout.wounds",
+		"additional": true
+	    },
+	    {
+		"id": "eject.exhausted.exile",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exile.bossfight.cycle"
+	    }
+	]
+    },
+    {
+	"id": "exilestartup.edgelong.spitout.wounds",
+	"actionid": "exile.woundsyou",
+	"label": "痛苦与恐怖",
+	"startdescription": "这就是一切的终结吗？这一击会结束我的生命吗？",
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds"
+	    }
+	]
+    },
+    {
+	"id": "exile.respond.edge",
+	"label": "以力敌力",
+	"startdescription": "我侧身一步，钢铁呼啸着从我身旁掠过。流亡者再次逼近，利刃仍在挥舞，但每次其砍下或突刺，我都把那刀刃击回。",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.exile",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exile.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "exile.respond.grail",
+	"label": "回避歼灭",
+	"startdescription": "我扑向一旁，随后那来势汹汹的血与力之尖刺贯穿了我片刻之前站立之处的地面。空气中满是血与臭氧的气味。",
+	"requirements": {
+	    "needsgrail": 1,
+	    "grail": "needsgrail",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.exile",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exile.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "exile.respond.edgegrail",
+	"label": "抵御痛苦",
+	"startdescription": "我的刀刃刺穿流亡者的内脏，一次，两次——三次，再加一次扭转。此时我才感觉到其束缚松动的已足够多。一脚猛踢使这位刃之长生者踉跄着退开。流亡者露出微笑，擦去了嘴边的血迹。",
+	"requirements": {
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.exile",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exile.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "exile.bossfight.clear",
+	"label": "",
+	"effects": {
+	    "decision": -99
+	},
+	"alt": [
+	    {
+		"id": "eject.exhausted.exile",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exile.bossfight.cycle"
+	    }
+	]
+    },
+    {
+	"id": "eject.exhausted.exile",
+	"actionid": "spit.exile",
+	"label": "枯竭！",
+	"startdescription": "我使用了这些资源以对付我的对手，在我能再次使用它们之前，我需要等待——",
+	"warmup": 10
+    },
+    {
+	"id": "summonfoe.musicstart",
+	"actionid": "long.foe",
+	"label": "死敌联合",
+	"startdescription": "“或许我那不肖子希望我前来。毫无疑问这是其将你塑造为狼的计划的一部分——但我是个遵守规则的人。这人是<i>我的</i>血裔，<i>我的</i>死敌。<i><b>我的</b></i>。而你现正僭越。”",
+	"effects": {
+	    "duffoure": 1
+	},
+	"extantreqs": {
+	    "longwound.exile": 1,
+	    "duffoure": -1
+	},
+	"linked": [
+	    {
+		"id": "summonfoe"
+	    }
+	],
+	"playAudioTrack": "exileandfoeboss.mp3",
+	"setBGmusic": [
+	    "exileandfoeboss.mp3"
+	]
+    },
+    {
+	"id": "summonfoe",
+	"actionid": "long.foe",
+	"label": "死敌联合",
+	"startdescription": "“或许我那不肖子希望我前来。毫无疑问这是其将你塑造为狼的计划的一部分——但我是个遵守规则的人。这人是<i>我的</i>血裔，<i>我的</i>死敌。<i><b>我的</b></i>。而你现正僭越。”",
+	"linked": [
+	    {
+		"id": "foe.bossfight.cycle"
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "foe.bossfight.cycle",
+	"label": "永生者的战斗",
+	"startdescription": "杜弗尔的步伐使大地震颤。他曾走过的地面布满寒霜。我在其仅剩的那只眼中搜寻不经意间流露的意图——每一秒他都可能再次发动攻击。",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "foe.attacks.pre",
+		"chance": 40
+	    },
+	    {
+		"id": "foe.bossfight.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "summonexile.musicstart",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "foe.attacks.pre",
+	"label": "大敌攻击了！",
+	"internaldeck": {
+	    "spec": [
+		"foe.attack.a",
+		"foe.attack.a",
+		"foe.attack.a",
+		"foe.attack.b",
+		"foe.attack.b",
+		"foe.attack.c",
+		"foe.attack.c"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "foe.attacks"
+	    }
+	]
+    },
+    {
+	"id": "foe.attacks",
+	"label": "大敌攻击了！",
+	"startdescription": "@#foe.attack.a|杜弗尔冷酷地前进，每一步都伴着朝我而来的一拳或一枪，不多也不少——#foe.attack.b|杜弗尔向手中一颗镍纹铁子弹低语一个锐利的词，仿佛一位将军在给一个士兵下令。他装弹开火，那子弹从我的身旁飞过——但我听到那子弹拐弯蛇行发出的风声——然后它转头再次朝我飞来！如果我躲不开他的射击——#foe.attack.c|杜弗尔身上的无数伤疤突然闪耀金色的光辉。他向我冲来时几近离开地面，他的指尖好似矛尖，环绕着最为锋锐的光——@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "foe.woundsyou"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "foe.respond.friend.immortal"
+	    },
+	    {
+		"id": "foe.respond.edge"
+	    },
+	    {
+		"id": "foe.respond.lantern"
+	    },
+	    {
+		"id": "foe.respond.edgelantern"
+	    }
+	]
+    },
+    {
+	"id": "foe.woundsyou",
+	"label": "嗤之以鼻",
+	"startdescription": "“太慢了。”",
+	"effects": {
+	    "decision": -99
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "foestartup.edgelong.spitout.wounds",
+		"additional": true
+	    },
+	    {
+		"id": "eject.exhausted.foe",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.bossfight.cycle"
+	    }
+	]
+    },
+    {
+	"id": "foestartup.edgelong.spitout.wounds",
+	"actionid": "foe.woundsyou",
+	"label": "痛苦与恐怖",
+	"startdescription": "这就是一切的终结吗？这一击会结束我的生命吗？",
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds"
+	    }
+	]
+    },
+    {
+	"id": "foe.respond.edge",
+	"label": "以力敌力",
+	"startdescription": "对杜弗尔的每一步，我迈出相对的一步；对杜弗尔的每一击，我挥出拦截的一击。每一次冲击的力道都几乎震碎我的骨头，我咬紧牙关，但这不过只是痛苦，而我十分熟悉痛苦。",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.foe",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "foe.respond.lantern",
+	"label": "光与分裂",
+	"startdescription": "上校知晓辉光，但裂分之狼自太阳的痛苦中分离而出，若我以恰当的残忍呼唤他的阴影前来，就连那最为锋锐的光都将熄灭。尽管我下方的地面已受辉光炙烤，我仍得以挡下大敌那贯穿之光最为致命的部分。",
+	"requirements": {
+	    "needslantern": 1,
+	    "lantern": "needslantern",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.foe",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "foe.respond.edgelantern",
+	"label": "毁灭之人",
+	"startdescription": "那子弹接到了命令，会一直找上我，只要它还存在——因此我将其存在消灭。那镍纹铁子弹消失了，不留一点痕迹，它曾所在的空间现在散发着微弱的血与臭氧的气味。",
+	"requirements": {
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.foe",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "foe.bossfight.clear",
+	"label": "",
+	"effects": {
+	    "decision": -99
+	},
+	"alt": [
+	    {
+		"id": "eject.exhausted.foe",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.bossfight.cycle"
+	    }
+	]
+    },
+    {
+	"id": "eject.exhausted.foe",
+	"actionid": "spit.foe",
+	"label": "枯竭！",
+	"startdescription": "我使用了这些资源以对付我的对手，在我能再次使用它们之前，我需要等待——",
+	"warmup": 10
+    },
+    {
+	"id": "summonexile.musicstart",
+	"actionid": "long.exile",
+	"label": "死敌联合",
+	"startdescription": "“你盯上了我大敌的血，不是吗？聪明的一步——你知道这肯定能引我出面，而现在你有机会挑战我了。但是你<i>不够</i>聪明，要说为何，那就是——现在，你就要死了。”",
+	"effects": {
+	    "exile": 1
+	},
+	"extantreqs": {
+	    "longwound.foe": 1,
+	    "exile": -1
+	},
+	"linked": [
+	    {
+		"id": "summonexile"
+	    }
+	],
+	"playAudioTrack": "exileandfoeboss.mp3",
+	"setBGmusic": [
+	    "exileandfoeboss.mp3"
+	]
+    },
+    {
+	"id": "summonexile",
+	"actionid": "long.exile",
+	"label": "死敌联合",
+	"startdescription": "“你盯上了我大敌的血，不是吗？聪明的一步——你知道这肯定能引我出面，而现在你有机会挑战我了。但是你<i>不够</i>聪明，要说为何，那就是——现在，你就要死了。”",
+	"linked": [
+	    {
+		"id": "exile.bossfight.cycle"
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "produce.opening.exile",
+	"actionid": "web.green",
+	"label": "龙鳞之隙？",
+	"startdescription": "流亡者的进攻永不止息，但我发现每次其攻击被我挡下或避开，其懊恼便加剧一分。这会使其变得大意。",
+	"effects": {
+	    "opening.exile": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "produce.opening.foe",
+	"actionid": "web.red",
+	"label": "龙鳞之隙？",
+	"startdescription": "杜弗尔活过的漫长岁月让他积累了不计其数的经验——但这也让他变得死板。我已经看出他行动的些许规律。",
+	"effects": {
+	    "opening.foe": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "kill.exileandfoe",
+	"actionid": "operate",
+	"label": "大 仇 得 报",
+	"startdescription": "流亡者与其大敌正在湮灭的边缘摇摇欲坠。杜弗尔咆哮着反抗，流亡者的眼中仍燃烧着熟悉的残忍——但这一次多了些东西。那并非认命。是欢喜？还是敬畏？一声深邃、恐怖的嚎叫自风中升起。影子饥渴地拉长。我的视野被染成鲜红——",
+	"requirements": {
+	    "longwound.exile": 3,
+	    "longwound.foe": 3
+	},
+	"craftable": true,
+	"haltverb": {
+	    "long.camilla": 99,
+	    "long.foe": 99,
+	    "long.exile": 99
+	},
+	"linked": [
+	    {
+		"id": "kill.exileandfoe.continue"
+	    }
+	],
+	"burnimage": "fenrir",
+	"furthermore": { 
+	    "target": "~/tabletop[situationstorage]+",
+	    "aspects": {
+		"longded": 1 
+	    }
+	},
+	"xpans": { 
+	    "longded": 1 
+	}
+    },
+    {
+	"id": "kill.exileandfoe.continue",
+	"label": "大 仇 得 报",
+	"startdescription": "流亡者与其大敌正在湮灭的边缘摇摇欲坠。杜弗尔咆哮着反抗，流亡者的眼中仍燃烧着熟悉的残忍——但这一次多了些东西。那并非认命。是欢喜？还是敬畏？一声深邃、恐怖的嚎叫自风中升起。影子饥渴地拉长。我的视野被染成鲜红——",
+	"description": "我的双手打烂他们不朽的血肉；我的利齿撕裂他们不朽的喉舌。死去的刃之长生者仍冒着热气的血污覆盖我的全身，如第二层皮肤一般。流亡者——我的老师，我的折磨者，我憎恨着的同类——已经不在了。我对其的复仇完成了。我对其他一切的复仇也接近了。空气流入我的肺部。我发出尖啸。", 
+	"slots": [
+	    {
+		"id": "needsexile",
+		"label": "The Exile",
+		"required": {
+		    "foe.exile": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsfoe",
+		"label": "The Foe",
+		"required": {
+		    "foe.duffoure": 1
+		},
+		"greedy": true
+	    },
+	],
+	"warmup": 15,
+	"effects": {
+	    "foe": -99,
+	    "longwound.exile": -99,
+	    "longwound.foe": -99,
+	    "memento.exile": 1,
+	    "memento.foe": 1
+	},
+	"playAudioTrack": "killdyad.mp3",
+	"furthermore": { 
+	    "target": "~/tabletop[situationstorage]+",
+	    "aspects": {
+		"damagehealth": 1 
+	    }
+	},
+	"xpans": { 
+	    "damagehealth": 1 
+	},
+	"achievements": [
+	    "victory.exileandfoe"
+	],
+	"setBGmusic": [
+	    "contemnant_a.mp3",
+	    "contemnant_b.mp3",
+	    "contemnant_c.mp3",
+	    "contemnant_d.mp3",
+	    "contemnant_e.mp3",
+	    "contemnant_f.mp3",
+	    "contemnant_g.mp3",
+	    "contemnant_h.mp3",
+	]
+    },
+    {
+	"id": "exile.respond.friend.immortal",
+	"label": "永生者的协助",
+	"startdescription": "@#friend.sergei|食铁者骑着马向流亡者发起冲锋，刀刃在风中尖锐地鸣响，那哥萨克人则在骑行是喊叫着死亡。流亡者只能从他的前路上跳开，并在食铁者调转马头时躲避他的步枪射击——#friend.cross|格尔凡戈无声地从上方降落，矛状的尾刺仅差毫厘就能命中那刃之长生者。下一刻，这位介壳种战士便以她的爪与毒袭向流亡者，而其正尽全力防止她靠近——@",
+	"requirements": {
+	    "friend.immortal": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.exile",
+		"additional": true,
+		"chance": 100
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exile.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "foe.respond.friend.immortal",
+	"label": "永生者的协助",
+	"startdescription": "@#friend.sergei|食铁者骑着马向杜弗尔发起冲锋，刀刃在风中尖锐地鸣响，那哥萨克人则在骑行是喊叫着死亡。杜弗尔只能从他的前路上跳开，并在食铁者调转马头时躲避他的步枪射击——#friend.cross|格尔凡戈无声地从上方降落，矛状的尾刺仅差毫厘就能命中那刃之长生者。下一刻，这位介壳种战士便以她的爪与毒袭向杜弗尔，而他正尽全力防止她靠近——@",
+	"requirements": {
+	    "friend.immortal": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.foe",
+		"additional": true,
+		"chance": 100
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.bossfight.clear"
+	    }
+	]
+    },
+]
+}

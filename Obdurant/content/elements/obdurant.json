@@ -1,0 +1,1324 @@
+{
+"elements": [
+    {
+	"id": "obdurant.memento",
+	"label": "Toy Soldier",
+	"description": "'He will protect you no matter what. I love you.'",
+	"aspects": {
+	    "heart": 4,
+	    "memento": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "obdurant.weapon",
+	"label": "Mosin's Rifle",
+	"description": "Model 1938 Carbine - this is my arm, and I am an arm of the Union.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.weapon.exhausted"
+	},
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "obdurant.weapon.exhausted",
+	"label": "Mosin's Rifle (Readying)",
+	"description": "Model 1938 Carbine - this is my arm, and I am an arm of the Union.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"lifetime": 120,
+	"resaturate": true,
+	"decayTo": "obdurant.weapon",
+	"icon": "obdurant.weapon",
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "obdurant.setupitem",
+	"label": "A Quiet Night",
+	"description": "A lull in the shelling - tonight, there is the illusion of peace. What will come? Who is here, and who is departing?",
+	"aspects": {
+	    "op": 1
+	},
+	"icon": "op.night"
+    },
+    {
+	"id": "obdurant.mentor",
+	"label": "#PREVIOUSCHARACTERNAME#",
+	"description": "A stern Libyan mantled in scars. The others see only a mercenary captain, but I know better. This one has trusted me with the truth of what they are.",
+	"aspects": {
+	    "friend": 1,
+	    "edgelong": 1
+	}
+    },
+    {
+	"id": "obdurant.story",
+	"label": "A Call to Duty",
+	"description": "'Duty demands sacrifices. Vanquishing the right enemies is vital, but you yourself must give. An arm, a leg, an eye - whatever is necessary. Master yourself, until every angle of your body forms a killing point. The Ragged Sword has been wielded by each of the Colonel's Names; you must bring it to field. If these are in place, there will come a proving moment. You must be there when it comes. I imagine this will result in your death, but the Colonel merits good deaths. If you die right, he may Name you his in the wars to come.'",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "obdurant.fragmentedge",
+	"label": "A Scar's Secret",
+	"description": "Words spoken in pain when blood was first drawn. The very old recognize it as a curse, but like blood, the very old know that resolve can be drawn from strange places in strange modes.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 2,
+	    "lantern": 1,
+	    "winter": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedge.exhausted",
+	    "epiphany": "obdurant.fragmentedgeb"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedge.exhausted",
+	"label": "A Scar's Secret (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 300,
+	"decayTo": "obdurant.fragmentedge",
+	"icon": "obdurant.fragmentedge",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgeb",
+	"label": "The Chilliarch's Lesson",
+	"description": "'This is the bone-deep story the thousandman learnt in antiquity, of blood and its exits. To speak it aloud is to hear the sword hiss.' My friend would sometimes murmur it when they were in their cups.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 4,
+	    "lantern": 2,
+	    "winter": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgeb.exhausted",
+	    "epiphany": "obdurant.fragmentedgec"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgeb.exhausted",
+	"label": "The Chilliarch's Lesson (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 260,
+	"decayTo": "obdurant.fragmentedgeb",
+	"icon": "obdurant.fragmentedgeb",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgec",
+	"label": "An Operation of the Histid",
+	"description": "A set of exacting exercises that will armour the skin and make each digit lethal as a spear-point.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 6,
+	    "lantern": 3,
+	    "winter": 3
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgec.exhausted",
+	    "epiphany": "obdurant.fragmentedged"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgec.exhausted",
+	"label": "An Operation of the Histid (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 220,
+	"decayTo": "obdurant.fragmentedgec",
+	"icon": "obdurant.fragmentedgec",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedged",
+	"label": "The Colonel's Names",
+	"description": "The Colonel has been many things in many ages. He is blind; he is deaf; he cannot be wounded; he cannot be denied. His Names are cunning as only the very old can be.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 8,
+	    "lantern": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedged.exhausted",
+	    "epiphany": "obdurant.fragmentedgee"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedged.exhausted",
+	"label": "The Colonel's Names (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 180,
+	"decayTo": "obdurant.fragmentedged",
+	"icon": "obdurant.fragmentedged",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgee",
+	"label": "The Iron Forms",
+	"description": "Seven times seven techniques for the sundering of flesh.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 10,
+	    "lantern": 5,
+	    "winter": 5
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgee.exhausted",
+	    "epiphany": "obdurant.fragmentedgef"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgee.exhausted",
+	"label": "The Iron Forms (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 140,
+	"decayTo": "obdurant.fragmentedgee",
+	"icon": "obdurant.fragmentedgee",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgef",
+	"label": "The Moduli of the Langet",
+	"description": "If I am to be a weapon, I must know where my soul is reinforced by its history, and where my limits become fundamental.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 12,
+	    "lantern": 6,
+	    "winter": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgef.exhausted",
+	    "epiphany": "obdurant.fragmentedgeg"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgef.exhausted",
+	"label": "The Moduli of the Langet (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 100,
+	"decayTo": "obdurant.fragmentedgef",
+	"icon": "obdurant.fragmentedgef",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgeg",
+	"label": "The Scarred Mysteries",
+	"description": "Cunning is the root of victory. Experience is the root of cunning. There can be no experience without suffering, and a scar is suffering given form.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 14,
+	    "lantern": 7,
+	    "winter": 7,
+	    "ascend.check": 1,
+	    "hasmaxlore": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgeg.exhausted",
+	    "epiphany": [
+		{
+		    "id": "colonel.weaponfragment",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgeg.exhausted",
+	"label": "The Scarred Mysteries (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [You have mastered the Colonel's mysteries - as far as a mortal might master them, at least.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "ascend.check": 1,
+	    "hasmaxlore": 1
+	},
+	"lifetime": 60,
+	"decayTo": "obdurant.fragmentedgeg",
+	"icon": "obdurant.fragmentedgeg",
+	"resaturate": true
+    },
+    {
+	"id": "debilitation.eye.colonel",
+	"label": "Chilliarch's Eye",
+	"description": "The Colonel is blind, but nothing escapes the Colonel's notice. [You can use this card to reveal Hidden Enemies. This card counts towards your death.]",
+	"aspects": {
+	    "lantern": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "debilitation.eye.colonel.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "debilitation.eye.colonel.exhausted",
+	"label": "Chilliarch's Eye (Readying)",
+	"description": "The Colonel is blind, but nothing escapes the Colonel's notice. [This card counts towards your death.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 160,
+	"decayTo": "debilitation.eye.colonel",
+	"icon": "debilitation.eye.colonel",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "debilitation.ear.colonel",
+	"label": "Sharpest Ear",
+	"description": "I may hear the snow as it falls upon the stone. [This card counts towards your death.]",
+	"aspects": {
+	    "lantern": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "debilitation.ear.colonel.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "debilitation.ear.colonel.exhausted",
+	"label": "Sharpest Ear (Readying)",
+	"description": "I may hear the snow as it falls upon the stone. [This card counts towards your death.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 160,
+	"decayTo": "debilitation.ear.colonel",
+	"icon": "debilitation.ear.colonel",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "debilitation.hand.colonel",
+	"label": "Thousandman's Salute",
+	"description": "The scars of the Tribune are each a weapon, and so shall my scars be. [Enemies cannot break this weapon. This card counts towards your death.]",
+	"aspects": {
+	    "edge": 6,
+	    "ap": 1,
+	    "weapon": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "debilitation.hand.colonel.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "debilitation.hand.colonel.exhausted",
+	"label": "Thousandman's Salute (Readying)",
+	"description": "The scars of the Tribune are each a weapon, and so shall my scars be. [This card counts towards your death.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 160,
+	"decayTo": "debilitation.hand.colonel",
+	"icon": "debilitation.hand.colonel",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "debilitation.leg.colonel",
+	"label": "Hallowed Prosthesis",
+	"description": "The oak exterior has been inscribed with the names of soldier-saints, and anointed with the blood of an enemy officer. [This card counts towards your death.]",
+	"aspects": {
+	    "winter": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "debilitation.leg.colonel.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "debilitation.leg.colonel.exhausted",
+	"label": "Hallowed Prosthesis (Readying)",
+	"description": "The oak exterior has been inscribed with the names of soldier-saints, and anointed with the blood of an enemy officer. [This card counts towards your death.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 160,
+	"decayTo": "debilitation.leg.colonel",
+	"icon": "debilitation.leg.colonel",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "flock.clue",
+	"label": "Whispers on Wings",
+	"description": "The chatter of the birds around the lake-grove might lead us to the keeper of the Ragged Sword. We need to consolidate more wing-rumour and flock-chatter before a path presents itself.",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsclue",
+		"label": "Clue",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue2",
+		"label": "Clue",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue3",
+		"label": "Clue",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue4",
+		"label": "Clue",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue5",
+		"label": "Clue",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue6",
+		"label": "Clue",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "nimiane",
+	"label": "Nimiane of the Waters",
+	"description": "Steward of the Ragged Sword; Name of the Sister-and-Witch, and of the Witch-and-Sister. She was birthed in Old Avalon, in defiance of a curse placed by the Mother of Ants upon a lineage of that land. Was she exiled to the lake in punishment? Or was she secreted here for her safety? The Twins do have an affinity for the shunned - but why only one? Why only two?",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1
+	}
+    },
+    {
+	"id": "ebrehel",
+	"label": "Ebrehel, the Ragged Sword",
+	"description": "Scarsword, Gatemaker, Orphan; Lake-Gift and Godsickle and Deserter. It has known many hands, and yet it was never wielded for the purpose it was intended. Perhaps that is why it wanders from warrior to warrior: in the hope that one will remember why its blade was forged so keenly. [Enemies cannot break this weapon.]",
+	"aspects": {
+	    "edge": 6,
+	    "forge": 6,
+	    "knock": 6,
+	    "weapon": 1,
+	    "ascend.check": 1,
+	    "hasebrehel": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "ebrehel.exhausted"
+	},
+	"icon": "weapon.c",
+	"unique": true
+    },
+    {
+	"id": "ebrehel.exhausted",
+	"label": "Ebrehel, the Ragged Sword",
+	"description": "Scarsword, Gatemaker, Orphan; Lake-Gift and Godsickle and Deserter. It has known many hands, and yet it was never wielded for the purpose it was intended. Perhaps that is why it wanders from warrior to warrior: in the hope that one will remember why its blade was forged so keenly. [Enemies cannot break this weapon.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "weapon": 1,
+	    "ascend.check": 1,
+	    "hasebrehel": 1
+	},
+	"lifetime": 90,
+	"decayTo": "ebrehel",
+	"resaturate": true,
+	"icon": "weapon.c",
+	"unique": true
+    },
+    {
+	"id": "promise.medusa",
+	"label": "Mandate-Stone",
+	"description": "A chilly slab of carved limestone, shaped in antiquity by the Colonel and the Mother-of-Ants to proclaim the defeat of the Seven-Coils. Five deep scores run across the length of its reverse side. The Ligeian Medusa, oldest of her kind, was among those bound by this stone to a certain promise. Invoking it against her will compel her to help me, however grudgingly.",
+	"aspects": {
+	    "promise": 1
+	}
+    },
+    {
+	"id": "op.ligeianmedusa",
+	"label": "What is Not Seen?",
+	"description": "Something neither living nor dead walks the city by night. I must not look at it.",
+	"aspects": {
+	    "op": 1
+	},
+	"lifetime": 300,
+	"icon": "op.medusa",
+	"unique": true
+    },
+    {
+	"id": "friend.camilla",
+	"label": "The Continental",
+	"description": "An imperious, strikingly-scarred woman draped in the fatigues and field cloak of a French officer. Where she would have a right foot, there is instead an iron peg; where she would have a left hand, there is instead a sharp implement fastened to the stump. Her expression is unreadable as stone.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "camilla"
+    },
+    {
+	"id": "token.camilla",
+	"label": "Iron Spintria",
+	"description": "'Its value as currency is long gone, of course,' the Continental said. 'Its effective worth is all symbolic. But you may be surprised at who recognizes such symbolism.' She suggested that I offer it at a place of power to communicate with my friend, the Exile, so they may help arrange for <i>musvashir</i> with the Warmaker. But I should not make that offering until I am ready to face him.",
+	"aspects": {
+	    "legacyplotitem": 1,
+	    "dream.colonel": 1
+	},
+	"icon": "compensation"
+    },
+    {
+	"id": "letter.fromexile",
+	"label": "The Exile's Reply",
+	"description": "'My friend,\n\nI am pleased to know you still live. Perhaps that is no longer true by the time this letter has reached me, but I will elect to believe otherwise.\n\nRegarding matters at hand: you have made clear your intention to invoke <i>musvashir</i> against another immortal, and have requested my representation as second in the duel. I think this is a very worthwhile enterprise, and it will no doubt aid your ascendancy if you are successful. So, I will agree to delegate as second on your behalf.\n\nGive me time to inform Camilla that I have accepted your request. She will write back to you once everything has been arranged. I will also need some time to discuss an armistice with my Foe. He may also wish to attend, if only to observe.\n\nIn the meantime, fight well.\n\n-#PREVIOUSCHARACTERNAME#'",
+	"aspects": {
+	    "legacyplotitem": 1
+	}
+    },
+    {
+	"id": "letter.fromcamilla",
+	"label": "The Continental's Reply",
+	"description": "'Soldier,\n\nI have received confirmation of your friend's participation as second. You will be pleased to know that my enemy has now officially been made aware of your challenge, and he looks forward to the contest.\n\nHeed closely the movement of the sun, now. The duel will be fought in seven days' time. Per the rules of this sacrament, my enemy will not be allowed to face you in battle until that appointed time. When those seven days are up, be present and ready in the countryside, or forfeit your life. Come alone, or forfeit your life. Be punctual, or forfeit your life.\n\nGood luck.\n\n- Camilla de Benegerac'",
+	"aspects": {
+	    "legacyplotitem": 1
+	}
+    },
+    {
+	"id": "duel.wilhelm",
+	"label": "The Warmaker",
+	"description": "A hulking, jolly-faced German decorated in the antique livery of a Prussian major. This is whom I have challenged to <i>musvashir.</i>",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1,
+	    "duel.marker": 1
+	},
+	"icon": "wilhelm"
+    },
+    {
+	"id": "duel.camilla",
+	"label": "The Continental",
+	"description": "An imperious, strikingly-scarred woman draped in the fatigues and field cloak of a French officer. She has come to act as the representative of her enemy, the Warmaker.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "camilla"
+    },
+    {
+	"id": "duel.exile",
+	"label": "#PREVIOUSCHARACTERNAME#",
+	"description": "A stern Libyan mantled in scars - my friend. They have come to play the part of my second, to vouch for and represent me in the proceedings before I go to battle.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "obdurant.mentor"
+    },
+    {
+	"id": "duel.foe",
+	"label": "Cpt. Duffoure, the Foe",
+	"description": "A tall, one-eyed French-Italian man with a chronic scowl. According to my friend, he is 'a loathsome, remorseless bastard,' but they always said so with a smile.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	}
+    },
+    {
+	"id": "mark.shame",
+	"label": "Mark of Shame",
+	"description": "I challenged an Edge-Long to the ancient sacrament of <i>musvashir,</i> but I was not enough. My defeat stains me in the eyes of the Hours Who Struggle. I will carry that mark forever. [No Edge-Long will come to attack you.]",
+	"aspects": {
+	    "long.blocker": 1
+	}
+    },
+    {
+	"id": "mark.musvashir",
+	"label": "Challenger's Mark",
+	"description": "I have challenged an Edge-Long to the ancient sacrament of <i>musvashir</i> and emerged victorious. The Edge-Hours salute me. Now where I walk, war follows. [This card counts as three Strife. No Edge-Long will come to attack you.]",
+	"aspects": {
+	    "strife.tracker": 3,
+	    "challenger.mark": 1,
+	    "ascend.check": 1,
+	    "long.blocker": 1
+	}
+    },
+    {
+	"id": "contemplation.wolfdream",
+	"label": "Wolf-Kept Dream",
+	"description": "The wolves remember: February 12, 1922. The Whites escape Bolshevik encirclement at Volochayevka. And somewhere between all the snow and the shelling and the suffering, two Edge-Long meet for the final time. In dreams, I can relive their last day together.",
+	"aspects": {
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "insight.sergei"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "insight.sergei",
+	"label": "Killing Insight",
+	"description": "This spike of merciless realisation cannot harm the Iron-Eater outright, but it can show him the truth he has been so desparate to avoid: he is dying. Slowly, agonisingly, surely. Even with the war to stave off his decay, the death of his nemesis will ultimately consume him. That might even frighten him. [Using this against the Iron-Eater will cause him to flee.]",
+	"aspects": {
+	    "lore": 1,
+	    "legacyplotitem": 1
+	}
+    },
+    {
+	"id": "weapon.kazimir",
+	"label": "Kazimir's Shashka",
+	"description": "The blade was broken by the same artillery volley that, by miraculous chance, struck and maimed the Edge-Long called Orphan. It was lost on the field at Volochayevka, but now it has made its way to me. Perhaps it still longs to draw the Iron-Eater's blood. [This weapon may produce Trauma when used.]",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 12,
+	    "winter": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.kazimir.exhausted"
+	}
+    },
+    {
+	"id": "weapon.kazimir.exhausted",
+	"label": "Kazimir's Shashka (Exhausted)",
+	"description": "The blade was broken by the same artillery volley that, by miraculous chance, struck and maimed the Edge-Long called Orphan. It was lost on the field at Volochayevka, but now it has made its way to me. Perhaps it still longs to draw the Iron-Eater's blood. [This weapon may produce Trauma when used.]",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"induces": [
+	    {
+		"id": "produce.trauma",
+		"chance": 40
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "weapon.kazimir.exhausted",
+	    "refresh": "weapon.kazimir"
+	},
+	"lifetime": 60,
+	"decayTo": "weapon.kazimir",
+	"icon": "weapon.kazimir",
+	"resaturate": true
+    },
+    {
+	"id": "duel.sergei",
+	"label": "The Iron-Eater",
+	"description": "No words, this time. The Iron-Eater rides in hateful silence against us. [Wounds inflicted by the Iron-Eater will instantly become Debilitations.]",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1,
+	    "foe.sergei": 1
+	},
+	"icon": "sergei"
+    },
+    {
+	"id": "wound.sergei",
+	"label": "Iron-Eater's Wound",
+	"description": "A Long who serves the Wolf-Divided knows well what this feels like.",
+	"icon": "wound.foe.unstanchable",
+	"aspects": {
+	    "op": 1
+	}
+    },
+    {
+	"id": "defeated.sergei",
+	"label": "The Iron-Eater",
+	"description": "Old wolf looks tired.",
+	"aspects": {
+	    "edgelong": 1,
+	    "foe.sergei": 1,
+	    "local": 1
+	}
+    },
+    {
+	"id": "mark.surrender",
+	"label": "Instrument of Surrender",
+	"description": "I have forced the surrender of an immortal adversary, and this weeping wound is the sign of their capitulation. The Edge-Hours will recognize the power festering in it when the moment comes. [This card counts as three Strife. No Edge-Long will come to attack you.]",
+	"aspects": {
+	    "strife.tracker": 3,
+	    "challenger.mark": 1,
+	    "ascend.check": 1,
+	    "long.blocker": 1
+	},
+	"icon": "scar_edge"
+    },
+    {
+	"id": "weapon.skull",
+	"label": "Solovei's Skull",
+	"description": "Solovei the Nightingale once laired in the forests of Old Kyiv. His whistle, legend says, could fell an oak tree and kill any man who heard it; legend says also that he was beheaded by a man who could hear no sound. Now his skull is mine - perhaps the Nightgale might be coaxed to whistle again.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 10,
+	    "heart": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.skull.exhausted"
+	}
+    },
+    {
+	"id": "weapon.skull.exhausted",
+	"label": "Solovei's Skull (Exhausted)",
+	"description": "Solovei the Nightingale once laired in the forests of Old Kyiv. His whistle, legend says, could fell an oak tree and kill any man who heard it; legend says also that he was beheaded by a man who could hear no sound. Now his skull is mine - perhaps the Nightgale might be coaxed to whistle again.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.skull.exhausted",
+	    "refresh": "weapon.skull"
+	},
+	"lifetime": 60,
+	"decayTo": "weapon.skull",
+	"icon": "weapon.skull",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.wormnail",
+	"label": "Wormnail",
+	"description": "A trench knife that saw service during the Third Worm War, which has now passed into certain Histories. Insidious contaminations have accumulated in the steel, making it deadly against mortals, immortals, and all horrid things in between.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 6,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.wormnail.exhausted"
+	}
+    },
+    {
+	"id": "weapon.wormnail.exhausted",
+	"label": "Wormnail (Exhausted)",
+	"description": "A trench knife that saw service during the Third Worm War, which has now passed into certain Histories. Insidious contaminations have accumulated in the steel, making it deadly against mortals, immortals, and all horrid things in between.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.wormnail.exhausted",
+	    "refresh": "weapon.wormnail"
+	},
+	"lifetime": 90,
+	"decayTo": "weapon.wormnail",
+	"icon": "weapon.wormnail",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.talon",
+	"label": "Strix-Talon",
+	"description": "Hawthorn-blest and battle-won. The Many-Winged Ones have long served the Hours of struggle, but the Hours of struggle have not always been as they are now.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.talon.exhausted"
+	}
+    },
+    {
+	"id": "weapon.talon.exhausted",
+	"label": "Strix-Talon (Exhausted)",
+	"description": "Hawthorn-blest and battle-won. The Many-Winged Ones have long served the Hours of struggle, but the Hours of struggle have not always been as they are now.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.talon.exhausted",
+	    "refresh": "weapon.talon"
+	},
+	"lifetime": 90,
+	"decayTo": "weapon.talon",
+	"icon": "weapon.talon",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.5",
+	"label": "Meteoric Revolver",
+	"description": "It takes a smith of rare (and usually inhuman) skill to shape taenite-iron. Not many of such craftsmen are still active, but this weapon is of unmistakenly modern design. Five taenite-iron bullets - monster-killers - rest in the cylinder.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 5
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.5.exhausted"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "weapon.revolver.5.exhausted",
+	"label": "Meteoric Revolver (Exhausted)",
+	"description": "It takes a smith of rare (and usually inhuman) skill to shape taenite-iron. Not many of such craftsmen are still active, but this weapon is of unmistakenly modern design. Four taenite-iron bullets - monster-killers - rest in the cylinder.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "uses.remaining": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.5.exhausted",
+	    "refresh": "weapon.revolver.4"
+	},
+	"lifetime": 30,
+	"decayTo": "weapon.revolver.4",
+	"icon": "weapon.revolver",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.4",
+	"label": "Meteoric Revolver",
+	"description": "It takes a smith of rare (and usually inhuman) skill to shape taenite-iron. Not many of such craftsmen are still active, but this weapon is of unmistakenly modern design. Four taenite-iron bullets - monster-killers - rest in the cylinder.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.4.exhausted"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "weapon.revolver.4.exhausted",
+	"label": "Meteoric Revolver (Exhausted)",
+	"description": "It takes a smith of rare (and usually inhuman) skill to shape taenite-iron. Not many of such craftsmen are still active, but this weapon is of unmistakenly modern design. Three taenite-iron bullets - monster-killers - rest in the cylinder.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "uses.remaining": 3
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.4.exhausted",
+	    "refresh": "weapon.revolver.3"
+	},
+	"lifetime": 30,
+	"decayTo": "weapon.revolver.3",
+	"icon": "weapon.revolver",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.3",
+	"label": "Meteoric Revolver",
+	"description": "It takes a smith of rare (and usually inhuman) skill to shape taenite-iron. Not many of such craftsmen are still active, but this weapon is of unmistakenly modern design. Three taenite-iron bullets - monster-killers - rest in the cylinder.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 3
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.3.exhausted"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "weapon.revolver.3.exhausted",
+	"label": "Meteoric Revolver (Exhausted)",
+	"description": "It takes a smith of rare (and usually inhuman) skill to shape taenite-iron. Not many of such craftsmen are still active, but this weapon is of unmistakenly modern design. Two taenite-iron bullets - monster-killers - rest in the cylinder.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "uses.remaining": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.3.exhausted",
+	    "refresh": "weapon.revolver.2"
+	},
+	"lifetime": 30,
+	"decayTo": "weapon.revolver.2",
+	"icon": "weapon.revolver",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.2",
+	"label": "Meteoric Revolver",
+	"description": "It takes a smith of rare (and usually inhuman) skill to shape taenite-iron. Not many of such craftsmen are still active, but this weapon is of unmistakenly modern design. Two taenite-iron bullets - monster-killers - rest in the cylinder.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.2.exhausted"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "weapon.revolver.2.exhausted",
+	"label": "Meteoric Revolver (Exhausted)",
+	"description": "It takes a smith of rare (and usually inhuman) skill to shape taenite-iron. Not many of such craftsmen are still active, but this weapon is of unmistakenly modern design. Only one taenite-iron bullet remains, now.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "uses.remaining": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.2.exhausted",
+	    "refresh": "weapon.revolver.1"
+	},
+	"lifetime": 30,
+	"decayTo": "weapon.revolver.1",
+	"icon": "weapon.revolver",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.1",
+	"label": "Meteoric Revolver",
+	"description": "It takes a smith of rare (and usually inhuman) skill to shape taenite-iron. Not many of such craftsmen are still active, but this weapon is of unmistakenly modern design. Only one taenite-iron bullet remains, now.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "colonel.weaponfragment",
+	"label": "Mortal Components",
+	"description": "Powdered iron, jagged leaves of steel. It could be more, if I had enough on hand.",
+	"aspects": {
+	    "edge": 4,
+	    "supplies": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needsfragment",
+		"label": "Parts",
+		"required": {
+		    "colonel.weaponfragment": 1
+		}
+	    },
+	    {
+		"id": "needsfragment2",
+		"label": "Parts",
+		"required": {
+		    "colonel.weaponfragment": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "weapon.histid",
+	"label": "Histid's Quill",
+	"description": "All the Colonel's servants are lethal, but the Histids are the most prolific of his creatures. This weapon is constructed in the likeness of a Histid barb, which they would use to deliver to their targets a swift, silent death. [This is a weapon that can only be used once.]",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 12
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "contemplation.skill.deflect",
+	"label": "Contemplation: A Lost Technique?",
+	"description": "A Name of the Colonel presented me with this secret method of battle. It is old, stubborn knowledge, and its natures will not yield to understanding easily.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.colonel",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.deflect"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.raisedead",
+	"label": "Contemplation: A Lost Technique?",
+	"description": "A Name of the Colonel presented me with this secret method of battle. It is old, stubborn knowledge, and its natures will not yield to understanding easily.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.colonel",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.raisedead"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.refreshally",
+	"label": "Contemplation: A Lost Technique?",
+	"description": "A Name of the Colonel presented me with this secret method of battle. It is old, stubborn knowledge, and its natures will not yield to understanding easily.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.colonel",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.refreshally"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "challenge.contemplation.colonel",
+	"label": "Colonel Master Skill Challenge ",
+	"aspects": {
+	    "needsedgelantern": 8,
+	    "needsedgewinter": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "skill.deflect",
+	"label": "Inviolate Defence",
+	"description": "Excruciatingly demanding movements that make a fortress of the body. The precision and conditioning necessary to perform them is usually found only in Long, but a mortal - an extremely careful, extremely well-trained mortal - may make limited use of these techniques to turn aside blows that would otherwise spell death. [You can use this to defend against an attack from any source.]",
+	"aspects": {
+	    "lore": 1,
+	    "heart": 8,
+	    "legacyplotitem": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.deflect.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "skill.deflect.exhausted",
+	"label": "Inviolate Defence (Exhausted)",
+	"description": "Excruciatingly demanding movements that make a fortress of the body. The precision and conditioning necessary to perform them is usually found only in Long, but a mortal - an extremely careful, extremely well-trained mortal - may make limited use of these techniques to turn aside blows that would otherwise spell death. [You can use this to defend against an attack from any source.]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.deflect.exhausted",
+	    "refresh": "skill.deflect"
+	},
+	"unique": true,
+	"icon": "skill.deflect",
+	"resaturate": true,
+	"lifetime": 160,
+	"decayTo": "skill.deflect"
+    },
+    {
+	"id": "skill.raisedead",
+	"label": "Legate's Invocation",
+	"description": "In the Unnumbered Legion, they had a saying - MORS NON EST FINIS OFFICII - for the legionaries knew that death was not peace, but only armistice. These are the words they spoke to remind the dead of the oaths they took in life, and the dead would always listen. [You can use this to turn all Fallen Allies on the board into Conscripts.]",
+	"aspects": {
+	    "lore": 1,
+	    "winter": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.raisedead.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "skill.raisedead.exhausted",
+	"label": "Legate's Invocation (Exhausted)",
+	"description": "In the Unnumbered Legion, they had a saying - MORS NON EST FINIS OFFICII - for the legionaries knew that death was not peace, but only armistice. These are the words they spoke to remind the dead of the oaths they took in life, and the dead would always listen. [You can use this to turn all Fallen Allies on the board into Conscripts.]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.raisedead.exhausted",
+	    "refresh": "skill.raisedead"
+	},
+	"unique": true,
+	"icon": "skill.raisedead",
+	"resaturate": true,
+	"lifetime": 280,
+	"decayTo": "skill.raisedead"
+    },
+    {
+	"id": "skill.refreshally",
+	"label": "Voice of Iron",
+	"description": "No man will be permitted to shirk. No backwards step will be taken. My word is command inviolate, and all those who are soldiers will obey it. [You can use this to instantly refresh all exhausted, non-mechanized Allies on the board.]",
+	"aspects": {
+	    "lore": 1,
+	    "lantern": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.refreshally.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "skill.refreshally.exhausted",
+	"label": "Voice of Iron (Exhausted)",
+	"description": "No man will be permitted to shirk. No backwards step will be taken. My word is command inviolate, and all those who are soldiers will obey it. [You can use this to instantly refresh all exhausted, non-mechanized Allies on the board.]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.refreshally.exhausted",
+	    "refresh": "skill.refreshally"
+	},
+	"unique": true,
+	"icon": "skill.refreshally",
+	"resaturate": true,
+	"lifetime": 280,
+	"decayTo": "skill.refreshally"
+    }
+]
+}

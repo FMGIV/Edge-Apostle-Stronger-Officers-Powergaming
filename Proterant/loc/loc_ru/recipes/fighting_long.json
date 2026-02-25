@@ -1,0 +1,484 @@
+{
+"recipes": [
+    {
+	"id": "communicate.duel.maccabee",
+	"actionid": "communicate",
+	"label": "Совет от Имени",
+	"startdescription": "Старый Иуда наблюдает за нами с невозмутимой суровостью древнего монумента. Вечные совещаются друг с другом на безопасном расстоянии от него, но, как мой секундант, я должен поговорить с Именем лицом к лицу. 'Ты пришёл сюда в поисках совета,' говорит мне Старый Иуда. 'Накануне битвы воин не тратит свое время на такие слабые вещи, как слова. Дай мне свою руку, и я покажу тебе, откуда берется сила.'",
+	"description": "Имя сжимает мою руку, и его хватка становится жгучими тисками, обжигающими мою плоть. Я овладеваю собой; я подавляю крик боли и сжимаю кулак крепче, не сводя глаз со Старого Иуды. Наконец, он отпускает меня. Когда я смотрю на свою руку, на ней нет никаких отметин - вообще никаких следов раны, - но моя плоть помнит, чему научило ее Имя. Огонь. Гнев. И сила.",
+	"warmup": 10,
+	"requirements": {
+	    "duel.maccabee": 1
+	},
+	"effects": {
+	    "courage": 1,
+	    "anger": 1,
+	    "strength": 1,
+	    "duel.maccabee": -1
+	},
+	"craftable": true
+    },
+    {
+	"id": "communicate.duel.continental.hint",
+	"actionid": "communicate",
+	"label": "Слова Не Требуются.",
+	"startdescription": "Правила мусвашира запрещают участникам вступать в какие-либо контакты до начала боя. Пока один из нас не прольет кровь другого, я обязан не разговаривать с Континенталь, а она не должна разговаривать со мной.",
+	"requirements": {
+	    "duel.camilla.proterant": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "communicate.duel.warmaker",
+	"actionid": "communicate",
+	"label": "Мышь и Лев",
+	"startdescription": "'Континенталь' стоит напротив меня, а между нами - Воевода и Старый Иуда. 'Как Львокузнец бросил вызов Антайосу,' начинает Имя. 'И как Александр бросил вызов Львокузнецу, так и мы сейчас являемся свидетелями великого и почетного поединка.' После, говорит Воевода: 'Перед лицом Часов Борьбы, и в соответствии с конвенциями их закона, два бойца будут сражаться до тех пор, пока не прольется кровь. Тот, кто получает первую рану, проигрывает. Бойцы готовы?'",
+	"description": "'Начали!'",
+	"requirements": {
+	    "duel.wilhelm.proterant": 1
+	},
+	"effects": {
+	    "duel.wilhelm.proterant": -1
+	},
+	"craftable": true,
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "duelling.pre.proterant",
+		"additional": true
+	    }
+	],
+	"playAudioTrack": "continentalduel.mp3"
+    },
+    {
+	"id": "duelling.pre.proterant",
+	"actionid": "long.camilla",
+	"label": "Дуэль начинается!",
+	"startdescription": "Континенталь достает свое оружие -",
+	"slots": [
+	    {
+		"id": "needscontinental",
+		"label": "Континенталь",
+		"required": {
+	 	    "duel.camilla.proterant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "duelling.longattack.pre.proterant"
+	    }
+	],
+	"burnimage": "duelling"
+    },
+    {
+	"id": "duelling.longattack.pre.proterant",
+	"label": "Мой противник наносит удар!",
+	"internaldeck": {
+	    "spec": [
+		"camilla.attack.a",
+		"camilla.attack.a",
+		"camilla.attack.a",
+		"camilla.attack.b",
+		"camilla.attack.b",
+		"camilla.attack.c",
+		"camilla.attack.c"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "duelling.longattack.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.longattack.proterant",
+	"label": "Мой противник наносит удар!",
+	"startdescription": "@#camilla.attack.a|Континенталь обвешана оружием, и она умеет владеть им с невероятной эффективностью. Шквал ударов: ножей, сабель, выстрелов -#camilla.attack.b|Там, где должна быть левая рука Континенталь, появляется почти неуловимое мерцание в форме копья. Ветер потрескивает и гудит. Со стоном от напряжения она выбрасывает руку вперед, и невидимое копье смертоносной силы устремляется вперед -#camilla.attack.c|Континенталь втыкает шип из зазубренного железа в старый шрам на ее горле, и, когда она открывает рот, Неумолимая Зима выплескивается наружу -@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "duelling.wounded.proterant"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "duelling.respond.edge.proterant"
+	    },
+	    {
+		"id": "duelling.respond.forge.proterant"
+	    },
+	    {
+		"id": "duelling.respond.edgeforge.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.edge.proterant",
+	"label": "Насилие Порождает Насилие",
+	"startdescription": "Я отвечаю на каждый удар Континенталь. Столкновение наших ударов - это музыка, мы как будто танцуем.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.forge.proterant",
+	"label": "Пламя Внутри",
+	"startdescription": "Ярость - Я чувствую такую невыносимую <i>ярость.</i> Мой внутренний огонь разгорается по коже, горлу, глазам, и я становлюсь центром Пожара. Зима умирает, касаясь меня.",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.edgeforge.proterant",
+	"label": "Непобедимая Смелость",
+	"startdescription": "Это оружие ненастоящее; оно так же реалено, как левая рука Континенталь. Но оно может проткнуть обшивку линкора, как бумагу. Я сильнее этого. Моя плоть не поддается ударам противника, и я не ранен.",
+	"requirements": {
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.clear.proterant",
+	"label": "",
+	"effects": {
+	    "decision": -99
+	},
+	"alt": [
+	    {
+		"id": "eject.exhausted",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.cycle.proterant"
+	    }
+	]
+    },
+    {
+	"id": "eject.exhausted",
+	"actionid": "spit.moth",
+	"label": "Истощение!",
+	"startdescription": "Я использовал этот прием против своего противника, и мне понадобится передышка, прежде чем я смогу эффективно применить его снова -",
+	"warmup": 10
+    },
+    {
+	"id": "duelling.cycle.proterant",
+	"label": "Бессмертное Противостояние",
+	"startdescription": "Проходят секунды. Едва хватает времени, чтобы перевести дыхание. Континенталь кружит вокруг меня, а я вокруг неё.",
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "duelling.longattack.pre.proterant",
+		"chance": 30
+	    },
+	    {
+		"id": "duelling.cycle.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.wounded.proterant",
+	"label": "Сражен Наповал",
+	"startdescription": "Слишком медленно! Континенталь проскальзывает мимо моей защиты, и сверкающая сталь рассекает воздух дугой - ",
+	"description": "Мне требуется мгновение, чтобы осознать это, но боль быстро настигает меня. Там, где когда-то была моя правая рука, теперь свежий кровоточащий обрубок. Я хватаюсь за рану и падаю на колени. 'Ты будешь жить', - говорит мне Континенталь, пряча саблю в ножны. - Или нет. В любом случае, ты проиграл. Пусть это тебя кое-чему научит. Она оглядывается через плечо, где ее ждет Воевода. - У нас с моим дорогим врагом сейчас есть дело. 'Иди и найди свой конец там, где сочтешь нужным'. Затем Вечные расходятся в разные стороны, и старый Иуда покидает меня, и я остаюсь один.",
+	"haltverb": {
+	    "operate": 99
+	},
+	"effects": {
+	    "duel.camilla.proterant": -99,
+	    "mark.shame": 1,
+	    "debilitation.hand": 1
+	},
+	"playAudioTrack": "duelend.mp3",
+	"warmup": 30
+    },
+    {
+	"id": "operate.strike.edgelong.pre.proterant",
+	"actionid": "operate",
+	"label": "Совершить Невозможную Атаку?",
+	"startdescription": "Нужно ударить всем, что у меня есть. Чего-то меньшего будет недостаточно.\n\n[Обеспечьте лучший источник Грани, чтобы у этого гамбита был хотя бы шанс на успех. Однако, он все равно может провалиться.]",
+	"requirements": {
+	    "long.opening": 3
+	},
+	"extantreqs": {
+	    "duel.camilla.proterant": 1
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.proterant"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.edgelong.proterant",
+	"actionid": "operate",
+	"label": "Совершить Невозможную Атаку?",
+	"startdescription": "Нужно ударить всем, что у меня есть. Чего-то меньшего будет недостаточно.\n\n[Обеспечьте лучший источник Грани, чтобы у этого гамбита был хотя бы шанс на успех. Однако, он все равно может провалиться.]",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "operate.strike.edgelong.success.proterant"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.failure"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.edgelong.success.proterant",
+	"label": "Выполнение Невозможного",
+	"startdescription": "Секунды тянуться, словно года. Мир затаил дыхание. Моя рука движется с предначертанной четкостью.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.failure",
+		"chance": 30
+	    },
+	    {
+		"id": "operate.strike.edgelong.success.complete.proterant"
+	    }
+	]
+    },	
+    {
+	"id": "operate.strike.edgelong.failure",
+	"label": "Моя Атака Провалилась!",
+	"startdescription": "Мой удар отскакивает от тела Вечного Грани, как пуля от корпуса военного корабля. Кровь не прольется.",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "long.opening": -2
+	}
+    },
+    {
+	"id": "operate.strike.edgelong.success.complete.proterant",
+	"label": "Кровь Бессмертного Противника",
+	"startdescription": "Мы сражались друг с другом на пределе своих возможностей. Сталь встречалась со сталью так много раз. Теперь каждый из нас разворачивается, держа оружие наготове, и очертя голову бросается друг на друга в последний раз -",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "long.opening": -99
+	},
+	"haltverb": {
+	    "long.camilla": 99,
+	    "scandal": 99,
+	    "spit.moth": 99
+	},
+	"purge": {
+	    "long.opening": 99
+	},
+	"linked": [
+	    {
+		"id": "duelwon.mutatewound.proterant"
+	    }
+	],
+	"playAudioTrack": "duelend.mp3"
+    },
+    {
+	"id": "duelwon.mutatewound.proterant",
+	"label": "Кровь Бессмертного Противника",
+	"startdescription": "Мы сражались друг с другом на пределе своих возможностей. Сталь встречалась со сталью так много раз. Теперь каждый из нас разворачивается, держа оружие наготове, и очертя голову бросается друг на друга в последний раз -",
+	"description": "Момент, короткий и яркий, как молния. Сталь лязгает. Чья-то плоть разрывается. Медленно каждый из нас делает вдох. Но когда мы снова поворачиваемся лицом друг к другу, мое оружие красно, а ее - нет. Континенталь касается ее бока в том месте, куда пришелся мой удар, и ее рука отрывается. Она кивает. 'Хороший удар.'",
+	"slots": [
+	    {
+		"id": "needslong",
+		"label": "Континенталь",
+		"required": {
+		    "duel.camilla.proterant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "duel.camilla.proterant",
+		"mutate": "long_wound",
+		"level": 1
+	    }
+	],
+	"warmup": 30,
+	"achievements": [
+	    "victory.continental"
+	]
+    },
+    {
+	"id": "communicate.camilla.aftervictory",
+	"actionid": "communicate",
+	"label": "Мышь Побеждает Льва",
+	"startdescription": "Континенталь убирает клинок в ножны. 'Поздравляю, - улыбается она мне. Мы и Часы Борьбы признаем твое мастерство и твою решимость, твою силу и твою доблесть». В сторонке Воевода яростно аплодирует. Старый Иуда выглядит настолько сильным, насколько хочет.",
+	"description": "Я пожимаю руку своему оппоненту, которая наклоняется и шепчет мне на ухо: 'Ты уже совсем близко. Все взгляды будут устремлены на тебя. Когда придет время, и Львокузнец предложит тебе свою милость, я молюсь, чтобы у тебя хватило мужества выдержать ее.,' говорит она, крепко сжимая мою руку. Я только киваю. Она кивает в ответ и отпускает меня. 'Ступай своим путём, убийца людей. Твоя ответственность возрастает с каждой секундой.'",
+	"requirements": {
+	    "duel.camilla.proterant": 1,
+	    "long_wound": 1
+	},
+	"effects": {
+	    "duel.camilla.proterant": -99,
+	    "mark.musvashir": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    }
+]
+}

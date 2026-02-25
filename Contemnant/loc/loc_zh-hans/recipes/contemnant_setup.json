@@ -1,0 +1,239 @@
+{
+"recipes": [
+    {
+	"id": "contemnant.setup.a",
+	"actionid": "operate",
+	"label": "自寒冷中前来",
+	"startdescription": "太阳已经落山。在过去一个月里随我向西的走投无路者的行列停止前进，开始扎营。我和四个同伴围在一个小火堆旁。我们一言不发，直到一个不速之客自夜幕中现身。当我看到那张脸时，我的心跳停了一瞬。",
+	"description": "“尽情尖叫吧，今晚你们都会死在这里。”",
+	"requirements": {
+	    "contemnant.setupitem": 1
+	},
+	"effects": {
+	    "contemnant.mentor": 1,
+	    "contemnant.setupitem": -1,
+	    "mem.fear": 1,
+	    "friend.vanja": 1,
+	    "friend.tibor": 1,
+	    "friend.eva": 1,
+	    "friend.walther": 1
+	},
+	"alt": [
+	    {
+		"id": "contemnant.setup.b",
+		"additional": true
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "contemnant.setup.b",
+	"actionid": "communicate",
+	"label": "游戏的规则",
+	"startdescription": "“现在，做个乖孩子好好听着。事态在变化，因此我来测试你了。让我们玩一个游戏：谁先使对方流血，谁就获胜。如果我赢了，我要拿走你其中一个小伙伴的性命。如果<i>你</i>赢了，我就走，留你在此享受……<i>和平</i>。”这最后一个词仿佛噎在流亡者的喉头，而其则费力地将之吐出。",
+	"description": "“给你——让这游戏稍微公平一点。”流亡者把某样东西扔到我脚边的土地上。",
+	"effects": {
+	    "contemnant.weapon": 1
+	},
+	"warmup": 15
+    },
+    {
+	"id": "contemnant.setup.c",
+	"actionid": "communicate",
+	"label": "狼对羊羔如是说",
+	"startdescription": "“记住——这只是个游戏。”",
+	"warmup": 5,
+	"requirements": {
+	    "contemnant.mentor": 1
+	},
+	"alt": [
+	    {
+		"id": "setup.startattack.exile.pre",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"contemnant.mentor": 1
+		    }
+		}
+	    }
+	],
+	"craftable": true
+    },
+    {
+	"id": "setup.startattack.exile.pre",
+	"actionid": "long.exile",
+	"label": "我的对手作出攻击！",
+	"effects": {
+	    "exile.attack.a": 1
+	},
+	"linked": [
+	    {
+		"id": "setup.startattack.exile"
+	    }
+	]
+    },
+    {
+	"id": "setup.startattack.exile",
+	"actionid": "long.exile",
+	"label": "我的对手作出攻击！",
+	"startdescription": "流亡者向前冲刺。钢刃突然出现在其手中，那锋利的锯齿状转眼间便如此之近——",
+	"description": "我甚至听不到自己尖叫——或许是这疼痛过于火热，以至于我一时丧失了尖叫的能力。流亡者擦拭刀刃。“很遗憾，是你输了。”",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"effects": {
+	    "wound.generic": 1
+	},
+	"alt": [
+	    {
+		"id": "contemnant.setup.d",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"contemnant.mentor": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "contemnant.setup.d",
+	"actionid": "abandon",
+	"label": "抉择",
+	"startdescription": "“规则就是规则。选择一个你最不想念的人吧，”流亡者微笑着说，“你要考虑多久都可以。”",
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "contemnant.setup.d"
+	    }
+	],
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "抉择",
+		"description": "我将宣告谁的死亡？",
+		"required": {
+		    "friend": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "contemnant.setup.d.choicemade"
+	    }
+	]
+    },
+    {
+	"id": "contemnant.setup.d.choicemade",
+	"label": "做出抉择",
+	"startdescription": "“别哭。反正我确信这人也没那么喜欢你。”",
+	"description": "我那可怜的同伴双眼宛如玻璃球，大地正痛饮其血液。这可以说是我见过流亡者杀人无数次中最快的一次。“在你准备好面对即将到来的大事之前，”流亡者再次开口，“你还有很长的路要走。”",
+	"aspects": {
+	    "killfriend": 1
+	},
+	"requirements": {
+	    "friend": 2
+	},
+	"effects": {
+	    "contemnant.mentor": -99
+	},
+	"alt": [
+	    {
+		"id": "contemnant.setup.e",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "contemnant.setup.e",
+	"actionid": "recon",
+	"label": "饕宴将至",
+	"startdescription": "“因为你弱小且畏惧，所以你尝试逃离这一切。但你有一样东西比你那恐惧更强大，那就是<i>憎恨</i>。你憎恨那些看着你挨饿的人，那些强迫你劳动的人；你憎恨让这一切降临在你身上的世界；你憎恨<i>我</i>。你不想让我们所有人向你求饶吗？不想让我们像你过去那般流血并尖叫吗？”",
+	"description": "“记住我教你的：在刃之司辰中，只有裂分之狼理解复仇。他麾下的具名者们也如此。在饕宴开始之前，七席之位尚有一席——最后一席——空缺。怀有足够的恨意之人或许能开拓出通往那席位的道路。你好好想想。”流亡者后退，如一头遁入黑暗的怪物。“在一切结束之前，我们还会再见。至少，我希望如此。”",
+	"effects": {
+	    "contemnant.fragmentedge": 1,
+	    "contemnant.story": 1,
+	    "contemnant.mentor": -1
+	},
+	"warmup": 30,
+	"alt": [
+	    {
+		"id": "contemnant.setup.f",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "contemnant.setup.f",
+	"actionid": "mobilize",
+	"label": "进军",
+	"startdescription": "在痛苦与悲伤中，夜晚眨眼便结束了。当我回过神来，太阳已经升起，我的伤口也已经被包扎，而我的同伴未能复生。我在转身时抽搐——伤口包扎的没我想的那么好。",
+	"description": "其他人早已对黎明到来时发现尸体感到麻木。当我划定我们的前路时，我默默地感恩，因我不需要解释这尸体的来历。前路通往柏林，或通往逃离。狂风呼号。有那么一瞬，极短的一瞬，我考虑了流亡者的提案。",
+	"effects": {
+	    "provisions": 8,
+	    "friend.lookout": 2,
+	    "friend.doctor": 2,
+	    "friend.labourer": 1,
+	    "friend.gunman": 1
+	},
+	"deckeffects": {
+	    "starting.warzones.sector.a.germany": 1
+	},
+	"warmup": 30
+    },
+]
+}

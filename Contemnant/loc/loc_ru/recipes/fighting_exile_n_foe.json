@@ -1,0 +1,1088 @@
+{
+"recipes": [
+    {
+	"id": "hint.longwound.exile",
+	"actionid": "operate",
+	"label": "Конец Диады Грани?",
+	"startdescription": "Говорят, что Вечный Грани может умереть только от руки своего заклятого врага, но я слышал и другие слухи: что Вечный Грани может быть уничтожен, если будет убит бок о бок с его Соврагом. Сразиться и убить двух Вечных Грани одновременно - почти наверняка чистая выдумка, но если я хочу отомстить, если я хочу увидеть, как обещание Волка будет выполнено, мне нужно покончить и с Изгнанником, и с его Врагом.",
+	"requirements": {
+	    "longwound.exile": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.longwound.foe",
+	"actionid": "operate",
+	"label": "Конец Диады Грани?",
+	"startdescription": "Говорят, что Вечный Грани может умереть только от руки своего заклятого врага, но я слышал и другие слухи: что Вечный Грани может быть уничтожен, если будет убит бок о бок с его Соврагом. Сразиться и убить двух Вечных Грани одновременно - почти наверняка чистая выдумка, но если я хочу отомстить, если я хочу увидеть, как обещание Волка будет выполнено, мне нужно покончить и с Изгнанником, и с его Врагом.",
+	"requirements": {
+	    "longwound.foe": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attack.exile.pre",
+	"actionid": "operate",
+	"label": "Идеальный Удар?",
+	"startdescription": "Вся моя ярость, и боль, и жажда возмездия - все это должно войти в это следующее, исключительное движение.\n\n[Обеспечьте лучший источник Грани, чтобы у этого гамбита был хотя бы шанс на успех. Однако, он все равно может провалиться.]",
+	"requirements": {
+	    "opening.exile": 3
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"linked": [
+	    {
+		"id": "attack.exile.continue"
+	    }
+	],
+	"craftable": true
+    },
+    {
+	"id": "attack.exile.continue",
+	"label": "Идеальный Удар?",
+	"startdescription": "Вся моя ярость, и боль, и жажда возмездия - все это должно войти в следующее, исключительное движение.\n\n[Обеспечьте лучший источник Грани, чтобы у этого гамбита был хотя бы шанс на успех. Однако, он все равно может провалиться.]",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "attack.exile.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.exile.failure"
+	    }
+	]
+    },
+    {
+	"id": "attack.exile.success",
+	"label": "Идеальный Удар?",
+	"startdescription": "Жгучая волна восторга захлестывает меня, когда я прорываюсь сквозь защиту Изгнанника. Я хочу разорвать его плоть, попробовать его кровь, отплатить ему за каждую ночь мучений -",
+	"description": "И все это ради того, чтобы нанести всего один удар, но я нанес его достаточно глубоко, чтобы заставить волноваться даже бессмертного.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"aspects": {
+	    "killfriend": 1,
+	    "killmortal": 1,
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "longwound.exile": 1,
+	    "opening.exile": -2
+	},
+	"linked": [
+	    {
+		"id": "attack.exile.failure",
+		"chance": 20
+	    }
+	]
+    },
+    {
+	"id": "attack.exile.failure",
+	"label": "Моя Атака Провалилась!",
+	"startdescription": "Мой удар отскакивает от тела Вечного Грани, как пуля от корпуса военного корабля. Изгнанник усмехается. 'Неповезло.'",
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "opening.exile": 1,
+	    "longwound.exile": -99
+	}
+    },
+    {
+	"id": "attack.foe.pre",
+	"actionid": "operate",
+	"label": "Идеальный Удар?",
+	"startdescription": "Вся моя ярость, и боль, и жажда возмездия - все это должно войти в следующее, исключительное движение.\n\n[Обеспечьте лучший источник Грани, чтобы у этого гамбита был хотя бы шанс на успех. Однако, он все равно может провалиться.]",
+	"requirements": {
+	    "opening.foe": 3
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"linked": [
+	    {
+		"id": "attack.foe.continue"
+	    }
+	],
+	"craftable": true
+    },
+    {
+	"id": "attack.foe.continue",
+	"label": "Идеальный Удар?",
+	"startdescription": "Вся моя ярость, и боль, и жажда возмездия - все это должно войти в следующее, исключительное движение.\n\n[Обеспечьте лучший источник Грани, чтобы у этого гамбита был хотя бы шанс на успех. Однако, он все равно может провалиться]",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "attack.foe.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.foe.failure"
+	    }
+	]
+    },
+    {
+	"id": "attack.foe.success",
+	"label": "Идеальный Удар?",
+	"startdescription": "Это почти невозможно - то, как я нахожу слабое место в непобедимой защите Дюффура. Углы сходятся, силы выравниваются, и моя рука устремляется вперед -",
+	"description": "И все это ради того, чтобы нанести всего один удар, но я нанес его достаточно глубоко, чтобы заставить волноваться даже бессмертного.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"aspects": {
+	    "killfriend": 1,
+	    "killmortal": 1,
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "longwound.foe": 1,
+	    "opening.foe": -2
+	},
+	"linked": [
+	    {
+		"id": "attack.foe.failure",
+		"chance": 20
+	    }
+	]
+    },
+    {
+	"id": "attack.foe.failure",
+	"label": "Моя Атака Провалилась!",
+	"startdescription": "Мой удар отскакивает от тела Вечного Грани, как пуля от корпуса военного корабля. Враг усмехнулся. 'Слабо.'",
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "opening.foe": -1,
+	    "longwound.foe": -99
+	}
+    },
+    {
+	"id": "contemnant.usechallenge",
+	"label": "Бесстрашный",
+	"startdescription": "@#foe.exile|'Этот взгляд в твоих глазах... Значит, ты наконец-то принялся за свою месть? Что ж, Волк ждал достаточно долго, чтобы ты наконец набрался храбрости. Иди сюда и заставь нас обоих тобой гордиться.'#foe.duffoure|'Я понимаю. Ты стал именно тем, на что он надеялся. Тогда больше никаких преследований - я покончу с тобой прямо <i>сейчас.'</i>@\n\n[Как только вы начнете эту битву, пути назад уже не будет.]",
+	"requirements": {
+	    "challenge": 1
+	},
+	"effects": {
+	    "long.bossfight.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "intro.bossfight.exile"
+	    },
+	    {
+		"id": "intro.bossfight.foe"
+	    }
+	]
+    },
+    {
+	"id": "intro.bossfight.exile",
+	"label": "Бессмертное Противостояние",
+	"startdescription": "",
+	"requirements": {
+	    "foe.exile": 1
+	},
+	"effects": {
+	    "long.bossfight.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "exile.attacks.pre"
+	    }
+	]
+    },
+    {
+	"id": "intro.bossfight.foe",
+	"label": "Бессмертное Противостояние",
+	"startdescription": "",
+	"requirements": {
+	    "foe.duffoure": 1
+	},
+	"effects": {
+	    "long.bossfight.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.attacks.pre"
+	    }
+	]
+    },
+    {
+	"id": "exile.bossfight.cycle",
+	"label": "Бессмертное Противостояние",
+	"startdescription": "Изгнанник движется словно зверь, каждая конечность, каждый палец и волос на нём вздыбился от жажды крови. Его рычащее дыхание паром наполняет зимний воздух. Пройдет еще мгновение, и он набросится снова -",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "exile.attacks.pre",
+		"chance": 40
+	    },
+	    {
+		"id": "exile.bossfight.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "exiletrauma.contemnant.duringduel",
+		"additional": true,
+		"chance": 15
+	    },
+	    {
+		"id": "summonfoe.musicstart",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "exile.attacks.pre",
+	"label": "Изгнанник Атакует!",
+	"internaldeck": {
+	    "spec": [
+		"exile.attack.a",
+		"exile.attack.a",
+		"exile.attack.a",
+		"exile.attack.b",
+		"exile.attack.b",
+		"exile.attack.c",
+		"exile.attack.c"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "exile.attacks"
+	    }
+	]
+    },
+    {
+	"id": "exile.attacks",
+	"label": "Изгнанник Атакует!",
+	"startdescription": "@#exile.attack.a|Изгнанник бросается вперед, два клинка обнажены, как страшные клыки, чтобы пронзить мою плоть -#exile.attack.b|Проскальзывая мимо моей защиты, Изгнанник глубоко вонзает зубы мне в шею. И тут же начинается агония: раскаленная добела и настолько сильная, что перед глазами все темнеет. Я изо всех сил пытаюсь отбросить его -#exile.attack.c|Изгнанник надрезает себе ладонь сжимает её в кровоточащий кулак. Когда он выбрасывает руку вперед, из воздуха появляется копьё из густой крови и устремляется в мою сторону -@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "exile.woundsyou"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "exile.respond.friend.immortal"
+	    },
+	    {
+		"id": "exile.respond.edge"
+	    },
+	    {
+		"id": "exile.respond.grail"
+	    },
+	    {
+		"id": "exile.respond.edgegrail"
+	    }
+	]
+    },
+    {
+	"id": "exile.woundsyou",
+	"label": "Безудержный Смех",
+	"startdescription": "'Если тебе нужна минутка, чтобы перевести дух, просто скажи.'",
+	"effects": {
+	    "decision": -99
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "exilestartup.edgelong.spitout.wounds",
+		"additional": true
+	    },
+	    {
+		"id": "eject.exhausted.exile",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exile.bossfight.cycle"
+	    }
+	]
+    },
+    {
+	"id": "exilestartup.edgelong.spitout.wounds",
+	"actionid": "exile.woundsyou",
+	"label": "Боль и Ужас",
+	"startdescription": "Неужели это то, к чему все идет? Станет ли это ударом, который прикончит меня?",
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds"
+	    }
+	]
+    },
+    {
+	"id": "exile.respond.edge",
+	"label": "Насилие Порождает Насилие",
+	"startdescription": "Сталь просвистела мимо меня, в момент моего отступа. Изгнанник снова приближается, вращая клинками, но каждый раз, когда он замахиваются, колит или наносят удар, я отбиваю его клинки.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.exile",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exile.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "exile.respond.grail",
+	"label": "Избежал Уничтожения",
+	"startdescription": "Я отскакиваю в сторону, и стремительный всплеск крови и силы пронзает землю там, где я стоял мгновение назад. В воздухе несёт кровью и озоном.",
+	"requirements": {
+	    "needsgrail": 1,
+	    "grail": "needsgrail",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.exile",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exile.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "exile.respond.edgegrail",
+	"label": "Предотвращение Агонии",
+	"startdescription": "Я вонзаю нож в живот Изгнанника один раз, два-три раза и выворачиваю его, а затем чувствую, что хватка ослабевает. Удар ногой отшвыривает Вечного назад. Изгнанник улыбается, вытирая рот.",
+	"requirements": {
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.exile",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exile.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "exile.bossfight.clear",
+	"label": "",
+	"effects": {
+	    "decision": -99
+	},
+	"alt": [
+	    {
+		"id": "eject.exhausted.exile",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exile.bossfight.cycle"
+	    }
+	]
+    },
+    {
+	"id": "eject.exhausted.exile",
+	"actionid": "spit.exile",
+	"label": "Истощение!",
+	"startdescription": "Я использовал этот прием против своего противника, и мне понадобится передышка, прежде чем я смогу эффективно применить его снова -",
+	"warmup": 10
+    },
+    {
+	"id": "summonfoe.musicstart",
+	"actionid": "long.foe",
+	"label": "Враги-по-Оружию",
+	"startdescription": "'Может быть, мой наследник-предатель хотел, чтобы я пришел. Без сомнения, это часть его плана по превращению тебя в Волка, но я - существо, подчиняющееся правилам. Он <i>моя</i> Кровь; <i>Мой</i> Враг. <i>Мой.</i> И ты переходишь все границы.'",
+	"effects": {
+	    "duffoure": 1
+	},
+	"extantreqs": {
+	    "longwound.exile": 1,
+	    "duffoure": -1
+	},
+	"linked": [
+	    {
+		"id": "summonfoe"
+	    }
+	],
+	"playAudioTrack": "exileandfoeboss.mp3",
+	"setBGmusic": [
+	    "exileandfoeboss.mp3"
+	]
+    },
+    {
+	"id": "summonfoe",
+	"actionid": "long.foe",
+	"label": "Враги-по-Оружию",
+	"startdescription": "'Может быть, мой наследник-предатель хотел, чтобы я пришел. Без сомнения, это часть его плана по превращению тебя в Волка, но я - существо, подчиняющееся правилам. Он <i>моя</i> Кровь; <i>Мой</i> Враг. <i>Мой.</i> И ты переходишь все границы.'",
+	"linked": [
+	    {
+		"id": "foe.bossfight.cycle"
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "foe.bossfight.cycle",
+	"label": "Бессмертное Противостояние",
+	"startdescription": "Земля, кажется, дрожит от каждого шага Дюффура. Там, где он ступает, земля покрывается инеем. Я всматриваюсь в его единственный глаз, чтобы убедиться в отсутствии каких-либо обманчивых намерений - пройдет всего несколько секунд, прежде чем он ударит снова.",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "foe.attacks.pre",
+		"chance": 40
+	    },
+	    {
+		"id": "foe.bossfight.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "summonexile.musicstart",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "foe.attacks.pre",
+	"label": "Враг атакует!",
+	"internaldeck": {
+	    "spec": [
+		"foe.attack.a",
+		"foe.attack.a",
+		"foe.attack.a",
+		"foe.attack.b",
+		"foe.attack.b",
+		"foe.attack.c",
+		"foe.attack.c"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "foe.attacks"
+	    }
+	]
+    },
+    {
+	"id": "foe.attacks",
+	"label": "Враг атакует!",
+	"startdescription": "@#foe.attack.a|Дюффур неумолимо приближается, каждый его шаг сопровождается ударом кулака или выстрелом в мою сторону -#foe.attack.b|Дюффур шепчет острый секрет пули из таэнита, которую держит в руке, словно офицер, отдающий приказ солдату. Он заряжает орудие и стреляет, и пуля пролетает мимо меня, но я слышу, как она изгибается и вьется на ветру, а затем поворачивается, чтобы снова настигнуть меня! Если я не смогу уклониться от его выстрела -#foe.attack.c|Мириады шрамов Дюффура внезапно вспыхивают золотым сиянием. Он, кажется, отрывается от земли, когда бросается ко мне, пальцы его руки заострены, как копья, и окутаны ярчайшим светом -@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "foe.woundsyou"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "foe.respond.friend.immortal"
+	    },
+	    {
+		"id": "foe.respond.edge"
+	    },
+	    {
+		"id": "foe.respond.lantern"
+	    },
+	    {
+		"id": "foe.respond.edgelantern"
+	    }
+	]
+    },
+    {
+	"id": "foe.woundsyou",
+	"label": "Гортанный Смешок",
+	"startdescription": "'Слишком медленно.'",
+	"effects": {
+	    "decision": -99
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "foestartup.edgelong.spitout.wounds",
+		"additional": true
+	    },
+	    {
+		"id": "eject.exhausted.foe",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.bossfight.cycle"
+	    }
+	]
+    },
+    {
+	"id": "foestartup.edgelong.spitout.wounds",
+	"actionid": "foe.woundsyou",
+	"label": "Боль и Ужас",
+	"startdescription": "Неужели это то, к чему все идет? Станет ли это ударом, который прикончит меня?",
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds"
+	    }
+	]
+    },
+    {
+	"id": "foe.respond.edge",
+	"label": "Насилие Порождает Насилие",
+	"startdescription": "На каждый шаг Дюффура приходится ответный шаг; на каждый удар - еще один, чтобы перехватить его. Сила каждого удара заставляет меня стискивать зубы и почти ломает кости, но это всего лишь боль. Я знаком с болью.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.foe",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "foe.respond.lantern",
+	"label": "Свет и Рассечение",
+	"startdescription": "Полковник знает, что такое Свет, но Разделенный Волк родился из Агонии Солнца, и его тень погасит даже самый яркий свет, если я призову её с должной яростью. Хотя земля подо мной опалена Славой, я способен притупить самый сильный свет Врага.",
+	"requirements": {
+	    "needslantern": 1,
+	    "lantern": "needslantern",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.foe",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "foe.respond.edgelantern",
+	"label": "Кто Рассекает",
+	"startdescription": "У пули есть приказ находить меня, пока она существует, и поэтому я стираю её из существования. Таэнитовая пуля исчезает, не оставляя после себя даже пыли, а в том месте, где она была, теперь слабо пахнет кровью и озоном.",
+	"requirements": {
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.foe",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "foe.bossfight.clear",
+	"label": "",
+	"effects": {
+	    "decision": -99
+	},
+	"alt": [
+	    {
+		"id": "eject.exhausted.foe",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.bossfight.cycle"
+	    }
+	]
+    },
+    {
+	"id": "eject.exhausted.foe",
+	"actionid": "spit.foe",
+	"label": "Истощение!",
+	"startdescription": "Я использовал этот прием против своего противника, и мне понадобится передышка, прежде чем я смогу эффективно применить его снова -",
+	"warmup": 10
+    },
+    {
+	"id": "summonexile.musicstart",
+	"actionid": "long.exile",
+	"label": "Враги-по-Оружию",
+	"startdescription": "'Жаждешь крови моего Врага, не так ли? Умный ход - ты знал, что это выведет меня из себя, и теперь можешь попробовать меня сразить. Что <i>не очень</i> разумно, так это то, что сейчас - сейчас ты умрешь.'",
+	"effects": {
+	    "exile": 1
+	},
+	"extantreqs": {
+	    "longwound.foe": 1,
+	    "exile": -1
+	},
+	"linked": [
+	    {
+		"id": "summonexile"
+	    }
+	],
+	"playAudioTrack": "exileandfoeboss.mp3",
+	"setBGmusic": [
+	    "exileandfoeboss.mp3"
+	]
+    },
+    {
+	"id": "summonexile",
+	"actionid": "long.exile",
+	"label": "Враги-по-Оружию",
+	"startdescription": "'Жаждешь крови моего Врага, не так ли? Умный ход - ты знал, что это выведет меня из себя, и теперь можешь попробовать меня сразить. Что <i>не очень</i> разумно, так это то, что сейчас - сейчас ты умрешь.'",
+	"linked": [
+	    {
+		"id": "exile.bossfight.cycle"
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "produce.opening.exile",
+	"actionid": "web.green",
+	"label": "Пробоина в Чешуе Дракона?",
+	"startdescription": "Изгнанник по-прежнему безжалостен в своей агрессии, но я вижу, что его разочарование растет с каждой атакой, которую я отбиваю или избегаю. Это откроет его защиту.",
+	"effects": {
+	    "opening.exile": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "produce.opening.foe",
+	"actionid": "web.red",
+	"label": "Пробоина в Чешуе Дракона?",
+	"startdescription": "У Дюффура за плечами десятилетия неисчислимого опыта, но возраст также делает его однообразным. Я начинаю замечать некоторую закономерность в его движениях.",
+	"effects": {
+	    "opening.foe": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "kill.exileandfoe",
+	"actionid": "operate",
+	"label": "ВОЗМЕЗДИЕ",
+	"startdescription": "Изгнанник и его Враг балансируют на грани забвения. Дюффур вызывающе рычит, а глаза Изгнанника все еще горят знакомой жестокостью, но теперь в них есть что-то еще. Не принятие. Злорадство? Страх? Ветер доносит глубокий, жуткий вой. Тени жадно удлиняются. Перед глазами все расплывается красным -",
+	"requirements": {
+	    "longwound.exile": 3,
+	    "longwound.foe": 3
+	},
+	"craftable": true,
+	"haltverb": {
+	    "long.camilla": 99,
+	    "long.foe": 99,
+	    "long.exile": 99
+	},
+	"linked": [
+	    {
+		"id": "kill.exileandfoe.continue"
+	    }
+	],
+	"burnimage": "fenrir",
+	"furthermore": { 
+	    "target": "~/tabletop[situationstorage]+",
+	    "aspects": {
+		"longded": 1 
+	    }
+	},
+	"xpans": { 
+	    "longded": 1 
+	}
+    },
+    {
+	"id": "kill.exileandfoe.continue",
+	"label": "ВОЗМЕЗДИЕ",
+	"startdescription": "Изгнанник и его Враг балансируют на грани забвения. Дюффур вызывающе рычит, а глаза Изгнанника все еще горят знакомой жестокостью, но теперь в них есть что-то еще. Не принятие. Злорадство? Страх? Ветер доносит глубокий, жуткий вой. Тени жадно удлиняются. Перед глазами все расплывается красным -",
+	"description": "Мои руки терзают их бессмертную плоть; мои зубы разрывают их бессмертные глотки. Дымящаяся кровь Вечных Грани покрывает меня, как вторая кожа. Изгнанника - учителя, мучителя, сородича-в-ненависти - больше нет. Моя месть ему свершилась. Моя месть всему остальному близится. Воздух скапливается в моих лёгких. Я кричу.", 
+	"slots": [
+	    {
+		"id": "needsexile",
+		"label": "Изгнанник",
+		"required": {
+		    "foe.exile": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsfoe",
+		"label": "Враг",
+		"required": {
+		    "foe.duffoure": 1
+		},
+		"greedy": true
+	    },
+	],
+	"warmup": 15,
+	"effects": {
+	    "foe": -99,
+	    "longwound.exile": -99,
+	    "longwound.foe": -99,
+	    "memento.exile": 1,
+	    "memento.foe": 1
+	},
+	"playAudioTrack": "killdyad.mp3",
+	"furthermore": { 
+	    "target": "~/tabletop[situationstorage]+",
+	    "aspects": {
+		"damagehealth": 1 
+	    }
+	},
+	"xpans": { 
+	    "damagehealth": 1 
+	},
+	"achievements": [
+	    "victory.exileandfoe"
+	],
+	"setBGmusic": [
+	    "contemnant_a.mp3",
+	    "contemnant_b.mp3",
+	    "contemnant_c.mp3",
+	    "contemnant_d.mp3",
+	    "contemnant_e.mp3",
+	    "contemnant_f.mp3",
+	    "contemnant_g.mp3",
+	    "contemnant_h.mp3",
+	]
+    },
+    {
+	"id": "exile.respond.friend.immortal",
+	"label": "Бессмертная Помощь",
+	"startdescription": "@#friend.sergei|Сталеглот скачет верхом на Изгнанника, сабля резко свистит на ветру, когда казак скачет вперед, выкрикивая свои последние слова. Все, что может сделать Изгнанник, - это нырнуть в сторону, уклоняясь от ружейного огня Сталеглота, пока он разворачивает лошадь -#friend.cross|Гирваэнгр беззвучно спускается сверху, её копьевидное острие, едва не доходит до Вечного. Проходит еще мгновение, и Воин Креста бросается на Изгнанника своими когтями и ядом, и он с трудом сдерживает ее-@",
+	"requirements": {
+	    "friend.immortal": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.exile",
+		"additional": true,
+		"chance": 100
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exile.bossfight.clear"
+	    }
+	]
+    },
+    {
+	"id": "foe.respond.friend.immortal",
+	"label": "Бессмертная Помощь",
+	"startdescription": "@#friend.sergei|Сталеглот скачет верхом на Изгнанника, сабля резко свистит на ветру, когда казак скачет вперед, выкрикивая свои последние слова. Все, что может сделать Дюффур, - это нырнуть в сторону, уклоняясь от ружейного огня Сталеглота, пока он разворачивает лошадь -#friend.cross|Гирваэнгр беззвучно спускается сверху, её копьевидное острие, едва не доходит до Вечного. Проходит еще мгновение, и Воин Креста бросается на Изгнанника своими когтями и ядом, и он с трудом сдерживает ее-@",
+	"requirements": {
+	    "friend.immortal": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening.foe",
+		"additional": true,
+		"chance": 100
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.bossfight.clear"
+	    }
+	]
+    },
+]
+}

@@ -1,0 +1,349 @@
+{
+"elements": [
+    {
+	"id": "draw.camilla",
+	"label": "Draw - Camilla",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wilhelm",
+	"label": "Draw - Wilhelm",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.sergei",
+	"label": "Draw - Sergei",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "camilla.first",
+	"label": "大陆之敌",
+	"description": "“<i>继续</i>——斩下敌人，推进战线。我还有约需赴。”",
+	"aspects": {
+	    "edgelong": 1,
+	    "foe": 1,
+	    "foe.camilla": 1
+	},
+	"decayTo": "mission.camilla.a",
+	"icon": "camilla"
+    },
+    {
+	"id": "wilhelm.first",
+	"label": "战争制造者",
+	"description": "“<b>懦夫！</b>前来直面我！任何死于我手的人都将如英雄般死去！”",
+	"aspects": {
+	    "edgelong": 1,
+	    "foe": 1,
+	    "foe.wilhelm": 1
+	},
+	"decayTo": "mission.wilhelm.a",
+	"icon": "wilhelm"
+    },
+    {
+	"id": "sergei.first",
+	"label": "食铁者",
+	"description": "“奋起反抗，逃离战场，乞求饶命——都无所谓。没有东西能从我手中拯救你们。”[食铁者有时会攻击场上的敌军，但他造成的伤口将立刻变成残疾。]",
+	"aspects": {
+	    "edgelong": 1,
+	    "foe": 1,
+	    "foe.sergei": 1
+	},
+	"decayTo": "mission.sergei.a",
+	"icon": "sergei"
+    },
+    {
+	"id": "camilla",
+	"label": "大陆之敌",
+	"description": "“<i>继续</i>——斩下敌人，推进战线。我还有约需赴。”",
+	"aspects": {
+	    "edgelong": 1,
+	    "foe": 1,
+	    "foe.camilla": 1
+	}
+    },
+    {
+	"id": "wilhelm",
+	"label": "战争制造者",
+	"description": "“<b>懦夫！</b>前来直面我！任何死于我手的人都将如英雄般死去！”",
+	"aspects": {
+	    "edgelong": 1,
+	    "foe": 1,
+	    "foe.wilhelm": 1
+	}
+    },
+    {
+	"id": "sergei",
+	"label": "食铁者",
+	"description": "“奋起反抗，逃离战场，乞求饶命——都无所谓。没有东西能从我手中拯救你们。”[食铁者有时会攻击场上的敌军，但他造成的伤口将立刻变成残疾。]",
+	"aspects": {
+	    "edgelong": 1,
+	    "foe": 1,
+	    "foe.sergei": 1
+	}
+    },
+    {
+	"id": "mission.wilhelm.a",
+	"label": "意图：战争制造者",
+	"description": "最为激烈的战场将吸引刃之长生者，如同血会吸引鲨鱼。他们隐藏在各国军队中，且为了抵达其宿敌所在处，他们将一面砍杀面前之敌，一面穿过整片大陆。故因此，战争制造者并非我们直接的敌人，但他不会拒绝以一支军队为对手试验自己的力量。是否有什么办法能让我们摆脱他？",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.warmaker.a",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.wilhelm.b"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.warmaker.a",
+	"label": "Warmaker Challenge A",
+	"aspects": {
+	    "needsforge": 8,
+	    "needsedge": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.wilhelm.b",
+	"label": "意图：战争制造者的宿敌",
+	"description": "任何一位刃之长生者都是一对刃之宿敌的一半。刃之宿敌是被锁死在永久的战斗与永久的相争之中的一对不朽之人。少有能够在一对刃之宿敌互相争斗，沉浸于他们的憎恨与激情之中（刃之长生者倾向于如此）时使他们停下的事物。或许这正是我们感兴趣的信息。战争制造者的宿敌必定在前线某处——若我们想要摆脱他，找出他的宿敌或许是谨慎的第一步。",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.warmaker.b",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.wilhelm.c"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.warmaker.b",
+	"label": "Warmaker Challenge B",
+	"aspects": {
+	    "needsforge": 12,
+	    "needsedge": 12
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.wilhelm.c",
+	"label": "意图：战争制造者与大陆之敌",
+	"description": "在新大陆的太阳之下对抗不列颠时，她曾是战争制造者的战友。或许她也曾是他的恋人。但当那科西嘉人自称皇帝时，她返回了法国，献出她的剑为皇帝服务。之后十二年间，法国与剩余的欧洲打了七场战争，而大陆之敌忠实地挥剑战斗，对抗不列颠人，对抗俄罗斯人，对抗奥地利人——以及对抗战争制造者。她苦涩地声称这是她的义务；而战争制造者不同意。且在一百多年之后，他们仍然不和。",
+	"aspects": {
+	    "contemplation": 1,
+	    "completed": 1
+	}
+    },
+    {
+	"id": "mission.sergei.a",
+	"label": "意图：食铁者",
+	"description": "最为激烈的战场将吸引刃之长生者，如同血会吸引鲨鱼。他们隐藏在各国军队中，且为了抵达其宿敌所在处，他们将一面砍杀面前之敌，一面穿过整片大陆。故因此，食铁者并非我们直接的敌人，但他不会放过任何出现在他前路上的人。是否有什么办法能让我们摆脱他？",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.ironeater.a",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.sergei.b"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.ironeater.a",
+	"label": "Iron-Eater Challenge A",
+	"aspects": {
+	    "needswinter": 8,
+	    "needsedge": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.sergei.b",
+	"label": "意图：食铁者的宿敌",
+	"description": "任何一位刃之长生者都是一对刃之宿敌的一半。刃之宿敌是被锁死在永久的战斗与永久的相争之中的一对不朽之人。少有能够在一对刃之宿敌互相争斗，沉浸于他们的憎恨与激情之中（刃之长生者倾向于如此）时使他们停下的事物。或许这正是我们感兴趣的信息。食铁者的宿敌必定在前线某处——若我们想要摆脱他，找出他的宿敌或许是谨慎的第一步。",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.ironeater.b",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.sergei.c"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.ironeater.b",
+	"label": "Iron-Eater Challenge B",
+	"aspects": {
+	    "needswinter": 12,
+	    "needsedge": 12
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.sergei.c",
+	"label": "意图：食铁者与孤儿",
+	"description": "在古罗斯的一个冬夜，食铁者制造了将会成为他宿敌的男孩。促使他在屠杀了全家之后放过那男孩的是什么，是好奇心吗？还是冷淡？或许他自己也忘了。然而最终那个男孩受到了一批僧侣的庇护，并在赞美诗、斋戒与祈祷中长大。但在那男孩的内心中，他只为一件事祈祷。那祈祷从未实现——三百年后，当红军与白军在古罗斯的山坡上战斗时，食铁者将孤儿送去与他的家人团聚。",
+	"aspects": {
+	    "contemplation": 1,
+	    "impossible": 1,
+	    "completed": 1,
+	    "edge": 1
+	}
+    },
+    {
+	"id": "long.opening",
+	"label": "一个破绽？",
+	"description": "一位刃之长生者的守备几乎无法被突破。<b>几乎。</b>",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsopening",
+		"label": "Vulnerability",
+		"required": {
+		    "long.opening": 1
+		}
+	    },
+	    {
+		"id": "needsopening2",
+		"label": "Vulnerability",
+		"required": {
+		    "long.opening": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "wilhelm.attack.a",
+	"label": "Wilhelm Attack A",
+	"aspects": {
+	    "needsedge": 20,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "wilhelm.attack.b",
+	"label": "Wilhelm Attack B",
+	"aspects": {
+	    "needsedgewinter": 8,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "wilhelm.attack.c",
+	"label": "Wilhelm Attack A",
+	"aspects": {
+	    "needswinter": 10,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "long.breakthrough.challenge",
+	"label": "Long Breakthrough Challenge",
+	"aspects": {
+	    "needsedge": 25,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "blocker.wilhelmandcamilla",
+	"label": "记忆：宿敌的重聚",
+	"description": "战争制造者现在正与其不朽的敌人，大陆之敌争斗。他们二人正忙于杀死彼此，我怀疑我是否还有机会见到他们二人之一。[不会有刃之长生者会前来袭击你了。]",
+	"aspects": {
+	    "long.blocker": 1,
+	    "edge": 4
+	}
+    },
+    {
+	"id": "sergei.attack.a",
+	"label": "Sergei Attack A",
+	"aspects": {
+	    "needsedge": 20,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "sergei.attack.b",
+	"label": "Sergei Attack B",
+	"aspects": {
+	    "needsedgeforge": 8,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "sergei.attack.c",
+	"label": "Wilhelm Attack A",
+	"aspects": {
+	    "needsforge": 10,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "camilla.attack.a",
+	"label": "Camilla Attack A",
+	"aspects": {
+	    "needsedge": 20,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "camilla.attack.b",
+	"label": "Camilla Attack B",
+	"aspects": {
+	    "needsedgeforge": 8,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "camilla.attack.c",
+	"label": "Camilla Attack C",
+	"aspects": {
+	    "needsforge": 10,
+	    "decision": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+]
+}

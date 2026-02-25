@@ -1,0 +1,1029 @@
+{
+"elements": [
+    {
+	"id": "friend.corpses",
+	"label": "倒下的友军",
+	"description": "他们曾战。他们现已安息。",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "growthinfect": "foe.growth",
+	    "raiseshattered": "friend.risen",
+	    "promotiontodisciple": "friend.conscript"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "friend.scouts",
+	"label": "友军斥候小队",
+	"description": "我们这支分队的顺风耳和飞毛腿。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 4,
+	    "lantern": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.scouts.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.scouts.wounded"
+	},
+	"slots": [
+	    {
+		"id": "needshindrance",
+		"actionid": "operate",
+		"label": "环境",
+		"required": {
+		    "hindrance.snows": 1,
+		    "hindrance.storms": 1,
+		    "hindrance.fog": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.scouts.exhausted",
+	"label": "友军斥候小队（枯竭）",
+	"description": "我们这支分队的顺风耳和飞毛腿。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.scouts.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.scouts.wounded",
+	    "refresh": "friend.scouts"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.scouts",
+	"icon": "friend.scouts",
+	"resaturate": true
+    },
+    {
+	"id": "friend.scouts.wounded",
+	"label": "友军斥候小队（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.scouts"
+	},
+    },
+    {
+	"id": "friend.infantry",
+	"label": "友军步兵连队",
+	"description": "无论战局如何，战场为何，位于战争心脏的永远是这个怪东西：人。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "edge": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.infantry.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.infantry.wounded"
+	},
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "战区",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "意图",
+		"required": {
+		    "edge": 1,
+		    "heart": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.infantry.exhausted",
+	"label": "友军步兵连队（枯竭）",
+	"description": "无论战局如何，战场为何，位于战争心脏的永远是这个怪东西：人。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.infantry.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.infantry.wounded",
+	    "refresh": "friend.infantry"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.infantry",
+	"icon": "friend.infantry",
+	"resaturate": true
+    },
+    {
+	"id": "friend.infantry.wounded",
+	"label": "友军步兵连队（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.infantry"
+	},
+    },
+    {
+	"id": "friend.medics",
+	"label": "友军战地医师",
+	"description": "医生，外科医，护士。任何想要活过其第一次重伤的士兵都应该向这些男女致以最高的敬意。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "heart": 6,
+	    "grail": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.medics.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.medics.wounded"
+	},
+	"slots": [
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "伤患",
+		"required": {
+		    "wounded": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.medics.exhausted",
+	"label": "友军战地医师（枯竭）",
+	"description": "医生，外科医，护士。任何想要活过其第一次重伤的士兵都应该向这些男女致以最高的敬意。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.medics.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.medics.wounded",
+	    "refresh": "friend.medics"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.medics",
+	"icon": "friend.medics",
+	"resaturate": true
+    },
+    {
+	"id": "friend.medics.wounded",
+	"label": "友军战地医师（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.medics"
+	},
+    },
+    {
+	"id": "friend.engineers",
+	"label": "友军工兵连队",
+	"description": "若我需要筑起桥梁或挖开战壕，我会仰赖这些人；若我需要爆破建筑或炸毁敌军据点，我仍会仰赖这些人。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "forge": 6,
+	    "knock": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.engineers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.engineers.wounded"
+	},
+	"slots": [
+	    {
+		"id": "needsdamaged",
+		"actionid": "operate",
+		"label": "受损",
+		"required": {
+		    "damaged": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"actionid": "operate",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "operate",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.engineers.exhausted",
+	"label": "友军工兵连队（枯竭）",
+	"description": "若我需要筑起桥梁或挖开战壕，我会仰赖这些人；若我需要爆破建筑或炸毁敌军据点，我仍会仰赖这些人。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.engineers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.engineers.wounded",
+	    "refresh": "friend.engineers"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.engineers",
+	"icon": "friend.engineers",
+	"resaturate": true
+    },
+    {
+	"id": "friend.engineers.wounded",
+	"label": "友军工兵连队（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.engineers"
+	}
+    },
+    {
+	"id": "friend.tanks",
+	"label": "友军装甲连队",
+	"description": "一对履带上的一门大炮和一些装甲。惊人的单纯，但惊人的有效。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "forge": 4,
+	    "edge": 12
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.tanks.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.tanks.damaged"
+	}
+    },
+    {
+	"id": "friend.tanks.exhausted",
+	"label": "友军装甲连队（枯竭）",
+	"description": "一对履带上的一门大炮和一些装甲。惊人的单纯，但惊人的有效。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.tanks.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.tanks.damaged"
+	},
+	"lifetime": 160,
+	"decayTo": "friend.tanks",
+	"icon": "friend.tanks",
+	"resaturate": true
+    },
+    {
+	"id": "friend.tanks.damaged",
+	"label": "友军装甲连队（受损）",
+	"description": "[使用工兵以发起对这一友军的维修。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "damaged": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.tanks"
+	},
+    },
+    {
+	"id": "friend.artillery",
+	"label": "友军火炮",
+	"description": "臼炮与其它重型火器，能够在长距离外向敌人降下死亡之雨，但没有机动力，且除了直接轰炸除外没有什么别的用处。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 10,
+	    "edge": 18
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.artillery.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.artillery.damaged"
+	}
+    },
+    {
+	"id": "friend.artillery.exhausted",
+	"label": "友军火炮（枯竭）",
+	"description": "臼炮与其它重型火器，能够在长距离外向敌人降下死亡之雨，但没有机动力，且除了直接轰炸除外没有什么别的用处。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 10,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.artillery.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.artillery.damaged"
+	},
+	"lifetime": 280,
+	"decayTo": "friend.artillery",
+	"icon": "friend.artillery",
+	"resaturate": true
+    },
+    {
+	"id": "friend.artillery.damaged",
+	"label": "友军火炮（受损）",
+	"description": "[使用工兵以发起对这一友军的维修。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 10,
+	    "damaged": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.artillery"
+	},
+    },
+    {
+	"id": "friend.bombers",
+	"label": "友军轰炸机中队",
+	"description": "天空上有友军——真是令人欣慰的景象。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "friend.aerial": 1,
+	    "edge": 12
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.bombers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.bombers.damaged"
+	}
+    },
+    {
+	"id": "friend.bombers.exhausted",
+	"label": "友军轰炸机中队（枯竭）",
+	"description": "天空上有友军——真是令人欣慰的景象。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.bombers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.bombers.damaged"
+	},
+	"lifetime": 160,
+	"decayTo": "friend.bombers",
+	"icon": "friend.bombers",
+	"resaturate": true
+    },
+    {
+	"id": "friend.bombers.damaged",
+	"label": "友军轰炸机中队（受损）",
+	"description": "[使用工兵以发起对这一友军的维修。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "damaged": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.bombers"
+	},
+    },
+    {
+	"id": "friend.militia",
+	"label": "友军义勇军",
+	"description": "男人变为士兵不止需要一杆枪与些许斗志。但除此之外需要的东西也不太多，我想。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "edge": 4,
+	    "heart": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.militia.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.militia.wounded"
+	}
+    },
+    {
+	"id": "friend.militia.exhausted",
+	"label": "友军义勇军（枯竭）",
+	"description": "男人变为士兵不止需要一杆枪与些许斗志。但除此之外需要的东西也不太多，我想。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.militia.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.militia.wounded",
+	    "refresh": "friend.militia"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.militia",
+	"icon": "friend.militia",
+	"resaturate": true
+    },
+    {
+	"id": "friend.militia.wounded",
+	"label": "友军义勇军（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.militia"
+	},
+    },
+    {
+	"id": "friend.sniper",
+	"label": "友军狙击兵",
+	"description": "孤独，耐心，目光敏锐，且射击精准。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 4,
+	    "winter": 4,
+	    "lantern": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.sniper.wounded"
+	}
+    },
+    {
+	"id": "friend.sniper.exhausted",
+	"label": "友军狙击兵（枯竭）",
+	"description": "孤独，耐心，目光敏锐，且射击精准。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.sniper.wounded",
+	    "refresh": "friend.sniper"
+	},
+	"lifetime": 70,
+	"decayTo": "friend.sniper",
+	"icon": "friend.sniper",
+	"resaturate": true
+    },
+    {
+	"id": "friend.sniper.wounded",
+	"label": "友军狙击兵（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.sniper"
+	}
+    },
+    {
+	"id": "friend.adeptwinter",
+	"label": "冬之学徒",
+	"description": "“这场战争终会结束，因万物均有终结。”",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "prisoner": 1,
+	    "winter": 8
+	},
+	"slots": [
+	    {
+		"id": "needsdead",
+		"actionid": "operate",
+		"label": "Corpses",
+		"required": {
+		    "foe.corpses": 1,
+		    "friend.corpses": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.adeptwinter.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adeptwinter.wounded"
+	}
+    },
+    {
+	"id": "friend.adeptwinter.exhausted",
+	"label": "冬之学徒（枯竭）",
+	"description": "“这场战争终会结束，因万物均有终结。”",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "exhausted": 1,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.adeptwinter.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adeptwinter.wounded",
+	    "refresh": "friend.adeptwinter"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.adeptwinter",
+	"icon": "friend.adeptwinter",
+	"resaturate": true
+    },
+    {
+	"id": "friend.adeptwinter.wounded",
+	"label": "冬之学徒（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "wounded": 1,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.adeptwinter"
+	},
+	"icon": "adept.wounded"
+    },
+    {
+	"id": "friend.adeptlantern",
+	"label": "灯之学徒",
+	"description": "“协助？我其实没得选，不是吗？好吧——我会做给你看，但我无法让你理解。”",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "prisoner": 1,
+	    "lantern": 8
+	},
+	"slots": [
+	    {
+		"id": "needscontamination",
+		"actionid": "operate",
+		"label": "Contamination",
+		"required": {
+		    "hindrance.worms": 1,
+		    "hindrance.cannibalism": 1,
+		    "hindrance.dionysian": 1,
+		    "hindrance.apollonian": 1,
+		    "hindrance.nocturnal": 1,
+		    "hindrance.moonspace": 1,
+		    "hindrance.lionsmith": 1,
+		    "hindrance.wolf": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.adeptlantern.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adeptlantern.wounded"
+	},
+	"icon": "thuglanternmoth"
+    },
+    {
+	"id": "friend.adeptlantern.exhausted",
+	"label": "灯之学徒（枯竭）",
+	"description": "“协助？我其实没得选，不是吗？好吧——我会做给你看，但我无法让你理解。”",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "exhausted": 1,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.adeptlantern.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adeptlantern.wounded",
+	    "refresh": "friend.adeptlantern"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.adeptlantern",
+	"icon": "thuglanternmoth",
+	"resaturate": true
+    },
+    {
+	"id": "friend.adeptlantern.wounded",
+	"label": "灯之学徒（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "wounded": 1,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.adeptlantern"
+	},
+	"icon": "adept.wounded"
+    },
+    {
+	"id": "friend.adeptgrail",
+	"label": "杯之学徒",
+	"description": "“你渴望从我这里得到什么——我十分理解！如果你不开枪，我确信我们能够达成共识。”",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "prisoner": 1,
+	    "grail": 8
+	},
+	"slots": [
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "Wounded",
+		"required": {
+		    "wounded": 1,
+		    "wound.eye": 1,
+		    "wound.ear": 1,
+		    "wound.hand": 1,
+		    "wound.leg": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.adeptgrail.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adeptgrail.wounded"
+	}
+    },
+    {
+	"id": "friend.adeptgrail.exhausted",
+	"label": "杯之学徒（枯竭）",
+	"description": "“你渴望从我这里得到什么——我十分理解！如果你不开枪，我确信我们能够达成共识。”",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "exhausted": 1,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.adeptgrail.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adeptgrail.wounded",
+	    "refresh": "friend.adeptgrail"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.adeptgrail",
+	"icon": "friend.adeptgrail",
+	"resaturate": true
+    },
+    {
+	"id": "friend.adeptgrail.wounded",
+	"label": "杯之学徒（枯竭）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "wounded": 1,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.adeptgrail"
+	},
+	"icon": "adept.wounded"
+    },
+    {
+	"id": "friend.chaima",
+	"label": "拉拉·柴玛",
+	"description": "吾友，流亡者，的一位老猎友。她已变得更老，没有以前那么迅捷，但她变得如死亡般耐心，且弹无虚发。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "edge": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.chaima.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.chaima.wounded",
+	    "mortal.introduce": [
+		{
+		    "id": "side.nest",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.chaima.exhausted",
+	"label": "拉拉·柴玛（枯竭）",
+	"description": "吾友，流亡者，的一位老猎友。她已变得更老，没有以前那么迅捷，但她变得如死亡般耐心，且弹无虚发。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.chaima.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.chaima.wounded",
+	    "refresh": "friend.chaima"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.chaima",
+	"icon": "friend.chaima",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "friend.chaima.wounded",
+	"label": "拉拉·柴玛（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.chaima"
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.zulfiya",
+	"label": "祖尔菲亚·扎基洛娃",
+	"description": "从前，当吾友仍作为清算人暴徒工作的时候，祖尔菲亚是其客户之一。“祖尔菲亚是个好人，”吾友如是说。“但林地会使人变得异常，而她亦如此般异常。”",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "moth": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.zulfiya.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.zulfiya.wounded",
+	    "mortal.introduce": [
+		{
+		    "id": "side.voronezh",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.zulfiya.exhausted",
+	"label": "祖尔菲亚·扎基洛娃（枯竭）",
+	"description": "从前，当吾友仍作为清算人暴徒工作的时候，祖尔菲亚是其客户之一。“祖尔菲亚是个好人，”吾友如是说。“但林地会使人变得异常，而她亦如此般异常。”",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.zulfiya.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.zulfiya.wounded",
+	    "refresh": "friend.zulfiya"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.zulfiya",
+	"icon": "friend.zulfiya",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "friend.zulfiya.wounded",
+	"label": "祖尔菲亚·扎基洛娃（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.zulfiya"
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.risen",
+	"label": "破碎行尸",
+	"description": "死者并不是好的同事，因其缺少主动性，且没有<i>士气</i>一说。但它们不会感到恐惧，且从不拒绝命令。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "edge": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "killfriend": "mem.grief",
+	    "makecasualty": "mem.grief",
+	    "refresh": "friend.conscript"
+	},
+	"lifetime": 300,
+	"decayTo": "mem.grief",
+	"icon": "spirit_wintera_edge"
+    },
+    {
+	"id": "friend.conscript",
+	"label": "受征召者",
+	"description": "悼歌诗人通晓一切亡者的姓名，但死去的士兵会先经过上校之手。当我们唤起上校的力量时，有时能够重新征召这部分死者回到士兵的岗位上。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "edge": 6,
+	    "winter": 6
+	},
+	"xtriggers": {
+	    "killfriend": "mem.grief",
+	    "makecasualty": "mem.grief",
+	    "refresh": "friend.conscript"
+	},
+	"lifetime": 400,
+	"decayTo": "mem.grief"
+    }
+]
+}

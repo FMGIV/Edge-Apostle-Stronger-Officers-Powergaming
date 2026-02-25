@@ -1,0 +1,495 @@
+{
+"recipes": [
+    {
+	"id": "time.first.proterant",
+	"actionid": "time.exile",
+	"label": "Время",
+	"startdescription": "Последний враг.",
+	"warmup": 60,
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.camilla",
+		"draw.sergei"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "time.draw"
+	    }
+	]
+    },
+    {
+	"id": "deathtrigger.proterant",
+	"label": "Противоположность Битвы?",
+	"extantreqs": {
+	    "damage.body": 5,
+	    "proterant.story": 1
+	},
+	"ending": "defeat.death.proterant",
+	"achievements": [
+	    "ending.deathbody.proterant"
+	]
+    },
+    {
+	"id": "hindrances.heavy.startup.obdurant",
+	"label": "Слияние Превратностей Судьбы",
+	"startdescription": "Совражество разгорается. Наверху Часы сменяют друг друга в пристальном внимании, любопытстве и презрении. Поле боя пронизывает опасная сила их внимания, выгоняя проклятия и несчастья из Обители в мир людей. Что случится на этот раз?",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "obdurant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.obdurant": 1,
+	    "hindrances.light": 1
+	}
+    },
+    {
+	"id": "hindrances.heavy.startup.proterant",
+	"label": "Слияние Превратностей Судьбы",
+	"startdescription": "Совражество разгорается. Наверху Часы сменяют друг друга в пристальном внимании, любопытстве и презрении. Поле боя пронизывает опасная сила их внимания, выгоняя проклятия и несчастья из Обители в мир людей. Что случится на этот раз?",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "proterant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.proterant": 1,
+	    "hindrances.light": 1
+	}
+    },
+    {
+	"id": "resupply.givemodello",
+	"actionid": "resupply",
+	"label": "Снабжение",
+	"startdescription": "Дружественный конвой проходит по нашему периметру, неся бесценный груз: еду, питье, лекарства. Возможно, внутри даже окажется один-два кусочка шоколада.\n\n[Пополнение запасов будет происходить, пока вы не окажетесь в Разрушенной стране или не будете отрезаны вашими врагами.]",
+	"extantreqs": {
+	    "proterant.weapon": -1,
+	    "proterant.weapon.exhausted": -1,
+	    "proterant.story": 1
+	},
+	"effects": {
+	    "proterant.weapon": 1
+	}
+    },
+    {
+	"id": "shellshocktrigger.proterant",
+	"label": "Смерть Духа",
+	"extantreqs": {
+	    "damage.mind": 5,
+	    "proterant.story": 1
+	},
+	"ending": "defeat.shellshock.proterant",
+	"achievements": [
+	    "ending.deathmind.proterant"
+	]
+    },
+    {
+	"id": "produce.craterfield",
+	"actionid": "fallingstar",
+	"label": "Звезда падает!",
+	"startdescription": "Ночь окутана полосами бледных облаков, звезды ярко мерцают в тех местах, где небо не закрыто. Мой взгляд устремлен в небеса. Я чувствую, как вращаются шестеренки судьбы за пределами мира, который я вижу. В воздухе пахнет судьбой. Мои глаза ищут.",
+	"description": "Где-то вдалеке над нами раздается низкий звон, похожий на звук бездонного колокола, а затем появляется свет. Некоторые из нас смотрят с благоговением, думая, что внезапно наступил день. Но когда я смотрю снова, я вижу, что все еще ночь, и я вижу то, что так ярко освещало ночь: звезду. Звезда, падающая с небес лентами огня и света; подарок Львокузнеца для тех, кто достаточно силен, чтобы захватить её.",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "montecassino.here": 1
+	},
+	"effects": {
+	    "craterfield": 1
+	},
+	"warmup": 30,
+	"maxexecutions": 1
+    },
+    {
+	"id": "time.first",
+	"actionid": "time.exile",
+	"label": "Время",
+	"startdescription": "Последний враг.",
+	"warmup": 60,
+	"internaldeck": {
+	    "spec": [
+		"draw.wilhelm",
+		"draw.sergei"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "time.draw"
+	    }
+	]
+    },
+    {
+	"id": "time.draw",
+	"actionid": "time.exile",
+	"label": "Время",
+	"startdescription": "Последний враг.",
+	"deckeffects": {
+	    "days.deck": 1
+	},
+	"linked": [
+	    {
+		"id": "time.cycle"
+	    }
+	]
+    },
+    {
+	"id": "time.cycle",
+	"actionid": "time.exile",
+	"label": "Время",
+	"startdescription": "Последний враг.",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "pre.death"
+	    },
+	    {
+		"id": "pre.trauma"
+	    },
+	    {
+		"id": "time.clear"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "long.arrival.wilhelm.router",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "long.arrival.sergei.router",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "spit.nospace.penalty",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "dreams.startup",
+		"additional": true
+	    },
+	    {
+		"id": "hindrances.startup",
+		"additional": true
+	    },
+	    {
+		"id": "resupply.startup",
+		"additional": true
+	    },
+	    {
+		"id": "conclusion.startup",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "time.clear",
+	"actionid": "time.exile",
+	"label": "Время",
+	"startdescription": "Последний враг.",
+	"effects": {
+	    "season": -99
+	},
+	"linked": [
+	    {
+		"id": "time.draw"
+	    }
+	]
+    },
+    {
+	"id": "spit.nospace.penalty",
+	"actionid": "spit.winter",
+	"label": "На произвол судьбы",
+	"startdescription": "Сон на твердой земле, выброшенным на мороз - удар по здоровью даже самого выносливого солдата.\n\n[Когда численность ваших войск превысит количество места у вас есть в запасе, некоторые из ваших союзников могут обессилеть или даже получить ранения от воздействия стихии.]",
+	"grandreqs": { "[~/extant:forcesize] > [~/extant:room]": 1 },
+	"tablereqs": {
+	    "friend": 1
+	},
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Ally",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+		"id": "spit.nospace.penalty.killfriend.wounded"
+	    },
+	    {
+		"id": "spit.nospace.penalty.killfriend.damaged"
+	    },
+	    {
+		"id": "spit.nospace.penalty.wound",
+		"chance": 30
+	    },
+	    {
+		"id": "spit.nospace.penalty.removeexperience"
+	    }
+	]
+    },
+    {
+	"id": "spit.nospace.penalty.killfriend.wounded",
+	"label": "На произвол судьбы",
+	"startdescription": "Так и не проснулись. Похоже, они даже не почувствовали как ушли.\n\n[Раненые союзники, оказавшиеся под яростью стихии, погибнут.]",
+	"requirements": {
+	    "wounded": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "spit.nospace.penalty.killfriend.damaged",
+	"label": "На произвол судьбы",
+	"startdescription": "Машину больше не восстановить, как и оператора.\n\n[Раненые союзники, оказавшиеся под яростью стихии, погибнут.]",
+	"requirements": {
+	    "damaged": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "spit.nospace.penalty.wound",
+	"label": "На произвол судьбы",
+	"startdescription": "Сон на твердой земле, выброшенным на мороз - удар по здоровью даже самого выносливого солдата.\n\n[When your Force Size exceeds how much Space you have to spare, some of your Allies may become exhausted or even wounded from exposure to the elements.]",
+	"requirements": {
+	    "friend": 1
+	},
+	"aspects": {
+	    "makecasualty": 1
+	}
+    },
+    {
+	"id": "spit.nospace.penalty.removeexperience",
+	"label": "На произвол судьбы",
+	"startdescription": "Сон на твердой земле, выброшенным на мороз - удар по здоровью даже самого выносливого солдата.\n\n[When your Force Size exceeds how much Space you have to spare, some of your Allies may become exhausted or even wounded from exposure to the elements.]",
+	"requirements": {
+	    "experience.exile.ally": 1
+	},
+	"mutations": [
+	    {
+		"filter": "experience.exile.ally",
+		"mutate": "experience.exile.ally",
+		"level": -1,
+		"additive": true
+	    }
+	]
+    },
+    {
+	"id": "pre.death",
+	"label": "Конец Битве?",
+	"startdescription": "Просто ещё один мертвый солдат. [Если у вас по крайней мере пять Ран и Увечий, вы погибнете.]",
+	"extantreqs": {
+	    "damage.body": 5
+	},
+	"warmup": 60,
+	"signalEndingFlavour": "Меланхолия",
+	"signalMusic": "neardeath.mp3",
+	"linked": [
+	    {
+		"id": "deathtrigger"
+	    },
+	    {
+		"id": "time.clear"
+	    }
+	]
+    },
+    {
+	"id": "deathtrigger",
+	"label": "Конец Битве?",
+	"extantreqs": {
+	    "damage.body": 5
+	},
+	"ending": "defeat.death",
+	"achievements": [
+	    "ending.deathbody"
+	]
+    },
+    {
+	"id": "hindrances.startup",
+	"actionid": "hindrances.verb",
+	"label": "Осажденыне Небесами",
+	"startdescription": "Армии - не единственные силы, которые господствуют на поле боя: пронизывающий холод, проливной дождь и иные сложности могут поставить под угрозу нашу работу. Что случится на этот раз?",
+	"requirements": {
+	    "days.hindrances": 1
+	},
+	"warmup": 30,
+	"deckeffects": {
+	    "hindrances.light": 1
+	},
+	"alt": [
+	    {
+		"id": "hindrances.heavy.startup"
+	    }
+	]
+    },
+    {
+	"id": "hindrances.heavy.startup",
+	"label": "Слияние Превратностей Судьбы",
+	"startdescription": "Совражество разгорается. Наверху Часы сменяют друг друга в пристальном внимании, любопытстве и презрении. Поле боя пронизывает опасная сила их внимания, выгоняя проклятия и несчастья из Обители в мир людей. Что случится на этот раз?",
+	"extantreqs": {
+	    "strife.tracker": 4
+	},
+	"deckeffects": {
+	    "hindrances.heavy": 1,
+	    "hindrances.light": 1
+	}
+    },
+    {
+	"id": "resupply.startup",
+	"actionid": "resupply",
+	"label": "Снабжение",
+	"startdescription": "Дружественный конвой проходит по нашему периметру, неся бесценный груз: еду, питье, лекарства. Возможно, внутри даже окажется один-два кусочка шоколада.\n\n[Пополнение запасов будет происходить, пока вы не окажетесь в Разрушенной стране или не будете отрезаны вашими врагами.]",
+	"requirements": {
+	    "days.resupply": 1
+	},
+	"extantreqs": {
+	    "wasteland": -1,
+	    "side.cutoff": -1,
+	    "lake.here": -1
+	},
+	"effects": {
+	    "provisions": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"provisions",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "resupply.giverifle"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "resupply.giverifle",
+	"actionid": "resupply",
+	"label": "Снабжение",
+	"startdescription": "Дружественный конвой проходит по нашему периметру, неся бесценный груз: еду, питье, лекарства. Возможно, внутри даже окажется один-два кусочка шоколада.\n\n[Пополнение запасов будет происходить, пока вы не окажетесь в Разрушенной стране или не будете отрезаны вашими врагами.]",
+	"extantreqs": {
+	    "obdurant.weapon": -1,
+	    "obdurant.weapon.exhausted": -1
+	},
+	"effects": {
+	    "obdurant.weapon": 1
+	}
+    },
+    {
+	"id": "conclusion.startup",
+	"actionid": "conclusion",
+	"label": "Конец?",
+	"startdescription": "Воздух неподвижен и смертоносен. В ночи кричат раненые - возможно, кто-то из них навсегда замолчит.\n\n[Раненые или поврежденные союзники погибнут.]",
+	"requirements": {
+	    "days.conclusion": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomeone",
+		"label": "Потери",
+		"required": {
+		    "wounded": 1,
+		    "damaged": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "conclusion.frienddetected"
+	    },
+	    {
+		"id": "conclusion.fail"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "conclusion.frienddetected",
+	"label": "Тихий Конец",
+	"startdescription": "Смерть никогда не уходит далеко от войны.",
+	"requirements": {
+	    "friend": 1
+	},
+	"aspects": {
+	    "killfriend": 1,
+	    "killmortal": 1
+	}
+    },
+    {
+	"id": "conclusion.fail",
+	"label": "Не сегодня",
+	"startdescription": "Никто еще не умер, пока нет. Страх, который я ощущал холодом в ребрах, становится медитативным, и я начинаю размышлять.",
+	"requirements": {
+	    "friend": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.calm",
+		"mem.regret",
+		"mem.fear"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "pre.trauma",
+	"label": "Смерть Духа",
+	"startdescription": "Зачем? Зачем продолжать? [Если у вас есть пять Потрясений, вы погрузитесь в отчаяние.]",
+	"extantreqs": {
+	    "damage.mind": 5
+	},
+	"signalEndingFlavour": "Меланхолия",
+	"signalMusic": "neardeath.mp3",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "shellshocktrigger"
+	    },
+	    {
+		"id": "time.clear"
+	    }
+	]
+    },
+    {
+	"id": "shellshocktrigger",
+	"label": "Смерть Духа",
+	"extantreqs": {
+	    "damage.mind": 5
+	},
+	"ending": "defeat.shellshock",
+	"achievements": [
+	    "ending.deathmind"
+	]
+    }
+]
+}

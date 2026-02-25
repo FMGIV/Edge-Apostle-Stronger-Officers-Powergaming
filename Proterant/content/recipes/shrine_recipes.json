@@ -1,0 +1,446 @@
+{
+"recipes": [
+    {
+	"id": "visitshrine.lionsmith.chain",
+	"actionid": "mobilize",
+	"label": "Break free of an oath",
+	"startdescription": "I will destroy what I am for the sake of what I might become. It won't be pleasant.\n\n[This will fill you with Bloodlust.]",
+	"description": "My head swims; my skin burns as though I had coupled with fire. The Lionsmith (or one of his Names) took my ancient gift from me and crushed it underfoot. Where I had strength, there is now only weakness. But a thing must be broken before it can be reforged. I will endure.",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "chain": 1
+	},
+	"effects": {
+	    "bloodlust": 1,
+	    "shrinelionsmith": -99,
+	    "chain": -99
+	},
+	"warmup": 60,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger"
+	    }
+	]
+    },
+    {
+	"id": "visitshrine.lionsmith.getmonsterlorealready",
+	"actionid": "mobilize",
+	"label": "A Battlefield Education",
+	"startdescription": "The Names at the shrine won't impart me any more guidance regarding the manufacture of monsters. If I want to learn about monsters, perhaps I should go and find some.",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "foe.corpse.unnatural": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "visitshrine.blocked.chain",
+	"actionid": "mobilize",
+	"label": "Sworn to Stone?",
+	"startdescription": "The oaths I swore to the remnant-power called Flint still bind me in flesh and spirit - I cannot draw strength from this place, not yet. But the Lionsmith, who shattered his own oaths, can offer me a path to freedom.\n\n[While you still possess cards with the Chain aspect, you will be unable to perform many of the normal actions associated with visiting a shrine.]",
+	"requirements": {
+	    "shrinelionsmith": 1
+	},
+	"extantreqs": {
+	    "chain": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "visitshrine.lionsmith.debilitation",
+	"actionid": "mobilize",
+	"label": "Reforge what has been broken?",
+	"startdescription": "The Lionsmith abhors scars. If I have been shamed with imperfection, it is paramount that I restore myself.\n\n[With Inhuman Remains and at least 12 Forge, you can heal yourself of a Debilitation. The process will not be swift.]",
+	"description": "I remain imperfect.",
+	"requirements": {
+	    "debilitation": 1,
+	    "shrinelionsmith": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"slots": [
+	    {
+		"id": "needsmaterial1",
+		"label": "Material",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+	    },
+	    {
+		"id": "needsmaterial2",
+		"label": "Material",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+	    },
+	    {
+		"id": "needsmaterial3",
+		"label": "Material",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+	    }
+	],
+	"alt": [
+	    {
+		"id": "healdebilitation"
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "healdebilitation",
+	"label": "The Rebel's Reforging",
+	"startdescription": "The Lionsmith scorns scars. I can stand here, in the furnace-heat of his shrine, and submit my ruined flesh to a rite that reforges what is broken. The Forge of Days presides over a similar, less-brutal magic - but the Lionsmith does not believe in redemptions earned without pain.",
+	"requirements": {
+	    "foe.corpse.unnatural": 1,
+	    "forge": 12
+	},
+	"linked": [
+	    {
+		"id": "healdebilitation.continue"
+	    }
+	]
+    },
+    {
+	"id": "healdebilitation.continue",
+	"label": "The Rebel's Reforging",
+	"startdescription": "A smokeless flame engulfs my body, my flesh cracking and screaming like metal beneath the hammer of a smith. My blood is molten. It feels like I spend entire nights set ablaze.",
+	"description": "The flames recede. Smoke curls off my flesh - my new flesh, glowing and fierce like a weapon taken fresh from the forge. Whole once more, unblemished by scars. What has been broken can be remade, and remade stronger.\n\nBut, if I can avoid it, I really, <i>really</i> wouldn't want to do that again.",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "debilitation": -99,
+	    "shrinelionsmith": -99,
+	    "strength": 1
+	},
+	"warmup": 150
+    },
+    {
+	"id": "visit.shrinelionsmith.getskill",
+	"actionid": "mobilize",
+	"label": "Make Pilgrimage to a Brazen Shrine",
+	"startdescription": "My understanding of the Lionsmith's arts has reached its mortal limits. Perhaps immortal knowledge is what I need, now.\n\n[This will fill you with Bloodlust.]",
+	"description": "My vision burns to gold. In the searing light, I hear the fearsome steps of the Name, Old Judah the Hammer, and the crackling of the fire he carries in his fist. 'Hark, killer of men,' he booms in his voice of cannon-fire and bell-timbre. 'Here is a weapon, and here is its nature.'",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "proterant.fragmentedgeg": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"contemplation.skill.swoleup",
+		"contemplation.skill.refreshself",
+		"contemplation.skill.intimidate"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "bloodlust": 1
+	},
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger"
+	    }
+	],
+	"warmup": 60,
+	"craftable": true,
+	"maxexecutions": 3
+    },
+    {
+	"id": "visit.shrinelionsmith.getweapon",
+	"actionid": "mobilize",
+	"label": "Make Pilgrimage to a Brazen Shrine",
+	"startdescription": "The Lionsmith's shrines are bright with the scent of hot brass, and rank with the scent of big cats. Meditation here will improve my understanding of the techniques the Lionsmith's Names teach.\n\n[This will fill you with Bloodlust.]",
+	"description": "In the space beneath the altar, I find a gift.",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "proterant.fragmentedgeg": 1
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "weapon.stymphalian": 1,
+	    "bloodlust": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger"
+	    }
+	],
+	"warmup": 60,
+	"craftable": true
+    },
+    {
+	"id": "visitshrine.lionsmith.lore",
+	"actionid": "mobilize",
+	"label": "Make a Pilgrimage to a Brazen Shrine",
+	"startdescription": "The Lionsmith's shrines are bright with the scent of hot brass, and rank with the scent of big cats. Meditation here will improve my understanding of the techniques the Lionsmith's Names teach.\n\n[This will fill you with Bloodlust.]",
+	"description": "I am growing stronger.",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "lore": 1,
+	    "edge": 1,
+	    "forge": 1,
+	    "heart": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"aspects": {
+	    "epiphany": 1
+	},
+	"effects": {
+	    "bloodlust": 1,
+	    "shrinelionsmith": -99
+	},
+	"warmup": 60,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger"
+	    }
+	]
+    },
+    {
+	"id": "mutate.morebattlehunger",
+	"label": "Make a Pilgrimage to a Brazen Shrine",
+	"requirements": {
+	    "battlehunger": -4
+	},
+	"mutations": [
+	    {
+		"filter": "bloodlust",
+		"mutate": "battlehunger",
+		"level": 1,
+		"additive": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger",
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "visit.shrinelionsmith.getmonsterlore",
+	"actionid": "mobilize",
+	"label": "A Leonine Industry",
+	"startdescription": "Cats, both large and small, are a symbol of the Lionsmith's beneficence - or his wrath. Learning how cats might be brought forth by the industrious hand will be a first step in mastering the greater methods, and the greater monsters.\n\n[This will fill you with Bloodlust.]",
+	"description": "These are modes of construction and ingenuity that the soldier-smiths of the Shadowless Empire knew, as well as the Hooded Princes. Now I join them in knowledge.",
+	"requirements": {
+	    "foe.corpse.unnatural": 1
+	},
+	"extantreqs": {
+	    "chain": -1,
+	    "proterant.story": 1
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "remnant": -99,
+	    "constructions.a": 1,
+	    "bloodlust": 1
+	},
+	"warmup": 60,
+	"craftable": true,
+	"maxexecutions": 1,
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger",
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "visit.shrinelionsmith.contemplation",
+	"actionid": "mobilize",
+	"label": "Seek Counsel at a Brazen Shrine",
+	"startdescription": "If the true nature of a Contemplation eludes me, I could come to the shrine in search of truth. The Lionsmith's Names may offer me counsel on how to join their ranks - if I bring an appropriate offering.",
+	"description": "The shrine is still. No Name has noticed me.",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "contemplation": 1,
+	    "promise": -1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"slots": [
+	    {
+		"id": "needsoffering",
+		"label": "Offering",
+		"required": {
+		    "foe.corpses": 1,
+		    "foe.corpse.unnatural": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "visit.shrinelionsmith.contemplation.success"
+	    }
+	],
+	"warmup": 60,
+	"craftable": true
+    },
+    {
+	"id": "visit.shrinelionsmith.contemplation.success",
+	"actionid": "mobilize",
+	"label": "A Revelation in Gold",
+	"startdescription": "The air in the shrine grows scorching. My eyes feel molten in my skull, and soon I see only gold. Something has come.",
+	"description": "I can hear the proud stride of Old Judah the Hammer, Name of the Lionsmith, as he crosses the threshold to instruct me. 'Killer of men,' he proclaims. 'Hear me: I bestow a shard of truth.'",
+	"requirements": {
+	    "remnant": 1
+	},
+	"aspects": {
+	    "ascend": 1
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "remnant": -99
+	}
+    },
+    {
+	"id": "visit.shrinelionsmith.offertoken",
+	"actionid": "mobilize",
+	"label": "Offer a Gold Spintria at the altar",
+	"startdescription": "The striges, minor Names of battle, often roost unseen at the shrines of the Edge Hours. Perhaps I can draw one's attention - and assistance - with this token of gold. And providing it a meal couldn't hurt, either.",
+	"description": "The shrine is still. Nothing stirs in the flames.",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "token.wilhelm": 1,
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"slots": [
+	    {
+		"id": "needsoffering",
+		"label": "Offering",
+		"required": {
+		    "foe.corpses": 1,
+		    "foe.corpse.unnatural": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "visit.shrinelionsmith.offertoken.success"
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "visit.shrinelionsmith.offertoken.success",
+	"actionid": "mobilize",
+	"label": "A Toll, Paid",
+	"startdescription": "A flapping sound in the shadows above me - a Many-Winged One clambers down towards the altar to receive my offering, talons clicking against the stone. It eats its fill with as much grace as it might manage. When it is done, it bids me to approach with a whisper: 'Killer of men - what is it you would ask?' I hold out the letter I have written for my friend.",
+	"description": "The strix chitters to itself, and snatches the letter from me with its taloned hand. Without another word, it flies off into the shadows.",
+	"requirements": {
+	    "remnant": 1
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "remnant": -99,
+	    "token.wilhelm": -99
+	},
+	"alt": [
+	    {
+		"id": "sendingletter.exile.proterant",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "sendingletter.exile.proterant",
+	"actionid": "sendingletter",
+	"label": "My Message is in Transit...",
+	"startdescription": "The many-winged messenger I have sent will convey my message to the Exile - in due time. Then my friend will have to write a reply (with what I hope is an agreement to represent me), and again the messenger must fly. All I can be now is patient.",
+	"warmup": 300,
+	"alt": [
+	    {
+		"id": "produce.letterfromexile.proterant",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "produce.letterfromexile.proterant",
+	"actionid": "exclaim.sh",
+	"label": "A Letter!",
+	"startdescription": "When it is brightest dawn, a Many-Winged One finds me alone on the camp perimeter. It offers me a crisp, pale envelope in one of its taloned hands -",
+	"warmup": 10,
+	"effects": {
+	    "letter.fromexile.refusal": 1
+	}
+    },
+    {
+	"id": "visit.shrinelionsmith.getmaccabee",
+	"actionid": "mobilize",
+	"label": "Contacting a friend of a friend",
+	"startdescription": "My friend's contact will only come if the proper observances are kept. I must light a fire at the foot of the shrine; I must spill my blood, sear my arms - basic, untroublesome formalities for those who have followed the General far enough. And the ritual must conclude with the sacrifice of a weapon. A good one.\n\n[This can only be performed once.]",
+	"description": "The weapon goes to shards in my fist. The flame blooms like a golden flower. Tongues and arcs of fire leap forth, spilling onto the ground as a shape strides out of the conflagration: an arm, a leg, two suns set in a face of brass. The Name hefts his hammer of stone, and regards me. 'Killer of men,' says Old Judah, 'for what have you called me?'",
+	"requirements": {
+	    "weapon": 1,
+	    "proterant.weapon": -1
+	},
+	"extantreqs": {
+	    "letter.fromexile.refusal": 1,
+	    "chain": -1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"effects": {
+	    "friend.maccabee": 1,
+	    "shrinelionsmith": -99,
+	    "weapon": -99,
+	    "bloodlust": 1
+	},
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger",
+		"chance": 50
+	    }
+	],
+	"maxexecutions": 1
+    }
+]
+}

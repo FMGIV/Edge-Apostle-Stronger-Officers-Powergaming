@@ -1,0 +1,1314 @@
+{
+"elements": [
+    {
+	"id": "proterant.memento",
+	"label": "黄铜吊坠",
+	"description": "“终有一天我将成为回忆，而你仍行于这世间，一如既往——所以请保管好它，这样，或许我就能在化作骨灰之后仍陪伴在你的身边。”",
+	"aspects": {
+	    "heart": 4,
+	    "memento": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "proterant.weapon",
+	"label": "贝瑞塔Modello 38",
+	"description": "<i>贝瑞塔Modello 1938自动步枪。</i>只要它知晓怎样对它有利，它便不会在我手中卡壳。",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.weapon.exhausted"
+	},
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "proterant.weapon.exhausted",
+	"label": "贝瑞塔Modello 38（准备中）",
+	"description": "<i>贝瑞塔Modello 1938自动步枪。</i>只要它知晓怎样对它有利，它便不会在我手中卡壳。",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"lifetime": 120,
+	"resaturate": true,
+	"decayTo": "proterant.weapon",
+	"icon": "proterant.weapon",
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "proterant.setupitem",
+	"label": "金黄的黎明",
+	"description": "新的一天自地平线出发。我曾见过日出——比任何凡人见过的次数都多。但今日有所不同。我预见了一次离去。",
+	"aspects": {
+	    "op": 1
+	},
+	"icon": "op.dawn"
+    },
+    {
+	"id": "proterant.mentor",
+	"label": "#PREVIOUSCHARACTERNAME#",
+	"description": "一位眼中有火，得意的笑着的利比亚人。其他人只把他当作一个游击队领队，但我知道并非如此。此人已将有关其本质的知识托付于我。",
+	"aspects": {
+	    "friend": 1,
+	    "edgelong": 1
+	}
+    },
+    {
+	"id": "proterant.story",
+	"label": "流亡者的赌注",
+	"description": "“我就直说了：狮子匠正在找一个人来当他的新具名者。这意味着他在找一个坚韧，强大的混账。也就是说你。但你需要变得更强，并且你需要用流血证明。你还需要学习一些有关怪物的知识，所以或许你还要与厄客德娜谈谈。我还听说在蒙特卡夏诺有一场庆典——狮子匠正在准备一份惊喜。如果我是你，我可不想错过。哦，还有一件事：我和我的大敌打了个赌，赌你有没有那个勇气取得具名之位。所以，倘若你不渴求荣光，就当是为了你的老朋友，干这一票吧！我对你有十分的信心。但有点运气也不坏，是吧？”",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "proterant.fragmentedge",
+	"label": "锤子的秘密",
+	"description": "锤子的触碰可塑造，锤子的触碰亦可粉碎。研习狮子匠的教诲者均清楚锤子的两种本质，以及如何活用。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 2,
+	    "forge": 1,
+	    "heart": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedge.exhausted",
+	    "epiphany": "proterant.fragmentedgeb"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "proterant.fragmentedge.exhausted",
+	"label": "锤子的秘密（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedge"
+	},
+	"lifetime": 300,
+	"decayTo": "proterant.fragmentedge",
+	"icon": "proterant.fragmentedge",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedgeb",
+	"label": "沙普尔的教诲",
+	"description": "“这是伟大者之子在折断其刀刃时得到的教诲。即使是现在，它也像波斯阳光下的金属碎片一样闪闪发光。” 吾友有时会在饮酒时低语它。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 4,
+	    "forge": 2,
+	    "heart": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgeb.exhausted",
+	    "epiphany": "proterant.fragmentedgec"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgeb.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgeb.exhausted",
+	"label": "沙普尔的教诲（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgeb"
+	},
+	"lifetime": 260,
+	"decayTo": "proterant.fragmentedgeb",
+	"resaturate": true,
+	"icon": "fragmentedgeb.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgec",
+	"label": "狻猊行动",
+	"description": "一系列需要为之献身、为之惊骇的神秘活动。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 6,
+	    "forge": 3,
+	    "heart": 3
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgec.exhausted",
+	    "epiphany": "proterant.fragmentedged"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgec.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgec.exhausted",
+	"label": "狻猊行动（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgec"
+	},
+	"lifetime": 220,
+	"decayTo": "proterant.fragmentedgec",
+	"icon": "fragmentedgec.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedged",
+	"label": "狮子匠的具名者",
+	"description": "狮子匠，按司辰的标准来看尚显青涩，而按战争的标准来看相当老成。他的具名者皆是刚被招募的新成员，其吟诵有一种野蛮的力量。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 8,
+	    "forge": 4,
+	    "heart": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedged.exhausted",
+	    "epiphany": "proterant.fragmentedgee"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedged.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedged.exhausted",
+	"label": "狮子匠的具名者（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedged"
+	},
+	"lifetime": 180,
+	"decayTo": "proterant.fragmentedged",
+	"icon": "fragmentedged.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedgee",
+	"label": "黄铜之构",
+	"description": "七七四十九种碎骨之法。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 10,
+	    "forge": 5,
+	    "heart": 5
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgee.exhausted",
+	    "epiphany": "proterant.fragmentedgef"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgee.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgee.exhausted",
+	"label": "黄铜之构（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgee"
+	},
+	"lifetime": 140,
+	"decayTo": "proterant.fragmentedgee",
+	"icon": "fragmentedgee.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedgef",
+	"label": "斧柄既成",
+	"description": "我是一柄利器，注定先被摧毁、后被重铸，直至锋锐无瑕。我以筋骨与人争辩，终将立于不败之地。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 12,
+	    "forge": 6,
+	    "heart": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgef.exhausted",
+	    "epiphany": "proterant.fragmentedgeg"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgef.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgef.exhausted",
+	"label": "斧柄既成（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgef"
+	},
+	"lifetime": 100,
+	"decayTo": "proterant.fragmentedgef",
+	"icon": "fragmentedgef.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedgeg",
+	"label": "破碎之秘",
+	"description": "每次重生都伴随更强的力量。被毁之物可被重铸。未毁之物必被重铸。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 14,
+	    "forge": 7,
+	    "heart": 7,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgeg.exhausted",
+	    "epiphany": [
+		{
+		    "id": "lionsmith.weaponfragment",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgeg.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgeg.exhausted",
+	"label": "破碎之秘（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[你精通了狮子匠的秘密——至少已经抵达了凡人所能精通的极限。]",
+	"aspects": {
+	    "exhausted": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgeg"
+	},
+	"lifetime": 60,
+	"decayTo": "proterant.fragmentedgeg",
+	"icon": "fragmentedgeg.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "chain.strength",
+	"label": "赠礼：力",
+	"description": "在燧石创造星与石的时代，有这样一句古话：大地是最为古老的力量。很久以前，我享用了大地的圣礼，故我变强——至今仍强。",
+	"aspects": {
+	    "edge": 6,
+	    "chain": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "chain.strength.exhausted"
+	}
+    },
+    {
+	"id": "chain.strength.exhausted",
+	"label": "赠礼：力（枯竭）",
+	"description": "在燧石创造星与石的时代，有这样一句古话：大地是最为古老的力量。很久以前，我享用了大地的圣礼，故我变强——至今仍强。",
+	"aspects": {
+	    "exhausted": 1,
+	    "chain": 1
+	},
+	"lifetime": 90,
+	"decayTo": "chain.strength",
+	"resaturate": true,
+	"icon": "chain.strength"
+    },
+    {
+	"id": "chain.stone",
+	"label": "赠礼：石",
+	"description": "在我们驯服火焰，塑造金属之前，石给予了我们让他者流血的手段。我在年轻时了解了石，故我瞥见我们塑造石的方式，与石塑造我们的方式。",
+	"aspects": {
+	    "heart": 6,
+	    "forge": 6,
+	    "chain": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "chain.stone.exhausted"
+	}
+    },
+    {
+	"id": "chain.stone.exhausted",
+	"label": "赠礼：石（枯竭）",
+	"description": "在我们驯服火焰，塑造金属之前，石给予了我们让他者流血的手段。我在年轻时了解了石，故我瞥见我们塑造石的方式，与石塑造我们的方式。",
+	"aspects": {
+	    "exhausted": 1,
+	    "chain": 1
+	},
+	"lifetime": 90,
+	"decayTo": "chain.stone",
+	"resaturate": true,
+	"icon": "chain.stone"
+    },
+    {
+	"id": "chain.scale",
+	"label": "赠礼：鳞",
+	"description": "介壳种——那在我们之前来此，并最终成为我们的，智慧且强大的物种——知晓血肉应以何种方法忍耐其大敌，时间。我比大多数人都靠近沉眠在我们之中的介壳种本质，故我忍耐时间，正如介壳种一般。",
+	"aspects": {
+	    "heart": 6,
+	    "moth": 6,
+	    "chain": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "chain.scale.exhausted"
+	}
+    },
+    {
+	"id": "chain.scale.exhausted",
+	"label": "赠礼：鳞（枯竭）",
+	"description": "介壳种——那在我们之前来此，并最终成为我们的，智慧且强大的物种——知晓血肉应以何种方法忍耐其大敌，时间。我比大多数人都靠近沉眠在我们之中的介壳种本质，故我忍耐时间，正如介壳种一般。",
+	"aspects": {
+	    "exhausted": 1,
+	    "chain": 1
+	},
+	"lifetime": 90,
+	"decayTo": "chain.scale",
+	"resaturate": true,
+	"icon": "chain.scale"
+    },
+    {
+	"id": "constructions.a",
+	"label": "构筑之法：达贾",
+	"description": "“狮子能够被创造，不像孩童那样被创造，不像言语那样被创造，而是像武器那样被创造。”在无影帝国，这句话是至理名言。[你能够使用该卡牌制造一些狮子匠造物。]",
+	"aspects": {
+	    "lore": 1,
+	    "ability": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing1",
+		"label": "部件",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing2",
+		"label": "部件",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing3",
+		"label": "部件",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "constructions.b",
+	"label": "构筑之法：阿达兰",
+	"description": "“狮子匠制造怪物以打败伤疤护民官。”带翼的，爪利的，牙尖的——在任何方面，狮子匠的子嗣生来就是为了战斗，与敌人战斗，也与同类战斗。[你能够使用该卡牌制造一些更强大的狮子匠造物。]",
+	"aspects": {
+	    "lore": 1,
+	    "ability": 1,
+	},
+	"slots": [
+	    {
+		"id": "needsthing1",
+		"label": "部件",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing2",
+		"label": "部件",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing3",
+		"label": "部件",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing4",
+		"label": "部件",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "constructions.c",
+	"label": "构筑之法：贝拉姆",
+	"description": "“狮子匠的子嗣自其锤击诞生；因其锤击死去；并在其锤击中重铸。”狮子匠最古老的那些子嗣并不总能在其教育下存活，但那些存活的子嗣步伐使大地开裂，力量使天空震颤。[你能够使用该卡牌制造狮子匠最强的造物中的一部分。]",
+	"aspects": {
+	    "lore": 1,
+	    "ability": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing1",
+		"label": "部件",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing2",
+		"label": "部件",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing3",
+		"label": "部件",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing4",
+		"label": "部件",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing5",
+		"label": "部件",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "contemplation.skill.swoleup",
+	"label": "意图：失落技术？",
+	"description": "一位狮子匠的具名者向我展示了这种秘密的战斗技术。这是狂野且不羁的知识，它的本性不会轻易地让我理解。",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.lionsmith",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.swoleup.dormant"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.intimidate",
+	"label": "意图：失落技术？",
+	"description": "一位狮子匠的具名者向我展示了这种秘密的战斗技术。这是狂野且不羁的知识，它的本性不会轻易地让我理解。",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.lionsmith",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.intimidate.dormant"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.refreshself",
+	"label": "意图：失落技术？",
+	"description": "一位狮子匠的具名者向我展示了这种秘密的战斗技术。这是狂野且不羁的知识，它的本性不会轻易地让我理解。",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.lionsmith",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.refreshself"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "challenge.contemplation.lionsmith",
+	"label": "狮子匠精通技能挑战",
+	"aspects": {
+	    "needsedgeforge": 8,
+	    "needsedgeheart": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "skill.swoleup.dormant",
+	"label": "死敌之力（沉寂）",
+	"description": "巨人安泰俄斯——除上校外，狮子匠的敌人中最为强力者。当狮子匠仍是凡人之身时，他斩杀了安泰俄斯，但他十分钦佩这个敌人的刚毅，以至于他保存了这些技术以纪念这位敌人。因此狮子匠的学徒中那些最为强大者得以唤起安泰俄斯的力量，即使只能持续片刻。[使用此卡牌以使其获得大量的<b>刃</b>，但只能持续一小段时间。]",
+	"aspects": {
+	    "lore": 1
+	},
+	"xtriggers": {
+	    "ascend": "skill.swoleup.active",
+	    "fatiguing": "skill.swoleup.exhausted"
+	}
+    },
+    {
+	"id": "skill.swoleup.active",
+	"label": "死敌之力",
+	"description": "巨人安泰俄斯——除上校外，狮子匠的敌人中最为强力者。当狮子匠仍是凡人之身时，他斩杀了安泰俄斯，但他十分钦佩这个敌人的刚毅，以至于他保存了这些技术以纪念这位敌人。因此狮子匠的学徒中那些最为强大者得以唤起安泰俄斯的力量，即使只能持续片刻。[此卡牌在计时结束前或被使用前都持续生效。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 30
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.swoleup.exhausted"
+	},
+	"lifetime": 30,
+	"decayTo": "skill.swoleup.exhausted"
+    },
+    {
+	"id": "skill.swoleup.exhausted",
+	"label": "死敌之力（枯竭）",
+	"description": "巨人安泰俄斯——除上校外，狮子匠的敌人中最为强力者。当狮子匠仍是凡人之身时，他斩杀了安泰俄斯，但他十分钦佩这个敌人的刚毅，以至于他保存了这些技术以纪念这位敌人。因此狮子匠的学徒中那些最为强大者得以唤起安泰俄斯的力量，即使只能持续片刻。[此卡牌不久后将会回到“沉寂”状态。]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.swoleup.exhausted",
+	    "refresh": "skill.swoleup.dormant"
+	},
+	"lifetime": 160,
+	"decayTo": "skill.swoleup.dormant",
+	"resaturate": true,
+	"icon": "skill.swoleup.dormant"
+    },
+    {
+	"id": "skill.refreshself",
+	"label": "不懈攻势",
+	"description": "这种对自身的精炼可以将灵魂中所有能量引导向彻底消灭对手的方向。支持这一过程所需的狂怒与忍耐通常仅能在长生者身上寻得，但一个凡人——一个极其强大，极其富有勇气的凡人——或许能够在一定限度上使用这些技术以使其攻击获得以其他方式不可能实现的速度和凶猛。[你可以使用这一技能立刻刷新一件枯竭的武器，或一份枯竭的密传。]",
+	"aspects": {
+	    "lore": 1,
+	    "heart": 8
+	},
+	"slots": [
+	    {
+		"id": "needsexhausted",
+		"label": "枯竭",
+		"required": {
+		    "exhausted": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "skill.refreshself.exhausted",
+	    "refresh": "skill.refreshself",
+	    "fatiguing.onlyrefreshself": "skill.refreshself.exhausted"
+	}
+    },
+    {
+	"id": "skill.refreshself.exhausted",
+	"label": "不懈攻势（枯竭）",
+	"description": "这种对自身的精炼可以将灵魂中所有能量引导向彻底消灭对手的方向。支持这一过程所需的狂怒与忍耐通常仅能在长生者身上寻得，但一个凡人——一个极其强大，极其富有勇气的凡人——或许能够在一定限度上使用这些技术以使其攻击获得以其他方式不可能实现的速度和凶猛。[你可以使用这一技能立刻刷新一件枯竭的武器，或一份枯竭的密传。]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.refreshself.exhausted",
+	    "refresh": "skill.refreshself",
+	    "fatiguing.onlyrefreshself": "skill.refreshself.exhausted"
+	},
+	"icon": "skill.refreshself",
+	"resaturate": true,
+	"lifetime": 280,
+	"decayTo": "skill.refreshself"
+    },
+    {
+	"id": "skill.intimidate.dormant",
+	"label": "破军怒号（沉寂）",
+	"description": "勇气会从人们的灵魂中逃离；狮群将低头并保持温驯；甚至天空都会在我怒号时颤抖。听吧，而后畏惧吧。[此卡牌在计时结束前都持续生效，期间一切敌人都不会对你展开进攻。并且，使用此卡牌会引发一次地震。]",
+	"aspects": {
+	    "lore": 1
+	},
+	"xtriggers": {
+	    "ascend": "skill.intimidate.active",
+	    "fatiguing": "skill.intimidate.exhausted"
+	}
+    },
+    {
+	"id": "skill.intimidate.active",
+	"label": "破军怒号",
+	"description": "勇气会从人们的灵魂中逃离；狮群将低头并保持温驯；甚至天空都会在我怒号时颤抖。听吧，而后畏惧吧。[此卡牌在计时结束前都持续生效，期间一切敌人都不会对你展开进攻。并且，使用此卡牌会引发一次地震。]",
+	"xtriggers": {
+	    "fatiguing": "skill.intimidate.exhausted"
+	},
+	"lifetime": 180,
+	"decayTo": "skill.intimidate.exhausted"
+    },
+    {
+	"id": "skill.intimidate.exhausted",
+	"label": "破军怒号（枯竭）",
+	"description": "勇气会从人们的灵魂中逃离；狮群将低头并保持温驯；甚至天空都会在我怒号时颤抖。听吧，而后畏惧吧。[此卡牌不久后将会回到“沉寂”状态。]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.intimidate.exhausted",
+	    "refresh": "skill.intimidate.dormant"
+	},
+	"lifetime": 300,
+	"decayTo": "skill.intimidate.dormant",
+	"resaturate": true,
+	"icon": "skill.intimidate.dormant"
+    },
+    {
+	"id": "mission.camilla.a",
+	"label": "意图：大陆之敌",
+	"description": "最为激烈的战场将吸引刃之长生者，如同血会吸引鲨鱼。他们隐藏在各国军队中，且为了抵达其宿敌所在处，他们将一面砍杀面前之敌，一面穿过整片大陆。故因此，大陆之敌并非我们直接的敌人，但她不会拒绝以她的方式给一支军队进行训练。是否有什么办法能让我们摆脱她？",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.warmaker.a",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.camilla.b"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.camilla.a",
+	"label": "Continental Challenge A",
+	"aspects": {
+	    "needslantern": 8,
+	    "needsedge": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.camilla.b",
+	"label": "意图：大陆之敌的宿敌",
+	"description": "任何一位刃之长生者都是一对刃之宿敌的一半。刃之宿敌是被锁死在永久的战斗与永久的相争之中的一对不朽之人。少有能够在一对刃之宿敌互相争斗，沉浸于他们的憎恨与激情之中（刃之长生者倾向于如此）时使他们停下的事物。或许这正是我们感兴趣的信息。大陆之敌的宿敌必定在前线某处——若我们想要摆脱她，找出她的宿敌或许是谨慎的第一步。",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.camilla.b",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.camilla.c"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.camilla.b",
+	"label": "Continental Challenge B",
+	"aspects": {
+	    "needslantern": 12,
+	    "needsedge": 12
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.camilla.c",
+	"label": "意图：大陆之敌与战争制造者",
+	"description": "在新大陆的太阳之下对抗不列颠时，他曾是大陆之敌的战友。或许他也曾是她的情人。但他拒绝了与她一同返回法国，指引那科西嘉人和他的新生帝国的邀请。之后十二年间，法国与剩余的欧洲打了七场战争，而仅在反法联军在走投无路时援引了一个古老的承诺之后，战争制造者才返回前线，将法军的推进击溃。他苦涩地声称这是他的义务；而大陆之敌不同意。且在一百多年之后，他们仍然不和。",
+	"aspects": {
+	    "contemplation": 1,
+	    "completed": 1
+	}
+    },
+    {
+	"id": "friend.wilhelm",
+	"label": "战争制造者",
+	"description": "一位身材高大、面带愉悦的德国人，身着普鲁士少校那古典的制服。他随身并未携带武器——看上去他不会用武器使自己蒙羞。他的拳头无疑如锤子一般精准且不息。",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "wilhelm"
+    },
+    {
+	"id": "token.wilhelm",
+	"label": "古金币",
+	"description": "“来自旧时代的旧遗物，那时太阳还与现在不同。我并未见过那时的太阳，也未曾见过其色彩，”战争制造者如是说，“但即便仅是他的形象也仍需要尊重。”他建议我将此物供奉于一个具有力量的地点以与吾友，流亡者，联络，这样他就可以协助筹备我与大陆之敌之间的<i>狮鼠之斗</i>仪式。但我不应该在未准备好面对她之前供奉此物。",
+	"aspects": {
+	    "legacyplotitem": 1,
+	    "dream.lionsmith": 1
+	},
+	"icon": "compensationd"
+    },
+    {
+	"id": "letter.fromexile.refusal",
+	"label": "流亡者的答复",
+	"description": "“吾友，\n\n我希望你的战争和我的一样顺利。我的大敌和我正在北边度过一段轻松的玩耍时光。那里有血，有枪火，也总是有那来自仇恨的熟悉暖意。我们或许会再次南下，去奥尔图基奥游览（你看，我大敌的家族曾在那生活），但，唉——战争将我们带往何方，我们就将去往何方！\n\n现在，说正事。<i>狮鼠之斗</i>——在那决斗中，你需要一位副手来代表你，而我很遗憾地宣布那将不是我。说实话，我的大敌与我都过度沉浸于我们的斗争，而我与他都无法忍受暂时搁置我们的仇怨。你会因此失望。无论如何，我很抱歉。\n\n但不要说我是一个非常糟糕的朋友。我知道有人能够帮到你，若你希望联系他，你需要进行一些仪式。如果你奉上一件武器（记住，要好的那种），他便会认可你。那之后，你只要和他说你意图进行<i>狮鼠之斗</i>，我很确定他会协助你。他喜欢这种事。\n\n祝你好运，还有，别被杀了。\n\n——#PREVIOUSCHARACTERNAME#”",
+	"aspects": {
+	    "legacyplotitem": 1
+	},
+	"icon": "letter.fromexile"
+    },
+    {
+	"id": "friend.maccabee",
+	"label": "“锤子”犹大",
+	"description": "塞琉古人屠杀者；反抗者之神；狮子匠的具名斗士。我不知道吾友是如何与一位具名者搞好关系的，但无论如何，我没有时间用于考虑这个问题。我最好快点开口。",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"lifetime": 60
+    },
+    {
+	"id": "letter.fromwilhelm",
+	"label": "战争制造者的答复",
+	"description": "一张崭新的电报卡。内容如下：\n\n“英勇的游击队员<b>——（停顿）——</b>\n\n必须承认你选择的副手让我惊讶<b>——（停顿）——</b>我们长生者对与具名者交易十分谨慎<b>——（停顿）——</b>无论如何我现在获得了一切必要的确认并能够安排适宜的挑战之仪<b>——（停顿）——</b>我亲爱的敌手很期待这争斗且根据规则她在约定的时间之前将不再打扰你<b>——（停顿）——</b>\n\n七天之内独自一人身处荒野或被毁灭<b>——（停顿）——</b>守时不容商榷<b>——（停顿）——</b>\n\n——威廉·塞弗里茨·特拉根多恩",
+	"aspects": {
+	    "legacyplotitem": 1
+	}
+    },
+    {
+	"id": "duel.wilhelm.proterant",
+	"label": "战争制造者",
+	"description": "一位身材高大、面带愉悦的德国人，身着普鲁士少校那古典的制服。他作为他的敌手，大陆之敌，的代表来此。",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "wilhelm"
+    },
+    {
+	"id": "duel.camilla.proterant",
+	"label": "大陆之敌",
+	"description": "一位盛气凌人的、因遍布伤痕而引人注目的女性，她身着法军军官的军服与战地披风。这就是我发起<i>狮鼠之斗</i>仪式挑战之人。",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1,
+	    "duel.marker": 1
+	},
+	"icon": "camilla"
+    },
+    {
+	"id": "duel.maccabee",
+	"label": "“锤子”犹大",
+	"description": "<i>我</i>那不合常理的朋友的不合常理的朋友；狮子匠的一名具名者，他将其权威借予我，并在<i>狮鼠之斗</i>中作为我的副手。",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1
+	},
+	"icon": "friend.maccabee"
+    },
+    {
+	"id": "friend.echidna",
+	"label": "厄客德娜",
+	"description": "怪物之母已今非昔比。有什么东西以爪撕裂她的腹部，流出的内脏冒着热气并如黑红的蛇般不断蠕动。她的嘴边泛着血光。“无需烦恼，亲爱的，”她以意外平静的声音说，“这不是我的血。”",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "broodscent",
+	"label": "子嗣的气味",
+	"description": "“跟随你的鼻子，亲爱的——说到底，胃只会指引你寻得一物。波卡斯特拉诺闻上去很特别：像黄铜，像雨水，像肉桂，像蜂蜡；他狩猎利落，进食安静。奥库尔闻起来则像腐坏的肉——一整车腐坏的肉。当你料理完他们，就把我的晚餐带来给我，那之后我们可以谈一些别的事。”",
+	"aspects": {
+	    "scentscout": 1
+	}
+    },
+    {
+	"id": "dinnerbell",
+	"label": "晚餐铃",
+	"description": "一个小黄铜铃铛，比看上去重得多。“当你料理好一切，就摇这铃铛，我会跑着过来，”厄客德娜告诉我。“但注意了——我并不是一个富有耐心的女人，我也不喜欢浪费时间。如果我到达时你并未准备好晚餐，我便不会再次理会你。”",
+	"aspects": {
+	    "legacyplotitem": 1
+	}
+    }, 
+    {
+	"id": "corpse.orcul",
+	"label": "奥库尔的尸骸",
+	"description": "这野兽不再暴怒。",
+	"aspects": {
+	    "remnant": 1
+	}
+    },
+    {
+	"id": "corpse.boccastrano",
+	"label": "波卡斯特拉诺的尸骸",
+	"description": "狡黠的闪光已从他的眼中离去。",
+	"aspects": {
+	    "remnant": 1
+	}
+    },
+    {
+	"id": "friend.echidna.enroute",
+	"label": "E夫人正在途中",
+	"description": "在我们说话的同事，厄客德娜正拖着她负伤的身躯穿过意大利的荒野。她听到了铃铛的呼唤，而饥饿驱使她前往铃铛所在之处——前往我们所在之处。",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"unique": true,
+	"lifetime": 300,
+	"decayTo": "friend.echidna.turnin",
+	"icon": "echidna.enroute"
+    },
+    {
+	"id": "friend.echidna.turnin",
+	"label": "厄客德娜",
+	"description": "这位丽姬亚仍然跛着腿，她的血肉也并未完全愈合，但她仍然在此出席。她的利爪急切地弯曲又伸直——她饿了。“我的儿子们怎样了？”她问我。",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"slots": [
+	    {
+		"id": "needscorpse1",
+		"label": "奥库尔",
+		"required": {
+		    "corpse.orcul": 1
+		}
+	    },
+	    {
+		"id": "needscorpse2",
+		"label": "波卡斯特拉诺",
+		"required": {
+		    "corpse.boccastrano": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "friend.echidna"
+    },
+    {
+	"id": "token.echidna",
+	"label": "厄客德娜的协助",
+	"description": "多亏了我，怪物之母用她孩子的血肉饱餐了一顿。出于感谢，她承诺会为我的飞升使用咬噬之钥。故当那时刻来临——当罗马燃烧，天空因死亡变得血红——狂暴之门会为我打开。",
+	"icon": "apostleforge.pillar5"
+    },
+    {
+	"id": "corpse.jerome",
+	"label": "杰罗姆·亚历山大已被杀死",
+	"description": "无情的男人，他在最后得到的仁慈和他给出的仁慈一样多。他在名为“野心”的祭坛上牺牲了一切原则——连爱着他的人的感情也不例外。",
+	"aspects": {
+	    "remnant": 1,
+	    "legacyplotitem": 1
+	},
+	"slots": [
+	    {
+		"id": "needslionel",
+		"actionid": "abandon",
+		"label": "莱昂内尔",
+		"required": {
+		    "corpse.lionel": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "corpse.lionel",
+	"label": "莱昂内尔·撒克逊已被杀死",
+	"description": "可敬的男人，我有幸在战场上面对并击败他。他最大的错误是从他所爱之人的恶行上移开目光——但他保证了自己因弥补这一错误倒下。",
+	"aspects": {
+	    "remnant": 1,
+	    "legacyplotitem": 1
+	},
+	"slots": [
+	    {
+		"id": "needsjerome",
+		"actionid": "abandon",
+		"label": "杰罗姆",
+		"required": {
+		    "corpse.jerome": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "token.star",
+	"label": "内在之火",
+	"description": "来自天穹之火已浸染了我的血肉与灵魂。我全无伤痕；我强力无匹；我将永不再留下伤疤。[你的伤口现在将随时间自愈并最终消失，而不是变为残疾。]",
+    },
+    {
+	"id": "draw.hintproterant.lore",
+	"label": "密传提示",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.breakchains",
+	"label": "打破束缚提示",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.makemonsters",
+	"label": "制造怪物提示",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.star",
+	"label": "坠星提示",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.echidna",
+	"label": "厄客德娜提示",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.musvashir",
+	"label": "鼠与狮提示",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.main",
+	"label": "主要目标提示",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.rome",
+	"label": "罗马提示",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.nodebilitations",
+	"label": "无残疾提示",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+]
+}

@@ -1,0 +1,1296 @@
+{
+"elements": [
+    {
+	"id": "neutral.corpses",
+	"label": "Павшие Советские Солдаты",
+	"description": "Они сражались. Они пали.",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "growthinfect": "foe.growth",
+	    "raiseshattered": "friend.risen",
+	    "promotiontodisciple": "friend.conscript",
+	    "killsoviet": "neutral.corpses"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "neutral.scouts",
+	"label": "Разведчики Красной Армии",
+	"description": "Дозорные; следопыты; передовые отряды русской армии, руководящие контрнаступлением советских войск на Берлин. [Можно временно нанять с помощью Провизии.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 1
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.scouts",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.scouts",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.scouts",
+	"label": "Разведчики Красной Армии (Союзные)",
+	"description": "Дозорные; следопыты; передовые отряды русской армии, руководящие контрнаступлением советских войск на Берлин.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "lantern": 4,
+	    "moth": 4,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.scouts",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.scouts",
+	    "killsoviet": "neutral.corpses"
+	},
+	"icon": "friend.scouts",
+	"slots": [
+	    {
+		"id": "needshindrance",
+		"actionid": "operate",
+		"label": "Окружение",
+		"required": {
+		    "hindrance.snows": 1,
+		    "hindrance.storms": 1,
+		    "hindrance.fog": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "aggro.scouts",
+	"label": "Разведчики Красной Армии (Враждебны)",
+	"description": "Дозорные; следопыты; передовые отряды русской армии, руководившие контрнаступлением советских войск на Берлин.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedge": 8,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.scouts",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.scouts.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.scouts.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.scouts.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.scouts",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.sniper",
+	"label": "Снайпер Красной Армии",
+	"description": "Русский снайпер, ждущий своего часа, хладнокровно предвкушающий свою следующую цель. [Можно временно нанять с помощью Провизии.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 1
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.sniper",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.sniper",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.sniper",
+	"label": "Снайпер Красной Армии (Союзный)",
+	"description": "Русский снайпер, ждущий своего часа, хладнокровно предвкушающий свою следующую цель.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "lantern": 4,
+	    "winter": 4,
+	    "edge": 4,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.sniper",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.sniper",
+	    "killsoviet": "neutral.corpses"
+	},
+	"icon": "friend.sniper"
+    },
+    {
+	"id": "aggro.sniper",
+	"label": "Снайпер Красной Армии (Враждебный)",
+	"description": "Русский снайпер, ждущий своего часа, хладнокровно предвкушающий свою следующую цель.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needswinter": 8,
+	    "needsmoth": 8,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.sniper",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.sniper.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.sniper.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.sniper.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.sniper",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.infantry",
+	"label": "Советская Пехота",
+	"description": "Советские пехотинцы: измучены, плохо экипированы, обречены на смерть. Они - капля в волне, что сокрушит Восточный фронт и затопит города Рейха. [Можно временно нанять с помощью Провизии.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 1
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.infantry",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.infantry",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.infantry",
+	"label": "Советская Пехота (Союзный)",
+	"description": "Советские пехотинцы: измучены, плохо экипированы, обречены на смерть. Они - капля в волне, что сокрушит Восточный фронт и затопит города Рейха.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "edge": 6,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.infantry",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.infantry",
+	    "killsoviet": "neutral.corpses"
+	},
+	"icon": "friend.infantry"
+    },
+    {
+	"id": "aggro.infantry",
+	"label": "Советская Пехота (Враждебна)",
+	"description": "Советские пехотинцы: измучены, плохо экипированы, обречены на смерть. Они - капля в волне, что сокрушит Восточный фронт и затопит города Рейха.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 8,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.infantry",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.infantry.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.infantry.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.infantry.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.infantry",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.medic",
+	"label": "Медики Красной Армии",
+	"description": "Врачеватели ран, ампутаторы конечностей, а иногда и проводники в последний путь неудачливого русского солдата. [Можно временно нанять с помощью Провизии.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 1
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.medic",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "husk",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.medic",
+	"label": "Медики Красной Армии (Союзные)",
+	"description": "Врачеватели ран, ампутаторы конечностей, а иногда и проводники в последний путь неудачливого русского солдата.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "heart": 6,
+	    "grail": 6,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.medic",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "husk",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "Случайность",
+		"required": {
+		    "wounded": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"icon": "friend.medics"
+    },
+    {
+	"id": "neutral.engineers",
+	"label": "Саперы Красной Армии",
+	"description": "Траншеекопатели и установщики зарядов; строители и разрушители; агенты агрессивных промышленных усилий Союза. [Можно временно нанять с помощью Провизии.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 1
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.engineers",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "husk",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.engineers",
+	"label": "Саперы Красной Армии (Союзные)",
+	"description": "Траншеекопатели и установщики зарядов; строители и разрушители; агенты агрессивных промышленных усилий Союза.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "forge": 6,
+	    "knock": 6,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.engineers",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "husk",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsdamaged",
+		"actionid": "operate",
+		"label": "Повреждено",
+		"required": {
+		    "damaged": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"actionid": "operate",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "operate",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"icon": "friend.engineers"
+    },
+    {
+	"id": "neutral.godbuilder",
+	"label": "Отряд Богостроителей",
+	"description": "Кадровый состав комиссаров-итастов - 'Бого-строителей' - возглавляет этот пехотный отряд, разжигая славный огонь в оружии и плоти своих людей. [Можно временно нанять с помощью Провизии.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 2
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.godbuilder",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.godbuilder",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.godbuilder",
+	"label": "Отряд Богостроителей (Союзный)",
+	"description": "Кадровый состав комиссаров-итастов - 'Бого-строителей' - возглавляет этот пехотный отряд, разжигая славный огонь в оружии и плоти своих людей.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "forge": 4,
+	    "lantern": 4,
+	    "edge": 8,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.godbuilder",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.godbuilder",
+	    "killsoviet": "neutral.corpses"
+	},
+    },
+    {
+	"id": "aggro.godbuilder",
+	"label": "Отряд Богостроителей (Враждебный)",
+	"description": "Кадровый состав комиссаров-итастов - 'Бого-строителей' - возглавляет этот пехотный отряд, разжигая славный огонь в оружии и плоти своих людей.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedgeknock": 8,
+	    "needsedgewinter": 8,
+	    "needsedgeforge": 8,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.godbuilder",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.godbuilder.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.godbuilder.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.godbuilder.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.godbuilder",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.tanks",
+	"label": "Советская бронетанковая рота",
+	"description": "Союз производит эти машины в бешеном темпе. Еще несколько месяцев напряженной работы, и, возможно, эти машины окончательно выйдут из эксплуатации, но их замена, без сомнения, уже идет полным ходом. [Можно временно нанять с помощью Провизии.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 3
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.tanks",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.tanks",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.tanks",
+	"label": "Советская бронетанковая рота (Союзная)",
+	"description": "Союз производит эти машины в бешеном темпе. Еще несколько месяцев напряженной работы, и, возможно, эти машины окончательно выйдут из эксплуатации, но их замена, без сомнения, уже идет полным ходом.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "forge": 4,
+	    "edge": 12,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.tanks",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.tanks",
+	    "killsoviet": "neutral.corpses"
+	},
+	"icon": "friend.tanks"
+    },
+    {
+	"id": "aggro.tanks",
+	"label": "Советская бронетанковая рота (Враждебная)",
+	"description": "Союз производит эти машины в бешеном темпе. Еще несколько месяцев напряженной работы, и, возможно, эти машины окончательно выйдут из эксплуатации, но их замена, без сомнения, уже идет полным ходом.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 14,
+	    "needsforge": 10,
+	    "foe.armoured": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.tanks",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.tanks.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.tanks.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.tanks.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.tanks",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.artillery",
+	"label": "Советская Артиллерия",
+	"description": "Для тех случаев, когда Красная армия должна полностью уничтожить цель. Лучше не стоять в зоне обстрела. [Можно временно нанять с помощью Провизии.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 3
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.artillery",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.artillery",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.artillery",
+	"label": "Советская Артиллерия (Союзная)",
+	"description": "Для тех случаев, когда Красная армия должна полностью уничтожить цель. Лучше не стоять в зоне обстрела.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "edge": 18,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.artillery",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.artillery",
+	    "killsoviet": "neutral.corpses"
+	},
+	"icon": "friend.artillery"
+    },
+    {
+	"id": "aggro.artillery",
+	"label": "Советская Артиллерия (Враждебная)",
+	"description": "Для тех случаев, когда Красная армия должна полностью уничтожить цель. Лучше не стоять в зоне обстрела.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 20,
+	    "needsforgemoth": 4,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.artillery",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.artillery.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.artillery.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.artillery.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.artillery",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.bombers",
+	"label": "Советская эскадрилья бомбардировщиков",
+	"description": "В наши дни редко можно увидеть в небе российский самолет - <i>Люфтваффе</i> подрезали крылья Союза в самом начале войны, но кое-где еще остались несколько Красных Птиц, способных летать. [Можно временно нанять с помощью Провизии.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 3
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.bombers",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.bombers",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"actionid": "communicate",
+		"label": "Цена",
+		"description": "Такова цена преданности.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.bombers",
+	"label": "Советская эскадрилья бомбардировщиков (Союзная)",
+	"description": "В наши дни редко можно увидеть в небе российский самолет - <i>Люфтваффе</i> подрезали крылья Союза в самом начале войны, но кое-где еще остались несколько Красных Птиц, способных летать.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "friend.aerial": 1,
+	    "edge": 12,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.bombers",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.bombers",
+	    "killsoviet": "neutral.corpses"
+	},
+	"icon": "friend.bombers"
+    },
+    {
+	"id": "aggro.bombers",
+	"label": "Советская эскадрилья бомбардировщиков (Враждебная)",
+	"description": "В наши дни редко можно увидеть в небе российский самолет - <i>Люфтваффе</i> подрезали крылья Союза в самом начале войны, но кое-где еще остались несколько Красных Птиц, способных летать.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 20,
+	    "foe.aerial": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.bombers",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.bombers.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ]
+	},
+	"lifetime": 180,
+	"decayTo": "aggro.bombers.refuel"
+    },
+    {
+	"id": "aggro.bombers.refuel",
+	"label": "Советская эскадрилья бомбардировщиков (Заправляется)",
+	"description": "Преследующий нас контингент В.В.С отозван для дозаправки и перевооружения. Они не уйдут навсегда.",
+	"lifetime": 240,
+	"decayTo": "aggro.bombers",
+	"icon": "aggro.bombers",
+	"resaturate": true
+    },
+    {
+	"id": "aggro.bombers.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.bombers.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.bombers",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+]
+}

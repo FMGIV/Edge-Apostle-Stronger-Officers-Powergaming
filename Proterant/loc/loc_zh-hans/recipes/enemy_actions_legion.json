@@ -1,0 +1,388 @@
+{
+"recipes": [
+    {
+	"id": "legion.cycle",
+	"actionid": "action.legion",
+	"label": "军团士兵等待时机",
+	"startdescription": "穿着被边界吹扫的破布的士兵在黑暗中移动，不留足迹。门关军团即将采取行动。",
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "legion.pickaction.router",
+		"chance": 40
+	    },
+	    {
+		"id": "legion.cycle.afraid_create"
+	    },
+	    {
+		"id": "legion.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "legion.reinforcements",
+		"additional": true,
+		"chance": 50
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "legion.reinforcements",
+	"actionid": "reinforcements.legion",
+	"label": "门关的看守",
+	"startdescription": "当明月高悬于空时，醒时世界与梦境之间的门完全敞开，门关军团的士兵涌出。真是麻烦。",
+	"extantreqs": {
+	    "faction.legion": -6,
+	    "corpse.lionel": -1
+	},
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"foe.boundsmen",
+		"foe.boundsmen",
+		"foe.boundsmen",
+		"foe.boundsmen",
+		"foe.boundsmen",
+		"foe.warder",
+		"foe.warder",
+		"foe.warder"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "legion.cycle.afraid_create",
+	"label": "恐惧即我",
+	"startdescription": "当雄狮怒吼时，其它一切生物均在恐惧中低伏，只因它们理解了百兽之王已君临于此。于此，我即为雄狮，他们的灵魂则为我的猎物。[敌人不会攻击你或是干涉你完成目标的尝试。]",
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"effects": {
+	    "signaller_afraid_legion": 1
+	},
+	"linked": [
+	    {
+		"id": "legion.cycle.afraid_continue"
+	    },
+	    {
+		"id": "legion.cycle.afraid_end"
+	    }
+	]
+    },
+    {
+	"id": "legion.cycle.afraid_continue",
+	"label": "恐惧即我",
+	"startdescription": "当雄狮怒吼时，其它一切生物均在恐惧中低伏，只因它们理解了百兽之王已君临于此。于此，我即为雄狮，他们的灵魂则为我的猎物。[敌人不会攻击你或是干涉你完成目标的尝试。]",
+	"warmup": 30,
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"linked": [
+	    {
+		"id": "legion.cycle.afraid_continue"
+	    },
+	    {
+		"id": "legion.cycle.afraid_end"
+	    }
+	]
+    },
+    {
+	"id": "legion.cycle.afraid_end",
+	"label": "恐惧即我",
+	"startdescription": "当雄狮怒吼时，其它一切生物均在恐惧中低伏，只因它们理解了百兽之王已君临于此。于此，我即为雄狮，他们的灵魂则为我的猎物。[敌人不会攻击你或是干涉你完成目标的尝试。]",
+	"effects": {
+	    "signaller_afraid_legion": -99
+	},
+	"linked": [
+	    {
+		"id": "legion.cycle"
+	    }
+	]
+    },
+    {
+	"id": "legion.pickaction.router",
+	"label": "门关军团行动了！",
+	"startdescription": "警报响起——我们的敌人开始行动了！",
+	"extantreqs": {
+	    "skill.intimidate.active": -1
+	},
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"alt": [
+	    {
+		"id": "lionel.attack.startup",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "legion.singleattack.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "legion.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "legion.clear",
+	"label": "门关军团行动了！",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "legion.cycle"
+	    }
+	]
+    },
+    {
+	"id": "legion.singleattack.startup",
+	"actionid": "attack.legion",
+	"label": "一次敌袭！",
+	"startdescription": "我们的敌人之一寻求对我们的袭击——",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌军",
+		"required": {
+		    "faction.legion": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqlionel": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "found.boundsmen"
+	    },
+	    {
+		"id": "found.otherlegionenemy"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "found.boundsmen",
+	"label": "一次敌袭！",
+	"startdescription": "这一敌军与其同伴步调一致地移动——",
+	"requirements": {
+	    "foe.coordinated": 1,
+	    "foe.boundsmen": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌军",
+		"required": {
+		    "foe.boundsmen": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqlionel": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "target.king",
+		"chance": 40
+	    },
+	    {
+		"id": "legion.defend.opportunity.pre"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "found.otherlegionenemy",
+	"label": "一次敌袭！",
+	"startdescription": "",
+	"requirements": {
+	    "faction.legion": 1
+	},
+	"linked": [
+	    {
+		"id": "target.king",
+		"chance": 40
+	    },
+	    {
+		"id": "legion.defend.opportunity.pre"
+	    }
+	]
+    },
+    {
+	"id": "target.king",
+	"label": "针对新王亨利的私兵队？",
+	"startdescription": "我们全部都在争夺那颗星——这意味着我们三方势力相互之间均为敌对。而这一次，门关军团选择了另一方作为目标。",
+	"tablereqs": {
+	    "faction.king": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌军",
+		"required": {
+		    "faction.king": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqjerome": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "target.king.defeat",
+		"chance": 35
+	    },
+	    {
+		"id": "target.king.victory"
+	    }
+	]
+    },
+    {
+	"id": "target.king.defeat",
+	"label": "门关军团并未获胜",
+	"startdescription": "新王的军队抵挡住了攻势；军团士兵退回了属于他们的迷雾与阴影中。无人能被称作胜利者。",
+    },
+    {
+	"id": "target.king.victory",
+	"label": "门关军团获胜了！",
+	"startdescription": "新王的军队在夜间被击败。内脏外流的尸体被丢到泥地上。军团士兵的刺刀与匕首照亮阴影，但仅有一瞬，而后便消失。",
+	"aspects": {
+	    "killking": 1
+	}
+    },
+    {
+	"id": "legion.defend.opportunity.pre",
+	"label": "一次敌袭！",
+	"startdescription": "",
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "defend.opportunity"
+	    }
+	]
+    },
+    {
+	"id": "lionel.attack.startup",
+	"actionid": "attack.lionel",
+	"label": "指挥官行动了！",
+	"startdescription": "“我给了你机会离开——但你们这种人从不会照做。为刺激那对力量鲁莽的渴望，你们会做出任何事。”",
+	"tablereqs": {
+	    "uqlionel": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"slots": [
+	    {
+		"id": "needslionel",
+		"label": "敌军",
+		"required": {
+		    "uqlionel": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"internaldeck": {
+	    "spec": [
+		"decision.enemy.doubleattack",
+		"decision.enemy.attack",
+		"decision.enemy.attack",
+		"decision.enemy.attack",
+		"decision.enemy.attack",
+		"decision.enemy.attack",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "lionel.physicalattack"
+	    },
+	    {
+		"id": "lionel.makemaze"
+	    }
+	]
+    },
+    {
+	"id": "lionel.physicalattack",
+	"label": "凶恶突袭！",
+	"startdescription": "“如果你放弃抵抗，我可以让你死个痛快。”\n\n[莱昂内尔尝试对你和你的友军造成物理伤害。放入一张卡牌并达到他的任一阈值以成功防御。]",
+	"requirements": {
+	    "decision.enemy.attack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "防御",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "defend.edge"
+	    },
+	    {
+		"id": "defend.edgeknock"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "lionel.makemaze",
+	"label": "山楂的陷阱",
+	"startdescription": "看守门关的司辰授予了这位门关军团的守门中尉特殊的权柄。而其中之一则是允许这位中尉——只要遵循正确的礼节——请求空间本身醒转并听从他的指令。",
+	"description": "那一瞬间，我失去了一切平衡感与方向感。有什么变化了。现在醒时世界的经纬接到了一项新的命令，那就是妨碍我们的一切战争努力。",
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"effects": {
+	    "side.spacemaze": 1
+	},
+	"warmup": 30
+    }
+]
+}

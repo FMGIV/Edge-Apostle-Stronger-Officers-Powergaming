@@ -1,0 +1,1960 @@
+{
+"elements": [
+    {
+	"id": "friend.yuri.local",
+	"label": "尤里·谢连科准尉",
+	"description": "一位态度轻蔑的<i>政委</i>，一股狂热充斥着他的脑海。",
+	"aspects": {
+	    "lantern": 4,
+	    "edge": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.yuri.local.wounded",
+	    "fatiguing": "friend.yuri.local.exhausted",
+	    "recruiting": "friend.yuri",
+	    "mortal.introduce": [
+		{
+		    "id": "side.yuri",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.yuri"
+    },
+    {
+	"id": "friend.yuri.local.exhausted",
+	"label": "尤里·谢连科准尉（枯竭）",
+	"description": "尤里回到他的帐篷里去研读更多建国领袖的作品。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.yuri.local.wounded",
+	    "fatiguing": "friend.yuri.local.exhausted",
+	    "refresh": "friend.yuri.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.yuri.local",
+	"icon": "friend.yuri",
+	"resaturate": true
+    },
+    {
+	"id": "friend.yuri.local.wounded",
+	"label": "尤里·谢连科准尉（负伤）",
+	"description": "一位态度轻蔑的<i>政委</i>，一股狂热充斥着他的脑海。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.yuri.local"
+	},
+	"icon": "friend.yuri.wounded"
+    },
+    {
+	"id": "friend.yuri",
+	"label": "尤里·谢连科准尉",
+	"description": "一位态度轻蔑的<i>政委</i>，一股狂热充斥着他的脑海。",
+	"aspects": {
+	    "lantern": 4,
+	    "edge": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.yuri.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.yuri.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.yuri.exhausted",
+	"label": "尤里·谢连科准尉（枯竭）",
+	"description": "尤里回到他的帐篷里去研读更多建国领袖的作品。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.yuri.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.yuri.exhausted",
+	    "refresh": "friend.yuri"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.yuri",
+	"icon": "friend.yuri",
+	"resaturate": true
+    },
+    {
+	"id": "friend.yuri.wounded",
+	"label": "尤里·谢连科准尉（负伤）",
+	"description": "一位态度轻蔑的<i>政委</i>，一股狂热充斥着他的脑海。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.yuri"
+	}
+    },
+    {
+	"id": "friend.konstantin.local",
+	"label": "康斯坦丁·伊斯梅洛夫医生",
+	"description": "一位战地外科医生，其品行存疑，但水平毋庸置疑。",
+	"aspects": {
+	    "knock": 4,
+	    "heart": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.konstantin.local.wounded",
+	    "fatiguing": "friend.konstantin.local.exhausted",
+	    "recruiting": "friend.konstantin",
+	    "mortal.introduce": [
+		{
+		    "id": "side.konstantin",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.konstantin"
+    },
+    {
+	"id": "friend.konstantin.local.exhausted",
+	"label": "康斯坦丁·伊斯梅洛夫医生（枯竭）",
+	"description": "这位医生需要时间以消毒其工具，同时欣赏它们。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.konstantin.local.wounded",
+	    "fatiguing": "friend.konstantin.local.exhausted",
+	    "refresh": "friend.konstantin.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.konstantin.local",
+	"icon": "friend.konstantin",
+	"resaturate": true
+    },
+    {
+	"id": "friend.konstantin.local.wounded",
+	"label": "康斯坦丁·伊斯梅洛夫医生（负伤）",
+	"description": "一位战地外科医生，其品行存疑，但水平毋庸置疑。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.konstantin.local"
+	},
+	"icon": "friend.konstantin.wounded"
+    },
+    {
+	"id": "friend.konstantin",
+	"label": "康斯坦丁·伊斯梅洛夫医生",
+	"description": "一位战地外科医生，其品行存疑，但水平毋庸置疑。",
+	"aspects": {
+	    "knock": 4,
+	    "heart": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.konstantin.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.konstantin.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.konstantin.exhausted",
+	"label": "康斯坦丁·伊斯梅洛夫医生（枯竭）",
+	"description": "这位医生需要时间以消毒其工具，同时欣赏它们。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.konstantin.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.konstantin.exhausted",
+	    "refresh": "friend.konstantin"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.konstantin",
+	"icon": "friend.konstantin",
+	"resaturate": true
+    },
+    {
+	"id": "friend.konstantin.wounded",
+	"label": "康斯坦丁·伊斯梅洛夫医生（负伤）",
+	"description": "一位战地外科医生，其品行存疑，但水平毋庸置疑。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.konstantin"
+	}
+    },
+    {
+	"id": "friend.iosef.local",
+	"label": "约瑟夫·沃洛金",
+	"description": "一位瘦长，结实的<i>惩戒营</i>幸存者，曾被用光荣的兵役惩罚。",
+	"aspects": {
+	    "moth": 4,
+	    "grail": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.iosef.local.wounded",
+	    "fatiguing": "friend.iosef.local.exhausted",
+	    "recruiting": "friend.iosef",
+	    "mortal.introduce": [
+		{
+		    "id": "side.iosef",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.iosef"
+    },
+    {
+	"id": "friend.iosef.local.exhausted",
+	"label": "约瑟夫·沃洛金（枯竭）",
+	"description": "约瑟夫在他的毯子下发抖，双眼紧闭。他非常，<i>非常</i>想念香烟。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.iosef.local.wounded",
+	    "fatiguing": "friend.iosef.local.exhausted",
+	    "refresh": "friend.iosef.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.iosef.local",
+	"icon": "friend.iosef",
+	"resaturate": true
+    },
+    {
+	"id": "friend.iosef.local.wounded",
+	"label": "约瑟夫·沃洛金（负伤）",
+	"description": "一位瘦长，结实的<i>惩戒营</i>幸存者，曾被用光荣的兵役惩罚。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.iosef.local"
+	},
+	"icon": "friend.iosef.wounded"
+    },
+    {
+	"id": "friend.iosef",
+	"label": "约瑟夫·沃洛金",
+	"description": "一位瘦长，结实的<i>惩戒营</i>幸存者，曾被用光荣的兵役惩罚。",
+	"aspects": {
+	    "moth": 4,
+	    "grail": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.iosef.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.iosef.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.iosef.exhausted",
+	"label": "约瑟夫·沃洛金（枯竭）",
+	"description": "约瑟夫在他的毯子下发抖，双眼紧闭。他非常，<i>非常</i>想念香烟。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.iosef.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.iosef.exhausted",
+	    "refresh": "friend.iosef"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.iosef",
+	"icon": "friend.iosef",
+	"resaturate": true
+    },
+    {
+	"id": "friend.iosef.wounded",
+	"label": "约瑟夫·沃洛金（负伤）",
+	"description": "一位瘦长，结实的<i>惩戒营</i>幸存者，曾被用光荣的兵役惩罚。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.iosef"
+	}
+    },
+    {
+	"id": "friend.nikolai.local",
+	"label": "尼古拉·别利亚耶夫",
+	"description": "一位孤僻的，面无表情的炮兵，他严格地分配着说出的话语。",
+	"aspects": {
+	    "forge": 4,
+	    "winter": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.nikolai.local.wounded",
+	    "fatiguing": "friend.nikolai.local.exhausted",
+	    "recruiting": "friend.nikolai",
+	    "mortal.introduce": [
+		{
+		    "id": "side.nikolai",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.nikolai"
+    },
+    {
+	"id": "friend.nikolai.local.exhausted",
+	"label": "尼古拉·别利亚耶夫（枯竭）",
+	"description": "尼古拉正尽他所能独处。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.nikolai.local.wounded",
+	    "fatiguing": "friend.nikolai.local.exhausted",
+	    "refresh": "friend.nikolai.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.nikolai.local",
+	"icon": "friend.nikolai",
+	"resaturate": true
+    },
+    {
+	"id": "friend.nikolai.local.wounded",
+	"label": "尼古拉·别利亚耶夫（负伤）",
+	"description": "一位孤僻的，面无表情的炮兵，他严格地分配着说出的话语。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.nikolai.local"
+	},
+	"icon": "friend.nikolai.wounded"
+    },
+    {
+	"id": "friend.nikolai",
+	"label": "尼古拉·别利亚耶夫",
+	"description": "一位孤僻的，面无表情的炮兵，他严格地分配着说出的话语。",
+	"aspects": {
+	    "forge": 4,
+	    "winter": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.nikolai.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.nikolai.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.nikolai.exhausted",
+	"label": "尼古拉·别利亚耶夫（枯竭）",
+	"description": "尼古拉正尽他所能独处。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.nikolai.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.nikolai.exhausted",
+	    "refresh": "friend.nikolai"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.nikolai",
+	"icon": "friend.nikolai",
+	"resaturate": true
+    },
+    {
+	"id": "friend.nikolai.wounded",
+	"label": "尼古拉·别利亚耶夫（负伤）",
+	"description": "一位孤僻的，面无表情的炮兵，他严格地分配着说出的话语。[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.nikolai"
+	}
+    },
+]
+}

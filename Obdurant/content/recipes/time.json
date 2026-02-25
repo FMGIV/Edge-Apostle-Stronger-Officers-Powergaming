@@ -1,0 +1,777 @@
+{
+"recipes": [
+    {
+	"id": "time.first.contemnant",
+	"actionid": "time.exile",
+	"label": "Time",
+	"startdescription": "The final enemy.",
+	"warmup": 60,
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"linked": [
+	    {
+		"id": "time.draw"
+	    }
+	],
+	"internaldeck": {
+	    "spec": [
+		"runmarker.sergei",
+		"runmarker.cross"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+    },
+    {
+	"id": "time.first.proterant",
+	"actionid": "time.exile",
+	"label": "Time",
+	"startdescription": "The final enemy.",
+	"warmup": 60,
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.camilla",
+		"draw.sergei"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "time.draw"
+	    }
+	]
+    },
+    {
+	"id": "time.first.obdurant",
+	"actionid": "time.exile",
+	"label": "Time",
+	"startdescription": "The final enemy.",
+	"warmup": 60,
+	"extantreqs": {
+	    "obdurant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.wilhelm",
+		"draw.sergei"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "time.draw"
+	    }
+	]
+    },
+    {
+	"id": "time.draw",
+	"actionid": "time.exile",
+	"label": "Time",
+	"startdescription": "The final enemy.",
+	"deckeffects": {
+	    "days.deck": 1
+	},
+	"linked": [
+	    {
+		"id": "time.cycle"
+	    }
+	]
+    },
+    {
+	"id": "time.cycle",
+	"actionid": "time.exile",
+	"label": "Time",
+	"startdescription": "The final enemy.",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "pre.death"
+	    },
+	    {
+		"id": "pre.trauma"
+	    },
+	    {
+		"id": "time.clear"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.craterfield",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "arrive.marinette",
+		"additional": true,
+		"chance": 45
+	    },
+	    {
+		"id": "arrive.marinette.whilehiding",
+		"additional": true,
+		"chance": 15
+	    },
+	    {
+		"id": "long.arrival.contemnant.router",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "long.arrival.camilla.router",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "long.arrival.wilhelm.router",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "long.arrival.sergei.router",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "spit.nospace.penalty",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "spit.lefttoelements.penalty",
+		"additional": true,
+		"chance": 30
+	    },
+	    {
+		"id": "dreams.startup",
+		"additional": true
+	    },
+	    {
+		"id": "hindrances.startup",
+		"additional": true
+	    },
+	    {
+		"id": "resupply.startup",
+		"additional": true
+	    },
+	    {
+		"id": "resupply.startup.contemnant",
+		"additional": true
+	    },
+	    {
+		"id": "conclusion.startup",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "time.clear",
+	"actionid": "time.exile",
+	"label": "Time",
+	"startdescription": "The final enemy.",
+	"effects": {
+	    "season": -99
+	},
+	"linked": [
+	    {
+		"id": "time.draw"
+	    }
+	]
+    },
+    {
+	"id": "spit.nospace.penalty",
+	"actionid": "spit.winter",
+	"label": "Left to the Elements",
+	"startdescription": "Sleeping on the hard ground, hung out to dry in the night's chill - it can take a toll on even the hardiest soldier.\n\n[When your Force Size exceeds how much Space you have to spare, some of your Allies may become exhausted or even wounded from exposure to the elements.]",
+	"grandreqs": { "[~/extant:forcesize] > [~/extant:room]": 1 },
+	"tablereqs": {
+	    "friend": 1
+	},
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Ally",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+		"id": "spit.nospace.penalty.killfriend.wounded"
+	    },
+	    {
+		"id": "spit.nospace.penalty.killfriend.damaged"
+	    },
+	    {
+		"id": "spit.nospace.penalty.wound",
+		"chance": 30
+	    },
+	    {
+		"id": "spit.nospace.penalty.removeexperience"
+	    }
+	],
+	"extantreqs": {
+	    "contemnant.story": -1
+	}
+    },
+    {
+	"id": "spit.lefttoelements.penalty",
+	"actionid": "spit.winter",
+	"label": "Left to the Elements",
+	"startdescription": "Sleeping on the hard ground, hung out to dry in the night's chill - it can take a toll on even the hardiest soldier.\n\n[Occasionally, some of your Allies may become exhausted or even wounded from exposure to the elements.]",
+	"tablereqs": {
+	    "friend": 1
+	},
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Ally",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "friend.immortal": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+		"id": "spit.nospace.penalty.killfriend.wounded"
+	    },
+	    {
+		"id": "spit.nospace.penalty.killfriend.damaged"
+	    },
+	    {
+		"id": "spit.nospace.penalty.wound",
+		"chance": 30
+	    },
+	    {
+		"id": "spit.nospace.penalty.removeexperience"
+	    }
+	],
+	"extantreqs": {
+	    "contemnant.story": 1
+	}
+    },
+    {
+	"id": "spit.nospace.penalty.killfriend.wounded",
+	"label": "Left to the Elements",
+	"startdescription": "Gone. I imagine they felt very little towards the end.\n\n[Wounded Allies who are exposed to the elements will perish.]",
+	"requirements": {
+	    "wounded": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "spit.nospace.penalty.killfriend.damaged",
+	"label": "Left to the Elements",
+	"startdescription": "The machinery has gone past the point of recovery, as has its operator.\n\n[Damaged Allies who are exposed to the elements will perish.]",
+	"requirements": {
+	    "damaged": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "spit.nospace.penalty.wound",
+	"label": "Left to the Elements",
+	"startdescription": "Sleeping on the hard ground, hung out to dry in the night's chill - it can take a toll on even the hardiest soldier.\n\n[When your Force Size exceeds how much Space you have to spare, some of your Allies may become exhausted or even wounded from exposure to the elements.]",
+	"requirements": {
+	    "friend": 1
+	},
+	"aspects": {
+	    "makecasualty": 1
+	}
+    },
+    {
+	"id": "spit.nospace.penalty.removeexperience",
+	"label": "Left to the Elements",
+	"startdescription": "Sleeping on the hard ground, hung out to dry in the night's chill - it can take a toll on even the hardiest soldier.\n\n[When your Force Size exceeds how much Space you have to spare, some of your Allies may become exhausted or even wounded from exposure to the elements.]",
+	"requirements": {
+	    "experience.exile.ally": 1
+	},
+	"mutations": [
+	    {
+		"filter": "experience.exile.ally",
+		"mutate": "experience.exile.ally",
+		"level": -1,
+		"additive": true
+	    }
+	]
+    },
+    {
+	"id": "pre.death",
+	"label": "The Opposite of Battle?",
+	"startdescription": "One more dead soldier, then. [If you still have at least five Wounds and Debilitations when this recipe concludes, you will perish.]",
+	"extantreqs": {
+	    "damage.body": 5,
+	    "skill.sustain.active": -1
+	},
+	"warmup": 60,
+	"signalEndingFlavour": "Melancholy",
+	"signalMusic": "neardeath.mp3",
+	"linked": [
+	    {
+		"id": "deathtrigger.contemnant"
+	    },
+	    {
+		"id": "deathtrigger.proterant"
+	    },
+	    {
+		"id": "deathtrigger"
+	    },
+	    {
+		"id": "time.clear"
+	    }
+	]
+    },
+    {
+	"id": "deathtrigger.contemnant",
+	"label": "The Opposite of Battle?",
+	"extantreqs": {
+	    "damage.body": 5,
+	    "contemnant.story": 1,
+	    "skill.sustain.active": -1
+	},
+	"ending": "defeat.death.contemnant",
+	"achievements": [
+	    "ending.deathbody.contemnant"
+	]
+    },
+    {
+	"id": "deathtrigger.proterant",
+	"label": "The Opposite of Battle?",
+	"extantreqs": {
+	    "damage.body": 5,
+	    "proterant.story": 1
+	},
+	"ending": "defeat.death.proterant",
+	"achievements": [
+	    "ending.deathbody.proterant"
+	]
+    },
+    {
+	"id": "deathtrigger",
+	"label": "The Opposite of Battle?",
+	"extantreqs": {
+	    "damage.body": 5,
+	    "obdurant.story": 1
+	},
+	"ending": "defeat.death",
+	"achievements": [
+	    "ending.deathbody"
+	]
+    },
+    {
+	"id": "hindrances.startup",
+	"actionid": "hindrances.verb",
+	"label": "Embattled Skies",
+	"startdescription": "Armies are not the only forces to hold sway over the battlefield: biting cold, pounding rain, and other treacheries can endanger our work. What is to come?",
+	"requirements": {
+	    "days.hindrances": 1
+	},
+	"warmup": 30,
+	"deckeffects": {
+	    "hindrances.light": 1
+	},
+	"alt": [
+	    {
+		"id": "hindrances.heavy.startup.obdurant"
+	    },
+	    {
+		"id": "hindrances.heavy.startup.proterant"
+	    },
+	    {
+		"id": "hindrances.heavy.startup.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "hindrances.heavy.startup.obdurant",
+	"label": "Convergence and Adversity",
+	"startdescription": "The Corrivality burns bright here. Above, the Hours gather in scrutiny and curiosity and disdain. The battlefield prickles with the dangerous power of their attention, tempting curses and afflictions out from the Mansus and into the world. What is to come?",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "obdurant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.obdurant": 1,
+	    "hindrances.light": 1
+	}
+    },
+    {
+	"id": "hindrances.heavy.startup.proterant",
+	"label": "Convergence and Adversity",
+	"startdescription": "The Corrivality burns bright here. Above, the Hours gather in scrutiny and curiosity and disdain. The battlefield prickles with the dangerous power of their attention, tempting curses and afflictions out from the Mansus and into the world. What is to come?",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "proterant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.proterant": 1,
+	    "hindrances.light": 1
+	}
+    },
+    {
+	"id": "resupply.startup",
+	"actionid": "resupply",
+	"label": "Provisioning",
+	"startdescription": "A friendly convoy passes our perimeter, carrying priceless cargo: food, drink, medicine. There might even be a piece of chocolate or two inside.\n\n[Resupply will continue to occur so long as you are not in the Ruined Country, or cutoff by your Enemies.]",
+	"requirements": {
+	    "days.resupply": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": -1,
+	    "wasteland": -1,
+	    "side.cutoff": -1,
+	    "lake.here": -1
+	},
+	"effects": {
+	    "provisions": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"provisions",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "resupply.givemodello"
+	    },
+	    {
+		"id": "resupply.giverifle"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "resupply.givemodello",
+	"actionid": "resupply",
+	"label": "Provisioning",
+	"startdescription": "A friendly convoy passes our perimeter, carrying priceless cargo: food, drink, medicine. There might even be a piece of chocolate or two inside.\n\n[Resupply will continue to occur so long as you are not in the Ruined Country, or cut off by your Enemies.]",
+	"extantreqs": {
+	    "proterant.weapon": -1,
+	    "proterant.weapon.exhausted": -1,
+	    "proterant.story": 1
+	},
+	"effects": {
+	    "proterant.weapon": 1
+	}
+    },
+    {
+	"id": "resupply.giverifle",
+	"actionid": "resupply",
+	"label": "Provisioning",
+	"startdescription": "A friendly convoy passes our perimeter, carrying priceless cargo: food, drink, medicine. There might even be a piece of chocolate or two inside.\n\n[Resupply will continue to occur so long as you are not in the Ruined Country, or cut off by your Enemies.]",
+	"extantreqs": {
+	    "obdurant.weapon": -1,
+	    "obdurant.weapon.exhausted": -1,
+	    "obdurant.story": 1
+	},
+	"effects": {
+	    "obdurant.weapon": 1
+	}
+    },
+    {
+	"id": "resupply.startup.contemnant",
+	"actionid": "resupply.yellow",
+	"label": "Provisioning?",
+	"startdescription": "A supply convoy passes through the outskirts, carrying priceless cargo: food, drink, medicine. It's not bringing supplies for us - more likely for the Russians, or the Germans - but that's not to say we won't be inviting ourselves to the table.\n\n[To gain Provisions, provide an Ally who can steal from passing supply convoys. Sometimes this can fail, but a Hidden Ally will always succeed at this. You can also provide Edge lore if you want to do it yourself.]",
+	"description": "None of us could work up the guts to thieve. More starving nights ahead.",
+	"requirements": {
+	    "days.resupply": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "warzone.current": 1,
+	    "wasteland": -1,
+	    "side.cutoff": -1,
+	    "lake.here": -1,
+	    "sobibor.here": -1
+	},
+	"slots": [
+	    {
+		"id": "needsally",
+		"label": "Ally",
+		"required": {
+		    "friend": 1,
+		    "lore": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "remnant": 1,
+		    "hired": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"alt": [
+	    {
+		"id": "resupply.contemnant.allygiven"
+	    },
+	    {
+		"id": "resupply.contemnant.loregiven"
+	    }
+	]
+    },
+    {
+	"id": "resupply.contemnant.allygiven",
+	"label": "Supply Runs",
+	"startdescription": "'Get in, and get out.'",
+	"requirements": {
+	    "friend": 1
+	},
+	"linked": [
+	    {
+		"id": "resupply.contemnant.success.hidden"
+	    },
+	    {
+		"id": "resupply.contemnant.success",
+		"chance": 70
+	    },
+	    {
+		"id": "resupply.contemnant.failure"
+	    }
+	]
+    },
+    {
+	"id": "resupply.contemnant.loregiven",
+	"label": "Supply Runs",
+	"startdescription": "'Get in, and get out.'",
+	"requirements": {
+	    "lore": 1
+	},
+	"linked": [
+	    {
+		"id": "resupply.contemnant.success",
+		"chance": 70
+	    },
+	    {
+		"id": "resupply.contemnant.failure"
+	    }
+	]
+    },
+    {
+	"id": "resupply.contemnant.success.hidden",
+	"label": "A Successful Supply Run",
+	"startdescription": "We'll never be able to snatch up enough for everyone, but this will have to do.",
+	"requirements": {
+	    "friend.hidden": 1
+	},
+	"effects": {
+	    "provisions": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"provisions",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "resupply.contemnant.success",
+	"label": "A Successful Supply Run",
+	"startdescription": "We'll never be able to snatch up enough for everyone, but this will have to do.",
+	"effects": {
+	    "provisions": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"provisions",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "resupply.contemnant.failure",
+	"label": "A Failed Supply Run",
+	"startdescription": "A slip-up during the theft - the convoy spotted us! Forced to run, we return empty-handed. The disappointment is so palpable I could almost chew on it.",
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "conclusion.startup",
+	"actionid": "conclusion",
+	"label": "A Conclusion?",
+	"startdescription": "The air is still and fatal. Our injured cry out in the night - perhaps one of them will fall silent.\n\n[Wounded or Damaged Allies will perish.]",
+	"requirements": {
+	    "days.conclusion": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomeone",
+		"label": "Casualty",
+		"required": {
+		    "wounded": 1,
+		    "damaged": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "conclusion.frienddetected"
+	    },
+	    {
+		"id": "conclusion.fail"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "conclusion.frienddetected",
+	"label": "Gone Quiet",
+	"startdescription": "Death never travels far from war.",
+	"requirements": {
+	    "friend": 1
+	},
+	"aspects": {
+	    "killfriend": 1,
+	    "killmortal": 1
+	}
+    },
+    {
+	"id": "conclusion.fail",
+	"label": "Not Tonight",
+	"startdescription": "No-one has died, not yet. The dread I felt in the cold of my ribs turns meditative, and I begin to ponder matters.",
+	"requirements": {
+	    "friend": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.calm",
+		"mem.regret",
+		"mem.fear"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "pre.trauma",
+	"label": "Death of the Spirit",
+	"startdescription": "Why? Why go on? [If you still have five Trauma when this ends, you will lose yourself to despair.]",
+	"extantreqs": {
+	    "damage.mind": 5
+	},
+	"signalEndingFlavour": "Melancholy",
+	"signalMusic": "neardeath.mp3",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "shellshocktrigger.contemnant"
+	    },
+	    {
+		"id": "shellshocktrigger.proterant"
+	    },
+	    {
+		"id": "shellshocktrigger"
+	    },
+	    {
+		"id": "time.clear"
+	    }
+	]
+    },
+    {
+	"id": "shellshocktrigger.contemnant",
+	"label": "Death of the Spirit",
+	"extantreqs": {
+	    "damage.mind": 5,
+	    "contemnant.story": 1
+	},
+	"ending": "defeat.shellshock.contemnant",
+	"achievements": [
+	    "ending.deathmind.contemnant"
+	]
+    },
+    {
+	"id": "shellshocktrigger.proterant",
+	"label": "Death of the Spirit",
+	"extantreqs": {
+	    "damage.mind": 5,
+	    "proterant.story": 1
+	},
+	"ending": "defeat.shellshock.proterant",
+	"achievements": [
+	    "ending.deathmind.proterant"
+	]
+    },
+    {
+	"id": "shellshocktrigger",
+	"label": "Death of the Spirit",
+	"extantreqs": {
+	    "damage.mind": 5
+	},
+	"ending": "defeat.shellshock",
+	"achievements": [
+	    "ending.deathmind"
+	]
+    },
+    {
+	"id": "produce.craterfield",
+	"actionid": "fallingstar",
+	"label": "A Star Falls!",
+	"startdescription": "The night is hedged with stretches of pale cloud, the stars winking bright in the places the sky goes unclothed. My eyes search the heavens. I can feel the gears of fate turning behind the world I can see. The air reeks of destiny. My eyes search.",
+	"description": "A low clang rings out distantly above us, like the timbre of a fathomless bell, and then there is a light. Some of us stare in awe, thinking it has suddenly become day. But when I look again, I see that it is still night, and I see what had illuminated the night so: a star. A star, tumbling down from heaven in ribbons of fire and light; the Lionsmith's gift for whomever is strong enough to seize it.",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "montecassino.here": 1
+	},
+	"effects": {
+	    "craterfield": 1
+	},
+	"warmup": 30,
+	"maxexecutions": 1
+    }
+]
+}

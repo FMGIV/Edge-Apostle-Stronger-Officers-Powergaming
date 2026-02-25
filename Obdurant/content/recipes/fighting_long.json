@@ -1,0 +1,1013 @@
+{
+"recipes": [
+   {
+	"id": "communicate.duel.exile",
+	"actionid": "communicate",
+	"label": "Advice from a Friend",
+	"startdescription": "My friend shakes my hand. 'Well, well. I knew I saw something exceptional in you,' they say, smiling. 'You've come very far. This, here - this will be the hardest battle you will fight yet. So, allow me to give you some last words of advice...'",
+	"description": "'He's stronger than you, so he'll be taking the offensive from the start. And don't try to wrest it from him - fight defensively. An opening will present itself. One always does, eventually.'",
+	"warmup": 10,
+	"requirements": {
+	    "duel.exile": 1
+	},
+	"effects": {
+	    "patience": 1,
+	    "duel.exile": -1
+	},
+	"craftable": true
+    },
+    {
+	"id": "communicate.duel.foe",
+	"actionid": "communicate",
+	"label": "Advice from a Foe",
+	"startdescription": "Duffoure - the Foe, as my friend calls him - stands a bit further away from the rest of us, smoking a cigarette. So I am surprised when, suddenly, I find him looming behind me. He offers me a cigarette, which I think would be unwise to refuse. 'That one over there thinks you've got the mettle to be Named,' he says, nodding at the Exile. 'I am not so convinced yet. What will your first move be? How will you go about winning?'",
+	"description": "A guttural chuckle rumbles in Duffoure's throat. 'You remind me of myself when I was younger.' He throws his cigarette to the ground and grinds it beneath his heel. 'Good luck.'",
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsedge",
+		"label": "A Reply?",
+		"required": {
+		    "edge": 1
+		}
+	    }
+	],
+	"requirements": {
+	    "duel.foe": 1
+	},
+	"effects": {
+	    "cunning": 1,
+	    "duel.foe": -1
+	},
+	"craftable": true
+    },
+    {
+	"id": "communicate.duel.warmaker.hint",
+	"actionid": "communicate",
+	"label": "No Words Need Pass Between",
+	"startdescription": "The rules of musvashir prohibit the combatants involved from any kind of contact before combat commences. Until one of us has shed the other's blood, I will not speak to the Warmaker, and he will not speak to me.",
+	"requirements": {
+	    "duel.wilhelm": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "communicate.duel.camilla",
+	"actionid": "communicate",
+	"label": "Mouse and Lion",
+	"startdescription": "The Warmaker stands opposite me, and both the Continental and my friend stand between us. 'As the Tribune challenged the Serpent,' she begins. 'And as Alexander challenged the General - so too do we now witness the issue of a great and honourable challenge.' Then my friend speaks: 'In sight of the Hours Who Struggle and under the conventions of their law, the two combatants will fight until blood is drawn. He who suffers the first wound is defeated. Are the combatants ready?'",
+	"description": "'Begin!'",
+	"requirements": {
+	    "duel.camilla": 1
+	},
+	"effects": {
+	    "duel.camilla": -1
+	},
+	"craftable": true,
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "duelling.pre",
+		"additional": true
+	    }
+	],
+	"playAudioTrack": "warmakerduel.mp3"
+    },
+    {
+	"id": "duelling.pre",
+	"actionid": "long.wilhelm",
+	"label": "The Duel Begins!",
+	"startdescription": "The Warmaker sallies forth -",
+	"slots": [
+	    {
+		"id": "needswarmaker",
+		"label": "The Warmaker",
+		"required": {
+	 	    "duel.wilhelm": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "duelling.longattack.pre"
+	    }
+	],
+	"burnimage": "duelling"
+    },
+    {
+	"id": "duelling.longattack.pre",
+	"label": "My Opponent Strikes!",
+	"internaldeck": {
+	    "spec": [
+		"wilhelm.attack.a",
+		"wilhelm.attack.a",
+		"wilhelm.attack.a",
+		"wilhelm.attack.b",
+		"wilhelm.attack.b",
+		"wilhelm.attack.c",
+		"wilhelm.attack.c"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "duelling.longattack"
+	    }
+	]
+    },
+    {
+	"id": "duelling.longattack",
+	"label": "My Opponent Strikes!",
+	"startdescription": "@#wilhelm.attack.a|The Warmaker closes in hideously fast, and his mighty fists speed towards me -#wilhelm.attack.b|With an earth-cracking stomp, the Warmaker shakes the earth, and he lunges when he sees I am off balance -#wilhelm.attack.c|With a grunt of exertion, the Warmaker raises his arm to strike me, and I see in his hand there is fire -@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "duelling.wounded"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "duelling.skill.deflect"
+	    },
+	    {
+		"id": "duelling.respond.edge"
+	    },
+	    {
+		"id": "duelling.respond.winter"
+	    },
+	    {
+		"id": "duelling.respond.edgewinter"
+	    }
+	]
+    },
+    {
+	"id": "duelling.skill.deflect",
+	"label": "Defence, Inviolate",
+	"startdescription": "The meridians of my soul align with the meridians of my flesh. My scars armour me. I cannot be wounded.",
+	"requirements": {
+	    "skill.deflect": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.edge",
+	"label": "Force Equals Force",
+	"startdescription": "I would be a fool to try and block directly any strike the Warmaker heaves my way. It is deft, the way I redirect the momentum of his fist. He swipes at empty air.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.winter",
+	"label": "Winter Silences Summer",
+	"startdescription": "As he has fire in his hand, so too do I have winter in mine. There is a great hissing and a great rising of steam where our powers meet, and extinguish each other.",
+	"requirements": {
+	    "needswinter": 1,
+	    "winter": "needswinter",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.edgewinter",
+	"label": "Cunning and Patience",
+	"startdescription": "This time I am too quick, or too watchful, for the Warmaker's ploy to unbalance me. Even though the earth beneath gapes to swallow me, I go unshaken and unsnared.",
+	"requirements": {
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear"
+	    }
+	]
+    },
+    {
+	"id": "duelling.clear",
+	"label": "",
+	"effects": {
+	    "decision": -99
+	},
+	"alt": [
+	    {
+		"id": "eject.exhausted",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.cycle"
+	    }
+	]
+    },
+    {
+	"id": "eject.exhausted",
+	"actionid": "spit.moth",
+	"label": "Exhausted!",
+	"startdescription": "I've employed these against my opponent, and I will need time before I can effectively employ them again -",
+	"warmup": 10
+    },
+    {
+	"id": "duelling.cycle",
+	"label": "Immortal Confrontation",
+	"startdescription": "Seconds pass. Barely enough time to catch my breath. The Warmaker circles me, and I him.",
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "duelling.longattack.pre",
+		"chance": 30
+	    },
+	    {
+		"id": "duelling.cycle"
+	    }
+	]
+    },
+    {
+	"id": "produce.opening",
+	"actionid": "scandal",
+	"label": "A Gap in the Dragon's Scales?",
+	"startdescription": "The Edge-Long's tenacity and strength will not falter in the slightest. But I am beginning to see, now, that their wariness might. If only a little. Just a little longer on the defensive -",
+	"effects": {
+	    "long.opening": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "duelling.wounded",
+	"label": "Struck Down",
+	"startdescription": "When the Warmaker strikes me, he strikes with the strength of the earth and the ferocity of a falling star. I feel things within me buckle and crack. On the sidelines, my friend winces. Duffoure shakes his head.",
+	"description": "I cannot stand myself upright, but the Warmaker hoists me to my feet, one-handed. 'Technically, by the rules of the sacrament, I own your life now,' he says to me. 'But I have no use for the life of a defeated soldier. You will not see me nor my dear Enemy again.' His heavy hand claps me on the shoulder, and I nearly fall over again. 'Sorry, my friend. It looks like it was never going to be you.' And the Long go their separate ways, and I am alone.",
+	"alt": [
+	    {
+		"id": "edgelong.spitout.wounds",
+		"additional": true
+	    }
+	],
+	"haltverb": {
+	    "operate": 99
+	},
+	"effects": {
+	    "duel.wilhelm": -99,
+	    "mark.shame": 1
+	},
+	"playAudioTrack": "duelend.mp3",
+	"warmup": 30
+    },
+    {
+	"id": "operate.strike.edgelong.pre",
+	"actionid": "operate",
+	"label": "Execute an Impossible Attack?",
+	"startdescription": "I must strike with all that I am. Anything less will not suffice.\n\n[You will need to provide a great source of Edge for this gambit to even have a chance to succeed. It might fail anyway.]",
+	"requirements": {
+	    "long.opening": 3
+	},
+	"extantreqs": {
+	    "foe.sergei": -1,
+	    "obdurant.story": 1
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.edgelong",
+	"actionid": "operate",
+	"label": "Execute an Impossible Attack?",
+	"startdescription": "I must strike with all that I am. Anything less will not suffice.\n\n[You will need to provide a great source of Edge for this gambit to even have a chance to succeed. It might fail anyway.]",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "operate.strike.edgelong.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.failure"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.edgelong.success",
+	"label": "Executing an Impossible Attack",
+	"startdescription": "Seconds slow to years. The world holds its breath. My hand moves with destined clarity.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.failure",
+		"chance": 30
+	    },
+	    {
+		"id": "operate.strike.edgelong.success.complete"
+	    }
+	]
+    },	
+    {
+	"id": "operate.strike.edgelong.failure",
+	"label": "My Attack has Fallen Short!",
+	"startdescription": "My blow pings off the Edge-Long's body like a bullet off the hull of a warship. No blood is drawn.",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "long.opening": -2
+	}
+    },
+    {
+	"id": "operate.strike.edgelong.success.complete",
+	"label": "The Blood of an Immortal Opponent",
+	"startdescription": "A spray of vibrant red dapples the snow. The Warmaker stumbles back.",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "long.opening": -99
+	},
+	"haltverb": {
+	    "long.wilhelm": 99,
+	    "scandal": 99,
+	    "spit.moth": 99
+	},
+	"purge": {
+	    "long.opening": 99
+	},
+	"linked": [
+	    {
+		"id": "duelwon.mutatewound"
+	    }
+	],
+	"playAudioTrack": "duelend.mp3"
+    },
+    {
+	"id": "duelwon.mutatewound",
+	"label": "The Blood of an Immortal Opponent",
+	"startdescription": "A spray of vibrant red dapples the snow. The other Long bristle with sudden interest. The Warmaker stumbles back.",
+	"description": "My opponent touches his side where my attack found him, and his hand comes away red. Slowly, he cracks a smile, and looks at me. 'Well struck.'",
+	"slots": [
+	    {
+		"id": "needslong",
+		"label": "The Warmaker",
+		"required": {
+		    "duel.wilhelm": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "duel.wilhelm",
+		"mutate": "long_wound",
+		"level": 1
+	    }
+	],
+	"warmup": 30,
+	"achievements": [
+	    "victory.warmaker"
+	]
+    },
+    {
+	"id": "communicate.wilhelm.aftervictory",
+	"actionid": "communicate",
+	"label": "Mouse Conquers Lion",
+	"startdescription": "The Warmaker clasps his hands behind his back. 'Congratulations,' he smiles at me. 'We and the Hours Who Struggle acknowledge your strength and your valour; your skill and your resolution.' On the sidelines, the other Long watch with silent respect. My friend can barely suppress their grin. Duffoure almost looks impressed.",
+	"description": "I shake hands with my opponent, who leans in to whisper in my ear: 'If you <i>are</i> Named, you would be wise to watch yourself. One of us might try to challenge you the same way down the road,' he says with such winking warmth that it cannot be a threat - more like a promise between colleagues. 'Now, off you go, killer of men. Find your destiny.'",
+	"requirements": {
+	    "duel.wilhelm": 1,
+	    "long_wound": 1
+	},
+	"effects": {
+	    "duel.wilhelm": -99,
+	    "mark.musvashir": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "fightingsergei.longattack.pre",
+	"label": "My Opponent Strikes!",
+	"internaldeck": {
+	    "spec": [
+		"sergei.attack.a",
+		"sergei.attack.a",
+		"sergei.attack.a",
+		"sergei.attack.b",
+		"sergei.attack.b",
+		"sergei.attack.c",
+		"sergei.attack.c"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "fightingsergei.longattack"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.longattack",
+	"label": "The Iron-Eater Strikes!",
+	"startdescription": "@#sergei.attack.a|The Iron-Eater is a whirlwind of steel on horseback. Any in his path will be cut down -#sergei.attack.b|Our enemy sounds his horn, and a great gust of wind shrouds the battlefield in winter snows. Men scream out and are silenced - the Iron-Eater moves within the storm!#sergei.attack.c|On our flank, the Iron-Eater rides past with his rifle. Behind him follow a hundred other riders, pale and long-dead, armed with old fusils and flintlocks primed to fire -@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "fightingsergei.wounded"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "fightingsergei.skill.deflect"
+	    },
+	    {
+		"id": "fightingsergei.respond.edge"
+	    },
+	    {
+		"id": "fightingsergei.respond.forge"
+	    },
+	    {
+		"id": "fightingsergei.respond.edgeforge"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.skill.deflect",
+	"label": "Defence, Inviolate",
+	"startdescription": "The meridians of my soul align with the meridians of my flesh. My scars armour me. I cannot be wounded.",
+	"requirements": {
+	    "skill.deflect": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 70
+	    }
+	],
+	"linked": [
+	    {
+		"id": "fightingsergei.clear"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.respond.edge",
+	"label": "Against his Cruel Blade",
+	"startdescription": "We muster enough force to drive the old wolf back, somehow. He wheels back around, turning his horse from our volley -",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	},
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 70
+	    }
+	],
+	"linked": [
+	    {
+		"id": "fightingsergei.clear"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.respond.forge",
+	"label": "Summer Routs Winter",
+	"startdescription": "The phantom skirmishers are rendered dust by the firing of our terrible guns, and the Iron-Eater's offensive is lost in the smoke.",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge",
+	},
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 70
+	    }
+	],
+	"linked": [
+	    {
+		"id": "fightingsergei.clear"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.respond.edgeforge",
+	"label": "Little Lights in the Shadow",
+	"startdescription": "Fires light in the storm. Those of us who live stand back-to-back with our weapons against the Iron-Eater as he stalks between the winds, and we drive him back into the dark.",
+	"requirements": {
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge",
+	},
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 70
+	    }
+	],
+	"linked": [
+	    {
+		"id": "fightingsergei.clear"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.clear",
+	"label": "",
+	"effects": {
+	    "decision": -99
+	},
+	"alt": [
+	    {
+		"id": "eject.used",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "fightingsergei.cycle"
+	    }
+	]
+    },
+    {
+	"id": "eject.used",
+	"actionid": "spit.moth",
+	"label": "Exhausted!",
+	"startdescription": "Our weapons need be readied again, our dead need be stepped over and forgotten lest they slow us down -",
+	"warmup": 10,
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "fightingsergei.cycle",
+	"label": "Immortal Confrontation",
+	"startdescription": "Hoofbeats echo in the valley. The wind howls.",
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "fightingsergei.longattack.pre",
+		"chance": 30
+	    },
+	    {
+		"id": "fightingsergei.cycle"
+	    }
+	]
+    },
+    {
+	"id": "fightingsergei.wounded",
+	"label": "Cut Down",
+	"startdescription": "The Iron-Eater rips through us. The terror is immense; the pain is indescribable.",
+	"effects": {
+	    "decision": -99
+	},
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "edgelong.spitout.wounds",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "fightingsergei.cycle"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.sergei.pre",
+	"actionid": "operate",
+	"label": "Execute an Impossible Attack Against the Iron Eater?",
+	"startdescription": "I must strike with all that I am. Anything less will not suffice.\n\n[You will need to provide a great source of Edge for this gambit to even have a chance to succeed. It might fail anyway.]",
+	"extantreqs": {
+	    "foe.sergei": 1
+	},
+	"requirements": {
+	    "long.opening": 3
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "operate.strike.sergei"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.sergei",
+	"actionid": "operate",
+	"label": "Execute an Impossible Attack?",
+	"startdescription": "I must strike with all that I am. Anything less will not suffice.\n\n[You will need to provide a great source of Edge for this gambit to even have a chance to succeed. It might fail anyway.]",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "operate.strike.sergei.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "operate.strike.sergei.failure"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.sergei.success",
+	"label": "Executing an Impossible Attack",
+	"startdescription": "Seconds slow to years. The world holds its breath. My hand moves with destined clarity.",
+	"description": "All that, just to land a single blow.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"aspects": {
+	    "killfriend": 1,
+	    "killmortal": 1,
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "wound.sergei": 1,
+	    "long.opening": -2
+	},
+	"linked": [
+	    {
+		"id": "defeat.sergei.haltverb"
+	    }
+	]
+    },	
+    {
+	"id": "operate.strike.sergei.failure",
+	"label": "My Attack has Fallen Short!",
+	"startdescription": "My blow pings off the Edge-Long's body like a bullet off the hull of a warship. No blood is drawn.",
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1,
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "long.opening": -2
+	}
+    },
+    {
+	"id": "defeat.sergei.haltverb",
+	"label": "The Iron-Eater Falls!",
+	"extantreqs": {
+	    "wound.sergei": 3
+	},
+	"haltverb": {
+	    "long.sergei": 99
+	},
+	"linked": [
+	    {
+		"id": "defeat.sergei"
+	    }
+	]
+    },
+    {
+	"id": "defeat.sergei",
+	"label": "The Iron-Eater Falls!",
+	"startdescription": "My enemy has been thrown off his horse - now is my chance! I strike, and my attack finds the side of the Iron-Eater's skull. There is a great, horrendous cracking, and the Long cries out in pain and rage. He swings his hand, swatting me back, before he climbs back into the saddle to escape. When I arise, I see he has left a trail of blood in the snow where he ran.",
+	"extantreqs": {
+	    "wound.sergei": 3
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needssergei",
+		"label": "Iron-Eater",
+		"required": {
+		    "duel.sergei": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "duel.sergei": -1,
+	    "defeated.sergei": 1,
+	    "long.opening": -99
+	},
+	"playAudioTrack": "ironeatersurrender.mp3",
+	"achievements": [
+	    "victory.ironeater"
+	]
+    },
+    {
+	"id": "communicate.defeated.sergei.proterant",
+	"actionid": "communicate",
+	"label": "Surrender",
+	"startdescription": "I walk out into the snows alone, and find the Iron-Eater laying beneath a tree. His horse waits nearby, quietly. He does not stir when I approach - but then his voice crackles to life from within him. 'What I wouldn't give just to pull the skin from your flesh with my bare hands,' he whispers. 'But I am weary. So weary.' His voice is like broken glass. 'You've come for your trophy, haven't you? Your mark of honour for the men upstairs,' the Long spits. 'Well, what's it matter now, I suppose. Come here. I'll honour you.'",
+	"description": "The Iron-Eater's touch is agony - and then it is over. He slumps again, laying against the tree in motionless repose. 'I limped along for as long as I could. But I died on the day I killed that boy. That dear boy of mine...' The Long's face darkens. 'I hope that Runt-General takes you for his own. I hope you and him and all the rest endure to see the end of things. I hope it hurts.' The Iron-Eater does not say anything else, and his eyes take on a vacant aspect. His breathing is shallow in his chest. When I turn to walk away, I think I hear him weeping.",
+	"requirements": {
+	    "defeated.sergei": 1
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"effects": {
+	    "defeated.sergei": -99,
+	    "mark.surrender": 1
+	}
+    },
+    {
+	"id": "communicate.defeated.sergei",
+	"actionid": "communicate",
+	"label": "Surrender",
+	"startdescription": "I walk out into the snows alone, and find the Iron-Eater laying beneath a tree. His horse waits nearby, quietly. He does not stir when I approach - but then his voice crackles to life from within him. 'What I wouldn't give just to pull the skin from your flesh with my bare hands,' he whispers. 'But I am weary. So weary.' His voice is like broken glass. 'You've come for your trophy, haven't you? Your mark of honour for the men upstairs,' the Long spits. 'Well, what's it matter now, I suppose. Come here. I'll honour you.'",
+	"description": "The Iron-Eater's touch is agony - and then it is over. He slumps again, laying against the tree in motionless repose. 'I limped along for as long as I could. But I died on the day I killed that boy. That dear boy of mine...' The Long's face darkens. 'I hope the Blind Man takes you for his own. I hope you and him and all the rest endure to see the end of things. I hope it hurts.' The Iron-Eater does not say anything else, and his eyes take on a vacant aspect. His breathing is shallow in his chest. When I turn to walk away, I think I hear him weeping.",
+	"requirements": {
+	    "defeated.sergei": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"effects": {
+	    "defeated.sergei": -99,
+	    "mark.surrender": 1
+	}
+    }
+]
+}

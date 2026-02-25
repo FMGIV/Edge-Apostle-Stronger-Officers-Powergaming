@@ -1,0 +1,832 @@
+{
+"recipes": [
+    {
+	"id": "soviet.cycle.startup",
+	"actionid": "sovietaction",
+	"label": "红军正在准备",
+	"startdescription": "",
+	"effects": {
+	    "state.sovietsneutral": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "soviet.cycle.startup.aggro"
+	    }
+	]
+    },
+    {
+	"id": "soviet.cycle.startup.aggro",
+	"actionid": "sovietaction",
+	"label": "红军正在准备",
+	"startdescription": "",
+	"extantreqs": {
+	    "local.infamy": 3
+	},
+	"effects": {
+	    "state.sovietsaggro": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "soviet.cycle",
+	"label": "红军正在准备",
+	"startdescription": "@#state.sovietsneutral|名为苏联的战争机器已制定了将其西部战线向欧洲内部继续推进的计划。其将痛击此处的德军，且很快就会行动。\n#state.sovietsaggro|名为苏联的战争机器已制定了其下一步计划，但德军已不再是其面对的唯一问题。我们的行动已证明我们应被俄军敌视，至少应被厌恶，现在俄军不会再像以前那样友好了。@",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.turnaggro.inflames"
+	    },
+	    {
+		"id": "soviet.turnaggro",
+		"chance": 50
+	    },
+	    {
+		"id": "aggro.turnstragglers.neutral"
+	    },
+	    {
+		"id": "aggro.turnstragglers.hired"
+	    },
+	    {
+		"id": "soviet.pickaction.aggro.high",
+		"chance": 40
+	    },
+	    {
+		"id": "soviet.pickaction.aggro.low",
+		"chance": 40
+	    },
+	    {
+		"id": "soviet.act.neutral",
+		"chance": 40
+	    },
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "soviet.turnaggro.inflames",
+	"label": "红军正在准备",
+	"startdescription": "",
+	"extantreqs": {
+	    "shrine.wolf": 1
+	},
+	"requirements": {
+	    "state.sovietsaggro": -1
+	},
+	"aspects": {
+	    "annoyance": 1
+	},
+	"xpans": { 
+	    "resentment": 1 
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "soviet.turnaggro",
+	"label": "红军正在准备",
+	"startdescription": "",
+	"extantreqs": {
+	    "local.infamy": 3
+	},
+	"requirements": {
+	    "state.sovietsaggro": -1
+	},
+	"aspects": {
+	    "annoyance": 1
+	},
+	"xpans": { 
+	    "resentment": 1 
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "aggro.turnstragglers.neutral",
+	"label": "红军正在准备",
+	"startdescription": "@#state.sovietsneutral|名为苏联的战争机器已制定了将其西部战线向欧洲内部继续推进的计划。其将痛击此处的德军，且很快就会行动。\n#state.sovietsaggro|名为苏联的战争机器已制定了其下一步计划，但德军已不再是其面对的唯一问题。我们的行动已证明我们应被俄军敌视，至少应被厌恶，现在俄军不会再像以前那样友好了。@",
+	"xpans": { 
+	    "resentment": 1 
+	},
+	"extantreqs": {
+	    "state.sovietsaggro": 1
+	},
+	"tablereqs": {
+	    "neutral": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "aggro.turnstragglers.hired",
+	"label": "红军正在准备",
+	"startdescription": "@#state.sovietsneutral|名为苏联的战争机器已制定了将其西部战线向欧洲内部继续推进的计划。其将痛击此处的德军，且很快就会行动。\n#state.sovietsaggro|名为苏联的战争机器已制定了其下一步计划，但德军已不再是其面对的唯一问题。我们的行动已证明我们应被俄军敌视，至少应被厌恶，现在俄军不会再像以前那样友好了。@",
+	"xpans": { 
+	    "resentment": 1 
+	},
+	"extantreqs": {
+	    "state.sovietsaggro": 1
+	},
+	"tablereqs": {
+	    "hired": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "soviet.act.neutral",
+	"label": "红军行动了！",
+	"startdescription": "苏联一侧的警报响起了！俄军部队调动起来，并开始行动——",
+	"extantreqs": {
+	    "state.sovietsaggro": -1
+	},
+	"requirements": {
+	    "readiness.token": 3
+	},
+	"effects": {
+	    "readiness.token": -99
+	},
+	"alt": [
+	    {
+		"id": "soviet.pickaction.router.neutral",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "soviet.pickaction.router.neutral",
+	"actionid": "neutral.singleattack",
+	"label": "红军行动了！",
+	"internaldeck": {
+	    "spec": [
+		"signifier.reinforcements",
+		"signifier.singleattack",
+		"signifier.singleattack"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "soviet.neutral.singleattack"
+	    },
+	    {
+		"id": "soviet.neutral.reinforcements"
+	    },
+	    {
+		"id": "soviet.pickaction.router.neutral.again"
+	    }
+	]
+    },
+    {
+	"id": "soviet.pickaction.router.neutral.again",
+	"actionid": "neutral.singleattack",
+	"label": "红军行动了！",
+	"effects": {
+	    "signifier.reinforcements": -99,
+	    "signifier.singlettack": -99
+	},
+	"linked": [
+	    {
+		"id": "soviet.pickaction.router.neutral"
+	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.singleattack",
+	"actionid": "neutral.singleattack",
+	"label": "红军进攻了！",
+	"startdescription": "俄军安排了一次对其敌人的进攻——",
+	"description": "他们已无法聚集起发动攻击必要的人力。红军已然沉默。",
+	"requirements": {
+	    "signifier.singleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "人力",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "neutral.medic": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "soviet.neutral.singleattack.seektarget"
+	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.singleattack.seektarget",
+	"label": "红军进攻了！",
+	"startdescription": "俄军安排了一次对其敌人的进攻——",
+	"requirements": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "目标",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "remnant": 1,
+		    "foe.officer": 1,
+		    "foe.hidden": 1,
+		    "soviet": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "soviet.neutral.singleattack.victory",
+		"chance": 20
+	    },
+	    {
+		"id": "soviet.neutral.singleattack.defeat"
+	    },
+	    {
+		"id": "soviet.nonefound"
+	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.singleattack.victory",
+	"label": "红军获胜了！",
+	"startdescription": "我从远处注视着这场战斗——看着俄军部队血洗德军防线。间歇的枪声与低沉的炮声从远处传来，随后是胜利之后的独特静寂。俄军继续向前推进。",
+	"requirements": {
+	    "foe": 1
+	},
+	"effects": {
+	    "german": -99
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.singleattack.defeat",
+	"label": "红军被击退了！",
+	"startdescription": "即使只是在垂死挣扎，党卫军仍是可怕的敌人。俄军发现他们无法突破德军的防线。故他们在力量用尽时就从战场上撤退。这场战斗没有胜者。",
+	"requirements": {
+	    "foe": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "soviet.nonefound",
+	"label": "此处无人？",
+	"startdescription": "没有可供红军展现其威力的目标。",
+    },
+    {
+	"id": "soviet.neutral.reinforcements",
+	"actionid": "neutral.reinforcements",
+	"label": "红军呼叫预备队",
+	"startdescription": "苏军指挥部已为此地的行动分配了更多资源。更多武器和食物——当然还有人力——正在前来此处的途中。",
+	"description": "更多人被送往前线，就像肉被送进绞肉机。",
+	"extantreqs": {
+	    "soviet": -4
+	},
+	"requirements": {
+	    "signifier.reinforcements": 1
+	},
+	"warmup": 30,
+	"effects": {
+	    "neutral.infantry": 1
+	},
+	"deckeffects": {
+	    "soviet.reinforcements.neutral": 3
+    	}
+    },
+    {
+	"id": "soviet.pickaction.aggro.low",
+	"label": "红军行动了！",
+	"startdescription": "苏联一侧的警报响起了！俄军部队调动起来，并开始行动——",
+	"requirements": {
+	    "readiness.token": 3
+	},
+	"extantreqs": {
+	    "state.sovietsaggro": 1
+	},
+	"deckeffects": {
+	    "deck.sovietactions.aggro.low": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.pickaction.aggro.low.continue"
+	    }
+	]
+    },
+    {
+	"id": "soviet.pickaction.aggro.low.continue",
+	"label": "红军行动了！",
+	"startdescription": "苏联一侧的警报响起了！俄军部队调动起来，并开始行动——",
+	"alt": [
+	    {
+		"id": "aggro.startup.singleattack",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.hide",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.reinforcements",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "soviet.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "soviet.pickaction.aggro.high",
+	"label": "红军行动了！",
+	"startdescription": "苏联一侧的警报响起了！俄军部队调动起来，并开始行动——",
+	"requirements": {
+	    "readiness.token": 3
+	},
+	"extantreqs": {
+	    "state.sovietsaggro": 1,
+	    "strife.tracker": 4
+	},
+	"deckeffects": {
+	    "deck.sovietactions.aggro.high": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.pickaction.aggro.high.continue"
+	    }
+	]
+    },
+    {
+	"id": "soviet.pickaction.aggro.high.continue",
+	"label": "红军行动了！",
+	"startdescription": "苏联一侧的警报响起了！俄军部队调动起来，并开始行动——",
+	"alt": [
+	    {
+		"id": "aggro.startup.doubleattack.1",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.doubleattack.2",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.singleattack",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.hide",
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.reinforcements",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "soviet.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "soviet.clear",
+	"label": "红军行动了！",
+	"startdescription": "",
+	"effects": {
+	    "draw.soviet.singleattack": -99,
+	    "draw.soviet.destroysupplies": -99,
+	    "draw.soviet.hide": -99,
+	    "draw.soviet.doubleattack": -99,
+	    "draw.soviet.reinforcements": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	]
+    },
+    {
+	"id": "aggro.startup.singleattack",
+	"actionid": "aggro.singleattack",
+	"label": "红军进攻了！",
+	"startdescription": "俄军安排了一次对其下一个目标的进攻——",
+	"description": "前线很安静。红军并未行动。",
+	"requirements": {
+	    "draw.soviet.singleattack": 1
+	},
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "人力",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "aggro.againstyou.singleattack.router",
+		"chance": 50
+	    },
+	    {
+		"id": "aggro.againstgerman.singleattack"
+	    }
+	]
+    },
+    {
+	"id": "aggro.againstyou.singleattack.router",
+	"label": "红军进攻了！",
+	"startdescription": "俄军安排了一次对其下一个目标的进攻——",
+	"requirements": {
+	    "soviet": 1
+	},
+	"linked": [
+	    {
+		"id": "aggro.againstyou.singleattack.revealhidden"
+	    },
+	    {
+		"id": "aggro.againstyou.singleattack.takeadditional"
+	    },
+	]
+    },
+    {
+	"id": "aggro.againstyou.singleattack.takeadditional",
+	"label": "红军进攻了！",
+	"startdescription": "俄军安排了一次对其下一个目标的进攻——",
+	"requirements": {
+	    "soviet": 1,
+	    "foe": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "defend.opportunity"
+	    }
+	]
+    },
+    {
+	"id": "aggro.againstyou.singleattack.revealhidden",
+	"label": "红军进攻了！",
+	"startdescription": "俄军安排了一次对其下一个目标的进攻——",
+	"requirements": {
+	    "foe.hidden": 1
+	},
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"linked": [
+	    {
+		"id": "aggro.againstyou.singleattack.takeadditional"
+	    }
+	]
+    },
+    {
+	"id": "aggro.againstgerman.singleattack",
+	"label": "红军进攻了！",
+	"startdescription": "俄军安排了一次对其下一个目标的进攻——",
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "目标",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "remnant": 1,
+		    "foe.officer": 1,
+		    "soviet": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "soviet.aggro.singleattack.victory",
+		"chance": 20
+	    },
+	    {
+		"id": "soviet.aggro.singleattack.defeat"
+	    },
+	    {
+		"id": "soviet.nonefound"
+	    }
+	]
+    },
+    {
+	"id": "soviet.aggro.singleattack.victory",
+	"label": "红军获胜了！",
+	"startdescription": "我从远处注视着这场战斗——看着俄军部队血洗德军防线。间歇的枪声与低沉的炮声从远处传来，随后是胜利之后的独特静寂。俄军继续向前推进。",
+	"requirements": {
+	    "foe": 2
+	},
+	"effects": {
+	    "german": -99
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "soviet.aggro.singleattack.defeat",
+	"label": "红军被击退了！",
+	"startdescription": "即使只是在垂死挣扎，党卫军仍是可怕的敌人。俄军发现他们无法突破德军的防线。故他们在力量用尽时就从战场上撤退。这场战斗没有胜者。",
+	"requirements": {
+	    "foe": 2
+	},
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "aggro.startup.hide",
+	"actionid": "aggro.hide",
+	"label": "红军变换位置",
+	"startdescription": "敌军之一后撤，以求隐藏行踪。",
+	"requirements": {
+	    "draw.soviet.hide": 1
+	},
+	"aspects": {
+	    "concealidentity": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "藏身者",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "hired": 1,
+		    "neutral": 1,
+		    "foe.hidden": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "aggro.startup.reinforcements",
+	"actionid": "aggro.reinforcements",
+	"label": "红军呼叫预备队",
+	"startdescription": "苏军指挥部已为此地的行动分配了更多资源。更多武器和食物——当然还有人力——正在前来此处的途中。",
+	"description": "更多人被送往前线，就像肉被送进绞肉机。",
+	"requirements": {
+	    "draw.soviet.reinforcements": 1
+	},
+	"warmup": 30,
+	"effects": {
+	    "aggro.infantry": 1
+	},
+	"deckeffects": {
+	    "soviet.reinforcements.aggro": 2
+    	}
+    },
+    {
+	"id": "aggro.startup.doubleattack.1",
+	"actionid": "aggro.doubleattack.1",
+	"label": "一次夹击！",
+	"startdescription": "红军计划了一次对其对手的双线进攻——",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "draw.soviet.doubleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "人力",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral": 1,
+		    "hired": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "soviet.nonefound"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "aggro.startup.doubleattack.1.againstgermans",
+		"chance": 40
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "aggro.startup.doubleattack.1.againstgermans",
+	"actionid": "aggro.doubleattack.1",
+	"label": "一次夹击！",
+	"startdescription": "红军计划了一次对其对手的双线进攻——",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	},
+	"tablereqs": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "人力",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral": 1,
+		    "hired": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "aggro.againstgerman.singleattack"
+	    },
+	],
+	"warmup": 10
+    },
+    {
+	"id": "aggro.startup.doubleattack.2",
+	"actionid": "aggro.doubleattack.2",
+	"label": "一次夹击！",
+	"startdescription": "红军计划了一次对其对手的双线进攻——",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "draw.soviet.doubleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "人力",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral": 1,
+		    "hired": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "soviet.nonefound"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "aggro.startup.doubleattack.2.againstgermans",
+		"chance": 40
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "aggro.startup.doubleattack.2.againstgermans",
+	"actionid": "aggro.doubleattack.2",
+	"label": "一次夹击！",
+	"startdescription": "红军计划了一次对其对手的双线进攻——",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	},
+	"tablereqs": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "人力",
+		"required": {
+		    "soviet": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral": 1,
+		    "hired": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "aggro.againstgerman.singleattack"
+	    },
+	],
+	"warmup": 10
+    },
+]
+}

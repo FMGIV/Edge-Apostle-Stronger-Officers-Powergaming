@@ -1,0 +1,554 @@
+{
+"recipes": [
+    {
+	"id": "startup.produce.phlogisticant",
+	"actionid": "spit.grail",
+	"label": "火焰失控",
+	"startdescription": "那机器已被已被破坏，已被击败——但一团火焰从其残骸中喷发而出！后退，快后退——",
+	"warmup": 10,
+	"internaldeck": {
+	    "spec": [
+		"foe.phlogisticant",
+		"foe.phlogisticant",
+		"foe.phlogisticant",
+		"nothing"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true,
+	    "defaultcard": "nothing"
+	}
+    },
+    {
+	"id": "produce.earthquake.ally",
+	"actionid": "spit.forge",
+	"label": "我的友军之力撼动大地！",
+	"startdescription": "我们的敌人脚下的地面抖动并开裂——",
+	"effects": {
+	    "op.earthquake": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "produce.explosion",
+	"actionid": "explosion",
+	"label": "一场爆炸！",
+	"startdescription": "无情的巨力与火焰撕裂天空——",
+	"linked": [
+	    {
+		"id": "produce.explosion.random",
+		"chance": 50
+	    },
+	    {
+		"id": "produce.explosion.yourself"
+	    }
+	]
+    },
+    {
+	"id": "produce.explosion.random",
+	"actionid": "explosion",
+	"label": "一场爆炸！",
+	"startdescription": "无情的巨力与火焰撕裂天空——",
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Casualty",
+		"required": {
+		    "friend": 1,
+		    "foe": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"aspects": {
+	    "makecasualty": 1,
+	    "killfoe": 1
+	}
+    },
+    {
+	"id": "produce.explosion.yourself",
+	"actionid": "explosion",
+	"label": "一场爆炸！",
+	"startdescription": "无情的巨力与火焰撕裂天空——",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "givewound.clear"
+	    }
+	]
+    },
+    {
+	"id": "activate.skill.swoleup",
+	"actionid": "abandon",
+	"label": "唤起残余巨人之力",
+	"startdescription": "血液在血管中燃烧。牙齿如利剑般交错。更强，始终更强——但他们绝对想不到是<i>何等</i>强大。",
+	"description": "<b>绞杀天空，止息海洋。一切行于地上的生物将在我处寻得终结。</b>",
+	"requirements": {
+	    "skill.swoleup.dormant": 1
+	},
+	"aspects": {
+	    "ascend": 1
+	},
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "activate.skill.intimidate",
+	"actionid": "abandon",
+	"label": "释放令人石化的战吼",
+	"startdescription": "我身体前屈，身上的每一寸肌肉都因狂怒而紧绷。我的眼前仅有赤红。我的肺中满是空气，但当我张开口时，传出的声音——那<i>声音</i>——",
+	"description": "大地开裂。飞鸟在空中死亡并落下。树木弯曲并倒下。我声音的回响带着无人胆敢回应的挑战：直面我，然后死。",
+	"requirements": {
+	    "skill.intimidate.dormant": 1
+	},
+	"aspects": {
+	    "ascend": 1
+	},
+	"effects": {
+	    "op.earthquake": 1
+	},
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "use.skill.refreshself",
+	"actionid": "abandon",
+	"label": "释放灵魂中的凶猛火焰",
+	"startdescription": "我的灵魂在身体之内汹涌，以炽热的光芒照亮我的肉体。世间一切都仿佛被冻结一样缓慢。我的影子逃离了我。",
+	"description": "见证我吧：我不会疲惫，亦不会终结。一次心跳足够我杀死十人，一次呼吸则足够杀死百人。",
+	"requirements": {
+	    "skill.refreshself": 1,
+	    "exhausted": 1
+	},
+	"aspects": {
+	    "refresh": 1,
+	    "fatiguing.onlyrefreshself": 1
+	},
+	"craftable": true,
+	"warmup": 5
+    },
+    {
+	"id": "abandon.buildweapon.lionsmith",
+	"actionid": "abandon",
+	"label": "组装一件狮子匠的神圣武器",
+	"startdescription": "无影帝国的战士工匠会在猛兽与怪物的形态之中寻得灵感，以创造他们自己的技艺与武器。我意图制作的武器与他们的武器将十分相似。",
+	"description": "那些“尖锐之鸟”现在已难得一见——它们或被狻猊杀死，或被当时还年轻的狮子匠杀死。但其优雅在这一设计中得到了保留。确实，这件武器在杀戮的工具中也十分美丽。",
+	"requirements": {
+	    "lionsmith.weaponfragment": 3
+	},
+	"effects": {
+	    "lionsmith.weaponfragment": -3,
+	    "weapon.stymphalian": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "banish.chasseur.knock",
+	"actionid": "operate",
+	"label": "湮灭敌军最后的残余",
+	"startdescription": "有时，你需要向某人重复说两次。",
+	"description": "它们死了——这次，不会再复活了。",
+	"requirements": {
+	    "foe.chasseur.reviving": 1,
+	    "knock": 6
+	},
+	"aspects": {
+	    "follower_scar_knock": 1,
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "banish.chasseur.edge",
+	"actionid": "operate",
+	"label": "湮灭敌军最后的残余",
+	"startdescription": "有时，你需要向某人重复说两次。",
+	"description": "它们死了——这次，不会再复活了。",
+	"requirements": {
+	    "foe.chasseur.reviving": 1,
+	    "edge": 6
+	},
+	"aspects": {
+	    "follower_scar_edge": 1,
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "banish.chasseur.winter",
+	"actionid": "operate",
+	"label": "湮灭敌军最后的残余",
+	"startdescription": "有时，你需要向某人重复说两次。",
+	"description": "它们死了——这次，不会再复活了。",
+	"requirements": {
+	    "foe.chasseur.reviving": 1,
+	    "winter": 6
+	},
+	"aspects": {
+	    "follower_scar_winter": 1,
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "communicate.wilhelm",
+	"actionid": "communicate",
+	"label": "与战争制造者会面",
+	"startdescription": "战争制造者从他的制服上拭去尚未干透的血渍，并脱帽，向我礼貌地点头。“对你来说，这场战斗打得不错。我是威廉·特拉根多恩，”他如此自我介绍。“勇猛的游击队员，我应该以何种方式报答你？”",
+	"description": "这位先生用一张小手帕擦了擦鼻子——或许那张手帕并不小，而是他的手异常的大。“嗯？猫叼走了你的舌头，是吗？”",
+	"requirements": {
+	    "friend.wilhelm": 1,
+	    "associate": -1
+	},
+	"slots": [
+	    {
+		"id": "needschoice",
+		"label": "话题",
+		"required": {
+		    "contemplation": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "communicate.wilhelm.stopcontinental"
+	    },
+	    {
+		"id": "communicate.wilhelm.musvashir"
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "communicate.wilhelm.stopcontinental",
+	"label": "关于大陆之敌……",
+	"startdescription": "当我提起有关他死敌的话题时，战争制造者叹了口气——带着渴望。“我亲爱的敌手！”他沉思着，说道。“既然现在你提到了她，那我确实好奇她在哪里。我正在享受一段美妙的时光，以至于我居然没有发觉——她<i>迟到</i>了。而她从未在我们的小小竞争中迟到。”他若有所思地敲着下巴。“很好，如果她确实在跟着你，或许我们面对的难题可以同时被解决。”",
+	"description": "“来吧。我们会把她吸引到此地，而后我会把她从你手头领走。”",
+	"requirements": {
+	    "mission.camilla.c": 1
+	},
+	"effects": {
+	    "mission.camilla.c": -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend.wilhelm",
+		"mutate": "edge",
+		"level": 24
+	    },
+	    {
+		"filter": "friend.wilhelm",
+		"mutate": "forge",
+		"level": 12
+	    },
+	    {
+		"filter": "friend.wilhelm",
+		"mutate": "heart",
+		"level": 12
+	    },
+	    {
+		"filter": "friend.wilhelm",
+		"mutate": "associate",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "communicate.wilhelm.musvashir",
+	"label": "以古老的方式挑战",
+	"startdescription": "当我提及流亡者和他的赌约时，战争制造者开始有了兴趣。“所以杜弗尔的孩子认为你是个真家伙？他很大胆，敢于提名你。如此年轻，而如此直言不讳。”战争制造者说。他思考了一会，而后开始大笑。“战争会造就最出人预料的状况，不是吗？很好——如果你寻求<i>狮鼠之斗</i>，那我同意了。”",
+	"description": "“在我们继续之前，我们需要遵守规则——遵守狮子匠本人都曾遵守过的规则。每一位参加者都需要一名代表，这样挑战者与被挑战者就能在不见面的前提下交流。自然，我会作为我的敌手的副手。寻找一位适格之人以作为你的副手，而后我们才能正式开始安排此事。”",
+	"requirements": {
+	    "proterant.story": 1
+	},
+	"effects": {
+	    "token.wilhelm": 1,
+	    "friend.wilhelm": -1
+	},
+	"purge": {
+	    "mission.camilla.c": 99
+	}
+    },
+    {
+	"id": "speak.maccabee",
+	"actionid": "communicate",
+	"label": "与狮子匠的一位具名者交谈",
+	"startdescription": "“时间紧迫，人之杀手。”具名者不耐烦地哼了一声。“有话直说，让我知晓你的意图。”",
+	"description": "具名者因恼怒而低哼。谁会喜欢自己的时间被浪费？",
+	"requirements": {
+	    "friend.maccabee": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing",
+		"label": "话题",
+		"required": {
+		    "legacyplotitem": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "speak.maccabee.success"
+	    }
+	]
+    },
+    {
+	"id": "speak.maccabee.success",
+	"actionid": "communicate",
+	"label": "以古老的方式挑战",
+	"startdescription": "“啊，那神圣的诉求，”具名者认可并沉思。“黄金将军偏爱那些遵循这一仪式挑战他的人——遵循传统是高尚的行为。可惜的是我们共同的朋友找不到时间参加。一个大地之子应当更加了解。”",
+	"description": "“听着：当时间到来时我会代表你。这个<i>战争制造者</i>……我知道他。一个年轻的不朽之人，但你的朋友更加年轻。我会和他交谈——你可以认为你的敌手必将知晓你的勇莽，还有你的意图。”",
+	"requirements": {
+	    "legacyplotitem": 1,
+	    "letter.fromexile.refusal": 1
+	},
+	"effects": {
+	    "friend.maccabee": -99
+	},
+	"alt": [
+	    {
+		"id": "contacting.warmaker.maccabee",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "contacting.warmaker.maccabee",
+	"actionid": "sendingletter",
+	"label": "我的副手正在移动……",
+	"startdescription": "“锤子”老犹大正在向战争制造者走去，以告知他我值得向他的宿敌挑起<i>狮鼠之斗</i>。我希望他不会因为一位具名者突然出现在面前而过度受惊——长生者有足够的理由惧怕具名者。",
+	"warmup": 180,
+	"alt": [
+	    {
+		"id": "produce.letterfromwilhelm",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duel.countdown.pre"
+	    }
+	]
+    },
+    {
+	"id": "produce.letterfromwilhelm",
+	"actionid": "exclaim.sh",
+	"label": "一封信件！",
+	"startdescription": "当我在黎明时分醒来时，一只猫正在用鼻子蹭我的手。一封电报正用绳子系在它的脖颈上。",
+	"warmup": 10,
+	"effects": {
+	    "letter.fromwilhelm": 1
+	}
+    },
+    {
+	"id": "meet.echidna.first",
+	"actionid": "spit.forge",
+	"label": "一条血迹……",
+	"startdescription": "我们在荒野中找到了一只大型猛兽被掏空的尸骸。这只生物是——至少看上去曾是——数种不同生物的异常混合体：巨大的翅膀，蛇鳞，令人不安的人眼。某物曾吞食其血肉，并在地上留下了一道血迹。血迹向南延伸。",
+	"description": "血迹引向了布满岩石的山丘上一处散发恶臭的洞穴。从洞穴中传来了一阵粗暴、痛苦的声音——是蛇的嘶鸣吗？还是人的喘息？我看向洞穴昏暗的内部，在那里，我好像能够辨认出某物的身影……",
+	"effects": {
+	    "friend.echidna": 1
+	},
+	"maxexecutions": 1,
+	"warmup": 30
+    },
+    {
+	"id": "speak.echidna",
+	"actionid": "communicate",
+	"label": "怪物之母",
+	"startdescription": "在我们看见她之前，丽姬亚便已嗅到了我们。“那种香气——你们当中有谁曾与杜弗尔的孩子共事？”她问道，分叉的舌头正品尝空气。她的双眼朝向我。“啊哈。是你——<i>你</i>身上满溢着命运的气味。靠近一点，亲爱的。我想我们有重要的事情要谈。”",
+	"description": "我告诉丽姬亚有关流亡者，以及他们在我的命运上打的赌。她点头，面带微笑，就像是忘了她仍有内脏留在体外一般。“我们的见面<i>果然</i>不是偶然；是狮子匠把你带到这里， 而他所编织的命运没有任何微妙之处。”厄客德娜说。她的利爪似乎举着某件不存在于此处之物。“你需要那把钥匙，而我需要晚餐。但如你所见，我的儿子们对被吃颇有微词，”她指着自己严重损伤的身体说。“我当时过于大意。但如果你肯帮我这个忙，我就为你打开那扇门。”",
+	"requirements": {
+	    "friend.echidna": 1
+	},
+	"effects": {
+	    "broodscent": 1,
+	    "dinnerbell": 1,
+	    "friend.echidna": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "communicate.ringdinnerbell.alreadycomplete",
+	"actionid": "communicate",
+	"label": "摇响晚餐铃？",
+	"startdescription": "我已通过协助她料理她的儿子们换取了这位丽姬亚的协助。再一次摇响这铃铛毫无用处。",
+	"requirements": {
+	    "dinnerbell": 1
+	},
+	"extantreqs": {
+	    "token.echidna": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "communicate.ringdinnerbell.already",
+	"actionid": "communicate",
+	"label": "摇响晚餐铃？",
+	"startdescription": "厄客德娜自述“不是一个耐心的女人”。我曾呼唤过她，但并未履行约定的义务——她不会再浪费时间回应我了。",
+	"requirements": {
+	    "dinnerbell": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "communicate.ringdinnerbell",
+	"actionid": "communicate",
+	"label": "摇响晚餐铃",
+	"startdescription": "这铃铛比看上去重得多——我需要双手并用才能将其举起。我应该现在摇响它吗？我是否已经为厄客德娜准备好了晚餐？",
+	"description": "这铃铛的响声如同远方的雷霆。空气中短暂的漂浮着一股气味——燃烧的油与烤焦的血的气味。我放下手臂。现在我们必须等待。",
+	"requirements": {
+	    "dinnerbell": 1
+	},
+	"effects": {
+	    "friend.echidna.enroute": 1
+	},
+	"craftable": true,
+	"warmup": 10,
+	"maxexecutions": 1
+    },
+    {
+	"id": "speak.echidna.turnin",
+	"actionid": "communicate",
+	"label": "家庭晚餐",
+	"startdescription": "我的人将那巨大的尸骸搬到丽姬亚面前，她忍不住舔了舔嘴唇。“他们是强大的孩子。而你杀了他们，那我想杜弗尔的孩子赌你可以十分明智。力量与力量，”她沉思道。“我很想分享，但……我在饥饿时会变得贪婪。而我现在十分<i>饥饿</i>。”",
+	"description": "厄客德娜一边咬下一整嘴的肉，一边尽力说话。“你说你要前往罗马。上一次我在那座城市的时候，皇帝还在拿基督徒喂狮子。迷人的城市。但它属于上校，你知道吗？”她一面说，一面舐去唇上的鲜血。“大概这就是狮子匠想要在那里让某人得以具名的原因。那个男孩一直都是这样叛逆不羁。”她大笑。“好吧，如果你一切顺利，我会在罗马见你。现在，我想安静地享用我的晚餐，所以还请你离开。回见！”\n\n[当那时刻来临时，厄客德娜与咬噬之钥会在罗马找上你的。]",
+	"requirements": {
+	    "friend.echidna.turnin": 1,
+	    "corpse.orcul": 1,
+	    "corpse.boccastrano": 1
+	},
+	"effects": {
+	    "token.echidna": 1,
+	    "friend.echidna.turnin": -1,
+	    "corpse.orcul": -1,
+	    "corpse.boccastrano": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "hint.onlyjerome",
+	"actionid": "abandon",
+	"label": "使两支军队溃散？",
+	"startdescription": "我已折断新王最为锋利的剑刃之一，现在他的军队正处于混乱中——但门关军团的分队仍有其指挥官。他也必须死。而后通往星的道路才会开启。",
+	"requirements": {
+	    "corpse.jerome": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "hint.onlylionel",
+	"actionid": "abandon",
+	"label": "使两支军队溃散？",
+	"startdescription": "在英勇奋战之后，守门中尉最终还是死去了——但新王的私兵仍在遵循他们指挥官的命令阻碍我们。他也必须死。而后通往星的道路才会开启。",
+	"requirements": {
+	    "corpse.lionel": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "get.main.star",
+	"actionid": "abandon",
+	"label": "通往星之道路开启",
+	"startdescription": "与我为敌的两支军队都已随风溃散。还有零星的部队在抵抗，但没有指挥官的他们无法构成真正的威胁。现在，没什么阻挡在我与我那从天而降的目标之间了。",
+	"description": "在那——前进。",
+	"requirements": {
+	    "corpse.jerome": 1,
+	    "corpse.lionel": 1
+	},
+	"effects": {
+	    "main.star": 1,
+	    "remnant": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "operate.endinginitiate.proterant",
+	"actionid": "operate",
+	"label": "1944年，罗马解放",
+	"startdescription": "钟楼仍然屹立，忧郁的钟声回荡整个城市——一曲送给我们的敌人与化作废墟的罗马的挽歌。但新的一天即将来临，很快，未来将要求我们振作精神开始重建，重铸这受伤的国家。所以，当夜幕降临时，我们点亮蜡烛，升起火焰，并再一次在罗马城举起自由意大利的国旗。",
+	"requirements": {
+	    "main": 3
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"warmup": 60,
+	"craftable": true,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictory.proterant.mp3",
+	"linked": [
+	    {
+		"id": "ascendname.lionsmith"
+	    }
+	],
+	"burnimage": "liberated"
+    },
+    {
+	"id": "ascendname.lionsmith",
+	"label": "命  定  之  时 ",
+	"startdescription": "而后我已不再身处罗马。我身边环绕着漫宿的钴蓝色迷雾。狂暴之门在我面前显现，它正因我于罗马施行的一切可怖力量开裂与呻吟。厄客德娜行于我之前，用她的利爪转动她那灾难的钥匙。狂暴之门破碎。火焰吞噬了我。我已强力无匹，且越战越强，我已不留伤痕，我曾制造怪物。彼方有光。",
+	"extantreqs": {
+	    "constructions.c": 1,
+	    "token.star": 1,
+	    "token.echidna": 1,
+	    "ascend.check": 2,
+	    "resolution": 12,
+	    "chain": -1,
+	    "debilitation": -1
+	},
+	"warmup": 60,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictoryascend.proterant.mp3",
+	"ending": "majorlionsmithvictory",
+	"achievements": [
+	    "ending.nameascensionlionsmith"
+	]
+    },
+    {
+	"id": "proterant.ending.high",
+	"label": "1944年，罗马投降",
+	"extantreqs": {
+	    "resolution": 14
+	},
+	"ending": "proterant.high",
+	"achievements": [
+	    "ending.highresolution.proterant"
+	]
+    },
+    {
+	"id": "proterant.ending.med",
+	"label": "1944年，罗马投降",
+	"extantreqs": {
+	    "resolution": 7
+	},
+	"ending": "proterant.med",
+	"achievements": [
+	    "ending.medresolution.proterant"
+	]
+    },
+    {
+	"id": "proterant.ending.low",
+	"label": "1944年，罗马投降",
+	"ending": "proterant.low",
+	"achievements": [
+	    "ending.lowresolution.proterant"
+	]
+    },
+]
+}

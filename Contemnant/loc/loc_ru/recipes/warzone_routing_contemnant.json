@@ -1,0 +1,698 @@
+{
+"recipes": [
+    {
+	"id": "hint.newwarzone.fromsobibor",
+	"actionid": "communicate",
+	"label": "Возвращение из Теней Памяти?",
+	"startdescription": "Я мог бы биться о стены этого кошмара наяву, пока мои кулаки не сотрутся до костей, но всё равно не вырваться на свободу. Проклятая цель привела меня сюда, и лишь когда эта цель будет воплощена в жизнь, я смогу уйти.\n\n[Вы не сможете покинуть Собибор, пока не выполните Основную Задачу]",
+	"requirements": {
+	    "sobibor.here": 1
+	},
+	"extantreqs": {
+	    "main": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "newwarzone.fromsobibor",
+	"actionid": "communicate",
+	"label": "Возвращение из Теней Памяти",
+	"startdescription": "Я изничтожил ту часть себя, которая боялась того, что зовётся Изгнанником. Теперь я должен вернуться из этого полуреального кошмара в мир яви, где смогу наконец насытить свою жажду мести.",
+	"description": "Вперед.",
+	"requirements": {
+	    "sobibor.here": 1
+	},
+	"extantreqs": {
+	    "main": -1
+	},
+	"effects": {
+	    "token.escaped": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"deckeffects": {
+	    "warzones.sector.b.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	],
+	"xpans": { 
+	    "benign": 1 
+	},
+	"furthermore": { "target": "~/tabletop[situationstorage]+", "aspects": { "benign": 1 } },
+    },
+    {
+	"id": "newwarzone.inflames.sectora",
+	"actionid": "communicate",
+	"label": "Бежать под покровом хаоса",
+	"startdescription": "Кровь льётся по улицам, пламя пляшет на руинах — мы превратили этот город в бойню. Исчезнуть среди хаоса, который мы посеяли сегодня, будет легко.",
+	"description": "Я выбрал новое место назначения.",
+	"requirements": {
+	    "shrine.wolf": 1,
+	    "sector.a": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"deckeffects": {
+	    "warzones.sector.a.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.inflames.sectorb",
+	"actionid": "communicate",
+	"label": "Бежать под покровом хаоса",
+	"startdescription": "Кровь льётся по улицам, пламя пляшет на руинах — мы превратили этот город в бойню. Исчезнуть среди хаоса, который мы посеяли сегодня, будет легко.",
+	"description": "Я выбрал новое место назначения.",
+	"requirements": {
+	    "shrine.wolf": 1,
+	    "sector.b": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"deckeffects": {
+	    "warzones.sector.b.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.kaunas",
+	"actionid": "communicate",
+	"label": "Проложить путь из Каунаса?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "kaunas.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"warsaw",
+		"konigsberg",
+		"brest"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.brest",
+	"actionid": "communicate",
+	"label": "Проложить путь из Бреста?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "brest.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"warsaw",
+		"lublin",
+		"kaunas"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.konigsberg",
+	"actionid": "communicate",
+	"label": "Проложить путь из Кёнингсберга?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "konigsberg.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"gdansk",
+		"kaunas"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.gdansk",
+	"actionid": "communicate",
+	"label": "Проложить путь из Гданьска?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "gdansk.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"grudziadz",
+		"warsaw",
+		"konigsberg"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.grudziadz",
+	"actionid": "communicate",
+	"label": "Проложить путь из Грудзендза?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "grudziadz.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"gdansk",
+		"lodz"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.lodz",
+	"actionid": "communicate",
+	"label": "Проложить путь из Лодзи?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "lodz.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"grudziadz",
+		"katowice",
+		"warsaw",
+		"lublin"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.warsaw",
+	"actionid": "communicate",
+	"label": "Проложить путь из Варшавы?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "warsaw.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"lodz",
+		"brest",
+		"lublin"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.lublin",
+	"actionid": "communicate",
+	"label": "Проложить путь из Люблина?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "lublin.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"brest",
+		"krakow",
+		"warsaw",
+		"lodz"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.katowice",
+	"actionid": "communicate",
+	"label": "Проложить путь из Катовице?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "katowice.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"lodz",
+		"krakow"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.krakow",
+	"actionid": "communicate",
+	"label": "Проложить путь из Кракова?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "krakow.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"katowice",
+		"lodz",
+		"lublin"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.vienna",
+	"actionid": "communicate",
+	"label": "Проложить путь из Вены?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "vienna.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"brno",
+		"prague",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.brno",
+	"actionid": "communicate",
+	"label": "Проложить путь из Брно?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "brno.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"prague",
+		"wroclaw",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.prague",
+	"actionid": "communicate",
+	"label": "Проложить путь из Праги?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "prague.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"brno",
+		"liberec",
+		"dresden"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.liberec",
+	"actionid": "communicate",
+	"label": "Проложить путь из Либерца?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "liberec.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"dresden",
+		"wroclaw",
+		"poznan"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.dresden",
+	"actionid": "communicate",
+	"label": "Проложить путь из Дрездена?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "dresden.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"prague",
+		"szczecin",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.wroclaw",
+	"actionid": "communicate",
+	"label": "Проложить путь из Вроцлава?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "wroclaw.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"brno",
+		"liberec",
+		"poznan"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.poznan",
+	"actionid": "communicate",
+	"label": "Проложить путь из Познани?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "poznan.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"szczecin",
+		"wroclaw"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.szczecin",
+	"actionid": "communicate",
+	"label": "Проложить путь из Щецина?",
+	"startdescription": "Мне нужно проложить путь дальше на запад. Какие дороги нам открыты?",
+	"description": "Сюда - ещё одна ступенька к Берлину.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"extantreqs": {
+	    "szczecin.here": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"internaldeck": {
+	    "spec": [
+		"poznan",
+		"dresden"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false,
+	    "defaultcard": "warzone.distant"
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.distantdraw.a.contemnant",
+	"label": "Легких путей не будет",
+	"startdescription": "На этот раз путь к месту назначения будет особенно долгим.",
+	"description": "На шаг ближе к Берлину. Выступаем.",
+	"requirements": {
+	    "warzone.distant": 1
+	},
+	"warmup": 60,
+	"deckeffects": {
+	    "warzones.sector.a.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "mutatewarzone.distant"
+	    },
+	    {
+		"id": "newwarzone.transfertosectorb.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.distantdraw.b.contemnant",
+	"label": "Легких путей не будет",
+	"startdescription": "На этот раз путь к месту назначения будет особенно долгим.",
+	"description": "На шаг ближе к Берлину. Выступаем.",
+	"requirements": {
+	    "warzone.distant": 1
+	},
+	"warmup": 60,
+	"deckeffects": {
+	    "warzones.sector.b.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "mutatewarzone.distant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.transfertosectorb.contemnant",
+	"label": "Легких путей не будет",
+	"startdescription": "На шаг ближе к Берлину. Выступаем.",
+	"requirements": {
+	    "warzone": -1
+	},
+	"deckeffects": {
+	    "starting.warzones.sector.b.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "mutatewarzone.distant"
+	    },
+	    {
+		"id": "newwarzone.transfertosectorb.stillneedsnew.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.transfertosectorb.stillneedsnew.contemnant",
+	"label": "Легких путей не будет",
+	"startdescription": "На шаг ближе к Берлину. Выступаем.",
+	"requirements": {
+	    "warzone": -1
+	},
+	"deckeffects": {
+	    "warzones.sector.b.germany": 1
+	},
+	"linked": [
+	    {
+		"id": "mutatewarzone.distant"
+	    }
+	]
+    },
+]
+}

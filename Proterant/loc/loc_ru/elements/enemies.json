@@ -1,0 +1,1114 @@
+{
+"elements": [
+    {
+	"id": "foe.chasseur",
+	"label": "Вражеский Призывник",
+	"description": "Большинство солдат сдаются когда умирают. Эти - нет.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedgewinter": 8,
+	    "needsedgelantern": 8
+	},
+	"xtriggers": {
+	    "refresh": "foe.chasseur",
+	    "killfoe": "foe.chasseur.reviving",
+	    "concealidentity": "foe.chasseur.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ]
+	}
+    },
+    {
+	"id": "foe.chasseur.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.chasseur.hidden",
+	    "killfoe": "foe.chasseur.reviving",
+	    "revealidentity": "foe.chasseur",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.chasseur.reviving",
+	"label": "Вражеский Призывник (Возрождающийся)",
+	"description": "Те кто поклоняются Полковнику говорят: 'Нет поражения кроме Аннигиляции.' Полагаю, это значит, что они просто не знают, когда стоит остановится.",
+	"aspects": {
+	    "op": 1,
+	    "needswinter": 6,
+	    "needsknock": 6,
+	    "needsedge": 6
+	},
+	"xtriggers": {
+	     "follower_scar_knock": [
+		{
+		    "id": "foe.corpse.unnatural",
+		},
+		{
+		    "id": "influenceknockc",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	     "follower_scar_edge": [
+		{
+		    "id": "foe.corpse.unnatural",
+		},
+		{
+		    "id": "influenceedgec",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	     "follower_scar_winter": [
+		{
+		    "id": "foe.corpse.unnatural",
+		},
+		{
+		    "id": "influencewinterc",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needssomething1",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "needssomething2",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		}
+	    },
+	],
+	"icon": "foe.chasseur",
+	"decayTo": "foe.chasseur",
+	"resaturate": true,
+	"lifetime": 120
+    },
+    {
+	"id": "foe.orcul",
+	"label": "Оркул",
+	"description": "Дети Ехидны делятся на два типа: 'рождены' и 'выиграны.' Голиаф Оркул - Гроза Гор, Зубья-ножницы, зверь с Полуострова - принадлежит к первому виду. Можно только догадываться, с чем спаривалась Ехидна, чтобы произвести на свет такого ужасающего наследника. Он так просто не падёт.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "foe.resilient": 1,
+	    "foe.armoured": 1,
+	    "needsedge": 28,
+	    "uqbrood": 1,
+	    "guard": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.orcul",
+	    "killfoe": [
+		{
+		    "id": "monster.wound",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe.orcul.enraged",
+		}
+	    ],
+	    "concealidentity": "foe.orcul.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 6
+		},
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+	    ]
+	}
+    },
+    {
+	"id": "foe.orcul.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "uqbrood": 1,
+	    "guard": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.orcul.hidden",
+	    "revealidentity": "foe.orcul",
+	    "killfoe": "foe.orcul.enraged",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.orcul.enraged",
+	"label": "Оркул (В Ярости)",
+	"description": "Свирепая ярость овладела разумом существа - все, что встретится на его пути, будет разбито вдребезги. Держитесь подальше или умрите! [В этом состоянии Оркул неуязвим для любых атак, и от его собственных атак невозможно защититься.]",
+	"aspects": {
+	    "foe": 1,
+	    "foe.lethal": 1,
+	    "uqbrood": 1,
+	    "guard": 1
+	},
+	"xtriggers": {
+	    "killfoe": "corpse.orcul"
+	},
+	"lifetime": 160,
+	"decayTo": "foe.orcul"
+    },
+    {
+	"id": "foe.boccastrano",
+	"label": "Боккастрано",
+	"description": "Дети Ехидны делятся на два типа: 'рождены' и 'выиграны.' Хитрый Боккастрано - ночной охотник, пожиратель костей, отрекшийся от Львокузнеца - относится к последнему типу. Возможно, когда-то он был редким существом под названием 'халвит', но теперь этот вид утрачен: обесчестен, побежден, съеден.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedgemoth": 6,
+	    "uqbrood": 1,
+	    "guarded": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.boccastrano",
+	    "killfoe": "corpse.boccastrano",
+	    "concealidentity": "foe.boccastrano.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.boccastrano.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "uqbrood": 1,
+	    "guarded": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.boccastrano.hidden",
+	    "killfoe": "corpse.boccastrano",
+	    "revealidentity": "foe.boccastrano",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.henri",
+	"label": "Генри Густав",
+	"description": "'Кто-то важный сделал здесь свой дом, знаете ли. До войны. Теперь их нет, но они оставили след, когда уходили. Лакомбэ думал, что у него это есть; он только заблуждался. А я - нет. Я знаю, что ищу.'",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedgegrail": 10,
+	},
+	"xtriggers": {
+	    "refresh": "foe.henri",
+	    "killfoe": "foe.corpses"
+	}
+    },
+    {
+	"id": "foe.riflemen",
+	"label": "Королевские Стрельцы",
+	"description": "Прислужники Короля на Острове. Ничего необычного, кроме того, что они обучены на толику лучше, чем ваш обычный солдат.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 8,
+	    "foe.coordinated": 1,
+	    "faction.king": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.riflemen",
+	    "killking": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.riflemen.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.riflemen.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "faction.king": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.riflemen.hidden",
+	    "killking": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.riflemen",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.king",
+	"noStack": true
+    },
+    {
+	"id": "foe.engine",
+	"label": "Двигатель Светил",
+	"description": "Это похоже на какое-то артиллерийское орудие, хотя некоторые элементы его конструкции кажутся слишком сложными для его же собственного блага: стеклянные цилиндры, стальные кольца, трубы, дрожащие от огня. Но какая огневая мощь! Там, где эта машина попадает в цель, земля становится стеклом, а плоть - светом. Королевские игрушки впечатляют, если не больше.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 20,
+	    "needsforgemoth": 4,
+	    "foe.lethal": 1,
+	    "faction.king": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.engine",
+	    "killking": "produce.phlogisticant",
+	    "killfoe": "produce.phlogisticant",
+	    "killmortal": "produce.phlogisticant",
+	    "concealidentity": "foe.engine.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.engine.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "faction.king": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.engine.hidden",
+	    "killking": "produce.phlogisticant",
+	    "killfoe": "produce.phlogisticant",
+	    "killmortal": "produce.phlogisticant",
+	    "revealidentity": "foe.engine",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	},
+	"icon": "foe.unknown.king",
+	"noStack": true
+    },
+    {
+	"id": "produce.phlogisticant",
+	"label": "Вспышка Светила!",
+	"description": "Корпус машины разбит, и наружу вырывается золотистое пламя -",
+	"induces": [
+	    {
+		"id": "startup.produce.phlogisticant"
+	    }
+	],
+	"lifetime": 1
+    },
+    {
+	"id": "foe.phlogisticant",
+	"label": "Флогистикант",
+	"description": "Вырвавшись из своей клетки из стекла и стали, это злобное пламя жадно пожирает все, к чему прикасается. Ярость, с которой оно горит, недолговечна, но я не думаю, что его это сильно волнует.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needswinter": 10,
+	    "needsedge": 6,
+	    "needsforge": 6,
+	    "foe.explosive": 1,
+	    "faction.king": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.phlogisticant",
+	    "killking": "foe.phlogisticant.exploding",
+	    "killfoe": "foe.phlogisticant.exploding",
+	    "dissolution": "husk",
+	    "concealidentity": "foe.phlogisticant.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.phlogisticant.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "faction.king": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.phlogisticant.hidden",
+	    "killking": "foe.phlogisticant.exploding",
+	    "killfoe": "foe.phlogisticant.exploding",
+	    "revealidentity": "foe.phlogisticant",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.unknown.king",
+	"noStack": true
+    },
+    {
+	"id": "foe.phlogisticant.exploding",
+	"label": "Противник взрывается!",
+	"description": "Громко.",
+	"lifetime": 1,
+	"induces": [
+	    {
+		"id": "produce.explosion"
+	    }
+	]
+    },
+    {
+	"id": "foe.jerome",
+	"label": "Капитан Джером Александр",
+	"description": "'Вы ничего не понимаете. Только что упавшая звезда обладает практически неограниченным потенциалом. Конечно, она может стать топливом. Или оружием. Слугой. Король и его инженеры превратят ее в нечто еще более мощное. Англия получит этот приз. Не вы.' [Капитан Александр может совершать особенные действия, атакуя вас. Он должен быть ранен дважды чтобы умереть.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.lethal": 1,
+	    "foe.resilient": 1,
+	    "mortal": 1,
+	    "uqjerome": 1,
+	    "needsedgelantern": 8,
+	    "needsedge": 14,
+	    "faction.king": 1
+	},
+	"xtriggers": {
+	    "longded": "corpse.jerome",
+	    "refresh": "foe.jerome",
+	    "killfoe": [
+		{
+		    "id": "monster.wound",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+	    ],
+	    "killmortal": [
+		{
+		    "id": "monster.wound",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+	    ],
+	    "concealidentity": "foe.jerome.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+	    ],
+	    "weaken": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "dreamconvert": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -12
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+    	}
+    },
+    {
+	"id": "foe.jerome.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "uqjerome": 1,
+	    "foe.hidden": 1,
+	    "faction.king": 1
+	},
+	"xtriggers": {
+	    "longded": "corpse.jerome",
+	    "refresh": "foe.jerome.hidden",
+	    "killfoe": [
+		{
+		    "id": "monster.wound",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+	    ],
+	    "killmortal": [
+		{
+		    "id": "monster.wound",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+	    ],
+	    "revealidentity": "foe.jerome",
+	    "weaken": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ]
+	},
+	"icon": "foe.unknown.king",
+	"noStack": true
+    },
+    {
+	"id": "foe.boundsmen",
+	"label": "Связанные Клятвой",
+	"description": "Квази-человеческие солдаты Легиона Порога. Они были тренированы, чтобы ходить подобно человеку и говорить на человеческих языках, но нельзя полностью подавить изначальную природу этого. Иногда они будут забывать моргать. Иногда они будут есть тела умерших.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 8,
+	    "foe.coordinated": 1,
+	    "faction.legion": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.boundsmen",
+	    "killlegion": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.boundsmen.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.boundsmen.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "faction.legion": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.boundsmen.hidden",
+	    "killlegion": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.boundsmen",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.legion",
+	"noStack": true
+    },
+    {
+	"id": "foe.warder",
+	"label": "Клавигар Легиона",
+	"description": "Высокопоставленные офицеры Легиона Порога; Хранители границ между этим миром и Обителью. Все они утверждают, что Вак - их родной язык; все они знают, какие слова запрещают или разрешают проход. [Этот враг может ввести ваших союзников во временный стазис.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsknock": 10,
+	    "needsedge": 10,
+	    "faction.legion": 1,
+	    "warder.mark": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.warder",
+	    "killlegion": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.warder.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.warder.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "faction.legion": 1,
+	    "warder.mark": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.warder.hidden",
+	    "killlegion": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.warder",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	},
+	"icon": "foe.unknown.legion",
+	"noStack": true
+    },
+    {
+	"id": "foe.malkin",
+	"label": "Великий Малкин",
+	"description": "Кот и Сова оба священны для Рогатой-Секиры. Говорят, что, когда кошка обретает мудрость совы - когда ее шерсть седеет, когти удлиняются, а жизнь становится еще длиннее, - оно становится одной из них. В нашем мире этого почти нет, и поэтому мы не можем к нему прикоснуться. Но оно, безусловно, может коснуться нас. [От этого противника нельзя защититься, как и невозможно атаковать любым способом. Впрочем, если убить всех Клавигаров Легиона, у вас получится избавиться от него насовсем.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "foe.guardlionel": 1,
+	    "faction.legion": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.malkin",
+	    "concealidentity": "foe.malkin.hidden",
+	    "annoyance": "husk"
+	}
+    },
+    {
+	"id": "foe.malkin.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.guardlionel": 1,
+	    "faction.legion": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.malkin.hidden",
+	    "revealidentity": "foe.malkin",
+	    "annoyance": "husk"
+	},
+	"icon": "foe.unknown.legion",
+	"noStack": true
+    },
+    {
+	"id": "foe.lionel",
+	"label": "Лейтенант-Остиарий Саксон",
+	"description": "'Ни один человек не должен обладать такой силой, какая приземлилась здесь. Возвращайтесь, и мы не будем возражать. Но если вы откажетесь, запомните мои слова - я убью вас всех, до последнего.' [Лейтенант Саксон может совершать особенные действия, атакуя вас. Он должен быть ранен дважды чтобы умереть.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.lethal": 1,
+	    "foe.retaliatory": 1,
+	    "mortal": 1,
+	    "uqlionel": 1,
+	    "needsedgeknock": 8,
+	    "needsedge": 14,
+	    "faction.legion": 1
+	},
+	"xtriggers": {
+	    "longded": "corpse.lionel",
+	    "refresh": "foe.lionel",
+	    "killfoe": [
+		{
+		    "id": "monster.wound",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+	    ],
+	    "killmortal": [
+		{
+		    "id": "monster.wound",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+	    ],
+	    "concealidentity": "foe.lionel.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+	    ],
+	    "weaken": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ]
+    	}
+    },
+    {
+	"id": "foe.lionel.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "uqlionel": 1,
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "longded": "corpse.lionel",
+	    "refresh": "foe.lionel.hidden",
+	    "killfoe": [
+		{
+		    "id": "monster.wound",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+	    ],
+	    "killmortal": [
+		{
+		    "id": "monster.wound",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+	    ],
+	    "revealidentity": "foe.lionel",
+	    "weaken": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ]
+	},
+	"icon": "foe.unknown.legion",
+	"noStack": true
+    }
+]
+}

@@ -1,0 +1,484 @@
+{
+"recipes": [
+    {
+	"id": "communicate.duel.maccabee",
+	"actionid": "communicate",
+	"label": "Advice from a Name",
+	"startdescription": "Old Judah watches us with the unflappable sternness of an ancient monument. The Long make sure to confer with each other a safe distance away from him, but as my second, I must speak to the Name face-to-face. 'You come seeking words of counsel,' Old Judah says to me. 'On battle's eve, the warrior does not waste his time with things so weak as words. Give me your hand, and I will show you where strength comes from.'",
+	"description": "The Name takes my hand, and his grip is a searing vise that scorches my flesh. I master myself; I stifle my cry of pain and tighten my grip, my eyes locked with Old Judah's. At last, he releases me. When I look at my hand, there is no mark upon it - no trace of a wound at all - but my flesh remembers what the Name had taught it. Fire. Anger. And strength.",
+	"warmup": 10,
+	"requirements": {
+	    "duel.maccabee": 1
+	},
+	"effects": {
+	    "courage": 1,
+	    "anger": 1,
+	    "strength": 1,
+	    "duel.maccabee": -1
+	},
+	"craftable": true
+    },
+    {
+	"id": "communicate.duel.continental.hint",
+	"actionid": "communicate",
+	"label": "No Words Need Pass Between",
+	"startdescription": "The rules of musvashir prohibit the combatants involved from any kind of contact before combat commences. Until one of us has shed the other's blood, I will not speak to the Continental, and she will not speak to me.",
+	"requirements": {
+	    "duel.camilla.proterant": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "communicate.duel.warmaker",
+	"actionid": "communicate",
+	"label": "Mouse and Lion",
+	"startdescription": "The Continental stands opposite me, and both the Warmaker and Old Judah stand between us. 'As Lionsmith challenged Antaios,' the Name begins. 'And as Alexander challenged the Lionsmith - so too do we now witness the issue of a great and honourable challenge.' Then the Warmaker speaks: 'In sight of the Hours Who Struggle and under the conventions of their law, the two combatants will fight until blood is drawn. Whosoever suffers the first wound is defeated. Are the combatants ready?'",
+	"description": "'Begin!'",
+	"requirements": {
+	    "duel.wilhelm.proterant": 1
+	},
+	"effects": {
+	    "duel.wilhelm.proterant": -1
+	},
+	"craftable": true,
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "duelling.pre.proterant",
+		"additional": true
+	    }
+	],
+	"playAudioTrack": "continentalduel.mp3"
+    },
+    {
+	"id": "duelling.pre.proterant",
+	"actionid": "long.camilla",
+	"label": "The Duel Begins!",
+	"startdescription": "The Continental draws her weapons -",
+	"slots": [
+	    {
+		"id": "needscontinental",
+		"label": "The Continental",
+		"required": {
+	 	    "duel.camilla.proterant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "duelling.longattack.pre.proterant"
+	    }
+	],
+	"burnimage": "duelling"
+    },
+    {
+	"id": "duelling.longattack.pre.proterant",
+	"label": "My Opponent Strikes!",
+	"internaldeck": {
+	    "spec": [
+		"camilla.attack.a",
+		"camilla.attack.a",
+		"camilla.attack.a",
+		"camilla.attack.b",
+		"camilla.attack.b",
+		"camilla.attack.c",
+		"camilla.attack.c"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "duelling.longattack.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.longattack.proterant",
+	"label": "My Opponent Strikes!",
+	"startdescription": "@#camilla.attack.a|The Contintental is wreathed in weapons, and she is able to wield them all with such a vicious efficacy. A storm of blows: of knives, of sabres, of gunshots -#camilla.attack.b|There is an near-imperceptible, spear-shaped shimmering where the Continental's left hand should be. The wind crackles and hums. With a grunt of exertion, she thrusts her arm forward, and an unseen lance of killing force hurtles forth -#camilla.attack.c|The Continental jams a spike of jagged iron into an old scar on her throat, and when she opens her mouth, relentless winter spills forth -@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "duelling.wounded.proterant"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "duelling.respond.edge.proterant"
+	    },
+	    {
+		"id": "duelling.respond.forge.proterant"
+	    },
+	    {
+		"id": "duelling.respond.edgeforge.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.edge.proterant",
+	"label": "Force Equals Force",
+	"startdescription": "I am able to reply in kind to each of the Continental's strikes. The clashing of our arms is a music - it feels almost as if we are dancing.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.forge.proterant",
+	"label": "The Flame of the Interior",
+	"startdescription": "Rage - I feel such an unbearable <i>rage.</i> My inner fire surges up through my skin, my throat, my eyes, and I am the heart of a conflagration. Winter dies when it touches me.",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.edgeforge.proterant",
+	"label": "An Invincible Audacity",
+	"startdescription": "The weapon is not real; it is as real as the Continental's left hand. But it could puncture the skin of a battleship like it were paper. I'm stronger than that. My flesh does not yield to my enemy's strike, and I am unwounded.",
+	"requirements": {
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.clear.proterant",
+	"label": "",
+	"effects": {
+	    "decision": -99
+	},
+	"alt": [
+	    {
+		"id": "eject.exhausted",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.cycle.proterant"
+	    }
+	]
+    },
+    {
+	"id": "eject.exhausted",
+	"actionid": "spit.moth",
+	"label": "Exhausted!",
+	"startdescription": "I've employed these against my opponent, and I will need time before I can effectively employ them again -",
+	"warmup": 10
+    },
+    {
+	"id": "duelling.cycle.proterant",
+	"label": "Immortal Confrontation",
+	"startdescription": "Seconds pass. Barely enough time to catch my breath. The Continental circles me, and I her.",
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "duelling.longattack.pre.proterant",
+		"chance": 30
+	    },
+	    {
+		"id": "duelling.cycle.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.wounded.proterant",
+	"label": "Struck Down",
+	"startdescription": "Too slow! The Continental slips past my guard, and a flash of steel arcs through the air - ",
+	"description": "It takes me a moment to process it, but the pain catches up quickly. Where once I had my right hand, there is a fresh, bleeding stump. I clutch my wound, falling to my knees. 'You will live,' the Continental tells me, sheathing her sabre. 'Or you won't. Either way, you've lost. Let that teach you something.' She glances over her shoulder, where the Warmaker is waiting for her. 'My dear enemy and I have business, now. Go and find your end wherever you think it best.' Then the Long go their separate ways, and Old Judah leaves me, and I am alone.",
+	"haltverb": {
+	    "operate": 99
+	},
+	"effects": {
+	    "duel.camilla.proterant": -99,
+	    "mark.shame": 1,
+	    "debilitation.hand": 1
+	},
+	"playAudioTrack": "duelend.mp3",
+	"warmup": 30
+    },
+    {
+	"id": "operate.strike.edgelong.pre.proterant",
+	"actionid": "operate",
+	"label": "Execute an Impossible Attack?",
+	"startdescription": "I must strike with all that I am. Anything less will not suffice.\n\n[You will need to provide a great source of Edge for this gambit to even have a chance to succeed. It might fail anyway.]",
+	"requirements": {
+	    "long.opening": 3
+	},
+	"extantreqs": {
+	    "duel.camilla.proterant": 1
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.proterant"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.edgelong.proterant",
+	"actionid": "operate",
+	"label": "Execute an Impossible Attack?",
+	"startdescription": "I must strike with all that I am. Anything less will not suffice.\n\n[You will need to provide a great source of Edge for this gambit to even have a chance to succeed. It might fail anyway.]",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "operate.strike.edgelong.success.proterant"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.failure"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.edgelong.success.proterant",
+	"label": "Executing an Impossible Attack",
+	"startdescription": "Seconds slow to years. The world holds its breath. My hand moves with destined clarity.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.failure",
+		"chance": 30
+	    },
+	    {
+		"id": "operate.strike.edgelong.success.complete.proterant"
+	    }
+	]
+    },	
+    {
+	"id": "operate.strike.edgelong.failure",
+	"label": "My Attack has Fallen Short!",
+	"startdescription": "My blow pings off the Edge-Long's body like a bullet off the hull of a warship. No blood is drawn.",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "long.opening": -2
+	}
+    },
+    {
+	"id": "operate.strike.edgelong.success.complete.proterant",
+	"label": "The Blood of an Immortal Opponent",
+	"startdescription": "We have fought one another to our utmost limits. Steel has met steel so many times. Now we each whirl around, weapons readied, and rush headlong at one another a final time -",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "long.opening": -99
+	},
+	"haltverb": {
+	    "long.camilla": 99,
+	    "scandal": 99,
+	    "spit.moth": 99
+	},
+	"purge": {
+	    "long.opening": 99
+	},
+	"linked": [
+	    {
+		"id": "duelwon.mutatewound.proterant"
+	    }
+	],
+	"playAudioTrack": "duelend.mp3"
+    },
+    {
+	"id": "duelwon.mutatewound.proterant",
+	"label": "The Blood of an Immortal Opponent",
+	"startdescription": "We have fought one another to our utmost limits. Steel has met steel so many times. Now we each whirl around, weapons readied, and rush headlong at one another a final time -",
+	"description": "It is as brief and as brilliant as lightning. Steel clangs. Someone's flesh tears. Slowly, we each draw in a breath. But when we turn to face one another again, my weapon is red, and hers is not. The Continental touches her side where my strike found her, and her hand comes away with blood. She nods. 'Well struck.'",
+	"slots": [
+	    {
+		"id": "needslong",
+		"label": "The Continental",
+		"required": {
+		    "duel.camilla.proterant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "duel.camilla.proterant",
+		"mutate": "long_wound",
+		"level": 1
+	    }
+	],
+	"warmup": 30,
+	"achievements": [
+	    "victory.continental"
+	]
+    },
+    {
+	"id": "communicate.camilla.aftervictory",
+	"actionid": "communicate",
+	"label": "Mouse Conquers Lion",
+	"startdescription": "The Continental sheathes her blade. 'Congratulations,' she smiles at me. 'We and the Hours Who Struggle acknowledge your skill and your resolution; your strength and your valour.' On the sidelines, the Warmaker applauds furiously. Old Judah looks as though he wants to.",
+	"description": "I shake hands with my opponent, who leans in to whisper in my ear: 'You're very close, now. The eyes of all will be upon you. When the time comes, and the Lionsmith offers you his favour, I pray you have the mettle to bear it,' she says, her hand tight around my own. I only nod. She nods back, and releases me. 'Be on your way, killer of men. Your responsibility grows greater by the second.'",
+	"requirements": {
+	    "duel.camilla.proterant": 1,
+	    "long_wound": 1
+	},
+	"effects": {
+	    "duel.camilla.proterant": -99,
+	    "mark.musvashir": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    }
+]
+}

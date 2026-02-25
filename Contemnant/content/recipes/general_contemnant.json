@@ -1,0 +1,2160 @@
+{
+"recipes": [
+    {
+	"id": "hint.recruit.refugees",
+	"actionid": "operate",
+	"label": "Convince refugees to follow you?",
+	"startdescription": "These people have been harrowed by fear, by pain, by war. They'll jump to join us if I make even the smallest offer of relief or hope; they'll jump to join us if I make them choose at the end of a gun.",
+	"requirements": {
+	    "wandering.refugees": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.recruit.deserters",
+	"actionid": "operate",
+	"label": "Convince deserters to follow you?",
+	"startdescription": "Alone; directionless; morally dubious and reasonably armed - perhaps I can sway these vagrants to my side with a show of force, or with the right words of opportunity or terror.",
+	"requirements": {
+	    "wandering.deserters": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.use.lookout",
+	"actionid": "operate",
+	"label": "Consult with a lookout?",
+	"startdescription": "One of us - exactly one - can go out into the night and attempt to spot out an enemy position. They'll need a hiding spot to stake out - and lots of luck.",
+	"requirements": {
+	    "friend.lookout": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.use.lookout.hidden",
+	"actionid": "operate",
+	"label": "Consult with a lookout?",
+	"startdescription": "One of us - exactly one - can go out into the night and attempt to spot out an enemy position. They'll need a hiding spot to stake out - and lots of luck.",
+	"requirements": {
+	    "friend.lookout.hidden": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.use.doctor",
+	"actionid": "operate",
+	"label": "Consult with a doctor?",
+	"startdescription": "This one can heal a wounded body - or ensure the passing of one who cannot be saved.",
+	"requirements": {
+	    "friend.doctor": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.use.doctor.hidden",
+	"actionid": "operate",
+	"label": "Consult with a doctor?",
+	"startdescription": "This one can heal a wounded body - or ensure the passing of one who cannot be saved.",
+	"requirements": {
+	    "friend.doctor.hidden": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.concealcasket",
+	"actionid": "abandon",
+	"label": "Shroud the light of the Key-Bearer?",
+	"startdescription": "Kleidouchos is certain someone will be coming for her Key of Days, and a Key is only seperated from its holder when lent - or when the holder is killed and devoured. If I gave Kleidouchos sustenance, she would have enough power to spare to hide herself from her pursuers - temporarily.",
+	"requirements": {
+	    "klei.casket": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "communicate.givevicious.hopelessness",
+	"actionid": "communicate",
+	"label": "Confront an Ally with grim realities",
+	"startdescription": "Even after all they have suffered, this one is still clinging to delusions of restraint and dignity. I could try to break them of those delusions - make them realise what must be done to survive.\n\n[This can give your Ally the Vicious aspect, but it might also fail and cause them to abandon you.]",
+	"requirements": {
+	    "friend": 1,
+	    "vicious": -1,
+	    "hopelessness": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "communicate.givevicious.success",
+		"chance": 60
+	    },
+	    {
+		"id": "communicate.givevicious.failure",
+	    },
+	]
+    },
+    {
+	"id": "communicate.givevicious.failure",
+	"label": "Confront an Ally with grim realities",
+	"startdescription": "A mask of unfathomable disgust twists my ally's face. Almost wordlessly, they leave me, and I wipe their spit from my face after they've gone. The briefest thought of killing them dances in my mind's eye - but I decide against it. I'm not sure why.",
+	"effects": {
+	    "friend": -99
+	}
+    },
+    {
+	"id": "communicate.givevicious.success",
+	"label": "Confront an Ally with grim realities",
+	"startdescription": "'This is all there is, and it doesn't mean anything. None of it. Now, you see, yes? You see?''",
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "vicious",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "communicate.givevicious.antithesis",
+	"actionid": "communicate",
+	"label": "Show an Ally the Wolf's truth",
+	"startdescription": "Even after all they have suffered, this one is still clinging to delusions of restraint and dignity. I could try to break them of those delusions - but this might just break them, instead.\n\n[This can give your Ally the Vicious aspect, but it might also fail and cause them to go mad.]",
+	"requirements": {
+	    "friend": 1,
+	    "vicious": -1,
+	    "antithesis": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "communicate.givevicious.success.antithesis",
+		"chance": 60
+	    },
+	    {
+		"id": "communicate.givevicious.failure.antithesis"
+	    },
+	]
+    },
+    {
+	"id": "communicate.givevicious.failure.antithesis",
+	"label": "Show an Ally the Wolf's truth",
+	"startdescription": "It begins as a whisper, or a mumbling - but then come the tears, and the shivering, and the screaming. Into the hours of night, they are screaming still.",
+	"effects": {
+	    "friend": -99,
+	    "friend.lunatic": 1
+	}
+    },
+    {
+	"id": "communicate.givevicious.success.antithesis",
+	"label": "Show an Ally the Wolf's truth",
+	"startdescription": "'When the fire comes, there will be a feast. When the feast comes, I will find you. This, I promise.'",
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "vicious",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "communicate.findallies.wasteland",
+	"actionid": "communicate",
+	"label": "Search the Ruined Country for potential allies?",
+	"startdescription": "We cannot be the only pitiable band of vagrants scrambling to get somewhere else. Are there others out here, on the dead stretches of country? Will any of them find common cause with us?\n\n[You can only do this once per trip through the Ruined Country between Warzones.]",
+	"description": "Who's prowling about?",
+	"requirements": {
+	    "wasteland": 1,
+	    "wasteland.scouted": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "warzone.current": -2
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "wasteland.scouted",
+		"level": 1
+	    }
+	],
+	"internaldeck": {
+	    "spec": [
+		"wandering.refugees",
+		"wandering.refugees",
+		"wandering.refugees",
+		"wandering.refugees",
+		"wandering.deserters",
+		"wandering.deserters",
+		"wandering.deserters",
+		"husk",
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 60
+    },
+    {
+	"id": "heal.wound.contemnant.doctor",
+	"actionid": "abandon",
+	"label": "Heal my Wound",
+	"startdescription": "This will do.",
+	"description": "Time passes in the medic's tent, and then I am returned to the field.",
+	"requirements": {
+	    "provisions": 1,
+	    "friend.doctor": 1,
+	    "damage.body": 1,
+	    "debilitation": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "damage.body": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "heal.wound.contemnant.doctor.hidden",
+	"actionid": "abandon",
+	"label": "Heal my Wound",
+	"startdescription": "This will do.",
+	"description": "Time passes in the medic's tent, and then I am returned to the field.",
+	"requirements": {
+	    "provisions": 1,
+	    "friend.doctor.hidden": 1,
+	    "damage.body": 1,
+	    "debilitation": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "damage.body": -1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "lookout.revealhidden",
+	"actionid": "operate",
+	"label": "Send a lone lookout to survey the enemy",
+	"startdescription": "One pair of eyes, alone in the night. They will return with something to say about the enemy position. Hopefully.\n\n[This will reveal a Hidden Enemy - but you risk killing the Ally used to do this.]",
+	"requirements": {
+	    "friend.lookout": 1,
+	    "foe.hidden": 1,
+	    "op": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "lookout.revealhidden.success",
+	    }
+	]
+    },
+    {
+	"id": "lookout.hidden.revealhidden",
+	"actionid": "operate",
+	"label": "Send a lone lookout to survey the enemy",
+	"startdescription": "One pair of eyes, alone in the night. They will return with something to say about the enemy position. Hopefully.\n\n[This will reveal a Hidden Enemy - but you risk killing the Ally used to do this.]",
+	"requirements": {
+	    "friend.lookout.hidden": 1,
+	    "foe.hidden": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "lookout.revealhidden.success",
+	    }
+	]
+    },
+    {
+	"id": "lookout.revealhidden.success",
+	"label": "Send a lone lookout to survey the enemy",
+	"startdescription": "There it is.",
+	"aspects": {
+	    "fatiguing": 1,
+	    "revealidentity": 1
+	},
+	"alt": [
+	    {
+		"id": "lookout.revealhidden.failure",
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "lookout.revealhidden.failure",
+	"label": "Send a lone lookout to survey the enemy",
+	"startdescription": "No-one comes back from the night. My friend must be dead.",
+	"description": "No-one comes back in from the night. My friend must be dead.",
+	"requirements": {
+	    "friend.hidden": -1
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "doctor.killwounded",
+	"actionid": "operate",
+	"label": "Quietude",
+	"startdescription": "The doctor can see it is grim for this one. Their suffering could end now, and forever - but the call is ultimately mine, and so the sorrow will be, too.",
+	"description": "'There, there. It's all over now.'",
+	"requirements": {
+	    "friend.doctor": 1,
+	    "wounded": 1,
+	    "provisions": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.grief",
+		"mem.regret",
+		"mem.calm",
+		"trauma"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"effects": {
+	    "wounded": -99,
+	    "friend.corpses": 1
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "healcasualty.doctor",
+	"actionid": "operate",
+	"label": "Provide medical attention to a wounded ally",
+	"startdescription": "Morphine and stitches. Saws, if necessary.",
+	"description": "And done. They'll live to fight another day.",
+	"requirements": {
+	    "friend.doctor": 1,
+	    "wounded": 1,
+	    "provisions": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "healcomplete.medic"
+	    }
+	]
+    },
+    {
+	"id": "doctor.hidden.killwounded",
+	"actionid": "operate",
+	"label": "Quietude",
+	"startdescription": "The doctor can see it is grim for this one. Their suffering could end now, and forever - but the call is ultimately mine, and so the sorrow will be, too.",
+	"description": "'There, there. It's all over now.'",
+	"requirements": {
+	    "friend.doctor.hidden": 1,
+	    "wounded": 1,
+	    "provisions": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.grief",
+		"mem.regret",
+		"mem.calm",
+		"trauma"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"effects": {
+	    "wounded": -99,
+	    "friend.corpses": 1
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "healcasualty.doctor.hidden",
+	"actionid": "operate",
+	"label": "Provide medical attention to a wounded ally",
+	"startdescription": "Morphine and stitches. Saws, if necessary.",
+	"description": "And done. They'll live to fight another day.",
+	"requirements": {
+	    "friend.doctor.hidden": 1,
+	    "wounded": 1,
+	    "provisions": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "healcomplete.medic"
+	    }
+	]
+    },
+    {
+	"id": "cannibalize.corpse.unnatural",
+	"actionid": "abandon",
+	"label": "Devour a slain creature?",
+	"startdescription": "A corpse is a kind of meat, though this meat is stranger than most. So long as the flesh isn't too inedible or battle-mangled, we can reap a good helping of rations.\n\n[This will produce Provisions, but may cause Allies without the stomach for atrocity to abandon you.]",
+	"description": "There's always enough to eat out here, so long as one is willing to eat as does the rat; the bird; the wolf.",
+	"requirements": {
+	    "remnant": 1,
+	    "foe.corpse.unnatural": 1,
+	    "lore": -1,
+	    "klei.casket": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "remnant": -1,
+	    "provisions": 2
+	},
+	"craftable": true,
+	"warmup": 60,
+	"alt": [
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "cannibalize.corpse",
+	"actionid": "abandon",
+	"label": "Cannibalise the fallen",
+	"startdescription": "A corpse is a kind of meat. We'll cut from the dead what we can, provided the flesh isn't too inedible or battle-mangled.\n\n[This will produce Provisions, but may cause Allies without the stomach for atrocity to abandon you.]",
+	"description": "There's always enough to eat out here, so long as one is willing to eat as does the rat; the bird; the wolf.",
+	"requirements": {
+	    "remnant": 1,
+	    "lore": -1,
+	    "klei.casket": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "remnant": -1,
+	    "provisions": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 25
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "abandon.buildweapon.wolf",
+	"actionid": "abandon",
+	"label": "Manifest an odious weapon of the Wolf-Divided",
+	"startdescription": "Long before the Intercalate, it was sometimes said that 'the Wolf walked beside the Sun.' The Shadowless Kings, the Roman Empire, and the Solar Church have all had their hypotheses and heresies regarding what that meant - but they all agreed that it meant the Sun-in-Splendour had always been acquainted with Agony. This weapon - a heresy itself - acknowledges this.",
+	"description": "'O Highmost Sun, Light of Lights - give us the sight to walk the path, with Glory ahead and our shadows behind. And those wicked who yet persist in darkness - tear at their heels with beastly gold.'",
+	"requirements": {
+	    "wolf.weaponfragment": 3
+	},
+	"effects": {
+	    "wolf.weaponfragment": -3,
+	    "weapon.hair": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "startup.desertion",
+	"actionid": "desertion",
+	"label": "An Ally turns their back on me!",
+	"startdescription": "My actions are too heinous this time. In the morning, our camp is a little emptier - our latest barbarity must have convinced some they'd be better off alone than wading through the carnage with me.",
+	"description": "They did not have the stomach for what we do - but I did. What should I make of that?",
+	"aspects": {
+	    "decline": 1,
+	    "fatiguing": 1
+	},
+	"tablereqs": {
+	    "friend": 1
+	},
+	"mutations": [
+	    {
+		"mutate": "repulsed",
+		"filter": "soviet",
+		"level": 1
+	    }
+	],
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Ally",
+		"required": {
+		    "friend": 1,
+		    "hired": 1
+		},
+		"forbidden": {
+		    "vicious": 1,
+		    "otherworldly": 1,
+		    "edgelong": 1,
+		    "friend.named": 1,
+		    "prisoner": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "produce.localinfamy",
+	"actionid": "lurk",
+	"label": "Unwelcome Scrutiny",
+	"startdescription": "Word of our - <i>my</i> - barbarity has reached the ears of local Russian command, and they are warier of us now. As if I've done something the men of the Red Army haven't already.",
+	"effects": {
+	    "reputation.infamy": 1
+	},
+	"extantreqs": {
+	    "wasteland": -1,
+	    "sobibor.here": -1 
+	},
+	"warmup": 10
+    },
+    {
+	"id": "hide.ally",
+	"actionid": "communicate",
+	"label": "Order an Ally to go into hiding",
+	"startdescription": "To the dark. Our enemy won't be able to find us, or harm us. And when we choose to strike again, it will be with the advantage of surprise...\n\n[A Hidden Ally will not be targeted by most Enemy offensive actions, and will also have their aspects increased until the next time they are used.]",
+	"description": "Here we wait. Here we bristle with anticipation.",
+	"aspects": {
+	    "concealidentity": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "hired": -1,
+	    "friend.hidden": -1,
+	    "op": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "op": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "loot.corpse.scavenger",
+	"actionid": "communicate",
+	"label": "Search the dead for anything useful",
+	"startdescription": "Check their packs and pockets; their stiff and clutching hands.\n\n[Scavengers have a higher chance of finding useful supplies when doing this, and are much quicker.]",
+	"description": "Here's what we have to show.",
+	"requirements": {
+	    "friend.dregscavengers": 1,
+	    "remnant": 1,
+	    "looted": -1,
+	    "foe.corpse.unnatural": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"mutations": [
+	    {
+		"filter": "remnant",
+		"mutate": "looted",
+		"level": 1
+	    }
+	],
+	"craftable": true,
+	"warmup": 15,
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"husk",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares",
+		"provisions",
+		"provisions"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "loot.corpse.scavenger.hidden",
+	"actionid": "communicate",
+	"label": "Search the dead for anything useful",
+	"startdescription": "Check their packs and pockets; their stiff and clutching hands.\n\n[Scavengers have a higher chance of finding useful supplies when doing this, and are much quicker.]",
+	"description": "Here's what we have to show.",
+	"requirements": {
+	    "friend.dregscavengers.hidden": 1,
+	    "remnant": 1,
+	    "looted": -1,
+	    "foe.corpse.unnatural": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"mutations": [
+	    {
+		"filter": "remnant",
+		"mutate": "looted",
+		"level": 1
+	    }
+	],
+	"craftable": true,
+	"warmup": 15,
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"husk",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares",
+		"provisions",
+		"provisions"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "loot.corpse",
+	"actionid": "communicate",
+	"label": "Search the dead for anything useful",
+	"startdescription": "Check their packs and pockets; their stiff and clutching hands.\n\n[This can produce useful supplies. Sometimes you won't find anything.]",
+	"description": "Here's what we have to show.",
+	"requirements": {
+	    "friend.dregscavengers": -1,
+	    "friend": 1,
+	    "remnant": 1,
+	    "looted": -1,
+	    "foe.corpse.unnatural": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"mutations": [
+	    {
+		"filter": "remnant",
+		"mutate": "looted",
+		"level": 1
+	    }
+	],
+	"craftable": true,
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "recruit.refugees.heart",
+	"actionid": "operate",
+	"label": "Convince refugees to follow you?",
+	"startdescription": "'We're trying to get somewhere safer. You're welcome to join us - we would stand a better chance together, I think.'",
+	"description": "'Come along, now.'",
+	"requirements": {
+	    "wandering.refugees": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"effects": {
+	    "wandering.refugees": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.refugees.grail",
+	"actionid": "operate",
+	"label": "Convince refugees to follow you?",
+	"startdescription": "'Are there wounded among you? We have some supplies and medicine to spare.'",
+	"description": "'Come along, now.'",
+	"requirements": {
+	    "wandering.refugees": 1,
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"effects": {
+	    "wandering.refugees": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.refugees.edge",
+	"actionid": "operate",
+	"label": "Convince refugees to follow you?",
+	"startdescription": "'Join or die. Choose.'",
+	"description": "'Smart.'",
+	"requirements": {
+	    "wandering.refugees": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "wandering.refugees": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.deserters.edge",
+	"actionid": "operate",
+	"label": "Convince deserters to follow you?",
+	"startdescription": "'Join or die. Choose.'",
+	"description": "'Smart.'",
+	"requirements": {
+	    "wandering.deserters": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "wandering.deserters": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.deserters.winter",
+	"actionid": "operate",
+	"label": "Convince deserters to follow you?",
+	"startdescription": "'The Germans will gun you down. The Red Army, too, now that you've run. You have no chance - unless you join us.'",
+	"description": "'Smart.'",
+	"requirements": {
+	    "wandering.deserters": 1,
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"effects": {
+	    "wandering.deserters": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "recruit.deserters.grail",
+	"actionid": "operate",
+	"label": "Convince deserters to follow you?",
+	"startdescription": "'All this pain and suffering - somebody's benefiting from it. Why not us? Why not <i>you?</i> What do you owe to anyone, after all?'",
+	"description": "'Smart.'",
+	"requirements": {
+	    "wandering.deserters": 1,
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"effects": {
+	    "wandering.deserters": -99,
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+		"friend.dregsoldier",
+		"friend.dregarsonists",
+		"friend.dregscavengers",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 15
+    },
+    {
+	"id": "operate.startup.slaughterlocals.dregsoldier",
+	"actionid": "operate",
+	"label": "Move through the city and slaughter the local populace",
+	"startdescription": "I tell my men that they may do anything they like - so long as it hurts.\n\n[You cannot do this more than once per Warzone. Suffering and chaos will spread, and any beneficial relationships you might have with the locals and Soviets will be permanently destroyed. The Wolf-Divided will savour this.]",
+	"requirements": {
+	    "friend.dregsoldier": 99,
+	    "warzone.current": 1,
+	    "op.wolfdivided": 1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1,
+	    "warzone.abused": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.slaughterlocals.gunman",
+	"actionid": "operate",
+	"label": "Move through the city and slaughter the local populace",
+	"startdescription": "I tell my men that they may do anything they like - so long as it hurts.\n\n[You cannot do this more than once per Warzone. Suffering and chaos will spread, and any beneficial relationships you might have with the locals and Soviets will be permanently destroyed. The Wolf-Divided will savour this.]",
+	"requirements": {
+	    "friend.gunman": 99,
+	    "warzone.current": 1,
+	    "op.wolfdivided": 1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1,
+	    "warzone.abused": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.slaughterlocals.dregsoldier.hidden",
+	"actionid": "operate",
+	"label": "Move through the city and slaughter the local populace",
+	"startdescription": "I tell my men that they may do anything they like - so long as it hurts.\n\n[You cannot do this more than once per Warzone. Suffering and chaos will spread, and any beneficial relationships you might have with the locals and Soviets will be permanently destroyed. The Wolf-Divided will savour this.]",
+	"requirements": {
+	    "friend.dregsoldier.hidden": 99,
+	    "warzone.current": 1,
+	    "op.wolfdivided": 1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.slaughterlocals.gunman.hidden",
+	"actionid": "operate",
+	"label": "Move through the city and slaughter the local populace",
+	"startdescription": "I tell my men that they may do anything they like - so long as it hurts.\n\n[You cannot do this more than once per Warzone. Suffering and chaos will spread, and any beneficial relationships you might have with the locals and Soviets will be permanently destroyed. The Wolf-Divided will savour this.]",
+	"requirements": {
+	    "friend.gunman.hidden": 99,
+	    "warzone.current": 1,
+	    "op.wolfdivided": 1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.assistlocals.gunman",
+	"actionid": "operate",
+	"label": "Offer relief to the local population",
+	"startdescription": "Times are tough. Perhaps we can spare some time and labour to ease the pains of those who do not fight.\n\n[This can grant you resources like shelter and Local Allies for passing challenges.]",
+	"requirements": {
+	    "friend.gunman": 1,
+	    "warzone.current": 1,
+	    "heart": 1,
+	    "warzone.abused": -1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "assistlocals.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 2,
+		    "filter": {
+			"edge": 1,
+			"heart": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.gunman",
+	"actionid": "operate",
+	"label": "Seize supplies from the local population",
+	"startdescription": "We shall say it is for the war effort. And it is. But they won't like it.\n\n[This can grant you a substantial amount of Provisions, but will permanently destroy any beneficial relationships you might have with the locals. You cannot do this more than once per Warzone.]",
+	"requirements": {
+	    "friend.gunman": 1,
+	    "warzone.current": 1,
+	    "edge": 5,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1,
+	    "warzone.abused": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.assistlocals.gunman.hidden",
+	"actionid": "operate",
+	"label": "Offer relief to the local population",
+	"startdescription": "Times are tough. Perhaps we can spare some time and labour to ease the pains of those who do not fight.\n\n[This can grant you resources like shelter and Local Allies for passing challenges.]",
+	"requirements": {
+	    "friend.gunman.hidden": 1,
+	    "warzone.current": 1,
+	    "heart": 1,
+	    "warzone.abused": -1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "assistlocals.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 2,
+		    "filter": {
+			"edge": 1,
+			"heart": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.gunman.hidden",
+	"actionid": "operate",
+	"label": "Seize supplies from the local population",
+	"startdescription": "We shall say it is for the war effort. And it is. But they won't like it.\n\n[This can grant you a substantial amount of Provisions, but will permanently destroy any beneficial relationships you might have with the locals. You cannot do this more than once per Warzone.]",
+	"requirements": {
+	    "friend.gunman.hidden": 1,
+	    "warzone.current": 1,
+	    "edge": 9,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "shrine.wolf": -1,
+	    "warzone.abused": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.dregsoldier",
+	"actionid": "operate",
+	"label": "Seize supplies from the local population",
+	"startdescription": "We shall say it is for the war effort. And it is. But they won't like it.\n\n[This can grant you a substantial amount of Provisions, but will permanently destroy any beneficial relationships you might have with the locals. You cannot do this more than once per Warzone.]",
+	"requirements": {
+	    "friend.dregsoldier": 1,
+	    "warzone.current": 1,
+	    "edge": 7,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "warzone.abused": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.dregsoldier.hidden",
+	"actionid": "operate",
+	"label": "Seize supplies from the local population",
+	"startdescription": "We shall say it is for the war effort. And it is. But they won't like it.\n\n[This can grant you a substantial amount of Provisions, but will permanently destroy any beneficial relationships you might have with the locals. You cannot do this more than once per Warzone.]",
+	"requirements": {
+	    "friend.dregsoldier.hidden": 1,
+	    "warzone.current": 1,
+	    "edge": 7,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "warzone.abused": -1,
+	    "shrine.wolf": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "communicate.klei.getcasket",
+	"actionid": "communicate",
+	"label": "She Who Holds the Key of Days",
+	"startdescription": "'Duffoure's child put you up to this. They understand the Wolf is a necessity, as are we,' Kleidouchos explains, gesturing to herself. 'If you will become his Name, I will assist you, killer of men. One does not forget the Wolf has a right to the Dawn. And I have desired to see Dawn again for a very, very long time.'",
+	"description": "'Be warned: I am no longer at the height of my powers. Vienna has protected me from particular covetous parties, but remaining here has still exacted its cost. Those who would usurp my Key of Days have sensed my weakness. They will come for me on the road. Do not allow me to be eaten.'",
+	"requirements": {
+	    "klei": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"effects": {
+	    "klei": -99,
+	    "klei.casket": 1
+	}
+    },
+    {
+	"id": "abandon.concealcasket",
+	"actionid": "abandon",
+	"label": "Shroud the light of the Key-Bearer",
+	"startdescription": "'Good, good. With this one's blood I should have enough strength to ward off thieves for a time.'",
+	"description": "'I am grateful. Now, back to the road and keep focus.'",
+	"requirements": {
+	    "friend": 1,
+	    "klei.casket": 1
+	},
+	"aspects": {
+	    "malign": 1
+	},
+	"effects": {
+	    "friend": -99
+	},
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "communicate.getsobibor.klei",
+	"actionid": "communicate",
+	"label": "Ask the Ligeian about the Exile",
+	"startdescription": "'Mm. I know of them. You would be a fool if they did not frighten you. Know this: the Colonel answers fear with resolve; the Lionsmith with courage. And the Wolf has a different way.'",
+	"description": "'You will not find the answer to your fear in the world. It was placed within you, and so you must journey within to extirpate it.'",
+	"requirements": {
+	    "klei.casket": 1,
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "sobibor": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"maxexecutions": 1
+    },
+    {
+	"id": "communicate.getmemories.klei",
+	"actionid": "communicate",
+	"label": "Look to the Key-Bearer's light for guidance",
+	"startdescription": "The Key-Bearer's presence burns like a candle in the night. I can supplicate it for some power, but not all her counsel may reach me through the darkness of this terrible dream.\n\n[While in Sobibor, you can gain useful memories by speaking to Kleidouchos. Sometimes this will produce nothing.]",
+	"description": "Something?",
+	"requirements": {
+	    "klei.casket": 1
+	},
+	"extantreqs": {
+	    "sobibor.here": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.ingenuity",
+		"mem.revelation",
+		"mem.calm",
+		"mem.joy",
+		"mem.taste",
+		"husk",
+		"husk",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"craftable": true,
+	"warmup": 60
+    },
+    {
+	"id": "bloodonhands.executepseudogol",
+	"actionid": "execution",
+	"label": "Butchery",
+	"startdescription": "The pseudogol screeches like a cat as the Ivory twists it apart and throws it to its kind-",
+	"description": "'Feast, now. Feast.'",
+	"tablereqs": {
+	    "foe.flesheater": 1
+	},
+	"aspects": {
+	    "killflesheater": 1
+	},
+	"slots": [
+	    {
+		"id": "needsflesheater",
+		"label": "Meat",
+		"required": {
+		    "foe.flesheater": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "createguards.ingluviate",
+	"actionid": "ingluviateguard",
+	"label": "Covering the Retreat",
+	"startdescription": "The ingluviate writhes and wriggles away with the casket stowed in its gullet, and other Grail-things move to protect its escape -",
+	"extantreqs": {
+	    "foe.ingluviate.protect": -1
+	},
+	"slots": [
+	    {
+		"id": "needsguard",
+		"label": "Enemy",
+		"required": {
+		    "foe.flesheater": 1,
+		    "foe.flesheater.hidden": 1,
+		    "foe.percussigant": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsguardanother",
+		"label": "Enemy",
+		"required": {
+		    "foe.flesheater": 1,
+		    "foe.flesheater.hidden": 1,
+		    "foe.percussigant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "foe.flesheater",
+		"mutate": "foe.ingluviate.protect",
+		"level": 1
+	    },
+	    {
+		"filter": "foe.flesheater.hidden",
+		"mutate": "foe.ingluviate.protect",
+		"level": 1
+	    },
+	    {
+		"filter": "foe.percussigant",
+		"mutate": "foe.ingluviate.protect",
+		"level": 1
+	    },
+	],
+	"warmup": 10
+    },
+    {
+	"id": "produce.wolfshadow",
+	"actionid": "spit.winter",
+	"label": "The Attention of the Wolf-Divided",
+	"startdescription": "A shadow passes over the soul. An unspeakable pain twists inside me. I must give it to someone else, <i>anyone</i> else -",
+	"effects": {
+	    "op.wolfdivided": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "find.sergei.first",
+	"label": "A Wanderer?",
+	"startdescription": "Someone crosses my path as I return from scouting. There is an air about this one. Something kindred; something awful.",
+	"effects": {
+	    "op.sergei": 1
+	},
+	"maxexecutions": 1,
+	"extantreqs": {
+	    "runmarker.sergei": 1
+	}
+    },
+    {
+	"id": "speakwithsergei.first",
+	"actionid": "communicate",
+	"label": "The Old Cossack",
+	"startdescription": "'You are too... <i>kind,'</i> the cossack hisses, as if struggling with the word. 'You do not know who I am or what I have done, and you welcome me. My son I taught to be wary of strangers, but I suppose hounds of a hair can't help but recognize one another. And so, you welcome me.'",
+	"description": "'You remind me of him. My son. Pitiable runt,' the cossack grows... wistful? 'I am searching for a keepsake of his. Something sharp. If you happen upon it, be kind once more and return it to me. It would be better than me having to take it from you.'",
+	"requirements": {
+	    "op.sergei": 1
+	},
+	"furthermore": { 
+	    "target": "~/tabletop[situationstorage]+",
+	    "aspects": {
+		"avowal": 1 
+	    }
+	},
+	"xpans": { 
+	    "avowal": 1 
+	},
+	"effects": {
+	    "op.sergei": -99
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "findkazimirsword",
+	"label": "A Relic of Enmity?",
+	"startdescription": "Something glints viciously in the darkness. It could be shrapnel or some jagged piece of wreckage, but my instincts tell me to get closer and have a look...",
+	"description": "Something glints viciously in the darkness. It could be shrapnel or some jagged piece of wreckage, but my instincts tell me to get closer and have a look...\n\n[Hold onto this. Someone will come for it.]",
+	"extantreqs": {
+	    "marker.spoketosergeiaboutsword": 1
+	},
+	"maxexecutions": 1,
+	"effects": {
+	    "plotitem.kazimirshashka": 1
+	}
+    },
+    {
+	"id": "find.sergei.comeforsword",
+	"label": "A Wanderer?",
+	"startdescription": "A sudden shadow on the road. Someone familiar crosses my path as I return to camp from the night.",
+	"effects": {
+	    "op.sergei.comeforsword": 1
+	},
+	"extantreqs": {
+	    "plotitem.kazimirshashka": 1
+	},
+	"maxexecutions": 1
+    },
+    {
+	"id": "speakwithsergei.turninsword",
+	"actionid": "communicate",
+	"label": "Lamentations ",
+	"startdescription": "The cossack takes the broken blade in his hands, face mute as stone. 'When he was only a boy, he hated me for what I took from him. Three little lives were all he had between him and being alone. And hate made him grow strong. When he was finally a man, he found me again...'",
+	"description": "'He was never my son by blood, but chance - destiny - bound us together. Destiny is the Hours. Accursed. Uncaring. Destiny's eyes are upon you, now. Before the Wolf takes me, I think I would like to see what accursed, uncaring thing destiny will carve from your bones.'",
+	"requirements": {
+	    "op.sergei.comeforsword": 1,
+	    "plotitem.kazimirshashka": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"effects": {
+	    "plotitem.kazimirshashka": -99,
+	    "op.sergei.comeforsword": -99,
+	    "sergei.horn": 1
+	}
+    },
+    {
+	"id": "hint.summon.friend.immortal.alreadyhere",
+	"actionid": "abandon",
+	"label": "Summon the assistance of a mighty ally?",
+	"startdescription": "Why? They're already here.",
+	"requirements": {
+	    "uses.remaining": 1
+	},
+	"extantreqs": {
+	    "friend.immortal": 1,
+	    "contemnant.story": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.summon.friend.immortal.denied",
+	"actionid": "abandon",
+	"label": "Summon the assistance of a mighty ally?",
+	"startdescription": "I could call - but no-one would answer.",
+	"requirements": {
+	    "uses.remaining": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "summon.friend.immortal.sergei",
+	"actionid": "abandon",
+	"label": "Summon the assistance of a mighty ally",
+	"startdescription": "The grim wail of the horn pierces the air and hangs there, like a corpse from a tree. There is a rumbling in the distance. Hoofbeats.",
+	"description": "Upon horseback, mantled in black: the Iron-Eater. His sabre glints cruelly in his hand. 'Wolf's work. Let us be about it, killer of men.'",
+	"requirements": {
+	    "sergei.horn": 1,
+	    "uses.remaining": 1
+	},
+	"extantreqs": {
+	    "sobibor.here": -1,
+	    "friend.immortal": -1,
+	    "friend.immortal.blocker": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "friend.sergei": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "summon.friend.immortal.nomoreuses"
+	    }
+	]
+    },
+    {
+	"id": "summon.friend.immortal.cross",
+	"actionid": "abandon",
+	"label": "Summon the assistance of a mighty ally",
+	"startdescription": "Outwardly, there is no sign of anything having happened. The Cracktrack sigil scratched into the shell is still and quiet. But, behind the sky, something from another age moves to emerge and strike -",
+	"description": "The Glaeterfleoge warrior rears high on her hind legs, almost as if standing at attention. Her mandibles click impatiently. Both of us seek blood today, and we both shall have it.",
+	"requirements": {
+	    "cross.summonsign": 1,
+	    "uses.remaining": 1
+	},
+	"extantreqs": {
+	    "sobibor.here": -1,
+	    "friend.immortal": -1,
+	    "friend.immortal.blocker": -1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "friend.cross": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "summon.friend.immortal.nomoreuses"
+	    }
+	]
+    },
+    {
+	"id": "summon.friend.immortal.nomoreuses",
+	"label": "Summon the assistance of a mighty ally",
+	"startdescription": "@#friend.sergei|Upon horseback, mantled in black: the Iron-Eater. His sabre glints cruelly in his hand. 'Wolf's work. Let us be about it, killer of men.'#friend.cross|The Glaeterfleoge warrior rears high on her hind legs, almost as if standing at attention. Her mandibles click impatiently. Both of us seek blood today, and we both shall have it.@",
+	"requirements": {
+	    "uses.remaining": -1
+	},
+	"effects": {
+	    "sergei.horn": -99,
+	    "cross.summonsign": -99
+	}
+    },
+    {
+	"id": "talktosergei.final",
+	"actionid": "communicate",
+	"label": "Last Breaths",
+	"startdescription": "The cossack bleeds in the snow. 'Finished, then. The delusion will persist no longer. I think this is the best I could have hoped for,' he says, dying. 'You, though - you are not to die yet. I can see the road that waits for you. <i>Smell</i> it. You will see the Wolf's promise fulfilled at last. You will be the worst of us.'",
+	"description": "'Killer of men - you will live to see the city of your birth pulled down to the last stone. Yours will be the hand that brings it all crumbling down.'",
+	"requirements": {
+	    "op.sergei.postfight": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"effects": {
+	    "op.sergei.postfight": -99,
+	    "weapon.sergei": 1
+	}
+    },
+    {
+	"id": "unmake.foe.ingluviate.engorged.hint",
+	"actionid": "abandon",
+	"label": "The Red Guard",
+	"startdescription": "The creature would normally be easy to slay, but despite the weight it now carries within, the ingluviate remains surprisingly swift - and that's not mentioning the other creatures still protecting it from me.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe.ingluviate.engorged": 1
+	},
+	"extantreqs": {
+	    "foe.ingluviate.protect": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "use.unmake.foe.ingluviate.engorged",
+	"actionid": "abandon",
+	"label": "Unmake",
+	"startdescription": "A shadow falls across my soul, and hatred deeper and older than my own moves through me - through my veins and into my hands, burning. I reach out for my enemy -",
+	"description": "Nothing remains. Utterly nothing.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.ingluviate.engorged": 1
+	},
+	"extantreqs": {
+	    "foe.ingluviate.protect": -1
+	},
+	"effects": {
+	    "foe": -99,
+	    "klei.casket": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"op.wolfdivided",
+		"op.wolfdivided"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+    },
+    {
+	"id": "use.unmake.foe.marinette",
+	"actionid": "abandon",
+	"label": "Unmake?",
+	"startdescription": "Marinette is not so easily destroyed. Her dry limbs hiss hungrily with unseen, ancient power. Trying this on her would only temporarily remove her from play, and cost me dearly besides.",
+	"description": "Something snaps beneath the Ligeian's red shroud, and her dry, cutting shriek rips my eardrums. Her fingers of white bone dig into my flesh, and the <i>pain</i> that courses through me -",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.marinette": 1
+	},
+	"effects": {
+	    "wound.generic": 3,
+	    "trauma": 1,
+	    "foe.marinette.recovering": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "use.unmake.foe.marinette.hidden",
+	"actionid": "abandon",
+	"label": "Unmake",
+	"startdescription": "A shadow falls across my soul, and hatred deeper and older than my own moves through me - through my veins and into my hands, burning. I reach out for my enemy -",
+	"description": "Something snaps beneath the Ligeian's red shroud, and her dry, cutting shriek rips my eardrums. Her fingers of white bone dig deep into my flesh, and the <i>pain</i> that courses through me -",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.marinette.hidden": 1
+	},
+	"effects": {
+	    "wound.generic": 3,
+	    "foe.marinette.recovering": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"op.wolfdivided",
+		"op.wolfdivided"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "killfoe": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "use.unmake.foe.officer",
+	"actionid": "abandon",
+	"label": "Unmake",
+	"startdescription": "A shadow falls across my soul, and hatred deeper and older than my own moves through me - through my veins and into my hands, burning. I reach out for my enemy -",
+	"description": "Nothing remains. Utterly nothing.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.officer": 1
+	},
+	"extantreqs": {
+	    "foe.officerdetail": -1
+	},
+	"effects": {
+	    "foe": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "weakenenemies.detect",
+		"additional": true
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "use.unmake.foe",
+	"actionid": "abandon",
+	"label": "Unmake",
+	"startdescription": "A shadow falls across my soul, and hatred deeper and older than my own moves through me - through my veins and into my hands, burning. I reach out for my enemy -",
+	"description": "Nothing remains. Utterly nothing.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": -1,
+	    "foe.marinette": -1,
+	    "foe.marinette.hidden": -1
+	},
+	"effects": {
+	    "foe": -99,
+	    "aggro.bombers.refuel": -99,
+	    "foe.bombers.refuel": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "use.unmake.neutral",
+	"actionid": "abandon",
+	"label": "Unmake",
+	"startdescription": "A shadow falls across my soul, and hatred deeper and older than my own moves through me - through my veins and into my hands, burning. I reach out for my enemy -",
+	"description": "Nothing remains. Utterly nothing.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "neutral": 1
+	},
+	"effects": {
+	    "neutral": -99,
+	    "reputation.infamy": 3
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 45
+	    }
+	]
+    },
+    {
+	"id": "unmake.getshadow",
+	"label": "Unmake",
+	"startdescription": "Nothing remains. Utterly nothing.",
+	"extantreqs": {
+	    "sustain.marker": 1
+	},
+	"effects": {
+	    "op.wolfdivided": 1
+	}
+    },
+    {
+	"id": "use.unmake.friend",
+	"actionid": "abandon",
+	"label": "Unmake",
+	"startdescription": "A shadow falls across my soul, and hate deeper and older than my own moves through me - through my veins and into my hands, burning. I reach out for the one who claims to be my friend -",
+	"description": "Nothing remains. Utterly nothing.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "friend": 1
+	},
+	"effects": {
+	    "friend": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "use.sustain.refresh",
+	"actionid": "operate",
+	"label": "Dying, Never Dead",
+	"startdescription": "The Wolf at his gentlest will permit me to continue when I would otherwise perish. His jagged, reeking teeth will bite down and lock around me, and my life will not pass from this side of the dream into death while he holds me.",
+	"description": "The Wolf bites without hesitation, deep and excruciating. The peace of oblivion is denied to me.",
+	"requirements": {
+	    "op.wolfdivided": 1,
+	    "foe": -1,
+	    "friend": -1,
+	    "main": -1,
+	    "side": -1,
+	    "contemplation": -1
+	},
+	"extantreqs": {
+	    "sustain.marker": 1
+	},
+	"aspects": {
+	    "employment": 1
+	},
+	"effects": {
+	    "op.wolfdivided": -99
+	},
+	"slots": [
+	    {
+		"id": "needsskill",
+		"label": "Sustention",
+		"required": {
+		    "sustain.marker": 1
+		},
+		"greedy": true
+	    }
+	],
+	"craftable": true,
+	"warmup": 5
+    },
+    {
+	"id": "use.division.turnsplinters",
+	"actionid": "abandon",
+	"label": "Discharge my Despair",
+	"startdescription": "A horrendous pain churns inside me. I double over, teeth clenched, as I feel something rip through and out of me with a scream -",
+	"description": "My flesh is unharmed, but sheets of stinking grey vapour curl off my skin, drifting - then distinguishing, forming eyes, claws, teeth -",
+	"requirements": {
+	    "skill.division": 1,
+	    "trauma": 1,
+	    "klei.casket": -1
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "wolftransform": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+    },
+    {
+	"id": "produce.flames",
+	"actionid": "spit.forge",
+	"label": "Fire and Chaos",
+	"startdescription": "The Wolf-Divided sanctions the destroying fire, the consuming fire, the fire which leaves only ash! Here it is born -",
+	"warmup": 10,
+	"effects": {
+	    "op.fire": 1
+	}
+    },
+    {
+	"id": "use.endinghope",
+	"actionid": "operate",
+	"label": "To Deny the Wolf",
+	"startdescription": "The bloody destiny the Exile intended for me is not written in stone. I could forgo my vengeance. I could cast down my weapons and leave my enemy to death and judgement at another's hands. The Exile would call that weakness - but perhaps living well is the best revenge.\n\n[This will end the game.]",
+	"requirements": {
+	    "op.endinghope": 1,
+	    "contemnant.memento": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictory.contemnant.mp3",
+	"ending": "peaceending",
+	"achievements": [
+	    "hope.peaceending"
+	]
+    },
+    {
+	"id": "use.getcrosspromise",
+	"actionid": "operate",
+	"label": "The Owl and the Wolf",
+	"startdescription": "Dapples of silvered moonlight illumine the forest floor. From the wood-shadows emerges a living relic of History: one of the last of the Carapace Cross, and a catspaw of the Horned Axe's vengeance. The Wolf-Divided will make clear that I am marked for his own, and so I may stand as an equal in this negotation of shared enmities.",
+	"description": "The Cross-warrior and I do not speak - the speech of flesh and the speech of scale are too alien to one another - but crude impressions of words buzz in my memory: <i>Ape. Enemy. You. Exceptions. Blood. Earth. Returning. Return. Orders. Sever. Two. Both. Kill. Kill.</i>",
+	"requirements": {
+	    "op.axe": 1,
+	    "completed": 1,
+	    "op.time.night": 1,
+	    "op.wolfdivided": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"effects": {
+	    "cross.summonsign": 1,
+	    "op": -99,
+	    "completed": -99
+	}
+    },
+    {
+	"id": "talktocross.final",
+	"actionid": "communicate",
+	"label": "End of Armistice",
+	"startdescription": "<i>Ape. Truce. No more. Next. You. Enemy. Wolf. Owl. Outcome? Victor? Future. We will. See.</i>",
+	"description": "The Cross-warrior takes flight. She recedes to a point of black on the horizon, and then she vanishes behind that deep blue curtain of sky.",
+	"requirements": {
+	    "op.cross.postfight": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"effects": {
+	    "op.cross.postfight": -99
+	},
+	"slots": [
+	    {
+		"id": "needsedge",
+		"label": "Power?",
+		"description": "She's talking. I could kill her if I were strong and fast enough.",
+		"required": {
+		    "edge": 20
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "talktocross.final.kill"
+	    }
+	]
+    },
+    {
+	"id": "talktocross.final.kill",
+	"label": "Crushing a Bug",
+	"startdescription": "If our truce is over, then strife begins now and anew. It is swift, the snuffing of the light. Where once the proud soldier stood now lies a dead, quiet heap of scales and wings. And those black, thousand-faceted eyes will see no more.",
+	"description": "A warm glee comes over my senses. It is, after all, a rare pleasure to be able to kill the very last of something.",
+	"requirements": {
+	    "edge": 20
+	},
+	"effects": {
+	    "op.cross.postfight": -99,
+	    "weapon.cross": 1
+	},
+    },
+    {
+	"id": "dispel.developingtrauma.hint",
+	"actionid": "operate",
+	"label": "Quell despair before it takes root?",
+	"startdescription": "The despair leaches like a poison into my blood, my very soul. It must be siphoned out with the proper powers, and a Memory to placate it.",
+	"requirements": {
+	    "developing": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "dispel.developingtrauma.heart",
+	"actionid": "operate",
+	"label": "Quell despair before it takes root",
+	"startdescription": "I must hold back the tide of this pain, lest it drown me before I am able to strike at the source of my fear. Heart will abate despair's coming.",
+	"description": "The howling quiets, and then there is silence.",
+	"requirements": {
+	    "developing": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart",
+	    "memory": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "developing": -99,
+	    "memory": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "dispel.developingtrauma.lantern",
+	"actionid": "operate",
+	"label": "Quell despair before it takes root",
+	"startdescription": "I must hold back the tide of this pain, lest it drown me before I am able to strike at the source of my fear. Lantern will ward off despair's coming.",
+	"description": "The howling quiets, and then there is silence.",
+	"requirements": {
+	    "developing": 1,
+	    "needslantern": 1,
+	    "lantern": "needslantern",
+	    "memory": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "developing": -99,
+	    "memory": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "dispel.trauma.shredsself",
+	"actionid": "abandon",
+	"label": "An Offering to Pain",
+	"startdescription": "I do not need the person reflected in these shards of memory - I need my revenge. So I will offer now this lamb of sacrifice to the Wolf, and he will accept.",
+	"description": "A little bit of who I was slips away into the dark, and is devoured. A weight lifts from my shoulders. Catharsis.",
+	"requirements": {
+	    "shred.self": 1,
+	    "trauma": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "weaken.exilenightmare",
+	"actionid": "operate",
+	"label": "Diminishing the Nightmare",
+	"startdescription": "I can feel the nightmare trembling. As the incandescence of my hatred grows, the shadow of the Exile writhes and shrinks away. I grit my teeth as it turns to a white-hot conflagration inside me - the flames, the flames!",
+	"description": "Who's afraid of the big, bad wolf?\n\n[The Exile's threshold has been lowered.]",
+	"requirements": {
+	    "foe.exilenightmare": 1,
+	    "contemplation.sobibor.complete": 1
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "weaken": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"maxexecutions": 3
+    },
+    {
+	"id": "produce.developing.trauma",
+	"actionid": "despair",
+	"label": "Those Who Have Gone to the Wolf",
+	"startdescription": "There they stand, in the striped rags I once wore, too. Now, they reach with their cold hands, offering quiet - not peace, but quiet. I belong with them, don't I? Don't I?",
+	"warmup": 10,
+	"effects": {
+	    "developing.trauma": 1
+	}
+    },
+    {
+	"id": "turnin.token.intent",
+	"actionid": "operate",
+	"label": "Fear, Unmade",
+	"startdescription": "Here, then - my hatred proves greater than my fear at last. The nightmare shudders.",
+	"description": "The winds of Sobibor quiet behind me. All the pain I had suffered there and at the Exile's hand - all of it is naught, now, I realise. I am the agony and the infliction thereof, and the one called Exile will never command my fear again.",
+	"requirements": {
+	    "main.sobibor": 1,
+	    "token.intent": 1
+	},
+	"effects": {
+	    "main": -99
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "prisoner.withheart",
+	"actionid": "operate",
+	"label": "Solace",
+	"startdescription": "I will remember how suffering made us kin, for however short and distant a time that was.\n\n[This will produce useful Memories.]",
+	"requirements": {
+	    "foe.prisoners": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.joy",
+		"mem.calm",
+		"mem.ingenuity",
+		"mem.rage",
+		"mem.taste"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"effects": {
+	    "foe.prisoners": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    },
+    {
+	"id": "prisoner.withedge",
+	"actionid": "operate",
+	"label": "Anguish",
+	"startdescription": "I will remember how suffering made us less than human.\n\n[This will produce Trauma.]",
+	"requirements": {
+	    "foe.prisoners": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "trauma": 1,
+	    "foe.prisoners": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    }
+]
+}

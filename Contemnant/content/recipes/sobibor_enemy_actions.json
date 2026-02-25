@@ -1,0 +1,271 @@
+{
+"recipes": [
+    {
+	"id": "nightmare.cycle.startup",
+	"actionid": "nightmare_action",
+	"label": "The Nightmare Churns...",
+	"linked": [
+	    {
+		"id": "nightmare.cycle"
+	    },
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.cycle",
+	"actionid": "nightmare_action",
+	"label": "The Nightmare Churns...",
+	"startdescription": "The wind whistles past the fence posts, and the barbed wire lines on the horizon shiver in the dusk. Faraway, dogs bark. This is almost all exactly as I remember it - but this nightmare will not remain still forever. Something will come for me.",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token.marinette": 1,
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "nightmare.hightrauma.convert"
+	    },
+	    {
+		"id": "nightmare.exileattack.trigger",
+		"chance": 40
+	    },
+	    {
+		"id": "nightmare.pickaction.router",
+		"chance": 40
+	    },
+	    {
+		"id": "nightmare.cycle"
+	    }
+	],
+	"extantreqs": {
+	    "sobibor.here": 1,
+	    "damage.mind": -3
+	},
+	"xpans": { 
+	    "intention.downtime": 1 
+	},
+    },
+    {
+	"id": "nightmare.pickaction.router",
+	"label": "The Nightmare Surges!",
+	"startdescription": "Old fears and pains surface again! The nightmare bays for blood -",
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"internaldeck": {
+	    "spec": [
+		"decision.enemy.singleattack",
+		"decision.enemy.singleattack",
+		"decision.enemy.singleattack",
+		"decision.enemy.doubleattack",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "nightmare.singleattack.trigger"
+	    },
+	    {
+		"id": "nightmare.doubleattack.trigger"
+	    },
+	]
+    },
+    {
+	"id": "nightmare.singleattack.trigger",
+	"label": "The Nightmare Surges!",
+	"requirements": {
+	    "decision.enemy.singleattack": 1
+	},
+	"alt": [
+	    {
+		"id": "singleattack.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "nightmare.clear"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.doubleattack.trigger",
+	"label": "The Nightmare Surges!",
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"alt": [
+	    {
+		"id": "doubleattack.1.startup",
+		"additional": true
+	    },
+	    {
+		"id": "doubleattack.2.startup",
+		"additional": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "nightmare.clear"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.clear",
+	"label": "The Nightmare Surges!",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    },
+	    {
+		"id": "nightmare.cycle"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.exileattack.trigger",
+	"label": "The Nightmare Surges!",
+	"startdescription": "Old fears and pains surface again! The nightmare bays for blood -",
+	"requirements": {
+	    "readiness.token.marinette": 8
+	},
+	"alt": [
+	    {
+		"id": "exile.attacks.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "nightmare.exileattack.clear"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.exileattack.clear",
+	"label": "The Nightmare Surges!",
+	"startdescription": "Old fears and pains surface again! The nightmare bays for blood -",
+	"effects": {
+	    "readiness.token.marinette": -99
+	},
+	"linked": [
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    },
+	    {
+		"id": "nightmare.cycle"
+	    }
+	]
+    },
+    {
+	"id": "exile.attacks.startup",
+	"actionid": "marinette.attack",
+	"label": "The Monster in Memory",
+	"startdescription": "'Another lesson, then.'",
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsmarinette",
+		"label": "The Exile",
+		"required": {
+		    "foe.exilenightmare": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "decision.enemy.attack": 1,
+	    "decision.enemy.singleattack": 1
+	},
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	]
+    },
+    {
+	"id": "nightmare.hightrauma.convert",
+	"actionid": "nightmare_action",
+	"label": "The Nightmare Churns...",
+	"startdescription": "The wind whistles past the fence posts, and the barbed wire lines on the horizon shiver in the dusk. Faraway, dogs bark. This is almost all exactly as I remember it - but this nightmare will not remain still forever. Something will come for me.",
+	"linked": [
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    }
+	],
+	"extantreqs": {
+	    "sobibor.here": 1,
+	    "damage.mind": 3
+	},
+	"xpans": { 
+	    "intention.assault": 1 
+	},
+    },
+    {
+	"id": "nightmare.hightrauma.cycle",
+	"actionid": "nightmare_action",
+	"label": "The Nightmare Churns...",
+	"startdescription": "The wind whistles past the fence posts, and the barbed wire lines on the horizon shiver in the dusk. Faraway, dogs bark. This is almost all exactly as I remember it - but this nightmare will not remain still forever. Something will come for me.",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token.marinette": 1,
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "nightmare.lowtrauma.convert"
+	    },
+	    {
+		"id": "nightmare.exileattack.trigger",
+		"chance": 40
+	    },
+	    {
+		"id": "nightmare.pickaction.router",
+		"chance": 40
+	    },
+	    {
+		"id": "nightmare.hightrauma.cycle"
+	    }
+	],
+	"extantreqs": {
+	    "sobibor.here": 1,
+	    "damage.mind": 3
+	},
+	"xpans": { 
+	    "intention.assault": 1 
+	},
+    },
+    {
+	"id": "nightmare.lowtrauma.convert",
+	"actionid": "nightmare_action",
+	"label": "The Nightmare Churns...",
+	"startdescription": "The wind whistles past the fence posts, and the barbed wire lines on the horizon shiver in the dusk. Faraway, dogs bark. This is almost all exactly as I remember it - but this nightmare will not remain still forever. Something will come for me.",
+	"linked": [
+	    {
+		"id": "nightmare.cycle"
+	    }
+	],
+	"extantreqs": {
+	    "sobibor.here": 1,
+	    "damage.mind": -3
+	},
+	"xpans": { 
+	    "intention.downtime": 1 
+	},
+    },
+]
+}

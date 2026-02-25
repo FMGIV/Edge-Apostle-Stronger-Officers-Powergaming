@@ -1,0 +1,1513 @@
+{
+"elements": [
+    {
+	"id": "corrivality.stalemate",
+	"label": "Совражество: Тупик",
+	"description": "На данный момент ни Изгнанник, ни Враг не могут получить превосходство над соперником. Пока ничего существенного не произойдет.",
+	"xtriggers": {
+	    "epiphany": "corrivality.exile",
+	    "depiphany": "corrivality.foe"
+	}
+    },
+    {
+	"id": "corrivality.exile",
+	"label": "Совражество: Превосходство Изгнанника",
+	"description": "Мой друг задает взбучку своему Врагу.",
+	"xtriggers": {
+	    "depiphany": "corrivality.stalemate"
+	},
+	"verbicon": "corrivality.exile"
+    },
+    {
+	"id": "corrivality.foe",
+	"label": "Совражество: Превосходство Врага",
+	"description": "Враг снова обратил моего друга в бегство.",
+	"xtriggers": {
+	    "depiphany": "corrivality.stalemate"
+	},
+	"verbicon": "corrivality.foe"
+    },
+    {
+	"id": "nothing",
+	"label": "Ничего",
+	"description": "Непримечательно и тоскливо.",
+	"icon": "strategy.downtime.revealed",
+	"lifetime": 1
+    },
+    {
+	"id": "days.silence",
+	"label": "Тихие дни",
+	"description": "Так много дней войны еще впереди.",
+	"aspects": {
+	    "season": 1
+	},
+	"icon": "seasonsilence"
+    },
+    {
+	"id": "days.dream",
+	"label": "Трансцендентные дни",
+	"description": "Те ночи, созревшие для сновидений.",
+	"aspects": {
+	    "season": 1
+	},
+	"icon": "ascensionenlightenmenta"
+    },
+    {
+	"id": "days.hindrances",
+	"label": "Ненастные дни",
+	"description": "Небеса ниспосылают свои беды.",
+	"aspects": {
+	    "season": 1
+	},
+	"icon": "hindrance.storms"
+    },
+    {
+	"id": "days.resupply",
+	"label": "Хорошие дни",
+	"description": "Пища для голодных, облегчение для уставших.",
+	"aspects": {
+	    "season": 1
+	},
+	"icon": "rarity.grail"
+    },
+    {
+	"id": "days.conclusion",
+	"label": "Мрачные дни",
+	"description": "Конец?",
+	"aspects": {
+	    "season": 1
+	},
+	"icon": "apostlelantern.pillar2"
+    },
+    {
+	"id": "days.strife",
+	"label": "Дни Ярости",
+	"description": "И пламя вздымается выше.",
+	"aspects": {
+	    "season": 1
+	},
+	"icon": "influenceedgee"
+    },
+    {
+	"id": "provisions",
+	"label": "Провизия",
+	"description": "Пули, бинты, ломкие консервы с мясом.",
+	"aspects": {
+	    "supplies": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "resolution",
+	"label": "Награда",
+	"description": "Я довел дело до конца. [Показатель вашей репутации и способностей как участника Совражества. Если вы доживете до того, чтобы выйти в отставку, эта карта повлияет на то, как будет развиваться ваша дальнейшая жизнь.]",
+    },
+    {
+	"id": "progression",
+	"label": "Прогресс",
+	"description": "Движение к завершению.",
+	"lifetime": 1,
+	"icon": "progress"
+    },
+    {
+	"id": "strife",
+	"label": "Раздор",
+	"description": "Когда мы сражаемся, мы подпитываем Совражество и помогаем управлять его титаническими витками. В свою очередь, Совражество разжигает и будоражит воюющий мир вокруг нас. Тот, кого называют Изгнанником, описывает это явление как 'прекрасное'. [По мере усиления Раздора ваши враги будут становиться более агрессивными и многочисленными. Ужасающая сила может быть привлечена к вашему местоположению, как только Раздор достигнет семи.]",
+	"aspects": {
+	    "strife.tracker": 1
+	}
+    },
+    {
+	"id": "trauma",
+	"label": "Потрясение",
+	"description": "Сколько дух сможет вынести. [Пять Потрясений сломают вас.]",
+	"aspects": {
+	    "winter": 6,
+	    "damage.mind": 1
+	},
+	"lifetime": 1000
+    },
+    {
+	"id": "mem.regret",
+	"label": "Воспоминание: Сожаление",
+	"description": "Всегда есть выбор, и поэтому всегда есть сожаления.",
+	"aspects": {
+	    "winter": 4,
+	    "forge": 4
+	},
+	"lifetime": 180
+    },
+    {
+	"id": "mem.joy",
+	"label": "Воспоминание: Радость",
+	"description": "Были времена и получше. Я уверен в этом.",
+	"aspects": {
+	    "heart": 4,
+	    "lantern": 4
+	},
+	"lifetime": 180,
+	"icon": "contentment"
+    },
+    {
+	"id": "mem.rage",
+	"label": "Воспоминание: Гнев",
+	"description": "Гнев - гнев это оружие.",
+	"aspects": {
+	    "edge": 4,
+	    "heart": 4
+	},
+	"lifetime": 180,
+	"icon": "rage"
+    },
+    {
+	"id": "mem.fear",
+	"label": "Воспоминание: Страх",
+	"description": "В тенях души находятся вещи, которые мы хотели бы забыть.",
+	"aspects": {
+	    "winter": 4,
+	    "moth": 4
+	},
+	"lifetime": 180,
+	"icon": "dread"
+    },
+    {
+	"id": "mem.calm",
+	"label": "Воспоминание: Спокойствие",
+	"description": "И в самом глазу бури: покой.",
+	"aspects": {
+	    "winter": 4,
+	    "heart": 4
+	},
+	"lifetime": 180,
+	"icon": "tranquillity"
+    },
+    {
+	"id": "mem.grief",
+	"label": "Воспоминание: Горе",
+	"description": "Боль и скорбь.",
+	"aspects": {
+	    "winter": 4,
+	    "edge": 4
+	},
+	"lifetime": 180,
+	"icon": "apostlelantern.pillar2"
+    },
+    {
+	"id": "mem.ingenuity",
+	"label": "Воспоминание: Изобретательность",
+	"description": "Первые зачатки хорошего плана.",
+	"aspects": {
+	    "lantern": 4,
+	    "forge": 4
+	},
+	"lifetime": 180,
+	"icon": "insight"
+    },
+    {
+	"id": "mem.taste",
+	"label": "Воспоминание: Вкус",
+	"description": "Средоточие мыслей, что взывают к желанию.",
+	"aspects": {
+	    "grail": 4,
+	    "moth": 4
+	},
+	"lifetime": 180,
+	"icon": "ascensionsensationa"
+    },
+    {
+	"id": "mem.unexpected",
+	"label": "Воспоминание: Непредвиденное",
+	"description": "Иногда нет никакой логики, которой нужно следовать. Иногда точки необязательно соединять.",
+	"aspects": {
+	    "knock": 4,
+	    "moth": 4
+	},
+	"lifetime": 180,
+	"icon": "ascensionchangec"
+    },
+    {
+	"id": "mem.revelation",
+	"label": "Воспоминание: Откровение",
+	"description": "Я ВИЖУ.",
+	"aspects": {
+	    "lantern": 4,
+	    "moth": 4
+	},
+	"lifetime": 180,
+	"icon": "fascination"
+    },
+    {
+	"id": "cunning",
+	"label": "Коварство",
+	"description": "'Всякая война основана на обмане.'\n\n- Сунь Цзы, <i>Искусство Войны</i>",
+	"aspects": {
+	    "edge": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "wisdom",
+	"label": "Мудрость",
+	"description": "Солдат должен знать, как лучше всего маневрировать фигурами на доске, а также как лучше всего ими пожертвовать.",
+	"aspects": {
+	    "lantern": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "patience",
+	"label": "Терпение",
+	"description": "То, что превосходит силу.",
+	"aspects": {
+	    "winter": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 240
+    },
+    {
+	"id": "wound.eye",
+	"label": "Израненное лицо",
+	"description": "Я должен позаботиться об этом немедленно. [Пять Ранений или Увечий уьют вас.]",
+	"aspects": {
+	    "knock": 4,
+	    "winter": 4,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "malign": "debilitation.eye"
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Врачи",
+		"required": {
+		    "friend.medics": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 300,
+	"decayTo": "debilitation.eye"
+    },
+    {
+	"id": "wound.hand",
+	"label": "Проколотая рука",
+	"description": "Я должен позаботиться об этом немедленно. [Пять Ранений или Увечий уьют вас.]",
+	"aspects": {
+	    "knock": 4,
+	    "winter": 4,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "malign": "debilitation.hand"
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Врачи",
+		"required": {
+		    "friend.medics": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 300,
+	"decayTo": "debilitation.hand"
+    },
+    {
+	"id": "wound.leg",
+	"label": "Раздробленное колено",
+	"description": "Я должен позаботиться об этом немедленно. [Пять Ранений или Увечий уьют вас.]",
+	"aspects": {
+	    "knock": 4,
+	    "winter": 4,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "malign": "debilitation.leg"
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Medics",
+		"required": {
+		    "friend.medics": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 300,
+	"decayTo": "debilitation.leg"
+    },
+    {
+	"id": "wound.ear",
+	"label": "Разорванное ухо",
+	"description": "Я должен позаботиться об этом немедленно. [Пять Ранений или Увечий уьют вас.]",
+	"aspects": {
+	    "knock": 4,
+	    "winter": 4,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "malign": "debilitation.ear"
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Medics",
+		"required": {
+		    "friend.medics": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 300,
+	"decayTo": "debilitation.ear"
+    },
+    {
+	"id": "debilitation.eye",
+	"label": "Отсутствующий глаз",
+	"description": "Половина мира погружена в ночь. [Пять Ранений или Увечий уьют вас.]",
+	"aspects": {
+	    "winter": 4,
+	    "debilitation": 1,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "epiphany": "debilitation.eye.colonel"
+	}
+    },
+    {
+	"id": "debilitation.hand",
+	"label": "Ампутированная рука",
+	"description": "Полагаю, теперь я могу пользоваться только легким стрелковым оружием. [Пять Ранений или Увечий уьют вас.]",
+	"aspects": {
+	    "winter": 4,
+	    "debilitation": 1,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "epiphany": "debilitation.hand.colonel"
+	}
+    },
+    {
+	"id": "debilitation.leg",
+	"label": "Ампутированная нога",
+	"description": "Если бы я был лошадью, они бы просто пристрелили меня. [Пять Ранений или Увечий уьют вас.]",
+	"aspects": {
+	    "winter": 4,
+	    "debilitation": 1,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "epiphany": "debilitation.leg.colonel"
+	}
+    },
+    {
+	"id": "debilitation.ear",
+	"label": "Нарушение слуха",
+	"description": "Стрельба или дождь? Иногда я не могу отличить наверняка. [Пять Ранений или Увечий уьют вас.]",
+	"aspects": {
+	    "winter": 4,
+	    "debilitation": 1,
+	    "damage.body": 1
+	},
+	"xtriggers": {
+	    "epiphany": "debilitation.ear.colonel"
+	}
+    },
+    {
+	"id": "loc.hospital",
+	"label": "Полевой госпиталь",
+	"description": "Хорошо оборудованное медицинское учреждение - желанное благословение для любого солдата. Жаль, что это место всё что у нас есть. [Раненые союзники могут быть исцелены здесь.]",
+	"aspects": {
+	    "infrastructure": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "loc.hospital.exhausted",
+	    "destroy": "loc.hospital.destroyed"
+	},
+	"slots": [
+	    {
+		"id": "needswounded1",
+		"label": "Несчастный случай",
+		"required": {
+		    "wounded": 1,
+		    "wound.eye": 1,
+		    "wound.hand": 1,
+		    "wound.leg": 1,
+		    "wound.ear": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needswounded2",
+		"label": "Несчастный случай",
+		"required": {
+		    "wounded": 1,
+		    "wound.eye": 1,
+		    "wound.hand": 1,
+		    "wound.leg": 1,
+		    "wound.ear": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needswounded3",
+		"label": "Несчастный случай",
+		"required": {
+		    "wounded": 1,
+		    "wound.eye": 1,
+		    "wound.hand": 1,
+		    "wound.leg": 1,
+		    "wound.ear": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "loc.hospital.exhausted",
+	"label": "Полевой госпиталь (Истощен)",
+	"description": "Хорошо оборудованное медицинское учреждение - желанное благословение для любого солдата. Жаль, что это место всё что у нас есть. [Раненые союзники могут быть исцелены здесь.]",
+	"aspects": {
+	    "infrastructure": 1
+	},
+	"xtriggers": {
+	    "destroy": "loc.hospital.destroyed"
+	},
+	"lifetime": 300,
+	"decayTo": "loc.hospital",
+	"icon": "loc.hospital",
+	"resaturate": true
+    },
+    {
+	"id": "loc.hospital.destroyed",
+	"label": "Полевой госпиталь (Уничтожен)",
+	"description": "Теперь нет места для раненых. [Вы можете восстановить эту карту с помощью инженеров и провизии.]",
+	"aspects": {
+	    "infrastructure.destroyed": 1
+	},
+	"xtriggers": {
+	    "restore": "loc.hospital"
+	},
+	"slots": [
+	    {
+		"id": "needsengineers",
+		"label": "Рабочая сила",
+		"required": {
+		    "friend.engineers": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"label": "Припасы",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Припасы",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "loc.commtower",
+	"label": "Пост связи",
+	"description": "Слова на проводах. Поднимите трубку - и кто-то услышит. [Пока эта карта находится на доске, вы сможете быстро запросить подкрепление.]",
+	"aspects": {
+	    "infrastructure": 1
+	},
+	"xtriggers": {
+	    "destroy": "loc.commtower.destroyed"
+	}
+    },
+    {
+	"id": "loc.commtower.destroyed",
+	"label": "Пост связи (Уничтожен)",
+	"description": "Кто услышит нас теперь? [Вы можете восстановить эту карту с помощью инженеров и провизии.]",
+	"aspects": {
+	    "infrastructure.destroyed": 1
+	},
+	"xtriggers": {
+	    "restore": "loc.commtower"
+	},
+	"slots": [
+	    {
+		"id": "needsengineers",
+		"label": "Рабочая сила",
+		"required": {
+		    "friend.engineers": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"label": "Припасы",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Припасы",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "loc.barracks",
+	"label": "Казармы",
+	"description": "Крыша для защиты от дождя и стены для защиты от всего остального. Наши товарищи смогут разместиться здесь достаточно комфортно.",
+	"aspects": {
+	    "infrastructure": 1,
+	    "room": 10
+	},
+	"xtriggers": {
+	    "destroy": "loc.barracks.destroyed"
+	}
+    },
+    {
+	"id": "loc.barracks.destroyed",
+	"label": "Казармы (Уничтожены)",
+	"description": "Теперь не так уж пригодны для сна. [Вы можете восстановить эту карту с помощью инженеров и провизии.]",
+	"aspects": {
+	    "infrastructure.destroyed": 1
+	},
+	"xtriggers": {
+	    "restore": "loc.barracks"
+	},
+	"slots": [
+	    {
+		"id": "needsengineers",
+		"label": "Рабочая сила",
+		"required": {
+		    "friend.engineers": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "loc.farm",
+	"label": "Реквизированная ферма",
+	"description": "Старое сено и грубая земля. По крайней мере, мы не спим на улице.",
+	"aspects": {
+	    "infrastructure": 1,
+	    "room": 6
+	},
+	"xtriggers": {
+	    "destroy": "husk"
+	}
+    },
+    {
+	"id": "loc.church",
+	"label": "Реквизированная церковь",
+	"description": "Бог всё видит.",
+	"aspects": {
+	    "infrastructure": 1,
+	    "room": 4
+	},
+	"xtriggers": {
+	    "destroy": "husk"
+	}
+    },
+    {
+	"id": "op.madrugad",
+	"label": "Тень Мадругады",
+	"description": "Здесь тот безошибочный холод, который поджидает в часы, предшествующие восходу солнца; здесь Мадругада ведет свой счет.",
+	"aspects": {
+	    "winter": 6,
+	    "forge": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.velvet",
+	"label": "Тень Бархата",
+	"description": "Извивающиеся корни, безопасность теней, рокот в тумане - все это указывает на присутствие Бархата.",
+	"aspects": {
+	    "heart": 6,
+	    "moth": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.beachcomber",
+	"label": "Тень Ворона с Берега",
+	"description": "Шрапнель блестит, как серебро, а кость манит, как тончайший фарфор. Жадный, ищущий Час, именуемый Вороном с Берега, заготовил здесь насест.",
+	"aspects": {
+	    "grail": 6,
+	    "knock": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.thecolonel",
+	"label": "Тень Полковника",
+	"description": "Зрение и слух притупляются, а краски утекают из мира. Холод на моей шее ощущается как прикосновение ножа. Полковник наблюдает с высоты.",
+	"aspects": {
+	    "edge": 6,
+	    "winter": 4,
+	    "lantern": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.thelionsmith",
+	"label": "Тень Кузнеца Львов",
+	"description": "Хвастливый жар поднимается на холоде; огни шипят и смеются. На мыслях, что не разжигают гнев, становится трудно концентрироваться. Ощущается присутствие Кузнеца Львов.",
+	"aspects": {
+	    "edge": 6,
+	    "forge": 4,
+	    "heart": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.wolfdivided",
+	"label": "Тень Разделенного Волка",
+	"description": "Этот явственный аромат, который не является ни смолой, ни кровью, ни озоном. Ярость Разделенного Волка кипит в воздухе.",
+	"aspects": {
+	    "edge": 6,
+	    "winter": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300,
+	"icon": "op.wolf"
+    },
+    {
+	"id": "op.wolves",
+	"label": "Волки",
+	"description": "'Тот, кто кормит волка зимой, будет съеден им весной.'\n\n- греческая пословица.",
+	"aspects": {
+	    "edge": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.dove",
+	"label": "Голубь",
+	"description": "Птица мира - должно быть, потерялась.",
+	"aspects": {
+	    "winter": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.cat",
+	"label": "Кошки",
+	"description": "Дружелюбные маленькие убийцы.",
+	"aspects": {
+	    "grail": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300,
+	"icon": "op.cats"
+    },
+    {
+	"id": "op.ruins",
+	"label": "Руины",
+	"description": "Разрушающиеся здания и старая каменная кладка обеспечат нам то прикрытие, которое смогут.",
+	"aspects": {
+	    "heart": 4,
+	    "forge": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.sewers",
+	"label": "Коллекторы",
+	"description": "Там, где выживают тени, сможем выжить и мы.",
+	"aspects": {
+	    "grail": 4,
+	    "moth": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.highplace",
+	"label": "Высота",
+	"description": "Мы сможем нанести удар с высоты",
+	"aspects": {
+	    "edge": 4,
+	    "lantern": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300,
+	"icon": "op.heights"
+    },
+    {
+	"id": "op.snows",
+	"label": "Снега",
+	"description": "Мы приняли контрмеры к зиме и будем чувствовать себя в ней как дома.",
+	"aspects": {
+	    "winter": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.storms",
+	"label": "Шторма",
+	"description": "Дождь на наших спинах - бодряще. Как на крещении.",
+	"aspects": {
+	    "heart": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.fog",
+	"label": "Туман",
+	"description": "Туманы - это подарок от Бархата, если только человек может понять, как их ценить.",
+	"aspects": {
+	    "moth": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "op.time.dawn",
+	"label": "Рассвет",
+	"description": "Восход солнца, когда мир чист.",
+	"aspects": {
+	    "lantern": 4,
+	    "knock": 4,
+	    "op": 1
+	},
+	"lifetime": 60,
+	"icon": "op.dawn"
+    },
+    {
+	"id": "op.time.noon",
+	"label": "Полдень",
+	"description": "Теперь солнце будет только заходить.",
+	"aspects": {
+	    "lantern": 4,
+	    "winter": 4,
+	    "op": 1
+	},
+	"lifetime": 60
+    },
+    {
+	"id": "op.time.sunset",
+	"label": "Закат",
+	"description": "Закат, когда все цвета ярче.",
+	"aspects": {
+	    "forge": 4,
+	    "winter": 4,
+	    "op": 1
+	},
+	"lifetime": 60,
+	"icon": "op.sunset"
+    },
+    {
+	"id": "op.time.night",
+	"label": "Ночь",
+	"description": "Под покровом тьмы.",
+	"aspects": {
+	    "winter": 4,
+	    "moth": 4,
+	    "op": 1
+	},
+	"lifetime": 60,
+	"icon": "op.night"
+    },
+    {
+	"id": "op.church",
+	"label": "Возможность: Церковь",
+	"description": "Место веры, но не силы. Я мог бы разместить здесь кое-кого из своих людей, если бы мне понадобилось, или, возможно, тихое место привело бы меня к полезному осознанию.",
+	"aspects": {
+	    "op": 1
+	},
+	"xtriggers": {
+	    "recruiting": "loc.church"
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"label": "Намерение",
+		"required": {
+		    "heart": 1,
+		    "edge": 1
+		}
+	    }
+	],
+	"lifetime": 300
+    },
+    {
+	"id": "op.farm",
+	"label": "Возможность: Ферма",
+	"description": "Мы могли бы убедить фермеров снабдить нас едой и питьем - в конце концов, люди с оружием, как известно, умеют убеждать - или, возможно, мы предпочли бы использовать их землю для дислокации.",
+	"aspects": {
+	    "op": 1
+	},
+	"xtriggers": {
+	    "recruiting": "loc.farm"
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"label": "Намерение",
+		"required": {
+		    "grail": 1,
+		    "edge": 1
+		}
+	    }
+	],
+	"lifetime": 300
+    },
+    {
+	"id": "supplies.apmunitions",
+	"label": "Бронебойные боеприпасы",
+	"description": "Возможно, однажды появится броня, которую не пробьет никакое оружие. Но нам еще предстоит дожить до этого дня.",
+	"aspects": {
+	    "edge": 6,
+	    "ap": 1,
+	    "supplies": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "supplies.explosives",
+	"label": "Взрывчатка",
+	"description": "Сила и огонь, запечатанные в хитроумном оборудовании и жаждущие освобождения.",
+	"aspects": {
+	    "edge": 4,
+	    "forge": 4,
+	    "weapon": 1,
+	    "supplies": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "supplies.flares",
+	"label": "Заряды ракетницы",
+	"description": "Немного света в кромешной темноте. [Это может быть использовано для выявления скрытых врагов.]",
+	"aspects": {
+	    "lantern": 6,
+	    "supplies": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "tool.moth",
+	"label": "Камень с тайными шрамами",
+	"description": "Не смотри, не говори, не знай. Гораздо тяжелее, чем кажется.",
+	"aspects": {
+	    "moth": 6,
+	    "tool": 1
+	}
+    },
+    {
+	"id": "tool.lantern",
+	"label": "Solar Fragment",
+	"description": "Знак, отзывающий к Славе.",
+	"aspects": {
+	    "lantern": 6,
+	    "tool": 1
+	},
+	"icon": "toollanternb"
+    },
+    {
+	"id": "tool.forge",
+	"label": "Гвозди Шахпура",
+	"description": "Каждый из них изготовлен из цельного таенитового железа, длиной с руку, больше похож на железнодорожный шип, чем на любой другой гвоздь. Мне понадобилась бы кувалда, чтобы вбить их.",
+	"aspects": {
+	    "forge": 6,
+	    "tool": 1
+	}
+    },
+    {
+	"id": "tool.winter",
+	"label": "Микологический образец Т-13",
+	"description": "<i>Digitium regius.</i> Я столкнулся с этим штаммом грибка в одном из моих последних случаев вызова ОПРП. Тот факт, что образец еще не сожгли, раздражает меня, но в условиях войны даже самые неподобающие вещи могут пригодиться в качестве оружия.",
+	"aspects": {
+	    "winter": 6,
+	    "tool": 1
+	}
+    },
+    {
+	"id": "tool.heart",
+	"label": "Глаз Кузнецова",
+	"description": "На склоне лет князь Кузнецов убедился в том, что он проклят, и пошел на странные меры, чтобы очиститься. Он раздобыл эту жемчужину где-то в жарких странах, намереваясь измельчить ее и употребить в пищу, но позже обнаружил, что не может этого сделать - жемчужина, по утверждению князя Кузнецова, 'говорит двумя голосами' против любого принятого им решения повредить ее.",
+	"aspects": {
+	    "heart": 6,
+	    "tool": 1
+	}
+    },
+    {
+	"id": "tool.grail",
+	"label": "Нежная скрипка",
+	"description": "Изысканная скрипка из тирольского клена, изготовленная по заказу уважаемой компании Peregaldi luthiers в 19 веке. Мне кажется почти неправильным обращаться с таким тонким, красивым инструментом - и я даже не знаю, как на нем играть.",
+	"aspects": {
+	    "grail": 6,
+	    "tool": 1
+	}
+    },
+    {
+	"id": "tool.knock",
+	"label": "Апокрифический ключ",
+	"description": "Святому Петру были даны два ключа: один золотой, который дал бы ему силу открывать и запирать Небесные врата, и один серебряный, который позволил бы ему управиться с любой дверью на Земле. Этот ключ ни тот, и ни другой, но те двери, которых нет ни на Небесах, ни на Земле, прислушаются к нему.",
+	"aspects": {
+	    "knock": 6,
+	    "tool": 1
+	}
+    },
+    {
+	"id": "decision.enemy.singleattack",
+	"label": "Намерение: Одиночная атака",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.destroysupplies",
+	"label": "Намерение: Уничтожить запасы",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.hide",
+	"label": "Намерение: Маскировка",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.infrastructure",
+	"label": "Намерение: Уничтожение инфраструктуры",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.cutoff",
+	"label": "Намерение: Отсечение поставок",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.reinforcements",
+	"label": "Намерение: Подкрепление",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.doubleattack",
+	"label": "Намерение: Двусторонняя атака",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "decision.enemy.attack",
+	"label": "Намерение: Двусторонняя атака",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "readiness.token",
+	"label": "Маркер готовности",
+	"isHidden": true,
+	"lifetime": 1,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.eye",
+	"label": "Исход: Глаз",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.hand",
+	"label": "Исход: Рука",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.ear",
+	"label": "Исход: Ухо",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.leg",
+	"label": "Исход: Нога",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.exile.influence",
+	"label": "Исход: Влияние",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.exile.banishtrauma",
+	"label": "Исход: Убрать травму",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.exile.weakenenemy",
+	"label": "Исход: Влияние",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.exile.banishhindrance",
+	"label": "Исход: Влияние",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.foe.enemy",
+	"label": "Исход: Враг",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.foe.hindrance",
+	"label": "Исход: Помеха",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.foe.exhaust",
+	"label": "Исход: Истощение",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.colonel.1",
+	"label": "Исход: Сон Полковника 1",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.colonel": 1
+	}
+    },
+    {
+	"id": "draw.colonel.2",
+	"label": "Исход: Сон Полковника 2",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.colonel": 1
+	}
+    },
+    {
+	"id": "draw.colonel.3",
+	"label": "Исход: Сон Полковника 3",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.colonel": 1
+	}
+    },
+    {
+	"id": "draw.lionsmith.1",
+	"label": "Исход: Сон Кузнеца Львов 1",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.lionsmith": 1
+	}
+    },
+    {
+	"id": "draw.lionsmith.2",
+	"label": "Исход: Сон Кузнеца Львов 2",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.lionsmith": 1
+	}
+    },
+    {
+	"id": "draw.lionsmith.3",
+	"label": "Исход: Сон Кузнеца Львов 3",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.lionsmith": 1
+	}
+    },
+    {
+	"id": "draw.wolf.1",
+	"label": "Исход: Сон Волка 1",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.wolf": 1
+	}
+    },
+    {
+	"id": "draw.wolf.2",
+	"label": "Исход: Сон Волка 2",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.wolf": 1
+	}
+    },
+    {
+	"id": "draw.wolf.3",
+	"label": "Исход: Сон Волка 3",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "dream.wolf": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.lore",
+	"label": "Исход: Подсказка Знаний",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.debilitations",
+	"label": "Исход: Подсказка Увечий",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.ebrehel",
+	"label": "Исход: Подсказка Эбрихель",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.medusa",
+	"label": "Исход: Подсказка Медузы",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.musvashir",
+	"label": "Исход: Подсказка Мусвашир",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.main",
+	"label": "Исход: Подсказка Основные цели",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintobdurant.stalingrad",
+	"label": "Исход: Подсказка Сталинград",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "challenge.shakedown.1",
+	"label": "Вымогательство 1",
+	"aspects": {
+	    "minedge": 5,
+	    "minwinter": 5,
+	    "complication": 1,
+	    "opx.speaklocals": 1
+	},
+	"xtriggers": {
+	    "next": "challenge.shakedown.2"
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "challenge.shakedown.2",
+	"label": "Вымогательство 2",
+	"aspects": {
+	    "minedge": 10,
+	    "minwinter": 10,
+	    "complication": 1,
+	    "opx.speaklocals": 1
+	},
+	"xtriggers": {
+	    "next": "challenge.shakedown.3"
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "challenge.shakedown.3",
+	"label": "Вымогательство 3",
+	"aspects": {
+	    "minedge": 15,
+	    "minwinter": 15,
+	    "complication": 1,
+	    "opx.speaklocals": 1
+	},
+	"xtriggers": {
+	    "next": "end.shakedown"
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "end.shakedown",
+	"label": "Вымогательство окончено",
+	"aspects": {
+	    "opx.speaklocals": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "challenge.assistlocals.1",
+	"label": "Помочь местным 1",
+	"aspects": {
+	    "minheart": 5,
+	    "mingrail": 5,
+	    "complication": 1,
+	    "opx.speaklocals": 1
+	},
+	"xtriggers": {
+	    "next": "challenge.assistlocals.2"
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "challenge.assistlocals.2",
+	"label": "Помочь местным 2",
+	"aspects": {
+	    "minheart": 10,
+	    "mingrail": 10,
+	    "complication": 1,
+	    "opx.speaklocals": 1
+	},
+	"xtriggers": {
+	    "next": "challenge.assistlocals.3"
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "challenge.assistlocals.3",
+	"label": "Помочь местным 3",
+	"aspects": {
+	    "minheart": 15,
+	    "mingrail": 15,
+	    "complication": 1,
+	    "opx.speaklocals": 1
+	},
+	"xtriggers": {
+	    "next": "end.assistlocals"
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "end.assistlocals",
+	"label": "Помощь местным окончена",
+	"aspects": {
+	    "opx.speaklocals": 1
+	},
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "countdown.identifier",
+	"label": "Кулдаун",
+	"aspects": {
+	    "long.blocker": 1
+	},
+	"lifetime": 1,
+	"isHidden": true,
+	"verbicon": "countdown"
+    }
+]
+}

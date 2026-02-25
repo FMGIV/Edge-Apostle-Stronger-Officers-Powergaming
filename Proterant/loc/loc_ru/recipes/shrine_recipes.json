@@ -1,0 +1,445 @@
+{
+"recipes": [
+    {
+	"id": "visitshrine.lionsmith.chain",
+	"actionid": "mobilize",
+	"label": "Освободиться от Клятвы",
+	"startdescription": "Я уничтожу то, что я есть, ради того, кем я могу стать. Это будет неприятно.\n\n[Это наполнит вас Кровожадностью.]",
+	"description": "Кружится голова; моя кожа горит, как будто я возгорел. Львокузнец (или одни из его Имён) забрал у меня мой древний дар и растоптал его. Там, где у меня была сила, теперь осталась только слабость. Но что-то должно быть сломано, прежде чем оно будет перековано. Я выдержу.",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "chain": 1
+	},
+	"effects": {
+	    "bloodlust": 1,
+	    "shrinelionsmith": -99,
+	    "chain": -99
+	},
+	"warmup": 60,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger"
+	    }
+	]
+    },
+    {
+	"id": "visitshrine.lionsmith.getmonsterlorealready",
+	"actionid": "mobilize",
+	"label": "Обучение на Поле Боя",
+	"startdescription": "Имена в Святилище не дадут мне больше никаких указаний относительно создания монстров. Если я хочу узнать больше о монстрах, возможно, мне стоит пойти и найти несколько.",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "foe.corpse.unnatural": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "visitshrine.blocked.chain",
+	"actionid": "mobilize",
+	"label": "Присягнувший Камню?",
+	"startdescription": "Клятвы, которые я дал остатку - силе, называемой Кремень, - все еще связывают меня плотью и духом - я не могу черпать силу из этого места, пока нет. Но Львокузнец, нарушивший свои собственные клятвы, может предложить мне путь к свободе.\n\n[Пока у вас все еще есть карты с аспектом Цепи, вы не сможете выполнять многие обычные действия, связанные с посещением святилища.]",
+	"requirements": {
+	    "shrinelionsmith": 1
+	},
+	"extantreqs": {
+	    "chain": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "visitshrine.lionsmith.debilitation",
+	"actionid": "mobilize",
+	"label": "Перековать то, что было сломано?",
+	"startdescription": "Львокузнец терпеть не может шрамы. Если я был опозорен своим несовершенством, для меня крайне важно восстановить себя.\n\n[С помощью Нечеловеческих остатков и по крайней мере 12 Кузни, Вы можете вылечить своё Увечье. Процесс не будет быстрым.]",
+	"description": "Я остаюсь несовершенным.",
+	"requirements": {
+	    "debilitation": 1,
+	    "shrinelionsmith": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"slots": [
+	    {
+		"id": "needsmaterial1",
+		"label": "Материал",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+	    },
+	    {
+		"id": "needsmaterial2",
+		"label": "Материал",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+	    },
+	    {
+		"id": "needsmaterial3",
+		"label": "Материал",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+	    }
+	],
+	"alt": [
+	    {
+		"id": "healdebilitation"
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "healdebilitation",
+	"label": "Мятежник, Перековывается",
+	"startdescription": "Львокузнец презирает шрамы. Я могу стоять здесь, в раскаленной печи его святилища, и подвергать свою изуродованную плоть обряду, который перековывает то, что сломано. В Кузне Дней царит похожая, менее жестокая магия, но Львокузнец не верит в искупление, полученное без боли.",
+	"requirements": {
+	    "foe.corpse.unnatural": 1,
+	    "forge": 12
+	},
+	"linked": [
+	    {
+		"id": "healdebilitation.continue"
+	    }
+	]
+    },
+    {
+	"id": "healdebilitation.continue",
+	"label": "Мятежник, Перекован",
+	"startdescription": "Бездымное пламя охватывает мое тело, моя плоть трещит и визжит, как металл под молотом кузнеца. Моя кровь расплавлена. Такое чувство, что я провожу целые ночи в огне.",
+	"description": "Пламя отступает. Дым клубится над моей плотью - моей новой плотью, сияющей и яростной, как оружие, только что вынутое из кузницы. Я снова цел, не тронутый шрамами. То, что было сломано, можно восстановить, и сделать сильнее.\n\nНо, если я могу это избежать, Я действительно, <i>действительно</i> не хотел бы повторять это снова.",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "debilitation": -99,
+	    "shrinelionsmith": -99,
+	    "strength": 1
+	},
+	"warmup": 150
+    },
+    {
+	"id": "visit.shrinelionsmith.getskill",
+	"actionid": "mobilize",
+	"label": "Совершить паломничество к Бронзовому святилищу",
+	"startdescription": "Мое понимание Знаний Львокузнеца достигло предела, доступного смертным. Возможно, бессмертные знания - это то, что мне сейчас нужно.\n\n[Это наполнит вас Кровожадностью.]",
+	"description": "Мое взор оборачивается золотом. В обжигающем свете я слышу грозные шаги Имени, Старого Иуды Молота и потрескивание огня, который он держит в кулаке. 'Слушай, убийца людей', - гремит он своим голосом, похожим на пушечную пальбу и звон колокола. 'Вот оружие, и вот его природа.'",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "proterant.fragmentedgeg": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"contemplation.skill.swoleup",
+		"contemplation.skill.refreshself",
+		"contemplation.skill.intimidate"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "bloodlust": 1
+	},
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger"
+	    }
+	],
+	"warmup": 60,
+	"craftable": true,
+	"maxexecutions": 3
+    },
+    {
+	"id": "visit.shrinelionsmith.getweapon",
+	"actionid": "mobilize",
+	"label": "Совершить паломничество к Бронзовому святилищу",
+	"startdescription": "Святилища Львокузнеца наполнены ярким ароматом раскаленной меди и напоминают запах больших кошек. Медитация здесь поможет мне лучше понять техники, которым учат Имена Львокузнеца.\n\n[Это наполнит вас Кровожадностью.]",
+	"description": "В пространстве под алтарем, я нахожу подарок.",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "proterant.fragmentedgeg": 1
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "weapon.stymphalian": 1,
+	    "bloodlust": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger"
+	    }
+	],
+	"warmup": 60,
+	"craftable": true
+    },
+    {
+	"id": "visitshrine.lionsmith.lore",
+	"actionid": "mobilize",
+	"label": "Совершить паломничество к Бронзовому святилищу",
+	"startdescription": "Святилища Львокузнеца наполнены ярким ароматом раскаленной меди и напоминают запах больших кошек. Медитация здесь поможет мне лучше понять техники, которым учат Имена Львокузнеца.\n\n[Это наполнит вас Кровожадностью.]",
+	"description": "Я расту сильнее.",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "lore": 1,
+	    "edge": 1,
+	    "forge": 1,
+	    "heart": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"aspects": {
+	    "epiphany": 1
+	},
+	"effects": {
+	    "bloodlust": 1,
+	    "shrinelionsmith": -99
+	},
+	"warmup": 60,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger"
+	    }
+	]
+    },
+    {
+	"id": "mutate.morebattlehunger",
+	"label": "Совершить паломничество к Бронзовому святилищу",
+	"requirements": {
+	    "battlehunger": -5
+	},
+	"mutations": [
+	    {
+		"filter": "bloodlust",
+		"mutate": "battlehunger",
+		"level": 1,
+		"additive": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger",
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "visit.shrinelionsmith.getmonsterlore",
+	"actionid": "mobilize",
+	"label": "Львиная Индустрия",
+	"startdescription": "Кошки, как большие, так и маленькие, являются символом благодеяния Кузнеца Львов - или его гнева. Изучение того, как трудолюбивые руки могут создавать кошек, станет первым шагом в освоении более сложных методов и более страшных монстров.\n\n[Это наполнит вас Кровожадностью.]",
+	"description": "Это способы конструирования и изобретательность, которые были известны воинам-кузнецам Империи-Без-Тени, а также Принцам-В-Капюшонах.  Теперь я присоединяюсь к ним в познании.",
+	"requirements": {
+	    "foe.corpse.unnatural": 1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "remnant": -99,
+	    "constructions.a": 1,
+	    "bloodlust": 1
+	},
+	"warmup": 60,
+	"craftable": true,
+	"maxexecutions": 1,
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger",
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "visit.shrinelionsmith.contemplation",
+	"actionid": "mobilize",
+	"label": "Искать совета в Бронзовом Святилище",
+	"startdescription": "Если истинная природа Созерцания ускользает от меня, я могу прийти в храм в поисках истины. Имена Львокузнеца могут подсказать мне, как вступить в их ряды - если я принесу соответствующее подношение.",
+	"description": "В храме все по-прежнему. Ни одно Имя не обратило на меня внимания.",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "contemplation": 1,
+	    "promise": -1
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"slots": [
+	    {
+		"id": "needsoffering",
+		"label": "Подношения",
+		"required": {
+		    "foe.corpses": 1,
+		    "foe.corpse.unnatural": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "visit.shrinelionsmith.contemplation.success"
+	    }
+	],
+	"warmup": 60,
+	"craftable": true
+    },
+    {
+	"id": "visit.shrinelionsmith.contemplation.success",
+	"actionid": "mobilize",
+	"label": "Откровение в Золоте",
+	"startdescription": "Воздух в храме обжигает. Мои глаза словно расплавляются, и вскоре я вижу только золото. Что-то пришло.",
+	"description": "Я слышу гордую поступь Старого Иуды Молота, Имя Львокузнеца, когда он переступает порог, чтобы проинструктировать меня. 'Убийца людей', - провозглашает он. 'Услышь меня: я дарую тебе частицу истины.'",
+	"requirements": {
+	    "remnant": 1
+	},
+	"aspects": {
+	    "ascend": 1
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "remnant": -99
+	}
+    },
+    {
+	"id": "visit.shrinelionsmith.offertoken",
+	"actionid": "mobilize",
+	"label": "Предложить Золотую Спринтию Алтарю",
+	"startdescription": "Многокрылые, Низшие Имена Битвы, часто незаметно гнездяться в святилищах Часов Грани. Возможно, я смогу привлечь внимание одного из них - и получить помощь - с помощью этого золотого подарка. Обеспечить им обед так-же не помешало.",
+	"description": "В храме тихо. Ничего не двигается в Пламени.",
+	"requirements": {
+	    "shrinelionsmith": 1,
+	    "token.wilhelm": 1,
+	},
+	"extantreqs": {
+	    "chain": -1
+	},
+	"slots": [
+	    {
+		"id": "needsoffering",
+		"label": "Подношение",
+		"required": {
+		    "foe.corpses": 1,
+		    "foe.corpse.unnatural": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "visit.shrinelionsmith.offertoken.success"
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "visit.shrinelionsmith.offertoken.success",
+	"actionid": "mobilize",
+	"label": "Пошлина, Оплачена",
+	"startdescription": "В тенях надо мной раздается хлопающий звук - Многокрылое Существо спускается к алтарю, чтобы принять мое подношение, стуча когтями по камню. Оно наедается досыта со всей грацией, на какую только способно. Когда оно доест, оно прикажет мне приблизиться и прошептать: 'Убийца людей, о чем бы ты хотел спросить?' - Я протягиваю письмо, которое написал своему другу.",
+	"description": "Многокрылый что-то бормочет себе под нос и выхватывает у меня письмо когтистой лапой. Не сказав больше ни слова, оно улетает в тень.",
+	"requirements": {
+	    "remnant": 1
+	},
+	"effects": {
+	    "shrinelionsmith": -99,
+	    "remnant": -99,
+	    "token.wilhelm": -99
+	},
+	"alt": [
+	    {
+		"id": "sendingletter.exile.proterant",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "sendingletter.exile.proterant",
+	"actionid": "sendingletter",
+	"label": "Мое Сообщение находится в Пути...",
+	"startdescription": "Многокрылый гонец, которого я отправил, передаст мое послание Изгнаннику - в свое время. Затем моему другу придется написать ответ (надеюсь, с согласием представлять меня), и снова гонцу придется лететь. Все, что я могу сейчас, - это быть терпеливым.",
+	"warmup": 300,
+	"alt": [
+	    {
+		"id": "produce.letterfromexile.proterant",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "produce.letterfromexile.proterant",
+	"actionid": "exclaim.sh",
+	"label": "Письмо!",
+	"startdescription": "Когда наступает самый яркий рассвет, Многокрылый находит меня одного на периметре лагеря. Оно протягивает мне хрусткий бледный конверт одной из своих когтистых лап. -",
+	"warmup": 10,
+	"effects": {
+	    "letter.fromexile.refusal": 1
+	}
+    },
+    {
+	"id": "visit.shrinelionsmith.getmaccabee",
+	"actionid": "mobilize",
+	"label": "Связаться с другом друга",
+	"startdescription": "Мой знакомый моего друга явится ко мне только в том случае, если будут соблюдены все необходимые обряды. Я должен разжечь костер у подножия алтаря; Я должен пролить свою кровь, прижечь свое оружие - простые, не вызывающие беспокойства формальности для тех, кто достаточно долго следовал за Генералом. И ритуал должен завершаться принесением в жертву оружия. Хорошего оружия.\n\n[Вы можете сделать это только один раз.]",
+	"description": "Оружие разлетается в щепки у меня в кулаке. Пламя расцветает золотым цветком. Языки и огненные дуги вырываются наружу, выплескиваясь на землю, когда из пламени выходит фигура: рука, нога, два солнца на медном лице. Имя поднимает свой каменный молот и смотрит на меня. 'Убийца людей', - говорит Старый Иуда, - 'Почему ты призвал меня?'",
+	"requirements": {
+	    "weapon": 1,
+	    "proterant.weapon": -1
+	},
+	"extantreqs": {
+	    "letter.fromexile.refusal": 1,
+	    "chain": -1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"effects": {
+	    "friend.maccabee": 1,
+	    "shrinelionsmith": -99,
+	    "weapon": -99,
+	    "bloodlust": 1
+	},
+	"linked": [
+	    {
+		"id": "mutate.morebattlehunger",
+		"chance": 50
+	    }
+	],
+	"maxexecutions": 1
+    }
+]
+}

@@ -1,0 +1,614 @@
+{
+"recipes": [
+    {
+	"id": "exile.begin.influence.proterant",
+	"label": "Расстановка Сил",
+	"startdescription": "Петли Совражества фиксируются и поворачиваются в нужном направлении. Ощутимая сила просачивается сквозь кожу мира - и я могу её использовать.",
+	"description": "Изнутри меня исходят тайные силы и разгадки тайн. Это Оружие Внутри.",
+	"requirements": {
+	    "draw.exile.influence": 1
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"strength",
+		"anger",
+		"courage"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    },
+    {
+	"id": "foe.first.enemy.obdurant",
+	"label": "Пополнение Врага",
+	"startdescription": "Повороты Совражества движутся в направлении, обратном от победы. Ветры войны несут к нам все больше противников.",
+	"description": "И наша вражда продолжается.",
+	"requirements": {
+	    "foe": -3
+	},
+	"extantreqs": {
+	    "obdurant.story": 1
+	},
+	"deckeffects": {
+	    "enemies.occult.obdurant": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.first.enemy.obdurant",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "foe.first.enemy.proterant",
+	"label": "Пополнение Врага",
+	"startdescription": "Повороты Совражества движутся в направлении, обратном от победы. Ветры войны несут к нам все больше противников.",
+	"description": "И наша вражда продолжается.",
+	"requirements": {
+	    "foe": -3
+	},
+	"extantreqs": {
+	    "proterant.story": 1,
+	    "craterfield.here": -1
+	},
+	"deckeffects": {
+	    "enemies.occult.proterant": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.first.enemy.proterant",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "foe.begin.hindrance.obdurant",
+	"label": "Враждебные Обстоятельства",
+	"startdescription": "Обстоятельства могут измениться в одно мгновение; судьба может повернуться вспять в мгновение ока. Поле битвы, как и море, неспокойно и дико -",
+	"description": "- теперь поле боя стало еще более диким местом.",
+	"requirements": {
+	    "draw.foe.hindrance": 1
+	},
+	"extantreqs": {
+	    "obdurant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.obdurant": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "foe.begin.hindrance.proterant",
+	"label": "Враждебные Обстоятельства",
+	"startdescription": "Обстоятельства могут измениться в одно мгновение; судьба может повернуться вспять в мгновение ока. Поле битвы, как и море, неспокойно и дико -",
+	"description": "- теперь поле боя стало еще более диким местом.",
+	"requirements": {
+	    "draw.foe.hindrance": 1
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.proterant": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "corrivality.first",
+	"actionid": "corrivality",
+	"label": "Двигатель Мира",
+	"effects": {
+	    "corrivality.stalemate": 1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.cycle",
+	"actionid": "corrivality",
+	"label": "Двигатель Мира",
+	"startdescription": "Мой друг где-то сражается со своим Врагом. Ход битвы Вечных Грани - это ход войны, и последствия их сражений будут ощущаться как по всему фронту, так и за его пределами.\n\n[Поединок между Изгнанником и Врагом в настоящее время зашел в тупик. Пока ничего существенного не произойдет.]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "corrivality.change",
+		"chance": 20
+	    },
+	    {
+		"id": "corrivality.cycle"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.change",
+	"actionid": "corrivality",
+	"label": "Двигатель Мира",
+	"extantreqs": {
+	    "duel.wilhelm": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"seasonambitions",
+		"seasonambitions",
+		"seasondespair",
+		"seasondespair"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "corrivality.turnexileadvantage"
+	    },
+	    {
+		"id": "corrivality.turnfoeadvantage"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.turnexileadvantage",
+	"actionid": "corrivality",
+	"label": "Двигатель Мира",
+	"requirements": {
+	    "seasonambitions": 1
+	},
+	"aspects": {
+	    "epiphany": 1
+	},
+	"effects": {
+	    "season": -1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle.exile"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.cycle.exile",
+	"actionid": "corrivality",
+	"label": "Двигатель Мира",
+	"startdescription": "Мой друг одерживает верх над Врагом. Ход войны меняется в нашу пользу.\n\n[Ваши силы будут более воодушевленными на поле боя, и силы войны могут обернутсья в вашу пользу.]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "corrivality.restore.duel"
+	    },
+	    {
+		"id": "corrivality.restore",
+		"chance": 30
+	    },
+	    {
+		"id": "corrivality.cycle.exile"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "exile.pickbuff",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "corrivality.turnfoeadvantage",
+	"actionid": "corrivality",
+	"label": "Двигатель Мира",
+	"requirements": {
+	    "seasondespair": 1
+	},
+	"aspects": {
+	    "depiphany": 1
+	},
+	"effects": {
+	    "season": -1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle.foe"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.cycle.foe",
+	"actionid": "corrivality",
+	"label": "Двигатель Мира",
+	"startdescription": "Враг поставил моего друга в невыгодное положение. Красные волны войны оборачиваются против нас.\n\n[Ваши войска столкнутся с более сильными и многочисленными врагами, и силы войны могут навлечь на вас другие несчастья.]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "corrivality.restore.duel"
+	    },
+	    {
+		"id": "corrivality.restore",
+		"chance": 30
+	    },
+	    {
+		"id": "corrivality.cycle.foe"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "foe.pickdebuff",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "corrivality.restore",
+	"actionid": "corrivality",
+	"label": "Двигатель Мира",
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.restore.duel",
+	"actionid": "corrivality",
+	"label": "Двигатель Мира",
+	"extantreqs": {
+	    "duel.wilhelm": 1
+	},
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle"
+	    }
+	]
+    },
+    {
+	"id": "exile.pickbuff",
+	"actionid": "exilebuff",
+	"label": "Дар Совражества",
+	"startdescription": "Подобно ряби на поверхности пруда, противостояние Изгнанника и Врага расходится по всем воюющим континентам, принося последствия и беды всем тем, кто сражается. Изгнанник заставил Врага отступить, теперь - по мере того, как их сила растет, моя тоже будет расти.",
+	"extantreqs": {
+	    "duel.wilhelm": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.exile.influence",
+		"draw.exile.banishhindrance",
+		"draw.exile.banishtrauma",
+		"draw.exile.weakenenemy"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "exile.begin.banishhindrance"
+	    },
+	    {
+		"id": "exile.begin.banishtrauma"
+	    },
+	    {
+		"id": "exile.begin.influence"
+	    },
+	    {
+		"id": "exile.begin.weakenenemy"
+	    },
+	    {
+		"id": "exile.pickbuff.clear"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "exile.pickbuff.clear",
+	"label": "The Corrivality Giveth",
+	"effects": {
+	    "draw.exile.influence": -99,
+	    "draw.exile.banishhindrance": -99,
+	    "draw.exile.banishtrauma": -99,
+	    "draw.exile.weakenenemy": -99
+	},
+	"linked": [
+	    {
+		"id": "exile.pickbuff.again"
+	    }
+	]
+    },
+    {
+	"id": "exile.pickbuff.again",
+	"actionid": "exilebuff",
+	"label": "Дар Совражества",
+	"startdescription": "Подобно ряби на поверхности пруда, противостояние Изгнанника и Врага расходится по всем воюющим континентам, принося последствия и беды всем тем, кто сражается. Изгнанник заставил Врага отступить, теперь - по мере того, как их сила растет, моя тоже будет расти.",
+	"internaldeck": {
+	    "spec": [
+		"draw.exile.influence",
+		"draw.exile.banishhindrance",
+		"draw.exile.banishtrauma",
+		"draw.exile.weakenenemy"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "exile.begin.banishhindrance"
+	    },
+	    {
+		"id": "exile.begin.banishtrauma"
+	    },
+	    {
+		"id": "exile.begin.influence"
+	    },
+	    {
+		"id": "exile.begin.weakenenemy"
+	    },
+	    {
+		"id": "exile.pickbuff.clear"
+	    }
+	]
+    },
+    {
+	"id": "exile.begin.banishhindrance",
+	"label": "Путь Свободен",
+	"startdescription": "Ненастная погода, коварная местность и враждебные силы могут затруднить наши операции. Однако сегодня один из вопросов будет решен-",
+	"description": "Облака расступаются. Солнце.",
+	"requirements": {
+	    "draw.exile.banishhindrance": 1
+	},
+	"tablereqs": {
+	    "hindrance": 1
+	},
+	"slots": [
+	    {
+		"id": "needshindrance",
+		"label": "Hindrance",
+		"required": {
+		    "hindrance": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "hindrance": -99
+	},
+	"warmup": 10
+    },
+    {
+	"id": "exile.begin.banishtrauma",
+	"label": "Очищение Души",
+	"startdescription": "Какие сомнения у меня были? Каким страхам я позволил проникнуть за пределы своих стен? Если моя душа омрачена сожалением, пусть этот момент принесет остроту ясности.",
+	"description": "Сожаление — слабость.",
+	"requirements": {
+	    "draw.exile.banishtrauma": 1
+	},
+	"tablereqs": {
+	    "trauma": 1
+	},
+	"slots": [
+	    {
+		"id": "needstrauma",
+		"label": "Потрясение",
+		"required": {
+		    "trauma": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "trauma": -99
+	},
+	"warmup": 10
+    },
+    {
+	"id": "exile.begin.influence",
+	"label": "Расстановка сил",
+	"startdescription": "Петли Совражества фиксируются и поворачиваются в нужном направлении. Ощутимая сила просачивается сквозь кожу мира - и я могу её использовать.",
+	"description": "Изнутри меня исходят тайные силы и разгадки тайн. Это внутреннее оружие.",
+	"requirements": {
+	    "draw.exile.influence": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"cunning",
+		"patience",
+		"wisdom"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    },
+    {
+	"id": "exile.begin.weakenenemy",
+	"label": "Колеблющийся Враг",
+	"startdescription": "Изгнанник теснит Врага; когда он дрогнет, наш враг дрогнет тоже.",
+	"description": "Они побеждены еще до того, как мы вступили в бой.",
+	"requirements": {
+	    "draw.exile.weakenenemy": 1
+	},
+	"tablereqs": {
+	    "foe": 1
+	},
+	"slots": [
+	    {
+		"id": "needsfoe",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "weakened": 1,
+		    "foe.rankofficer": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "weaken": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "foe.pickdebuff",
+	"actionid": "foedebuff",
+	"label": "Дар Совражества",
+	"startdescription": "Подобно ряби на поверхности пруда, противостояние Изгнанника и Врага расходится по всем воюющим континентам, принося последствия и беды всем тем, кто сражается. Враг решительно переходит в наступление - наши трудности также возрастут.",
+	"extantreqs": {
+	    "duel.wilhelm": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.foe.enemy",
+		"draw.foe.hindrance",
+		"draw.foe.exhaust",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "foe.begin.enemy"
+	    },
+	    {
+		"id": "foe.begin.hindrance"
+	    },
+	    {
+		"id": "foe.begin.exhaust"
+	    },
+	    {
+		"id": "foe.pickdebuff.clear"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "foe.pickdebuff.clear",
+	"label": "Дар Совражества",
+	"effects": {
+	    "draw.foe.enemy": -99,
+	    "draw.foe.hindrance": -99,
+	    "draw.foe.exhaust": -99
+	},
+	"linked": [
+	    {
+		"id": "foe.pickdebuff.again"
+	    }
+	]
+    },
+    {
+	"id": "foe.pickdebuff.again",
+	"actionid": "foedebuff",
+	"label": "Дар Совражества",
+	"startdescription": "Подобно ряби на поверхности пруда, противостояние Изгнанника и Врага расходится по всем воюющим континентам, принося последствия и беды всем тем, кто сражается. Враг решительно переходит в наступление - наши трудности также возрастут.",
+	"internaldeck": {
+	    "spec": [
+		"draw.foe.enemy",
+		"draw.foe.hindrance",
+		"draw.foe.exhaust"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "foe.begin.enemy"
+	    },
+	    {
+		"id": "foe.begin.hindrance"
+	    },
+	    {
+		"id": "foe.begin.exhaust"
+	    },
+	    {
+		"id": "foe.pickdebuff.clear"
+	    }
+	],
+    },
+    {
+	"id": "foe.begin.enemy",
+	"label": "Пополнение Врага",
+	"startdescription": "Повороты Совражества движутся в направлении, обратном от победы. Ветры войны несут к нам все больше противников.",
+	"description": "И наша вражда продолжается.",
+	"requirements": {
+	    "draw.foe.enemy": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.first.enemy"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "foe.first.enemy",
+	"label": "Пополнение Врага",
+	"startdescription": "Повороты Совражества движутся в направлении, обратном от победы. Ветры войны несут к нам все больше противников.",
+	"description": "И наша вражда продолжается.",
+	"requirements": {
+	    "foe": -4
+	},
+	"deckeffects": {
+	    "enemies.occult": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.first.enemy",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "foe.begin.hindrance",
+	"label": "Враждебные Обстоятельства",
+	"startdescription": "Обстоятельства могут измениться в одно мгновение; судьба может повернуться вспять в мгновение ока. Поле битвы, как и море, неспокойно и дико-",
+	"description": "-теперь поле боя стало еще более диким местом.",
+	"requirements": {
+	    "draw.foe.hindrance": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "foe.begin.exhaust",
+	"label": "Усталость и Неудачи",
+	"startdescription": "Сила врага возрастает, а наша, в свою очередь, убывает. Люди замедляются и падают духом; оружие заклинивает и выходит из строя; даже я мог бы почувствовать давление какой-то огромной ноши на свои кости и пошатнуться.",
+	"description": "Никто никогда не говорил, что война будет легкой.",
+	"requirements": {
+	    "draw.foe.exhaust": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Истощение",
+		"required": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "lore": 1,
+		    "loc.hospital": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "remnant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 10
+    }
+]
+}

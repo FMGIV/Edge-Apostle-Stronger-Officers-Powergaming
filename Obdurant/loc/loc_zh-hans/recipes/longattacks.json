@@ -1,0 +1,1036 @@
+{
+"recipes": [
+    {
+	"id": "long.arrival.exile",
+	"label": "一股可怖的力量",
+	"startdescription": "在我的梦中，我又一次看见了索比堡的污秽与寒冰。残酷的笑声在我耳边嘶鸣。有什么将要来临。",
+	"effects": {
+	    "exile": 1
+	},
+	"requirements": {
+	    "draw.exile": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"playAudioTrack": "theme_exile.mp3"
+    },
+    {
+	"id": "long.arrival.duffoure",
+	"label": "一股可怖的力量",
+	"startdescription": "寒霜爬上窗棂，阴影使烛火弯曲。我投于刀刃上的倒影不断发抖，仿佛那倒影落于水面之上。有什么将要来临。",
+	"effects": {
+	    "duffoure": 1
+	},
+	"requirements": {
+	    "draw.duffoure": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"playAudioTrack": "theme_foe.mp3"
+    },
+    {
+	"id": "long.arrival.camilla.router",
+	"actionid": "long.camilla",
+	"label": "一股可怖的力量",
+	"startdescription": "",
+	"requirements": {
+	    "draw.camilla": 1
+	},
+	"extantreqs": {
+	    "strife.tracker": 7,
+	    "lake.here": -1,
+	    "long.blocker": -1
+	},
+	"linked": [
+	    {
+		"id": "long.arrival.camilla.first"
+	    },
+	    {
+		"id": "long.arrival.camilla"
+	    }
+	]
+    },
+    {
+	"id": "long.arrival.camilla.first",
+	"actionid": "long.camilla",
+	"label": "一股可怖的力量",
+	"startdescription": "静寂降临，风逐渐变得刺骨且寒冷。空中弥漫着一股气味——火药、铁与血的气味。即使最轻微的一嗅都会使得旧伤开始疼痛。有什么将要来临。",
+	"effects": {
+	    "camilla.first": 1,
+	    "mission.camilla.a": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"maxexecutions": 1,
+	"playAudioTrack": "camillatheme.mp3"
+    },
+    {
+	"id": "long.arrival.camilla",
+	"actionid": "long.camilla",
+	"label": "一股可怖的力量",
+	"startdescription": "静寂降临，风逐渐变得刺骨且寒冷。空中弥漫着一股气味——火药、铁与血的气味。即使最轻微的一嗅都会使得旧伤开始疼痛。有什么将要来临。",
+	"effects": {
+	    "camilla": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"playAudioTrack": "camillatheme.mp3"
+    },
+    {
+	"id": "edgelong.cycle",
+	"label": "刃之长生者正在徘徊",
+	"startdescription": "@#foe.exile|“又见面了。让我看看你有没有将我的教诲牢记于心。”#foe.duffoure|“你希望逃离这一切？那就过来。我给你解脱。”#foe.camilla|“这就是战争。它不会干净、迅速，或是惬意。但它是必要的。”#foe.wilhelm|“战士们都到哪里去了？你们没有半点力量与勇气吗？站出来——作为一名士兵，不应该逃避好的死亡。”#foe.sergei|“这片土地太多年没有见过血——以至于已经遗忘了恐惧。但我将会修正这错误。”@\n\n[刃之长生者将不断尝试杀死你和你的友军，直到你离开当前战区。]",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id":  "camilla.here"
+	    },
+	    {
+		"id":  "wilhelm.here"
+	    },
+	    {
+		"id": "edgelong.prep.attack",
+		"chance": 40
+	    },
+	    {
+		"id": "edgelong.cycle"
+	    }
+	]
+    },
+    {
+	"id": "exilehere.executetrauma",
+	"label": "刃之长生者正在徘徊",
+	"startdescription": "@#foe.exile|“又见面了。让我看看你有没有将我的教诲牢记于心。”#foe.duffoure|“你希望逃离这一切？那就过来。我给你解脱。”#foe.camilla|“这就是战争。它不会干净、迅速，或是惬意。但它是必要的。”#foe.wilhelm|“战士们都到哪里去了？你们没有半点力量与勇气吗？站出来——作为一名士兵，不应该逃避好的死亡。”#foe.sergei|“这片土地太多年没有见过血——以至于已经遗忘了恐惧。但我将会修正这错误。”@\n\n[刃之长生者将不断尝试杀死你和你的友军，直到你离开当前战区。]",
+	"requirements": {
+	    "readiness.token": 6
+	},
+	"alt": [
+	    {
+		"id": "exiletrauma.contemnant",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exilehere.clearreadinesstokens"
+	    }
+	]
+    },
+    {
+	"id": "exilehere.clearreadinesstokens",
+	"label": "刃之长生者正在徘徊",
+	"startdescription": "@#foe.exile|“又见面了。让我看看你有没有将我的教诲牢记于心。”#foe.duffoure|“你希望逃离这一切？那就过来。我给你解脱。”#foe.camilla|“这就是战争。它不会干净、迅速，或是惬意。但它是必要的。”#foe.wilhelm|“战士们都到哪里去了？你们没有半点力量与勇气吗？站出来——作为一名士兵，不应该逃避好的死亡。”#foe.sergei|“这片土地太多年没有见过血——以至于已经遗忘了恐惧。但我将会修正这错误。”@\n\n[刃之长生者将不断尝试杀死你和你的友军，直到你离开当前战区。]",
+	"effects": {
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.attack.allies",
+	"label": "刃之长生者攻击了！",
+	"startdescription": "@#foe.exile|“你什么都不是。“#foe.duffoure|“从我面前滚开。”#foe.camilla|“你因履行职责牺牲。这一结局已好过大批人所期望的那些。”#foe.wilhelm|“哈！再来几个！在死尸堆齐腰高之前都不算完！”#foe.sergei|“哼。更多死人。”@",
+	"warmup": 10,
+	"tablereqs": {
+	    "friend": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": -1
+	},
+	"slots": [
+	    {
+		"id": "needsallies",
+		"label": "友军",
+		"required": {
+		    "friend": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "killmortal": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	]
+    },
+    {
+	"id": "edgelong.sergei.attack.allies",
+	"label": "刃之长生者攻击了！",
+	"startdescription": "@#foe.sergei|“哼。更多死人。”@",
+	"warmup": 10,
+	"requirements": {
+	    "foe.sergei": 1
+	},
+	"tablereqs": {
+	    "friend": 1
+	},
+	"slots": [
+	    {
+		"id": "needsallies",
+		"label": "目标",
+		"required": {
+		    "friend": 1,
+		    "foe": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "killfriend": 1,
+	    "killfoe": 1,
+	    "killmortal": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    }
+	]
+    },
+    {
+	"id": "edgelong.attack.you",
+	"label": "刃之长生者攻击了！",
+	"startdescription": "@#foe.exile|“那么，这只小狗狗会怎么做呢？低头求饶？拔腿逃跑？还是张口咬下？”#foe.duffoure|“我会解决的干净利落——只要你让我解决。”#foe.camilla|“或许，杀死你会是一次新颖的锻炼。”#foe.wilhelm|“你——粉碎你的骨头将会是<i>真正</i>战斗之前一次不错的热身。”#foe.sergei|“我将把你撕碎，小兵。”@\n\n[若你想要防御，你需要提供友军以替你阻挡刃之长生者的攻击。这会杀死你的友军。]",
+	"warmup": 30,
+	"slots": [
+	    {
+		"id": "needsallies",
+		"label": "炮灰？",
+		"required": {
+		    "friend": 1,
+		    "legacyplotitem": 1,
+		    "challenge": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "dream.colonel": 1,
+		    "dream.lionsmith": 1,
+		    "tool": 1,
+		    "ascension.marker.casket": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "edgelong.attack.you.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "contemnant.usechallenge"
+	    },
+	    {
+		"id": "contemnant.friend.immortal"
+	    },
+	    {
+		"id": "sergei.usedinsight"
+	    },
+	    {
+		"id": "longdefend.skill.deflect"
+	    },
+	    {
+		"id": "edgelong.attack.you.defense"
+	    }
+	]
+    },
+    {
+	"id": "contemnant.friend.immortal",
+	"label": "永生的盟友",
+	"startdescription": "@#foe.exile|“噢——好吧，这惊喜可让人喜欢不起来。”#foe.duffoure|“此人不能永远护你周全。”#foe.camilla|“用血买下一次逃脱？我希望你的“金钱”足够多。”#foe.wilhelm|“这就是你表现自己的方式？用你的兄弟作为盾牌？逃离战斗？<i>你让我恶心</i>。”</i>#foe.sergei|“跑吧，小兵！跑吧！告诉你的战友我是如何让这些人乞求死亡的！”@",
+	"requirements": {
+	    "friend.immortal": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+    },
+    {
+	"id": "edgelong.attack.you.defense",
+	"label": "投入火中",
+	"startdescription": "@#foe.exile|“说到底，谁需要他们？”#foe.duffoure|“你觉得你在往哪逃？你是在逃离这一切，还是在越陷越深？”#foe.camilla|“用血买下一次逃脱？我希望你的“金钱”足够多。”#foe.wilhelm|“这就是你表现自己的方式？用你的兄弟作为盾牌？逃离战斗？<i>你让我恶心</i>。”</i>#foe.sergei|“跑吧，小兵！跑吧！告诉你的战友我是如何让这些人乞求死亡的！”@",
+	"requirements": {
+	    "friend": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel",
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	]
+    },
+    {
+	"id": "edgelong.attack.you.nodefense",
+	"label": "毫无防备！",
+	"startdescription": "@#foe.exile|“那看起来很痛。”#foe.duffoure|“安静。很快你就能解脱了。”#foe.camilla|“瞧——这教诲你无法很快遗忘。”#foe.wilhelm|“噢？你没有当场死去？<i>十分</i>令人钦佩。”#foe.sergei|“哭喊吧——神不在听，但<i>我</i>在。”@",
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "edgelong.spitout.wounds",
+		"additional": true
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	]
+    },
+    {
+	"id": "edgelong.contemnant.attackothers",
+	"label": "刃之长生者攻击了！",
+	"startdescription": "@#foe.exile|“你什么都不是。“#foe.duffoure|“从我面前滚开。”@",
+	"warmup": 10,
+	"requirements": {
+	    "foe.duffoure": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "目标",
+		"required": {
+		    "friend": 1,
+		    "foe": 1,
+		    "neutral": 1
+		},
+		"forbidden": {
+		    "foe.bombers.refuel": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "killfriend": 1,
+	    "killfoe": 1,
+	    "killmortal": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	],
+	"effects": {
+	    "foe.chasseur.reviving": -99
+	}
+    },
+    {
+	"id": "edgelong.seamlesswounds",
+	"label": "痛苦与恐怖",
+	"startdescription": "",
+	"extantreqs": {
+	    "token.star": 1
+	},
+	"aspects": {
+	    "brilliant": 1
+	}
+    },
+    {
+	"id": "wilhelm.here",
+	"label": "战争制造者出手干预！",
+	"startdescription": "“亲爱的，”战争制造者自紧要的牙关中啐出。“迟到可不是你的风格。你还欠我一份解释。”战争制造者迸发的一拳宛若坠落之星——",
+	"description": "——而后两名不朽之人沉浸于与彼此的战斗。对此刻的二人而言，除战斗之外的一切都不存在。我看了一小会，被两名大师如精心编排的舞蹈般的战斗震惊——之后我就必须从他们的前路上跳开。两位长生者消失在了战场的喧嚣中。",
+	"tablereqs": {
+	    "friend.wilhelm": 1
+	},
+	"slots": [
+	    {
+		"id": "needswilhelm",
+		"label": "对手",
+		"required": {
+		    "friend.wilhelm": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "edgelong": -99,
+	    "blocker.wilhelmandcamilla": 1
+	},
+	"warmup": 60
+    },
+    {
+	"id": "long.arrival.wilhelm.router",
+	"actionid": "long.wilhelm",
+	"label": "一股可怖的力量",
+	"startdescription": "",
+	"requirements": {
+	    "draw.wilhelm": 1
+	},
+	"extantreqs": {
+	    "strife.tracker": 7,
+	    "lake.here": -1,
+	    "long.blocker": -1
+	},
+	"linked": [
+	    {
+		"id": "long.arrival.wilhelm.first"
+	    },
+	    {
+		"id": "long.arrival.wilhelm"
+	    }
+	]
+    },
+    {
+	"id": "long.arrival.wilhelm.first",
+	"actionid": "long.wilhelm",
+	"label": "一股可怖的力量",
+	"startdescription": "炮火变得更响、地平线上的火焰变得更加明亮，更加猛烈。空中弥漫着一股气味，像煤油与血与<i>热力</i>——绞杀他人般的热力。有什么将要来临。",
+	"effects": {
+	    "wilhelm.first": 1,
+	    "mission.wilhelm.a": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"maxexecutions": 1,
+	"playAudioTrack": "wilhelmtheme.mp3"
+    },
+    {
+	"id": "long.arrival.wilhelm",
+	"actionid": "long.wilhelm",
+	"label": "一股可怖的力量",
+	"startdescription": "炮火变得更响、地平线上的火焰变得更加明亮，更加猛烈。空中弥漫着一股气味，像煤油与血与<i>热力</i>——绞杀他人般的热力。有什么将要来临。",
+	"effects": {
+	    "wilhelm": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"playAudioTrack": "wilhelmtheme.mp3"
+    },
+    {
+	"id": "long.arrival.sergei.router",
+	"actionid": "long.sergei",
+	"label": "一股可怖的力量",
+	"startdescription": "",
+	"requirements": {
+	    "draw.sergei": 1
+	},
+	"extantreqs": {
+	    "strife.tracker": 7,
+	    "lake.here": -1,
+	    "long.blocker": -1
+	},
+	"linked": [
+	    {
+		"id": "long.arrival.sergei.first"
+	    },
+	    {
+		"id": "long.arrival.sergei"
+	    }
+	]
+    },
+    {
+	"id": "long.arrival.sergei.first",
+	"actionid": "long.sergei",
+	"label": "一股可怖的力量",
+	"startdescription": "狂风尖啸。噩梦变得更加频繁与常见。当我找到时间入眠时，我也做了那个梦：马蹄踏于地面，雪地变得猩红，齐整的黄牙因可怖笑容露出。",
+	"effects": {
+	    "sergei.first": 1,
+	    "mission.sergei.a": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"maxexecutions": 1,
+	"playAudioTrack": "sergeitheme.mp3"
+    },
+    {
+	"id": "long.arrival.sergei",
+	"actionid": "long.sergei",
+	"label": "一股可怖的力量",
+	"startdescription": "狂风尖啸。噩梦变得更加频繁与常见。当我找到时间入眠时，我也做了那个梦：马蹄踏于地面，雪地变得猩红，齐整的黄牙因可怖笑容露出。",
+	"effects": {
+	    "sergei": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"playAudioTrack": "sergeitheme.mp3"
+    },
+    {
+	"id": "edgelong.prep.attack",
+	"label": "刃之长生者攻击了！",
+	"linked": [
+	    {
+		"id": "edgelong.contemnant.attackothers",
+		"chance": 40
+	    },
+	    {
+		"id": "edgelong.sergei.attack.allies",
+		"chance": 50
+	    },
+	    {
+		"id": "edgelong.attack.allies",
+		"chance": 50
+	    },
+	    {
+		"id": "edgelong.attack.you"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.sergei.attack.allies",
+	"label": "刃之长生者攻击了！",
+	"startdescription": "@#foe.sergei|“哼。更多死人。”@",
+	"warmup": 10,
+	"requirements": {
+	    "foe.sergei": 1
+	},
+	"tablereqs": {
+	    "friend": 1
+	},
+	"slots": [
+	    {
+		"id": "needsallies",
+		"label": "Target",
+		"required": {
+		    "friend": 1,
+		    "foe": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "killfriend": 1,
+	    "killfoe": 1,
+	    "killmortal": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    }
+	]
+    },
+    {
+	"id": "edgelong.expel",
+	"label": "刃之长生者攻击了！",
+	"aspects": {
+	    "killfriend": 1,
+	    "killfoe": 1,
+	    "killmortal": 1
+	},
+	"alt": [
+	    {
+		"id": "expel.insight",
+		"additional": true,
+		"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"lore": 1
+		    }
+		}
+	    },
+	    {
+		"id": "expel.skill.deflect",
+		"additional": true,
+		"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"skill.deflect": 1,
+			"skill.deflect.exhausted": 1
+		    }
+		}
+	    },
+	    {
+		"id": "expel.dead",
+		"additional": true,
+		"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"remnant": 1,
+			"moth": 1,
+			"lantern": 1,
+			"forge": 1,
+			"edge": 1,
+			"winter": 1,
+			"heart": 1,
+			"grail": 1,
+			"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	]
+    },
+    {
+	"id": "expel.dead",
+	"actionid": "fatality",
+	"label": "被歼灭！",
+	"startdescription": "他们被粉碎，倒在刃之长生者的脚边——他们没有一分一毫的机会。",
+	"warmup": 10,
+	"requirements": {
+	    "remnant": 1
+	}
+    },
+    {
+	"id": "expel.insight",
+	"actionid": "spit.moth",
+	"label": "化作武器的秘密",
+	"startdescription": "食铁者因我向他展示的秘密而畏缩。我会把这不友善的启示的碎片留在身边——",
+	"warmup": 10,
+	"requirements": {
+	    "insight.sergei": 1
+	}
+    },
+    {
+	"id": "expel.skill.deflect",
+	"actionid": "spit.moth",
+	"label": "枯竭！",
+	"startdescription": "我使用了这些资源以对付我的对手，在我能再次使用它们之前，我需要等待——",
+	"warmup": 10,
+	"requirements": {
+	    "skill.deflect.exhausted": 1
+	}
+    },
+    {
+	"id": "sergei.usedinsight",
+	"label": "残酷现实的碎片",
+	"startdescription": "食铁者在听到我说出那句话的时候重拉了一下缰绳。他的手停下，双颚紧闭。然后他丢下了一句古老的咒骂，并向着另一个方向骑行，这样他就可以继续在别处杀戮与掠夺，这样他就可以不听我说那个名字，“卡济米尔”。",
+	"requirements": {
+	    "insight.sergei": 1
+	},
+	"linked": [
+	    {
+		"id": "sergei.retreats"
+	    },
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "edgelong",
+		"mutate": "afraid",
+		"level": 1,
+		"additive": true
+	    }
+	]
+    },
+    {
+	"id": "longdefend.skill.deflect",
+	"label": "我之守御无可侵犯",
+	"startdescription": "我灵魂的中点与血肉的中点重合。我的伤疤即为装甲。我将不受创伤。",
+	"requirements": {
+	    "skill.deflect": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+    },
+    {
+	"id": "sergei.retreats",
+	"label": "食铁者撤退了！",
+	"startdescription": "食铁者高高地扬起马头——并转向从战场离开！他低着头，疾速骑行。",
+	"description": "我想，我们会有很长一段时间不会再见到他了。",
+	"requirements": {
+	    "afraid": 3
+	},
+	"effects": {
+	    "sergei": -99,
+	    "wasteland.ironeater": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "edgelong.spitout.wounds",
+	"actionid": "edgelong.wounds",
+	"label": "痛苦与恐怖",
+	"startdescription": "这就是一切的终结吗？这一击会结束我的生命吗？",
+	"requirements": {
+	    "winter": -8
+	},
+	"deckeffects": {
+	    "mywounds": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.givewound.fifth"
+	    },
+	    {
+		"id": "edgelong.givewound.ear"
+	    },
+	    {
+		"id": "edgelong.givewound.eye"
+	    },
+	    {
+		"id": "edgelong.givewound.hand"
+	    },
+	    {
+		"id": "edgelong.givewound.leg"
+	    },
+	    {
+		"id": "edgelong.givewound.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "edgelong.spitout.wounds.again",
+	"actionid": "edgelong.wounds",
+	"label": "痛苦与恐怖",
+	"startdescription": "这就是一切的终结吗？这一击会结束我的生命吗？",
+	"requirements": {
+	    "winter": -8
+	},
+	"deckeffects": {
+	    "mywounds": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.givewound.fifth"
+	    },
+	    {
+		"id": "edgelong.givewound.ear"
+	    },
+	    {
+		"id": "edgelong.givewound.eye"
+	    },
+	    {
+		"id": "edgelong.givewound.hand"
+	    },
+	    {
+		"id": "edgelong.givewound.leg"
+	    },
+	    {
+		"id": "edgelong.givewound.clear"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.fifth",
+	"label": "痛苦与恐怖",
+	"startdescription": "这就是一切的终结吗？这一击会结束我的生命吗？",
+	"extantreqs": {
+	    "damage.body": 4
+	},
+	"internaldeck": {
+	    "spec": [
+		"wound.eye",
+		"wound.ear",
+		"wound.hand",
+		"wound.leg"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true,
+	    "defaultcard": "wound.eye"
+	},
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds.again"
+	    },
+	    {
+		"id": "edgelong.turnwounds"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.ear",
+	"label": "痛苦与恐怖",
+	"startdescription": "这就是一切的终结吗？这一击会结束我的生命吗？",
+	"extantreqs": {
+	    "wound.ear": -1,
+	    "debilitation.ear": -1,
+	    "debilitation.ear.colonel": -1,
+	    "debilitation.ear.colonel.exhausted": -1
+	},
+	"requirements": {
+	    "draw.ear": 1
+	},
+	"effects": {
+	    "wound.ear": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds.again"
+	    },
+	    {
+		"id": "edgelong.turnwounds"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.eye",
+	"label": "痛苦与恐怖",
+	"startdescription": "这就是一切的终结吗？这一击会结束我的生命吗？",
+	"extantreqs": {
+	    "wound.eye": -1,
+	    "debilitation.eye": -1,
+	    "debilitation.eye.colonel": -1,
+	    "debilitation.eye.colonel.exhausted": -1
+	},
+	"requirements": {
+	    "draw.eye": 1
+	},
+	"effects": {
+	    "wound.eye": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds.again"
+	    },
+	    {
+		"id": "edgelong.turnwounds"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.hand",
+	"label": "痛苦与恐怖",
+	"startdescription": "这就是一切的终结吗？这一击会结束我的生命吗？",
+	"extantreqs": {
+	    "wound.hand": -1,
+	    "debilitation.hand": -1,
+	    "debilitation.hand.colonel": -1,
+	    "debilitation.hand.colonel.exhausted": -1
+	},
+	"requirements": {
+	    "draw.hand": 1
+	},
+	"effects": {
+	    "wound.hand": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds.again"
+	    },
+	    {
+		"id": "edgelong.turnwounds"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.leg",
+	"label": "痛苦与恐怖",
+	"startdescription": "这就是一切的终结吗？这一击会结束我的生命吗？",
+	"extantreqs": {
+	    "wound.leg": -1,
+	    "debilitation.leg": -1,
+	    "debilitation.leg.colonel": -1,
+	    "debilitation.leg.colonel.exhausted": -1
+	},
+	"requirements": {
+	    "draw.leg": 1
+	},
+	"effects": {
+	    "wound.leg": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds.again"
+	    },
+	    {
+		"id": "edgelong.turnwounds"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.clear",
+	"label": "痛苦与恐怖",
+	"startdescription": "这就是一切的终结吗？这一击会结束我的生命吗？",
+	"effects": {
+	    "draw.ear": -1,
+	    "draw.eye": -1,
+	    "draw.leg": -1,
+	    "draw.hand": -1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.givewound.drawagain"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.drawagain",
+	"label": "痛苦与恐怖",
+	"startdescription": "这就是一切的终结吗？这一击会结束我的生命吗？",
+	"deckeffects": {
+	    "mywounds": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.givewound.ear"
+	    },
+	    {
+		"id": "edgelong.givewound.eye"
+	    },
+	    {
+		"id": "edgelong.givewound.hand"
+	    },
+	    {
+		"id": "edgelong.givewound.leg"
+	    },
+	    {
+		"id": "edgelong.givewound.clear"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.turnwounds",
+	"label": "痛苦与恐怖",
+	"startdescription": "这就是一切的终结吗？这一击会结束我的生命吗？",
+	"extantreqs": {
+	    "foe.sergei": 1
+	},
+	"aspects": {
+	    "malign": 1
+	}
+    },
+    {
+	"id": "camilla.here",
+	"label": "大陆之敌出手干预！",
+	"startdescription": "“威廉——你四处闲逛浪费的是我的时间。你知道我多么重视守时。”大陆之敌细剑技艺高超的一挥如同闪电——",
+	"description": "——而后两名不朽之人沉浸于与彼此的战斗。对此刻的二人而言，除战斗之外的一切都不存在。我看了一小会，被两名大师如精心编排的舞蹈般的战斗震惊——之后我就必须从他们的前路上跳开。两位长生者消失在了战场的喧嚣中。",
+	"tablereqs": {
+	    "friend.camilla": 1
+	},
+	"slots": [
+	    {
+		"id": "needscamilla",
+		"label": "对手",
+		"required": {
+		    "friend.camilla": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "edgelong": -99,
+	    "blocker.wilhelmandcamilla": 1
+	},
+	"warmup": 60
+    },
+    {
+	"id": "expel.immortalfriend",
+	"actionid": "spit.moth",
+	"label": "同等之力",
+	"startdescription": "我永生的友军成功防御了刃之长生者的攻击。很快其就能再次准备好为我提供助力——",
+	"warmup": 10,
+	"requirements": {
+	    "friend.immortal": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+]
+}

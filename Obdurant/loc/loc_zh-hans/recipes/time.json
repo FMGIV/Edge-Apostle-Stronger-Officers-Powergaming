@@ -1,0 +1,676 @@
+{
+"recipes": [
+    {
+    "id": "spit.lefttoelements.penalty",
+    "actionid": "spit.winter",
+    "label": "宿于野外",
+    "startdescription": "在坚硬的地面上入睡，暴露于夜晚的寒冷中——即使是最为坚强的士兵也会因此受伤。\n\n[有时，一部分你的友军会因暴露于恶劣环境中枯竭，甚至负伤。]",
+    "tablereqs": {
+        "friend": 1
+    },
+    "slots": [
+        {
+        "id": "needsfriend",
+        "label": "Ally",
+        "required": {
+            "friend": 1
+        },
+        "forbidden": {
+            "exhausted": 1,
+            "friend.immortal": 1
+        },
+        "greedy": true
+        }
+    ],
+    "warmup": 30,
+    "aspects": {
+        "fatiguing": 1
+    },
+    "linked": [
+        {
+        "id": "spit.nospace.penalty.killfriend.wounded"
+        },
+        {
+        "id": "spit.nospace.penalty.killfriend.damaged"
+        },
+        {
+        "id": "spit.nospace.penalty.wound",
+        "chance": 30
+        },
+        {
+        "id": "spit.nospace.penalty.removeexperience"
+        }
+    ],
+    "extantreqs": {
+        "contemnant.story": 1
+    	}
+    },
+    {
+	"id": "resupply.startup.contemnant",
+	"actionid": "resupply.yellow",
+	"label": "获取补给品?",
+	"startdescription": "一支补给车队经过我们外围，携带着无价的货物：食物、饮水、药物。其上的补给并非供应给我们——更可能是供应给俄军或德军——但这并不意味着我们不会不请自来。\n\n[派遣一位乐意如此的友军前去偷窃补给车队，以获取补给品。有时偷窃会失败，但派遣处于隐匿状态的友军则能够确保成功。若你想亲自前去，就使用你的刃密传。]",
+	"description": "我们中没有人能鼓起勇气进行盗窃。等着我们的只有更多挨饿的日子。",
+	"requirements": {
+	    "days.resupply": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1,
+	    "warzone.current": 1,
+	    "wasteland": -1,
+	    "side.cutoff": -1,
+	    "lake.here": -1,
+	    "sobibor.here": -1
+	},
+	"slots": [
+	    {
+		"id": "needsally",
+		"label": "友军",
+		"required": {
+		    "friend": 1,
+		    "lore": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "remnant": 1,
+		    "hired": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"alt": [
+	    {
+		"id": "resupply.contemnant.allygiven"
+	    },
+	    {
+		"id": "resupply.contemnant.loregiven"
+	    }
+	]
+    },
+    {
+	"id": "resupply.contemnant.allygiven",
+	"label": "窃取补给",
+	"startdescription": "“偷摸进去，偷摸出来。”",
+	"requirements": {
+	    "friend": 1
+	},
+	"linked": [
+	    {
+		"id": "resupply.contemnant.success.hidden"
+	    },
+	    {
+		"id": "resupply.contemnant.success",
+		"chance": 70
+	    },
+	    {
+		"id": "resupply.contemnant.failure"
+	    }
+	]
+    },
+    {
+	"id": "resupply.contemnant.loregiven",
+	"label": "窃取补给",
+	"startdescription": "“偷摸进去，偷摸出来。”",
+	"requirements": {
+	    "lore": 1
+	},
+	"linked": [
+	    {
+		"id": "resupply.contemnant.success",
+		"chance": 70
+	    },
+	    {
+		"id": "resupply.contemnant.failure"
+	    }
+	]
+    },
+    {
+	"id": "resupply.contemnant.success.hidden",
+	"label": "成功窃取补给",
+	"startdescription": "我们无法偷走能满足每个人需求的量，但也只能靠这些凑合着过了。",
+	"requirements": {
+	    "friend.hidden": 1
+	},
+	"effects": {
+	    "provisions": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"provisions",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "resupply.contemnant.success",
+	"label": "成功窃取补给",
+	"startdescription": "我们无法偷走能满足每个人需求的量，但也只能靠这些凑合着过了。",
+	"effects": {
+	    "provisions": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"provisions",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "resupply.contemnant.failure",
+	"label": "未能成功窃取补给",
+	"startdescription": "我们在盗窃时出现了疏忽——这让车队发现了我们！我们被迫空手逃跑。这失落是如此明显，以至于我几乎可以尝到它。",
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "time.first.proterant",
+	"actionid": "time.exile",
+	"label": "时间",
+	"startdescription": "最后的敌人。",
+	"warmup": 60,
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.camilla",
+		"draw.sergei"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "time.draw"
+	    }
+	]
+    },
+    {
+	"id": "deathtrigger.proterant",
+	"label": "战斗的反面？",
+	"extantreqs": {
+	    "damage.body": 5,
+	    "proterant.story": 1
+	},
+	"ending": "defeat.death.proterant",
+	"achievements": [
+	    "ending.deathbody.proterant"
+	]
+    },
+    {
+	"id": "hindrances.heavy.startup.obdurant",
+	"label": "汇聚的敌意",
+	"startdescription": "纷争于此处熊熊燃烧。在上方，司辰带着审视、好奇与蔑视聚集。战场被他们的注意中带有的力量刺穿，诅咒与疫病自漫宿中被诱出，来到这个世界。接下来将来临的是什么？",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "obdurant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.obdurant": 1,
+	    "hindrances.light": 1
+	}
+    },
+    {
+	"id": "hindrances.heavy.startup.proterant",
+	"label": "汇聚的敌意",
+	"startdescription": "纷争于此处熊熊燃烧。在上方，司辰带着审视、好奇与蔑视聚集。战场被他们的注意中带有的力量刺穿，诅咒与疫病自漫宿中被诱出，来到这个世界。接下来将来临的是什么？",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "proterant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.proterant": 1,
+	    "hindrances.light": 1
+	}
+    },
+    {
+	"id": "resupply.givemodello",
+	"actionid": "resupply",
+	"label": "供应补给品",
+	"startdescription": "一支友军车队经过我们外围，携带着无价的货物：食物、饮水药物。或许货物中还夹杂着一两块巧克力。\n\n[只要你并非身处战火摧残的地区且并未被敌军切断补给线，你就会在愉快的日子得到更多补给品。]",
+	"extantreqs": {
+	    "proterant.weapon": -1,
+	    "proterant.weapon.exhausted": -1,
+	    "proterant.story": 1
+	},
+	"effects": {
+	    "proterant.weapon": 1
+	}
+    },
+    {
+	"id": "shellshocktrigger.proterant",
+	"label": "精神之死",
+	"extantreqs": {
+	    "damage.mind": 5,
+	    "proterant.story": 1
+	},
+	"ending": "defeat.shellshock.proterant",
+	"achievements": [
+	    "ending.deathmind.proterant"
+	]
+    },
+    {
+	"id": "produce.craterfield",
+	"actionid": "fallingstar",
+	"label": "星辰坠落！",
+	"startdescription": "夜空被惨白的云覆盖，在未被遮蔽的部分，星星闪闪发光。我的双眼搜索天穹。我能感到命运的齿轮在我们所见的世界之后转动。空气中满溢着命运的味道。我的双眼仍在搜寻。",
+	"description": "一声低沉的铿锵声自我们头顶传来，如同一口深不可测的钟发出的声音。而后便有光。我们中的一部分人带着敬畏注视，认为黑夜突然变为了白昼。但当我再次注视，我发现现在仍是夜晚，并且我看见照亮夜空的是一颗星。一颗正从天穹坠落，身后拖着火与光的缎带的星；这正是狮子匠为强大到足以得到它的人准备的赠礼，",
+	"extantreqs": {
+	    "strife.tracker": 4,
+	    "montecassino.here": 1
+	},
+	"effects": {
+	    "craterfield": 1
+	},
+	"warmup": 30,
+	"maxexecutions": 1
+    },
+    {
+	"id": "time.first",
+	"actionid": "time.exile",
+	"label": "时间",
+	"startdescription": "最后的敌人。",
+	"warmup": 60,
+	"internaldeck": {
+	    "spec": [
+		"draw.wilhelm",
+		"draw.sergei"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "time.draw"
+	    }
+	]
+    },
+    {
+	"id": "time.draw",
+	"actionid": "time.exile",
+	"label": "时间",
+	"startdescription": "最后的敌人。",
+	"deckeffects": {
+	    "days.deck": 1
+	},
+	"linked": [
+	    {
+		"id": "time.cycle"
+	    }
+	]
+    },
+    {
+	"id": "time.cycle",
+	"actionid": "time.exile",
+	"label": "时间",
+	"startdescription": "最后的敌人。",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "pre.death"
+	    },
+	    {
+		"id": "pre.trauma"
+	    },
+	    {
+		"id": "time.clear"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "long.arrival.wilhelm.router",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "long.arrival.sergei.router",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "spit.nospace.penalty",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "dreams.startup",
+		"additional": true
+	    },
+	    {
+		"id": "hindrances.startup",
+		"additional": true
+	    },
+	    {
+		"id": "resupply.startup",
+		"additional": true
+	    },
+	    {
+		"id": "conclusion.startup",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "time.clear",
+	"actionid": "time.exile",
+	"label": "时间",
+	"startdescription": "最后的敌人。",
+	"effects": {
+	    "season": -99
+	},
+	"linked": [
+	    {
+		"id": "time.draw"
+	    }
+	]
+    },
+    {
+	"id": "spit.nospace.penalty",
+	"actionid": "spit.winter",
+	"label": "宿于野外",
+	"startdescription": "在坚硬的地面上入睡，暴露于夜晚的寒冷中——即使是最为坚强的士兵也会因此受伤。\n\n[当你的部队规模超过你可用的空间数量，一部分你的友军会因暴露于恶劣环境中枯竭，甚至负伤。]",
+	"grandreqs": { "[~/extant:forcesize] > [~/extant:room]": 1 },
+	"tablereqs": {
+	    "friend": 1
+	},
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "友军",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+		"id": "spit.nospace.penalty.killfriend.wounded"
+	    },
+	    {
+		"id": "spit.nospace.penalty.killfriend.damaged"
+	    },
+	    {
+		"id": "spit.nospace.penalty.wound",
+		"chance": 30
+	    },
+	    {
+		"id": "spit.nospace.penalty.removeexperience"
+	    }
+	]
+    },
+    {
+	"id": "spit.nospace.penalty.killfriend.wounded",
+	"label": "宿于野外",
+	"startdescription": "他们死了、我想他们应该感觉不到终结的来临。\n\n[暴露于恶劣环境中的负伤友军将逝去。]",
+	"requirements": {
+	    "wounded": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "spit.nospace.penalty.killfriend.damaged",
+	"label": "宿于野外",
+	"startdescription": "这机械已然无法恢复，其操纵者同样如此。\n\n[暴露于恶劣环境中的受损友军将逝去。]",
+	"requirements": {
+	    "damaged": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "spit.nospace.penalty.wound",
+	"label": "宿于野外",
+	"startdescription": "在坚硬的地面上入睡，暴露于夜晚的寒冷中——即使是最为坚强的士兵也会因此受伤。\n\n[当你的部队规模超过你可用的空间数量，一部分你的友军会因暴露于恶劣环境中枯竭，甚至负伤。]",
+	"requirements": {
+	    "friend": 1
+	},
+	"aspects": {
+	    "makecasualty": 1
+	}
+    },
+    {
+	"id": "spit.nospace.penalty.removeexperience",
+	"label": "宿于野外",
+	"startdescription": "在坚硬的地面上入睡，暴露于夜晚的寒冷中——即使是最为坚强的士兵也会因此受伤。\n\n[当你的部队规模超过你可用的空间数量，一部分你的友军会因暴露于恶劣环境中枯竭，甚至负伤。]",
+	"requirements": {
+	    "experience.exile.ally": 1
+	},
+	"mutations": [
+	    {
+		"filter": "experience.exile.ally",
+		"mutate": "experience.exile.ally",
+		"level": -1,
+		"additive": true
+	    }
+	]
+    },
+    {
+	"id": "pre.death",
+	"label": "战斗的反面？",
+	"startdescription": "只是又多一个死去的士兵罢了。[若你在这最后的时间耗尽时仍具有至少五道伤口与残疾，你将逝去。]",
+	"extantreqs": {
+	    "damage.body": 5
+	},
+	"warmup": 60,
+	"signalEndingFlavour": "Melancholy",
+	"signalMusic": "neardeath.mp3",
+	"linked": [
+	    {
+		"id": "deathtrigger"
+	    },
+	    {
+		"id": "time.clear"
+	    }
+	]
+    },
+    {
+	"id": "deathtrigger",
+	"label": "战斗的反面？",
+	"extantreqs": {
+	    "damage.body": 5
+	},
+	"ending": "defeat.death",
+	"achievements": [
+	    "ending.deathbody"
+	]
+    },
+    {
+	"id": "hindrances.startup",
+	"actionid": "hindrances.verb",
+	"label": "严阵以待的环境",
+	"startdescription": "军队并非主导战场的唯一力量：刺骨的严寒，滂沱的大雨，以及其他将影响我们工作的环境障碍。接下来将来临的是什么？",
+	"requirements": {
+	    "days.hindrances": 1
+	},
+	"warmup": 30,
+	"deckeffects": {
+	    "hindrances.light": 1
+	},
+	"alt": [
+	    {
+		"id": "hindrances.heavy.startup"
+	    }
+	]
+    },
+    {
+	"id": "hindrances.heavy.startup",
+	"label": "汇聚的敌意",
+	"startdescription": "纷争于此处熊熊燃烧。在上方，司辰带着审视、好奇与蔑视聚集。战场被他们的注意中带有的力量刺穿，诅咒与疫病自漫宿中被诱出，来到这个世界。接下来将来临的是什么？",
+	"extantreqs": {
+	    "strife.tracker": 4
+	},
+	"deckeffects": {
+	    "hindrances.heavy": 1,
+	    "hindrances.light": 1
+	}
+    },
+    {
+	"id": "resupply.startup",
+	"actionid": "resupply",
+	"label": "供应补给品",
+	"startdescription": "一支友军车队经过我们外围，携带着无价的货物：食物、饮水药物。或许货物中还夹杂着一两块巧克力。\n\n[只要你并非身处战火摧残的地区且并未被敌军切断补给线，你就会在愉快的日子得到更多补给品。]",
+	"requirements": {
+	    "days.resupply": 1
+	},
+	"extantreqs": {
+	    "wasteland": -1,
+	    "side.cutoff": -1,
+	    "lake.here": -1
+	},
+	"effects": {
+	    "provisions": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"provisions",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "resupply.giverifle"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "resupply.giverifle",
+	"actionid": "resupply",
+	"label": "供应补给品",
+	"startdescription": "一支友军车队经过我们外围，携带着无价的货物：食物、饮水药物。或许货物中还夹杂着一两块巧克力。\n\n[只要你并非身处战火摧残的地区且并未被敌军切断补给线，你就会在愉快的日子得到更多补给品。]",
+	"extantreqs": {
+	    "obdurant.weapon": -1,
+	    "obdurant.weapon.exhausted": -1
+	},
+	"effects": {
+	    "obdurant.weapon": 1
+	}
+    },
+    {
+	"id": "conclusion.startup",
+	"actionid": "conclusion",
+	"label": "一个终结？",
+	"startdescription": "空气寂静且致命。我们的伤者在夜晚发出喊叫——或许他们之一今日会永远沉寂。\n\n[负伤或受损的友军将逝去。]",
+	"requirements": {
+	    "days.conclusion": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomeone",
+		"label": "伤患",
+		"required": {
+		    "wounded": 1,
+		    "damaged": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "conclusion.frienddetected"
+	    },
+	    {
+		"id": "conclusion.fail"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "conclusion.frienddetected",
+	"label": "永远沉寂",
+	"startdescription": "死亡从未远离战争。",
+	"requirements": {
+	    "friend": 1
+	},
+	"aspects": {
+	    "killfriend": 1,
+	    "killmortal": 1
+	}
+    },
+    {
+	"id": "conclusion.fail",
+	"label": "并非今夜",
+	"startdescription": "今夜无人死去，暂时如此。我在肋间严寒中感到的恐惧现变为沉思，故我开始琢磨事情。",
+	"requirements": {
+	    "friend": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.calm",
+		"mem.regret",
+		"mem.fear"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "pre.trauma",
+	"label": "精神之死",
+	"startdescription": "为什么？为什么要继续？[若你在这最后的时间耗尽时仍具有至少五道精神创伤，你将屈服于绝望。]",
+	"extantreqs": {
+	    "damage.mind": 5
+	},
+	"signalEndingFlavour": "Melancholy",
+	"signalMusic": "neardeath.mp3",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "shellshocktrigger"
+	    },
+	    {
+		"id": "time.clear"
+	    }
+	]
+    },
+    {
+	"id": "shellshocktrigger",
+	"label": "精神之死",
+	"extantreqs": {
+	    "damage.mind": 5
+	},
+	"ending": "defeat.shellshock",
+	"achievements": [
+	    "ending.deathmind"
+	]
+    }
+]
+}

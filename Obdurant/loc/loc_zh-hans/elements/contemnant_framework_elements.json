@@ -1,0 +1,549 @@
+{
+"elements": [
+    {
+	"id": "contemnant.story",
+	"label": "何乐而不为？",
+	"description": "“在索比堡的所有可怜人中，我觉得你最为突出。所以我把你当成我。教授你痛苦。然后现在，你心中已经有了狼的承诺的种子。噢，没错——说不定到这场战争结束你就会变成他血腥大口里面另一颗弯曲的狼牙。既然能复仇，那何乐而不为？这世界给了你足够的理由恨它。把你之中不想这么做的部分全部挖掉。追随我教授你的秘密至其本源。去维也纳找到那个阿卢卡，并从她手上活下来。然后——然后或许我们会再谈一谈。我希望那会是我们最后一次谈话。说到底，你欠谁什么？以前，我曾问过自己这个问题。现在，轮到你了。”",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "avowal": [
+		{
+		    "id": "marker.spoketosergeiaboutsword",
+		    "morpheffect": "mutate"
+		}
+	    ],
+	    "longded": [
+		{
+		    "id": "long.blocker",
+		    "morpheffect": "mutate"
+		}
+	    ],
+	},
+	"unique": true
+    },
+    {
+	"id": "contemnant.weapon",
+	"label": "军官的匕首",
+	"description": "流亡者的黑色幽默。",
+	"aspects": {
+	    "edge": 2,
+	    "weapon": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "contemnant.weapon.exhausted"
+	},
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "wound.generic",
+	"label": "一处伤口",
+	"description": "我应该立即找人处理这一伤口。[合计五道创伤与残疾将杀死你。]",
+	"aspects": {
+	    "damage.body": 1,
+	    "winter": 4,
+	    "knock": 4
+	},
+	"lifetime": 300,
+	"decayTo": "debilitation.generic"
+    },
+    {
+	"id": "reputation.infamy",
+	"label": "恶名",
+	"description": "即便是在战时，有些过于恶劣的行为也无法被容忍。[若“恶名”累计至三，当前战区的所有中立单位将变为敌对状态。]",
+	"aspects": {
+	    "local.infamy": 1
+	}
+    },
+    {
+	"id": "op.fire",
+	"label": "火焰",
+	"description": "火是严冬，却是带有温度。火是暖春，却会耗尽一切。",
+	"aspects": {
+	    "forge": 4,
+	    "edge": 4,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "skill.sustain.active",
+	"label": "苦痛维生",
+	"description": "被毁灭即被解脱，自痛苦中被解脱。但狼还不想让我现在得到解脱。. [当此卡牌为激活状态时，任何数量的创伤或残疾都无法杀死你。在<b>行动</b>中投入“裂分之狼的阴影”以维持此卡牌的激活状态。当你持有此卡牌时，使用“毁灭”有概率产生“裂分之狼的阴影”。]",
+	"lifetime": 480,
+	"xtriggers": {
+	    "employment": "skill.sustain.active"
+	},
+	"decayTo": "skill.sustain.dormant",
+	"aspects": {
+	    "sustain.marker": 1
+	}
+    },
+    {
+	"id": "skill.sustain.dormant",
+	"label": "苦痛维生",
+	"description": "被毁灭即被解脱，自痛苦中被解脱。但狼还不想让我现在得到解脱。.[在<b>行动</b>中投入“裂分之狼的阴影”以激活此卡牌。当你持有此卡牌时，使用“毁灭”有概率产生“裂分之狼的阴影”。]",
+	"xtriggers": {
+	    "employment": "skill.sustain.active"
+	},
+	"aspects": {
+	    "sustain.marker": 1
+	}
+    },
+    {
+	"id": "wolf.neutral",
+	"label": "狼：潜猎",
+	"description": "裂分之狼怒火的冲击大部分落在别处，谢天谢地。",
+	"xtriggers": {
+	    "epiphany": "wolf.rage"
+	},
+	"verbicon": "wolfcycle.neutral"
+    },
+    {
+	"id": "wolf.rage",
+	"label": "狼：狂怒",
+	"description": "裂分之狼的怒火点燃了我们周围的世界。",
+	"xtriggers": {
+	    "depiphany": "wolf.neutral"
+	},
+	"verbicon": "wolfcycle.active"
+    },
+    {
+	"id": "foe.ingluviate.engorged",
+	"label": "吞食者（满腹）",
+	"description": "曾在外者现于其内。[击杀这一敌军以夺回<b>铁棺</b>。]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "needsedgegrail": 8,
+	    "foe.unsubtle": 1,
+	    "otherworldly": 1,
+	    "detectivetemptation": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ingluviate.engorged",
+	    "killfoe": [
+		{
+		    "id": "foe.corpse.unnatural"
+		},
+		{
+		    "id": "klei.casket",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+    },
+    {
+	"id": "side.rescuerefugees",
+	"label": "次要目标：援救难民",
+	"description": "又一批走投无路的人们被迫做出选择，是要死在德军手上，还是俄军手上。把他们带到安全地带需要费点功夫——但他们会觉得欠我一笔。[获得新友军的机会。]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "rescuerefugees.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "rescuerefugees.complete",
+	"label": "Rescue Refugees Loot",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.hintcontemnant.lore",
+	"label": "Draw: Lore Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.retributions",
+	"label": "Draw: Retributions Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.antithesis",
+	"label": "Draw: Antithesis Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.vulneration",
+	"label": "Draw: Vulneration Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.kleidouchos",
+	"label": "Draw: Kleidouchos Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.killexile",
+	"label": "Draw: Kill Exile Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.berlin",
+	"label": "Draw: Berlin Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.peace",
+	"label": "Draw: Peace Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "op.church.contemnant",
+	"label": "机会：一座教堂",
+	"description": "一处给那些还留有信仰的人准备的地点。我不确定我还有多少信仰心，但或许我可以利用这废墟中宁静的空间寻得一份有用的领悟。",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"label": "意图",
+		"required": {
+		    "heart": 1
+		}
+	    }
+	],
+	"lifetime": 300,
+	"icon": "op.church"
+    },
+    {
+	"id": "op.farm.contemnant",
+	"label": "机会：一处农场",
+	"description": "一处还没有完全被强盗与乌鸦掠夺殆尽的地点。我们可以劝说农夫为我们提供食物与饮水——毕竟众所周知，拿着枪的人十分具有说服力。",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"label": "意图",
+		"required": {
+		    "grail": 1,
+		    "edge": 1
+		}
+	    }
+	],
+	"lifetime": 300,
+	"icon": "op.farm"
+    },
+    {
+	"id": "wound.glorious",
+	"label": "辉光之伤",
+	"description": "一道辉煌的伤口，使人想起太阳的分裂。从这伤口中涌出的力量是如此恶毒，以至于任何见到我的人会将我视作无法忍耐的受诅之物。他们并没做错什么，在我身边待的越久，遭受湮灭的风险就越大。[此卡牌亦算作一道伤口，且会使任何中立单位转而攻击你。当你持有此卡牌时，每次产生“抗争”都会消灭随机一个敌军或友军。]",
+	"aspects": {
+	    "lantern": 6,
+	    "edge": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "local.infamy": 3
+	},
+	"unique": true
+    },
+    {
+	"id": "sobibor.here",
+	"label": "索比堡灭绝营",
+	"description": "由人类之手筑成的地狱；我有幸在一年前被带出的地狱；我为了直面并杀死被我最为憎恨的人根植于我心中的黑暗，而选择再次返回的地狱。",
+	"aspects": {
+	    "warzone.current": 1,
+	    "memory": 1,
+	    "sobibor.marker": 1,
+	    "long.blocker": 1
+	},
+    },
+    {
+	"id": "op.axe",
+	"label": "分裂之刻",
+	"description": "山楂的香气残留在我的身上。我投于石上的阴影漆黑一片。在暗处，一位古时的士兵正等候着，在她身后是一位古老神祗的阴影。我必须面见她，并准备需要代行的祈祷。",
+	"aspects": {
+	    "op": 1
+	},
+	"unique": true,
+	"slots": [
+	    {
+		"id": "needscompleted",
+		"label": "意图",
+		"required": {
+		    "completed": 1
+		}
+	    },
+	    {
+		"id": "needstime",
+		"label": "时间",
+		"required": {
+		    "op": 1
+		}
+	    },
+	    {
+		"id": "needspower",
+		"label": "权威",
+		"required": {
+		    "op": 1
+		}
+	    },
+	],
+	"icon": "op.horned"
+    },
+    {
+	"id": "neutral.corpses",
+	"label": "倒下的苏军",
+	"description": "他们曾战。他们倒落。",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "growthinfect": "foe.growth",
+	    "raiseshattered": "friend.risen",
+	    "promotiontodisciple": "friend.conscript",
+	    "killsoviet": "neutral.corpses"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "developing.trauma",
+	"label": "恐惧渐增",
+	"description": "灵魂之死，一步一步，缓缓迫近。[若不加以应对，此卡牌将变为“精神创伤”。]",
+	"aspects": {
+	    "op": 1,
+	    "needsheart": 8,
+	    "needslantern": 8,
+	    "developing": 1
+	},
+	"xtriggers": { 
+	    "benign": "husk"
+	},
+	"lifetime": 180,
+	"decayTo": "trauma",
+	"slots": [
+	    {
+		"id": "needssomething1",
+		"label": "资源",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    },
+	    {
+		"id": "needssomething2",
+		"label": "资源",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    }
+	],
+	"resaturate": true
+    },
+    {
+	"id": "developing.permatrauma",
+	"label": "不可阻挡的恐怖",
+	"description": "狼正前来。[若不加以应对，此卡牌将变为“刻骨铭心的精神创伤”。]",
+	"aspects": {
+	    "op": 1,
+	    "needsheart": 12,
+	    "needslantern": 12,
+	    "developing": 1
+	},
+	"xtriggers": { 
+	    "benign": "husk"
+	},
+	"lifetime": 180,
+	"decayTo": "permatrauma",
+	"slots": [
+	    {
+		"id": "needssomething1",
+		"label": "资源",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    },
+	    {
+		"id": "needssomething2",
+		"label": "资源",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    },
+	    {
+		"id": "needssomething3",
+		"label": "资源",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    }
+	],
+	"resaturate": true
+    },
+    {
+	"id": "permatrauma",
+	"label": "刻骨铭心的精神创伤",
+	"description": "灵魂只能承受那么多。[合计五道精神创伤将击碎你的意志。此卡牌将在你离开索比堡之前一直存在。]",
+	"aspects": {
+	    "winter": 6,
+	    "damage.mind": 1
+	},
+	"xtriggers": { 
+	    "benign": "husk"
+	}
+    },
+    {
+	"id": "main.seize.rewardrouter",
+	"label": "Seize Successful!",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "main.breakout.rewardrouter",
+	"label": "Breakout Successful!",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "traveltransition.marker",
+	"label": "Travel Transition Marker",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "readiness.token.marinette",
+	"label": "Readiness: Marinette",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "token.escaped",
+	"label": "暂避玛丽内特……",
+	"description": "眼下，操线仙娥与她那急切的猎团的干枯鸣声已被我甩在身后。[直到你下一次行经战火摧残的地区前，你都不会再遇见玛丽内特和她的部队。]",
+    },
+    {
+	"id": "token.intent",
+	"label": "歼敌之志",
+	"description": "那名为“流亡者”之人曾要求我恐惧他。但我现在不了。[现在，当你直面流亡者时将不会再受到精神创伤，并且你可以使用此卡牌向流亡者或其大敌发起一次最终的交锋。]",
+	"aspects": {
+	    "challenge": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "runmarker.sergei",
+	"label": "Run Marker: Sergei",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "runmarker.cross",
+	"label": "Run Marker: Gyrvaengr",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "sidesobibor.complete",
+	"label": "A Forgotten Light: Complete",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "foe.grame.inactive",
+	"label": "未见的怒火……",
+	"description": "在噩梦的边缘，我能听见一声渴求的低吼——那声音微弱，但确实。[此卡牌将在你持有至少三份精神创伤时激活。]",
+	"aspects": {
+	    "foe.nightmare": 1
+	},
+	"xtriggers": {
+	    "intention.assault": "foe.grame"
+	},
+	"icon": "foe.unknown"
+    },
+    {
+	"id": "foe.shade.inactive",
+	"label": "暗伏的悲伤……",
+	"description": "在噩梦的边缘，我能听见数道软弱的号泣——那声音微弱，但确实。[此卡牌将在你持有至少三份精神创伤时激活。]",
+	"aspects": {
+	    "foe.nightmare": 1
+	},
+	"xtriggers": {
+	    "intention.assault": "foe.shade"
+	},
+	"icon": "foe.unknown"
+    },
+]
+}

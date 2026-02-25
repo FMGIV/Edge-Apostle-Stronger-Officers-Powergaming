@@ -1,0 +1,2152 @@
+{
+"recipes": [
+    {
+	"id": "attackenemy.hint.contemnant",
+	"actionid": "operate",
+	"label": "Stage an attack against an enemy?",
+	"startdescription": "The enemy is ahead. I will need a strategy, and then the resources and manpower to execute it. Or, failing that, a willingness to throw away the lives of my allies.\n\n[Meet any of an Enemy's thresholds to launch an attack against it. Exceed a threshold by at least 5 of the appropriate aspect, and the attack will be a guaranteed success. Or, provide at least one Ally and a total of 10 Edge or Forge, and you can play a desperate gambit.]",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.ingluviateguarded.hint",
+	"actionid": "operate",
+	"label": "The Red Guard",
+	"startdescription": "The creature would normally be easy to slay, but despite the weight it now carries within, the Ingluviate remains surprisingly swift - and that's not mentioning the other creatures still protecting it from me.",
+	"requirements": {
+	    "foe.ingluviate.engorged": 1
+	},
+	"extantreqs": {
+	    "foe.ingluviate.protect": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackingluviate.edgegrail.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming offensive using a twofold strategy",
+	"startdescription": "The highest natures of the Grail are her Torments, and under Torment pain and pleasure are close comrades. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	    "foe.ingluviate.engorged": 1
+	},
+	"extantreqs": {
+	    "foe.ingluviate.protect": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgegrail]": 5,
+	    "[grail]-[needsedgegrail]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackingluviate.edgegrail",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. There is an appetite for pain here. I will sate it.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	    "foe.ingluviate.engorged": 1
+	},
+	"extantreqs": {
+	    "foe.ingluviate.protect": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.malkin.dispel",
+	"actionid": "operate",
+	"label": "Dispelling the Great Malkin",
+	"startdescription": "Without the Clavigers to stabilise its presence, this greater servant of the Horned Axe cannot remain in our world. Its shape flickers like a candleflame; its growls fade and twist like radio static -",
+	"description": "- and it is gone. The smell of hawthorn stings the air, but no more than that.",
+	"requirements": {
+	    "foe.malkin": 1
+	},
+	"extantreqs": {
+	    "foe.warder": -1,
+	    "foe.warder.hidden": -1
+	},
+	"effects": {
+	    "foe.malkin": -99
+	},
+	"warmup": 10,
+	"craftable": true
+    },
+    {
+	"id": "attackenemy.boccastranoguarded.hint",
+	"actionid": "operate",
+	"label": "Elder Protects the Younger",
+	"startdescription": "This one is guarded by another enemy - one that is too fierce and too dangerous to simply ignore. As fallen and monstrous as they are, the brothers do appear to watch for one another.",
+	"requirements": {
+	    "uqbrood": 1,
+	    "guarded": 1
+	},
+	"extantreqs": {
+	    "guard": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.guardjerome.hint",
+	"actionid": "operate",
+	"label": "Stage an attack against an enemy?",
+	"startdescription": "This target is still protected.\n\n[Until all Enemies possessing the Guarding: Jerome aspect are slain, you cannot attack Jerome Alexander.]",
+	"requirements": {
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.guardlionel.hint",
+	"actionid": "operate",
+	"label": "Stage an attack against an enemy?",
+	"startdescription": "This target is still protected.\n\n[Until all Enemies possessing the Guarding: Lionel aspect are slain, you cannot attack Jerome Alexander.]",
+	"requirements": {
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.officerdetailstill.hint",
+	"actionid": "operate",
+	"label": "Stage an attack against an enemy officer?",
+	"startdescription": "This target is still protected.\n\n[Until all Enemies possessing the Officer's Detail aspect are slain, you cannot attack an Enemy Officer.]",
+	"requirements": {
+	    "foe.officer": 1
+	},
+	"extantreqs": {
+	    "foe.officerdetail": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.hint",
+	"actionid": "operate",
+	"label": "Stage an attack against an enemy?",
+	"startdescription": "The enemy is ahead. I will need a strategy, and then the resources and manpower to execute it.\n\n[Meet any of an Enemy's thresholds to launch an attack against it. Exceed a threshold by at least 5 of the appropriate aspect, and the attack will be a guaranteed success.]",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": -1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.hidden.hint",
+	"actionid": "operate",
+	"label": "Stage an attack against a hidden enemy?",
+	"startdescription": "Rushing headlong at an enemy we have no measure of is a sure strategy for disaster.\n\n[An attack against a Hidden Enemy will reveal its identity, but it will also usually result in casualties.]",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.hidden.useeye",
+	"actionid": "operate",
+	"label": "Use my unseeing eye to reveal a hidden enemy",
+	"startdescription": "They can't hide from me.",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": 1,
+	    "debilitation.eye.colonel": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"aspects": {
+	    "revealidentity": 1,
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "attackenemy.hidden.useflare",
+	"actionid": "operate",
+	"label": "Use a flare shell to reveal a hidden enemy",
+	"startdescription": "This is no sun, but for our purposes it will serve. Identify, then strike.",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": 1,
+	    "supplies.flares": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"aspects": {
+	    "revealidentity": 1,
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "attackenemy.hidden",
+	"actionid": "operate",
+	"label": "Stage an attack against a hidden enemy",
+	"startdescription": "Forward, into that bristling dark. We will find the enemy, or they will find us.",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": 1,
+	    "provisions": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.failure",
+		"chance": 70
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.moth.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using an unpredictable strategy",
+	"startdescription": "Deftly through the forest-shadows and between the slips and slivers of the moon, our attack will proceed. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"grandreqs": { "[moth]-[needsmoth]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.lantern.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using a merciless strategy",
+	"startdescription": "Absolute certainty descends. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"grandreqs": { "[lantern]-[needslantern]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.forge.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using an ingenious strategy",
+	"startdescription": "Our enemy will be changed; our enemy will be destroyed. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"grandreqs": { "[forge]-[needsforge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.jerome.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using a violent strategy",
+	"startdescription": "The convergence of opposed forces demands a resolution, and we are the stronger. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.lionel.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using a violent strategy",
+	"startdescription": "The convergence of opposed forces demands a resolution, and we are the stronger. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using a violent strategy",
+	"startdescription": "The convergence of opposed forces demands a resolution, and we are the stronger. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "foe.officer": -1,
+	    "uqjerome": -1,
+	    "uqlionel": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.officer.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using a violent strategy",
+	"startdescription": "The convergence of opposed forces demands a resolution, and we are the stronger. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "foe.officer": 1
+	},
+	"extantreqs": {
+	    "foe.officerdetail": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.winter.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using a patient strategy",
+	"startdescription": "Our patience is the killing patience; our silence is the final silence. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"grandreqs": { "[winter]-[needswinter]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.phlogisticantwinter"
+	    },
+	    {
+		"id": "attackenemy.success.undeadwinter"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.heart.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using a relentless strategy",
+	"startdescription": "Forward, forward - the drum of the flesh keeps us marching in time. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"grandreqs": { "[heart]-[needsheart]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.grail.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using an avid strategy",
+	"startdescription": "Pain and pleasure bleed to a singular red. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"grandreqs": { "[grail]-[needsgrail]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.warriorgrail"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.knock.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using a pervasive strategy",
+	"startdescription": "The enemy will yield like a door to a key, or like wound to the knife. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsknock": 1,
+	    "knock": "needsknock"
+	},
+	"grandreqs": { "[knock]-[needsknock]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.serpentknock"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.aerial.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming aerial offensive",
+	"startdescription": "The skies are ours. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "foe.aerial": 1,
+	    "friend.aerial": "foe.aerial"
+	},
+	"grandreqs": { "[friend.aerial]-[foe.aerial]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.ap.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming offensive using specialized weaponry",
+	"startdescription": "The blast of our guns will shake the earth and cleave the mountains. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "foe.armoured": 1,
+	    "ap": "foe.armoured"
+	},
+	"grandreqs": { "[ap]-[foe.armoured]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.forgemoth.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming offensive using a twofold strategy",
+	"startdescription": "Forge and Moth - change and destruction and adaptation and all the rest. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsforgemoth": 1,
+	    "forge": "needsforgemoth",
+	    "moth": "needsforgemoth"
+	},
+	"grandreqs": { 
+	    "[forge]-[needsforgemoth]": 5,
+	    "[moth]-[needsforgemoth]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern.jerome.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming offensive using a twofold strategy",
+	"startdescription": "Edge and Lantern are close compatriots. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	    "uqjerome": 1,
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgelantern]": 5,
+	    "[lantern]-[needsedgelantern]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming offensive using a twofold strategy",
+	"startdescription": "Edge and Lantern are close compatriots. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	    "uqjerome": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgelantern]": 5,
+	    "[lantern]-[needsedgelantern]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgewinter.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming offensive using a twofold strategy",
+	"startdescription": "And so we bring agony. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter"
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgewinter]": 5,
+	    "[winter]-[needsedgewinter]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeforge.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming offensive using a twofold strategy",
+	"startdescription": "The brutal convergence of genius and strength. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge"
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeforge]": 5,
+	    "[forge]-[needsedgeforge]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.knocklantern.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming offensive using a twofold strategy",
+	"startdescription": "The Key and the Light. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsknocklantern": 1,
+	    "knock": "needsknocklantern",
+	    "lantern": "needsknocklantern"
+	},
+	"grandreqs": { 
+	    "[knock]-[needsknocklantern]": 5,
+	    "[lantern]-[needsknocklantern]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock.lionel.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming offensive using a twofold strategy",
+	"startdescription": "The Edge opens flesh and births Wounds. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeknock]": 5,
+	    "[knock]-[needsedgeknock]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming offensive using a twofold strategy",
+	"startdescription": "The Edge opens flesh and births Wounds. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	    "uqlionel": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeknock]": 5,
+	    "[knock]-[needsedgeknock]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeheart.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming offensive using a twofold strategy",
+	"startdescription": "Even the powers that demand a conjunction are not always, themselves, conjunct. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart"
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeheart]": 5,
+	    "[heart]-[needsedgeheart]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgegrail.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming offensive using a twofold strategy",
+	"startdescription": "The highest natures of the Grail are her Torments, and under Torment pain and pleasure are close comrades. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	    "foe.ingluviate.engorged": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgegrail]": 5,
+	    "[grail]-[needsedgegrail]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgemoth.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using a twofold strategy",
+	"startdescription": "Ears to the earth. Noses to the air. We prowl like beasts and strike like beasts. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgemoth": 1,
+	    "edge": "needsedgemoth",
+	    "moth": "needsedgemoth"
+	},
+	"extantreqs": {
+	    "guard": -1
+	},
+	"grandreqs": { 	    
+	    "[edge]-[needsedgemoth]": 5,
+	    "[moth]-[needsedgemoth]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.winterheart.overwhelm",
+	"actionid": "operate",
+	"label": "Stage an overwhelming attack using a twofold strategy",
+	"startdescription": "The shield of vitality and the sword of finality are now brought to bear. Let's see them withstand this.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needswinterheart": 1,
+	    "winter": "needswinterheart",
+	    "heart": "needswinterheart"
+	},
+	"grandreqs": { 	    
+	    "[winter]-[needswinterheart]": 5,
+	    "[heart]-[needswinterheart]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.moth",
+	"actionid": "operate",
+	"label": "Stage an attack using an unpredictable strategy",
+	"startdescription": "Words end. Now is the time in which deception and secrecy will do their work.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.lantern",
+	"actionid": "operate",
+	"label": "Stage an attack using a merciless strategy",
+	"startdescription": "Words end. Now is the time in which the shadows flee.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.forge",
+	"actionid": "operate",
+	"label": "Stage an attack using an ingenious strategy",
+	"startdescription": "Words end. Now is the time in which we will bring machinery and fire to field.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.jerome",
+	"actionid": "operate",
+	"label": "Stage an attack using a violent strategy",
+	"startdescription": "Words end. Now is the time in which force will make its determinations.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.lionel",
+	"actionid": "operate",
+	"label": "Stage an attack using a violent strategy",
+	"startdescription": "Words end. Now is the time in which force will make its determinations.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge",
+	"actionid": "operate",
+	"label": "Stage an attack using a violent strategy",
+	"startdescription": "Words end. Now is the time in which force will make its determinations.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "foe.officer": -1,
+	    "uqjerome": -1,
+	    "uqlionel": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.officer",
+	"actionid": "operate",
+	"label": "Stage an attack using a violent strategy",
+	"startdescription": "Words end. Now is the time in which force will make its determinations.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "foe.officer": 1
+	},
+	"extantreqs": {
+	    "foe.officerdetail": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.winter",
+	"actionid": "operate",
+	"label": "Stage an attack using a patient strategy",
+	"startdescription": "Words end. Now is the time in which we will bring a conclusion.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.phlogisticantwinter"
+	    },
+	    {
+		"id": "attackenemy.success.undeadwinter"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.heart",
+	"actionid": "operate",
+	"label": "Stage an attack using a relentless strategy",
+	"startdescription": "Words end. Now is the time in which we will not be ceased.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.grail",
+	"actionid": "operate",
+	"label": "Stage an attack using an avid strategy",
+	"startdescription": "Words end. Now is the time in which desire prevails.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.warriorgrail"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.knock",
+	"actionid": "operate",
+	"label": "Stage an attack using a pervasive strategy",
+	"startdescription": "Words end. Now is the time in which the way will show itself to us.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsknock": 1,
+	    "knock": "needsknock"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.serpentknock"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.aerial",
+	"actionid": "operate",
+	"label": "Stage an aerial offensive",
+	"startdescription": "Words end. Now is the time in which the skies will thrill with fire.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "foe.aerial": 1,
+	    "friend.aerial": "foe.aerial"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.ap",
+	"actionid": "operate",
+	"label": "Stage an offensive using specialized weaponry",
+	"startdescription": "Words end. Now is the time in which our instruments will prove their worth.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "foe.armoured": 1,
+	    "ap": "foe.armoured"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.forgemoth",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. Ingenuity and guile will win the day.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsforgemoth": 1,
+	    "forge": "needsforgemoth",
+	    "moth": "needsforgemoth"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern.jerome",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. Force and light will win the day.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. Force and light will win the day.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	    "uqjerome": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgewinter",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. Pain and patience will silence our enemies.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeforge",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. Strength and fire will destroy our enemies.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.knocklantern",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. Purification and dissembly should see this problem done away with.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsknocklantern": 1,
+	    "knock": "needsknocklantern",
+	    "lantern": "needsknocklantern"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock.lionel",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. Sword and key will win the day.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. Sword and key will win the day.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	    "uqlionel": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeheart",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. Our force is a force irrepressible.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgegrail",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. There is an appetite for pain here. I will sate it.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	    "foe.ingluviate.engorged": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgemoth",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. Passions and enmities rise now in the heart, the hands.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgemoth": 1,
+	    "edge": "needsedgemoth",
+	    "moth": "needsedgemoth"
+	},
+	"extantreqs": {
+	    "guard": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.winterheart",
+	"actionid": "operate",
+	"label": "Stage an offensive using a twofold strategy",
+	"startdescription": "Words end. At the intersection of life and death lies a potent peace. Balance.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needswinterheart": 1,
+	    "winter": "needswinterheart",
+	    "heart": "needswinterheart"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.complicate",
+	"label": "Perilous Odds!",
+	"startdescription": "The offensive has been executed to the letter, but still the battle's outcome is uncertain. For better or ill, I could let my strategy unfold - or I could call a retreat.\n\n[You can provide your Memento to abort the attack and save any Allies used. If you do not, the attack will continue to its end and conclude in either an Ally or Enemy victory.]",
+	"requirements": {
+	    "foe.voice": -1,
+	    "foe.ostlingant": -1
+	},
+	"slots": [
+	    {
+		"id": "needsmemento",
+		"label": "A Decision?",
+		"required": {
+		    "memento": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.failure",
+		"chance": 40
+	    },
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "attackenemy.retreat"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure",
+	"label": "A Defeat!",
+	"startdescription": "@#foe.nightmare|The weapons of my spirit could not overcome this adversary. I am still mastered by my fears, and not the other way around.#|The offensive is foiled! The wounded make hasty retreat; the dead remain where they lie - the enemy put up a better defence than I had anticipated.@",
+	"aspects": {
+	    "fatiguing": 1,
+	    "revealidentity": 1
+	},
+	"linked": [
+	    {
+		"id": "attackenemy.failure.growth"
+	    },
+	    {
+		"id": "attackenemy.failure.makecasualty"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "foe.braced",
+		"mutate": "foe.braced",
+		"level": -1,
+		"additive": true
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure.growth",
+	"label": "A Defeat!",
+	"startdescription": "The offensive is foiled! The wounded make hasty retreat; the dead remain where they lie - the enemy put up a better defence than I had anticipated.",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"aspects": {
+	    "killfriend": 1,
+	},
+	"linked": [
+	    {
+		"id": "attackenemy.failure.growthcontinue"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure.growthcontinue",
+	"label": "Abhorrence, Blossoming",
+	"startdescription": "The touch of the Crowned Growth promises not death, but life. One learns quickly to fear that promise.",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"aspects": {
+	    "growthinfect": 1
+	}
+    },
+    {
+	"id": "attackenemy.failure.makecasualty",
+	"label": "A Defeat!",
+	"startdescription": "The offensive is foiled! The wounded make hasty retreat; the dead remain where they lie - the enemy put up a better defence than I had anticipated.",
+	"aspects": {
+	    "makecasualty": 1,
+	},
+	"alt": [
+	    {
+		"id": "attackenemy.failure.killfriends",
+		"chance": 30
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure.killfriends",
+	"label": "A Crushing Defeat!",
+	"startdescription": "Complete operational failure - matters have spiraled into disaster. The blood of my comrades runs in the fields.\n\n[There is a small chance for a failed attack to result in the death of the Allies used.]",
+	"requirements": {
+	    "friend": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "attackenemy.success",
+	"label": "A Victory!",
+	"startdescription": "The enemy lies broken at our feet, and before this war is over more enemies will follow. This is a good day; this is merely a drop in the ocean.",
+	"aspects": {
+	    "killfoe": 1,
+	    "fatiguing": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe.officerdetail",
+		"mutate": "foe.officerdetail",
+		"level": -1
+	    },
+	    {
+		"filter": "foe.guardjerome",
+		"mutate": "foe.guardjerome",
+		"level": -1
+	    },
+	    {
+		"filter": "battlehunger",
+		"mutate": "battlehunger",
+		"level": -1,
+		"additive": true
+	    },
+	    {
+		"filter": "foe.ingluviate.protect",
+		"mutate": "foe.ingluviate.protect",
+		"level": 0
+	    },
+	],
+	"alt": [
+	    {
+		"id": "produce.escape",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.escape.marinette",
+		"additional": true,
+		"chance": 100
+	    },
+	    {
+		"id": "produce.escape.bloodonhands",
+		"additional": true,
+		"chance": 100
+	    },
+	    {
+		"id": "resilient.survived",
+		"chance": 30
+	    },
+	    {
+		"id": "braced.survived"
+	    },
+	    {
+		"id": "defeateddefiant.turnintofriend",
+	    },
+	    {
+		"id": "produce.monsterlesson",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "jerome.setupguard",
+		"additional": true,
+		"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"uqjerome": 1
+		    }
+		}
+	    },
+	    {
+		"id": "lionel.retaliate",
+		"additional": true,
+	    }
+	],
+	"linked": [
+	    {
+		"id": "used.shotgun.collateral",
+		"chance": 60
+	    },
+	    {
+		"id": "used.gaebolg.producewrake"
+	    },
+	    {
+		"id": "orcul.slain"
+	    },
+	    {
+		"id": "jerome.slain"
+	    },
+	    {
+		"id": "lionel.slain"
+	    },
+	    {
+		"id": "clear.bloodlust"
+	    },
+	    {
+		"id": "clear.broodscent"
+	    },
+	    {
+		"id": "startup.clear.malkin"
+	    },
+	]
+    },
+    {
+	"id": "resilient.survived",
+	"label": "The Enemy Stands!",
+	"startdescription": "A frustration - our target has proved too slippery, or too strong, to be felled by this otherwise deftly executed attack.\n\n[Enemies who possess the Resilient aspect can sometimes survive attacks that would normally kill them.]",
+	"description": "A frustration - our target has proved too slippery, or too strong, to be felled by this otherwise deftly executed attack.\n\n[Enemies who possess the Resilient aspect can sometimes survive attacks that would normally kill them.]",
+	"requirements": {
+	    "foe.resilient": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "braced.survived",
+	"label": "The Enemy Stands!",
+	"startdescription": "Too stalwart - the target is unfazed by an otherwise competently executed offensive. But they won't be able to do that again.\n\n[Enemies who possess the Braced aspect will always survive the first attack made against them.]",
+	"description": "Too stalwart - the target is unfazed by an otherwise competently executed offensive. But they won't be able to do that again.\n\n[Enemies who possess the Braced aspect will always survive the first attack made against them.]",
+	"requirements": {
+	    "foe.braced": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe.braced",
+		"mutate": "foe.braced",
+		"level": -1,
+		"additive": true
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.success.warriorgrail",
+	"label": "A Victory!",
+	"startdescription": "In its degenerative state, the monster's appetites are its only true master. The temptations of the red arts have allowed us to sate it somewhat, and so it will gorge on what we have set for it instead of us.",
+	"aspects": {
+	    "dissolution": 1,
+	    "fatiguing": 1
+	},
+	"requirements": {
+	    "foe.warrior": 1,
+	    "grail": 8
+	}
+    },
+    {
+	"id": "attackenemy.success.serpentknock",
+	"label": "A Victory!",
+	"startdescription": "Tears - does the serpent weep? What does it remember? The bleeding arms of its sister? The cold touch of her hands? Whatever it may be, the serpent's grief has rendered it unable to fight. We will go unharmed.",
+	"aspects": {
+	    "dissolution": 1,
+	    "fatiguing": 1
+	},
+	"requirements": {
+	    "foe.serpent": 1,
+	    "knock": 8
+	}
+    },
+    {
+	"id": "attackenemy.success.undeadwinter",
+	"label": "A Victory!",
+	"startdescription": "Things ended a long, long time ago, and it's time they knew. Pain fades to peace. Tired, tattered faces recede to white. And it is quiet again.",
+	"aspects": {
+	    "dissolution": 1,
+	    "fatiguing": 1
+	},
+	"requirements": {
+	    "foe.undead": 1,
+	    "winter": 8
+	}
+    },
+    {
+	"id": "attackenemy.success.phlogisticantwinter",
+	"label": "A Victory!",
+	"startdescription": "This raging flame rages its last. With a concentration of Winter, the spirit's fury begins to dim. Soon it is only sputtering and embers. Then, ash.",
+	"aspects": {
+	    "dissolution": 1,
+	    "fatiguing": 1
+	},
+	"requirements": {
+	    "foe.phlogisticant": 1,
+	    "winter": 8
+	}
+    },
+    {
+	"id": "attackenemy.retreat",
+	"label": "A Retreat!",
+	"startdescription": "My resources, my men - they need not be squandered today. I give the signal, and the offensive turns heel into a withdrawal.",
+	"description": "Smoke on the horizon where we tried and failed. A setback. And the living will return beaten and weary, but they'll return.",
+	"requirements": {
+	    "memento": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.success.officer",
+	"label": "A Victory!",
+	"startdescription": "The enemy lies broken at our feet, and before this war is over more enemies will follow. This is a good day; this is merely a drop in the ocean.",
+	"requirements": {
+	    "foe.officer": 1
+	},
+	"aspects": {
+	    "killfoe": 1,
+	    "fatiguing": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe.officerdetail",
+		"mutate": "foe.officerdetail",
+		"level": -1
+	    },
+	    {
+		"filter": "battlehunger",
+		"mutate": "battlehunger",
+		"level": -1,
+		"additive": true
+	    }
+	],
+	"alt": [
+	    {
+		"id": "weakenenemies.detect",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "used.gaebolg.producewrake"
+	    },
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "weakenenemies.detect",
+	"actionid": "scandal",
+	"label": "A Victory!",
+	"startdescription": "The Germans do so pride themselves on their efficiency. Now that we have slain one of their commanding officers, that efficiency has been compromised.\n\n[Other Enemies at the Current Warzone will have their thresholds lowered.]",
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "weakened": 1,
+		    "uqbrood": 1,
+		    "soviet": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "weakenenemies.detect.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "weakenenemies.conclude"
+	    }
+	]
+    },
+    {
+	"id": "weakenenemies.detect.success",
+	"label": "A Victory!",
+	"startdescription": "The Germans do so pride themselves on their efficiency. Now that we have slain one of their commanding officers, that efficiency has been compromised.\n\n[Other Enemies at the Current Warzone will have their thresholds lowered.]",
+	"requirements": {
+	    "foe": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe",
+		"mutate": "foe.placeholder",
+		"level": 1
+	    },
+	    {
+		"filter": "foe.placeholder",
+		"mutate": "foe",
+		"level": -1
+	    }
+	],
+	"linked": [
+	    {
+		"id": "weakenenemies.detect"
+	    }
+	]
+    },
+    {
+	"id": "weakenenemies.conclude",
+	"label": "A Victory!",
+	"startdescription": "The Germans do so pride themselves on their efficiency. Now that we have slain one of their commanding officers, that efficiency has been compromised.\n\n[Other Enemies at the Current Warzone will have their thresholds lowered.]",
+	"aspects": {
+	    "weaken": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe.placeholder",
+		"mutate": "foe",
+		"level": 0
+	    },
+	    {
+		"filter": "foe",
+		"mutate": "foe.placeholder",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "clear.bloodlust",
+	"label": "A Victory!",
+	"startdescription": "",
+	"requirements": {
+	    "bloodlust": 1,
+	    "battlehunger": -1
+	},
+	"effects": {
+	    "bloodlust": -99
+	}
+    },
+    {
+	"id": "jerome.setupguard",
+	"actionid": "spit.lantern",
+	"label": "Withdrawal and Coverage",
+	"startdescription": "'No, no... not like this. I refuse. I will <i>not</i> die defeated.'",
+	"requirements": {
+	    "monster.wound": -1,
+	    "uqjerome": 1
+	},
+	"slots": [
+	    {
+		"id": "needsking",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsking2",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "faction.king",
+		"mutate": "foe.guardjerome",
+		"level": 1
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "foe.guardjerome",
+		"level": 0
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "jerome.slain",
+	"label": "Who Sees No More",
+	"startdescription": "Jerome's face is white with shock. He does not seem to have even considered defeat as a possibility. 'The King - I was chosen. How? How did you...' The Englishman's words die in his throat, and then he collapses, and he, too, is dead.",
+	"requirements": {
+	    "monster.wound": 2,
+	    "uqjerome": 1
+	},
+	"aspects": {
+	    "longded": 1
+	},
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "lionel.retaliate",
+	"actionid": "spit.knock",
+	"label": "A Wound Repaid",
+	"startdescription": "Lionel staggers from the blow, but only for a moment. Momentum returns to his limbs. He raises his weapon high, closing in -",
+	"warmup": 15,
+	"requirements": {
+	    "foe.retaliatory": 1
+	},
+	"linked": [
+	    {
+		"id": "givewound.drawagain"
+	    }
+	]
+    },
+    {
+	"id": "lionel.slain",
+	"label": "Relieved of Duty",
+	"startdescription": "Lionel clutches his side, where a red stain grows larger by the second. His eyes are steel. 'Interloper. You have no idea what you'll bring upon the world.' He's wrong, of course. But I let him die with his illusions intact.",
+	"requirements": {
+	    "monster.wound": 2,
+	    "uqlionel": 1
+	},
+	"aspects": {
+	    "longded": 1
+	},
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "orcul.slain",
+	"label": "A Fallen Giant!",
+	"startdescription": "Orcul's body groans and lists like a sinking warship, blood seeping from his many wounds. His limbs give out. He falls with a great thud. And a few cautious prods later, we rule him dead at last.",
+	"requirements": {
+	    "monster.wound": 3
+	},
+	"aspects": {
+	    "killfoe": 1
+	},
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "clear.broodscent",
+	"label": "A Victory!",
+	"requirements": {
+	    "corpse.boccastrano": 1
+	},
+	"purge": {
+	    "broodscent": 99
+	}
+    },
+    {
+	"id": "startup.clear.malkin",
+	"label": "A Victory!",
+	"extantreqs": {
+	    "foe.malkin": 1,
+	    "foe.warder": -1,
+	    "foe.warder.hidden": -1
+	},
+	"alt": [
+	    {
+		"id": "clear.malkin",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "clear.malkin",
+	"actionid": "banishing",
+	"label": "Dispelling the Great Malkin",
+	"startdescription": "Without the Clavigers to stabilise its presence, this greater servant of the Horned Axe cannot remain in our world. Its shape flickers like a candleflame; its growls fade and twist like radio static -",
+	"description": "- and it is gone. The smell of hawthorn stings the air, but no more than that.",
+	"extantreqs": {
+	    "foe.malkin": 1
+	},
+	"slots": [
+	    {
+		"id": "needsmalkin",
+		"label": "Great Malkin",
+		"required": {
+		    "foe.malkin": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "clear.malkin"
+	    }
+	],
+	"effects": {
+	    "foe.malkin": -99,
+	    "foe.malkin.hidden": -99
+	},
+	"warmup": 10
+    },
+    {
+	"id": "defeateddefiant.turnintofriend",
+	"label": "By Rule of Might",
+	"startdescription": "True freedom is not given, but taken. If one lacks the strength to take it, then one cannot be free. This is the law of all loyalties, and all betrayals.",
+	"requirements": {
+	    "rebelled": 1
+	},
+	"aspects": {
+	    "recruiting": 1,
+	    "fatiguing": 1
+	},
+	"mutations": [
+	    {
+		"filter": "otherworldly",
+		"mutate": "rebelled",
+		"level": -1
+	    },
+	    {
+		"filter": "battlehunger",
+		"mutate": "battlehunger",
+		"level": -1,
+		"additive": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    }
+]
+}

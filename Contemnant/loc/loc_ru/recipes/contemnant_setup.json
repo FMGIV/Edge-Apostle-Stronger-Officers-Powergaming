@@ -1,0 +1,239 @@
+{
+"recipes": [
+    {
+	"id": "contemnant.setup.a",
+	"actionid": "operate",
+	"label": "Спасаясь от Холода",
+	"startdescription": "Солнце село. Отряд отчаявшихся, который следовал за мной на запад в течение последнего месяца, останавливается и разбивает лагерь. Четверо моих товарищей сидят рядом со мной у небольшого костра. Мы молчим, пока из темноты не появляется гость. Мое сердце замирает, когда я вижу его.",
+	"description": "'Scream, and you will all die tonight.'",
+	"requirements": {
+	    "contemnant.setupitem": 1
+	},
+	"effects": {
+	    "contemnant.mentor": 1,
+	    "contemnant.setupitem": -1,
+	    "mem.fear": 1,
+	    "friend.vanja": 1,
+	    "friend.tibor": 1,
+	    "friend.eva": 1,
+	    "friend.walther": 1
+	},
+	"alt": [
+	    {
+		"id": "contemnant.setup.b",
+		"additional": true
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "contemnant.setup.b",
+	"actionid": "communicate",
+	"label": "Правила Игры",
+	"startdescription": "'Слушай внимательно. События развиваются, и я пришел, чтобы испытать тебя: Игра, чтобы посмотреть, кто прольёт чью кровь. Если я выиграю, то заберу жизнь одного из твоих маленьких друзей. Если <i>ты</i> победишь, тогда Я уйду, и оставлю тебя в... <i>покое.'</i> Изгнанник, кажется, давится этим словом, едва оно слетает с его губ.",
+	"description": "'Держи - чтобы сделать это немного справедливее. Пожалуйста.' Изгнанник бросает что-то в грязь у моих ног.",
+	"effects": {
+	    "contemnant.weapon": 1
+	},
+	"warmup": 15
+    },
+    {
+	"id": "contemnant.setup.c",
+	"actionid": "communicate",
+	"label": "Глаголит Волк Ягненку",
+	"startdescription": "'Помни - это всего лишь игра.'",
+	"warmup": 5,
+	"requirements": {
+	    "contemnant.mentor": 1
+	},
+	"alt": [
+	    {
+		"id": "setup.startattack.exile.pre",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"contemnant.mentor": 1
+		    }
+		}
+	    }
+	],
+	"craftable": true
+    },
+    {
+	"id": "setup.startattack.exile.pre",
+	"actionid": "long.exile",
+	"label": "Мой противник наносит удар!",
+	"effects": {
+	    "exile.attack.a": 1
+	},
+	"linked": [
+	    {
+		"id": "setup.startattack.exile"
+	    }
+	]
+    },
+    {
+	"id": "setup.startattack.exile",
+	"actionid": "long.exile",
+	"label": "Мой противник наносит удар!",
+	"startdescription": "Изгнанник бросается вперед. В их руках так неожиданно оказывается сталь, и ее зазубренный край так неожиданно оказывается рядом -",
+	"description": "Я не слышу собственного крика - возможно, боль настолько ослепляющая, что я еще не в силах кричать. Изгнанник вытирает лезвие. 'Я боюсь, что ты проиграл.'",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"effects": {
+	    "wound.generic": 1
+	},
+	"alt": [
+	    {
+		"id": "contemnant.setup.d",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"contemnant.mentor": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "contemnant.setup.d",
+	"actionid": "abandon",
+	"label": "Выбор",
+	"startdescription": "'Правила есть правила. Выбери того, по кому ты будешь скучать меньше всего,' Изгнанник улыбается. 'Выбирай с умом, у меня много времени.'",
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "contemnant.setup.d"
+	    }
+	],
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Выбор",
+		"description": "Кого я обреку на смерть?",
+		"required": {
+		    "friend": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "contemnant.setup.d.choicemade"
+	    }
+	]
+    },
+    {
+	"id": "contemnant.setup.d.choicemade",
+	"label": "Выбор, Сделан",
+	"startdescription": "'Не плачь. Я уверен, что ты все равно им не очень понравился.'",
+	"description": "Глаза моего бедного спутника - тусклое стекло, и кровь его впитывается в землю. Примечательно, что это самое быстрое убийство, которое я когда-либо видел от Изгнанника. 'Тебе предстоит пройти долгий путь,' Изгнанник начинает снова, 'прежде чем ты будешь готов к тому, что должно произойти...'",
+	"aspects": {
+	    "killfriend": 1
+	},
+	"requirements": {
+	    "friend": 2
+	},
+	"effects": {
+	    "contemnant.mentor": -99
+	},
+	"alt": [
+	    {
+		"id": "contemnant.setup.e",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "contemnant.setup.e",
+	"actionid": "recon",
+	"label": "Грядущий Пир",
+	"startdescription": "'Ты пытаешься убежать от всего этого, потому что ты слаб и напуган. Но есть нечто большее, чем твой страх: <i>ненависть.</i> Ты ненавидишь тех, кто морил тебя голодом, заставлял работать до бессознания; Ты ненавидишь мир, который позволил этому случиться с тобой; Ты ненавидишь <i>меня.</i> Разве ты не хочешь, чтобы мы все просили у тебя прощения? Чтобы мы истекали кровью и кричали, как пришлось тебе?'",
+	"description": "'Помни, чему я тебя учил: из часов Грани только Разделенный Волк понимает, что такое месть. Как и его Имена. Среди них есть место для седьмого - последнее место перед началом Пира. Тот, у кого есть достаточная ненависть, может проложить себе путь к этому месту. Подумай об этом.' Изгнанник отступает, словно чудовище отступающее в тень. 'Мы ещё встретимся, перед концом. Я надеюсь, что встретимся.'",
+	"effects": {
+	    "contemnant.fragmentedge": 1,
+	    "contemnant.story": 1,
+	    "contemnant.mentor": -1
+	},
+	"warmup": 30,
+	"alt": [
+	    {
+		"id": "contemnant.setup.f",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "contemnant.setup.f",
+	"actionid": "mobilize",
+	"label": "Вперёд!",
+	"startdescription": "Ночь проходит в тумане боли и горя. Когда я прихожу в себя, солнце уже взошло, моя рана затянулась, а мой товарищ все еще мертв. Я вздрагиваю, поворачиваясь - рана не так уж и затянулась, как я думал.",
+	"description": "Остальные оцепенели при виде трупа в свете рассвета. Я молча радуюсь, что не должен говорить об этом, пока обдумываю наш дальнейший путь. Он ведет либо в Берлин, либо к бегству. Завывает ветер. На мгновение я задумался о словах Изгнанника.",
+	"effects": {
+	    "provisions": 8,
+	    "friend.lookout": 2,
+	    "friend.doctor": 2,
+	    "friend.labourer": 1,
+	    "friend.gunman": 1
+	},
+	"deckeffects": {
+	    "starting.warzones.sector.a.germany": 1
+	},
+	"warmup": 30
+    },
+]
+}

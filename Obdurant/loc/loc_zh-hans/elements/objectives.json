@@ -1,0 +1,1169 @@
+{
+"elements": [
+    {
+	"id": "side.marker",
+	"label": "次要目标标记",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "main.marker",
+	"label": "主要目标标记",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "main.template",
+	"label": "主要目标模板",
+	"aspects": {
+	    "main": 1,
+	    "objective": 1
+	},
+	"slots": [
+	    {
+		"id": "resources1",
+		"label": "资源",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "resources2",
+		"label": "资源",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "resources3",
+		"label": "更多？",
+		"description": "一份力量？一个聚点？一个来自地面或天空的征兆？",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "supplies": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "provisions1",
+		"label": "补给",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "provisions2",
+		"label": "补给",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "provisions3",
+		"label": "补给",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	]
+    },
+    {
+	"id": "side.template",
+	"label": "次要目标模板",
+	"aspects": {
+	    "side": 1,
+	    "objective": 1
+	},
+	"slots": [
+	    {
+		"id": "resources1",
+		"label": "资源",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "resources2",
+		"label": "资源",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "resources3",
+		"label": "更多？",
+		"description": "一份力量？一个聚点？一个来自地面或天空的征兆？",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "supplies": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "provisions1",
+		"label": "补给",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "provisions2",
+		"label": "补给",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "main.withdraw",
+	"label": "主要目标：撤退",
+	"description": "这一地点很快就将变得难以捍卫。我们必须提供足够的掩护，我们的友军才能在德军的攻势下撤退。",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "resolution"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "main.eliminate",
+	"label": "主要目标：歼灭",
+	"description": "当地情报表明一个高姿态的目标正位于我们当前的所在地。若我们能够在继续行军前歼灭这一目标，那对于战争而言将是个好兆头。",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "resolution"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "main.repossess",
+	"label": "主要目标：回收",
+	"description": "一件重要的资产在火焰与碎石中丢失。德军在寻找它——而我们不能让它落到德军手中。",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "resolution"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "main.sabotage",
+	"label": "主要目标：破坏",
+	"description": "这一地点充满了珍贵的基础设施——我们带不走的基础设施。在继续行军之前，我们需要保证德国国防军无法享受我们遗留的任何事物。",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "resolution"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "main.stalingrad.north",
+	"label": "主要目标：斯大林格勒北部",
+	"description": "正当寒冬压缩并收紧我们周围的空气时，德军袭击城市的北部。在街巷中挫败他们的推进。",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "main.stalingrad.north.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "main.stalingrad",
+	"unique": true
+    },
+    {
+	"id": "main.stalingrad.north.complete",
+	"label": "<b> 完 成 </b>：斯大林格勒北部",
+	"description": "血染红了雪。我们仍坚守北部。",
+	"aspects": {
+	    "main": 1
+	},
+	"icon": "main.stalingrad.complete",
+	"slots": [
+	    {
+		"id": "needsmain",
+		"label": "西部",
+		"required": {
+		    "main.stalingrad.west.complete": 1
+		}
+	    },
+	    {
+		"id": "needsmain2",
+		"label": "南部",
+		"required": {
+		    "main.stalingrad.south.complete": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "main.stalingrad.west",
+	"label": "主要目标：斯大林格勒西部",
+	"description": "此处有德军先头部队集结，正如高速挥向铁砧宽阔表面的铁锤。所以我们需要把西部变为德国人屠宰场。",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "main.stalingrad.west.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.artillery",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.bombers",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "main.stalingrad",
+	"unique": true
+    },
+    {
+	"id": "main.stalingrad.west.complete",
+	"label": "<b> 完 成 </b>：斯大林格勒西部",
+	"description": "尸体布满街道。西部安静了。",
+	"aspects": {
+	    "main": 1
+	},
+	"icon": "main.stalingrad.complete",
+	"slots": [
+	    {
+		"id": "needsmain",
+		"label": "北部",
+		"required": {
+		    "main.stalingrad.north.complete": 1
+		}
+	    },
+	    {
+		"id": "needsmain2",
+		"label": "南部",
+		"required": {
+		    "main.stalingrad.south.complete": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "main.stalingrad.south",
+	"label": "主要目标：斯大林格勒南部",
+	"description": "南部被战斗所折磨，和城市的其他部分一样。但并非敌军的某物亦在此处战斗——野蛮地战斗。清理南部，并镇压那东西。",
+	"inherits": "main.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "main.stalingrad.south.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.undead",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.splinter",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "main.stalingrad",
+	"unique": true
+    },
+    {
+	"id": "main.stalingrad.south.complete",
+	"label": "<b> 完 成 </b>：斯大林格勒北部",
+	"description": "黑暗中已没有狼嚎。南部一片寂静。",
+	"aspects": {
+	    "main": 1
+	},
+	"icon": "main.stalingrad.complete",
+	"slots": [
+	    {
+		"id": "needsmain",
+		"label": "北部",
+		"required": {
+		    "main.stalingrad.north.complete": 1
+		}
+	    },
+	    {
+		"id": "needsmain2",
+		"label": "西部",
+		"required": {
+		    "main.stalingrad.west.complete": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "side.cutoff",
+	"label": "次要目标：补给封锁",
+	"description": "我军的补给车队遭到敌军的骚扰与袭击。只要这一封锁还存在一天，我们就又多一天无法收到补给——若我们要维持此处的战线，突破这一封锁将是我们的第一要务。[只要此卡牌存在，你就无法在“愉快的日子”事件中得到任何补给品。]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "husk"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.forest",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 400,
+	"unique": true
+    },
+    {
+	"id": "side.adeptwinter",
+	"label": "次要目标：拘留一位冬之学徒",
+	"description": "身为学徒之人向来小心谨慎，而战争则驱使那些无法逃离这个国家的学徒藏得更深。不过我们知晓有一个学徒藏于此地。此人或许不乐意被找到，但其应该更加不乐意被枪击。[一个获得一位冬之学徒协助的机会。]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "friend.adeptwinter"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.nocturnal",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.undead",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "side.adeptlantern",
+	"label": "次要目标：拘留一位灯之学徒",
+	"description": "身为学徒之人向来小心谨慎，而战争则驱使那些无法逃离这个国家的学徒藏得更深。不过我们知晓有一个学徒藏于此地。此人或许不乐意被找到，但其应该更加不乐意被枪击。[一个获得一位灯之学徒协助的机会。]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "friend.adeptlantern"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.apollonian",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.greatseal",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "side.adeptgrail",
+	"label": "次要目标：拘留一位杯之学徒",
+	"description": "身为学徒之人向来小心谨慎，而战争则驱使那些无法逃离这个国家的学徒藏得更深。不过我们知晓有一个学徒藏于此地。此人或许不乐意被找到，但其应该更加不乐意被枪击。[一个获得杯之学徒协助的机会。]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "friend.adeptgrail"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.dionysian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "side.weaponscache",
+	"label": "次要目标：武器储藏处",
+	"description": "一支运送武器的车队在我方前线后方搁浅。若我们立即行动，我们将得以将那些武器据为己有。[一个获得多种武器补给的机会。]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "weaponscache.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.sniper",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "weaponscache.complete",
+	"label": "武器储藏处战果",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "side.rescueallies",
+	"label": "次要目标：救援友军",
+	"description": "我们战友的一支分队被敌军锁定了！若我们不加以介入我们就会失去这些友军——都起来，拿好武器！[一个获得新的友军的机会。]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "rescueallies.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.storms",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "rescueallies.complete",
+	"label": "救援友军战果",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "side.yuri",
+	"label": "次要目标：尤里·谢连科",
+	"description": "在组织中发现了一个德军间谍，但他在尤里实施正义之前就逃走了。对于尤里而言，在那个间谍得到接应前将其拘捕不仅具有战略意义，而且有关他的职业操守。[一个招募新盟友的机会。]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "side.yuri.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.sniper",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.yuri.complete",
+	"label": "德军间谍",
+	"description": "尤里会享受处理此人以儆效尤的过程。",
+	"aspects": {
+	    "prisoner": 1,
+	    "mortal": 1,
+	    "vault.completed": 1
+	},
+	"icon": "genericprisonerm"
+    },
+    {
+	"id": "side.iosef",
+	"label": "次要目标：约瑟夫·沃洛金",
+	"description": "负责看管约瑟夫所在小队的惩戒营军官据称是一个热衷于特定的罕见快乐与艺术品——据约瑟夫说，是那些党不会允许军官持有的——的收藏家。约瑟夫告知我们他的拘押者正在此地搜寻一件这样的物品。若我们先得手，我们将有机会就约瑟夫的自由与这位军官达成交易。[一个招募新盟友的机会。]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "side.iosef.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.serpent",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.iosef.complete",
+	"label": "《喀俄涅在阿拜多斯城》（1938）",
+	"description": "那声名狼藉的同名戏剧的电影改编版本。异界事务管制局——不列颠防剿局的苏联版本——在1933年将这部电影列入了黑名单，因为其在列宁格勒的首映在观众中诱发了大面积的失语症与“有关淡白女性的幻象”。",
+	"aspects": {
+	    "supplies": 1,
+	    "winter": 6,
+	    "vault.completed": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "side.konstantin",
+	"label": "次要目标：康斯坦丁·伊斯梅洛夫医生",
+	"description": "伊斯梅洛夫医生与其同僚曾工作的医院现已被德国人在其最近一次的推进中占领，其现在位于德国国防军控制区的后方。在医生逃离时被迫舍弃的物品中，有一件尤为稀有的“医学样本”。他希望我们协助取回这一样本。[一个招募新盟友的机会。]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "side.konstantin.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.apollonian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.konstantin.complete",
+	"label": "玻璃灵液",
+	"description": "伊斯梅洛夫医生追求的战利品：散发着微光的液体，被装于玻璃小瓶中。",
+	"aspects": {
+	    "supplies": 1,
+	    "lantern": 12,
+	    "vault.completed": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"icon": "ingredientlanternf"
+    },
+    {
+	"id": "side.nikolai",
+	"label": "次要目标：尼古拉·别利亚耶夫",
+	"description": "钢铁上有着焦黑的手印——一个淘气的不显要的具名者溜进了军械库，损毁机械并使我们的武器变得不可用。尼古拉意图找到并熄灭这个制造麻烦的破坏者。[一个招募新盟友的机会。]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "side.nikolai.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.earthquake",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.nikolai.complete",
+	"label": "顽皮的灰烬",
+	"description": "一个铸炉的混账杂种的残余。",
+	"aspects": {
+	    "supplies": 1,
+	    "forge": 6,
+	    "vault.completed": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "side.ebrehel",
+	"label": "通往守剑人之途",
+	"description": "艾布雷赫正在这林中之湖的中央等待着我拿起。我们需要穿过着迷宫般的森林才能抵达，但我们的旅途将会被不得见之湖的生物与力量——还有守剑人本人骚扰。",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "nimiane"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.forest",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.voice",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.monastery",
+	"label": "佩切尔斯克修道院",
+	"description": "在20世纪20年代，苏联政府与这一洞窟修道院的僧侣达成了一项协定，之后这一地点就正式（且无形中）被承认作为“非自然现象”的得到核准的储藏地。当然，“自11世纪起，这个修道院就存放（或监禁）着不属于这一世界的物品”在异界事务管制局中属于一个公开的秘密。不过现在，基辅正处于战火之中，而军队则将僧侣驱离这一修道院。危险的事物正在佩切尔斯克修道院地下塑形，且无人看管。我们应该使其永眠。",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "promise.medusa"
+		},
+		{
+		    "id": "weapon.skull",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.earthquake",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.growth",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "vaultlandbeyondforest1"
+    },
+    {
+	"id": "side.camilla",
+	"label": "荒野中的冲突？",
+	"description": "在城郊发生了一场异常猛烈的战斗。那些活着从战斗中回来的人报告说并非所有参战之物都是人类。",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "friend.camilla"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.fog",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.warrior",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.labhite.grounded",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "vaultcontinent3"
+    },
+    {
+	"id": "side.office",
+	"label": "异界事务管制局地区办事处",
+	"description": "异界事务管制局是苏联政府用于“管制不自然，未预料，不圣洁之物”的工具。这一部门中的腐败不可磨灭，但我曾是那腐败的受益者之一，所以我在为那里工作时并未在意。如果我没记错，这个办事处中的高度安全的金库内收纳有一些强力但棘手的道具。希望炮击并未惊扰到任何过于危险的物品。",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "weapon.wormnail"
+		},
+		{
+		    "id": "tool.winter",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.undead",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.nocturnal",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.factory",
+	"label": "哈斯克-布鲁莫夫制造厂",
+	"description": "在那大战之后，哈斯克-布鲁莫夫公司的火器设计变得愈加非正统与不寻常，而其客户群也变得愈加小众与奇特。城郊的这间铸造厂是这公司仍在制作武器的少数工厂之一，而现在德军占领了这里。我们应该夺回它。",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "weapon.revolver.5"
+		},
+		{
+		    "id": "tool.forge",
+		    "morpheffect": "spawn"
+		},
+		{
+		    "id": "supplies.explosives",
+		    "morpheffect": "spawn",
+		    "level": 3
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "vaultcapital3"
+    },
+    {
+	"id": "side.gallery",
+	"label": "库兹涅佐夫收藏馆",
+	"description": "库兹涅佐夫亲王在其晚年沉迷于心灵医疗，并曾前往地中海地区旅行数年以满足其兴趣。这一收藏馆现在保有许多他在于1859年逝世之前获得——购买，盗窃，以及发掘——的藏品。",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "tool.heart"
+		},
+		{
+		    "id": "tool.grail",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.wreckage",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.dionysian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "side.nest",
+	"label": "狻猊巢穴",
+	"description": "一只狮子匠的怪兽在城外的树林中筑起了一个巢穴。它正带给德军麻烦，这是好事，但几支我军巡逻队也成了这只怪兽的腹中餐。将其根除并非易事——狻猊年轻，但它们是飞翔于天的恐怖，且十分强大。",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "weapon.talon"
+		},
+		{
+		    "id": "tool.lantern",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.forest",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.labhite.grounded",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.labhite.airborne",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "vaultrendingmountains1"
+    },
+    {
+	"id": "side.voronezh",
+	"label": "迷雾缭绕的小径",
+	"description": "在12世纪，一名梁赞亲王在他的败北中逃往沃罗涅日。他从未抵达这城镇。本地传说将其消失归因于背叛野生动物，但最为古老的记录则说在那个时代，当黑橡木林仍矗立时，那位亲王在雾中遇到了某物。败北者有时在某位特定的具名者的迷雾中寻得慰藉——而即使森林早已消失，迷雾仍留存于此。",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "tool.moth"
+		},
+		{
+		    "id": "tool.knock",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.forest",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.moonspace",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.dionysian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+]
+}

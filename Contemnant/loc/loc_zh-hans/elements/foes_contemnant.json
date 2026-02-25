@@ -1,0 +1,1101 @@
+{
+"elements": [
+    {
+	"id": "foe.nightmare.template",
+	"label": "Nightmare Foe Template",
+	"aspects": {
+	    "foe": 1,
+	    "foe.nightmare": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresources1",
+		"label": "资源",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    },
+	    {
+		"id": "needsresources2",
+		"label": "资源",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    },
+	    {
+		"id": "needsresources3",
+		"label": "更多？",
+		"description": "一份力量？一个聚点？一个来自地面或天空的征兆？",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "friend": 1,
+		    "supplies": 1,
+		    "weapon": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "foe.corpse.nightmare",
+	"label": "梦魇已斩",
+	"lifetime": 1
+    },
+    {
+	"id": "foe.exilenightmare",
+	"label": "流亡者",
+	"description": "这被暗黑、虚幻的玻璃包裹着的脸是我最为恐惧的一张脸：我的导师，同时亦是我的折磨者的脸。何等可怕的噩梦。即便这只是一段记忆，他仍旧命令我恐惧、命令我痛苦。但有些手段连记忆都能够杀死。",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsedge": 100,
+	    "foe.exile": 1
+	},
+	"xtriggers": {
+	    "killfoe": "token.intent",
+	    "weaken": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -33
+		},
+	    ],
+	},
+	"unique": true
+    },
+    {
+	"id": "foe.campguard",
+	"label": "灭绝营守卫",
+	"description": "我清楚地记得他们，记得他们是如何打断我们的肋骨，用枪指着我们，看着我们如挨打的狗一般呜咽而发笑。这些人只听得见上级命令。",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsedge": 12
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.infantry"
+    },
+    {
+	"id": "foe.watchdog",
+	"label": "看门狗",
+	"description": "<i>德国牧羊犬</i>。这些野兽在帝国内很流行，因为它们与狼十分相似。而这些野兽在索比堡也很流行，因为它们可以迅速地把人撕成碎片，供军官观赏取乐。",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsedge": 10,
+	    "foe.coordinated": 1
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.searchlight",
+	"label": "探照灯",
+	"description": "他们说“仁慈仅在影中觅得”。这道来自上方的光则让我以亲身经历理解了这句话。",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsmoth": 10
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.starvation",
+	"label": "饥馑",
+	"description": "有时，当我挨饿，我会梦见那红色的杯子，并听它嘲笑我。",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsgrail": 8
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.cold",
+	"label": "寒冷",
+	"description": "有时，天气冷到了大脑自我欺骗，认为外面很温暖的程度。但我们都知道在索比堡只有一个季节，那便是冬季。",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsforge": 8,
+	    "needsheart": 8
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ]
+	}
+    },
+    {
+	"id": "foe.prisoners",
+	"label": "囚犯",
+	"description": "在别处，此人或可以结为朋友——但在这里，只不过是另一张分食的嘴，另一具分衣的身躯，另一处被填满的空间。我只是做了必须做的事，为了活下去。[使用<b>心</b>以获得一份有用的回忆，或使用<b>刃</b>以获得一份精神创伤]",
+	"aspects": {
+	    "op": 1,
+	    "needsedge": 4,
+	    "needsheart": 4
+	},
+	"lifetime": 300,
+	"slots": [
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "意图",
+		"required": {
+		    "edge": 1,
+		    "heart": 1
+		}
+	    }
+	],
+	"icon": "side.fiorenza.complete"
+    },
+    {
+	"id": "foe.grame.inactive",
+	"label": "未见的怒火……",
+	"description": "在噩梦的边缘，我能听见一声渴求的低吼——那声音微弱，但确实。[此卡牌将在你持有至少三份精神创伤时激活。]",
+	"aspects": {
+	    "foe.nightmare": 1
+	},
+	"xtriggers": {
+	    "intention.assault": "foe.grame"
+	},
+	"icon": "foe.unknown"
+    },
+    {
+	"id": "foe.grame",
+	"label": "忿狼",
+	"description": "若碎狼是灵魂的绝望超出灵魂光芒之具现，戕狼是吞噬灵魂的痛苦之具现，那么忿狼便是未得复仇者与未得回应者那满溢溃烂的怒火的具现。想必我身上也寄宿着不少。",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsedgewinter": 10,
+	    "foe.commander": 1
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "intention.downtime": "foe.grame.inactive",
+	    "takeadditional": [
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ]
+	}
+    },
+    {
+	"id": "foe.shade.inactive",
+	"label": "暗伏的悲伤……",
+	"description": "在噩梦的边缘，我能听见数道软弱的号泣——那声音微弱，但确实。[此卡牌将在你持有至少三份精神创伤时激活。]",
+	"aspects": {
+	    "foe.nightmare": 1
+	},
+	"xtriggers": {
+	    "intention.assault": "foe.shade"
+	},
+	"icon": "foe.unknown"
+    },
+    {
+	"id": "foe.shade",
+	"label": "被吞噬者",
+	"description": "“你不累吗？过来，过来。与我们一同行于这无日无月，无苦无悲，无此无彼的道路上吧。过来吧，然后便无需再承受。”[每当这一敌军行动，都有概率产生“恐惧渐增”。]",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needslanternheart": 6
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "intention.downtime": "foe.shade.inactive",
+	    "takeadditional": [
+		{
+		    "id": "needslanternheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needslanternheart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+	    ]
+	},
+	"induces": [
+	    {
+		"id": "produce.developing.trauma",
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "foe.wrake",
+	"label": "戕狼",
+	"description": "有些痛苦过于强烈，以至于这些痛苦比身受痛苦之人存在得更久——而这失去容器的移动酷刑正急于寻求新的居所。你不会希望这居所是你的。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needswinter": 14,
+	    "needswinterheart": 6
+	},
+	"xtriggers": {
+	    "refresh": "foe.wrake",
+	    "killfoe": "agony",
+	    "concealidentity": "foe.wrake.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.wrake.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.wrake.hidden",
+	    "killfoe": "agony",
+	    "revealidentity": "foe.wrake",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.marinette",
+	"label": "玛丽内特",
+	"description": "“<sprite name=way>。<sprite name=edge>。<sprite name=grail>。”",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 30,
+	    "foe.lethal": 1,
+	    "foe.braced": 1,
+	    "long.blocker": 1,
+	    "foe.huntingparty": 1,
+	    "marinette.marker": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.marinette",
+	    "killfoe": [
+		{
+		    "id": "foe.marinette.recovering"
+		},
+		{
+		    "id": "braced_timer",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+	    ],
+	    "concealidentity": "foe.marinette.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -10
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 10
+		},
+	    ]
+	},
+    },
+    {
+	"id": "foe.marinette.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "long.blocker": 1,
+	    "foe.huntingparty": 1,
+	    "marinette.marker": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.marinette.hidden",
+	    "killfoe": "foe.marinette.recovering",
+	    "revealidentity": "foe.marinette",
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.marinette.recovering",
+	"label": "玛丽内特(恢复中)",
+	"description": "“<sprite name=heart>。<sprite name=resentment>。”",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1,
+	    "long.blocker": 1,
+	    "foe.huntingparty": 1,
+	    "marinette.marker": 1
+	},
+	"lifetime": 180,
+	"decayTo": "foe.marinette",
+	"resaturate": true,
+	"icon": "foe.marinette"
+    },
+    {
+	"id": "foe.bloodonhands",
+	"label": "染血之手",
+	"description": "“我们是伟大母亲造物中最为淡白的，我们之中几乎没有红色。拜托了，向我们展示你体内的红色。<i>拜托了</i>。”",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 24,
+	    "needsedgemoth": 10,
+	    "needsedgegrail": 10,
+	    "foe.braced": 1,
+	    "foe.commander": 1,
+	    "foe.armoured": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.bloodonhands",
+	    "killfoe": "foe.bloodonhands.defunct",
+	    "concealidentity": "foe.bloodonhands.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 8
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": 6
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": 6
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"decayTo": "foe.bloodonhands.defunct"
+    },
+    {
+	"id": "foe.bloodonhands.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.bloodonhands.hidden",
+	    "killfoe": "foe.bloodonhands.defunct",
+	    "revealidentity": "foe.bloodonhands",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true,
+	"decayTo": "foe.bloodonhands.defunct"
+    },
+    {
+	"id": "foe.bloodonhands.defunct",
+	"label": "染血之手（被放逐）",
+	"description": "现在，我们已尽可能地杀死这骨白者。毫无疑问，其还会再次行于梦境的这一侧——但那要到一段时间之后了。[这一敌人在你下一次遭遇玛丽内特的猎团之前都不会再活跃。]",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1,
+	    "foe.huntingparty": 1
+	}
+    },
+    {
+	"id": "foe.percussigant",
+	"label": "擂击者",
+	"description": "欢愉、不可压抑的痛苦之司仪。它们为纪念赤杯对轰雷之皮的剥皮而擂击，而旋转。而这些擂击者仿佛知晓如何成对的起舞……",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 12,
+	    "needswinter": 8,
+	    "foe.coordinated": 1,
+	    "foe.unsubtle": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.percussigant",
+	    "killfoe": "foe.corpse.unnatural",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -5
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 5
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 3
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.percussigant.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.percussigant.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.percussigant",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.ingluviate",
+	"label": "吞食者",
+	"description": "曾在外者现于其内。[这一敌军将尝试吞下<b>铁棺</b>并带着它逃离。]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 10,
+	    "foe.unsubtle": 1,
+	    "marker.ingluviate": 1
+	},
+	"xtriggers": {
+	    "devourer": "foe.ingluviate.engorged",
+	    "refresh": "foe.ingluviate",
+	    "killfoe": "foe.corpse.unnatural",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ]
+	}
+    },
+    {
+	"id": "foe.ingluviate.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ingluviate.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.ingluviate",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.ingluviate.engorged",
+	"label": "吞食者（满腹）",
+	"description": "曾在外者现于其内。[击杀这一敌军以夺回<b>铁棺</b>。]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "needsedgegrail": 8,
+	    "foe.unsubtle": 1,
+	    "otherworldly": 1,
+	    "detectivetemptation": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ingluviate.engorged",
+	    "killfoe": [
+		{
+		    "id": "foe.corpse.unnatural"
+		},
+		{
+		    "id": "klei.casket",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"induces": [
+	    {
+		"id": "createguards.ingluviate",
+	    }
+	]
+    },
+    {
+	"id": "foe.flesheater",
+	"label": "无餍亡者",
+	"description": "因饥饿或干渴而死者聚集于赤杯滴落的浆液之下，并在那食欲之神的旨意下再次行于世间。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 8,
+	    "needswinter": 6,
+	    "foe.pack": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.flesheater",
+	    "killfoe": "flesheater.deathtrigger",
+	    "killflesheater": "flesheater.deathtrigger",
+	    "concealidentity": "foe.flesheater.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "avowal": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 6
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	}
+    },
+    {
+	"id": "foe.flesheater.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.flesheater.hidden",
+	    "killfoe": "flesheater.deathtrigger",
+	    "killflesheater": "flesheater.deathtrigger",
+	    "revealidentity": "foe.flesheater",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "flesheater.deathtrigger",
+	"label": "一个无餍亡者死了！",
+	"description": "终被分食。",
+	"lifetime": 1,
+	"induces": [
+	    {
+		"id": "flesheater.buffothers"
+	    }
+	],
+	"icon": "foe.flesheater"
+    },
+    {
+	"id": "foe.ivory",
+	"label": "骨白者",
+	"description": "赤杯最为尖锐、最为淡白的具名者们。其仿佛某人取下了一颗牙齿，将其变得更大、更坚硬。也更饥饿。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 18,
+	    "needsgrail": 10,
+	    "needsmoth": 10,
+	    "foe.braced": 1,
+	    "foe.commander": 1,
+	    "foe.armoured": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ivory",
+	    "concealidentity": "foe.ivory.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 6
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.ivory.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ivory.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.ivory",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.innocents",
+	"label": "平民",
+	"description": "“羊羔在山里迷路，他说，会叫。有时来的是母羊，有时是狼。”\n\n——科马克·麦卡锡<i>《血色子午线》</i>",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 1
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpses"
+	},
+	"icon": "side.fiorenza.complete"
+    },
+]
+}

@@ -1,0 +1,1101 @@
+{
+"elements": [
+    {
+	"id": "foe.nightmare.template",
+	"label": "Шаблон Кошмарного Врага",
+	"aspects": {
+	    "foe": 1,
+	    "foe.nightmare": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresources1",
+		"label": "Ресурсы",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    },
+	    {
+		"id": "needsresources2",
+		"label": "Ресурсы",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    },
+	    {
+		"id": "needsresources3",
+		"label": "Что-то ещё?",
+		"description": "Узел силы? Стечение обстоятельств? Условия погоды или местности?",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "friend": 1,
+		    "supplies": 1,
+		    "weapon": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "foe.corpse.nightmare",
+	"label": "Кошмар, убит",
+	"lifetime": 1
+    },
+    {
+	"id": "foe.exilenightmare",
+	"label": "Изгнанник",
+	"description": "Он - лицо моего ужаса: мой наставник и мой мучитель, искаженный дымкой этого темного, призрачного стекла, этого жуткого кошмара. Даже как воспоминание, он управляет моим страхом и болью. Но есть способы уничтожить даже воспоминание.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsedge": 100,
+	    "foe.exile": 1
+	},
+	"xtriggers": {
+	    "killfoe": "token.intent",
+	    "weaken": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -33
+		},
+	    ],
+	},
+	"unique": true
+    },
+    {
+	"id": "foe.campguard",
+	"label": "Охранник Лагеря",
+	"description": "Я отлично их помню: как они ломали нам ребра, наставляли винтовки и смеялись, когда мы визжали, как побитые собаки. Они всего лишь выполняли приказы.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsedge": 12
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.infantry"
+    },
+    {
+	"id": "foe.watchdog",
+	"label": "Сторожевая Собака",
+	"description": "<i>Овчарка Немецкая.</i> Эти звери вошли в моду в Рейхе из-за того, что были очень похожи на волков, и в Собиборе они тоже были в моде из-за того, как быстро они могли разорвать человека на части ради офицерского развлечения.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsedge": 10,
+	    "foe.coordinated": 1
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.searchlight",
+	"label": "Прожектор",
+	"description": "Говорят, милосердие можно найти только в тени. Этот взгляд сверху позволил мне понять эту истину первоочерёдно.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsmoth": 10
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.starvation",
+	"label": "Голод",
+	"description": "Время от времени, когда я был голоден, мне снилась Алая Чаша, и я слушал, как она смеется надо мной.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsgrail": 8
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.cold",
+	"label": "Холод",
+	"description": "Иногда там становилось так холодно, что мозг обманывал себя, думая, что на улице тепло. Но все мы знали, что в Собиборе было только одно время года, и это была Зима.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsforge": 8,
+	    "needsheart": 8
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "takeadditional": [
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ]
+	}
+    },
+    {
+	"id": "foe.prisoners",
+	"label": "Узник",
+	"description": "В другом месте они могли бы стать моими друзьями, но здесь они были еще одним ртом, который нужно было кормить, еще одним телом, которое нужно было одевать, еще одним местом, занимаемым в камерах. Я делал то, что должен был, чтобы выжить. [Используйте Сердце чтобы превратить их в полезное воспоминание, или Грань чтобы получить Потрясение.]",
+	"aspects": {
+	    "op": 1,
+	    "needsedge": 4,
+	    "needsheart": 4
+	},
+	"lifetime": 300,
+	"slots": [
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Намерение",
+		"required": {
+		    "edge": 1,
+		    "heart": 1
+		}
+	    }
+	],
+	"icon": "side.fiorenza.complete"
+    },
+    {
+	"id": "foe.grame.inactive",
+	"label": "Незримая ярость...",
+	"description": "На краю кошмара я слышу хищное рычание - слабое, но отчетливое. [Эта карта станет активной когда у вас будет покрайне мере 3 карты Потрясения.]",
+	"aspects": {
+	    "foe.nightmare": 1
+	},
+	"xtriggers": {
+	    "intention.assault": "foe.grame"
+	},
+	"icon": "foe.unknown"
+    },
+    {
+	"id": "foe.grame",
+	"label": "Волчья-Мегера",
+	"description": "Если Осколочные Волки - это отчаяние души, опережающее ее свет, а Волчцы это агонии, что пожирают дух, то Волчья-Мегера - это кипящее, гноящееся бешенство неотмщенных и безответных. Я, должно быть, вмещаю в себя десятки.",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needsedgewinter": 10,
+	    "foe.commander": 1
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "intention.downtime": "foe.grame.inactive",
+	    "takeadditional": [
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ]
+	}
+    },
+    {
+	"id": "foe.shade.inactive",
+	"label": "Затаенная печаль...",
+	"description": "На краю кошмара я слышу плач дюжины тихих голосов - слабый, но отчетливый. [Эта карта станет активной когда у вас будет покрайне мере 3 карты Потрясения.]",
+	"aspects": {
+	    "foe.nightmare": 1
+	},
+	"xtriggers": {
+	    "intention.assault": "foe.shade"
+	},
+	"icon": "foe.unknown"
+    },
+    {
+	"id": "foe.shade",
+	"label": "Пожранный",
+	"description": "'Ты не устал? Пойдем, пойдем. Пройдись с нами по дороге, на которой нет ни солнца, ни луны; ни боли, ни горя; ни здесь, ни там. Приди, и больше ничего не будет.' [Когда этот Враг действует, есть шанс, что это вызовет Нарастающий ужас.]",
+	"inherits": "foe.nightmare.template",
+	"aspects": {
+	    "needslanternheart": 6
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpse.nightmare",
+	    "intention.downtime": "foe.shade.inactive",
+	    "takeadditional": [
+		{
+		    "id": "needslanternheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needslanternheart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+	    ]
+	},
+	"induces": [
+	    {
+		"id": "produce.developing.trauma",
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "foe.wrake",
+	"label": "Терние-и-Волчцы",
+	"description": "Некоторые мучения настолько сильны, что могут пережить тело, которое их перенесло, - и, не имея вместилища, это блуждающая агоня поспешит найти новый дом. Вы не хотите, чтобы им стали вы.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needswinter": 14,
+	    "needswinterheart": 6
+	},
+	"xtriggers": {
+	    "refresh": "foe.wrake",
+	    "killfoe": "agony",
+	    "concealidentity": "foe.wrake.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.wrake.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.wrake.hidden",
+	    "killfoe": "agony",
+	    "revealidentity": "foe.wrake",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.marinette",
+	"label": "Маринетт",
+	"description": "'<sprite name=way> . <sprite name=edge> . <sprite name=grail> .'",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 30,
+	    "foe.lethal": 1,
+	    "foe.braced": 1,
+	    "long.blocker": 1,
+	    "foe.huntingparty": 1,
+	    "marinette.marker": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.marinette",
+	    "killfoe": [
+		{
+		    "id": "foe.marinette.recovering"
+		},
+		{
+		    "id": "braced_timer",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+	    ],
+	    "concealidentity": "foe.marinette.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -10
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 10
+		},
+	    ]
+	},
+    },
+    {
+	"id": "foe.marinette.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "long.blocker": 1,
+	    "foe.huntingparty": 1,
+	    "marinette.marker": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.marinette.hidden",
+	    "killfoe": "foe.marinette.recovering",
+	    "revealidentity": "foe.marinette",
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.marinette.recovering",
+	"label": "Маринетт (Восстанавливается)",
+	"description": "'<sprite name=heart>. <sprite name=resentment> .'",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1,
+	    "long.blocker": 1,
+	    "foe.huntingparty": 1,
+	    "marinette.marker": 1
+	},
+	"lifetime": 180,
+	"decayTo": "foe.marinette",
+	"resaturate": true,
+	"icon": "foe.marinette"
+    },
+    {
+	"id": "foe.bloodonhands",
+	"label": "Кровь-на-Руках",
+	"description": "'Мы самые бледные из детей Матери, и в нас самих очень мало красного. Прошу, покажи мне, то красное, что у тебя внутри. <i>Прошу.'</i>",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 24,
+	    "needsedgemoth": 10,
+	    "needsedgegrail": 10,
+	    "foe.braced": 1,
+	    "foe.commander": 1,
+	    "foe.armoured": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.bloodonhands",
+	    "killfoe": "foe.bloodonhands.defunct",
+	    "concealidentity": "foe.bloodonhands.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 8
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": 6
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": 6
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"decayTo": "foe.bloodonhands.defunct"
+    },
+    {
+	"id": "foe.bloodonhands.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.bloodonhands.hidden",
+	    "killfoe": "foe.bloodonhands.defunct",
+	    "revealidentity": "foe.bloodonhands",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true,
+	"decayTo": "foe.bloodonhands.defunct"
+    },
+    {
+	"id": "foe.bloodonhands.defunct",
+	"label": "Кровь-на-Руках (Изгнан)",
+	"description": "На данный момент Жемчужный настолько мертв, насколько мы можем его убить. Несомненно, скоро он снова сможет пройти по эту сторону Сна - но пройдет некоторое время, прежде чем это случится. [Этот враг снова будет активен, когда вы в следующий раз столкнетесь с охотничьим отрядом Маринетт.]",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1,
+	    "foe.huntingparty": 1
+	}
+    },
+    {
+	"id": "foe.percussigant",
+	"label": "Сотрясатель",
+	"description": "Радостные, неудержимые поклонники боли, которые бьются и кружатся в танце в память о том, Чаша содрала плоть с Громового Ритма. Кажется, они умеют танцевать парами...",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 12,
+	    "needswinter": 8,
+	    "foe.coordinated": 1,
+	    "foe.unsubtle": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.percussigant",
+	    "killfoe": "foe.corpse.unnatural",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -5
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 5
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 3
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.percussigant.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.percussigant.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.percussigant",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.ingluviate",
+	"label": "Впитывающий",
+	"description": "То, что внутри, — извне. [Этот враг попытается проглотить Железный Гроб и уйти с ним.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 10,
+	    "foe.unsubtle": 1,
+	    "marker.ingluviate": 1
+	},
+	"xtriggers": {
+	    "devourer": "foe.ingluviate.engorged",
+	    "refresh": "foe.ingluviate",
+	    "killfoe": "foe.corpse.unnatural",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ]
+	}
+    },
+    {
+	"id": "foe.ingluviate.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ingluviate.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.ingluviate",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.ingluviate.engorged",
+	"label": "Впитывающий (Наполнен)",
+	"description": "То, что извне, — внутри. [Убейте этого врага, чтобы вернуть Железный Гроб.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "needsedgegrail": 8,
+	    "foe.unsubtle": 1,
+	    "otherworldly": 1,
+	    "detectivetemptation": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ingluviate.engorged",
+	    "killfoe": [
+		{
+		    "id": "foe.corpse.unnatural"
+		},
+		{
+		    "id": "klei.casket",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"induces": [
+	    {
+		"id": "createguards.ingluviate",
+	    }
+	]
+    },
+    {
+	"id": "foe.flesheater",
+	"label": "Ненасытный восставший",
+	"description": "Мертвые, погибшие от голода или жажды, собираются под каплями Алой Чаши, и провидение аппетита заставляет их снова ходить по миру.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 8,
+	    "needswinter": 6,
+	    "foe.pack": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.flesheater",
+	    "killfoe": "flesheater.deathtrigger",
+	    "killflesheater": "flesheater.deathtrigger",
+	    "concealidentity": "foe.flesheater.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "avowal": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 6
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	}
+    },
+    {
+	"id": "foe.flesheater.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.flesheater.hidden",
+	    "killfoe": "flesheater.deathtrigger",
+	    "killflesheater": "flesheater.deathtrigger",
+	    "revealidentity": "foe.flesheater",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "flesheater.deathtrigger",
+	"label": "Ненасытный восставший мёртв!",
+	"description": "Обед.",
+	"lifetime": 1,
+	"induces": [
+	    {
+		"id": "flesheater.buffothers"
+	    }
+	],
+	"icon": "foe.flesheater"
+    },
+    {
+	"id": "foe.ivory",
+	"label": "Жемчужный",
+	"description": "Самое острое и бледное из имён Алой Чаши. Как будто кто-то взял зуб и сделал его больше и крепче. И голоднее.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 18,
+	    "needsgrail": 10,
+	    "needsmoth": 10,
+	    "foe.braced": 1,
+	    "foe.commander": 1,
+	    "foe.armoured": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ivory",
+	    "concealidentity": "foe.ivory.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 6
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.ivory.hidden",
+	"label": "Неизвестный враг",
+	"description": "Самый опасный враг - тот, что появляется неожиданно.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.huntingparty": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ivory.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.ivory",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.innocents",
+	"label": "Гражданские",
+	"description": "'Когда ягнята теряются в горах, - сказал он. Они плачут. Иногда приходит мать. Иногда волк.'\n\n- Кормак Маккарти, <i>Кровавый Меридиан</i>",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 1
+	},
+	"xtriggers": {
+	    "killfoe": "foe.corpses"
+	},
+	"icon": "side.fiorenza.complete"
+    },
+]
+}

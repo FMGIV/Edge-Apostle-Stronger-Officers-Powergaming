@@ -1,0 +1,1176 @@
+{
+"elements": [
+    {
+	"id": "friend.lunatic",
+	"label": "可悲的疯人",
+	"description": "过于强烈的感受攫夺了此人的心智。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "moth": 4,
+	    "grail": 4,
+	    "heart": 4,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "decline": "husk"
+	},
+	"icon": "lunatic"
+    },
+    {
+	"id": "wandering.refugees",
+	"label": "难民",
+	"description": "在战争中，没有人比那些无辜者受的苦更多。[投入的性相达到此卡牌的任一阈值即可将其招募为友军。]",
+	"aspects": {
+	    "op": 1,
+	    "mortal": 1,
+	    "needsheart": 6,
+	    "needsgrail": 6,
+	    "needsedge": 6
+	},
+	"slots": [
+	    {
+		"id": "resources1",
+		"label": "资源",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "resources2",
+		"label": "资源",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    },
+	],
+	"icon": "side.fiorenza.complete"
+    },
+    {
+	"id": "wandering.deserters",
+	"label": "逃兵",
+	"description": "当士兵抛却了使命与国家的伪装，剩下的也就只有这种生物。[投入的性相达到此卡牌的任一阈值即可将其招募为友军。]",
+	"aspects": {
+	    "op": 1,
+	    "mortal": 1,
+	    "needsedge": 8,
+	    "needsgrail": 8,
+	    "needswinter": 8
+	},
+	"slots": [
+	    {
+		"id": "resources1",
+		"label": "资源",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "resources2",
+		"label": "资源",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    },
+	],
+    },
+    {
+	"id": "friend.doctor",
+	"label": "难民医生",
+	"description": "此人为尚能拯救者提供一切可能的帮助，而对注定逝去者则给予最后的仁慈。[这一友军可治疗伤者，但也可以让伤者自痛苦中解脱。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "heart": 4,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.doctor.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.doctor.wounded",
+	    "concealidentity": "friend.doctor.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "伤患",
+		"required": {
+		    "wounded": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.doctor.exhausted",
+	"label": "难民医生（枯竭）",
+	"description": "此人为尚能拯救者提供一切可能的帮助，而对注定逝去者则给予最后的仁慈。[这一友军可治疗伤者，但也可以让伤者自痛苦中解脱。]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.doctor.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.doctor.wounded",
+	    "concealidentity": "friend.doctor.hidden",
+	    "decline": "husk"
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.doctor",
+	"icon": "friend.doctor"
+    },
+    {
+	"id": "friend.doctor.wounded",
+	"label": "难民医生（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.doctor",
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.doctor.hidden",
+	"label": "难民医生（隐匿）",
+	"description": "此人为尚能拯救者提供一切可能的帮助，而对注定逝去者则给予最后的仁慈。[这一友军可治疗伤者，但也可以让伤者自痛苦中解脱。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "heart": 8,
+	    "grail": 8,
+	    "winter": 8,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.doctor.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.doctor.wounded",
+	    "concealidentity": "friend.doctor.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "伤患",
+		"required": {
+		    "wounded": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.labourer",
+	"label": "难民劳工",
+	"description": "有时，你需要仅靠手与锤对抗整个世界。咬紧牙关，开始工作。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "forge": 4,
+	    "knock": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labourer.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.labourer.wounded",
+	    "concealidentity": "friend.labourer.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.labourer.exhausted",
+	"label": "难民劳工（枯竭）",
+	"description": "有时，你需要仅靠手与锤对抗整个世界。咬紧牙关，开始工作。",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labourer.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.labourer.wounded",
+	    "concealidentity": "friend.labourer.hidden",
+	    "decline": "husk"
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.labourer",
+	"icon": "friend.labourer"
+    },
+    {
+	"id": "friend.labourer.wounded",
+	"label": "难民劳工（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.labourer",
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.labourer.hidden",
+	"label": "难民劳工（隐匿）",
+	"description": "有时，你需要仅靠手与锤对抗整个世界。咬紧牙关，开始工作。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "forge": 8,
+	    "knock": 8,
+	    "edge": 4,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labourer.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.labourer.wounded",
+	    "concealidentity": "friend.labourer.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.lookout",
+	"label": "难民哨卫",
+	"description": "深陷于恐惧，此人变得精于发现潜藏的危险与威胁——说到底，这些东西遍地都是。[这一友军可揭露匿踪敌军的行踪，但有时其会在尝试如此时死去。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "lantern": 4,
+	    "moth": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.lookout.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.lookout.wounded",
+	    "concealidentity": "friend.lookout.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needshidden",
+		"actionid": "operate",
+		"label": "敌军",
+		"required": {
+		    "foe.hidden": 1
+		}
+	    },
+	    {
+		"id": "needshidingplace",
+		"actionid": "operate",
+		"label": "藏身之所",
+		"required": {
+		    "op.time.night": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.lookout.exhausted",
+	"label": "难民哨卫（枯竭）",
+	"description": "深陷于恐惧，此人变得精于发现潜藏的危险与威胁——说到底，这些东西遍地都是。[这一友军可揭露匿踪敌军的行踪，但有时其会在尝试如此时死去。]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.lookout.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.lookout.wounded",
+	    "concealidentity": "friend.lookout.hidden",
+	    "decline": "husk"
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.lookout",
+	"icon": "friend.lookout"
+    },
+    {
+	"id": "friend.lookout.wounded",
+	"label": "难民哨卫（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.lookout",
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.lookout.hidden",
+	"label": "难民哨卫（隐匿）",
+	"description": "深陷于恐惧，此人变得精于发现潜藏的危险与威胁——说到底，这些东西遍地都是。[这一友军可揭露匿踪敌军的行踪，但有时其会在尝试如此时死去。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "lantern": 8,
+	    "moth": 8,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.lookout.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.lookout.wounded",
+	    "concealidentity": "friend.lookout.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needshidden",
+		"actionid": "operate",
+		"label": "敌军",
+		"required": {
+		    "foe.hidden": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.gunman",
+	"label": "难民枪手",
+	"description": "并非士兵，亦非游击队员。这仅仅是一个拿着枪，想要活下去的人，且其非常，非常害怕。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.gunman.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.gunman.wounded",
+	    "concealidentity": "friend.gunman.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "战区",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "意图",
+		"required": {
+		    "edge": 1,
+		    "heart": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.gunman.exhausted",
+	"label": "难民枪手（枯竭）",
+	"description": "并非士兵，亦非游击队员。这仅仅是一个拿着枪，想要活下去的人，且其非常，非常害怕。",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.gunman.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.gunman.wounded",
+	    "concealidentity": "friend.gunman.hidden",
+	    "decline": "husk"
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.gunman",
+	"icon": "friend.gunman"
+    },
+    {
+	"id": "friend.gunman.wounded",
+	"label": "难民枪手（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.gunman",
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.gunman.hidden",
+	"label": "难民枪手（隐匿）",
+	"description": "并非士兵，亦非游击队员。这仅仅是一个拿着枪，想要活下去的人，且其非常，非常害怕。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 8,
+	    "winter": 8,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.gunman.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.gunman.wounded",
+	    "concealidentity": "friend.gunman.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "战区",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "意图",
+		"required": {
+		    "edge": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregsoldier",
+	"label": "人渣士兵",
+	"description": "逃兵，强盗，杀人犯。在我的指引下他们只会变得更糟。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "edge": 6,
+	    "grail": 4,
+	    "winter": 4,
+	    "vicious": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregsoldier.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregsoldier.wounded",
+	    "concealidentity": "friend.dregsoldier.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "战区",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "意图",
+		"required": {
+		    "edge": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregsoldier.exhausted",
+	"label": "人渣士兵（枯竭）",
+	"description": "逃兵，强盗，杀人犯。在我的指引下他们只会变得更糟。",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "exhausted": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregsoldier.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregsoldier.wounded",
+	    "concealidentity": "friend.dregsoldier.hidden"
+	},
+	"lifetime": 90,
+	"resaturate": true,
+	"decayTo": "friend.dregsoldier",
+	"icon": "friend.dregsoldier"
+    },
+    {
+	"id": "friend.dregsoldier.wounded",
+	"label": "人渣士兵（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "wounded": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.dregsoldier"
+	}
+    },
+    {
+	"id": "friend.dregsoldier.hidden",
+	"label": "人渣士兵（隐匿）",
+	"description": "逃兵，强盗，杀人犯。在我的指引下他们只会变得更糟。",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "edge": 10,
+	    "grail": 8,
+	    "winter": 8,
+	    "vicious": 1,
+	    "friend.hidden": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregsoldier.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregsoldier.wounded",
+	    "concealidentity": "friend.dregsoldier.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "战区",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "意图",
+		"required": {
+		    "edge": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregarsonists",
+	"label": "人渣纵火者",
+	"description": "将万物付之一炬。[每次使用这一友军都有概率产生一份“火焰”机会。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "forge": 6,
+	    "edge": 4,
+	    "winter": 4,
+	    "vicious": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregarsonists.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregarsonists.wounded",
+	    "concealidentity": "friend.dregarsonists.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.dregarsonists.exhausted",
+	"label": "人渣纵火者（枯竭）",
+	"description": "将万物付之一炬。[每次使用这一友军都有概率产生一份“火焰”机会。]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "exhausted": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregarsonists.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregarsonists.wounded",
+	    "concealidentity": "friend.dregarsonists.hidden"
+	},
+	"induces": [
+	    {
+		"id": "produce.flames",
+		"chance": 50
+	    }
+	],
+	"lifetime": 90,
+	"resaturate": true,
+	"decayTo": "friend.dregarsonists",
+	"icon": "friend.dregarsonists"
+    },
+    {
+	"id": "friend.dregarsonists.wounded",
+	"label": "人渣纵火者（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "wounded": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.dregarsonists"
+	}
+    },
+    {
+	"id": "friend.dregarsonists.hidden",
+	"label": "人渣纵火者（隐匿）",
+	"description": "将万物付之一炬。[每次使用这一友军都有概率产生一份“火焰”机会。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "forge": 10,
+	    "edge": 8,
+	    "winter": 8,
+	    "vicious": 1,
+	    "friend.hidden": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregarsonists.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregarsonists.wounded",
+	    "concealidentity": "friend.dregarsonists.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregscavengers",
+	"label": "人渣拾荒者",
+	"description": "在蠕虫与飞鸟从死者身上拿走它们应得的之前，这些人已经拿走了他们的。[这一友军掠夺尸体的速度更快，且有更高概率找到可用的补给。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 6,
+	    "grail": 4,
+	    "knock": 4,
+	    "vicious": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregscavengers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregscavengers.wounded",
+	    "concealidentity": "friend.dregscavengers.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.dregscavengers.exhausted",
+	"label": "人渣拾荒者（枯竭）",
+	"description": "在蠕虫与飞鸟从死者身上拿走它们应得的之前，这些人已经拿走了他们的。[这一友军掠夺尸体的速度更快，且有更高概率找到可用的补给。]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "exhausted": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregscavengers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregscavengers.wounded",
+	    "concealidentity": "friend.dregscavengers.hidden"
+	},
+	"lifetime": 90,
+	"resaturate": true,
+	"decayTo": "friend.dregscavengers",
+	"icon": "friend.dregscavengers"
+    },
+    {
+	"id": "friend.dregscavengers.wounded",
+	"label": "人渣拾荒者（负伤）",
+	"description": "[使用战地医师或战地医院治愈这一友军。]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "wounded": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.dregscavengers"
+	}
+    },
+    {
+	"id": "friend.dregscavengers.hidden",
+	"label": "人渣拾荒者（隐匿）",
+	"description": "在蠕虫与飞鸟从死者身上拿走它们应得的之前，这些人已经拿走了他们的。[这一友军掠夺尸体的速度更快，且有更高概率找到可用的补给。]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 10,
+	    "grail": 8,
+	    "knock": 8,
+	    "vicious": 1,
+	    "friend.hidden": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregscavengers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregscavengers.wounded",
+	    "concealidentity": "friend.dregscavengers.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "目的",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.wrake",
+	"label": "友军戕狼",
+	"description": "被杀死之人的临终尖啸，被强迫具现并停留于醒时世界，听从我的号令。[这一友军使用过后便会死亡，但会同时杀死攻击它的敌军。]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 1,
+	    "edge": 12,
+	    "winter": 6,
+	    "knock": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "agony",
+	    "killfriend": [
+		{
+		    "id": "agony"
+		},
+		{
+		    "id": "friend.wrake.killtoken",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "makecasualty": [
+		{
+		    "id": "agony"
+		},
+		{
+		    "id": "friend.wrake.killtoken",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.wrake.killtoken",
+	"label": "一头戕狼被杀死了！",
+	"description": "",
+	"lifetime": 1
+    },
+    {
+	"id": "friend.splinter",
+	"label": "友军碎狼",
+	"description": "由最为深邃的绝望雕刻而成的流着涎水之物，渴望着吞噬鲜活灵魂内的光芒。",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 1,
+	    "edge": 16,
+	    "winter": 8,
+	    "lantern": 4
+	},
+	"xtriggers": {
+	    "killfriend": [
+		{
+		    "id": "despair"
+		},
+	    ],
+	    "makecasualty": [
+		{
+		    "id": "despair"
+		}
+	    ],
+	    "decline": "husk"
+	},
+	"lifetime": 300
+    }
+]
+}

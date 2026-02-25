@@ -1,0 +1,535 @@
+{
+"elements": [
+    {
+	"id": "contemnant.story",
+	"label": "А почему нет?",
+	"description": "'Из всех бедняг в Собиборе ты один выделялся для меня. Поэтому я взял тебя к себе. Научил тебя причинять боль. И теперь в тебе есть семя Волчьего обетования. О, да, к концу этой войны ты вполне можешь стать еще одним кривым клыком в его окровавленном рту. А почему бы и нет? Почему бы не отомстить? Этот мир дал тебе достаточно причин ненавидеть его. Вырежь те части, которые надеются на обратное. Следуй секретам, которым я тебя научил, до конца. Найди Лигению в Вене и переживи ее. И тогда - тогда, возможно, мы поговорим снова. Я надеюсь, что это будет наш финальный разговор. В конце концов, разве ты кому-то обязан? Однажды я задал себе этот вопрос. Теперь твоя очередь.'",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "avowal": [
+		{
+		    "id": "marker.spoketosergeiaboutsword",
+		    "morpheffect": "mutate"
+		}
+	    ],
+	    "longded": [
+		{
+		    "id": "long.blocker",
+		    "morpheffect": "mutate"
+		}
+	    ],
+	},
+	"unique": true
+    },
+    {
+	"id": "contemnant.weapon",
+	"label": "Офицерский кинжал",
+	"description": "Шутка Изгнанника.",
+	"aspects": {
+	    "edge": 2,
+	    "weapon": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "contemnant.weapon.exhausted"
+	},
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "wound.generic",
+	"label": "Рана",
+	"description": "Я должен немедленно позаботиться об этом. [Пять Ранений или Увечий уьют вас.]",
+	"aspects": {
+	    "damage.body": 1,
+	    "winter": 4,
+	    "knock": 4
+	},
+	"lifetime": 300,
+	"decayTo": "debilitation.generic"
+    },
+    {
+	"id": "reputation.infamy",
+	"label": "Бесславие",
+	"description": "Есть поступки, которые слишком отвратительны, чтобы с ними можно было мириться - даже на войне. [Три или более карты бесславия приведут к тому, что нейтральные подразделения в текущей зоне боевых действий станут враждебными по отношению к вам.]",
+	"aspects": {
+	    "local.infamy": 1
+	}
+    },
+    {
+	"id": "skill.sustain.active",
+	"label": "Мучительное Поддержание",
+	"description": "Быть уничтоженным - значит, наконец, освободиться от страданий. Волк пока не желает моего освобождения. [Пока эта карта активна, никакое число Ран или Увечий не убьёт вас. Используйте Тень Разделённого Волка в Действии чтобы поддерживать эту карту в активном состоянии; при использовании Уничтожения, пока у вас есть эта карта, даёт шанс создать Тень Разделенного Волка.]",
+	"lifetime": 480,
+	"xtriggers": {
+	    "employment": "skill.sustain.active"
+	},
+	"decayTo": "skill.sustain.dormant",
+	"aspects": {
+	    "sustain.marker": 1
+	}
+    },
+    {
+	"id": "skill.sustain.dormant",
+	"label": "Мучительное Поддержание",
+	"description": "Быть уничтоженным - значит, наконец, освободиться от страданий. Волк пока не желает моего освобождения. [Поместите Тень Разделённого Волка в Операции, чтобы активировать эту карту. Кроме того, использование Разделения, пока вы владеете этой картой, может привести к появлению Тени Разделённого Волка.]",
+	"xtriggers": {
+	    "employment": "skill.sustain.active"
+	},
+	"aspects": {
+	    "sustain.marker": 1
+	}
+    },
+    {
+	"id": "wolf.neutral",
+	"label": "Волк: Затаившийся",
+	"description": "К счастью, сейчас основной удар гнева Разделенного Волка приходится на кого-то другого.",
+	"xtriggers": {
+	    "epiphany": "wolf.rage"
+	},
+	"verbicon": "wolfcycle.neutral"
+    },
+    {
+	"id": "wolf.rage",
+	"label": "Волк: Гнев",
+	"description": "Ярость Разделенного Волка предает огню весь мир вокруг нас.",
+	"xtriggers": {
+	    "depiphany": "wolf.neutral"
+	},
+	"verbicon": "wolfcycle.active"
+    },
+    {
+	"id": "foe.ingluviate.engorged",
+	"label": "Впитывающий (Наполнен)",
+	"description": "То, что извне, — внутри. [Убейте этого врага, чтобы вернуть Железный Гроб.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "needsedgegrail": 8,
+	    "foe.unsubtle": 1,
+	    "otherworldly": 1,
+	    "detectivetemptation": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ingluviate.engorged",
+	    "killfoe": [
+		{
+		    "id": "foe.corpse.unnatural"
+		},
+		{
+		    "id": "klei.casket",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgegrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+    },
+    {
+	"id": "side.rescuerefugees",
+	"label": "Побочная цель: Помощь Беженцам",
+	"description": "Еще одна группа отчаявшихся оказалась между смертью от рук немцев или русских. Чтобы доставить их в безопасное место, потребуется приложить определенные усилия, но впоследствии они будут передо мной в долгу. [Возможность получить новых Союзников.]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "rescuerefugees.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "rescuerefugees.complete",
+	"label": "Спасти Беженцев",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.hintcontemnant.lore",
+	"label": "Притянуть: Намек Знаний",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.retributions",
+	"label": "Притянуть: Подсказка о Ввозмездии",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.antithesis",
+	"label": "Притянуть: Подсказка Антитезы",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.vulneration",
+	"label": "Притянуть: Намек Уязвимости",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.kleidouchos",
+	"label": "Притянуть: Намек Клейдухос",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.killexile",
+	"label": "Притянуть: Намек Убийства Изгнанника",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.berlin",
+	"label": "Притянуть: Намек Берлина",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintcontemnant.peace",
+	"label": "Притянуть: Намек Мира",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "op.church.contemnant",
+	"label": "Возможность: Церковь",
+	"description": "Место для тех, в ком ещё теплится вера. Не уверен, что во мне осталось хоть что-то, но, возможно, тишина руин подарит мне полезное осознание.",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"label": "Намерение",
+		"required": {
+		    "heart": 1
+		}
+	    }
+	],
+	"lifetime": 300,
+	"icon": "op.church"
+    },
+    {
+	"id": "op.farm.contemnant",
+	"label": "Возможность: Ферма",
+	"description": "Какое-нибудь место, которое бандиты и вороны еще не облюбовали полностью. Мы могли бы убедить оставшихся фермеров снабдить нас едой и питьем - в конце концов, люди с оружием, как известно, умеют убеждать.",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"label": "Intent",
+		"required": {
+		    "grail": 1,
+		    "edge": 1
+		}
+	    }
+	],
+	"lifetime": 300,
+	"icon": "op.farm"
+    },
+    {
+	"id": "wound.glorious",
+	"label": "Скверна-Во-Славе",
+	"description": "Сияющая рана, как воспоминание о разделении Солнца. Столь отвратительна сила, исходящая из неё, что любой, кто меня увидит, поймёт, насколько я проклят и мерзок. Более того, пребывающий рядом со мной слишком долго, испытывает судьбу болезненной аннигиляции. [Эта карта считается ранением и заставит нейтральные силы атаковать вас, едва завидев. Пока у вас есть эта карта, случайный враг или союзник может быть уничтожен всякий раз, когда вы создаете Раздор.]",
+	"aspects": {
+	    "lantern": 6,
+	    "edge": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "local.infamy": 3
+	},
+	"unique": true
+    },
+    {
+	"id": "sobibor.here",
+	"label": "Собибор",
+	"description": "Ад, созданный руками одних лишь людей; Ад, из которого я сбежал год назад; Ад, в который я вернулся, чтобы встретиться лицом к лицу и уничтожить тьму, поселившуюся в моем сердце из-за того, кого я ненавижу больше всего на свете.",
+	"aspects": {
+	    "warzone.current": 1,
+	    "memory": 1,
+	    "sobibor.marker": 1,
+	    "long.blocker": 1
+	},
+    },
+    {
+	"id": "op.axe",
+	"label": "Момент Разделения",
+	"description": "Аромат боярышника витает на моей плоти. Моя тень – чёрная пустота на камне. Где-то в темноте меня ждёт воин древних времён, а за спиной у неё – тень древнего бога. Я должен встретиться с ней, и с должным заступничеством.",
+	"aspects": {
+	    "op": 1
+	},
+	"unique": true,
+	"slots": [
+	    {
+		"id": "needscompleted",
+		"label": "Раздумье",
+		"required": {
+		    "completed": 1
+		}
+	    },
+	    {
+		"id": "needstime",
+		"label": "Время",
+		"required": {
+		    "op": 1
+		}
+	    },
+	    {
+		"id": "needspower",
+		"label": "Власть",
+		"required": {
+		    "op": 1
+		}
+	    },
+	],
+	"icon": "op.horned"
+    },
+    {
+	"id": "neutral.corpses",
+	"label": "Павшие Советские Солдаты",
+	"description": "Они бились. Они пали.",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "growthinfect": "foe.growth",
+	    "raiseshattered": "friend.risen",
+	    "promotiontodisciple": "friend.conscript",
+	    "killsoviet": "neutral.corpses"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "developing.trauma",
+	"label": "Нарастающий Ужас",
+	"description": "Смерть духа, что становится всё ближе и ближе, дюйм за дюймом. [Превратится в Потрясение, если ничего не предпринять.]",
+	"aspects": {
+	    "op": 1,
+	    "needsheart": 8,
+	    "needslantern": 8,
+	    "developing": 1
+	},
+	"xtriggers": { 
+	    "benign": "husk"
+	},
+	"lifetime": 180,
+	"decayTo": "trauma",
+	"slots": [
+	    {
+		"id": "needssomething1",
+		"label": "Ресурсы",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    },
+	    {
+		"id": "needssomething2",
+		"label": "Ресурсы",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    }
+	],
+	"resaturate": true
+    },
+    {
+	"id": "developing.permatrauma",
+	"label": "Неумолимый Ужас",
+	"description": "Волк идет. [Станет Глубокой Травмой, если ничего не предпринять.]",
+	"aspects": {
+	    "op": 1,
+	    "needsheart": 12,
+	    "needslantern": 12,
+	    "developing": 1
+	},
+	"xtriggers": { 
+	    "benign": "husk"
+	},
+	"lifetime": 180,
+	"decayTo": "permatrauma",
+	"slots": [
+	    {
+		"id": "needssomething1",
+		"label": "Ресурсы",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    },
+	    {
+		"id": "needssomething2",
+		"label": "Ресурсы",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    },
+	    {
+		"id": "needssomething3",
+		"label": "Ресурсы",
+		"required": {
+		    "lantern": 1,
+		    "heart": 1
+		}
+	    }
+	],
+	"resaturate": true
+    },
+    {
+	"id": "permatrauma",
+	"label": "Глубокая Травма",
+	"description": "Дух не выдержит слишком многого. [Пять Травм сломят Вас. Эта карта останется, пока вы не покинете Собибор.]",
+	"aspects": {
+	    "winter": 6,
+	    "damage.mind": 1
+	},
+	"xtriggers": { 
+	    "benign": "husk"
+	}
+    },
+    {
+	"id": "main.seize.rewardrouter",
+	"label": "Захват Успешен!",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "main.breakout.rewardrouter",
+	"label": "Побег Успешен!",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "traveltransition.marker",
+	"label": "Метка Путешествия",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "readiness.token.marinette",
+	"label": "Готовность: Маринетт",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "token.escaped",
+	"label": "Ускользнувшая Маринетт...",
+	"description": "Пока что сухое дребезжание Нитяной Девы и её жадных охотников осталась позади. [Вы больше не встретитесь с Маринетт и ее войсками, пока в следующий раз не пройдете по Разрушенной стране.]",
+    },
+    {
+	"id": "token.intent",
+	"label": "Намерение Уничтожить",
+	"description": "Тот, кого называли Изгнанником, когда-то внушал мне страх. Больше нет. [Вы больше не будете получать Потрясение при столкновении с Изгнанником и сможете использовать эту карту, чтобы начать финальную схватку с ним или его Врагом.]",
+	"aspects": {
+	    "challenge": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "runmarker.sergei",
+	"label": "Запустить Метку: Сергей",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "runmarker.cross",
+	"label": "Запустить Метку: Гирваэнгр",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "sidesobibor.complete",
+	"label": "Забытый Свет: Выполнен",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "foe.grame.inactive",
+	"label": "Незримый Гнев...",
+	"description": "На краю кошмара я слышу хищное рычание — слабое, но отчетливое. [Эта карта станет активной, как только у вас будет не менее трех Потрясений.]",
+	"aspects": {
+	    "foe.nightmare": 1
+	},
+	"xtriggers": {
+	    "intention.assault": "foe.grame"
+	},
+	"icon": "foe.unknown"
+    },
+    {
+	"id": "foe.shade.inactive",
+	"label": "Затаенная Печаль...",
+	"description": "На краю кошмара я слышу дюжину тихих голосов плача — слабых, но отчетливых. [Эта карта станет активной, как только у вас будет не менее трех Потрясений.]",
+	"aspects": {
+	    "foe.nightmare": 1
+	},
+	"xtriggers": {
+	    "intention.assault": "foe.shade"
+	},
+	"icon": "foe.unknown"
+    },
+]
+}

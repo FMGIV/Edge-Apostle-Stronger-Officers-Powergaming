@@ -1,0 +1,484 @@
+{
+"recipes": [
+    {
+	"id": "communicate.duel.maccabee",
+	"actionid": "communicate",
+	"label": "具名者的建议",
+	"startdescription": "老犹大带着一种古老塑像般镇定的严肃目光注视着我们。两位长生者与他保持安全距离互相商讨，但他是我的副手，我必须与这位具名者面对面交谈。“你来寻求建议之语，”老犹大对我说。“在战斗前夕，战士不应在弱小如言语之物上浪费时间。伸出手来，我会向你展示力量来源于何处。”",
+	"description": "具名者握住我的手，他的手如灼热的钳子，灼烧着我的血肉。我控制住自己，强忍住喊叫的冲动，并握得更紧。我的双眼始终与老犹大的对视。最后，他放开了我。当我看向我的手时，我发现它毫发无损——连曾受过伤的痕迹都没有——但我的血肉仍记得具名者的教诲。火焰。愤怒。还有力量。",
+	"warmup": 10,
+	"requirements": {
+	    "duel.maccabee": 1
+	},
+	"effects": {
+	    "courage": 1,
+	    "anger": 1,
+	    "strength": 1,
+	    "duel.maccabee": -1
+	},
+	"craftable": true
+    },
+    {
+	"id": "communicate.duel.continental.hint",
+	"actionid": "communicate",
+	"label": "无需多言",
+	"startdescription": "<i>狮鼠之斗</i>的规则禁止决斗者在战斗结束之前有任何形式的交流。故直到我们二人之一让另一人流血之前，我不会对大陆之敌说话，她亦不会对我说话。",
+	"requirements": {
+	    "duel.camilla.proterant": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "communicate.duel.warmaker",
+	"actionid": "communicate",
+	"label": "狮鼠之斗",
+	"startdescription": "大陆之敌站在我的对面，战争制造者与老犹大则站在我们中间。“如狮子匠挑战安泰俄斯，”具名者开始致辞。“亦如亚历山大挑战狮子匠——我们于此见证一次伟大且荣耀的挑战。”而后则是战争制造者致辞：“在斗争之司辰的注视下，以斗争之司辰的传统律法，两位决斗者将战斗，直到有一方流血。首先受伤之人将败北。请决斗者做好准备。预备——”",
+	"description": "“开始！”",
+	"requirements": {
+	    "duel.wilhelm.proterant": 1
+	},
+	"effects": {
+	    "duel.wilhelm.proterant": -1
+	},
+	"craftable": true,
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "duelling.pre.proterant",
+		"additional": true
+	    }
+	],
+	"playAudioTrack": "continentalduel.mp3"
+    },
+    {
+	"id": "duelling.pre.proterant",
+	"actionid": "long.camilla",
+	"label": "决斗开始！",
+	"startdescription": "大陆之敌拔出武器——",
+	"slots": [
+	    {
+		"id": "needscontinental",
+		"label": "大陆之敌",
+		"required": {
+	 	    "duel.camilla.proterant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "duelling.longattack.pre.proterant"
+	    }
+	],
+	"burnimage": "duelling"
+    },
+    {
+	"id": "duelling.longattack.pre.proterant",
+	"label": "我的对手作出攻击！",
+	"internaldeck": {
+	    "spec": [
+		"camilla.attack.a",
+		"camilla.attack.a",
+		"camilla.attack.a",
+		"camilla.attack.b",
+		"camilla.attack.b",
+		"camilla.attack.c",
+		"camilla.attack.c"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "duelling.longattack.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.longattack.proterant",
+	"label": "我的对手作出攻击！",
+	"startdescription": "@#camilla.attack.a|大陆之敌的全身佩戴着各种武器，而她能以严厉的熟练度挥舞它们全部。由小刀，军刀，枪击组成的暴风骤雨般的连击朝我袭来——#camilla.attack.b|在大陆之敌的左手应在之处，是一道几近不可见的长矛形的微光。疾风呼啸。随着一声低哼，她全力将左臂向前一推，一杆带着致命力量的不可见长枪便向我冲来——#camilla.attack.c|大陆之敌将一根带锯齿的铁锥扎入喉头的一道旧伤，而当她之后张开嘴时，无情的寒冬从中涌出——@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "duelling.wounded.proterant"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "duelling.respond.edge.proterant"
+	    },
+	    {
+		"id": "duelling.respond.forge.proterant"
+	    },
+	    {
+		"id": "duelling.respond.edgeforge.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.edge.proterant",
+	"label": "以力敌力",
+	"startdescription": "我能够分别应对大陆之敌的每一击。金戈相击之声在我听来宛如天籁——我甚至感觉我们仿佛在共舞。",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.forge.proterant",
+	"label": "内在之火",
+	"startdescription": "狂怒——我感到一阵无法忍耐的<i>狂怒</i>。我身之内的火焰上涌，自我的皮肤、喉头，还有双眼涌出。我已化作烈焰的心脏。当寒冬触及我时，它就已逝去。",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.respond.edgeforge.proterant",
+	"label": "无敌的勇莽",
+	"startdescription": "那武器并非真实存在，它就如大陆之敌的左手一般虚幻。但它贯穿战舰的装甲和贯穿一张纸一样轻松。而我比那更强。我的血肉并未屈服于我敌手的一击，故我并未受伤。",
+	"requirements": {
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge",
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.opening",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.clear.proterant",
+	"label": "",
+	"effects": {
+	    "decision": -99
+	},
+	"alt": [
+	    {
+		"id": "eject.exhausted",
+		"additional": true,
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.cycle.proterant"
+	    }
+	]
+    },
+    {
+	"id": "eject.exhausted",
+	"actionid": "spit.moth",
+	"label": "枯竭！",
+	"startdescription": "我使用了这些资源以对付我的对手，在我能再次使用它们之前，我需要等待——",
+	"warmup": 10
+    },
+    {
+	"id": "duelling.cycle.proterant",
+	"label": "对抗不朽者",
+	"startdescription": "数秒经过。勉强够我喘口气。我与大陆之敌互相绕着圈移动。",
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "duelling.longattack.pre.proterant",
+		"chance": 30
+	    },
+	    {
+		"id": "duelling.cycle.proterant"
+	    }
+	]
+    },
+    {
+	"id": "duelling.wounded.proterant",
+	"label": "被击倒",
+	"startdescription": "我太慢了！大陆之敌越过了我的守御，钢铁于空中绘出银白的圆弧——",
+	"description": "一开始我还没来得及反应，但疼痛很快随之而来。我右手曾在之处现在仅剩下一截还流着血的新鲜断肢。我握住断臂，双膝着地。“你会活着，”大陆之敌这么说的同时将军刀入鞘。“也可能不会。但你已经输了。让这一次失败教会你什么。”她回头看向正等待着她的战争制造者。“现在，我和我亲爱的敌手还有要事。走吧，去任何你觉得合适的地方寻找你的结局。”而后长生者们各自离去，老犹大也离开了，仅留我一人在此。",
+	"haltverb": {
+	    "operate": 99
+	},
+	"effects": {
+	    "duel.camilla.proterant": -99,
+	    "mark.shame": 1,
+	    "debilitation.hand": 1
+	},
+	"playAudioTrack": "duelend.mp3",
+	"warmup": 30
+    },
+    {
+	"id": "operate.strike.edgelong.pre.proterant",
+	"actionid": "operate",
+	"label": "进行一次几近不可能的攻击？",
+	"startdescription": "我必须在这一击上用上我的全部。任何比这更弱的一击都不足够。\n\n[你需要提供大量的刃以使这场豪赌的胜率不再为0。但你总有概率失败。]",
+	"requirements": {
+	    "long.opening": 3
+	},
+	"extantreqs": {
+	    "duel.camilla.proterant": 1
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.proterant"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.edgelong.proterant",
+	"actionid": "operate",
+	"label": "进行一次几近不可能的攻击？",
+	"startdescription": "我必须在这一击上用上我的全部。任何比这更弱的一击都不足够。\n\n[你需要提供大量的刃以使这场豪赌的胜率不再为0。但你总有概率失败。]",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   },
+	   {
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	   }
+	],
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "operate.strike.edgelong.success.proterant"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.failure"
+	    }
+	]
+    },
+    {
+	"id": "operate.strike.edgelong.success.proterant",
+	"label": "进行一次几近不可能的攻击",
+	"startdescription": "每一秒都如同一年。世界仿佛屏住了呼吸。我的手以命定的精确移动。",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"linked": [
+	    {
+		"id": "operate.strike.edgelong.failure",
+		"chance": 30
+	    },
+	    {
+		"id": "operate.strike.edgelong.success.complete.proterant"
+	    }
+	]
+    },	
+    {
+	"id": "operate.strike.edgelong.failure",
+	"label": "我的攻击未达预期！",
+	"startdescription": "我的一击打在刃之长生者的身上就像子弹打在战舰上。没有任何血流出。",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "long.opening": -2
+	}
+    },
+    {
+	"id": "operate.strike.edgelong.success.complete.proterant",
+	"label": "不朽敌手之血",
+	"startdescription": "我们在与彼此的战斗中拼尽全力。钢铁与钢铁无数次相击。现在，我们同时转身，握紧武器，并同时向对手最后一次冲去——",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "long.opening": -99
+	},
+	"haltverb": {
+	    "long.camilla": 99,
+	    "scandal": 99,
+	    "spit.moth": 99
+	},
+	"purge": {
+	    "long.opening": 99
+	},
+	"linked": [
+	    {
+		"id": "duelwon.mutatewound.proterant"
+	    }
+	],
+	"playAudioTrack": "duelend.mp3"
+    },
+    {
+	"id": "duelwon.mutatewound.proterant",
+	"label": "不朽敌手之血",
+	"startdescription": "我们在与彼此的战斗中拼尽全力。钢铁与钢铁无数次相击。现在，我们同时转身，握紧武器，并同时向对手最后一次冲去——",
+	"description": "那一瞬宛如闪电，短暂而闪耀。钢铁再次相击。而后某人的血肉被撕裂。慢慢地，我们两人都深吸一口气。但当我们转过身面对彼此时，我的武器被染红，而她的则没有。大陆之敌触摸他的身侧，我的攻击就落在那儿，而她的手上沾着鲜血。她颔首。“出色的一击。”",
+	"slots": [
+	    {
+		"id": "needslong",
+		"label": "大陆之敌",
+		"required": {
+		    "duel.camilla.proterant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "duel.camilla.proterant",
+		"mutate": "long_wound",
+		"level": 1
+	    }
+	],
+	"warmup": 30,
+	"achievements": [
+	    "victory.continental"
+	]
+    },
+    {
+	"id": "communicate.camilla.aftervictory",
+	"actionid": "communicate",
+	"label": "鼠胜过狮",
+	"startdescription": "大陆之敌收刀入鞘。“恭喜，”她对我微笑。“我们与斗争之司辰承认你的技巧与决意，你的力量与勇气。”在场外，战争制造者正猛烈鼓掌。老犹大看上去也很想这么做。",
+	"description": "我与我的对手握手，她倾身在我耳边低语：“现在，你已十分接近。一切目光都会集中在你身上。当那时刻到来，狮子匠赐予你他的偏爱时，我祈求你的刚毅足以承受它。”他说这话的温暖语气不像是在威胁——更像是同事之间的承诺。“现在去吧，人之杀手。你的责任每分每秒都在增大。”",
+	"requirements": {
+	    "duel.camilla.proterant": 1,
+	    "long_wound": 1
+	},
+	"effects": {
+	    "duel.camilla.proterant": -99,
+	    "mark.musvashir": 1
+	},
+	"craftable": true,
+	"warmup": 30
+    }
+]
+}

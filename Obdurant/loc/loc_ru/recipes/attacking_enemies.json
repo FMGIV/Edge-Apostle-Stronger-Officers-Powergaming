@@ -1,0 +1,2336 @@
+{
+"recipes": [
+  {
+	"id": "attackenemy.boccastranoguarded.hint",
+	"actionid": "operate",
+	"label": "Старший защищает Младшего",
+	"startdescription": "Этого охраняет другой враг - слишком свирепый и опасный, чтобы его просто игнорировать. Какими бы падшими и чудовищными они ни были, братья, похоже, присматривают друг за другом.",
+	"requirements": {
+	    "uqbrood": 1,
+	    "guarded": 1
+	},
+	"extantreqs": {
+	    "guard": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.guardjerome.hint",
+	"actionid": "operate",
+	"label": "Спланировать атаку на врага?",
+	"startdescription": "Этот враг всё ещё защищен.\n\n[Пока все враги, обладающие аспектом 'Страж: Джером', не будут убиты, вы не сможете атаковать Джерома Александера.]",
+	"requirements": {
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.guardlionel.hint",
+	"actionid": "operate",
+	"label": "Провести атаку на врага?",
+	"startdescription": "Этот враг всё ещё защищен.\n\n[Пока все враги, обладающие аспектом 'Страж: Лионель', не будут убиты, вы не сможете атаковать Лионеля Саксона.]",
+	"requirements": {
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.edge.jerome.overwhelm",
+	"actionid": "operate",
+	"label": "Проведисти ошеломляющую атаку, используя стратегию Насилия",
+	"startdescription": "Столкновение противоположных сил требует решения, и мы сильнее. Давайте посмотрим, как они справятся с этим.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.lionel.overwhelm",
+	"actionid": "operate",
+	"label": "Проведисти ошеломляющую атаку, используя стратегию Насилия",
+	"startdescription": "Столкновение противоположных сил требует решения, и мы сильнее. Давайте посмотрим, как они справятся с этим.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern.jerome.overwhelm",
+	"actionid": "operate",
+	"label": "Провести ошеломляющую атаку, используя двойную стратегию",
+	"startdescription": "Грань и Лампада - близкие по натуре. Давайте посмотрим, как они справятся с этим.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	    "uqjerome": 1,
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgelantern]": 5,
+	    "[lantern]-[needsedgelantern]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock.lionel.overwhelm",
+	"actionid": "operate",
+	"label": "Провести ошеломляющую атаку, используя двойную стратегию",
+	"startdescription": "Грань открывает плоть и рождает Раны. Давайте посмотрим, как они справятся с этим.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeknock]": 5,
+	    "[knock]-[needsedgeknock]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.jerome",
+	"actionid": "operate",
+	"label": "Провести атаку, используя стратегию Насилия",
+	"startdescription": "Слова заканчиваются. Настало время, когда сила сделает свое дело.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.lionel",
+	"actionid": "operate",
+	"label": "Провести атаку, используя стратегию Насилия",
+	"startdescription": "Слова заканчиваются. Настало время, когда сила сделает свое дело.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern.jerome",
+	"actionid": "operate",
+	"label": "Провести атаку, используя двойную стратегию",
+	"startdescription": "Слова заканчиваются. Сила и Свет победят в этот день.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock.lionel",
+	"actionid": "operate",
+	"label": "Провести атаку, используя двойную стратегию",
+	"startdescription": "Слова заканчиваются. Меч и Ключ победят в этот день.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgemoth.overwhelm",
+	"actionid": "operate",
+	"label": "Провести ошеломляющую атаку, используя двойную стратегию",
+	"startdescription": "Уши к земле. Носы к небу. Мы рыщем, как звери, и наносим удары, как звери. Давайте посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgemoth": 1,
+	    "edge": "needsedgemoth",
+	    "moth": "needsedgemoth"
+	},
+	"extantreqs": {
+	    "guard": -1
+	},
+	"grandreqs": { 	    
+	    "[edge]-[needsedgemoth]": 5,
+	    "[moth]-[needsedgemoth]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "clear.bloodlust",
+	"label": "Победа!",
+	"startdescription": "",
+	"requirements": {
+	    "bloodlust": 1,
+	    "battlehunger": -1
+	},
+	"effects": {
+	    "bloodlust": -99
+	}
+    },
+    {
+	"id": "jerome.setupguard",
+	"actionid": "spit.lantern",
+	"label": "Отступление и Покрытие",
+	"startdescription": "'Нет, нет... Не так. Я отказываюсь. Я <i>не</i> умру побеждённым.'",
+	"requirements": {
+	    "monster.wound": -1,
+	    "uqjerome": 1
+	},
+	"slots": [
+	    {
+		"id": "needsking",
+		"label": "Враг",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsking2",
+		"label": "Враг",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "faction.king",
+		"mutate": "foe.guardjerome",
+		"level": 1
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "foe.guardjerome",
+		"level": 0
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "jerome.slain",
+	"label": "Кто Больше Не Видит",
+	"startdescription": "Лицо Джерома побелело от шока. Кажется, он даже не представлял возможность поражения. 'Король - Я был избран. Как? Как вы...' Слова Англичанина замирают в его горле, а затем он падает и тоже умирает, как и его слова.",
+	"requirements": {
+	    "monster.wound": 2,
+	    "uqjerome": 1
+	},
+	"aspects": {
+	    "longded": 1
+	},
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "lionel.retaliate",
+	"actionid": "spit.knock",
+	"label": "Рана, Отплачена",
+	"startdescription": "Лионель пошатывается от удара, но только на мгновение. К его конечностям возвращается инерция. Он высоко поднимает оружие, приближаясь -",
+	"warmup": 15,
+	"requirements": {
+	    "foe.retaliatory": 1
+	},
+	"linked": [
+	    {
+		"id": "givewound.drawagain"
+	    }
+	]
+    },
+    {
+	"id": "lionel.slain",
+	"label": "Освобожден от Службы",
+	"startdescription": "Лионель хватается за бок, на котором с каждой секундой расплывается красное пятно. Его глаза стали Стальными. 'Нарушитель. Ты даже не представляешь, что ты принесешь миру.' Конечно, он ошибается. Но я позволил ему умереть, сохранив его иллюзии в целости и сохранности.",
+	"requirements": {
+	    "monster.wound": 2,
+	    "uqlionel": 1
+	},
+	"aspects": {
+	    "longded": 1
+	},
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "orcul.slain",
+	"label": "Павший Гигант!",
+	"startdescription": "Тело Оркула стонет и кренится, как тонущий военный корабль, из его многочисленных ран сочится кровь. Его конечности подкашиваются. Он падает с громким стуком. И спустя несколько осторожных толчков мы наконец-то констатируем его смерть.",
+	"requirements": {
+	    "monster.wound": 3
+	},
+	"aspects": {
+	    "killfoe": 1
+	},
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "clear.broodscent",
+	"label": "Победа!",
+	"requirements": {
+	    "corpse.boccastrano": 1
+	},
+	"purge": {
+	    "broodscent": 99
+	}
+    },
+    {
+	"id": "startup.clear.malkin",
+	"label": "Победа!",
+	"extantreqs": {
+	    "foe.malkin": 1,
+	    "foe.warder": -1,
+	    "foe.warder.hidden": -1
+	},
+	"alt": [
+	    {
+		"id": "clear.malkin",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "clear.malkin",
+	"actionid": "banishing",
+	"label": "Развеивание Великого Малкина",
+	"startdescription": "Без Клавигаров, которые могли бы стабилизировать его присутствие, этот великий слуга Рогатой-Секиры не может оставаться в нашем мире. Его очертания мерцают, как пламя свечи; его рычание затихает и искажается, как радиопомехи -",
+	"description": "- и оно исчезло. Воздух наполняется запахом боярышника, но не более того.",
+	"extantreqs": {
+	    "foe.malkin": 1
+	},
+	"slots": [
+	    {
+		"id": "needsmalkin",
+		"label": "Великий Малкин",
+		"required": {
+		    "foe.malkin": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "clear.malkin"
+	    }
+	],
+	"effects": {
+	    "foe.malkin": -99,
+	    "foe.malkin.hidden": -99
+	},
+	"warmup": 10
+    },
+    {
+	"id": "defeateddefiant.turnintofriend",
+	"label": "По правилу Могущества",
+	"startdescription": "Истинная свобода не дается, а отнимается. Если у существа не хватает сил взять ее, то он не может быть свободным. Таков закон любой верности и любого предательства.",
+	"requirements": {
+	    "rebelled": 1
+	},
+	"aspects": {
+	    "recruiting": 1,
+	    "fatiguing": 1
+	},
+	"mutations": [
+	    {
+		"filter": "otherworldly",
+		"mutate": "rebelled",
+		"level": -1
+	    },
+	    {
+		"filter": "battlehunger",
+		"mutate": "battlehunger",
+		"level": -1,
+		"additive": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgemoth",
+	"actionid": "operate",
+	"label": "Провести атаку используя двойную стратегию?",
+	"startdescription": "Слова заканчиваются. Страсти и вражда поднимаются в сердце, теперь в руках.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgemoth": 1,
+	    "edge": "needsedgemoth",
+	    "moth": "needsedgemoth"
+	},
+	"extantreqs": {
+	    "guard": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+  {
+	"id": "attackenemy.boccastranoguarded.hint",
+	"actionid": "operate",
+	"label": "Старший защищает Младшего",
+	"startdescription": "Этого охраняет другой враг - слишком свирепый и опасный, чтобы его просто игнорировать. Какими бы падшими и чудовищными они ни были, братья, похоже, присматривают друг за другом.",
+	"requirements": {
+	    "uqbrood": 1,
+	    "guarded": 1
+	},
+	"extantreqs": {
+	    "guard": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.guardjerome.hint",
+	"actionid": "operate",
+	"label": "Спланировать атаку на врага?",
+	"startdescription": "Этот враг всё ещё защищен.\n\n[Пока все враги, обладающие аспектом 'Страж: Джером', не будут убиты, вы не сможете атаковать Джерома Александера.]",
+	"requirements": {
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.guardlionel.hint",
+	"actionid": "operate",
+	"label": "Провести атаку на врага?",
+	"startdescription": "Этот враг всё ещё защищен.\n\n[Пока все враги, обладающие аспектом 'Страж: Лионель', не будут убиты, вы не сможете атаковать Лионеля Саксона.]",
+	"requirements": {
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.edge.jerome.overwhelm",
+	"actionid": "operate",
+	"label": "Проведисти ошеломляющую атаку, используя стратегию Насилия",
+	"startdescription": "Столкновение противоположных сил требует решения, и мы сильнее. Давайте посмотрим, как они справятся с этим.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.lionel.overwhelm",
+	"actionid": "operate",
+	"label": "Проведисти ошеломляющую атаку, используя стратегию Насилия",
+	"startdescription": "Столкновение противоположных сил требует решения, и мы сильнее. Давайте посмотрим, как они справятся с этим.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern.jerome.overwhelm",
+	"actionid": "operate",
+	"label": "Провести ошеломляющую атаку, используя двойную стратегию",
+	"startdescription": "Грань и Лампада - близкие по натуре. Давайте посмотрим, как они справятся с этим.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	    "uqjerome": 1,
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgelantern]": 5,
+	    "[lantern]-[needsedgelantern]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock.lionel.overwhelm",
+	"actionid": "operate",
+	"label": "Провести ошеломляющую атаку, используя двойную стратегию",
+	"startdescription": "Грань открывает плоть и рождает Раны. Давайте посмотрим, как они справятся с этим.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeknock]": 5,
+	    "[knock]-[needsedgeknock]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.jerome",
+	"actionid": "operate",
+	"label": "Провести атаку, используя стратегию Насилия",
+	"startdescription": "Слова заканчиваются. Настало время, когда сила сделает свое дело.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.lionel",
+	"actionid": "operate",
+	"label": "Провести атаку, используя стратегию Насилия",
+	"startdescription": "Слова заканчиваются. Настало время, когда сила сделает свое дело.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern.jerome",
+	"actionid": "operate",
+	"label": "Провести атаку, используя двойную стратегию",
+	"startdescription": "Слова заканчиваются. Сила и Свет победят в этот день.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	    "uqjerome": 1
+	},
+	"extantreqs": {
+	    "foe.guardjerome": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock.lionel",
+	"actionid": "operate",
+	"label": "Провести атаку, используя двойную стратегию",
+	"startdescription": "Слова заканчиваются. Меч и Ключ победят в этот день.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	    "uqlionel": 1
+	},
+	"extantreqs": {
+	    "foe.guardlionel": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgemoth.overwhelm",
+	"actionid": "operate",
+	"label": "Провести ошеломляющую атаку, используя двойную стратегию",
+	"startdescription": "Уши к земле. Носы к небу. Мы рыщем, как звери, и наносим удары, как звери. Давайте посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgemoth": 1,
+	    "edge": "needsedgemoth",
+	    "moth": "needsedgemoth"
+	},
+	"extantreqs": {
+	    "guard": -1
+	},
+	"grandreqs": { 	    
+	    "[edge]-[needsedgemoth]": 5,
+	    "[moth]-[needsedgemoth]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "clear.bloodlust",
+	"label": "Победа!",
+	"startdescription": "",
+	"requirements": {
+	    "bloodlust": 1,
+	    "battlehunger": -1
+	},
+	"effects": {
+	    "bloodlust": -99
+	}
+    },
+    {
+	"id": "jerome.setupguard",
+	"actionid": "spit.lantern",
+	"label": "Отступление и Покрытие",
+	"startdescription": "'Нет, нет... Не так. Я отказываюсь. Я <i>не</i> умру побеждённым.'",
+	"requirements": {
+	    "monster.wound": -1,
+	    "uqjerome": 1
+	},
+	"slots": [
+	    {
+		"id": "needsking",
+		"label": "Враг",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsking2",
+		"label": "Враг",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "faction.king",
+		"mutate": "foe.guardjerome",
+		"level": 1
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "foe.guardjerome",
+		"level": 0
+	    }
+	],
+	"warmup": 15
+    },
+    {
+	"id": "jerome.slain",
+	"label": "Кто Больше Не Видит",
+	"startdescription": "Лицо Джерома побелело от шока. Кажется, он даже не представлял возможность поражения. 'Король - Я был избран. Как? Как вы...' Слова Англичанина замирают в его горле, а затем он падает и тоже умирает, как и его слова.",
+	"requirements": {
+	    "monster.wound": 2,
+	    "uqjerome": 1
+	},
+	"aspects": {
+	    "longded": 1
+	},
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "lionel.retaliate",
+	"actionid": "spit.knock",
+	"label": "Рана, Отплачена",
+	"startdescription": "Лионель пошатывается от удара, но только на мгновение. К его конечностям возвращается инерция. Он высоко поднимает оружие, приближаясь -",
+	"warmup": 15,
+	"requirements": {
+	    "foe.retaliatory": 1
+	},
+	"linked": [
+	    {
+		"id": "givewound.drawagain"
+	    }
+	]
+    },
+    {
+	"id": "lionel.slain",
+	"label": "Освобожден от Службы",
+	"startdescription": "Лионель хватается за бок, на котором с каждой секундой расплывается красное пятно. Его глаза стали Стальными. 'Нарушитель. Ты даже не представляешь, что ты принесешь миру.' Конечно, он ошибается. Но я позволил ему умереть, сохранив его иллюзии в целости и сохранности.",
+	"requirements": {
+	    "monster.wound": 2,
+	    "uqlionel": 1
+	},
+	"aspects": {
+	    "longded": 1
+	},
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "orcul.slain",
+	"label": "Павший Гигант!",
+	"startdescription": "Тело Оркула стонет и кренится, как тонущий военный корабль, из его многочисленных ран сочится кровь. Его конечности подкашиваются. Он падает с громким стуком. И спустя несколько осторожных толчков мы наконец-то констатируем его смерть.",
+	"requirements": {
+	    "monster.wound": 3
+	},
+	"aspects": {
+	    "killfoe": 1
+	},
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "clear.broodscent",
+	"label": "Победа!",
+	"requirements": {
+	    "corpse.boccastrano": 1
+	},
+	"purge": {
+	    "broodscent": 99
+	}
+    },
+    {
+	"id": "startup.clear.malkin",
+	"label": "Победа!",
+	"extantreqs": {
+	    "foe.malkin": 1,
+	    "foe.warder": -1,
+	    "foe.warder.hidden": -1
+	},
+	"alt": [
+	    {
+		"id": "clear.malkin",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "clear.malkin",
+	"actionid": "banishing",
+	"label": "Развеивание Великого Малкина",
+	"startdescription": "Без Клавигаров, которые могли бы стабилизировать его присутствие, этот великий слуга Рогатой-Секиры не может оставаться в нашем мире. Его очертания мерцают, как пламя свечи; его рычание затихает и искажается, как радиопомехи -",
+	"description": "- и оно исчезло. Воздух наполняется запахом боярышника, но не более того.",
+	"extantreqs": {
+	    "foe.malkin": 1
+	},
+	"slots": [
+	    {
+		"id": "needsmalkin",
+		"label": "Великий Малкин",
+		"required": {
+		    "foe.malkin": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "clear.malkin"
+	    }
+	],
+	"effects": {
+	    "foe.malkin": -99,
+	    "foe.malkin.hidden": -99
+	},
+	"warmup": 10
+    },
+    {
+	"id": "defeateddefiant.turnintofriend",
+	"label": "По правилу Могущества",
+	"startdescription": "Истинная свобода не дается, а отнимается. Если у существа не хватает сил взять ее, то он не может быть свободным. Таков закон любой верности и любого предательства.",
+	"requirements": {
+	    "rebelled": 1
+	},
+	"aspects": {
+	    "recruiting": 1,
+	    "fatiguing": 1
+	},
+	"mutations": [
+	    {
+		"filter": "otherworldly",
+		"mutate": "rebelled",
+		"level": -1
+	    },
+	    {
+		"filter": "battlehunger",
+		"mutate": "battlehunger",
+		"level": -1,
+		"additive": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "clear.bloodlust"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgemoth",
+	"actionid": "operate",
+	"label": "Провести атаку используя двойную стратегию?",
+	"startdescription": "Слова заканчиваются. Страсти и вражда поднимаются в сердце, теперь в руках.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgemoth": 1,
+	    "edge": "needsedgemoth",
+	    "moth": "needsedgemoth"
+	},
+	"extantreqs": {
+	    "guard": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.officerdetailstill.hint",
+	"actionid": "operate",
+	"label": "Организовать атаку на вражеского офицера?",
+	"startdescription": "Эта цель все еще защищена.\n\n[Пока все враги, обладающие аспектом офицера, не будут убиты, вы не сможете атаковать вражеского офицера.]",
+	"requirements": {
+	    "foe.officer": 1
+	},
+	"extantreqs": {
+	    "foe.officerdetail": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.hint",
+	"actionid": "operate",
+	"label": "Организовать атаку на врага?",
+	"startdescription": "Враг впереди. Мне понадобится стратегия, а затем ресурсы и рабочая сила для ее реализации.\n\n[Достигните любого из пороговых значений противника, чтобы начать атаку на него. Превысьте пороговое значение по крайней мере на 5 из соответствующего аспекта, и атака будет гарантированно успешной.]",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": -1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.hidden.hint",
+	"actionid": "operate",
+	"label": "Организовать атаку на скрытого врага?",
+	"startdescription": "Бросаться сломя голову на врага, о котором мы ничего не известно - верный путь к катастрофе.\n\n[Атака на скрытого врага раскроет его личность, но также может привести к жертвам.]",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.hidden.useeye",
+	"actionid": "operate",
+	"label": "Использовать мой невидящий глаз, чтобы обнаружить скрытого врага",
+	"startdescription": "Они не спрячутся от меня.",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": 1,
+	    "debilitation.eye.colonel": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"aspects": {
+	    "revealidentity": 1,
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "attackenemy.hidden.useflare",
+	"actionid": "operate",
+	"label": "Использовать сигнальную ракету, чтобы обнаружить скрытого врага",
+	"startdescription": "Это, конечно, не солнце, но для наших целей подойдет. Выявить, затем поразить цель.",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": 1,
+	    "supplies.flares": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"aspects": {
+	    "revealidentity": 1,
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "attackenemy.hidden",
+	"actionid": "operate",
+	"label": "Организовать атаку на скрытого врага",
+	"startdescription": "Вперед, в эту ощетинившуюся тьму. Или мы найдем их, или они найдут нас.",
+	"requirements": {
+	    "foe": 1,
+	    "foe.hidden": 1,
+	    "provisions": 1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.failure",
+		"chance": 70
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.moth.overwhelm",
+	"actionid": "operate",
+	"label": "Провести ошеломляющую атаку, используя непредсказуемую стратегию",
+	"startdescription": "Ловко пробираясь сквозь лесные тени и между полосками луны, мы продолжаем атаку. Посмотрим, выдержат ли они.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"grandreqs": { "[moth]-[needsmoth]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.lantern.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительную атаку, используя безжалостную стратегию",
+	"startdescription": "Мы источаем абсолютную уверенность. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"grandreqs": { "[lantern]-[needslantern]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.forge.overwhelm",
+	"actionid": "operate",
+	"label": "Провести подавляющую атаку, используя оригинальную стратегию",
+	"startdescription": "Мы перестроим врага; мы его уничтожим. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"grandreqs": { "[forge]-[needsforge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.overwhelm",
+	"actionid": "operate",
+	"label": "Провести подавляющую атаку с использованием стратегии насилия",
+	"startdescription": "Сближение сторон требует решительности, и мы решительно сильнее. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "foe.officer": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.officer.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительную атаку, используя стратегию насилия",
+	"startdescription": "Сближение сторон требует решительности, и мы решительно сильнее. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "foe.officer": 1
+	},
+	"extantreqs": {
+	    "foe.officerdetail": -1
+	},
+	"grandreqs": { "[edge]-[needsedge]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.winter.overwhelm",
+	"actionid": "operate",
+	"label": "Провести подавляющую атаку, используя стратегию терпения",
+	"startdescription": "Наше терпение - это убийственно; наше молчание - окончательно. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"grandreqs": { "[winter]-[needswinter]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.undeadwinter"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.heart.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительную атаку, используя безжалостную стратегию",
+	"startdescription": "Вперед, вперед! - барабан плоти заставляет нас шагать в такт. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"grandreqs": { "[heart]-[needsheart]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.grail.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительную атаку, используя алчную стратегию",
+	"startdescription": "Боль и удовольствие всегда окрашено в красный цвет. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"grandreqs": { "[grail]-[needsgrail]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.warriorgrail"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.knock.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительную атаку, используя проникающую стратегию",
+	"startdescription": "Враг поддастся, как дверь перед ключом или как рана перед ножом. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsknock": 1,
+	    "knock": "needsknock"
+	},
+	"grandreqs": { "[knock]-[needsknock]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success.serpentknock"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.aerial.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительное воздушное наступление",
+	"startdescription": "Небо наше. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "foe.aerial": 1,
+	    "friend.aerial": "foe.aerial"
+	},
+	"grandreqs": { "[friend.aerial]-[foe.aerial]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.ap.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительное наступление с использованием специального вооружения",
+	"startdescription": "Грохот наших пушек сотряс землю и расколол горы. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "foe.armoured": 1,
+	    "ap": "foe.armoured"
+	},
+	"grandreqs": { "[ap]-[foe.armoured]": 5 },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.forgemoth.overwhelm",
+	"actionid": "operate",
+	"label": "Организовать подавляющее наступление, используя двойную стратегию",
+	"startdescription": "Кузня и Мотылек - изменение, разрушение, адаптация и им подобное. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsforgemoth": 1,
+	    "forge": "needsforgemoth",
+	    "moth": "needsforgemoth"
+	},
+	"grandreqs": { 
+	    "[forge]-[needsforgemoth]": 5,
+	    "[moth]-[needsforgemoth]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительное наступление, используя двойную стратегию",
+	"startdescription": "Грань и Лампада - родственные души. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern"
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgelantern]": 5,
+	    "[lantern]-[needsedgelantern]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgewinter.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительное наступление, используя двойную стратегию",
+	"startdescription": "Мы несем агонию. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter"
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgewinter]": 5,
+	    "[winter]-[needsedgewinter]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeforge.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительное наступление, используя двойную стратегию",
+	"startdescription": "Жестокое слияние гениальности и силы. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge"
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeforge]": 5,
+	    "[forge]-[needsedgeforge]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.knocklantern.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительное наступление, используя двойную стратегию",
+	"startdescription": "Ключ и свет. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsknocklantern": 1,
+	    "knock": "needsknocklantern",
+	    "lantern": "needsknocklantern"
+	},
+	"grandreqs": { 
+	    "[knock]-[needsknocklantern]": 5,
+	    "[lantern]-[needsknocklantern]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительное наступление, используя двойную стратегию",
+	"startdescription": "Грань вскрывает плоть и открывает Раны. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock"
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeknock]": 5,
+	    "[knock]-[needsedgeknock]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeheart.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительное наступление, используя двойную стратегию",
+	"startdescription": "Даже силы, которые требуют объединения, сами по себе не всегда объединены. Посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart"
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgeheart]": 5,
+	    "[heart]-[needsedgeheart]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.moth",
+	"actionid": "operate",
+	"label": "Провести атаку с использованием непредсказуемой стратегии",
+	"startdescription": "Слова закончились. Настало час, когда обман и скрытность сделают свое дело.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.lantern",
+	"actionid": "operate",
+	"label": "Провести атаку с использованием безжалостной стратегии",
+	"startdescription": "Слова закончились. Настал час, когда тени рассеются.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.forge",
+	"actionid": "operate",
+	"label": "Провести атаку с использованием оригинальной стратегии",
+	"startdescription": "Слова закончились. Время привести машины и пламя на поле боя.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge",
+	"actionid": "operate",
+	"label": "Провести атаку с использованием насильственной стратегии",
+	"startdescription": "Слова закончились. Настал час, когда решение принимается силой.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "foe.officer": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edge.officer",
+	"actionid": "operate",
+	"label": "Провести атаку с использованием насильственной стратегии",
+	"startdescription": "Слова закончились. Настал час, когда решение принимается силой.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge",
+	    "foe.officer": 1
+	},
+	"extantreqs": {
+	    "foe.officerdetail": -1
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.winter",
+	"actionid": "operate",
+	"label": "Провести атаку с использованием стратегии терпения",
+	"startdescription": "Слова закончились. Время подвести итог.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.undeadwinter"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.heart",
+	"actionid": "operate",
+	"label": "Провести атаку с использованием неумолимой стратегии",
+	"startdescription": "Слова закончились. В этот час мы не остановимся.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.grail",
+	"actionid": "operate",
+	"label": "Провести атаку с использованием алчной стратегии",
+	"startdescription": "Слова закончились. В этот час желание берет верх.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.warriorgrail"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.knock",
+	"actionid": "operate",
+	"label": "Провести атаку с использованием стратегии проникновения",
+	"startdescription": "Слова закончились. Теперь путь откроется нам сам.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsknock": 1,
+	    "knock": "needsknock"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success.serpentknock"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.aerial",
+	"actionid": "operate",
+	"label": "Организовать воздушное наступление",
+	"startdescription": "Слова закончились. Теперь небеса содрогнутся от огня.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "foe.aerial": 1,
+	    "friend.aerial": "foe.aerial"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.ap",
+	"actionid": "operate",
+	"label": "Организовать наступление с использованием техники",
+	"startdescription": "Слова закончились. Настало время инструментам доказать свою ценность.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "foe.armoured": 1,
+	    "ap": "foe.armoured"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.forgemoth",
+	"actionid": "operate",
+	"label": "Организовать наступление, используя двойную стратегию",
+	"startdescription": "Слова закончились. Изобретательность и коварство одержат победу.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsforgemoth": 1,
+	    "forge": "needsforgemoth",
+	    "moth": "needsforgemoth"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgelantern",
+	"actionid": "operate",
+	"label": "Организовать наступление, используя двойную стратегию",
+	"startdescription": "Слова закончились. Сила и свет обеспечат превосходство.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgewinter",
+	"actionid": "operate",
+	"label": "Организовать наступление, используя двойную стратегию",
+	"startdescription": "Слова закончились. Боль и терпение станут концом наших врагов.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeforge",
+	"actionid": "operate",
+	"label": "Организовать наступление, используя двойную стратегию",
+	"startdescription": "Слова закончились. Сила и огонь уничтожат наших врагов.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.knocklantern",
+	"actionid": "operate",
+	"label": "Организовать наступление, используя двойную стратегию",
+	"startdescription": "Слова закончились. Ухищрения зачистят и устранят эту проблему.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsknocklantern": 1,
+	    "knock": "needsknocklantern",
+	    "lantern": "needsknocklantern"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeknock",
+	"actionid": "operate",
+	"label": "Организовать наступление, используя двойную стратегию",
+	"startdescription": "Слова закончились. Настал день меча и ключа.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgeheart",
+	"actionid": "operate",
+	"label": "Организовать наступление, используя двойную стратегию",
+	"startdescription": "Слова закончились. Наша сила - неудержима.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.complicate",
+	"label": "Непредвиденная Ситуация!",
+	"startdescription": "Наступление было проведено в точности, но исход сражения по-прежнему остается неопределенным. Хорошо это или плохо, но я мог бы позволить своей стратегии развернуться - или я мог бы объявить об отступлении.\n\n[Вы можете предоставить своего Игрушечного Солдатика, чтобы прервать атаку и спасти всех задействованных союзников. Если вы этого не сделаете, атака продолжится до конца и завершится победой либо союзников, либо врага.]",
+	"requirements": {
+	    "foe.voice": -1,
+	    "foe.ostlingant": -1
+	},
+	"slots": [
+	    {
+		"id": "needsmemento",
+		"label": "Решение?",
+		"required": {
+		    "memento": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.failure",
+		"chance": 40
+	    },
+	    {
+		"id": "attackenemy.success.officer"
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "attackenemy.retreat"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure",
+	"label": "Поражение!",
+	"startdescription": "Наступление сорвано! Раненые поспешно отступают; мертвые остаются там, где пали - оборона врага лучше, чем ожидалось.",
+	"aspects": {
+	    "fatiguing": 1,
+	    "revealidentity": 1
+	},
+	"linked": [
+	    {
+		"id": "attackenemy.failure.growth"
+	    },
+	    {
+		"id": "attackenemy.failure.makecasualty"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure.growth",
+	"label": "Поражение!",
+	"startdescription": "Наступление сорвано! Раненые поспешно отступают; мертвые остаются там, где пали - оборона врага лучше, чем ожидалось.",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"aspects": {
+	    "killfriend": 1,
+	},
+	"linked": [
+	    {
+		"id": "attackenemy.failure.growthcontinue"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure.growthcontinue",
+	"label": "Омерзительное Цветение",
+	"startdescription": "Прикосновение к Коронованному Росту обещает не смерть, но жизнь. Человек быстро учится бояться этого обещания.",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"aspects": {
+	    "growthinfect": 1
+	}
+    },
+    {
+	"id": "attackenemy.failure.makecasualty",
+	"label": "Поражение!",
+	"startdescription": "Наступление сорвано! Раненые поспешно отступают; мертвые остаются там, где пали - оборона врага лучше, чем ожидалось.",
+	"aspects": {
+	    "makecasualty": 1,
+	},
+	"alt": [
+	    {
+		"id": "attackenemy.failure.killfriends",
+		"chance": 30
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure.killfriends",
+	"label": "Сокрушительное Поражение!",
+	"startdescription": "Полный провал - ситуация переросла в катастрофу. Кровь моих товарищей орошает землю.\n\n[Существует небольшой шанс, что неудачная атака приведет к гибели используемых союзников.]",
+	"requirements": {
+	    "friend": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "attackenemy.success",
+	"label": "Победа!",
+	"startdescription": "Враг повержен у наших ног, и прежде чем эта война закончится, мы убедимся, что за ним последуют ещё. Хороший день, но это всего лишь капля в море.",
+	"aspects": {
+	    "killfoe": 1,
+	    "fatiguing": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe.officerdetail",
+		"mutate": "foe.officerdetail",
+		"level": -1
+	    }
+	],
+	"alt": [
+	    {
+		"id": "resilient.survived",
+		"chance": 30
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	]
+    },
+    {
+	"id": "resilient.survived",
+	"label": "Враг Выстоял!",
+	"startdescription": "К нашему разочарованию - цель оказалась слишком проворной или слишком сильной, чтобы быть сбитой этой, в остальном, ловко выполненной атакой.\n\n[Враги, обладающие Стойкостью, иногда могут пережить атаки, которые обычно их убивают.]",
+	"description": "К нашему разочарованию - цель оказалась слишком проворной или слишком сильной, чтобы быть сбитой этой, в остальном, ловко выполненной атакой.\n\n[Враги, обладающие Стойкостью, иногда могут пережить атаки, которые обычно их убивают.]",
+	"requirements": {
+	    "foe.resilient": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "attackenemy.success.warriorgrail",
+	"label": "Победа!",
+	"startdescription": "В своем дегенеративном состоянии аппетиты монстра являются его единственно истинным хозяином. Алые соблазны позволили нам немного насытить его, он будет отвлечен пожиранием того, что мы ему приготовили, вместо нас.",
+	"aspects": {
+	    "dissolution": 1,
+	    "fatiguing": 1
+	},
+	"requirements": {
+	    "foe.warrior": 1,
+	    "grail": 8
+	}
+    },
+    {
+	"id": "attackenemy.success.serpentknock",
+	"label": "Победа!",
+	"startdescription": "Слезы - умеют ли змеи плакать? Что будоражит его память? Окровавленные руки её сестры? Холодное прикосновение её рук? Что бы это ни было, горе змеи сделало её неспособной сражаться. Мы уйдем целыми и невредимыми.",
+	"aspects": {
+	    "dissolution": 1,
+	    "fatiguing": 1
+	},
+	"requirements": {
+	    "foe.serpent": 1,
+	    "knock": 8
+	}
+    },
+    {
+	"id": "attackenemy.success.undeadwinter",
+	"label": "Победа!",
+	"startdescription": "Все закончилось давным-давно, и им пора это знать. Боль сменяется покоем. Усталые, изможденные лица белеют. И вновь воцаряется тишина.",
+	"aspects": {
+	    "dissolution": 1,
+	    "fatiguing": 1
+	},
+	"requirements": {
+	    "foe.undead": 1,
+	    "winter": 8
+	}
+    },
+    {
+	"id": "attackenemy.retreat",
+	"label": "Отступаем!",
+	"startdescription": "Мои ресурсы, мои люди - их не стоит разбазаривать вот так. Я подаю сигнал, и наступление превращается в отступление.",
+	"description": "Дым на горизонте там, где мы пытались и потерпели неудачу. Провал. Живые вернутся избитыми и усталыми, но они вернутся.",
+	"requirements": {
+	    "memento": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.success.officer",
+	"label": "Победа!",
+	"startdescription": "Враг повержен у наших ног, и прежде чем эта война закончится, мы убедимся, что за ним последуют ещё. Хороший день, но это всего лишь капля в море.",
+	"requirements": {
+	    "foe.officer": 1
+	},
+	"aspects": {
+	    "killfoe": 1,
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "weakenenemies.detect",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "weakenenemies.detect",
+	"actionid": "scandal",
+	"label": "Победа!",
+	"startdescription": "Немцы действительно гордятся своей эффективностью. Теперь, когда мы убили одного из их командиров, эта эффективность была поставлена под угрозу.\n\n[У других врагов в текущей зоне пороговые значения будут снижены.]",
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Враг",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "weakened": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "weakenenemies.detect.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "weakenenemies.conclude"
+	    }
+	]
+    },
+    {
+	"id": "weakenenemies.detect.success",
+	"label": "Победа!",
+	"startdescription": "Немцы действительно гордятся своей эффективностью. Теперь, когда мы убили одного из их командиров, эта эффективность была поставлена под угрозу.\n\n[У других врагов в текущей зоне пороговые значения будут снижены.]",
+	"requirements": {
+	    "foe": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe",
+		"mutate": "foe.placeholder",
+		"level": 1
+	    },
+	    {
+		"filter": "foe.placeholder",
+		"mutate": "foe",
+		"level": -1
+	    }
+	],
+	"linked": [
+	    {
+		"id": "weakenenemies.detect"
+	    }
+	]
+    },
+    {
+	"id": "weakenenemies.conclude",
+	"label": "Победа!",
+	"startdescription": "Немцы действительно гордятся своей эффективностью. Теперь, когда мы убили одного из их командиров, эта эффективность была поставлена под угрозу.\n\n[У других врагов в текущей зоне пороговые значения будут снижены.]",
+	"aspects": {
+	    "weaken": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe.placeholder",
+		"mutate": "foe",
+		"level": 0
+	    },
+	    {
+		"filter": "foe",
+		"mutate": "foe.placeholder",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgegrail.overwhelm",
+	"actionid": "operate",
+	"label": "Провести сокрушительное наступление, используя двойную стратегию",
+	"startdescription": "Высшая природа Грааля - это ее Муки, а под Муками боль и удовольствие - близкие товарищи. Давайте посмотрим, как они выдержат это.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail"
+	},
+	"grandreqs": { 
+	    "[edge]-[needsedgegrail]": 5,
+	    "[grail]-[needsedgegrail]": 5,
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.edgegrail",
+	"actionid": "operate",
+	"label": "Провести наступление, используя двойную стратегию",
+	"startdescription": "Слова закончились. Жажда боли растет. Я утолю её.",
+	"requirements": {
+	    "foe": 1,
+	    "provisions": 1,
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail"
+	},
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "attackenemy.complicate",
+		"chance": 30
+	    },
+	    {
+		"id": "attackenemy.success"
+	    }
+	]
+    },
+]
+}

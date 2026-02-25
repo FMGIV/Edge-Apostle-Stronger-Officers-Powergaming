@@ -1,0 +1,608 @@
+{
+"recipes": [
+    {
+	"id": "corrivality.first",
+	"actionid": "corrivality",
+	"label": "The Engine of the World",
+	"effects": {
+	    "corrivality.stalemate": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": -1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.cycle",
+	"actionid": "corrivality",
+	"label": "The Engine of the World",
+	"startdescription": "My friend contends with their Foe elsewhere, but the movements of the Edge-Long are the movements of the war. The consequences of their battles will ripple across the front and beyond.\n\n[The duel between the Exile and the Foe is currently in stalemate. Nothing significant will occur, yet.]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "corrivality.change",
+		"chance": 20
+	    },
+	    {
+		"id": "corrivality.cycle"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.change",
+	"actionid": "corrivality",
+	"label": "The Engine of the World",
+	"extantreqs": {
+	    "duel.wilhelm": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"seasonambitions",
+		"seasonambitions",
+		"seasondespair",
+		"seasondespair"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "corrivality.turnexileadvantage"
+	    },
+	    {
+		"id": "corrivality.turnfoeadvantage"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.turnexileadvantage",
+	"actionid": "corrivality",
+	"label": "The Engine of the World",
+	"requirements": {
+	    "seasonambitions": 1
+	},
+	"aspects": {
+	    "epiphany": 1
+	},
+	"effects": {
+	    "season": -1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle.exile"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.cycle.exile",
+	"actionid": "corrivality",
+	"label": "The Engine of the World",
+	"startdescription": "My friend has the upper hand against their Foe. The tides of war turn in our favour.\n\n[Your forces will be emboldened on the battlefield, and the powers of war may align favourably for you.]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "corrivality.restore.duel"
+	    },
+	    {
+		"id": "corrivality.restore",
+		"chance": 30
+	    },
+	    {
+		"id": "corrivality.cycle.exile"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "exile.pickbuff",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "corrivality.turnfoeadvantage",
+	"actionid": "corrivality",
+	"label": "The Engine of the World",
+	"requirements": {
+	    "seasondespair": 1
+	},
+	"aspects": {
+	    "depiphany": 1
+	},
+	"effects": {
+	    "season": -1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle.foe"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.cycle.foe",
+	"actionid": "corrivality",
+	"label": "The Engine of the World",
+	"startdescription": "The Foe has my friend at a disadvantage. The red tides of war turn against us.\n\n[Your forces will encounter stronger, more numerous enemies, and the powers of war may bring other misfortunes upon you.]",
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "corrivality.restore.duel"
+	    },
+	    {
+		"id": "corrivality.restore",
+		"chance": 30
+	    },
+	    {
+		"id": "corrivality.cycle.foe"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "foe.pickdebuff",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "corrivality.restore",
+	"actionid": "corrivality",
+	"label": "The Engine of the World",
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle"
+	    }
+	]
+    },
+    {
+	"id": "corrivality.restore.duel",
+	"actionid": "corrivality",
+	"label": "The Engine of the World",
+	"extantreqs": {
+	    "duel.wilhelm": 1
+	},
+	"aspects": {
+	    "depiphany": 1
+	},
+	"linked": [
+	    {
+		"id": "corrivality.cycle"
+	    }
+	]
+    },
+    {
+	"id": "exile.pickbuff",
+	"actionid": "exilebuff",
+	"label": "The Corrivality Giveth",
+	"startdescription": "Like ripples in a pond, the struggles of the Exile and their Foe spread outwards across the warring continents, bringing consequence and calamity to all those who fight. The Exile has their Foe on the back foot, now - as their strength waxes, so too will mine.",
+	"extantreqs": {
+	    "duel.wilhelm": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.exile.influence",
+		"draw.exile.banishhindrance",
+		"draw.exile.banishtrauma",
+		"draw.exile.weakenenemy"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "exile.begin.banishhindrance"
+	    },
+	    {
+		"id": "exile.begin.banishtrauma"
+	    },
+	    {
+		"id": "exile.begin.influence.proterant"
+	    },
+	    {
+		"id": "exile.begin.influence"
+	    },
+	    {
+		"id": "exile.begin.weakenenemy"
+	    },
+	    {
+		"id": "exile.pickbuff.clear"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "exile.pickbuff.clear",
+	"label": "The Corrivality Giveth",
+	"effects": {
+	    "draw.exile.influence": -99,
+	    "draw.exile.banishhindrance": -99,
+	    "draw.exile.banishtrauma": -99,
+	    "draw.exile.weakenenemy": -99
+	},
+	"linked": [
+	    {
+		"id": "exile.pickbuff.again"
+	    }
+	]
+    },
+    {
+	"id": "exile.pickbuff.again",
+	"actionid": "exilebuff",
+	"label": "The Corrivality Giveth",
+	"startdescription": "Like ripples in a pond, the struggles of the Exile and their Foe spread outwards across the warring continents, bringing consequence and calamity to all those who fight. The Exile has their Foe on the back foot, now - as their strength waxes, so too will mine.",
+	"internaldeck": {
+	    "spec": [
+		"draw.exile.influence",
+		"draw.exile.banishhindrance",
+		"draw.exile.banishtrauma",
+		"draw.exile.weakenenemy"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "exile.begin.banishhindrance"
+	    },
+	    {
+		"id": "exile.begin.banishtrauma"
+	    },
+	    {
+		"id": "exile.begin.influence.proterant"
+	    },
+	    {
+		"id": "exile.begin.influence"
+	    },
+	    {
+		"id": "exile.begin.weakenenemy"
+	    },
+	    {
+		"id": "exile.pickbuff.clear"
+	    }
+	]
+    },
+    {
+	"id": "exile.begin.banishhindrance",
+	"label": "The Way is Clear",
+	"startdescription": "Inclement weather, treacherous terrain, and malign powers can make our operations here more difficult. Today, however, one such matter will be resolved -",
+	"description": "The clouds part. Sunlight.",
+	"requirements": {
+	    "draw.exile.banishhindrance": 1
+	},
+	"tablereqs": {
+	    "hindrance": 1
+	},
+	"slots": [
+	    {
+		"id": "needshindrance",
+		"label": "Hindrance",
+		"required": {
+		    "hindrance": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "hindrance": -99
+	},
+	"warmup": 10
+    },
+    {
+	"id": "exile.begin.banishtrauma",
+	"label": "The Resurgent Soul",
+	"startdescription": "What doubts have I harbored? What fears have I permitted past my walls? If my soul is shadowed with regret, let this moment bring the sharpness of clarity.",
+	"description": "Regret is a weakness.",
+	"requirements": {
+	    "draw.exile.banishtrauma": 1
+	},
+	"tablereqs": {
+	    "trauma": 1
+	},
+	"slots": [
+	    {
+		"id": "needstrauma",
+		"label": "Trauma",
+		"required": {
+		    "trauma": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "trauma": -99
+	},
+	"warmup": 10
+    },
+    {
+	"id": "exile.begin.influence",
+	"label": "The Alignments of War",
+	"startdescription": "The hinges of the Corrivality lock and turn in favourable alignment. Palpable power bleeds through the skin of the world - something I can use.",
+	"description": "From within me are drawn the secret strengths and secret resolutions. These are the weapons of the interior.",
+	"requirements": {
+	    "draw.exile.influence": 1
+	},
+	"extantreqs": {
+	    "obdurant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"cunning",
+		"patience",
+		"wisdom"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    },
+    {
+	"id": "exile.begin.influence.proterant",
+	"label": "The Alignments of War",
+	"startdescription": "The hinges of the Corrivality lock and turn in favourable alignment. Palpable power bleeds through the skin of the world - something I can use.",
+	"description": "From within me are drawn the secret strengths and secret resolutions. These are the weapons of the interior.",
+	"requirements": {
+	    "draw.exile.influence": 1
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"strength",
+		"anger",
+		"courage"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 10
+    },
+    {
+	"id": "exile.begin.weakenenemy",
+	"label": "A Faltering Enemy",
+	"startdescription": "The Foe is hard-pressed by the Exile; as he falters, our enemy will, too.",
+	"description": "Now they are defeated even before we have engaged them.",
+	"requirements": {
+	    "draw.exile.weakenenemy": 1
+	},
+	"tablereqs": {
+	    "foe": 1
+	},
+	"slots": [
+	    {
+		"id": "needsfoe",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "weakened": 1,
+		    "foe.rankofficer": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "weaken": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "foe.pickdebuff",
+	"actionid": "foedebuff",
+	"label": "The Corrivality Taketh",
+	"startdescription": "Like ripples in a pond, the struggles of the Exile and their Foe spread outwards across the warring continents, bringing consequence and calamity to all those who fight. The Foe is decisively on the offensive - our hardship will increase.",
+	"extantreqs": {
+	    "duel.wilhelm": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.foe.enemy",
+		"draw.foe.hindrance",
+		"draw.foe.exhaust",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "foe.begin.enemy"
+	    },
+	    {
+		"id": "foe.begin.hindrance.obdurant"
+	    },
+	    {
+		"id": "foe.begin.hindrance.proterant"
+	    },
+	    {
+		"id": "foe.begin.exhaust"
+	    },
+	    {
+		"id": "foe.pickdebuff.clear"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "foe.pickdebuff.clear",
+	"label": "The Corrivality Taketh",
+	"effects": {
+	    "draw.foe.enemy": -99,
+	    "draw.foe.hindrance": -99,
+	    "draw.foe.exhaust": -99
+	},
+	"linked": [
+	    {
+		"id": "foe.pickdebuff.again"
+	    }
+	]
+    },
+    {
+	"id": "foe.pickdebuff.again",
+	"actionid": "foedebuff",
+	"label": "The Corrivality Taketh",
+	"startdescription": "Like ripples in a pond, the struggles of the Exile and their Foe spread outwards across the warring continents, bringing consequence and calamity to all those who fight. The Foe is decisively on the offensive - our hardship will increase.",
+	"internaldeck": {
+	    "spec": [
+		"draw.foe.enemy",
+		"draw.foe.hindrance",
+		"draw.foe.exhaust"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "foe.begin.enemy"
+	    },
+	    {
+		"id": "foe.begin.hindrance.obdurant"
+	    },
+	    {
+		"id": "foe.begin.hindrance.proterant"
+	    },
+	    {
+		"id": "foe.begin.exhaust"
+	    },
+	    {
+		"id": "foe.pickdebuff.clear"
+	    }
+	],
+    },
+    {
+	"id": "foe.begin.enemy",
+	"label": "The Enemy Gathers",
+	"startdescription": "The turns of the Corrivality move in counter-motion to victory. The winds of war carry more adversaries to us.",
+	"description": "And our enmity endures.",
+	"requirements": {
+	    "draw.foe.enemy": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.first.enemy.obdurant"
+	    },
+	    {
+		"id": "foe.first.enemy.proterant"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "foe.first.enemy.obdurant",
+	"label": "The Enemy Gathers",
+	"startdescription": "The turns of the Corrivality move in counter-motion to victory. The winds of war carry more adversaries to us.",
+	"description": "And our enmity endures.",
+	"requirements": {
+	    "foe": -3
+	},
+	"extantreqs": {
+	    "obdurant.story": 1
+	},
+	"deckeffects": {
+	    "enemies.occult.obdurant": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.first.enemy.obdurant",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "foe.first.enemy.proterant",
+	"label": "The Enemy Gathers",
+	"startdescription": "The turns of the Corrivality move in counter-motion to victory. The winds of war carry more adversaries to us.",
+	"description": "And our enmity endures.",
+	"requirements": {
+	    "foe": -3
+	},
+	"extantreqs": {
+	    "proterant.story": 1,
+	    "craterfield.here": -1
+	},
+	"deckeffects": {
+	    "enemies.occult.proterant": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.first.enemy.proterant",
+		"chance": 60
+	    }
+	]
+    },
+    {
+	"id": "foe.begin.hindrance.obdurant",
+	"label": "Circumstances Adversarial",
+	"startdescription": "Circumstances can heel-turn in an instant; fortunes can reverse in the blink of an eye. The battlefield, like the sea, is distemperate and wild -",
+	"description": "- and just now, the battlefield has become a wilder place.",
+	"requirements": {
+	    "draw.foe.hindrance": 1
+	},
+	"extantreqs": {
+	    "obdurant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.obdurant": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "foe.begin.hindrance.proterant",
+	"label": "Circumstances Adversarial",
+	"startdescription": "Circumstances can heel-turn in an instant; fortunes can reverse in the blink of an eye. The battlefield, like the sea, is distemperate and wild -",
+	"description": "- and just now, the battlefield has become a wilder place.",
+	"requirements": {
+	    "draw.foe.hindrance": 1
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"deckeffects": {
+	    "hindrances.heavy.proterant": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "foe.begin.exhaust",
+	"label": "Fatigue and Failure",
+	"startdescription": "The Foe's strength waxes, and ours wanes in turn. Men slow down and lose spirit; weapons jam and fail; even I might feel the press of some great burden on my bones, and falter.",
+	"description": "No-one ever said war would be easy.",
+	"requirements": {
+	    "draw.foe.exhaust": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Exhaustion",
+		"required": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "lore": 1,
+		    "loc.hospital": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "remnant": 1,
+		    "lesson": 1,
+		    "constructions.a": 1,
+		    "constructions.b": 1,
+		    "constructions.c": 1,		
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 10
+    }
+]
+}

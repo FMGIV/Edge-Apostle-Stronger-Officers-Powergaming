@@ -1,0 +1,4251 @@
+{
+"recipes": [
+    {
+	"id": "detectadditional.afraid",
+	"label": "多变的战场？",
+	"startdescription": "恶劣的天气，巡逻的敌军，帷幕之后的事物——战况的变化只需要一瞬间。\n\n[在目标本身的每一个阻碍之前都会检查一次场上是否存在其他敌军或障碍。若存在，则随机一个敌军或障碍将会变为目标的一个新阻碍。]",
+	"requirements": {
+	    "main": 1
+	},
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "难题？",
+		"required": {
+		    "hindrance": 1
+		},
+		"forbidden": {
+		    "foe.rankofficer": 1,
+		    "uqbrood": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "detectadditional.success.foe"
+	    },
+	    {
+		"id": "detectadditional.success.hindrance"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional.side.afraid",
+	"label": "多变的战场？",
+	"startdescription": "恶劣的天气，巡逻的敌军，帷幕之后的事物——战况的变化只需要一瞬间。\n\n[在目标本身的每一个阻碍之前都会检查一次场上是否存在其他敌军或障碍。若存在，则随机一个敌军或障碍将会变为目标的一个新阻碍。]",
+	"requirements": {
+	    "side": 1
+	},
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Complications?",
+		"required": {
+		    "hindrance": 1
+		},
+		"forbidden": {
+		    "foe.rankofficer": 1,
+		    "uqbrood": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "detectadditional.success.foe"
+	    },
+	    {
+		"id": "detectadditional.success.hindrance"
+	    }
+	]
+    },
+    {
+	"id": "encounteradditional",
+	"label": "逆境",
+	"startdescription": "@#foe.campguard|我清楚地记得他们，记得他们是如何打断我们的肋骨，用枪指着我们，看着我们如挨打的狗一般呜咽而发笑。这些人只听得见上级命令。#foe.watchdog|<i>德国牧羊犬</i>。这些野兽在帝国内很流行，因为它们与狼十分相似。而这些野兽在索比堡也很流行，因为它们可以迅速地把人撕成碎片，供军官观赏取乐。#foe.searchlight|他们说“仁慈仅在影中觅得”。这道来自上方的光则让我以亲身经历理解了这句话。foe.starvation|有时，当我挨饿，我会梦见那红色的杯子，并听它嘲笑我。#foe.cold|有时，天气冷到了大脑自我欺骗，认为外面很温暖的程度。但我们都知道在索比堡只有一个季节，那便是冬季。#foe.grame|若碎狼是灵魂的绝望超出灵魂光芒之具现，戕狼是吞噬灵魂的痛苦之具现，那么忿狼便是未得复仇者与未得回应者那满溢溃烂的怒火的具现。想必我身上也寄宿着不少。#foe.shade|你不累吗？过来，过来。与我们一同行于这无日无月，无苦无悲，无此无彼的道路上吧。过来吧，然后便无需再承受。#hindrance.exilevoice|奢华如酒，寒冷如冬，凋亡如骨。这笑声过于残酷，宛如一把插入肋间，搅动脏腑的尖刀。没有哪种声音能令我更恐惧。#hindrance.exiletouch|击打，灼烧，指甲被拔出，皮肤被剥下。流亡者曾对我施以更甚于此的苦痛，而他施以苦痛时带着愉悦。#hindrance.exiledesign|流亡者每晚都诗意地对我描述其想让我成为的样子，夜复一夜。一切施以我身的痛苦与嗫于我耳的秘密都会磨砺我，把我变成更加可怖的什么。我恐惧着——恐惧着成为流亡者最完美也最可怖的器具。但我真的该恐惧吗？#aggro.bombers|近几年，俄国的飞机在天上飞可是一道罕见的风景——<i>德国空军</i>在战争伊始便折去了苏联的双翼——但各处都还有一些红鸟仍在天空飞翔。#aggro.artillery|当红军需要完全、彻底地消灭一个目标时，记得别站在火炮打击区里。#aggro.tanks|苏联以迅猛之势量产这些战争机器。或许数个月的高强度服役便足以报废一台，但毫无疑问其备品早已在送来前线的途中。#aggro.godbuilder|一支由修习盗火术的政委——“造神者”——们组成的小队领导着这支步兵分队。他们在麾下战士们的武器与血肉中燃起辉煌的火焰。#aggro.infantry|苏联的步兵：衣薄受冻，武备落后，注定死亡。他们不过是即将摧毁东线防御，淹没帝国城市的大浪中的一滴水。#aggro.sniper|一个俄国神射手正在侧翼待命，并冷静地预测着他的下一个目标。#aggro.scouts|哨卫与探路者，俄国军队的前锋部队，引领苏联的反推进前往柏林。#foe.wrake|有些痛苦过于强烈，以至于这些痛苦比身受痛苦之人存在得更久——而这失去容器的移动酷刑正急于寻求新的居所。你不会希望这居所是你的。#foe.cross|当我们从介壳种手中夺走世界时，它们选择了逃离。事到如今它们又为何返回？#hindrance.colonel|今天，上校目盲的双眼审视战场。这份力量只是他敌意暂存于此的一丝余寒，但这已经足以将惨叫冻结在喉头，并使最为自信的战士在恐惧中沉默。#foe.skaptodon|潜地的巨兽，其爪牙分开石头有如划开水一样轻松。当一只剑齿兽来到地面之上时，它总会分开一些别的什么，比如说人，或坦克，或任何在战斗中遇见剑齿兽的不幸家伙。#foe.echidniform.airborne|诱惑是荣誉的大敌。屈服于丽姬亚厄客德娜的诱惑的狮子匠的战士失去了荣誉，但它们会经历极大的变化。在变化中，它们将获得新的思想，新的力量，并且最重要的，新的饥渴。#foe.echidniform.grounded|诱惑是荣誉的大敌。屈服于丽姬亚厄客德娜的诱惑的狮子匠的战士失去了荣誉，但它们会经历极大的变化。在变化中，它们将获得新的思想，新的力量，并且最重要的，新的饥渴。#foe.hesukhine|此种怪物安静且有耐心到不寻常的地步，或许可以以“害羞”形容。匿形兽是狮子匠的子嗣中最为敏锐狡猾的一种。在狩猎时，匿形兽的行动准则是不被发现——确切的说，不被发现，直到无济于事之时。#foe.spathiurus|这些生物在研究怪物之人之间的俗称是“击剑狮子”。但不要想着与它们击剑——它们尾部末端的刃状附属物可以轻松穿刺一切钢铁或石头。当然，穿刺肉体则更加容易。#foe.malkin|猫与枭均是双角斧的圣兽。当猫得到了枭的智慧——当它的毛皮发灰，利爪变长，寿命则变得更长——据说那只猫就变成了一只灵猫。这只巨型灵猫仅仅勉强存在于我们的世界，因此我们无法触及它。但它必定能够触及我们。#foe.warder|门关军团的高级军官；守护此世与漫宿的边界之人。他们所有人均声称伐诃语为其母语；他们所有人都熟知哪个词汇许可通行，而哪个词汇禁止通行。#foe.boundsmen|门关军团的拟人士兵。它们被训练直立行走和以人类语言说话，但它们无法完全压抑其本质。有时它们会忘记眨眼。有时它们会食用死人之躯。#foe.phlogisticant|自从其被从玻璃与钢铁制成的牢笼中释放后，这团恶意的火花便贪婪地吞噬着一切其所能触碰之物。如此猛烈的燃烧无法持续太久——但我不认为它会在乎。#foe.engine|它看上去像某种固定炮台，尽管它的部分结构似乎过于复杂：玻璃圆筒，卷曲钢条，运输火焰的颤动管道。但那火力何等强大！每当这台机械开火命中其目标，大地将变作玻璃，血肉将化为光辉。别的不谈，新王的玩具至少令人印象深刻。#foe.riflemen|那岛上新王的仆从。没什么特别的，除了他们似乎比你手下的一般士兵更加训练有素一些之外。#foe.chasseur|大部分士兵在他们被杀死时选择放弃战斗。而这些士兵则并未如此选择。#hindrance.snows|寒霜阻挡前进。机械或会失效，而人则有可能冻死。#hindrance.storms|闪电从云中降下，雷声紧随其后。雨声如炮火声般响亮。#hindrance.fog|视野与机动力均受限。强行军很容易陷入伏击，或是将悬崖错判为道路。#hindrance.forest|成群的树在昏暗的森林中矗立不动。前方没有简单的道路。#hindrance.fortifications|地雷阵，铁蒺藜，钢铁路障。我们需要拆解这些防御，或寻得一条能够安全通过的道路。#hindrance.crags|石块与弹坑遍布地面。洞察与谨慎能够使我们安全通过；火焰与机敏则使我们得以在这废墟中清出一条道路。#hindrance.earthquake|大地并未死去，它只是在沉眠。#hindrance.nocturnal|精神的阴影，灵魂的疾病，一团固化的黑暗。#hindrance.apollonian|这是那种能够涤净灵魂的光芒。过来，看着它，过来，看着它——#hindrance.dionysian|在世界下方的森林内生长的野生废料，绿色疾病——林地！林地！林地！#hindrance.lionsmith|今天，狮子匠自傲的目光审视战场。这份力量只是他敌意暂存于此的一丝余威，但这已经足以在血肉中点燃火焰，并将最为勇猛的战士驱离战场。#hindrance.wolf|裂分之狼行于此处。正如同尸骸的恶臭会在其被移走之后残留，裂分之狼的憎恶在他离去之后留存于此。但即便只是狼之憎恶的一份回响，其力量也足以毁灭凡人。#hindrance.worms|此处的世界的表皮已腐烂至无。有东西自这伤口中爬出。#hindrance.unknownlocation|我们的目的地就在附近某处，但“附近”可是一个相当宽泛的描述。我们需要缩小搜查范围。#hindrance.door|一扇厚重的钢门拦住了前路。令人欣慰的是，这扇门是如此的寻常。#hindrance.wreckage|前进的道路被倒塌的建筑与碎石阻挡。我们可以选择使用合适的工具炸开障碍物，或是费力地使用我们的双手进行清理。#hindrance.secretdoor|此处看不见任何出口，或许出口本身就不存在。辨明此事需要一双锐利的眼睛。#hindrance.moonspace|在那奇异的月光之下，上有时会变为下，而前进不一定向前。弧月正给我们带来麻烦。#hindrance.greatseal|令人眼花缭乱的，不可变魔法的集合阻挡了我们的进入。我们同时需要大量的拆解之力与净化之力才能清理道路。#foe.infantry|人数亦是武器。#foe.kommando|接受强调侵略性与敌后机动力的战术训练，精通游击与伏击战术的可怕部队。#foe.sniper|一个居于有利位置的，经验丰富的神射手可抵御百倍之敌。寂静或鬼祟之人或许能够接近其而不被发现。#foe.tanks|一辆德军坦克是一台可怕的机器。正面与其战斗需要莫大的直接火力，但是特制的弹药能够使我们回避一场残酷的战斗。#foe.bombers|先是旋翼的沉闷响声，再是下坠时的漫长尖啸，最后是置身于新生火焰中的人们的惨叫。#foe.artillery|一门被德军工程师与巡逻队看守着的重型火炮。以蛮力袭击或许会管用——我们可以猛攻那个位置闭关摧毁火炮。或是进行一次破坏，留给那些工程师们一份十分响亮且有力的惊喜。#foe.manhunters|一支由致命技艺的学徒率领的步兵分队。面对这些人单纯的力量是不足的——我们必须以我们自己的技艺来抗衡他们带上战场的技艺。#foe.undead|并非所有亡者都得以见证战争的结束。我们可以使用力量与兵器强行放逐他们，但冬之秘密使我们能够给予它们安息。#foe.warrior|狮子匠的怪兽受一些特定的荣誉约束。若一只怪兽吞食了并非由其杀死之敌，它就使自己蒙受耻辱，而狮子匠则会废除其力量与智慧。这只怪兽曾变得过于贪婪，而衰退之痛已使其变得近乎疯狂，但即便已处于临终挣扎中，它仍会是一个棘手之敌。#foe.serpent|一条巨大的蛇，前来战场饱餐死者。其压倒性的力量与致命的毒液或许可以战胜，但启提供了一种安抚它的方式。#foe.growth|被一股来自虚界的力量触碰的尸骸，作为行于此世的萌芽疫病重生。使用火，或光，将其清除。#foe.labhite.grounded|狮子匠最为年轻，也是最为美丽的造物们。狻猊在腾飞时尤为凶猛，但这不意味着行于地面的狻猊就能轻松对付。其力量与怪兽之名相称，且其身躯因莫大的热力而发光。#foe.labhite.airborne|狮子匠最为年轻，也是最为美丽的造物们。狻猊在腾飞时尤为凶猛，以其灼热的吐息与锐利的趾爪歼灭那些不幸引来其怒火之人。#foe.splinter|瘦灰恶兽的一个正在巡猎的碎片。我们使用的武器伤不了它，但使用足够的光辉之力或存续之力，我们能将它呜咽着送回林地。#foe.niniame|不得见之湖的女守护兽，亦是守剑人的长姐。守剑人以极大的代价在巨蛇之母要求她死去时将她带走。她不总是具有尖牙，她也不总是具有坚鳞与利爪——但她仍珍视她的幼妹。#foe.ostlingant|鸟形司辰们的次要仆从，又被称为“携带秘密者”与“欺骗艺人者”。它们并不在阳光下飞翔——实际上，它们不在醒时世界飞翔——它们的乐声也并非凡人所能聆听。#foe.voice|“往回走吧，往回走吧……”@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "反应？",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "encounteradditional.lucky",
+		"chance": 30
+	    },
+	    {
+		"id": "encounteradditional.failure.nonlethal"
+	    },
+	    {
+		"id": "encounteradditional.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "respondadditional.aerial"
+	    },
+	    {
+		"id": "respondadditional.ap"
+	    },
+	    {
+		"id": "respondadditional.edge"
+	    },
+	    {
+		"id": "respondadditional.winter"
+	    },
+	    {
+		"id": "respondadditional.heart"
+	    },
+	    {
+		"id": "respondadditional.grail"
+	    },
+	    {
+		"id": "respondadditional.moth"
+	    },
+	    {
+		"id": "respondadditional.lantern"
+	    },
+	    {
+		"id": "respondadditional.forge"
+	    },
+	    {
+		"id": "respondadditional.knock"
+	    },
+	    {
+		"id": "respondadditional.forgemoth"
+	    },
+	    {
+		"id": "respondadditional.edgelantern"
+	    },
+	    {
+		"id": "respondadditional.edgewinter"
+	    },
+	    {
+		"id": "respondadditional.edgeforge"
+	    },
+	    {
+		"id": "respondadditional.knocklantern"
+	    },
+	    {
+		"id": "respondadditional.forgeheart"
+	    },
+	    {
+		"id": "respondadditional.winterlantern"
+	    },
+	    {
+		"id": "respondadditional.edgeknock"
+	    },
+	    {
+		"id": "respondadditional.edgeheart"
+	    },
+	    {
+		"id": "respondadditional.edgegrail"
+	    },
+	    {
+		"id": "respondadditional.winterheart"
+	    },
+	    {
+		"id": "respondadditional.lanternheart"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "encounternative",
+	"label": "Adversity",
+	"startdescription": "@#hindrance.robigo|<i>谁在那里？拉孔贝吗？还是李？不管是谁，请帮帮我。呼吸正变得困难……这里好黑。好黑。</i>#hindrance.colonel|今天，上校目盲的双眼审视战场。这份力量只是他敌意暂存于此的一丝余寒，但这已经足以将惨叫冻结在喉头，并使最为自信的战士在恐惧中沉默。#foe.skaptodon|潜地的巨兽，其爪牙分开石头有如划开水一样轻松。当一只剑齿兽来到地面之上时，它总会分开一些别的什么，比如说人，或坦克，或任何在战斗中遇见剑齿兽的不幸家伙。#foe.echidniform.airborne|诱惑是荣誉的大敌。屈服于丽姬亚厄客德娜的诱惑的狮子匠的战士失去了荣誉，但它们会经历极大的变化。在变化中，它们将获得新的思想，新的力量，并且最重要的，新的饥渴。#foe.echidniform.grounded|诱惑是荣誉的大敌。屈服于丽姬亚厄客德娜的诱惑的狮子匠的战士失去了荣誉，但它们会经历极大的变化。在变化中，它们将获得新的思想，新的力量，并且最重要的，新的饥渴。#foe.hesukhine|此种怪物安静且有耐心到不寻常的地步，或许可以以“害羞”形容。匿形兽是狮子匠的子嗣中最为敏锐狡猾的一种。在狩猎时，匿形兽的行动准则是不被发现——确切的说，不被发现，直到无济于事之时。#foe.spathiurus|这些生物在研究怪物之人之间的俗称是“击剑狮子”。但不要想着与它们击剑——它们尾部末端的刃状附属物可以轻松穿刺一切钢铁或石头。当然，穿刺肉体则更加容易。#foe.malkin|猫与枭均是双角斧的圣兽。当猫得到了枭的智慧——当它的毛皮发灰，利爪变长，寿命则变得更长——据说那只猫就变成了一只灵猫。这只巨型灵猫仅仅勉强存在于我们的世界，因此我们无法触及它。但它必定能够触及我们。#foe.warder|门关军团的高级军官；守护此世与漫宿的边界之人。他们所有人均声称伐诃语为其母语；他们所有人都熟知哪个词汇许可通行，而哪个词汇禁止通行。#foe.boundsmen|门关军团的拟人士兵。它们被训练直立行走和以人类语言说话，但它们无法完全压抑其本质。有时它们会忘记眨眼。有时它们会食用死人之躯。#foe.phlogisticant|自从其被从玻璃与钢铁制成的牢笼中释放后，这团恶意的火花便贪婪地吞噬着一切其所能触碰之物。如此猛烈的燃烧无法持续太久——但我不认为它会在乎。#foe.engine|它看上去像某种固定炮台，尽管它的部分结构似乎过于复杂：玻璃圆筒，卷曲钢条，运输火焰的颤动管道。但那火力何等强大！每当这台机械开火命中其目标，大地将变作玻璃，血肉将化为光辉。别的不谈，新王的玩具至少令人印象深刻。#foe.riflemen|那岛上新王的仆从。没什么特别的，除了他们似乎比你手下的一般士兵更加训练有素一些之外。#foe.chasseur|大部分士兵在他们被杀死时选择放弃战斗。而这些士兵则并未如此选择。#hindrance.snows|寒霜阻挡前进。机械或会失效，而人则有可能冻死。#hindrance.storms|闪电从云中降下，雷声紧随其后。雨声如炮火声般响亮。#hindrance.fog|视野与机动力均受限。强行军很容易陷入伏击，或是将悬崖错判为道路。#hindrance.forest|成群的树在昏暗的森林中矗立不动。前方没有简单的道路。#hindrance.fortifications|地雷阵，铁蒺藜，钢铁路障。我们需要拆解这些防御，或寻得一条能够安全通过的道路。#hindrance.crags|石块与弹坑遍布地面。洞察与谨慎能够使我们安全通过；火焰与机敏则使我们得以在这废墟中清出一条道路。#hindrance.earthquake|大地并未死去，它只是在沉眠。#hindrance.nocturnal|精神的阴影，灵魂的疾病，一团固化的黑暗。#hindrance.apollonian|这是那种能够涤净灵魂的光芒。过来，看着它，过来，看着它——#hindrance.dionysian|在世界下方的森林内生长的野生废料，绿色疾病——林地！林地！林地！#hindrance.lionsmith|今天，狮子匠自傲的目光审视战场。这份力量只是他敌意暂存于此的一丝余威，但这已经足以在血肉中点燃火焰，并将最为勇猛的战士驱离战场。#hindrance.wolf|裂分之狼行于此处。正如同尸骸的恶臭会在其被移走之后残留，裂分之狼的憎恶在他离去之后留存于此。但即便只是狼之憎恶的一份回响，其力量也足以毁灭凡人。#hindrance.worms|此处的世界的表皮已腐烂至无。有东西自这伤口中爬出。#hindrance.unknownlocation|我们的目的地就在附近某处，但“附近”可是一个相当宽泛的描述。我们需要缩小搜查范围。#hindrance.door|一扇厚重的钢门拦住了前路。令人欣慰的是，这扇门是如此的寻常。#hindrance.wreckage|前进的道路被倒塌的建筑与碎石阻挡。我们可以选择使用合适的工具炸开障碍物，或是费力地使用我们的双手进行清理。#hindrance.secretdoor|此处看不见任何出口，或许出口本身就不存在。辨明此事需要一双锐利的眼睛。#hindrance.moonspace|在那奇异的月光之下，上有时会变为下，而前进不一定向前。弧月正给我们带来麻烦。#hindrance.greatseal|令人眼花缭乱的，不可变魔法的集合阻挡了我们的进入。我们同时需要大量的拆解之力与净化之力才能清理道路。#foe.infantry|人数亦是武器。#foe.kommando|接受强调侵略性与敌后机动力的战术训练，精通游击与伏击战术的可怕部队。#foe.sniper|一个居于有利位置的，经验丰富的神射手可抵御百倍之敌。寂静或鬼祟之人或许能够接近其而不被发现。#foe.tanks|一辆德军坦克是一台可怕的机器。正面与其战斗需要莫大的直接火力，但是特制的弹药能够使我们回避一场残酷的战斗。#foe.bombers|先是旋翼的沉闷响声，再是下坠时的漫长尖啸，最后是置身于新生火焰中的人们的惨叫。#foe.artillery|一门被德军工程师与巡逻队看守着的重型火炮。以蛮力袭击或许会管用——我们可以猛攻那个位置闭关摧毁火炮。或是进行一次破坏，留给那些工程师们一份十分响亮且有力的惊喜。#foe.manhunters|一支由致命技艺的学徒率领的步兵分队。面对这些人单纯的力量是不足的——我们必须以我们自己的技艺来抗衡他们带上战场的技艺。#foe.undead|并非所有亡者都得以见证战争的结束。我们可以使用力量与兵器强行放逐他们，但冬之秘密使我们能够给予它们安息。#foe.warrior|狮子匠的怪兽受一些特定的荣誉约束。若一只怪兽吞食了并非由其杀死之敌，它就使自己蒙受耻辱，而狮子匠则会废除其力量与智慧。这只怪兽曾变得过于贪婪，而衰退之痛已使其变得近乎疯狂，但即便已处于临终挣扎中，它仍会是一个棘手之敌。#foe.serpent|一条巨大的蛇，前来战场饱餐死者。其压倒性的力量与致命的毒液或许可以战胜，但启提供了一种安抚它的方式。#foe.growth|被一股来自虚界的力量触碰的尸骸，作为行于此世的萌芽疫病重生。使用火，或光，将其清除。#foe.labhite.grounded|狮子匠最为年轻，也是最为美丽的造物们。狻猊在腾飞时尤为凶猛，但这不意味着行于地面的狻猊就能轻松对付。其力量与怪兽之名相称，且其身躯因莫大的热力而发光。#foe.labhite.airborne|狮子匠最为年轻，也是最为美丽的造物们。狻猊在腾飞时尤为凶猛，以其灼热的吐息与锐利的趾爪歼灭那些不幸引来其怒火之人。#foe.splinter|瘦灰恶兽的一个正在巡猎的碎片。我们使用的武器伤不了它，但使用足够的光辉之力或存续之力，我们能将它呜咽着送回林地。#foe.niniame|不得见之湖的女守护兽，亦是守剑人的长姐。守剑人以极大的代价在巨蛇之母要求她死去时将她带走。她不总是具有尖牙，她也不总是具有坚鳞与利爪——但她仍珍视她的幼妹。#foe.ostlingant|鸟形司辰们的次要仆从，又被称为“携带秘密者”与“欺骗艺人者”。它们并不在阳光下飞翔——实际上，它们不在醒时世界飞翔——它们的乐声也并非凡人所能聆听。#foe.voice|“往回走吧，往回走吧……”#hindrance.star.a|来自天穹的狂怒之火，被狮子匠的一击掷向地面。称之为“愤怒”都过于保守。#hindrance.star.b|现在，这颗星正在死去；它的火光正泛着红。但我仍然剩下一件事需要做：我需要取得它的心脏，将其从外壳中解放，并整个吞下。这么做或许会把我烧成灰。即便如此，我仍会试试。@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "反应？",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "encounternative.lucky",
+		"chance": 30
+	    },
+	    {
+		"id": "encounternative.failure.nonlethal"
+	    },
+	    {
+		"id": "encounternative.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "respondnative.aerial"
+	    },
+	    {
+		"id": "respondnative.ap"
+	    },
+	    {
+		"id": "respondnative.edge"
+	    },
+	    {
+		"id": "respondnative.winter"
+	    },
+	    {
+		"id": "respondnative.heart"
+	    },
+	    {
+		"id": "respondnative.grail"
+	    },
+	    {
+		"id": "respondnative.moth"
+	    },
+	    {
+		"id": "respondnative.lantern"
+	    },
+	    {
+		"id": "respondnative.forge"
+	    },
+	    {
+		"id": "respondnative.knock"
+	    },
+	    {
+		"id": "respondnative.forgemoth"
+	    },
+	    {
+		"id": "respondnative.edgelantern"
+	    },
+	    {
+		"id": "respondnative.edgewinter"
+	    },
+	    {
+		"id": "respondnative.edgeforge"
+	    },
+	    {
+		"id": "respondnative.knocklantern"
+	    },
+	    {
+		"id": "respondnative.forgeheart"
+	    },
+	    {
+		"id": "respondnative.winterlantern"
+	    },
+	    {
+		"id": "respondnative.edgeknock"
+	    },
+	    {
+		"id": "respondnative.edgeheart"
+	    },
+	    {
+		"id": "respondnative.edgegrail"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "ob.success.rescuepartisans",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "rescuepartisans.complete": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.militia",
+		"friend.militia",
+		"friend.militia",
+		"friend.militia",
+		"friend.sniper",
+		"friend.sniper",
+		"friend.medics",
+		"friend.medics",
+		"friend.scouts",
+		"friend.scouts",
+		"friend.engineers"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "operate.startup.shakedown.militia",
+	"actionid": "operate",
+	"label": "从本地人处强征补给",
+	"startdescription": "我们会说这都是为了赢得这场战争，实际上也确实如此。但他们不会喜欢的。\n\n[这将会给予你相当数量的补给品，但会永久毁灭你与本地人之间的一切友好关系。你在一个战区只能如此做一次。]",
+	"requirements": {
+	    "friend.militia": 1,
+	    "warzone.current": 1,
+	    "edge": 5,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "warzone.abused": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.assistlocals.militia",
+	"actionid": "operate",
+	"label": "向本地人提供援助",
+	"startdescription": "世事艰难。或许我们可以抽出一些时间与劳力来安抚无法战斗之人的痛苦。\n\n[你通过的挑战越多，你就能够获得越多资源，像住所与本地人友军。]",
+	"requirements": {
+	    "friend.militia": 1,
+	    "warzone.current": 1,
+	    "heart": 5,
+	    "warzone.abused": -1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "assistlocals.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 2,
+		    "filter": {
+			"edge": 1,
+			"heart": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "start.objective.main.already.hint",
+	"actionid": "operate",
+	"label": "战线过于分散",
+	"startdescription": "我已经派我的人去达成当前战区的一个主要目标。分散战略焦点不是明智之举。",
+	"grandReqs": { 
+	    "[~/extant:main.marker]=1": 1
+	},
+	"requirements": {
+	    "main": 1,
+	    "provisions": 3
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "operate.start.main",
+	"actionid": "operate",
+	"label": "尝试达成一个主要目标",
+	"startdescription": "人力，武器，意志——这些将让我们取得胜利。我只希望我手头的每一项都足够。",
+	"extantreqs": {
+	    "main.marker": -1
+	},
+	"requirements": {
+	    "main": 1,
+	    "provisions": 3
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "objective.main.mark",
+		"additional": true,
+		"expulsion": {
+		    "limit": 4,
+		    "filter": {
+			"main": 1,
+			"moth": 1,
+			"lantern": 1,
+			"forge": 1,
+			"edge": 1,
+			"winter": 1,
+			"heart": 1,
+			"grail": 1,
+			"knock": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "start.objective.side.threealready.hint",
+	"actionid": "operate",
+	"label": "战线过于分散",
+	"startdescription": "我已经派我的人去达成当前战区的三个次要目标。再派人尝试第四个不是明智之举。",
+	"grandReqs": { 
+	    "[~/extant:side.marker]=3": 1 
+	},
+	"requirements": {
+	    "side": 1,
+	    "provisions": 2
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "start.objective.side.3",
+	"actionid": "operate",
+	"label": "尝试达成再一个次要目标",
+	"startdescription": "我已经派我的人去达成当前战区的两个次要目标。但若我还有多余人手，我可以命令他们将第三个次要目标也付诸行动。但第四个就会使我们的战线过于分散。",
+	"grandReqs": { 
+	    "[~/extant:side.marker]=2": 1
+	},
+	"requirements": {
+	    "side": 1,
+	    "provisions": 2
+	},
+	"craftable": true,
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "objective.side.mark.3",
+	 	"additional": true,
+		"expulsion": {
+		    "filter": {
+		 	"main": 1,
+			"side": 1,
+			"edge": 1,
+			"winter": 1,
+			"heart": 1,
+			"grail": 1,
+			"moth": 1,
+			"lantern": 1,
+			"forge": 1,
+			"knock": 1
+		    },
+		    "limit": 4
+		}
+	    }
+	]
+    },
+    {
+	"id": "start.objective.side.2",
+	"actionid": "operate",
+	"label": "尝试达成另一个次要目标",
+	"startdescription": "我已经派我的人去达成当前战区的一个次要目标。但若我还有多余人手，我可以命令他们将第二个次要目标也付诸行动。",
+	"grandReqs": { 
+	    "[~/extant:side.marker]=1": 1
+	},
+	"requirements": {
+	    "side": 1,
+	    "provisions": 2
+	},
+	"craftable": true,
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "objective.side.mark.2",
+	 	"additional": true,
+		"expulsion": {
+		    "filter": {
+		 	"main": 1,
+			"side": 1,
+			"edge": 1,
+			"winter": 1,
+			"heart": 1,
+			"grail": 1,
+			"moth": 1,
+			"lantern": 1,
+			"forge": 1,
+			"knock": 1
+		    },
+		    "limit": 4
+		}
+	    }
+	]
+    },
+    {
+	"id": "start.objective.side",
+	"actionid": "operate",
+	"label": "尝试达成一个次要目标",
+	"startdescription": "我已经做针对这一目标出了相应的准备与谋划。我们将在获得这一优势之后壮大。",
+	"requirements": {
+	    "side": 1,
+	    "provisions": 2
+	},
+	"extantreqs": {
+	    "side.marker": -1
+	},
+	"craftable": true,
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "objective.side.mark",
+	 	"additional": true,
+		"expulsion": {
+		    "filter": {
+		 	"main": 1,
+			"side": 1,
+			"edge": 1,
+			"winter": 1,
+			"heart": 1,
+			"grail": 1,
+			"moth": 1,
+			"lantern": 1,
+			"forge": 1,
+			"knock": 1
+		    },
+		    "limit": 4
+		}
+	    }
+	]
+    },
+    {
+	"id": "objective.side.mark.3",
+	"actionid": "side",
+	"label": "进入战场",
+	"startdescription": "投入战斗。我们的目标就在前方。\n\n[你需要将进度积累至三以达成目标，但场上的敌军与障碍会给你造成额外的困难。尝试失败的代价是士气的降低与人手的死去。]",
+	"effects": {
+	    "side.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "side.startup"
+	    }
+	]
+    },
+    {
+	"id": "objective.side.mark.2",
+	"actionid": "side",
+	"label": "进入战场",
+	"startdescription": "投入战斗。我们的目标就在前方。\n\n[你需要将进度积累至三以达成目标，但场上的敌军与障碍会给你造成额外的困难。尝试失败的代价是士气的降低与人手的死去。]",
+	"effects": {
+	    "side.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "side.startup"
+	    }
+	]
+    },
+    {
+	"id": "objective.side.mark",
+	"actionid": "side",
+	"label": "进入战场",
+	"startdescription": "投入战斗。我们的目标就在前方。\n\n[你需要将进度积累至三以达成目标，但场上的敌军与障碍会给你造成额外的困难。尝试失败的代价是士气的降低与人手的死去。]",
+	"effects": {
+	    "side.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "side.startup"
+	    }
+	]
+    },
+    {
+	"id": "objective.main.mark",
+	"actionid": "main",
+	"label": "战斗前夕……",
+	"startdescription": "现在就是我们的试炼来临的时刻。\n\n[你需要将进度积累至三以达成目标，但场上的敌军与障碍会给你造成额外的困难。尝试失败的代价是士气的降低与人手的死去。]",
+	"effects": {
+	    "main.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "main.startup"
+	    }
+	]
+    },
+    {
+	"id": "main.startup",
+	"actionid": "main",
+	"label": "战斗前夕……",
+	"startdescription": "现在就是我们的试炼来临的时刻。\n\n[你需要将进度积累至三以达成目标，但场上的敌军与障碍会给你造成额外的困难。尝试失败的代价是士气的降低与人手的死去。]",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "detectadditional"
+	    }
+	]
+    },
+    {
+	"id": "side.startup",
+	"label": "进入战场",
+	"startdescription": "投入战斗。我们的目标就在前方。\n\n[你需要将进度积累至三以达成目标，但场上的敌军与障碍会给你造成额外的困难。尝试失败的代价是士气的降低与人手的死去。]",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional",
+	"label": "多变的战场？",
+	"startdescription": "恶劣的天气，巡逻的敌军，帷幕之后的事物——战况的变化只需要一瞬间。\n\n[在目标本身的每一个阻碍之前都会检查一次场上是否存在其他敌军或障碍。若存在，则随机一个敌军或障碍将会变为目标的一个新阻碍。]",
+	"requirements": {
+	    "main": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "难题？",
+		"required": {
+		    "foe": 1,
+		    "hindrance": 1
+		},
+		"forbidden": {
+		    "foe.rankofficer": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "detectadditional.success.foe"
+	    },
+	    {
+		"id": "detectadditional.success.hindrance"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional.side",
+	"label": "多变的战场？",
+	"startdescription": "恶劣的天气，巡逻的敌军，帷幕之后的事物——战况的变化只需要一瞬间。\n\n[在目标本身的每一个阻碍之前都会检查一次场上是否存在其他敌军或障碍。若存在，则随机一个敌军或障碍将会变为目标的一个新阻碍。]",
+	"requirements": {
+	    "side": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "难题？",
+		"required": {
+		    "foe": 1,
+		    "hindrance": 1
+		},
+		"forbidden": {
+		    "foe.rankofficer": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "detectadditional.success.foe"
+	    },
+	    {
+		"id": "detectadditional.success.hindrance"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional.success.foe",
+	"label": "出乎意料的威胁！",
+	"startdescription": "新的某物打算阻挠我们的进军——",
+	"requirements": {
+	    "foe": 1
+	},
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"linked": [
+	    {
+		"id": "detectadditional.success.makeadditional"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional.success.hindrance",
+	"label": "出乎意料的威胁！",
+	"startdescription": "新的某物打算阻挠我们的进军——",
+	"requirements": {
+	    "hindrance": 1
+	},
+	"linked": [
+	    {
+		"id": "encounteradditional"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional.success.makeadditional",
+	"label": "出乎意料的威胁！",
+	"startdescription": "新的某物打算阻挠我们的进军——",
+	"aspects": {
+	    "makeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "encounteradditional"
+	    }
+	]
+    },
+    {
+	"id": "encounteradditional",
+	"label": "逆境",
+	"startdescription": "@#foe.campguard|我清楚地记得他们，记得他们是如何打断我们的肋骨，用枪指着我们，看着我们如挨打的狗一般呜咽而发笑。这些人只听得见上级命令。#foe.watchdog|<i>德国牧羊犬</i>。这些野兽在帝国内很流行，因为它们与狼十分相似。而这些野兽在索比堡也很流行，因为它们可以迅速地把人撕成碎片，供军官观赏取乐。#foe.searchlight|他们说“仁慈仅在影中觅得”。这道来自上方的光则让我以亲身经历理解了这句话。#foe.starvation|有时，当我挨饿，我会梦见那红色的杯子，并听它嘲笑我。#foe.cold|有时，天气冷到了大脑自我欺骗，认为外面很温暖的程度。但我们都知道在索比堡只有一个季节，那便是冬季。#foe.grame|若碎狼是灵魂的绝望超出灵魂光芒之具现，戕狼是吞噬灵魂的痛苦之具现，那么忿狼便是未得复仇者与未得回应者那满溢溃烂的怒火的具现。想必我身上也寄宿着不少。#foe.shade|你不累吗？过来，过来。与我们一同行于这无日无月，无苦无悲，无此无彼的道路上吧。过来吧，然后便无需再承受。#hindrance.exilevoice|奢华如酒，寒冷如冬，凋亡如骨。这笑声过于残酷，宛如一把插入肋间，搅动脏腑的尖刀。没有哪种声音能令我更恐惧。#hindrance.exiletouch|击打，灼烧，指甲被拔出，皮肤被剥下。流亡者曾对我施以更甚于此的苦痛，而他施以苦痛时带着愉悦。#hindrance.exiledesign|流亡者每晚都诗意地对我描述其想让我成为的样子，夜复一夜。一切施以我身的痛苦与嗫于我耳的秘密都会磨砺我，把我变成更加可怖的什么。我恐惧着——恐惧着成为流亡者最完美也最可怖的器具。但我真的该恐惧吗？#aggro.bombers|近几年，俄国的飞机在天上飞可是一道罕见的风景——<i>德国空军</i>在战争伊始便折去了苏联的双翼——但各处都还有一些红鸟仍在天空飞翔。#aggro.artillery|当红军需要完全、彻底地消灭一个目标时，记得别站在火炮打击区里。#aggro.tanks|苏联以迅猛之势量产这些战争机器。或许数个月的高强度服役便足以报废一台，但毫无疑问其备品早已在送来前线的途中。#aggro.godbuilder|一支由修习盗火术的政委——“造神者”——们组成的小队领导着这支步兵分队。他们在麾下战士们的武器与血肉中燃起辉煌的火焰。#aggro.infantry|苏联的步兵：衣薄受冻，武备落后，注定死亡。他们不过是即将摧毁东线防御，淹没帝国城市的大浪中的一滴水。#aggro.sniper|一个俄国神射手正在侧翼待命，并冷静地预测着他的下一个目标。#aggro.scouts|哨卫与探路者，俄国军队的前锋部队，引领苏联的反推进前往柏林。#foe.wrake|有些痛苦过于强烈，以至于这些痛苦比身受痛苦之人存在得更久——而这失去容器的移动酷刑正急于寻求新的居所。你不会希望这居所是你的。#foe.cross|当我们从介壳种手中夺走世界时，它们选择了逃离。事到如今它们又为何返回？#hindrance.colonel|今天，上校目盲的双眼审视战场。这份力量只是他敌意暂存于此的一丝余寒，但这已经足以将惨叫冻结在喉头，并使最为自信的战士在恐惧中沉默。#foe.skaptodon|潜地的巨兽，其爪牙分开石头有如划开水一样轻松。当一只剑齿兽来到地面之上时，它总会分开一些别的什么，比如说人，或坦克，或任何在战斗中遇见剑齿兽的不幸家伙。#foe.echidniform.airborne|诱惑是荣誉的大敌。屈服于丽姬亚厄客德娜的诱惑的狮子匠的战士失去了荣誉，但它们会经历极大的变化。在变化中，它们将获得新的思想，新的力量，并且最重要的，新的饥渴。#foe.echidniform.grounded|诱惑是荣誉的大敌。屈服于丽姬亚厄客德娜的诱惑的狮子匠的战士失去了荣誉，但它们会经历极大的变化。在变化中，它们将获得新的思想，新的力量，并且最重要的，新的饥渴。#foe.hesukhine|此种怪物安静且有耐心到不寻常的地步，或许可以以“害羞”形容。匿形兽是狮子匠的子嗣中最为敏锐狡猾的一种。在狩猎时，匿形兽的行动准则是不被发现——确切的说，不被发现，直到无济于事之时。#foe.spathiurus|这些生物在研究怪物之人之间的俗称是“击剑狮子”。但不要想着与它们击剑——它们尾部末端的刃状附属物可以轻松穿刺一切钢铁或石头。当然，穿刺肉体则更加容易。#foe.malkin|猫与枭均是双角斧的圣兽。当猫得到了枭的智慧——当它的毛皮发灰，利爪变长，寿命则变得更长——据说那只猫就变成了一只灵猫。这只巨型灵猫仅仅勉强存在于我们的世界，因此我们无法触及它。但它必定能够触及我们。#foe.warder|门关军团的高级军官；守护此世与漫宿的边界之人。他们所有人均声称伐诃语为其母语；他们所有人都熟知哪个词汇许可通行，而哪个词汇禁止通行。#foe.boundsmen|门关军团的拟人士兵。它们被训练直立行走和以人类语言说话，但它们无法完全压抑其本质。有时它们会忘记眨眼。有时它们会食用死人之躯。#foe.phlogisticant|自从其被从玻璃与钢铁制成的牢笼中释放后，这团恶意的火花便贪婪地吞噬着一切其所能触碰之物。如此猛烈的燃烧无法持续太久——但我不认为它会在乎。#foe.engine|它看上去像某种固定炮台，尽管它的部分结构似乎过于复杂：玻璃圆筒，卷曲钢条，运输火焰的颤动管道。但那火力何等强大！每当这台机械开火命中其目标，大地将变作玻璃，血肉将化为光辉。别的不谈，新王的玩具至少令人印象深刻。#foe.riflemen|那岛上新王的仆从。没什么特别的，除了他们似乎比你手下的一般士兵更加训练有素一些之外。#foe.chasseur|大部分士兵在他们被杀死时选择放弃战斗。而这些士兵则并未如此选择。#hindrance.snows|寒霜阻挡前进。机械或会失效，而人则有可能冻死。#hindrance.storms|闪电从云中降下，雷声紧随其后。雨声如炮火声般响亮。#hindrance.fog|视野与机动力均受限。强行军很容易陷入伏击，或是将悬崖错判为道路。#hindrance.forest|成群的树在昏暗的森林中矗立不动。前方没有简单的道路。#hindrance.fortifications|地雷阵，铁蒺藜，钢铁路障。我们需要拆解这些防御，或寻得一条能够安全通过的道路。#hindrance.crags|石块与弹坑遍布地面。洞察与谨慎能够使我们安全通过；火焰与机敏则使我们得以在这废墟中清出一条道路。#hindrance.earthquake|大地并未死去，它只是在沉眠。#hindrance.nocturnal|精神的阴影，灵魂的疾病，一团固化的黑暗。#hindrance.apollonian|这是那种能够涤净灵魂的光芒。过来，看着它，过来，看着它——#hindrance.dionysian|在世界下方的森林内生长的野生废料，绿色疾病——林地！林地！林地！#hindrance.lionsmith|今天，狮子匠自傲的目光审视战场。这份力量只是他敌意暂存于此的一丝余威，但这已经足以在血肉中点燃火焰，并将最为勇猛的战士驱离战场。#hindrance.wolf|裂分之狼行于此处。正如同尸骸的恶臭会在其被移走之后残留，裂分之狼的憎恶在他离去之后留存于此。但即便只是狼之憎恶的一份回响，其力量也足以毁灭凡人。#hindrance.worms|此处的世界的表皮已腐烂至无。有东西自这伤口中爬出。#hindrance.unknownlocation|我们的目的地就在附近某处，但“附近”可是一个相当宽泛的描述。我们需要缩小搜查范围。#hindrance.door|一扇厚重的钢门拦住了前路。令人欣慰的是，这扇门是如此的寻常。#hindrance.wreckage|前进的道路被倒塌的建筑与碎石阻挡。我们可以选择使用合适的工具炸开障碍物，或是费力地使用我们的双手进行清理。#hindrance.secretdoor|此处看不见任何出口，或许出口本身就不存在。辨明此事需要一双锐利的眼睛。#hindrance.moonspace|在那奇异的月光之下，上有时会变为下，而前进不一定向前。弧月正给我们带来麻烦。#hindrance.greatseal|令人眼花缭乱的，不可变魔法的集合阻挡了我们的进入。我们同时需要大量的拆解之力与净化之力才能清理道路。#foe.infantry|人数亦是武器。#foe.kommando|接受强调侵略性与敌后机动力的战术训练，精通游击与伏击战术的可怕部队。#foe.sniper|一个居于有利位置的，经验丰富的神射手可抵御百倍之敌。寂静或鬼祟之人或许能够接近其而不被发现。#foe.tanks|一辆德军坦克是一台可怕的机器。正面与其战斗需要莫大的直接火力，但是特制的弹药能够使我们回避一场残酷的战斗。#foe.bombers|先是旋翼的沉闷响声，再是下坠时的漫长尖啸，最后是置身于新生火焰中的人们的惨叫。#foe.artillery|一门被德军工程师与巡逻队看守着的重型火炮。以蛮力袭击或许会管用——我们可以猛攻那个位置闭关摧毁火炮。或是进行一次破坏，留给那些工程师们一份十分响亮且有力的惊喜。#foe.manhunters|一支由致命技艺的学徒率领的步兵分队。面对这些人单纯的力量是不足的——我们必须以我们自己的技艺来抗衡他们带上战场的技艺。#foe.undead|并非所有亡者都得以见证战争的结束。我们可以使用力量与兵器强行放逐他们，但冬之秘密使我们能够给予它们安息。#foe.warrior|狮子匠的怪兽受一些特定的荣誉约束。若一只怪兽吞食了并非由其杀死之敌，它就使自己蒙受耻辱，而狮子匠则会废除其力量与智慧。这只怪兽曾变得过于贪婪，而衰退之痛已使其变得近乎疯狂，但即便已处于临终挣扎中，它仍会是一个棘手之敌。#foe.serpent|一条巨大的蛇，前来战场饱餐死者。其压倒性的力量与致命的毒液或许可以战胜，但启提供了一种安抚它的方式。#foe.growth|被一股来自虚界的力量触碰的尸骸，作为行于此世的萌芽疫病重生。使用火，或光，将其清除。#foe.labhite.grounded|狮子匠最为年轻，也是最为美丽的造物们。狻猊在腾飞时尤为凶猛，但这不意味着行于地面的狻猊就能轻松对付。其力量与怪兽之名相称，且其身躯因莫大的热力而发光。#foe.labhite.airborne|狮子匠最为年轻，也是最为美丽的造物们。狻猊在腾飞时尤为凶猛，以其灼热的吐息与锐利的趾爪歼灭那些不幸引来其怒火之人。#foe.splinter|瘦灰恶兽的一个正在巡猎的碎片。我们使用的武器伤不了它，但使用足够的光辉之力或存续之力，我们能将它呜咽着送回林地。#foe.niniame|不得见之湖的女守护兽，亦是守剑人的长姐。守剑人以极大的代价在巨蛇之母要求她死去时将她带走。她不总是具有尖牙，她也不总是具有坚鳞与利爪——但她仍珍视她的幼妹。#foe.ostlingant|鸟形司辰们的次要仆从，又被称为“携带秘密者”与“欺骗艺人者”。它们并不在阳光下飞翔——实际上，它们不在醒时世界飞翔——它们的乐声也并非凡人所能聆听。#foe.voice|“往回走吧，往回走吧……”@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "反应？",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "encounteradditional.lucky",
+		"chance": 30
+	    },
+	    {
+		"id": "encounteradditional.failure.nonlethal"
+	    },
+	    {
+		"id": "encounteradditional.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "respondadditional.aerial"
+	    },
+	    {
+		"id": "respondadditional.ap"
+	    },
+	    {
+		"id": "respondadditional.edge"
+	    },
+	    {
+		"id": "respondadditional.winter"
+	    },
+	    {
+		"id": "respondadditional.heart"
+	    },
+	    {
+		"id": "respondadditional.grail"
+	    },
+	    {
+		"id": "respondadditional.moth"
+	    },
+	    {
+		"id": "respondadditional.lantern"
+	    },
+	    {
+		"id": "respondadditional.forge"
+	    },
+	    {
+		"id": "respondadditional.knock"
+	    },
+	    {
+		"id": "respondadditional.forgemoth"
+	    },
+	    {
+		"id": "respondadditional.edgelantern"
+	    },
+	    {
+		"id": "respondadditional.edgewinter"
+	    },
+	    {
+		"id": "respondadditional.edgeforge"
+	    },
+	    {
+		"id": "respondadditional.knocklantern"
+	    },
+	    {
+		"id": "respondadditional.forgeheart"
+	    },
+	    {
+		"id": "respondadditional.winterlantern"
+	    },
+	    {
+		"id": "respondadditional.edgeknock"
+	    },
+	    {
+		"id": "respondadditional.edgeheart"
+	    },
+	    {
+		"id": "respondadditional.edgegrail"
+	    },
+	    {
+		"id": "respondadditional.winterheart"
+	    },
+	    {
+		"id": "respondadditional.lanternheart"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "encounteradditional.lucky",
+	"label": "时来运转",
+	"startdescription": "不知如何，我们获胜了。\n\n[有时你能够突破你通常无法突破的阻碍。]",
+	"warmup": 10,
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.aerial",
+	"label": "死亡从天而降",
+	"startdescription": "火与烟在云中产生。燃烧的残骸如流星雨般从高空落下。这一刻，天空属于我们。",
+	"requirements": {
+	    "foe.aerial": 1,
+	    "friend.aerial": "foe.aerial"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.ap",
+	"label": "突破装甲",
+	"startdescription": "就像砸开蛋壳一样简单。这些敌军的装甲或许保护了他们一时，但那装甲已不复存在。",
+	"requirements": {
+	    "foe.armoured": 1,
+	    "ap": "foe.armoured"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edge",
+	"label": "以力量得胜",
+	"startdescription": "我们的战术如下：我们将击碎他们，并用靴跟将他们碾为齑粉。",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.winter",
+	"label": "以耐心得胜",
+	"startdescription": "我们将在寂静与雪中接近他们。而后对任何人而言都为时已晚。",
+	"requirements": {
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.heart",
+	"label": "以坚持得胜",
+	"startdescription": "我们不能被停滞。无人能阻止我们的进军。",
+	"requirements": {
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.grail",
+	"label": "以食欲得胜",
+	"startdescription": "血管开裂，血已流出。而我们仍饥饿，仍渴望更多。",
+	"requirements": {
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.moth",
+	"label": "以欺诈得胜",
+	"startdescription": "安排好的混乱，我想如此认为。有时我们必须依靠无法预料与非正统的手段。",
+	"requirements": {
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.lantern",
+	"label": "以辉煌得胜",
+	"startdescription": "真实在此，锐利且坚硬，可用于切割。前路已被照亮。",
+	"requirements": {
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.forge",
+	"label": "以机敏得胜",
+	"startdescription": "这些就足够了。火与机械与所有其巧妙的应用让我们获胜。",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.knock",
+	"label": "以进入得胜",
+	"startdescription": "我曾听说所有创口都是门洞——不过位于此处的是另一种门。前路已被打开。",
+	"requirements": {
+	    "needsknock": 1,
+	    "knock": "needsknock"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.forgemoth",
+	"label": "欺骗与破坏",
+	"startdescription": "先是阴影，再是火焰。",
+	"requirements": {
+	    "needsforgemoth": 1,
+	    "forge": "needsforgemoth",
+	    "moth": "needsforgemoth",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edgelantern",
+	"label": "明耀之刃",
+	"startdescription": "当我们攻击时，我们应带着明晰与无情攻击。上校知晓此法，守夜人亦然，太阳亦然。",
+	"requirements": {
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edgewinter",
+	"label": "苦痛之刃",
+	"startdescription": "一切战斗以死亡告终，而直到战斗告终之前，都存在痛苦。现在，我们带来痛苦。",
+	"requirements": {
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edgeforge",
+	"label": "破碎之刃",
+	"startdescription": "狮子匠佩剑的破碎是一个铸与刃的巨大秘密。我们现在唤起那秘密，即便我们并不了解它。",
+	"requirements": {
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.knocklantern",
+	"label": "钥匙与光芒",
+	"startdescription": "有时单纯开启一扇门是不足够的，有时这扇门必须被带去溶解。",
+	"requirements": {
+	    "needsknocklantern": 1,
+	    "knock": "needsknocklantern",
+	    "lantern": "needsknocklantern",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.forgeheart",
+	"label": "火燃于心",
+	"startdescription": "火焰于肺部内点燃，目标占领灵魂。我们即为前进的意志。",
+	"requirements": {
+	    "needsforgeheart": 1,
+	    "forge": "needsforgeheart",
+	    "heart": "needsforgeheart",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edgeknock",
+	"label": "开启之刃",
+	"startdescription": "千夫长知晓血与血的出口。而我们将用武器制造出那出口，像他曾做的那样。",
+	"requirements": {
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edgeheart",
+	"label": "愉悦的毁灭",
+	"startdescription": "轰雷之皮曾被剥皮；轰雷之皮曾被毁灭。我们现在将以毁灭轰雷之皮的方式毁灭我们的敌军。",
+	"requirements": {
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.winterheart",
+	"label": "平静终局",
+	"startdescription": "与临终仪式上诵读的温暖、庄严的悼词一同，我们终结了我们的敌手。",
+	"requirements": {
+	    "needswinterheart": 1,
+	    "winter": "needswinterheart",
+	    "heart": "needswinterheart",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.lanternheart",
+	"label": "仍未败倒",
+	"startdescription": "以足够的意志，我便能抵御它们引诱的低语；以足够的光芒，我便能回避它们紧攫的手。",
+	"requirements": {
+	    "needslanternheart": 1,
+	    "lantern": "needslanternheart",
+	    "heart": "needslanternheart",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "encounteradditional.failure.nightmare",
+	"label": "败北！",
+	"startdescription": "我被阻止了！我发现自己和走出索比堡大门的那一天一样弱小无助。梦魇的利齿没入了我的灵魂。",
+	"extantreqs": {
+	    "sobibor.here": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "developing.trauma": 2
+	},
+	"warmup": 10
+    },
+    {
+	"id": "encounteradditional.failure.nonlethal",
+	"label": "一次挫折！",
+	"startdescription": "我们被阻止了！这一次挫折并未取走任何性命，但这使我们付出了时间——或许这比性命更有价值。",
+	"requirements": {
+	    "nonlethal": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "encounteradditional.failure",
+	"label": "败北！",
+	"startdescription": "我们被阻止了！负伤的士兵与破损的载具在太阳落山时急忙撤退。我必须重新评估策略，以免再次遭遇这样的失败。",
+	"aspects": {
+	    "takeadditional": 1,
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+		"id": "encounteradditional.failure.growth"
+	    },
+	    {
+		"id": "encounteradditional.failure.makecasualty"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "encounteradditional.failure.growth",
+	"label": "败北！",
+	"startdescription": "我们被阻止了！负伤的士兵与破损的载具在太阳落山时急忙撤退。我必须重新评估策略，以免再次遭遇这样的失败。",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	},
+	"linked": [
+	    {
+		"id": "encounteradditional.failure.growthcontinue",
+	    }
+	]
+    },
+    {
+	"id": "encounteradditional.failure.growthcontinue",
+	"label": "败北！",
+	"startdescription": "我们被阻止了！负伤的士兵与破损的载具在太阳落山时急忙撤退。我必须重新评估策略，以免再次遭遇这样的失败。",
+	"aspects": {
+	    "growthinfect": 1
+	}
+    },
+    {
+	"id": "encounteradditional.failure.makecasualty",
+	"label": "败北！",
+	"startdescription": "我们被阻止了！负伤的士兵与破损的载具在太阳落山时急忙撤退。我必须重新评估策略，以免再次遭遇这样的失败。",
+	"aspects": {
+	    "makecasualty": 1
+	},
+	"alt": [
+	    {
+		"id": "encounteradditional.failure.killfriends",
+		"chance": 30
+	    }
+	]
+    },
+    {
+	"id": "encounteradditional.failure.killfriends",
+	"label": "惨败！",
+	"startdescription": "死亡。我们在此处面临失败，极其重大的失败。\n\n[尝试达成目标时失败有小概率直接杀死使用的友军。]",
+	"requirements": {
+	    "friend": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "makethirdobstacle",
+	"label": "完成战斗……",
+	"startdescription": "就快了。奋斗到最后。",
+	"requirements": {
+	    "progression": 2
+	},
+	"aspects": {
+	    "opx.progress2": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "encounternative.makeadditional"
+	    }
+	]
+    },
+    {
+	"id": "makesecondobstacle",
+	"label": "战斗继续……",
+	"startdescription": "我们地部队向前进军，但还有更多需要完成。",
+	"requirements": {
+	    "progression": 1
+	},
+	"aspects": {
+	    "opx.progress1": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "encounternative.makeadditional"
+	    }
+	]
+    },
+    {
+	"id": "makefirstobstacle",
+	"label": "接近目标……",
+	"startdescription": "现在，我们认真地开始攻势。冷静。",
+	"aspects": {
+	    "opx.progress0": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "encounternative.makeadditional"
+	    }
+	]
+    },
+    {
+	"id": "encounternative.makeadditional",
+	"aspects": {
+	    "makeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "encounternative"
+	    }
+	]
+    },
+    {
+	"id": "encounternative",
+	"label": "逆境",
+	"startdescription": "@#foe.campguard|我清楚地记得他们，记得他们是如何打断我们的肋骨，用枪指着我们，看着我们如挨打的狗一般呜咽而发笑。这些人只听得见上级命令。#foe.watchdog|<i>德国牧羊犬</i>。这些野兽在帝国内很流行，因为它们与狼十分相似。而这些野兽在索比堡也很流行，因为它们可以迅速地把人撕成碎片，供军官观赏取乐。#foe.searchlight|他们说“仁慈仅在影中觅得”。这道来自上方的光则让我以亲身经历理解了这句话。foe.starvation|有时，当我挨饿，我会梦见那红色的杯子，并听它嘲笑我。#foe.cold|有时，天气冷到了大脑自我欺骗，认为外面很温暖的程度。但我们都知道在索比堡只有一个季节，那便是冬季。#foe.grame|若碎狼是灵魂的绝望超出灵魂光芒之具现，戕狼是吞噬灵魂的痛苦之具现，那么忿狼便是未得复仇者与未得回应者那满溢溃烂的怒火的具现。想必我身上也寄宿着不少。#foe.shade|你不累吗？过来，过来。与我们一同行于这无日无月，无苦无悲，无此无彼的道路上吧。过来吧，然后便无需再承受。#hindrance.exilevoice|奢华如酒，寒冷如冬，凋亡如骨。这笑声过于残酷，宛如一把插入肋间，搅动脏腑的尖刀。没有哪种声音能令我更恐惧。#hindrance.exiletouch|击打，灼烧，指甲被拔出，皮肤被剥下。流亡者曾对我施以更甚于此的苦痛，而他施以苦痛时带着愉悦。#hindrance.exiledesign|流亡者每晚都诗意地对我描述其想让我成为的样子，夜复一夜。一切施以我身的痛苦与嗫于我耳的秘密都会磨砺我，把我变成更加可怖的什么。我恐惧着——恐惧着成为流亡者最完美也最可怖的器具。但我真的该恐惧吗？#aggro.bombers|近几年，俄国的飞机在天上飞可是一道罕见的风景——<i>德国空军</i>在战争伊始便折去了苏联的双翼——但各处都还有一些红鸟仍在天空飞翔。#aggro.artillery|当红军需要完全、彻底地消灭一个目标时，记得别站在火炮打击区里。#aggro.tanks|苏联以迅猛之势量产这些战争机器。或许数个月的高强度服役便足以报废一台，但毫无疑问其备品早已在送来前线的途中。#aggro.godbuilder|一支由修习盗火术的政委——“造神者”——们组成的小队领导着这支步兵分队。他们在麾下战士们的武器与血肉中燃起辉煌的火焰。#aggro.infantry|苏联的步兵：衣薄受冻，武备落后，注定死亡。他们不过是即将摧毁东线防御，淹没帝国城市的大浪中的一滴水。#aggro.sniper|一个俄国神射手正在侧翼待命，并冷静地预测着他的下一个目标。#aggro.scouts|哨卫与探路者，俄国军队的前锋部队，引领苏联的反推进前往柏林。#foe.wrake|有些痛苦过于强烈，以至于这些痛苦比身受痛苦之人存在得更久——而这失去容器的移动酷刑正急于寻求新的居所。你不会希望这居所是你的。#foe.cross|当我们从介壳种手中夺走世界时，它们选择了逃离。事到如今它们又为何返回？#hindrance.robigo|<i>谁在那里？拉孔贝吗？还是李？不管是谁，请帮帮我。呼吸正变得困难……这里好黑。好黑。</i>#hindrance.colonel|今天，上校目盲的双眼审视战场。这份力量只是他敌意暂存于此的一丝余寒，但这已经足以将惨叫冻结在喉头，并使最为自信的战士在恐惧中沉默。#foe.skaptodon|潜地的巨兽，其爪牙分开石头有如划开水一样轻松。当一只剑齿兽来到地面之上时，它总会分开一些别的什么，比如说人，或坦克，或任何在战斗中遇见剑齿兽的不幸家伙。#foe.echidniform.airborne|诱惑是荣誉的大敌。屈服于丽姬亚厄客德娜的诱惑的狮子匠的战士失去了荣誉，但它们会经历极大的变化。在变化中，它们将获得新的思想，新的力量，并且最重要的，新的饥渴。#foe.echidniform.grounded|诱惑是荣誉的大敌。屈服于丽姬亚厄客德娜的诱惑的狮子匠的战士失去了荣誉，但它们会经历极大的变化。在变化中，它们将获得新的思想，新的力量，并且最重要的，新的饥渴。#foe.hesukhine|此种怪物安静且有耐心到不寻常的地步，或许可以以“害羞”形容。匿形兽是狮子匠的子嗣中最为敏锐狡猾的一种。在狩猎时，匿形兽的行动准则是不被发现——确切的说，不被发现，直到无济于事之时。#foe.spathiurus|这些生物在研究怪物之人之间的俗称是“击剑狮子”。但不要想着与它们击剑——它们尾部末端的刃状附属物可以轻松穿刺一切钢铁或石头。当然，穿刺肉体则更加容易。#foe.malkin|猫与枭均是双角斧的圣兽。当猫得到了枭的智慧——当它的毛皮发灰，利爪变长，寿命则变得更长——据说那只猫就变成了一只灵猫。这只巨型灵猫仅仅勉强存在于我们的世界，因此我们无法触及它。但它必定能够触及我们。#foe.warder|门关军团的高级军官；守护此世与漫宿的边界之人。他们所有人均声称伐诃语为其母语；他们所有人都熟知哪个词汇许可通行，而哪个词汇禁止通行。#foe.boundsmen|门关军团的拟人士兵。它们被训练直立行走和以人类语言说话，但它们无法完全压抑其本质。有时它们会忘记眨眼。有时它们会食用死人之躯。#foe.phlogisticant|自从其被从玻璃与钢铁制成的牢笼中释放后，这团恶意的火花便贪婪地吞噬着一切其所能触碰之物。如此猛烈的燃烧无法持续太久——但我不认为它会在乎。#foe.engine|它看上去像某种固定炮台，尽管它的部分结构似乎过于复杂：玻璃圆筒，卷曲钢条，运输火焰的颤动管道。但那火力何等强大！每当这台机械开火命中其目标，大地将变作玻璃，血肉将化为光辉。别的不谈，新王的玩具至少令人印象深刻。#foe.riflemen|那岛上新王的仆从。没什么特别的，除了他们似乎比你手下的一般士兵更加训练有素一些之外。#foe.chasseur|大部分士兵在他们被杀死时选择放弃战斗。而这些士兵则并未如此选择。#hindrance.snows|寒霜阻挡前进。机械或会失效，而人则有可能冻死。#hindrance.storms|闪电从云中降下，雷声紧随其后。雨声如炮火声般响亮。#hindrance.fog|视野与机动力均受限。强行军很容易陷入伏击，或是将悬崖错判为道路。#hindrance.forest|成群的树在昏暗的森林中矗立不动。前方没有简单的道路。#hindrance.fortifications|地雷阵，铁蒺藜，钢铁路障。我们需要拆解这些防御，或寻得一条能够安全通过的道路。#hindrance.crags|石块与弹坑遍布地面。洞察与谨慎能够使我们安全通过；火焰与机敏则使我们得以在这废墟中清出一条道路。#hindrance.earthquake|大地并未死去，它只是在沉眠。#hindrance.nocturnal|精神的阴影，灵魂的疾病，一团固化的黑暗。#hindrance.apollonian|这是那种能够涤净灵魂的光芒。过来，看着它，过来，看着它——#hindrance.dionysian|在世界下方的森林内生长的野生废料，绿色疾病——林地！林地！林地！#hindrance.lionsmith|今天，狮子匠自傲的目光审视战场。这份力量只是他敌意暂存于此的一丝余威，但这已经足以在血肉中点燃火焰，并将最为勇猛的战士驱离战场。#hindrance.wolf|裂分之狼行于此处。正如同尸骸的恶臭会在其被移走之后残留，裂分之狼的憎恶在他离去之后留存于此。但即便只是狼之憎恶的一份回响，其力量也足以毁灭凡人。#hindrance.worms|此处的世界的表皮已腐烂至无。有东西自这伤口中爬出。#hindrance.unknownlocation|我们的目的地就在附近某处，但“附近”可是一个相当宽泛的描述。我们需要缩小搜查范围。#hindrance.door|一扇厚重的钢门拦住了前路。令人欣慰的是，这扇门是如此的寻常。#hindrance.wreckage|前进的道路被倒塌的建筑与碎石阻挡。我们可以选择使用合适的工具炸开障碍物，或是费力地使用我们的双手进行清理。#hindrance.secretdoor|此处看不见任何出口，或许出口本身就不存在。辨明此事需要一双锐利的眼睛。#hindrance.moonspace|在那奇异的月光之下，上有时会变为下，而前进不一定向前。弧月正给我们带来麻烦。#hindrance.greatseal|令人眼花缭乱的，不可变魔法的集合阻挡了我们的进入。我们同时需要大量的拆解之力与净化之力才能清理道路。#foe.infantry|人数亦是武器。#foe.kommando|接受强调侵略性与敌后机动力的战术训练，精通游击与伏击战术的可怕部队。#foe.sniper|一个居于有利位置的，经验丰富的神射手可抵御百倍之敌。寂静或鬼祟之人或许能够接近其而不被发现。#foe.tanks|一辆德军坦克是一台可怕的机器。正面与其战斗需要莫大的直接火力，但是特制的弹药能够使我们回避一场残酷的战斗。#foe.bombers|先是旋翼的沉闷响声，再是下坠时的漫长尖啸，最后是置身于新生火焰中的人们的惨叫。#foe.artillery|一门被德军工程师与巡逻队看守着的重型火炮。以蛮力袭击或许会管用——我们可以猛攻那个位置闭关摧毁火炮。或是进行一次破坏，留给那些工程师们一份十分响亮且有力的惊喜。#foe.manhunters|一支由致命技艺的学徒率领的步兵分队。面对这些人单纯的力量是不足的——我们必须以我们自己的技艺来抗衡他们带上战场的技艺。#foe.undead|并非所有亡者都得以见证战争的结束。我们可以使用力量与兵器强行放逐他们，但冬之秘密使我们能够给予它们安息。#foe.warrior|狮子匠的怪兽受一些特定的荣誉约束。若一只怪兽吞食了并非由其杀死之敌，它就使自己蒙受耻辱，而狮子匠则会废除其力量与智慧。这只怪兽曾变得过于贪婪，而衰退之痛已使其变得近乎疯狂，但即便已处于临终挣扎中，它仍会是一个棘手之敌。#foe.serpent|一条巨大的蛇，前来战场饱餐死者。其压倒性的力量与致命的毒液或许可以战胜，但启提供了一种安抚它的方式。#foe.growth|被一股来自虚界的力量触碰的尸骸，作为行于此世的萌芽疫病重生。使用火，或光，将其清除。#foe.labhite.grounded|狮子匠最为年轻，也是最为美丽的造物们。狻猊在腾飞时尤为凶猛，但这不意味着行于地面的狻猊就能轻松对付。其力量与怪兽之名相称，且其身躯因莫大的热力而发光。#foe.labhite.airborne|狮子匠最为年轻，也是最为美丽的造物们。狻猊在腾飞时尤为凶猛，以其灼热的吐息与锐利的趾爪歼灭那些不幸引来其怒火之人。#foe.splinter|瘦灰恶兽的一个正在巡猎的碎片。我们使用的武器伤不了它，但使用足够的光辉之力或存续之力，我们能将它呜咽着送回林地。#foe.niniame|不得见之湖的女守护兽，亦是守剑人的长姐。守剑人以极大的代价在巨蛇之母要求她死去时将她带走。她不总是具有尖牙，她也不总是具有坚鳞与利爪——但她仍珍视她的幼妹。#foe.ostlingant|鸟形司辰们的次要仆从，又被称为“携带秘密者”与“欺骗艺人者”。它们并不在阳光下飞翔——实际上，它们不在醒时世界飞翔——它们的乐声也并非凡人所能聆听。#foe.voice|“往回走吧，往回走吧……”#hindrance.star.a|来自天穹的狂怒之火，被狮子匠的一击掷向地面。称之为“愤怒”都过于保守。#hindrance.star.b|现在，这颗星正在死去；它的火光正泛着红。但我仍然剩下一件事需要做：我需要取得它的心脏，将其从外壳中解放，并整个吞下。这么做或许会把我烧成灰。即便如此，我仍会试试。@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "反应？",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "encounternative.lucky",
+		"chance": 30
+	    },
+	    {
+		"id": "encounternative.failure.nightmare"
+	    },
+	    {
+		"id": "encounternative.failure.nonlethal"
+	    },
+	    {
+		"id": "encounternative.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "respondnative.special"
+	    },
+	    {
+		"id": "respondnative.aerial"
+	    },
+	    {
+		"id": "respondnative.ap"
+	    },
+	    {
+		"id": "respondnative.edge"
+	    },
+	    {
+		"id": "respondnative.winter"
+	    },
+	    {
+		"id": "respondnative.heart"
+	    },
+	    {
+		"id": "respondnative.grail"
+	    },
+	    {
+		"id": "respondnative.moth"
+	    },
+	    {
+		"id": "respondnative.lantern"
+	    },
+	    {
+		"id": "respondnative.forge"
+	    },
+	    {
+		"id": "respondnative.knock"
+	    },
+	    {
+		"id": "respondnative.forgemoth"
+	    },
+	    {
+		"id": "respondnative.edgelantern"
+	    },
+	    {
+		"id": "respondnative.edgewinter"
+	    },
+	    {
+		"id": "respondnative.edgeforge"
+	    },
+	    {
+		"id": "respondnative.knocklantern"
+	    },
+	    {
+		"id": "respondnative.forgeheart"
+	    },
+	    {
+		"id": "respondnative.winterlantern"
+	    },
+	    {
+		"id": "respondnative.edgeknock"
+	    },
+	    {
+		"id": "respondnative.edgeheart"
+	    },
+	    {
+		"id": "respondnative.edgegrail"
+	    },
+	    {
+		"id": "respondnative.winterheart"
+	    },
+	    {
+		"id": "respondnative.lanternheart"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "encounternative.lucky",
+	"label": "时来运转",
+	"startdescription": "不知如何，我们获胜了。\n\n[有时你能够突破你通常无法突破的阻碍。]",
+	"warmup": 10,
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	]
+    },
+    {
+	"id": "respondnative.aerial",
+	"label": "死亡从天而降",
+	"startdescription": "火与烟在云中产生。燃烧的残骸如流星雨般从高空落下。这一刻，天空属于我们。",
+	"requirements": {
+	    "foe.aerial": 1,
+	    "friend.aerial": "foe.aerial"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.ap",
+	"label": "突破装甲",
+	"startdescription": "就像砸开蛋壳一样简单。这些敌军的装甲或许保护了他们一时，但那装甲已不复存在。",
+	"requirements": {
+	    "foe.armoured": 1,
+	    "ap": "foe.armoured"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edge",
+	"label": "以力量得胜",
+	"startdescription": "我们的战术如下：我们将击碎他们，并用靴跟将他们碾为齑粉。",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.winter",
+	"label": "以耐心得胜",
+	"startdescription": "我们将在寂静与雪中接近他们。而后对任何人而言都为时已晚。",
+	"requirements": {
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.heart",
+	"label": "以坚持得胜",
+	"startdescription": "我们不能被停滞。无人能阻止我们的进军。",
+	"requirements": {
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.grail",
+	"label": "以食欲得胜",
+	"startdescription": "血管开裂，血已流出。而我们仍饥饿，仍渴望更多。",
+	"requirements": {
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.moth",
+	"label": "以欺诈得胜",
+	"startdescription": "安排好的混乱，我想如此认为。有时我们必须依靠无法预料与非正统的手段。",
+	"requirements": {
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.lantern",
+	"label": "以辉煌得胜",
+	"startdescription": "真实在此，锐利且坚硬，可用于切割。前路已被照亮。",
+	"requirements": {
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.forge",
+	"label": "以机敏得胜",
+	"startdescription": "这些就足够了。火与机械与所有其巧妙的应用让我们获胜。",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.knock",
+	"label": "以进入得胜",
+	"startdescription": "我曾听说所有创口都是门洞——不过位于此处的是另一种门。前路已被打开。",
+	"requirements": {
+	    "needsknock": 1,
+	    "knock": "needsknock"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.forgemoth",
+	"label": "欺骗与破坏",
+	"startdescription": "先是阴影，再是火焰。",
+	"requirements": {
+	    "needsforgemoth": 1,
+	    "forge": "needsforgemoth",
+	    "moth": "needsforgemoth",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edgelantern",
+	"label": "明耀之刃",
+	"startdescription": "当我们攻击时，我们应带着明晰与无情攻击。上校知晓此法，守夜人亦然，太阳亦然。",
+	"requirements": {
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edgewinter",
+	"label": "苦痛之刃",
+	"startdescription": "一切战斗以死亡告终，而直到战斗告终之前，都存在痛苦。现在，我们带来痛苦。",
+	"requirements": {
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edgeforge",
+	"label": "破碎之刃",
+	"startdescription": "狮子匠佩剑的破碎是一个铸与刃的巨大秘密。我们现在唤起那秘密，即便我们并不了解它。",
+	"requirements": {
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.knocklantern",
+	"label": "钥匙与光芒",
+	"startdescription": "有时单纯开启一扇门是不足够的，有时这扇门必须被带去溶解。",
+	"requirements": {
+	    "needsknocklantern": 1,
+	    "knock": "needsknocklantern",
+	    "lantern": "needsknocklantern",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.forgeheart",
+	"label": "火燃于心",
+	"startdescription": "火焰于肺部内点燃，目标占领灵魂。我们即为前进的意志。",
+	"requirements": {
+	    "needsforgeheart": 1,
+	    "forge": "needsforgeheart",
+	    "heart": "needsforgeheart",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edgeknock",
+	"label": "开启之刃",
+	"startdescription": "千夫长知晓血与血的出口。而我们将用武器制造出那出口，像他曾做的那样。",
+	"requirements": {
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edgeheart",
+	"label": "愉悦的毁灭",
+	"startdescription": "轰雷之皮曾被剥皮；轰雷之皮曾被毁灭。我们现在将以毁灭轰雷之皮的方式毁灭我们的敌军。",
+	"requirements": {
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "leadinto.thirdobstacle.side",
+	"label": "完成战斗……",
+	"startdescription": "",
+	"requirements": {
+	    "side": 1,
+	    "progression": 2
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    }
+	]
+    },
+    {
+	"id": "leadinto.secondobstacle.side",
+	"label": "战斗继续……",
+	"startdescription": "",
+	"requirements": {
+	    "side": 1,
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "makesecondobstacle"
+	    }
+	]
+    },
+    {
+	"id": "leadinto.firstobstacle.side",
+	"label": "接近目标……",
+	"startdescription": "",
+	"requirements": {
+	    "side": 1,
+	    "progression": -1
+	},
+	"linked": [
+	    {
+		"id": "makefirstobstacle"
+	    }
+	]
+    },
+    {
+	"id": "encounternative.failure.nonlethal",
+	"label": "一次挫折！",
+	"startdescription": "我们被阻止了！这一次挫折并未取走任何性命，但这使我们付出了时间——或许这比性命更有价值。",
+	"requirements": {
+	    "nonlethal": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"warmup": 10
+    },
+    {
+	"id": "encounternative.failure",
+	"label": "败北！",
+	"startdescription": "我们被阻止了！负伤的士兵与破损的载具在太阳落山时急忙撤退。我必须重新评估策略，以免再次遭遇这样的失败。",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+	    	"id": "encounternative.failure.growth"
+	    },
+	    {
+	    	"id": "encounternative.failure.makecasualty"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "niniame.spawn",
+		"additional": true
+	    },
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "niniame.spawn",
+	"actionid": "haunting",
+	"label": "巨蛇将会归来",
+	"startdescription": "林中之湖上地雾气旋转并嘶鸣。我们击败了女守护兽并消灭了它，但她从上一次败北中复苏，再次出现在我们面前只是时间问题。",
+	"extantreqs": {
+	    "foe.niniame": -1,
+	    "foe.niniame.hidden": -1,
+	    "niniame.reviving": -1,
+	    "lake.here": 1
+	},
+	"effects": {
+	    "niniame.reviving": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "encounternative.failure.growth",
+	"label": "败北！",
+	"startdescription": "我们被阻止了！负伤的士兵与破损的载具在太阳落山时急忙撤退。我必须重新评估策略，以免再次遭遇这样的失败。",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	},
+	"linked": [
+	    {
+		"id": "encounternative.failure.growthcontinue",
+	    }
+	]
+    },
+    {
+	"id": "encounternative.failure.growthcontinue",
+	"label": "绽放的憎恶",
+	"startdescription": "戴冠之孳的触碰承诺的不是死亡，而是生命。人们很快便学会畏惧这承诺。",
+	"aspects": {
+	    "growthinfect": 1
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	}
+    },
+    {
+	"id": "encounternative.failure.makecasualty",
+	"label": "败北！",
+	"startdescription": "我们被阻止了！负伤的士兵与破损的载具在太阳落山时急忙撤退。我必须重新评估策略，以免再次遭遇这样的失败。",
+	"aspects": {
+	    "makecasualty": 1
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"alt": [
+	    {
+	    	"id": "encounternative.failure.killfriends",
+		"chance": 30
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "encounternative.failure.killfriends",
+	"label": "惨败！",
+	"startdescription": "死亡。我们在此处面临失败，极其重大的失败。\n\n[尝试达成目标时失败有小概率直接杀死使用的友军。]",
+	"requirements": {
+	    "friend": 1
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "ob.success",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "progression": 3
+	},
+	"aspects": {
+	    "careeradvancement": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "ob.success.weaponscache"
+	    },
+	    {
+		"id": "ob.success.rescueallies"
+	    }
+	]
+    },
+    {
+	"id": "ob.success.weaponscache",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "weaponscache.complete": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares",
+		"supplies.flares"
+	    ],
+	    "draws": 5,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "ob.success.rescueallies",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "rescueallies.complete": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.infantry",
+		"friend.infantry",
+		"friend.scouts",
+		"friend.engineers",
+		"friend.engineers",
+		"friend.medics",
+		"friend.medics",
+		"friend.tanks",
+		"friend.artillery"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "producecasualty",
+	"actionid": "explorevault_casualty",
+	"label": "伤亡！",
+	"startdescription": "我们在此处获胜，但一部分友军在这一过程中负伤。这种事情在战争中无法避免，我想。\n\n[有时你的友军会在尝试完成目标并与敌人战斗时受伤，即便你成功突破了敌军或障碍。]",
+	"warmup": 10,
+	"requirements": {
+	    "friend": 1,
+	    "nonlethal": -1
+	},
+	"aspects": {
+	    "makecasualty": 1
+	}
+    },
+    {
+	"id": "warzone.abused.hint",
+	"actionid": "operate",
+	"label": "被憎恨且被恐惧",
+	"startdescription": "现在我们无法再对这里的人伸出橄榄枝。在我们对他们做出那种事情之后，他们便不再接受我们的帮助。",
+	"requirements": {
+	    "friend.infantry": 1,
+	    "warzone.current": 1,
+	    "heart": 1,
+	    "warzone.abused": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "operate.startup.shakedown",
+	"actionid": "operate",
+	"label": "从本地人处强征补给",
+	"startdescription": "我们会说这都是为了赢得这场战争，实际上也确实如此。但他们不会喜欢的。\n\n[这将会给予你相当数量的补给品，但会永久毁灭你与本地人之间的一切友好关系。你在一个战区只能如此做一次。]",
+	"requirements": {
+	    "friend.infantry": 1,
+	    "warzone.current": 1,
+	    "edge": 7,
+	    "lake.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "warzone.abused": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "shakedown.prep",
+	"actionid": "operation.edge",
+	"label": "挨家挨户……",
+	"startdescription": "让我们开始吧。\n\n[行动中会遭遇挑战。如果你能够投入足够的卡牌以满足相应的性相需求，那么这次行动将会更加有效。]",
+	"warmup": 10,
+	"effects": {
+	    "challenge.shakedown.1": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "资源",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "opx.meetchallenge"
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.assistlocals",
+	"actionid": "operate",
+	"label": "向本地人提供援助",
+	"startdescription": "世事艰难。或许我们可以抽出一些时间与劳力来安抚无法战斗之人的痛苦。\n\n[你通过的挑战越多，你就能够获得越多资源，像住所与本地人友军。]",
+	"requirements": {
+	    "friend.infantry": 1,
+	    "warzone.current": 1,
+	    "heart": 1,
+	    "warzone.abused": -1,
+	    "lake.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "assistlocals.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 2,
+		    "filter": {
+			"edge": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "assistlocals.prep",
+	"actionid": "operation.heart",
+	"label": "挨家挨户……",
+	"startdescription": "让我们开始吧。\n\n[行动中会遭遇挑战。如果你能够投入足够的卡牌以满足相应的性相需求，那么这次行动将会更加有效。]",
+	"warmup": 10,
+	"effects": {
+	    "challenge.assistlocals.1": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "资源",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "opx.meetchallenge"
+	    }
+	]
+    },
+    {
+	"id": "opx.meetchallenge",
+	"label": "挑战",
+	"startdescription": "@#challenge.shakedown.1|威慑——是以刺耳的狂怒，还是肃杀的寂静？\n#challenge.shakedown.2|他们不肯交出任何物资。什么会让他们开口？公开殴打？还是杀鸡儆猴？\n#challenge.shakedown.3|我们可以压榨这些人，让他们吐出一切。我们将留给他们恐惧，还是痛苦？\n#challenge.assistlocals.1|我们可以从自我介绍开始——一份善意或许可以使我们获得当地人的支持。迷人的话语或许也能。\n#challenge.assistlocals.2|我们能提供怎样的援助？分发药品，还是分享食物？\n#challenge.assistlocals.3|我可以让我们的医生协助一部分当地医院诊疗，或者让我们的炊事员在教堂和广场处设立厨房。\n@",
+	"warmup": 30,
+	"requirements": {
+	    "complication": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "资源",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "opx.resolve.heart"
+	    },
+	    {
+		"id": "opx.resolve.grail"
+	    },
+	    {
+		"id": "opx.resolve.edge"
+	    },
+	    {
+		"id": "opx.resolve.winter"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "opx.failchallenge"
+	    }
+	]
+    },
+    {
+	"id": "opx.resolve.heart",
+	"label": "挑战解决",
+	"startdescription": "这就足够了。",
+	"requirements": {
+	    "minheart": 1,
+	    "heart": "minheart"
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.resolve.grail",
+	"label": "挑战解决",
+	"startdescription": "这就足够了。",
+	"requirements": {
+	    "mingrail": 1,
+	    "grail": "mingrail"
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.resolve.edge",
+	"label": "挑战解决",
+	"startdescription": "这就足够了。",
+	"requirements": {
+	    "minedge": 1,
+	    "edge": "minedge"
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.resolve.winter",
+	"label": "挑战解决",
+	"startdescription": "这就足够了。",
+	"requirements": {
+	    "minwinter": 1,
+	    "winter": "minwinter"
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.resolve.lantern",
+	"label": "挑战解决",
+	"startdescription": "这就足够了。",
+	"requirements": {
+	    "minlantern": 1,
+	    "lantern": "minlantern"
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.resolve.forge",
+	"label": "挑战解决",
+	"startdescription": "这就足够了。",
+	"requirements": {
+	    "minforge": 1,
+	    "forge": "minforge"
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.failchallenge",
+	"label": "挑战失败！",
+	"startdescription": "本来可以做得更好的。",
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.gonext",
+	"label": "行动继续",
+	"startdescription": "@#opx.speaklocals|更多时间经过；靴子拖曳于地。我们继续应对本地人。\n@",
+	"aspects": {
+	    "next": 1
+	},
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "opx.meetchallenge",
+	    },
+	    {
+		"id": "opx.conclude"
+	    }
+	]
+    },
+    {
+	"id": "opx.conclude",
+	"label": "行动完成",
+	"startdescription": "@#end.shakedown|破碎的门与妇孺的哭泣彰显了我们的工作。我们在处理完这些麻烦之后得到了什么？\n#end.assistlocals|我们在各处都得到了本地人的认可。没有人放松——毕竟，这可是战争时期——但紧张的局势似乎缓解了，即使只有一点点。@",
+	"warmup": 30,
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.conclude.assistlocals.3"
+	    },
+	    {
+		"id": "opx.conclude.assistlocals.2"
+	    },
+	    {
+		"id": "opx.conclude.assistlocals.1"
+	    },
+	    {
+		"id": "opx.conclude.shakedown.3"
+	    },
+	    {
+		"id": "opx.conclude.shakedown.2"
+	    },
+	    {
+		"id": "opx.conclude.shakedown.1"
+	    }
+	]
+    },
+    {
+	"id": "opx.conclude.assistlocals.3",
+	"label": "援助行动完成",
+	"startdescription": "本地人提供了他们所能提供的一切协助以回报我们的服务：一些食物与饮水，住所，本地的情报——偶尔还会有志愿者。这些将派上用场、",
+	"requirements": {
+	    "end.assistlocals": 1,
+	    "progression": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.joy",
+		"mem.ingenuity",
+		"mem.unexpected",
+		"friend.militia",
+		"friend.militia",
+		"friend.militia",
+		"provisions",
+		"provisions",
+		"provisions",
+		"loc.farm",
+		"loc.church",
+		"loc.church",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "opx.conclude.assistlocals.2",
+	"label": "援助行动完成",
+	"startdescription": "本地人提供了他们所能提供的一切协助以回报我们的服务：一些食物与饮水，住所，本地的情报——偶尔还会有志愿者。这些将派上用场、",
+	"requirements": {
+	    "end.assistlocals": 1,
+	    "progression": 2
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.joy",
+		"mem.ingenuity",
+		"mem.unexpected",
+		"friend.militia",
+		"friend.militia",
+		"friend.militia",
+		"provisions",
+		"provisions",
+		"provisions",
+		"loc.farm",
+		"loc.church",
+		"loc.church",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "opx.conclude.assistlocals.1",
+	"label": "援助行动完成",
+	"startdescription": "本地人提供了他们所能提供的一切协助以回报我们的服务：一些食物与饮水，住所，本地的情报——偶尔还会有志愿者。这些将派上用场、",
+	"requirements": {
+	    "end.assistlocals": 1
+	},
+	"effects": {
+	    "provisions": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.joy",
+		"mem.ingenuity",
+		"mem.unexpected",
+		"friend.militia",
+		"friend.militia",
+		"friend.militia",
+		"provisions",
+		"provisions",
+		"provisions",
+		"loc.farm",
+		"loc.church",
+		"loc.church",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "opx.conclude.assistlocals.3.contemnant",
+	"label": "援助行动完成",
+	"startdescription": "本地人提供了他们所能提供的一切协助以回报我们的服务：一些食物与饮水，住所，本地的情报——偶尔还会有志愿者。这些将派上用场、",
+	"requirements": {
+	    "end.assistlocals": 1,
+	    "progression": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	}
+    },
+    {
+	"id": "opx.conclude.assistlocals.2.contemnant",
+	"label": "援助行动完成",
+	"startdescription": "本地人提供了他们所能提供的一切协助以回报我们的服务：一些食物与饮水，住所，本地的情报——偶尔还会有志愿者。这些将派上用场、",
+	"requirements": {
+	    "end.assistlocals": 1,
+	    "progression": 2
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	}
+    },
+    {
+	"id": "opx.conclude.assistlocals.1.contemnant",
+	"label": "援助行动完成",
+	"startdescription": "本地人提供了他们所能提供的一切协助以回报我们的服务：一些食物与饮水，住所，本地的情报——偶尔还会有志愿者。这些将派上用场、",
+	"requirements": {
+	    "end.assistlocals": 1
+	},
+	"effects": {
+	    "provisions": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	}
+    },
+    {
+	"id": "opx.conclude.shakedown.3",
+	"label": "洗劫完成",
+	"startdescription": "我们的人带着粗暴夺来的战利品离去：肉，酒，药，以及一切当地人尝试藏匿的稀少享乐。这对本地人有害，但对我们有益。所以综合来看，有什么害处吗？",
+	"requirements": {
+	    "end.shakedown": 1,
+	    "progression": 3
+	},
+	"effects": {
+	    "provisions": 9
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "warzone.abused",
+		"level": 1
+	    }
+	],
+	"purge": {
+	    "friend.militia": 99,
+	    "friend.militia.exhausted": 99,
+	    "friend.militia.wounded": 99
+	}
+    },
+    {
+	"id": "opx.conclude.shakedown.2",
+	"label": "洗劫完成",
+	"startdescription": "我们的人带着粗暴夺来的战利品离去：肉，酒，药，以及一切当地人尝试藏匿的稀少享乐。这对本地人有害，但对我们有益。所以综合来看，有什么害处吗？",
+	"requirements": {
+	    "end.shakedown": 1,
+	    "progression": 2
+	},
+	"effects": {
+	    "provisions": 6
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "warzone.abused",
+		"level": 1
+	    }
+	],
+	"purge": {
+	    "friend.militia": 99,
+	    "friend.militia.exhausted": 99,
+	    "friend.militia.wounded": 99
+	}
+    },
+    {
+	"id": "opx.conclude.shakedown.1",
+	"label": "洗劫完成",
+	"startdescription": "我们的人带着粗暴夺来的战利品离去：肉，酒，药，以及一切当地人尝试藏匿的稀少享乐。这对本地人有害，但对我们有益。所以综合来看，有什么害处吗？",
+	"requirements": {
+	    "end.shakedown": 1
+	},
+	"effects": {
+	    "provisions": 3
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "warzone.abused",
+		"level": 1
+	    }
+	],
+	"purge": {
+	    "friend.militia": 99,
+	    "friend.militia.exhausted": 99,
+	    "friend.militia.wounded": 99
+	}
+    },
+    {
+	"id": "operate.endinginitiate",
+	"actionid": "operate",
+	"label": "1943年，斯大林格勒之战",
+	"startdescription": "这座城市已被炸为废墟。街道被死去的德国人与俄罗斯人堵塞。但在清晨，当新一天的风吹散硝烟，赤与金的锤镰旗仍在总书记的城市上方飘扬。德军正向西逃离——斯大林格勒仍然屹立。",
+	"requirements": {
+	    "main": 3
+	},
+	"warmup": 60,
+	"craftable": true,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictory.mp3",
+	"linked": [
+	    {
+		"id": "ascendname.colonel"
+	    },
+	    {
+		"id": "obdurant.ending.high"
+	    },
+	    {
+		"id": "obdurant.ending.med"
+	    },
+	    {
+		"id": "obdurant.ending.low"
+	    }
+	],
+	"burnimage": "flagwave"
+    },
+    {
+	"id": "obdurant.ending.high",
+	"label": "1943年，斯大林格勒之战",
+	"extantreqs": {
+	    "resolution": 14
+	},
+	"ending": "obdurant.high",
+	"achievements": [
+	    "ending.highresolution"
+	]
+    },
+    {
+	"id": "obdurant.ending.med",
+	"label": "1943年，斯大林格勒之战",
+	"extantreqs": {
+	    "resolution": 7
+	},
+	"ending": "obdurant.med",
+	"achievements": [
+	    "ending.medresolution"
+	]
+    },
+    {
+	"id": "obdurant.ending.low",
+	"label": "1943年，斯大林格勒之战",
+	"ending": "obdurant.low",
+	"achievements": [
+	    "ending.lowresolution"
+	]
+    },
+    {
+	"id": "ascendname.colonel",
+	"label": "命  定  之  时",
+	"startdescription": "而后斯大林格勒消失了。我脚下的街道变作古老的漫宿之石。钴蓝色的天空在我不可及之处闪着光。在我身前，丽姬亚美杜莎将她那蠕动、惨白的钥匙插入牡鹿之门。它的旧伤在痛苦中呻吟，而我身上的伤疤在那门完全开启时与其一同呻吟。我已目盲；我已身负伤疤；我不容违抗。彼方有光。",
+	"extantreqs": {
+	    "gotmedusa": 1,
+	    "ascend.check": 7,
+	    "resolution": 12
+	},
+	"warmup": 60,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictoryascend.mp3",
+	"ending": "majorcolonelvictory",
+	"achievements": [
+	    "ending.nameascensioncolonel"
+	]
+    },
+{
+    "id": "respondadditional.edgegrail",
+    "label": "既是战斗，亦是飨宴",
+    "startdescription": "我们撕扯，我们撕裂。齿没入肉，喉痛饮血。",
+    "requirements": {
+        "needsedgegrail": 1,
+        "edge": "needsedgegrail",
+        "grail": "needsedgegrail",
+    },
+    "effects": {
+        "foe": -99,
+        "hindrance": -99
+    },
+    "linked": [
+        {
+        "id": "makethirdobstacle"
+        },
+        {
+        "id": "makesecondobstacle"
+        },
+        {
+        "id": "makefirstobstacle"
+        }
+    ],
+    "alt": [
+        {
+        "id": "producecasualty",
+        "additional": true,
+        "chance": 30,
+        "expulsion": {
+            "limit": 1,
+            "filter": {
+            "friend": 1
+            }
+        }
+        }
+    ]
+    },
+    {
+	"id": "respondnative.edgegrail",
+	"label": "既是战斗，亦是飨宴",
+	"startdescription": "我们撕扯，我们撕裂。齿没入肉，喉痛饮血。",
+	"requirements": {
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.special",
+	"label": "克服我之恐惧",
+	"startdescription": "被称为“流亡者”的人曾告知我，我的憎恨终有一天将压倒我的恐惧。他是何等正确啊。",
+	"requirements": {
+	    "needsspecial": 1,
+	    "contemplation.sobibor.complete": "needsspecial"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.winterheart",
+	"label": "平静终局",
+	"startdescription": "与临终仪式上诵读的温暖、庄严的悼词一同，我们终结了我们的敌手。",
+	"requirements": {
+	    "needswinterheart": 1,
+	    "winter": "needswinterheart",
+	    "heart": "needswinterheart",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.lanternheart",
+	"label": "仍未败倒",
+	"startdescription": "以足够的意志，我便能抵御它们引诱的低语；以足够的光芒，我便能回避它们紧攫的手。",
+	"requirements": {
+	    "needslanternheart": 1,
+	    "lantern": "needslanternheart",
+	    "heart": "needslanternheart",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "encounternative.failure.nightmare",
+	"label": "败北！",
+	"startdescription": "我被阻止了！我发现自己和走出索比堡大门的那一天一样弱小无助。梦魇的利齿没入了我的灵魂。",
+	"extantreqs": {
+	    "sobibor.here": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99,
+	    "developing.trauma": 2
+	},
+	"warmup": 10
+    },
+    {
+	"id": "opx.conclude.wolfshadowpresent",
+	"label": "火焰的盛宴",
+	"startdescription": "在火焰中，我想起了流亡者在索比堡时曾说过的一句话，当时他正用他的恐怖故事之一招待我：“倘若我们不知道自己在为谁效力，我们便在侍奉裂分之狼。但是我知道自己在做什么。”\n\n现在，我亦如此。",
+	"requirements": {
+	    "op.wolf.husk.active": 99
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "strife": 4,
+	    "reputation.infamy": 3,
+	    "shrine.wolf": 1,
+	    "provisions": 4
+	},
+	"linked": [
+	    {
+		"id": "wolfshrine.assignsectora"
+	    },
+	    {
+		"id": "wolfshrine.assignsectorb"
+	    }
+	]
+    },
+    {
+	"id": "wolfshrine.assignsectora",
+	"label": "火焰的盛宴",
+	"startdescription": "在火焰中，我想起了流亡者在索比堡时曾说过的一句话，当时他正用他的恐怖故事之一招待我：“倘若我们不知道自己在为谁效力，我们便在侍奉裂分之狼。但是我知道自己在做什么。”\n\n现在，我亦如此。",
+	"requirements": {
+	    "sector.a": 1
+	},
+	"effects": {
+	    "sector.a": -99
+	},
+	"linked": [
+	    {
+		"id": "wolfshrine.assignsectora.conclude"
+	    }
+	]
+    },
+    {
+	"id": "wolfshrine.assignsectora.conclude",
+	"label": "火焰的盛宴",
+	"startdescription": "在火焰中，我想起了流亡者在索比堡时曾说过的一句话，当时他正用他的恐怖故事之一招待我：“倘若我们不知道自己在为谁效力，我们便在侍奉裂分之狼。但是我知道自己在做什么。”\n\n现在，我亦如此。",
+	"mutations": [
+	    {
+		"filter": "shrine.wolf",
+		"mutate": "sector.a",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "wolfshrine.assignsectorb",
+	"label": "火焰的盛宴",
+	"startdescription": "在火焰中，我想起了流亡者在索比堡时曾说过的一句话，当时他正用他的恐怖故事之一招待我：“倘若我们不知道自己在为谁效力，我们便在侍奉裂分之狼。但是我知道自己在做什么。”\n\n现在，我亦如此。",
+	"requirements": {
+	    "sector.b": 1
+	},
+	"effects": {
+	    "sector.b": -99
+	},
+	"linked": [
+	    {
+		"id": "wolfshrine.assignsectorb.conclude"
+	    }
+	]
+    },
+    {
+	"id": "wolfshrine.assignsectorb.conclude",
+	"label": "火焰的盛宴",
+	"startdescription": "在火焰中，我想起了流亡者在索比堡时曾说过的一句话，当时他正用他的恐怖故事之一招待我：“倘若我们不知道自己在为谁效力，我们便在侍奉裂分之狼。但是我知道自己在做什么。”\n\n现在，我亦如此。",
+	"mutations": [
+	    {
+		"filter": "shrine.wolf",
+		"mutate": "sector.b",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.winterlantern",
+	"label": "以光分解，以寂终结",
+	"startdescription": "明晰如刀，客观似冰。此时此刻，我们不容违抗。",
+	"requirements": {
+	    "needswinterlantern": 1,
+	    "winter": "needswinterlantern",
+	    "lantern": "needswinterlantern",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.winterlantern",
+	"label": "以光分解，以寂终结",
+	"startdescription": "明晰如刀，客观似冰。此时此刻，我们不容违抗。",
+	"requirements": {
+	    "needswinterlantern": 1,
+	    "winter": "needswinterlantern",
+	    "lantern": "needswinterlantern",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+]
+}

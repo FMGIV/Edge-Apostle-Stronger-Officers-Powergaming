@@ -1,0 +1,2252 @@
+{
+"elements": [
+    {
+	"id": "foe.corpses",
+	"label": "倒下的敌军",
+	"description": "他们曾战。他们已负。",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "raiseshattered": "friend.risen",
+	    "promotiontodisciple": "friend.conscript"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "foe.corpse.unnatural",
+	"label": "非人的残骸",
+	"description": "更加凶猛的对手留下的残余。",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 6,
+	    "winter": 6,
+	    "otherworldly": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "foe.template",
+	"label": "Foe Template",
+	"aspects": {
+	    "foe": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresources1",
+		"label": "资源",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    },
+	    {
+		"id": "needsresources2",
+		"label": "资源",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    },
+	    {
+		"id": "needsresources3",
+		"label": "更多？",
+		"description": "一份力量？一个聚点？一个来自地面或天空的征兆？",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "friend": 1,
+		    "supplies": 1,
+		    "weapon": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "foe.infantry",
+	"label": "敌军步兵连队",
+	"description": "人数亦是武器。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 8
+	},
+	"xtriggers": {
+	    "refresh": "foe.infantry",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.infantry.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.infantry.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.infantry.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.infantry",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.kommando",
+	"label": "敌军突击队",
+	"description": "接受强调侵略性与敌后机动力的战术训练，精通游击与伏击战术的可怕部队。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedge": 8
+	},
+	"xtriggers": {
+	    "refresh": "foe.kommando",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.kommando.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.kommando.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.kommando.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.kommando",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.sniper",
+	"label": "敌军狙击兵",
+	"description": "一个居于有利位置的，经验丰富的神射手可抵御百倍之敌。寂静或鬼祟之人或许能够接近其而不被发现。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needswinter": 8,
+	    "needsmoth": 8,
+	},
+	"xtriggers": {
+	    "refresh": "foe.sniper",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.sniper.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.sniper.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.sniper.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.sniper",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.officer",
+	"label": "敌军军官",
+	"description": "德国国防军那自满的高层之一。击杀此人能够使敌军在此地的行动变得一团糟，但军官极少在没有护卫的情况下出行。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "foe.rankofficer": 1,
+	    "needsedge": 4
+	},
+	"xtriggers": {
+	    "refresh": "foe.officer",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.officer.hidden"
+	}
+    },
+    {
+	"id": "foe.officer.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.officer.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.officer"
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.tanks",
+	"label": "敌军装甲连队",
+	"description": "一辆德军坦克是一台可怕的机器。正面与其战斗需要莫大的直接火力，但是特制的弹药能够使我们回避一场残酷的战斗。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 14,
+	    "needsforge": 10,
+	    "foe.armoured": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.tanks",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.tanks.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.tanks.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.tanks.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.tanks",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.bombers",
+	"label": "敌军轰炸机中队",
+	"description": "先是旋翼的沉闷响声，再是下坠时的漫长尖啸，最后是置身于新生火焰中的人们的惨叫。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 20,
+	    "foe.aerial": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.bombers",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.bombers.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ]
+	},
+	"lifetime": 180,
+	"decayTo": "foe.bombers.refuel"
+    },
+    {
+	"id": "foe.bombers.refuel",
+	"label": "敌军轰炸机中队（加油中）",
+	"description": "这一批困扰我们的德国空军暂时撤退以加油和重装炸弹。他们终将返回此地。",
+	"lifetime": 240,
+	"decayTo": "foe.bombers",
+	"icon": "foe.bombers",
+	"resaturate": true
+    },
+    {
+	"id": "foe.bombers.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.bombers.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.bombers",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.artillery",
+	"label": "敌军火炮",
+	"description": "一门被德军工程师与巡逻队看守着的重型火炮。以蛮力袭击或许会管用——我们可以猛攻那个位置闭关摧毁火炮。或是进行一次破坏，留给那些工程师们一份十分响亮且有力的惊喜。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 20,
+	    "needsforgemoth": 4
+	},
+	"xtriggers": {
+	    "refresh": "foe.artillery",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.artillery.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.artillery.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.artillery.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.artillery",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.manhunters",
+	"label": "敌军人类猎手连队",
+	"description": "一支由致命技艺的学徒率领的步兵分队。面对这些人单纯的力量是不足的——我们必须以我们自己的技艺来抗衡他们带上战场的技艺。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedgelantern": 8,
+	    "needsedgewinter": 8,
+	    "needsedgeforge": 8
+	},
+	"xtriggers": {
+	    "refresh": "foe.manhunters",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.manhunters.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.manhunters.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.manhunters.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.manhunters",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.undead",
+	"label": "苦痛亡者",
+	"description": "并非所有亡者都得以见证战争的结束。我们可以使用力量与兵器强行放逐他们，但冬之秘密使我们能够给予它们安息。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 14,
+	    "needswinter": 8
+	},
+	"xtriggers": {
+	    "refresh": "foe.undead",
+	    "killfoe": "trauma",
+	    "dissolution": "mem.calm",
+	    "concealidentity": "foe.undead.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.undead.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.undead.hidden",
+	    "killfoe": "trauma",
+	    "revealidentity": "foe.undead",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.warrior",
+	"label": "蒙羞战士",
+	"description": "狮子匠的怪兽受一些特定的荣誉约束。若一只怪兽吞食了并非由其杀死之敌，它就使自己蒙受耻辱，而狮子匠则会废除其力量与智慧。这只怪兽曾变得过于贪婪，而衰退之痛已使其变得近乎疯狂，但即便已处于临终挣扎中，它仍会是一个棘手之敌。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 14,
+	    "needsgrail": 8
+	},
+	"xtriggers": {
+	    "refresh": "foe.warrior",
+	    "killfoe": "foe.corpse.unnatural",
+	    "dissolution": "mem.taste",
+	    "concealidentity": "foe.warrior.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.warrior.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.warrior.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.warrior",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.serpent",
+	"label": "幼妹",
+	"description": "一条巨大的蛇，前来战场饱餐死者。其压倒性的力量与致命的毒液或许可以战胜，但启提供了一种安抚它的方式。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 14,
+	    "needsknock": 8
+	},
+	"xtriggers": {
+	    "refresh": "foe.serpent",
+	    "killfoe": "foe.corpse.unnatural",
+	    "dissolution": "mem.grief",
+	    "concealidentity": "foe.serpent.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.serpent.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.serpent.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.serpent",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.growth",
+	"label": "硕果亡者",
+	"description": "被一股来自虚界的力量触碰的尸骸，作为行于此世的萌芽疫病重生。使用火，或光，将其清除。[硕果亡者会将其击杀的敌军变成更多硕果亡者。]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needslantern": 10,
+	    "needsforge": 10
+	},
+	"xtriggers": {
+	    "refresh": "foe.growth",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.growth.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.growth.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.growth.hidden",
+	    "killfoe": "trauma",
+	    "revealidentity": "foe.growth",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.labhite.grounded",
+	"label": "狻猊（地面）",
+	"description": "狮子匠最为年轻，也是最为美丽的造物们。狻猊在腾飞时尤为凶猛，但这不意味着行于地面的狻猊就能轻松对付。其力量与怪兽之名相称，且其身躯因莫大的热力而发光。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 20,
+	    "needsforge": 16
+	},
+	"xtriggers": {
+	    "refresh": "foe.labhite.grounded",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.labhite.grounded.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"lifetime": 180,
+	"decayTo": "foe.labhite.airborne",
+	"icon": "foe.labhite"
+    },
+    {
+	"id": "foe.labhite.grounded.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.labhite.grounded.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.labhite.grounded",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.labhite.airborne",
+	"label": "狻猊（空中）",
+	"description": "狮子匠最为年轻，也是最为美丽的造物们。狻猊在腾飞时尤为凶猛，以其灼热的吐息与锐利的趾爪歼灭那些不幸引来其怒火之人。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 24,
+	    "foe.aerial": 2
+	},
+	"xtriggers": {
+	    "refresh": "foe.labhite.airborne",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.labhite.airborne.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ]
+	},
+	"lifetime": 180,
+	"decayTo": "foe.labhite.grounded",
+	"icon": "foe.labhite"
+    },
+    {
+	"id": "foe.labhite.airborne.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.labhite.airborne.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.labhite.airborne",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.splinter",
+	"label": "碎狼",
+	"description": "瘦灰恶兽的一个正在巡猎的碎片。我们使用的武器伤不了它，但使用足够的光辉之力或存续之力，我们能将它呜咽着送回林地。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needslantern": 16,
+	    "needsheart": 16
+	},
+	"xtriggers": {
+	    "refresh": "foe.splinter",
+	    "killfoe": "trauma",
+	    "concealidentity": "foe.splinter.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.splinter.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.splinter.hidden",
+	    "killfoe": "trauma",
+	    "revealidentity": "foe.splinter",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.niniame",
+	"label": "妮妮亚梅",
+	"description": "不得见之湖的女守护兽，亦是守剑人的长姐。守剑人以极大的代价在巨蛇之母要求她死去时将她带走。她不总是具有尖牙，她也不总是具有坚鳞与利爪——但她仍珍视她的幼妹。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedgeknock": 10,
+	    "needsedgeheart": 10,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "uq.niniame": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.niniame",
+	    "killfoe": "niniame.reviving",
+	    "concealidentity": "foe.niniame.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsedgeheart",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsedgeheart",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.niniame.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "uq.niniame": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.niniame.hidden",
+	    "killfoe": "niniame.reviving",
+	    "revealidentity": "foe.niniame"
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "niniame.reviving",
+	"label": "妮妮亚梅正在愈合",
+	"description": "使这片湖泊保持隐藏的伟力同时使其女守护兽无法被完全终结。她会回来找我们的。",
+	"lifetime": 300,
+	"resaturate": true,
+	"decayTo": "foe.niniame",
+	"icon": "foe.niniame"
+    },
+    {
+	"id": "foe.ostlingant",
+	"label": "蛊雕",
+	"description": "鸟形司辰们的次要仆从，又被称为“携带秘密者”与“欺骗艺人者”。它们并不在阳光下飞翔——实际上，它们不在醒时世界飞翔——它们的乐声也并非凡人所能聆听。[若这一敌军的攻击未被防御，其将使你获得精神创伤。]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needswinter": 8,
+	    "needsmoth": 8,
+	    "needsgrail": 8
+	},
+	"xtriggers": {
+	    "refresh": "foe.ostlingant",
+	    "killfoe": "mem.unexpected",
+	    "concealidentity": "foe.ostlingant.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.ostlingant.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.ostlingant.hidden",
+	    "killfoe": "mem.unexpected",
+	    "revealidentity": "foe.ostlingant",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.voice",
+	"label": "雾中之声？",
+	"description": "“往回走吧，往回走吧……”[若这一敌军的攻击未被防御，其将破坏其所能找到的翼间低语。]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needswinter": 10,
+	    "needsmoth": 10,
+	    "nonlethal": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.voice",
+	    "killfoe": "mem.calm",
+	    "concealidentity": "foe.voice.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.voice.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.voice.hidden",
+	    "killfoe": "mem.calm",
+	    "revealidentity": "foe.voice",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+    "id": "foe.spathiurus",
+    "label": "刃尾兽",
+    "description": "这些生物在研究怪物之人之间的俗称是“击剑狮子”。但不要想着与它们击剑——它们尾部末端的刃状附属物可以轻松穿刺一切钢铁或石头。当然，穿刺肉体则更加容易。",
+    "inherits": "foe.template",
+    "aspects": {
+        "otherworldly": 1,
+        "needsedge": 14,
+        "needsforge": 12,
+        "foe.lethal": 1,
+        "foe.monster": 1
+    },
+    "xtriggers": {
+        "refresh": "foe.spathiurus",
+        "killfoe": "foe.corpse.unnatural",
+        "concealidentity": "foe.spathiurus.hidden",
+        "takeadditional": [
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -2
+        },
+        {
+            "id": "needsforge",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+        ],
+        "makeadditional": [
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": 2
+        },
+        {
+            "id": "needsforge",
+            "morpheffect": "mutate",
+            "level": 2
+        }
+        ],
+        "weaken": [
+        {
+            "id": "weakened",
+            "morpheffect": "mutate",
+            "level": 1
+        },
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -2
+        },
+        {
+            "id": "needsforge",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+        ]
+    }
+    },
+    {
+    "id": "foe.spathiurus.hidden",
+    "label": "未知敌军",
+    "description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+    "inherits": "foe.template",
+    "aspects": {
+        "foe.hidden": 1,
+        "foe.monster": 1
+    },
+    "xtriggers": {
+        "refresh": "foe.spathiurus.hidden",
+        "killfoe": "foe.corpse.unnatural",
+        "revealidentity": "foe.spathiurus",
+        "weaken": [
+        {
+            "id": "weakened",
+            "morpheffect": "mutate",
+            "level": 1
+        },
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -2
+        },
+        {
+            "id": "needsforge",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+        ]
+    },
+    "icon": "foe.unknown",
+    "noStack": true
+    },
+{
+    "id": "foe.hesukhine",
+    "label": "匿形兽",
+    "description": "此种怪物安静且有耐心到不寻常的地步，或许可以以“害羞”形容。匿形兽是狮子匠的子嗣中最为敏锐狡猾的一种。在狩猎时，匿形兽的行动准则是不被发现——确切的说，不被发现，直到无济于事之时。",
+    "inherits": "foe.template",
+    "aspects": {
+        "otherworldly": 1,
+        "needsedge": 16,
+        "needswinter": 12,
+        "foe.elusive": 1,
+        "foe.monster": 1
+    },
+    "xtriggers": {
+        "refresh": "foe.hesukhine",
+        "killfoe": "foe.corpse.unnatural",
+        "concealidentity": "foe.hesukhine.hidden",
+        "takeadditional": [
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -2
+        },
+        {
+            "id": "needswinter",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+        ],
+        "makeadditional": [
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": 2
+        },
+        {
+            "id": "needswinter",
+            "morpheffect": "mutate",
+            "level": 2
+        }
+        ],
+        "weaken": [
+        {
+            "id": "weakened",
+            "morpheffect": "mutate",
+            "level": 1
+        },
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -2
+        },
+        {
+            "id": "needswinter",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+        ]
+    }
+    },
+    {
+    "id": "foe.hesukhine.hidden",
+    "label": "未知敌军",
+    "description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+    "inherits": "foe.template",
+    "aspects": {
+        "foe.hidden": 1,
+        "foe.monster": 1
+    },
+    "xtriggers": {
+        "refresh": "foe.hesukhine.hidden",
+        "killfoe": "foe.corpse.unnatural",
+        "revealidentity": "foe.hesukhine",
+        "weaken": [
+        {
+            "id": "weakened",
+            "morpheffect": "mutate",
+            "level": 1
+        },
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -2
+        },
+        {
+            "id": "needswinter",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+        ]
+    },
+    "icon": "foe.unknown",
+    "noStack": true
+    },
+{
+    "id": "foe.echidniform.grounded",
+    "label": "厄客德娜衍体（地面）",
+    "description": "诱惑是荣誉的大敌。屈服于丽姬亚厄客德娜的诱惑的狮子匠的战士失去了荣誉，但它们会经历极大的变化。在变化中，它们将获得新的思想，新的力量，并且最重要的，新的饥渴。",
+    "inherits": "foe.template",
+    "aspects": {
+        "otherworldly": 1,
+        "needsedge": 24,
+        "needsedgegrail": 10,
+        "foe.resilient": 1,
+        "foe.monster": 1
+    },
+    "xtriggers": {
+        "refresh": "foe.echidniform",
+        "killfoe": "foe.corpse.unnatural",
+        "concealidentity": "foe.echidniform.hidden",
+        "takeadditional": [
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -2
+        },
+        {
+            "id": "needsedgegrail",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+        ],
+        "makeadditional": [
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": 2
+        },
+        {
+            "id": "needsedgegrail",
+            "morpheffect": "mutate",
+            "level": 2
+        }
+        ],
+        "weaken": [
+        {
+            "id": "weakened",
+            "morpheffect": "mutate",
+            "level": 1
+        },
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -4
+        },
+        {
+            "id": "needsedgegrail",
+            "morpheffect": "mutate",
+            "level": -4
+        }
+        ]
+    },
+    "lifetime": 120,
+    "decayTo": "foe.echidniform.airborne",
+    "icon": "foe.echidniform"
+    },
+    {
+    "id": "foe.echidniform.grounded.hidden",
+    "label": "未知敌军",
+    "description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+    "inherits": "foe.template",
+    "aspects": {
+        "foe.hidden": 1,
+        "foe.monster": 1
+    },
+    "xtriggers": {
+        "refresh": "foe.echidniform.hidden",
+        "killfoe": "foe.corpse.unnatural",
+        "revealidentity": "foe.echidniform",
+        "weaken": [
+        {
+            "id": "weakened",
+            "morpheffect": "mutate",
+            "level": 1
+        },
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -4
+        },
+        {
+            "id": "needsedgegrail",
+            "morpheffect": "mutate",
+            "level": -4
+        }
+        ]
+    },
+    "icon": "foe.unknown",
+    "noStack": true
+    },
+{
+    "id": "foe.echidniform.airborne",
+    "label": "厄客德娜衍体（空中）",
+    "description": "诱惑是荣誉的大敌。屈服于丽姬亚厄客德娜的诱惑的狮子匠的战士失去了荣誉，但它们会经历极大的变化。在变化中，它们将获得新的思想，新的力量，并且最重要的，新的饥渴。",
+    "inherits": "foe.template",
+    "aspects": {
+        "otherworldly": 1,
+        "needsedge": 30,
+        "needsedgegrail": 12,
+        "foe.aerial": 2,
+        "foe.resilient": 1,
+        "foe.monster": 1
+    },
+    "xtriggers": {
+        "refresh": "foe.echidniform.airborne",
+        "killfoe": "foe.corpse.unnatural",
+        "concealidentity": "foe.echidniform.airborne.hidden",
+        "takeadditional": [
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -2
+        },
+        {
+            "id": "needsedgegrail",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+        ],
+        "makeadditional": [
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": 2
+        },
+        {
+            "id": "needsedgegrail",
+            "morpheffect": "mutate",
+            "level": 2
+        }
+        ],
+        "weaken": [
+        {
+            "id": "weakened",
+            "morpheffect": "mutate",
+            "level": 1
+        },
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -4
+        },
+        {
+            "id": "needsedgegrail",
+            "morpheffect": "mutate",
+            "level": -4
+        },
+        {
+            "id": "foe.aerial",
+            "morpheffect": "mutate",
+            "level": -1
+        }
+        ]
+    },
+    "lifetime": 120,
+    "decayTo": "foe.echidniform",
+    "icon": "foe.echidniform"
+    },
+{
+    "id": "foe.echidniform.airborne.hidden",
+    "label": "未知敌军",
+    "description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+    "inherits": "foe.template",
+    "aspects": {
+        "foe.hidden": 1,
+        "foe.monster": 1
+    },
+    "xtriggers": {
+        "refresh": "foe.echidniform.airborne.hidden",
+        "killfoe": "foe.corpse.unnatural",
+        "revealidentity": "foe.echidniform.airborne",
+        "weaken": [
+        {
+            "id": "weakened",
+            "morpheffect": "mutate",
+            "level": 1
+        },
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -4
+        },
+        {
+            "id": "needsedgegrail",
+            "morpheffect": "mutate",
+            "level": -4
+        },
+        {
+            "id": "foe.aerial",
+            "morpheffect": "mutate",
+            "level": -1
+        }
+        ]
+    },
+    "icon": "foe.unknown",
+    "noStack": true
+    },
+{
+    "id": "foe.skaptodon",
+    "label": "剑齿兽",
+    "description": "潜地的巨兽，其爪牙分开石头有如划开水一样轻松。当一只剑齿兽来到地面之上时，它总会分开一些别的什么，比如说人，或坦克，或任何在战斗中遇见剑齿兽的不幸家伙。[这一敌军行动时有概率产生地震。]",
+    "inherits": "foe.template",
+    "aspects": {
+        "otherworldly": 1,
+        "needsedge": 28,
+        "needsedgeforge": 10,
+        "foe.resilient": 1,
+        "foe.monster": 1
+    },
+    "xtriggers": {
+        "refresh": "foe.skaptodon",
+        "killfoe": "foe.corpse.unnatural",
+        "concealidentity": "foe.skaptodon.hidden",
+        "takeadditional": [
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -4
+        },
+        {
+            "id": "needsedgeforge",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+        ],
+        "makeadditional": [
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": 4
+        },
+        {
+            "id": "needsedgeforge",
+            "morpheffect": "mutate",
+            "level": 2
+        }
+        ],
+        "weaken": [
+        {
+            "id": "weakened",
+            "morpheffect": "mutate",
+            "level": 1
+        },
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -6
+        },
+        {
+            "id": "needsedgeforge",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+        ]
+    },
+    "induces": [
+        {
+        "id": "produce.earthquake",
+        "chance": 60
+        }
+    ]
+    },
+    {
+    "id": "foe.skaptodon.hidden",
+    "label": "未知敌军",
+    "description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+    "inherits": "foe.template",
+    "aspects": {
+        "foe.hidden": 1,
+        "foe.monster": 1
+    },
+    "xtriggers": {
+        "refresh": "foe.skaptodon.hidden",
+        "killfoe": "foe.corpse.unnatural",
+        "revealidentity": "foe.skaptodon",
+        "weaken": [
+        {
+            "id": "weakened",
+            "morpheffect": "mutate",
+            "level": 1
+        },
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -6
+        },
+        {
+            "id": "needsedgeforge",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+        ]
+    },
+    "icon": "foe.unknown",
+    "noStack": true,
+    "induces": [
+        {
+        "id": "produce.earthquake"
+        }
+    ]
+    },
+    {
+	"id": "foe.cross",
+	"label": "夺还者",
+	"description": "当我们从介壳种手中夺走世界时，它们选择了逃离。事到如今它们又为何返回？",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needsedge": 16,
+	    "needsmoth": 10,
+	    "needsgrail": 10,
+	    "foe.armoured": 1,
+	    "foe.resilient": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.cross",
+	    "killfoe": "foe.corpse.unnatural",
+	    "concealidentity": "foe.cross.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.cross.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.cross.hidden",
+	    "killfoe": "foe.corpse.unnatural",
+	    "revealidentity": "foe.cross",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsgrail",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    }
+]
+}

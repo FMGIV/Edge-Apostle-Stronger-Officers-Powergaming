@@ -1,0 +1,113 @@
+{
+"recipes": [
+{ "id": "obdurant.start.blocker", "craftable": true, "actionid": "operate",
+  "requirements": { "obdurant.setupitem": 1 }, "grandreqs": { "0=1": 1 },
+  "startdescription": "<b>士兵，你并未安装和/或启用The Roost Machine！本模组将无法正常运行！</b>",
+  "description": "<b>启用The Roost Machine，士兵！</b>",
+},
+    {
+	"id": "obdurant.setup.a",
+	"actionid": "operate",
+	"label": "片刻喘息？",
+	"startdescription": "当我向着外围跋涉时，雪开始点缀大地。我指挥的人们——疲倦，勇猛，忠诚——在我通过时向我敬礼。是的，这里所有人都是我的兄弟，但其中只有极少数我会称为朋友。不过，在营地边缘，一位朋友站立着，等待着我。",
+	"description": "“你好，”他对我说，手指之间夹着什么。“来根烟吗？”",
+	"requirements": {
+	    "obdurant.setupitem": 1
+	},
+	"effects": {
+	    "obdurant.mentor": 1,
+	    "obdurant.setupitem": -1
+	},
+	"alt": [
+	    {
+		"id": "obdurant.setup.b",
+		"additional": true
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "obdurant.setup.b",
+	"actionid": "communicate",
+	"label": "友人的助言",
+	"startdescription": "吾友与我讨论战争：死亡之人，胜利之人，还有我们。“你的人在先前的战斗后还能保持稳定——你指挥的不错。”他说。他的话中带有一丝暖意。我们呼气，烟气向着地表飘去。",
+	"effects": {
+	    "mem.calm": 1
+	},
+	"warmup": 15
+    },
+    {
+	"id": "obdurant.setup.c",
+	"actionid": "communicate",
+	"label": "告别？",
+	"startdescription": "我的朋友用鞋跟踏灭香烟。“和你的交谈使人振奋。但我想我必须离开了。我的大敌的轨迹不再与你的轨迹相交，而我需要遵守与他的约定。”他告知我。“在我离开之前，我想赠予你两件事物：我的尊敬，以及一个秘密。”",
+	"description": "“为了让这场战争变作现实，发生了很多事。刃之司辰在此处举行一场盛大的竞赛，而其奖品也十分重大：一个具名之位。我曾和你提及具名者。当尘埃落定，将会有一次任命具名者的机会。上校当然认定这机会是属于他的。我的大敌与我共享崇高的地位；故我们二人都不希望被具名。但某人必须被任命，而我愿下注押在你身上。”",
+	"requirements": {
+	    "obdurant.mentor": 1
+	},
+	"effects": {
+	    "obdurant.story": 1,
+	    "obdurant.mentor": -1
+	},
+	"alt": [
+	    {
+		"id": "obdurant.setup.d",
+		"additional": true
+	    }
+	],
+	"warmup": 30,
+	"craftable": true
+    },
+    {
+	"id": "obdurant.setup.d",
+	"actionid": "recon",
+	"label": "士兵的天赋",
+	"startdescription": "吾友在早上离去，与其承诺的一样。但有关他的记忆仍然残留。我回想起他是何人，他如何战斗，我们在散兵坑中饮酒时他教授我的事物，以及他在我们敌人的鲜血中传授我的经验。",
+	"description": "战争驱动许多人，但少有人驱动战争。我的朋友就是那驱动战争的少数人之一。我在他的身侧与他的阴影中战斗；我信赖他，也受到他的信赖。这一秘密技术的刀尖正是他赠予我的礼物之一，而我打算活用它。",
+	"effects": {
+	    "obdurant.fragmentedge": 1
+	},
+	"alt": [
+	    {
+		"id": "obdurant.setup.e",
+		"additional": true
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.setup.e",
+	"actionid": "abandon",
+	"label": "肉、血、骨",
+	"startdescription": "这是我肉身的清单——",
+	"effects": {
+	    "wound.eye": 1
+	},
+	"alt": [
+	    {
+		"id": "obdurant.setup.f",
+		"additional": true
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.setup.f",
+	"actionid": "mobilize",
+	"label": "进军",
+	"startdescription": "从指挥部来的新行军命令。德军已在移动，故我们也需要移动。",
+	"description": "是时候动身了。",
+	"deckeffects": {
+	    "starting.warzones.sector.a": 1
+	},
+	"effects": {
+	    "provisions": 8,
+	    "friend.infantry": 2,
+	    "friend.medics": 1,
+	    "friend.scouts": 1
+	},
+	"warmup": 30
+    }
+]
+}

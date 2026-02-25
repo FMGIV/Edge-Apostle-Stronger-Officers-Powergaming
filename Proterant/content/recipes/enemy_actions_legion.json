@@ -1,0 +1,388 @@
+{
+"recipes": [
+    {
+	"id": "legion.cycle",
+	"actionid": "action.legion",
+	"label": "The Legionnaires Bide Their Time...",
+	"startdescription": "Soldiers in their Bound-swept rags move in darkness, leaving no footprints. The Légion will make a move soon.",
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "legion.pickaction.router",
+		"chance": 40
+	    },
+	    {
+		"id": "legion.cycle.afraid_create"
+	    },
+	    {
+		"id": "legion.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "legion.reinforcements",
+		"additional": true,
+		"chance": 50
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "legion.reinforcements",
+	"actionid": "reinforcements.legion",
+	"label": "The Watchmen at the Threshold",
+	"startdescription": "When the moon finds us, the doors between the waking world and the dream swing wide, and the soldiers of the Légion spill forth. Troublesome.",
+	"extantreqs": {
+	    "faction.legion": -6,
+	    "corpse.lionel": -1
+	},
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"foe.boundsmen",
+		"foe.boundsmen",
+		"foe.boundsmen",
+		"foe.boundsmen",
+		"foe.boundsmen",
+		"foe.warder",
+		"foe.warder",
+		"foe.warder"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "legion.cycle.afraid_create",
+	"label": "Terror Becomes Me",
+	"startdescription": "When the lion roars, all other creatures lie low in fear, for they know the king of beasts has taken the field. And so I am a lion, and these souls my prey. [No Enemies will attack you or interfere with Objectives.]",
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"effects": {
+	    "signaller_afraid_legion": 1
+	},
+	"linked": [
+	    {
+		"id": "legion.cycle.afraid_continue"
+	    },
+	    {
+		"id": "legion.cycle.afraid_end"
+	    }
+	]
+    },
+    {
+	"id": "legion.cycle.afraid_continue",
+	"label": "Terror Becomes Me",
+	"startdescription": "When the lion roars, all other creatures lie low in fear, for they know the king of beasts has taken the field. And so I am a lion, and these souls my prey. [No Enemies will attack you or interfere with Objectives.]",
+	"warmup": 30,
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"linked": [
+	    {
+		"id": "legion.cycle.afraid_continue"
+	    },
+	    {
+		"id": "legion.cycle.afraid_end"
+	    }
+	]
+    },
+    {
+	"id": "legion.cycle.afraid_end",
+	"label": "Terror Becomes Me",
+	"startdescription": "When the lion roars, all other creatures lie low in fear, for they know the king of beasts has taken the field. And so I am a lion, and these souls my prey. [No Enemies will attack you or interfere with Objectives.]",
+	"effects": {
+	    "signaller_afraid_legion": -99
+	},
+	"linked": [
+	    {
+		"id": "legion.cycle"
+	    }
+	]
+    },
+    {
+	"id": "legion.pickaction.router",
+	"label": "The Légion Acts!",
+	"startdescription": "The alarm cries out - our adversary mobilises!",
+	"extantreqs": {
+	    "skill.intimidate.active": -1
+	},
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"alt": [
+	    {
+		"id": "lionel.attack.startup",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "legion.singleattack.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "legion.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "legion.clear",
+	"label": "The Légion Acts!",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "legion.cycle"
+	    }
+	]
+    },
+    {
+	"id": "legion.singleattack.startup",
+	"actionid": "attack.legion",
+	"label": "A Hostile Offensive!",
+	"startdescription": "One of our enemies seeks to strike at us -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "faction.legion": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqlionel": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "found.boundsmen"
+	    },
+	    {
+		"id": "found.otherlegionenemy"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "found.boundsmen",
+	"label": "A Hostile Offensive!",
+	"startdescription": "This enemy unit moves in lockstep with its comrades -",
+	"requirements": {
+	    "foe.coordinated": 1,
+	    "foe.boundsmen": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe.boundsmen": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqlionel": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "target.king",
+		"chance": 40
+	    },
+	    {
+		"id": "legion.defend.opportunity.pre"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "found.otherlegionenemy",
+	"label": "A Hostile Offensive!",
+	"startdescription": "",
+	"requirements": {
+	    "faction.legion": 1
+	},
+	"linked": [
+	    {
+		"id": "target.king",
+		"chance": 40
+	    },
+	    {
+		"id": "legion.defend.opportunity.pre"
+	    }
+	]
+    },
+    {
+	"id": "target.king",
+	"label": "Against King Henry's Rifles?",
+	"startdescription": "We're all fighting over the star - that means we're all fighting each other. And this time, the Légion has chosen a different target.",
+	"tablereqs": {
+	    "faction.king": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqjerome": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "target.king.defeat",
+		"chance": 35
+	    },
+	    {
+		"id": "target.king.victory"
+	    }
+	]
+    },
+    {
+	"id": "target.king.defeat",
+	"label": "The Légion Has Not Prevailed",
+	"startdescription": "The King's men hold their own against the offensive; the legionnaires slink back to their mists and shadows. No-one can yet be declared the victor.",
+    },
+    {
+	"id": "target.king.victory",
+	"label": "The Légion Has Prevailed!",
+	"startdescription": "The King's men are taken in the night. Gutted bodies are thrown down into the mud. The glint of the Légion's bayonets and knives brightens the shadows for a moment, and then they are gone.",
+	"aspects": {
+	    "killking": 1
+	}
+    },
+    {
+	"id": "legion.defend.opportunity.pre",
+	"label": "A Hostile Offensive!",
+	"startdescription": "",
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "defend.opportunity"
+	    }
+	]
+    },
+    {
+	"id": "lionel.attack.startup",
+	"actionid": "attack.lionel",
+	"label": "A Commander Takes Action!",
+	"startdescription": "'I gave you the opportunity to walk away - but your kind never does. Anything to whet your reckless appetite for power.'",
+	"tablereqs": {
+	    "uqlionel": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"slots": [
+	    {
+		"id": "needslionel",
+		"label": "Enemy",
+		"required": {
+		    "uqlionel": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"internaldeck": {
+	    "spec": [
+		"decision.enemy.doubleattack",
+		"decision.enemy.attack",
+		"decision.enemy.attack",
+		"decision.enemy.attack",
+		"decision.enemy.attack",
+		"decision.enemy.attack",
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "lionel.physicalattack"
+	    },
+	    {
+		"id": "lionel.makemaze"
+	    }
+	]
+    },
+    {
+	"id": "lionel.physicalattack",
+	"label": "A Vicious Assault!",
+	"startdescription": "'I will make it clean if you allow me to.'\n\n[Lionel is attempting to do you and your Allies physical harm. Defend by providing a card to equal any of his Thresholds.]",
+	"requirements": {
+	    "decision.enemy.attack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "Defense",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "defend.edge"
+	    },
+	    {
+		"id": "defend.edgeknock"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "lionel.makemaze",
+	"label": "A Hawthorn Snare",
+	"startdescription": "The Lieutenant-Ostiary of the Légion du Seuil is permitted special privileges by the Hour who watches the thresholds. One of those is that the lieutenant may - with the proper etiquette - petition waking space itself to heed his commands.",
+	"description": "For a moment, I lose all sense of balance and direction. Something has changed. Now the latitudes and longitudes of the waking world have new orders, and their orders are to sabotage our war effort.",
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"effects": {
+	    "side.spacemaze": 1
+	},
+	"warmup": 30
+    }
+]
+}

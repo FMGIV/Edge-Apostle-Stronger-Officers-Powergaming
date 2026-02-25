@@ -1,0 +1,1159 @@
+{
+"recipes": [
+    {
+	"id": "dreams.startup",
+	"actionid": "dreaming",
+	"label": "The Doors of the Dream",
+	"startdescription": "The House draws close to the world. Tonight, one who dreams fiercely enough might be able to walk there.\n\n[Place an appropriate card here to facilitate a useful dream. If you do nothing, your soul will drift into whatever dreams may come.]",
+	"requirements": {
+	    "days.dream": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Consideration",
+		"required": {
+		    "contemplation": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"alt": [
+	    {
+		"id": "contemnant.namehints"
+	    },
+	    {
+		"id": "proterant.namehints"
+	    },
+	    {
+		"id": "obdurant.namehints"
+	    },
+	    {
+		"id": "contemplation.complete"
+	    },
+	    {
+		"id": "contemplate.mainobjective.contemnant"
+	    },
+	    {
+		"id": "contemplate.wolfdream"
+	    },
+	    {
+		"id": "contemplate.antithesis"
+	    },
+	    {
+		"id": "othercontemplations"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "dreams.router"
+	    }
+	]
+    },
+    {
+	"id": "dreams.router",
+	"label": "Into Other Dreams...",
+	"startdescription": "Now I drift into other dreams...",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "dreams.edgehour.draw.contemnant",
+		"chance": 40
+	    },
+	    {
+		"id": "dreams.edgehour.draw.proterant",
+		"chance": 40
+	    },
+	    {
+		"id": "dreams.edgehour.draw.obdurant",
+		"chance": 40
+	    },
+	    {
+		"id": "dreams.generic.draw"
+	    }
+	]
+    },
+    {
+	"id": "dreams.edgehour.draw.obdurant",
+	"label": "The Hours Who Struggle",
+	"extantreqs": {
+	    "obdurant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+	    	"draw.colonel.1",
+		"draw.colonel.2",
+		"draw.colonel.3",
+		"draw.lionsmith.1",
+		"draw.lionsmith.2",
+		"draw.wolf.1",
+		"draw.wolf.2"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "dreams.colonel.obdurant"
+	    },
+	    {
+		"id": "dreams.lionsmith.obdurant"
+	    },
+	    {
+		"id": "dreams.wolf.obdurant"
+	    }
+	]
+    },
+    {
+	"id": "dreams.colonel.obdurant",
+	"label": "The Soldier's Dream",
+	"startdescription": "@#draw.colonel.1|I am standing on a white-black field where two armies meet in contest. I see a footsoldier run through by a cavalier on horseback; a priest is beheaded by a man adorned with a crown of black sapphire; a tower falls in the pale distance. Have I been here before? A shadow looms behind -#draw.colonel.2|Tonight, I dream of blood and scale. A scarred warrior does battle with a great beast on a snowfield of alabaster white. Sometimes the warrior is a mounted knight with a lance, or a winged angel piercing his foe with a spear, or a soldier in officer's livery; sometimes the beast is a worm, or a dragon, or a convolution of numberless serpents.#draw.colonel.3|It is night in my dream. I am seated before a small fire with other soldiers: a British airman, a <i>voltigeur,</i> a Roman centurion, and others. Even a German officer is there. I look about, and see other points of earnest light in the distance. Other fires, other soldiers.@",
+	"description": "@#draw.colonel.1|- and then I am plucked from the white-black field, soaring high above it. A keen, patient second passes. I am considered. And then I am descending - returned again to the field, and the cavalier stands before me on his black destrier. I steel myself. I am moved by forces fundamental. Whatever blood is to come, will come.#draw.colonel.2|Always, at the end of the dream, the warrior climbs out over the innards of his titanic foe and proclaims his victory. Serpents and men - an old parable. But one we can always learn from.#draw.colonel.3|A coldness rises on the wind, and so we set to telling stories in the way soldiers might around a fire. I listened to a hussar recall the Ottoman rout at Vienna; a rifleman of the White Guard mused about shooting bolsheviks during the Revolution; a Gaul and a centurion traded stories and laughed. Then a Macedonian spoke, and began to relate to us older stories. I heard things said: of Alexander and the Diadochi, of Mycenae and Abydos, of battles older than any empire remembered by name. And when I heard, I listened, and I learned.@",
+	"requirements": {
+	    "dream.colonel": 1
+	},
+	"effects": {
+	    "op.thecolonel": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "dreams.lionsmith.obdurant",
+	"label": "Leonine Nightmares",
+	"startdescription": "@#draw.lionsmith.1|The keen sting of claws in my chest is what I feel first. A feral tabby springs back with a defiant hiss, crouching to lunge again. My hands wrap around its neck to smother it into the dust, but suddenly the cat has become a desert lynx thrashing in my grasp, glaring at me with kerosene lamp eyes as it rears back -#draw.lionsmith.2|Tonight, my dream is a dream of fire. Terrible and nameless weapons illuminate the night sky with their firing, and the field of battle is made a lake of smokeless flame. Below, monsters of all shapes and order stride across that burning lake, slaughtering fleeing men with claw and fang and killing breath. Blood and gold.@",
+	"description": "@#draw.lionsmith.1|I try to wrestle it to the ground again, and now it is a lion heaving against me with muscles of riveted iron, then a burning tiger locking its piston-jaws into my flesh. Each moment spent in struggle only doubles the beast's strength and rage. To meet that rage is to feed its fire. And the day will come, perhaps, where I shall find that I am not enough to match it.#draw.lionsmith.2|Over that din of battle - over the screams and the snarling and the thunder of the guns - a proud and fiery laughter rings out. A hundred men and a hundred beasts are then crushed by the advancing footfall of a laughing giant. Then another hundred, and another. Too late, I realize I am in his path - and the dream ends, mercifully. But still I can recall the lake of fire, and firing of the guns, and the shadow cast by that golden giant.@",
+	"requirements": {
+	    "dream.lionsmith": 1
+	},
+	"effects": {
+	    "hindrance.lionsmith": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "dreams.wolf.obdurant",
+	"label": "Wolf-Terrors",
+	"startdescription": "@#draw.wolf.1|My knees press to my chest, and my breath sticks in my lungs, wet and bloody. A complete and unfathomable dark smothers me. It is a torment, and it makes my innards twist in a torturous way like they are being nosed by the snout of a hideous animal. I writhe, hoping for some slip of freedom from that horrible dark and pressure, but my motions are a torment, too.#draw.wolf.2|A smouldering mound of indiscriminate dead piles high beneath the noonday sun. I am in the pile, and I am naked and my skin is singed and sloughing from my bones. Loping towards me is the gaunt black shape of a starving dog, and I can see how hunger has pressed its skin to its ribs and pulled back the flesh from its mouth so that it seems to smile at me.@",
+	"description": "@#draw.wolf.1|Then there is light, and the light is a greater torment. It rips open the dark like teeth rips meat, and the white is all shot through with cracking, splitting red and the red is my blood afire and I realise what an unbearable pain it is to be, and I scream - and when I scream, it is the scream of an animal that escapes my lips.#draw.wolf.2|The black dog speaks to me in the voice of a dead child. It enumerates the breadth of its hatred, and each thing named is like a nail driven into my ear. Birds. Men. Sunrises. Laughter. Days and nights. As many things are named as there are droplets in the sea. And then the dog, in its dead-child voice, tells me what it intends for the world, and all the things within it and without it. For this, it only needed a single word.@",
+	"requirements": {
+	    "dream.wolf": 1
+	},
+	"effects": {
+	    "hindrance.wolf": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "dreams.edgehour.draw.proterant",
+	"label": "The Hours Who Struggle",
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"draw.lionsmith.1",
+		"draw.lionsmith.2",
+		"draw.lionsmith.3",
+	    	"draw.colonel.1",
+		"draw.colonel.2",
+		"draw.wolf.1",
+		"draw.wolf.2"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "dreams.colonel.proterant"
+	    },
+	    {
+		"id": "dreams.lionsmith.proterant"
+	    },
+	    {
+		"id": "dreams.wolf.proterant"
+	    }
+	]
+    },
+    {
+	"id": "dreams.colonel.proterant",
+	"label": "A Nightmare of Scars",
+	"startdescription": "@#draw.colonel.1|My dream is a perfect stillness. Towers rise in soundless majesty. Streets choke with snow, and the sky is the shade of marble. And the dead - the dead watch and stare, transfixed. The world has gone so beautifully white.#draw.colonel.2|Tonight I dream of dark shapes behind glass. Black sapphire and undulating gristle: these are what we call Worms, and under the chilly shadows of the Worm Museum, they are kept displayed for posterity and to instill fear. It is not safe anywhere in the Mansus, but for one such as me, it is especially unsafe <i>here.</i>@",
+	"description": "@#draw.colonel.1|Then there is a betrayal: a shout. And another, and another. Voices rise like fists, defiant. Why? Why now do they break this silence? A great groan of wood and stone - the gates of the city are opening. They have let him in. He is here, and the Sun is behind him. He is here, and though he cannot see, I cannot evade him. And his face - the tattered visage of his <i>face -</i>#draw.colonel.2|An uneven echoing rings through the Museum's silence, like a giant limping across the stones. Dread fills me. I hide myself in a hall where more Nevers and Nothings have been hung for display. Still the echoing comes. When he steps into the hall, I see him at last, and he is all sharp shapes and winter-white excruciation. The length of the room shortens then, and I am brought before him out in the open, weak and naked. My dream ends before I can suffer any mortal harm, but the chill of the Colonel's hand on my shoulder still aches, and aches horribly.@",
+	"requirements": {
+	    "dream.colonel": 1
+	},
+	"effects": {
+	    "hindrance.colonel": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "dreams.lionsmith.proterant",
+	"label": "Golden Visions",
+	"startdescription": "@#draw.lionsmith.1|Two titans - an heir of metal and a son of stone - wrestle on a plateau beneath a midnight sky. Muscles of gold contend against arms of mountain-rock; bright-ichor and searing magma spill upon the countryside as each champion wounds the other in turn. Above, the moon watches, a placid observer. A victor will emerge.#draw.lionsmith.2|My dream is silent and walled with stone. A slit of sunlight reaches down into the cell and illuminates a single spot in the darkness, where a great winged beast lies restrained with chain and nail. It meets my eyes. 'Little dreamer,' the labhite rumbles. 'Come and permit me a conversation. The remainder of my punishment is yet long.'#draw.lionsmith.3|In my dream, I am fanged and clawed, and my strength is the strength of monsters. Spears and arrows stick in my back. I have been killing, and blood that is mine and blood that is not slicks my fur. But even as I cleave the flesh of armies and crush the skulls of the fleeing, I feel my end approaching.@",
+	"description": "@#draw.lionsmith.1|At last, the moon grants her favour to metal's heir, and the silver of the night tempers his strength tenfold. With a great heave, the heir lifts his enemy up to the waiting sky, and crushes him to the last. Stone cracks and splits. Roots are torn from the earth, and the earth screams. I could not remember if the victor saluted his fallen enemy, or devoured him, but the memory of metal's triumph over stone followed me into waking, and I feel the stronger for it.#draw.lionsmith.2|'There is no defeat but shame,' the labhite explains. 'The Lionsmith learnt that here, in the Labyrinth. From that realisation springs forth the strength of the interior.' He looks glumly at the chains which shackle him, the nails which pin his limbs to the floor. 'I have forgotten this lesson. Here, I am expected to learn it again.' And the labhite spoke of that interior strength, and we meditated together in the shadows. Still I remember the silence of the Labyrinth of Lions, and still I remember what the labhite and I learnt in the coiled dark of its bowels.#draw.lionsmith.3|Sunset finds me broken in the desert. I have piled a ludicrous number of bodies upon the field, and soon I will be one more. But a shadowless figure crosses the dune, and I see him through the blood that has dried about my eyes. He scratches me behind the ears with his shining hand. Then his hammer comes down, and the world is the burn of blunt, blinding gold. What has been broken can be reforged. What has never been broken must be reforged.@",
+	"requirements": {
+	    "dream.lionsmith": 1
+	},
+	"effects": {
+	    "op.thelionsmith": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "dreams.wolf.proterant",
+	"label": "Wolf-Terrors",
+	"startdescription": "@#draw.wolf.1|My knees press to my chest, and my breath sticks in my lungs, wet and bloody. A complete and unfathomable dark smothers me. It is a torment, and it makes my innards twist in a torturous way like they are being nosed by the snout of a hideous animal. I writhe, hoping for some slip of freedom from that horrible dark and pressure, but my motions are a torment, too.#draw.wolf.2|A smouldering mound of indiscriminate dead piles high beneath the noonday sun. I am in the pile, and I am naked and my skin is singed and sloughing from my bones. Loping towards me is the gaunt black shape of a starving dog, and I can see how hunger has pressed its skin to its ribs and pulled back the flesh from its mouth so that it seems to smile at me.@",
+	"description": "@#draw.wolf.1|Then there is light, and the light is a greater torment. It rips open the dark like teeth rips meat, and the white is all shot through with cracking, splitting red and the red is my blood afire and I realise what an unbearable pain it is to be, and I scream - and when I scream, it is the scream of an animal that escapes my lips.#draw.wolf.2|The black dog speaks to me in the voice of a dead child. It enumerates the breadth of its hatred, and each thing named is like a nail driven into my ear. Birds. Men. Sunrises. Laughter. Days and nights. As many things are named as there are droplets in the sea. And then the dog, in its dead-child voice, tells me what it intends for the world, and all the things within it and without it. For this, it only needed a single word.@",
+	"requirements": {
+	    "dream.wolf": 1
+	},
+	"effects": {
+	    "hindrance.wolf": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "dreams.generic.draw",
+	"label": "The Fruit of Dreams",
+	"internaldeck": {
+	    "spec": [
+	    	"mem.regret",
+		"mem.fear",
+		"mem.rage",
+		"mem.joy",
+		"mem.calm",
+		"mem.ingenuity",
+		"mem.taste",
+		"mem.grief",
+		"mem.unexpected",
+		"mem.revelation"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "dreams.generic"
+	    }
+	]
+    },
+    {
+	"id": "dreams.generic",
+	"label": "The Paths of Sleep",
+	"startdescription": "@#mem.regret|Tonight I will dream of impossibilities.#mem.fear|Tonight I will dream in the dark.#mem.rage|Tonight I will dream of retribution.#mem.joy|Tonight I will dream of what has become unfamiliar to me.#mem.calm|Tonight I will dream of sea and stars.#mem.ingenuity|Tonight I will dream of a great industry.#mem.taste|Tonight I will dream of things which are red.#mem.grief|Tonight I will dream of those lost.#mem.unexpected|My dream twists like a tree in the wind -#mem.revelation|Tonight I will dream of light.@",
+	"description": "@#mem.regret|I am face-to-face with someone who looks very much like me, except for the fact they are quite different and seem the better-groomed of us two. Their face is unburdened and unmarked by the experience of battle; they are not clothed in the fatigues of a fighting man. They smiled at me, sadly, and invited me to walk with them. When I refused, their smile became sadder still. I determined that whoever this was was terribly weak, and I watched them depart from my dream. Only when they were gone did I suddenly feel like I had lost something, and could not recover it.#mem.fear|I dreamt that I was a child again. I was looking through a keyhole into a room where someone I loved was suffering. Someone was beating them. Or perhaps they were writhing on the bed, groaning as some wasting disease chewed their nerves and burned their insides - that was something no strength could defeat on the field. I cannot remember the moment clearly, and perhaps that is good. I do not recall fondly the moments when I was helpless. Will something on the field render me helpless again?#mem.rage|I saw the hooked cross in my dream, taunting me. I went forth to tear at it and cast it down, but a shape that seemed like a man got in my way. This shape I beat savagely, and I derived no small amount of joy from the doing. This interloper disposed of, I went again towards the hooked cross, but more shapes met me on the path to stop me. A white-hot flame went up within me. I began to fight with my fists as they held me back, then with my teeth. I thrashed and bit at those faceless things that they might release me, bleeding and cracking from the exertion of it, but I never reached the hooked cross. I woke bitter.#mem.joy|I am running down a grassy hill. The wind is warm and the shade is there should I need it, and my favorite toy is in my hand, a close comrade. The calling of my mother is in the blue distance behind me. I should not yet go home, I think. So I take another hill, and another, and the day does not end. When I am tired at last, I bother my toy for some suggestion in the mad way children might. Only now, looking at him in my dream, do I remember what that toy was: a wooden soldier.#mem.calm|Small bells ring from somewhere unseen. I drift in a small boat on a placid sea, the surface of which is like silvered glass so that each star in the sky has a twin in the water. I lay on the floor of my boat so as to get a better look at the stars. I do not see them often in waking, but here they are, in my dream. I count them until sunrise wakes me, and I am in my tent, and the stars are gone.#mem.ingenuity|I have passed into the House tonight, I think. I walk over a snowfield where shades drift, listless, ebbing in and out of sight like vapours on the wind. Then high above me, a cloud of mercury parts just so, and I see behind it the furious orange-gold light of the place called Malleary. The ghosts who share the field with me look up in terror, or perhaps wonder, as the brilliance of the distant Malleary colours my dream. The White Door is very far from that place, but when I woke I could still hear the distant hammers and the humming of the Forge, joyfully at work.#mem.taste|In my dream, I made my way to the Well in the Wood, which bubbled and foamed with a contaminated sweetness. Watching the ebbing and flowing of the desire-fluid made me thirsty, and so I drank unwisely from the Well. Then came to me the shapes and scents of things I desired and had become starved of: meat and liquor and the skin of jilted lovers. Oh, these things were such an exquisite ache. I reached out to touch them, to taste, but these things receded back into the Well and I was again thirsty. And when I woke, I was thirsty still.#mem.grief|A crowd of grey faces finds me in the dream. I recognize these faces. Some wear the colours of the enemy; some do not. Some of them are old, and others so young I cannot bear to look upon them. I bury myself behind my hands - I cannot be responsible for <i>all</i> their deaths. I cannot.#mem.unexpected|I am in the bleached dark of the Wood, which sprawls across the dream-space beyond the House. My instincts swell in me like the budding of some unwholesome fruit, and I press to all fours to go nosing about the roots of the place. There is a bed of paper flowers that have no name in the waking world, scented with cinnamon and sandalwood and petrichor. There is a gold coin with a blank side, dropped here by one fleeing. And here is a porcelain teacup, and turning it over I find that within it is the sun. I understand.#mem.revelation|In the colourless pale of my dream, I saw a great golden brilliance flickering in the distance. I did so want to reach it. So with my wings I began the ascent, buzzing like some bee or imago emergent. As I neared the light, I could feel the scales falling away from me in sheets, like rain or ash. The mouth I did not have became very dry. Soon my dream was only that light, and in that light I could no longer feel myself distinct. Then I woke, and I found I did not have wings nor scales. But when I close my eyes, I can still see: Glory.@",
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.namehints",
+	"label": "Meditate on Namehood",
+	"startdescription": "I will extinguish the candle before I sleep, and contemplate my ascendancy.",
+	"requirements": {
+	    "obdurant.story": 1
+	},
+	"linked": [
+	    {
+		"id": "obdurant.drawhint"
+	    }
+	]
+    },
+    {
+	"id": "obdurant.drawhint",
+	"label": "Meditate on Namehood",
+	"internaldeck": {
+	    "spec": [
+		"draw.hintobdurant.lore",
+		"draw.hintobdurant.debilitations",
+		"draw.hintobdurant.ebrehel",
+		"draw.hintobdurant.medusa",
+		"draw.hintobdurant.musvashir",
+		"draw.hintobdurant.main",
+		"draw.hintobdurant.stalingrad"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "obdurant.hintdesc.lore"
+	    },
+	    {
+		"id": "obdurant.hintdesc.debilitations"
+	    },
+	    {
+		"id": "obdurant.hintdesc.ebrehel"
+	    },
+	    {
+		"id": "obdurant.hintdesc.medusa"
+	    },
+	    {
+		"id": "obdurant.hintdesc.musvashir"
+	    },
+	    {
+		"id": "obdurant.hintdesc.main"
+	    },
+	    {
+		"id": "obdurant.hintdesc.stalingrad"
+	    },
+	    {
+		"id": "obdurant.clearagain"
+	    }
+	]
+    },
+    {
+	"id": "obdurant.hintdesc.lore",
+	"label": "The Colonel's Mysteries...",
+	"startdescription": "Like my friend told me...",
+	"description": "Like my friend told me: at the very least, I will need to master the Colonel's techniques in order to start upon the first step to Namehood.",
+	"requirements": {
+	    "draw.hintobdurant.lore": 1
+	},
+	"extantreqs": {
+	    "obdurant.fragmentedgeg.exhausted": -1,
+	    "obdurant.fragmentedgeg": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.hintdesc.debilitations",
+	"label": "The Ordination of Scars...",
+	"startdescription": "",
+	"description": "My body must be a testament to my victories and to my experience. I must be seasoned in the way the very old and the very cunning are, and to become so, I will turn this flesh over to the sufferings of war. The Colonel and his Names will recognize these sufferings, and merit me accordingly.",
+	"requirements": {
+	    "draw.hintobdurant.debilitations": 1
+	},
+	"extantreqs": {
+	    "defiance.consecration.colonel": -3
+	},
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.hintdesc.ebrehel",
+	"label": "The Ragged Sword...",
+	"startdescription": "At some point or another, each of the Colonel's Names...",
+	"description": "At some point or another, each of the Colonel's Names - and my friend, too - have wielded this strange, storied sword. Now Ebrehel must know me as its wielder. The sword has travelled long and far, eluding its guardian - until now. It lies with her beneath the lake that cannot be visited twice, beyond the charting of men.",
+	"requirements": {
+	    "draw.hintobdurant.ebrehel": 1
+	},
+	"extantreqs": {
+	    "ebrehel": -1,
+	    "ebrehel.exhausted": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.hintdesc.medusa",
+	"label": "The Forest Key...",
+	"startdescription": "When the Colonel and the Mother of Ants slew the Seven-Coils...",
+	"description": "When the Colonel and the Mother of Ants slew the Seven-Coils, it was the Forest Key that permitted them passage into the House thereafter. The Colonel and the Ligeian Medusa are closer than most (close as old enemies, perhaps) and they met at the foot of the Stag Door, once - that old scar, broken so long ago and still not wholly healed; that point where men first broke into the Mansus. I will need her Forest Key to open the Stag Door if I wish to fulfil my duty.",
+	"requirements": {
+	    "draw.hintobdurant.medusa": 1
+	},
+	"extantreqs": {
+	    "gotmedusa": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.hintdesc.musvashir",
+	"label": "The Challenger's Sacrament...",
+	"startdescription": "As a sign of respect, I must strive in the mode of the old gods...",
+	"description": "As a sign of respect, I must strive in the mode of the old gods against a foe who far exceeds me - an ancient sacrament of battle. The Colonel enacted it first (he claims many firsts in war), but the Lionsmith made it sacred. There have been many names for this sacrament in many lands, but the oldest comes from Persia, and there the Shadowless Kings called it <i>musvashir</i> - mouse and lion.",
+	"requirements": {
+	    "draw.hintobdurant.musvashir": 1
+	},
+	"extantreqs": {
+	    "challenger.mark": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.hintdesc.main",
+	"label": "The Warpath...",
+	"startdescription": "If I am to be recognized by the powers of struggle...",
+	"description": "If I am to be recognized by the powers of struggle, I must prove my resolutions; if the enemy hopes to accomplish some end, I will crush that hope; if the enemy seeks victory, I will deny them. This is my oath, no matter the battlefield.",
+	"requirements": {
+	    "draw.hintobdurant.main": 1
+	},
+	"extantreqs": {
+	    "resolution": -12
+	},
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.hintdesc.stalingrad",
+	"label": "A Great Hinge of the Corrivality...",
+	"startdescription": "The place where I am to be Named waits in the east...",
+	"description": "The place where I am to be Named waits in the east, beyond the Volga. Stalingrad is where I shall find my destiny.",
+	"requirements": {
+	    "draw.hintobdurant.stalingrad": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.clearagain",
+	"label": "Meditate on Namehood",
+	"effects": {
+	    "decision": -99
+	},
+	"linked": [
+	    {
+		"id": "obdurant.drawhint"
+	    }
+	]
+    },
+    {
+	"id": "proterant.namehints",
+	"label": "Meditate on Namehood",
+	"startdescription": "I will light the candle before I sleep, and contemplate my ascendancy.",
+	"requirements": {
+	    "proterant.story": 1
+	},
+	"linked": [
+	    {
+		"id": "proterant.drawhint"
+	    }
+	]
+    },
+    {
+	"id": "proterant.drawhint",
+	"label": "Meditate on Namehood",
+	"internaldeck": {
+	    "spec": [
+		"draw.hintproterant.lore",
+		"draw.hintproterant.breakchains",
+		"draw.hintproterant.makemonsters",
+		"draw.hintproterant.star",
+		"draw.hintproterant.echidna",
+		"draw.hintproterant.musvashir",
+		"draw.hintproterant.main",
+		"draw.hintproterant.rome",
+		"draw.hintproterant.nodebilitations"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "proterant.hintdesc.lore"
+	    },
+	    {
+		"id": "proterant.hintdesc.breakchains"
+	    },
+	    {
+		"id": "proterant.hintdesc.makemonsters"
+	    },
+	    {
+		"id": "proterant.hintdesc.star"
+	    },
+	    {
+		"id": "proterant.hintdesc.echidna"
+	    },
+	    {
+		"id": "proterant.hintdesc.musvashir"
+	    },
+	    {
+		"id": "proterant.hintdesc.main"
+	    },
+	    {
+		"id": "proterant.hintdesc.rome"
+	    },
+	    {
+		"id": "proterant.hintdesc.nodebilitations"
+	    },
+	    {
+		"id": "proterant.clearagain"
+	    }
+	]
+    },
+    {
+	"id": "proterant.hintdesc.lore",
+	"label": "The Lionsmith's Mysteries...",
+	"startdescription": "Like my friend told me...",
+	"description": "Like my friend told me: at the very least, I will need to master the Lionsmith's techniques in order to start upon the first step to Namehood.",
+	"requirements": {
+	    "draw.hintproterant.lore": 1
+	},
+	"extantreqs": {
+	    "proterant.fragmentedgeg.exhausted": -1,
+	    "proterant.fragmentedgeg": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "proterant.hintdesc.breakchains",
+	"label": "The Chains of Loyalty...",
+	"startdescription": "When I was younger and the world was very different...",
+	"description": "When I was younger and the world was very different, I encountered a remnant of the Hour once called Flint. I ate of its gifts and swore its wordless oaths, and became more than mortal. Still those ties bind me. I cannot serve two masters; not if I hope to be Named for the Lionsmith. I must find release from the oaths of Stone.",
+	"requirements": {
+	    "draw.hintproterant.breakchains": 1
+	},
+	"extantreqs": {
+	    "chain": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "proterant.hintdesc.makemonsters",
+	"label": "The Making of Monsters...",
+	"startdescription": "The Golden General brings forth monsters...",
+	"description": "The Golden General brings forth monsters to combat the Tribune and his servants. This is his industry. To become the General's Name, that industry must become mine, also. I must study in the hallowed places, but practical learning will provide the real education.",
+	"requirements": {
+	    "draw.hintproterant.makemonsters": 1
+	},
+	"extantreqs": {
+	    "constructions.c": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "proterant.hintdesc.star",
+	"label": "The General's Gift...",
+	"startdescription": "My friend said that the Lionsmith was preparing a surprise at Montecassino...",
+	"description": "My friend said that the Lionsmith was preparing a surprise at Montecassino. I should make haste to go there, but not without preparations. Any surprise prepared by the Hours will be dangerous; any surprise prepared by the Lionsmith will be preposterously dangerous.",
+	"requirements": {
+	    "draw.hintproterant.star": 1
+	},
+	"extantreqs": {
+	    "token.star": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "proterant.hintdesc.echidna",
+	"label": "The Biting Key...",
+	"startdescription": "The Ligeian Echidna shares a long history with the Lionsmith...",
+	"description": "The Ligeian Echidna shares a long history with the Lionsmith. When he was mortal, she was one of his many enemies, then one of his teachers - and perhaps also his lover. In this age, they consult one another as peers, together devising the new and the monstrous. But at Issus, when the Lionsmith broke his sword before Alexander and his host, it was Echidna and her Biting Key that permitted his passage through the Savage Door and his transfiguration into an Hour thereafter. I will require the use of that Key in Rome, when I seek my own passage through the Savage Door. And for that, I will require Echidna.",
+	"requirements": {
+	    "draw.hintproterant.echidna": 1
+	},
+	"extantreqs": {
+	    "token.echidna": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "proterant.hintdesc.musvashir",
+	"label": "The Challenger's Sacrament...",
+	"startdescription": "As a sign of respect, I must strive in the mode of the old gods...",
+	"description": "As a sign of respect, I must strive in the mode of the old gods against a foe who far exceeds me - an ancient sacrament of battle. The Colonel enacted it first (he claims many firsts in war), but the Lionsmith made it sacred. There have been many names for this sacrament in many lands, but the oldest comes from Persia, and there the Shadowless Kings called it <i>musvashir</i> - mouse and lion.",
+	"requirements": {
+	    "draw.hintproterant.musvashir": 1
+	},
+	"extantreqs": {
+	    "challenger.mark": -1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "proterant.hintdesc.main",
+	"label": "The Warpath...",
+	"startdescription": "If I am to be recognized by the powers of struggle...",
+	"description": "If I am to be recognized by the powers of struggle, I must prove my valour; if the enemy hopes to stand against us, I will crush that hope; if the enemy seeks victory, I will deny them. This is my oath, no matter the battlefield.",
+	"requirements": {
+	    "draw.hintproterant.rome": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "proterant.hintdesc.rome",
+	"label": "A Great Hinge of the Corrivality...",
+	"startdescription": "The place where I am to be Named waits in the north...",
+	"description": "The place where I am to be Named waits in the north, where all the roads of Empire once converged. Rome is where I will seize my destiny.",
+	"requirements": {
+	    "draw.hintproterant.rome": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "proterant.hintdesc.nodebilitations",
+	"label": "The Repugnance of Scars...",
+	"startdescription": "The Lionsmith is a seamless Hour...",
+	"description": "The Lionsmith is a seamless Hour, and sneers at scars; his servants are likewise proud, spotless, headstrong things. I cannot enter his service as a Name if I am blemished with weakness or disfigurement.",
+	"requirements": {
+	    "draw.hintproterant.nodebilitations": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "proterant.clearagain",
+	"label": "Meditate on Namehood",
+	"effects": {
+	    "decision": -99
+	},
+	"linked": [
+	    {
+		"id": "proterant.drawhint"
+	    }
+	]
+    },
+    {
+	"id": "contemplation.complete",
+	"label": "Drawing a Conclusion",
+	"startdescription": "@#mission.camilla.c|In war, Edge-Long never travel far from their nemeses. The Continental's immortal enemy - the Long called 'Warmaker' - must be somewhere on the front. But where, exactly?\n\n[When Strife reaches three, you might find the Warmaker on the field if you search assiduously enough.]#mission.wilhelm.c|In war, Edge-Long never travel far from their nemeses. The Warmaker's immortal enemy - the Long called 'Continental' - must be somewhere on the front. But where, exactly?\n\n[When Strife reaches three, you might find the Continental on the field if you search assiduously enough.]#mission.sergei.c|The Iron-Eater's once-immortal nemesis - an obscure Long I know only as 'The Orphan' - is dead. It is not known for an Edge-Long to persist after his enemy has fallen. This old wolf is hiding something - but what?\n\n[Perhaps you should take this Contemplation elsewhere.]#contemplation.cross.3|I understand, now, why the Horned Axe has deployed one of the last Carapace Cross to kill the Exile and their Foe. Not only would the dissolution of a dyad please the Axe, but if the earth drinks enough Antaian blood, the dead gods beneath it might rise again. I need the Exile and their Foe dead for different reasons - but I am sure we can come to some kind of arrangement.@",
+	"requirements": {
+	    "contemplation": 1,
+	    "completed": 1
+	}
+    },
+    {
+	"id": "othercontemplations",
+	"label": "A Contemplation",
+	"startdescription": "My soul shall wrestle with this mystery in dreams, and if all goes well, I will be visited by a revelation.\n\n[You will need to pass a challenge in order to bring this Contemplation towards realization.]",
+	"requirements": {
+	    "contemplation": 1,
+	    "promise": -1
+	},
+	"linked": [
+	    {
+		"id": "contemplation.makechallenge"
+	    }
+	]
+    },
+    {
+	"id": "contemplation.makechallenge",
+	"label": "A Contemplation",
+	"aspects": {
+	    "opx.progress0": 1
+	},
+	"linked": [
+	    {
+		"id": "contemplation.facechallenge"
+	    }
+	]
+    },
+    {
+	"id": "contemplation.facechallenge",
+	"label": "Seeking Understanding",
+	"startdescription": "The truth is armoured in mysteries and uncertainties. Do I have the strength of self necessary to pierce that armour?",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Will",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "supplies": 1,
+		    "contemplation": 1
+		}
+	    },
+	    {
+		"id": "needssomething2",
+		"label": "Resolution",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "supplies": 1,
+		    "contemplation": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "contemplation.success.edgeforge"
+	    },
+	    {
+		"id": "contemplation.success.edgeheart"
+	    },
+	    {
+		"id": "contemplation.success.edgelantern"
+	    },
+	    {
+		"id": "contemplation.success.edgewinter"
+	    },
+	    {
+		"id": "contemplation.success.edge"
+	    },
+	    {
+		"id": "contemplation.success.winter"
+	    },
+	    {
+		"id": "contemplation.success.forge"
+	    },
+	    {
+		"id": "contemplation.success.moth"
+	    },
+	    {
+		"id": "contemplation.success.knock"
+	    },
+	],
+	"linked": [
+	    {
+		"id": "contemplation.failure"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "contemplation.success.edgeforge",
+	"label": "Understanding Through Struggle and Fury",
+	"startdescription": "My dream seethes with truth unbound. An answer is emerging...",
+	"description": "And so the mystery comes clearer.",
+	"requirements": {
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "ascend": 1
+	}
+    },
+    {
+	"id": "contemplation.success.edgeheart",
+	"label": "Understanding Through Struggle and Courage",
+	"startdescription": "My dream seethes with truth unbound. An answer is emerging...",
+	"description": "And so the mystery comes clearer.",
+	"requirements": {
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "ascend": 1
+	}
+    },
+    {
+	"id": "contemplation.success.edgelantern",
+	"label": "Understanding Through Struggle and Wisdom",
+	"startdescription": "My dream seethes with truth unbound. An answer is emerging...",
+	"description": "And so the mystery comes clearer.",
+	"requirements": {
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "ascend": 1
+	}
+    },
+    {
+	"id": "contemplation.success.edgewinter",
+	"label": "Understanding Through Struggle and Silence",
+	"startdescription": "My dream seethes with truth unbound. An answer is emerging...",
+	"description": "And so the mystery comes clearer.",
+	"requirements": {
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "ascend": 1
+	}
+    },
+    {
+	"id": "contemplation.success.edge",
+	"label": "Understanding Through Struggle",
+	"startdescription": "My dream seethes with truth unbound. An answer is emerging...",
+	"description": "And so the mystery comes clearer.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "ascend": 1
+	}
+    },
+    {
+	"id": "contemplation.success.winter",
+	"label": "Understanding Through Silence",
+	"startdescription": "My dream seethes with truth unbound. An answer is emerging...",
+	"description": "And so the mystery comes clearer.",
+	"requirements": {
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "ascend": 1
+	}
+    },
+    {
+	"id": "contemplation.success.forge",
+	"label": "Understanding Through Fire",
+	"startdescription": "My dream seethes with truth unbound. An answer is emerging...",
+	"description": "And so the mystery comes clearer.",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "ascend": 1
+	}
+    },
+    {
+	"id": "contemplation.success.moth",
+	"label": "Understanding Through Change",
+	"startdescription": "My dream seethes with truth unbound. An answer is emerging...",
+	"description": "And so the mystery comes clearer.",
+	"requirements": {
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "ascend": 1
+	}
+    },
+    {
+	"id": "contemplation.success.knock",
+	"label": "Understanding Through Wounds",
+	"startdescription": "My dream seethes with truth unbound. An answer is emerging...",
+	"description": "And so the mystery comes clearer.",
+	"requirements": {
+	    "needsknock": 1,
+	    "knock": "needsknock"
+	},
+	"aspects": {
+	    "fatiguing": 1,
+	    "ascend": 1
+	}
+    },
+    {
+	"id": "contemplation.failure",
+	"label": "Understanding Eludes Me",
+	"startdescription": "The resolution of my interior self was not enough to defeat this mystery, and now my thoughts surrender to sleep. No revelation has visited me tonight.",
+	"warmup": 10,
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "contemplate.wolfdream",
+	"label": "A Dream of Snow",
+	"startdescription": "In dreams, I will follow the footsteps of one who slew his enemy.",
+	"requirements": {
+	    "contemplation.wolfdream": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfdream.pre"
+	    }
+	]
+    },
+    {
+	"id": "wolfdream.pre",
+	"label": "A Dream of Snow",
+	"startdescription": "The strengths of the interior - what stirs within me? What can help me conquer this dream?",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Will",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "supplies": 1,
+		    "contemplation": 1
+		}
+	    },
+	    {
+		"id": "needssomething2",
+		"label": "Resolution",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "supplies": 1,
+		    "contemplation": 1
+		}
+	    },
+	    {
+		"id": "needssomething3",
+		"label": "Concentration",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "supplies": 1,
+		    "contemplation": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "wolfdream.spawnchallenge"
+	    }
+	]
+    },
+    {
+	"id": "wolfdream.spawnchallenge",
+	"label": "An Ordeal, Remembered",
+	"aspects": {
+	    "opx.progress0": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfdream.facechallenge"
+	    }
+	]
+    },
+    {
+	"id": "wolfdream.facechallenge",
+	"label": "An Ordeal, Remembered",
+	"startdescription": "@#hindrance.snows|The winds cut like knives - it was cold that day. The Iron-Eater wasn't slowed by the cold, though. Winter in Russia was an old friend to him.#foe.infantry|Then there were the soldiers ahead - Reds and Whites. To the Iron-Eater: enemies, all. They were in the his way.#foe.tanks|An armoured division crossed paths with the Iron-Eater as he trod towards his enemy that day. He'd never liked tanks - too loud and too clumsy. Too new.@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Will",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "supplies": 1,
+		    "contemplation": 1
+		}
+	    }
+	],
+   	 "linked": [
+	    {
+	    	"id": "wolfdream.failure"
+	    }
+        ],
+	"alt": [
+	    {
+		"id": "wolfdream.respondforge"
+	    },
+	    {
+		"id": "wolfdream.respondwinter"
+	    },
+	    {
+		"id": "wolfdream.respondedge"
+	    },
+	    {
+		"id": "wolfdream.respondap"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "wolfdream.failure",
+	"label": "The Dream Ends",
+	"startdescription": "My clarity breaks; my sight of the dream falters. I am losing altitude.",
+	"description": "My understanding, frustrated. I will try again when an opportunity comes clear.",
+	"warmup": 30,
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "wolfdream.respondforge",
+	"label": "Following in His Footsteps",
+	"startdescription": "The Iron-Eater made it past this on that day. He went on, and my dream-self will follow where he walked.",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99,
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfdream.success"
+	    },
+	    {
+		"id": "wolfdream.spawnchallenge2"
+	    },
+	    {
+		"id": "wolfdream.spawnchallenge1"
+	    }
+	]
+    },
+    {
+	"id": "wolfdream.respondwinter",
+	"label": "Following in His Footsteps",
+	"startdescription": "The Iron-Eater made it past this on that day. He went on, and my dream-self will follow where he walked.",
+	"requirements": {
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99,
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfdream.success"
+	    },
+	    {
+		"id": "wolfdream.spawnchallenge2"
+	    },
+	    {
+		"id": "wolfdream.spawnchallenge1"
+	    }
+	]
+    },
+    {
+	"id": "wolfdream.respondedge",
+	"label": "Following in His Footsteps",
+	"startdescription": "The Iron-Eater made it past this on that day. He went on, and my dream-self will follow where he walked.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99,
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfdream.success"
+	    },
+	    {
+		"id": "wolfdream.spawnchallenge2"
+	    },
+	    {
+		"id": "wolfdream.spawnchallenge1"
+	    }
+	]
+    },
+    {
+	"id": "wolfdream.respondap",
+	"label": "Following in His Footsteps",
+	"startdescription": "The Iron-Eater made it past this on that day. He went on, and my dream-self will follow where he walked.",
+	"requirements": {
+	    "foe.armoured": 1,
+	    "ap": "foe.armoured"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99,
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfdream.success"
+	    },
+	    {
+		"id": "wolfdream.spawnchallenge2"
+	    },
+	    {
+		"id": "wolfdream.spawnchallenge1"
+	    }
+	]
+    },
+    {
+	"id": "wolfdream.spawnchallenge1",
+	"label": "Deeper into the Dream...",
+	"startdescription": "My dream-self endures. There is more yet to relive, and more yet to come.",
+	"warmup": 10,
+	"requirements": {
+	    "progression": 1
+	},
+	"aspects": {
+	    "opx.progress1": 1
+	},
+	"linked": [
+	    {
+		"id": "wolfdream.facechallenge"
+	    }
+	]
+    },
+    {
+	"id": "wolfdream.spawnchallenge2",
+	"label": "The Depths of the Dream...",
+	"startdescription": "Finality looms. My dream-self nears the end of the path. What will I discover?",
+	"warmup": 10,
+	"requirements": {
+	    "progression": 2
+	},
+	"aspects": {
+	    "opx.progress2": 2
+	},
+	"linked": [
+	    {
+		"id": "wolfdream.facechallenge"
+	    }
+	]
+    },
+    {
+	"id": "wolfdream.success",
+	"label": "A Mistake, a Regret",
+	"startdescription": "The Iron-Eater's nemesis ambushes him! The Orphan - young, furious, thirsting after vengeance - clashes weapons with the Iron-Eater. The two Long seek one another's blood. Around them, reds and whites exchange bullets and run each other through with bayonets - and then there is a great shelling and a great blast, and the Long are thrown apart -",
+	"description": "The Iron-Eater gets up. When the smoke clears the battlefield, he finds the mangled, shell-torn shape of his barely-living enemy in the mud. A direct hit - a one-in-a-thousand chance that the Orphan was to suffer such a blow. Who had fired? The reds? The whites? What providence guided such a shot? The Iron-Eater does not contemplate this. Instead, he descends into the shell-crater, gleeful, and extinguishes his enemy once and for all. So was the Iron-Eater's greatest mistake. I open my eyes, and a weapon now sits in my hands. I know a cruel truth.",
+	"warmup": 30,
+	"requirements": {
+	    "progression": 3
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "contemplation.wolfdream": -1,
+	    "weapon.kazimir": 1,
+	    "insight.sergei": 1
+	}
+    }
+]
+}

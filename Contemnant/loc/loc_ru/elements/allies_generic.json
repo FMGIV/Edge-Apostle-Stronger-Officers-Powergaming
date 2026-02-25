@@ -1,0 +1,1176 @@
+{
+"elements": [
+    {
+	"id": "friend.lunatic",
+	"label": "Безумец",
+	"description": "Какое-то тяжёлое переживание помутило рассудок этого несчастного.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "moth": 4,
+	    "grail": 4,
+	    "heart": 4,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "decline": "husk"
+	},
+	"icon": "lunatic"
+    },
+    {
+	"id": "wandering.refugees",
+	"label": "Беженцы",
+	"description": "Никто так не страдает в войне, как невинные. [Достигните количества аспекта с порогом этой карты, что-бы завербовать её в качестве союзника.]",
+	"aspects": {
+	    "op": 1,
+	    "mortal": 1,
+	    "needsheart": 6,
+	    "needsgrail": 6,
+	    "needsedge": 6
+	},
+	"slots": [
+	    {
+		"id": "resources1",
+		"label": "Ресурсы",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "resources2",
+		"label": "Ресурсы",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    },
+	],
+	"icon": "side.fiorenza.complete"
+    },
+    {
+	"id": "wandering.deserters",
+	"label": "Дезертиры",
+	"description": "Когда солдат отбрасывает притворства долга и нации, он становится этим существом. [Достигните количества аспекта с порогом этой карты, чтобы завербовать её в качестве союзника.]",
+	"aspects": {
+	    "op": 1,
+	    "mortal": 1,
+	    "needsedge": 8,
+	    "needsgrail": 8,
+	    "needswinter": 8
+	},
+	"slots": [
+	    {
+		"id": "resources1",
+		"label": "Ресурсы",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "resources2",
+		"label": "Ресурсы",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    },
+	],
+    },
+    {
+	"id": "friend.doctor",
+	"label": "Врач-беженец",
+	"description": "Этот оказывает посильную помощь тем, кто может быть спасен, и милосердие тем, кто не может. [Этот союзник может лечить раненных, но может и избавить их от страданий бытия.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "heart": 4,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.doctor.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.doctor.wounded",
+	    "concealidentity": "friend.doctor.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "Происшествие",
+		"required": {
+		    "wounded": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.doctor.exhausted",
+	"label": "Врач-беженец (Истощен)",
+	"description": "Этот оказывает посильную помощь тем, кто может быть спасен, и милосердие тем, кто не может. [Этот союзник может лечить раненных, но может и избавить их от страданий бытия.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.doctor.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.doctor.wounded",
+	    "concealidentity": "friend.doctor.hidden",
+	    "decline": "husk"
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.doctor",
+	"icon": "friend.doctor"
+    },
+    {
+	"id": "friend.doctor.wounded",
+	"label": "Врач-беженец (Ранен)",
+	"description": "[Используйте полевого медика или полевой госпиталь, чтобы вылечить этого союзника.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.doctor",
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.doctor.hidden",
+	"label": "Врач-беженец (В засаде)",
+	"description": "Этот оказывает посильную помощь тем, кто может быть спасен, и милосердие тем, кто не может. [Этот союзник может лечить раненных, но может и избавить их от страданий бытия.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "heart": 8,
+	    "grail": 8,
+	    "winter": 8,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.doctor.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.doctor.wounded",
+	    "concealidentity": "friend.doctor.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "Происшествие",
+		"required": {
+		    "wounded": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "Провизия",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.labourer",
+	"label": "Рабочий-беженец",
+	"description": "Иногда рука и молот - это все, что у вас есть против всего мира. Стисните зубы и принимайтесь за работу.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "forge": 4,
+	    "knock": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labourer.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.labourer.wounded",
+	    "concealidentity": "friend.labourer.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.labourer.exhausted",
+	"label": "Рабочий-беженец (Истощён)",
+	"description": "Иногда рука и молот - это все, что у вас есть против всего мира. Стисните зубы и принимайтесь за работу.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labourer.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.labourer.wounded",
+	    "concealidentity": "friend.labourer.hidden",
+	    "decline": "husk"
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.labourer",
+	"icon": "friend.labourer"
+    },
+    {
+	"id": "friend.labourer.wounded",
+	"label": "Рабочий-беженец (Ранен)",
+	"description": "[Используйте полевого медика или полевой госпиталь, чтобы вылечить этого союзника.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.labourer",
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.labourer.hidden",
+	"label": "Рабочий-беженец (В засаде)",
+	"description": "Иногда рука и молот - это все, что у вас есть против всего мира. Стисните зубы и принимайтесь за работу.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "forge": 8,
+	    "knock": 8,
+	    "edge": 4,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labourer.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.labourer.wounded",
+	    "concealidentity": "friend.labourer.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.lookout",
+	"label": "Беженец-Наблюдатель",
+	"description": "Обуреваемый страхом, этот научился распознавать опасности и угрозы - а их, в конце концов, немало. [Этот союзник может раскрыть неизвестных врагов, но может и погибнуть при попытке этого действия.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "lantern": 4,
+	    "moth": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.lookout.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.lookout.wounded",
+	    "concealidentity": "friend.lookout.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needshidden",
+		"actionid": "operate",
+		"label": "Враг",
+		"required": {
+		    "foe.hidden": 1
+		}
+	    },
+	    {
+		"id": "needshidingplace",
+		"actionid": "operate",
+		"label": "Место засады",
+		"required": {
+		    "op.time.night": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.lookout.exhausted",
+	"label": "Беженец-Наблюдатель (Истощён)",
+	"description": "Обуреваемый страхом, этот научился распознавать опасности и угрозы - а их, в конце концов, так много. [Этот союзник может раскрыть неизвестных врагов, но может и погибнуть при попытке этого действия.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.lookout.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.lookout.wounded",
+	    "concealidentity": "friend.lookout.hidden",
+	    "decline": "husk"
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.lookout",
+	"icon": "friend.lookout"
+    },
+    {
+	"id": "friend.lookout.wounded",
+	"label": "Беженец-Наблюдатель (Ранен)",
+	"description": "[Используйте полевого медика или полевой госпиталь, чтобы вылечить этого союзника.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.lookout",
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.lookout.hidden",
+	"label": "Беженец-Наблюдатель (В засаде)",
+	"description": "Обуреваемый страхом, этот научился распознавать опасности и угрозы - а их, в конце концов, так много. [Этот союзник может раскрыть неизвестных врагов, но может и погибнуть при попытке этого действия.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "lantern": 8,
+	    "moth": 8,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.lookout.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.lookout.wounded",
+	    "concealidentity": "friend.lookout.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needshidden",
+		"actionid": "operate",
+		"label": "Враг",
+		"required": {
+		    "foe.hidden": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.gunman",
+	"label": "Вооружённый Беженец",
+	"description": "Не солдат, не партизан; Всего лишь тот, у кого есть оружие, хочет жить, и очень, очень боится.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.gunman.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.gunman.wounded",
+	    "concealidentity": "friend.gunman.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Поле боя",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Намерение",
+		"required": {
+		    "edge": 1,
+		    "heart": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.gunman.exhausted",
+	"label": "Вооружённый Беженец (Истощён)",
+	"description": "Не солдат, не партизан; Всего лишь тот, у кого есть оружие, хочет жить, и очень, очень боится.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.gunman.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.gunman.wounded",
+	    "concealidentity": "friend.gunman.hidden",
+	    "decline": "husk"
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.gunman",
+	"icon": "friend.gunman"
+    },
+    {
+	"id": "friend.gunman.wounded",
+	"label": "Вооружённый Беженец (Ранен)",
+	"description": "[Используйте полевого медика или полевой госпиталь, чтобы вылечить этого союзника.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.gunman",
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.gunman.hidden",
+	"label": "Вооружённый Беженец (В засаде)",
+	"description": "Не солдат, не партизан; Всего лишь тот, у кого есть оружие, хочет жить, и очень, очень боится.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 8,
+	    "winter": 8,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.gunman.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.gunman.wounded",
+	    "concealidentity": "friend.gunman.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Поле Боя",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Намерение",
+		"required": {
+		    "edge": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregsoldier",
+	"label": "Солдаты-Отбросы",
+	"description": "Дезертиры, грабители, убийцы. Под моим руководством они станут еще хуже.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "edge": 6,
+	    "grail": 4,
+	    "winter": 4,
+	    "vicious": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregsoldier.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregsoldier.wounded",
+	    "concealidentity": "friend.dregsoldier.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Поле боя",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Намерение",
+		"required": {
+		    "edge": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregsoldier.exhausted",
+	"label": "Солдаты-Отбросы (Истощены)",
+	"description": "Дезертиры, грабители, убийцы. Под моим руководством они станут еще хуже.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "exhausted": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregsoldier.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregsoldier.wounded",
+	    "concealidentity": "friend.dregsoldier.hidden"
+	},
+	"lifetime": 90,
+	"resaturate": true,
+	"decayTo": "friend.dregsoldier",
+	"icon": "friend.dregsoldier"
+    },
+    {
+	"id": "friend.dregsoldier.wounded",
+	"label": "Солдаты-Отбросы (Ранены)",
+	"description": "[Используйте полевого медика или полевой госпиталь, чтобы вылечить этого союзника.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "wounded": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.dregsoldier"
+	}
+    },
+    {
+	"id": "friend.dregsoldier.hidden",
+	"label": "Солдаты-Отбросы (В засаде)",
+	"description": "Дезертиры, грабители, убийцы. Под моим руководством они станут еще хуже.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "edge": 10,
+	    "grail": 8,
+	    "winter": 8,
+	    "vicious": 1,
+	    "friend.hidden": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregsoldier.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregsoldier.wounded",
+	    "concealidentity": "friend.dregsoldier.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Поле боя",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Намерение",
+		"required": {
+		    "edge": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregarsonists",
+	"label": "Поджигатели-отбросы",
+	"description": "Предать всё огню. [Этот союзник иногда создает возможность Пламя, когда они задействованы.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "forge": 6,
+	    "edge": 4,
+	    "winter": 4,
+	    "vicious": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregarsonists.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregarsonists.wounded",
+	    "concealidentity": "friend.dregarsonists.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.dregarsonists.exhausted",
+	"label": "Поджигатели-отбросы (Истощены)",
+	"description": "Предать всё огню. [Этот союзник иногда создает возможность Пламя, когда они задействованы.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "exhausted": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregarsonists.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregarsonists.wounded",
+	    "concealidentity": "friend.dregarsonists.hidden"
+	},
+	"induces": [
+	    {
+		"id": "produce.flames",
+		"chance": 50
+	    }
+	],
+	"lifetime": 90,
+	"resaturate": true,
+	"decayTo": "friend.dregarsonists",
+	"icon": "friend.dregarsonists"
+    },
+    {
+	"id": "friend.dregarsonists.wounded",
+	"label": "Поджигатели-отбросы (Ранены)",
+	"description": "[Используйте полевого медика или полевой госпиталь, чтобы вылечить этого союзника.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "wounded": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.dregarsonists"
+	}
+    },
+    {
+	"id": "friend.dregarsonists.hidden",
+	"label": "Поджигатели-отбросы (В засаде)",
+	"description": "Предать всё огню. [Этот союзник иногда создает возможность Пламя, когда они задействованы.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "forge": 10,
+	    "edge": 8,
+	    "winter": 8,
+	    "vicious": 1,
+	    "friend.hidden": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregarsonists.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregarsonists.wounded",
+	    "concealidentity": "friend.dregarsonists.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregscavengers",
+	"label": "Мусорщики-Отбросы",
+	"description": "Прежде чем черви и птицы получат от мертвых то, что им причитается, эти люди получат свое. [Этот союзник может быстрее грабить трупы и при этом имеет больше шансов найти полезные припасы.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 6,
+	    "grail": 4,
+	    "knock": 4,
+	    "vicious": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregscavengers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregscavengers.wounded",
+	    "concealidentity": "friend.dregscavengers.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.dregscavengers.exhausted",
+	"label": "Мусорщики-Отбросы (Истощены)",
+	"description": "Прежде чем черви и птицы получат от мертвых то, что им причитается, эти люди получат свое. [Этот союзник может быстрее грабить трупы и при этом имеет больше шансов найти полезные припасы.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "exhausted": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregscavengers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregscavengers.wounded",
+	    "concealidentity": "friend.dregscavengers.hidden"
+	},
+	"lifetime": 90,
+	"resaturate": true,
+	"decayTo": "friend.dregscavengers",
+	"icon": "friend.dregscavengers"
+    },
+    {
+	"id": "friend.dregscavengers.wounded",
+	"label": "Мусорщики-Отбросы (Ранены)",
+	"description": "[Используйте полевого медика или полевой госпиталь, чтобы вылечить этого союзника.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "wounded": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.dregscavengers"
+	}
+    },
+    {
+	"id": "friend.dregscavengers.hidden",
+	"label": "Мусорщики-Отбросы (В засаде)",
+	"description": "Прежде чем черви и птицы получат от мертвых то, что им причитается, эти люди получат свое. [Этот союзник может быстрее грабить трупы и при этом имеет больше шансов найти полезные припасы.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 10,
+	    "grail": 8,
+	    "knock": 8,
+	    "vicious": 1,
+	    "friend.hidden": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregscavengers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregscavengers.wounded",
+	    "concealidentity": "friend.dregscavengers.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Намерение",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.wrake",
+	"label": "Cоюзный Терние-и-Волчцы",
+	"description": "Предсмертные крики и судороги того, кто был убит, обрели форму и вынужденны существовать в реальном мире по моему приказу. [Этот союзник погибнет после использования, но также убьет любого врага, который нападет на него.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 1,
+	    "edge": 12,
+	    "winter": 6,
+	    "knock": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "agony",
+	    "killfriend": [
+		{
+		    "id": "agony"
+		},
+		{
+		    "id": "friend.wrake.killtoken",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "makecasualty": [
+		{
+		    "id": "agony"
+		},
+		{
+		    "id": "friend.wrake.killtoken",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.wrake.killtoken",
+	"label": "Волчец был убит!",
+	"description": "",
+	"lifetime": 1
+    },
+    {
+	"id": "friend.splinter",
+	"label": "Союзный Осколочный Волк",
+	"description": "Голодающее существо, порожденное глубочайшим отчаянием, жаждущее света все еще живой души.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 1,
+	    "edge": 16,
+	    "winter": 8,
+	    "lantern": 4
+	},
+	"xtriggers": {
+	    "killfriend": [
+		{
+		    "id": "despair"
+		},
+	    ],
+	    "makecasualty": [
+		{
+		    "id": "despair"
+		}
+	    ],
+	    "decline": "husk"
+	},
+	"lifetime": 300
+    }
+]
+}

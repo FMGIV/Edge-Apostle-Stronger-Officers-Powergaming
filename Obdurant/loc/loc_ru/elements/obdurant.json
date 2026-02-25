@@ -1,0 +1,1337 @@
+{
+"elements": [
+    {
+	"id": "obdurant.memento",
+	"label": "Игрушечный солдатик",
+	"description": "'Он защитит тебя, несмотря ни на что. Люблю тебя.'",
+	"aspects": {
+	    "heart": 4,
+	    "memento": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "obdurant.weapon",
+	"label": "Винтовка Мосина",
+	"description": "Карабин образца 1938 года - это мое оружие, ровно как я - оружие Союза.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.weapon.exhausted"
+	},
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "obdurant.weapon.exhausted",
+	"label": "Винтовка Мосина (Подготовка)",
+	"description": "Карабин образца 1938 года - это мое оружие, ровно как я - оружие Союза.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"lifetime": 120,
+	"resaturate": true,
+	"decayTo": "obdurant.weapon",
+	"icon": "obdurant.weapon",
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "obdurant.setupitem",
+	"label": "Тихая ночь",
+	"description": "Затишье в обстрелах - сегодняшнюю ночь окутывает иллюзия покоя. Что будет? Кто останется, а кто уйдет?",
+	"aspects": {
+	    "op": 1
+	},
+	"icon": "op.night"
+    },
+    {
+	"id": "obdurant.mentor",
+	"label": "#PREVIOUSCHARACTERNAME#",
+	"description": "Суровое ливийское лицо, покрытое шрамами. Остальные видят перед собой только капитана наемников, но мне лучше знать. Этот человек доверил мне правду о том, кем является на самом деле.",
+	"aspects": {
+	    "friend": 1,
+	    "edgelong": 1
+	}
+    },
+    {
+	"id": "obdurant.story",
+	"label": "Зов Долга",
+	"description": "'Долг требует жертв. Одерживать победу над правильными врагами - жизненная необходимость, но ты и сам должен жертвовать чем-то в процессе. Рукой, ногой, глазом - всем, что потребуется. Оттачивай своё тело до тех пор, пока каждая его часть не станет смертельным острием. Зазубренный меч побывал в руках каждого из Имен Полковника; возьми его с собой на поле боя. Если все точки сойдутся, настанет момент истины. И нужно быть в правильном месте, когда он произойдет. Скорее всего, это приведет к твоей гибели, но Полковник чтит достойную смерть. Если умереть правильно, он Назовет тебя своим в грядущих войнах.'",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "obdurant.fragmentedge",
+	"label": "Тайна Шрама",
+	"description": "Слова, произнесенные в боли, когда впервые была пролита кровь. Древние видят в этом проклятие, но хранят знание, что решимость как кровь может проистекать из странных мест странными способами.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 2,
+	    "lantern": 1,
+	    "winter": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedge.exhausted",
+	    "epiphany": "obdurant.fragmentedgeb"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedge.exhausted",
+	"label": "Тайна Шрама (Переутомление)",
+	"description": "Мне понадобится время на восстановление, прежде чем я снова смогу этим воспользоваться. [С каждым улучшением техники восстановление будет происходить быстрее, а её сила расти.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 300,
+	"decayTo": "obdurant.fragmentedge",
+	"icon": "obdurant.fragmentedge",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgeb",
+	"label": "Урок хилиарха",
+	"description": "'Пронзительная история тысячника античных времён, повествующая о крови и её выходах. Когда читаешь её вслух, слышится свист меча.' — мой друг порой бормотал эти слова в кружку.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 4,
+	    "lantern": 2,
+	    "winter": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgeb.exhausted",
+	    "epiphany": "obdurant.fragmentedgec"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgeb.exhausted",
+	"label": "Урок хилиарха (Переутомление)",
+	"description": "Мне понадобится время на восстановление, прежде чем я снова смогу этим воспользоваться. [С каждым улучшением техники восстановление будет происходить быстрее, а её сила расти.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 260,
+	"decayTo": "obdurant.fragmentedgeb",
+	"icon": "obdurant.fragmentedgeb",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgec",
+	"label": "Операция Гистид",
+	"description": "Комплекс упражнений, который закаляет кожу и делает каждый палец смертоносным, будто копьё.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 6,
+	    "lantern": 3,
+	    "winter": 3
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgec.exhausted",
+	    "epiphany": "obdurant.fragmentedged"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgec.exhausted",
+	"label": "Операция Гистид (Переутомление)",
+	"description": "Мне понадобится время на восстановление, прежде чем я снова смогу этим воспользоваться. [С каждым улучшением техники восстановление будет происходить быстрее, а её сила расти.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 220,
+	"decayTo": "obdurant.fragmentedgec",
+	"icon": "obdurant.fragmentedgec",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedged",
+	"label": "Имена Полковника",
+	"description": "Полковник был многим в разных веках. Он слеп, глух, его нельзя ранить, ему нельзя отказать. Его Имена так коварны, как только древние могут быть.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 8,
+	    "lantern": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedged.exhausted",
+	    "epiphany": "obdurant.fragmentedgee"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedged.exhausted",
+	"label": "Имена Полковника (Переутомление)",
+	"description": "Мне понадобится время на восстановление, прежде чем я снова смогу этим воспользоваться. [С каждым улучшением техники восстановление будет происходить быстрее, а её сила расти.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 180,
+	"decayTo": "obdurant.fragmentedged",
+	"icon": "obdurant.fragmentedged",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgee",
+	"label": "Железные формы",
+	"description": "Семью семь техник разделения плоти.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 10,
+	    "lantern": 5,
+	    "winter": 5
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgee.exhausted",
+	    "epiphany": "obdurant.fragmentedgef"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgee.exhausted",
+	"label": "Железные формы (Переутомление)",
+	"description": "Мне понадобится время на восстановление, прежде чем я снова смогу этим воспользоваться. [С каждым улучшением техники восстановление будет происходить быстрее, а её сила расти.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 140,
+	"decayTo": "obdurant.fragmentedgee",
+	"icon": "obdurant.fragmentedgee",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgef",
+	"label": "Модули Ланже",
+	"description": "Если я должен быть оружием, я должен знать, где мою душу укрепляет история, а где мои пределы становятся фундаментальными.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 12,
+	    "lantern": 6,
+	    "winter": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgef.exhausted",
+	    "epiphany": "obdurant.fragmentedgeg"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgef.exhausted",
+	"label": "Модули Ланже (Переутомление)",
+	"description": "Мне понадобится время на восстановление, прежде чем я снова смогу этим воспользоваться. [С каждым улучшением техники восстановление будет происходить быстрее, а её сила расти.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 100,
+	"decayTo": "obdurant.fragmentedgef",
+	"icon": "obdurant.fragmentedgef",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgeg",
+	"label": "Зарубцованные тайны",
+	"description": "Хитрость — корень победы. Опыт — корень хитрости. Без страдания нет опыта, а шрам — это воплощение страдания.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 14,
+	    "lantern": 7,
+	    "winter": 7,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgeg.exhausted",
+	    "epiphany": [
+		{
+		    "id": "colonel.weaponfragment",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "Победа",
+	 	"description": "Есть чему поучиться.",
+                "required": {
+                    "remnant": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgeg.exhausted",
+	"label": "Зарубцованные тайны (Переутомление)",
+	"description": "Мне понадобится время на восстановление, прежде чем я снова смогу этим воспользоваться. [Вы овладели тайнами Полковника - по крайней мере, настолько, насколько может овладеть ими смертный.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 60,
+	"decayTo": "obdurant.fragmentedgeg",
+	"icon": "obdurant.fragmentedgeg",
+	"resaturate": true
+    },
+    {
+	"id": "debilitation.eye.colonel",
+	"label": "Око Хилиарха",
+	"description": "Полковник слеп, но ничто не останется незамеченным им. [Вы можете использовать эту карту, чтобы выявить скрытых врагов. Эта карта засчитывается как Увечье.]",
+	"aspects": {
+	    "lantern": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "debilitation.eye.colonel.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "debilitation.eye.colonel.exhausted",
+	"label": "Око Хилиарха (Переутомление)",
+	"description": "Полковник слеп, но ничто не останется незамеченным им. [Эта карта засчитывается как Увечье.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 160,
+	"decayTo": "debilitation.eye.colonel",
+	"icon": "debilitation.eye.colonel",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "debilitation.ear.colonel",
+	"label": "Обостренный слух",
+	"description": "Я могу слышать, как снег падает на камень. [Эта карта засчитывается как Увечье.]",
+	"aspects": {
+	    "lantern": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "debilitation.ear.colonel.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "debilitation.ear.colonel.exhausted",
+	"label": "Обостренный слух (Переутомление)",
+	"description": "Я могу слышать, как снег падает на камень. [Эта карта засчитывается как Увечье.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 160,
+	"decayTo": "debilitation.ear.colonel",
+	"icon": "debilitation.ear.colonel",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "debilitation.hand.colonel",
+	"label": "Салютование Тысячника",
+	"description": "Каждый из шрамов Трибуна - это оружие, и такими же будут мои шрамы. [Враги не могут сломать это оружие. Эта карта засчитывается как Увечье.]",
+	"aspects": {
+	    "edge": 6,
+	    "ap": 1,
+	    "weapon": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "debilitation.hand.colonel.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "debilitation.hand.colonel.exhausted",
+	"label": "Салютование Тысячника (Истощение)",
+	"description": "Каждый из шрамов Трибуна - это оружие, и такими же будут мои шрамы. [Эта карта засчитывается как Увечье.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 160,
+	"decayTo": "debilitation.hand.colonel",
+	"icon": "debilitation.hand.colonel",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "debilitation.leg.colonel",
+	"label": "Освященный протез",
+	"description": "На дубовой поверхности выгравированы имена солдат-святых и помазаны кровью вражеского офицера. [Эта карта засчитывается как Увечье.]",
+	"aspects": {
+	    "winter": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "debilitation.leg.colonel.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "debilitation.leg.colonel.exhausted",
+	"label": "Освященный протез (Истощение)",
+	"description": "На дубовой поверхности выгравированы имена солдат-святых и помазаны кровью вражеского офицера. [Эта карта засчитывается как Увечье.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 160,
+	"decayTo": "debilitation.leg.colonel",
+	"icon": "debilitation.leg.colonel",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "flock.clue",
+	"label": "Шепот крыльев",
+	"description": "Щебет птиц вокруг озерной рощи может привести нас к хранителю Зазубренного меча. Нам нужно собрать больше слухов, принесенных на крыльях птичьей стаи, прежде чем путь станет ясен.",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsclue",
+		"label": "Подсказка",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue2",
+		"label": "Подсказка",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue3",
+		"label": "Подсказка",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue4",
+		"label": "Подсказка",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue5",
+		"label": "Clue",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue6",
+		"label": "Clue",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "nimiane",
+	"label": "Нимиане из Вод",
+	"description": "Хранительница Зазубренного Меча; Имя Сестры-и-Ведьмы, а также Ведьмы-и-Сестры. Она родилась в Старом Авалоне, вопреки проклятию, наложенному Матерью Муравьев на родословную этой земли. Была ли она сослана в озеро в наказание? Или ее спрятали здесь для ее же безопасности? У Близнецов действительно есть склонность к отверженным - но почему только к одному? Почему только к двоим?",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1
+	}
+    },
+    {
+	"id": "ebrehel",
+	"label": "Эбрехель, Зазубренный Меч",
+	"description": "Шраморез, Открыватель врат, Сирота; Дар Озера, Божий серп и Дезертир. Он побывал во многих руках, и все же им никогда не пользовались по назначению. Возможно, именно поэтому он переходит от воина к воину: в надежде, что кто-нибудь вспомнит, для чего клинок был выкован так искусно. [Враги не могут сломать это оружие.]",
+	"aspects": {
+	    "edge": 6,
+	    "forge": 6,
+	    "knock": 6,
+	    "weapon": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "ebrehel.exhausted"
+	},
+	"icon": "weapon.c",
+	"unique": true
+    },
+    {
+	"id": "ebrehel.exhausted",
+	"label": "Эбрехель, Зазубренный Меч",
+	"description": "Шраморез, Открыватель врат, Сирота; Дар Озера, Божий серп и Дезертир. Он побывал во многих руках, и все же им никогда не пользовались по назначению. Возможно, именно поэтому он переходит от воина к воину: в надежде, что кто-нибудь вспомнит, для чего клинок был выкован так искусно. [Враги не могут сломать это оружие.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "weapon": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 90,
+	"decayTo": "ebrehel",
+	"resaturate": true,
+	"icon": "weapon.c",
+	"unique": true
+    },
+    {
+	"id": "promise.medusa",
+	"label": "Камень-Приказание",
+	"description": "Холодная плита из резного известняка, созданная в древности Полковником и Матерью Муравьев, чтобы возвестить о поражении Семи Витков. По всей длине его обратной стороны проходят пять глубоких зарубок. Медуза из Лигений, старейшая в своем роде, была среди тех, кого этот камень связал определенным долгом. Обращение к нему против ее воли вынудит её помочь мне, пусть и неохотно.",
+	"aspects": {
+	    "promise": 1
+	}
+    },
+    {
+	"id": "op.ligeianmedusa",
+	"label": "Что нельзя увидеть?",
+	"description": "Нечто ни живое, ни мертвое разгуливает по ночному городу. Не стоит смотреть на неё.",
+	"aspects": {
+	    "op": 1
+	},
+	"lifetime": 300,
+	"icon": "op.medusa",
+	"unique": true
+    },
+    {
+	"id": "friend.camilla",
+	"label": "Континенталь",
+	"description": "Властная, покрытая поразительными шрамами женщина, одетая в военную форму и полевой плащ французского офицера. Вместо правой ноги, виден железный колышек протеза; вместо левой руки, к оставшемуся обрубку прикреплено острое орудие. Выражение ее лица непроницаемо, как камень.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "camilla"
+    },
+    {
+	"id": "token.camilla",
+	"label": "Железная спинтрия",
+	"description": "'Конечно, её ценность как валюты давно утрачена', – поясняет Континенталь. 'Её реальная ценность исключительно символична. Но вы можете быть удивлены, увидев, кто сможет распознать подобный символизм.' Она дала мне совет предложить спинтрию в месте силы, чтобы пообщаться с моим другом, Изгнанником, для помощи в организации <i>мувасшир</i> с Воеводой. Но я не должен совершать подношение, пока не буду готов встретиться с ним лицом к лицу.",
+	"aspects": {
+	    "legacyplotitem": 1
+	},
+	"icon": "compensation"
+    },
+    {
+	"id": "letter.fromexile",
+	"label": "Ответ Изгнанника",
+	"description": "'Друг мой,\n\nПриятно знать, что Вы всё ещё живы. Возможно, к тому времени, когда это письмо дойдет до меня, это уже не будет правдой, но я предпочту верить обратному.\n\nБлиже к делу: Вы ясно выразили свое намерение вызвать на <i>мувасшир</i> другого бессмертного и попросили меня выступить в качестве секунданта на дуэли. Я думаю, что это очень стоящее предприятие, и оно, без сомнения, поможет Вашему возвышению, если Вы добьетесь успеха. Итак, я даю своё согласие представлять Вашу сторону.\n\nДайте мне время сообщить Камилле, что я принял Вашу просьбу. Она ответит Вам, как только я улажу этот момент. Мне также понадобится некоторое время, чтобы обсудить перемирие с Врагом. Возможно, он также пожелает присутствовать, хотя бы для того, чтобы понаблюдать.\n\nА пока сражайтесь как следует.\n\n-#PREVIOUSCHARACTERNAME#'",
+	"aspects": {
+	    "legacyplotitem": 1
+	}
+    },
+    {
+	"id": "letter.fromcamilla",
+	"label": "Ответ Континенталь",
+	"description": "'Солдат,\n\nЯ получила подтверждение участия Вашего друга в качестве секунданта. Вам будет приятно узнать, что мой враг теперь официально осведомлен о Вашем вызове, и с нетерпением ждет поединка.\n\nТеперь следите за движением солнца очень внимательно. Поединок состоится через семь дней. Согласно правилам этого таинства, моему врагу не позволено встречаться с Вами в бою до назначенного времени. Когда эти семь дней истекут, ждите вне города, или поплатитесь жизнью. Приходите в одиночку, или поплатитесь жизнью. Будьте пунктуальны, или поплатитесь жизнью.\n\nУдачи.\n\n- Камилла де Бенегерак'",
+	"aspects": {
+	    "legacyplotitem": 1
+	}
+    },
+    {
+	"id": "duel.wilhelm",
+	"label": "Воевода",
+	"description": "Массивный немец с веселым лицом, одетый в старинную ливрею прусского майора. Вот кому я бросил вызов в <i>мувасшире.</i>",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "wilhelm"
+    },
+    {
+	"id": "duel.camilla",
+	"label": "Континенталь",
+	"description": "Властная, покрытая поразительными шрамами женщина, одетая в военную форму и полевой плащ французского офицера. Она пришла, чтобы выступить в качестве представителя своего врага, Воеводы.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "camilla"
+    },
+    {
+	"id": "duel.exile",
+	"label": "#PREVIOUSCHARACTERNAME#",
+	"description": "Суровое ливийское лицо, покрытое шрамами, - мой друг. Здесь, чтобы сыграть роль моего секунданта, поручиться за меня и представлять мои интересы в процессе, прежде чем я отправлюсь на битву.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "obdurant.mentor"
+    },
+    {
+	"id": "duel.foe",
+	"label": "Капитан Даффур, Враг",
+	"description": "Высокий, одноглазый франко-итальянский мужчина с хронически хмурым выражением лица. Если верить моему другу, он 'отвратительный, безжалостный ублюдок', но эти слова всегда звучали с улыбкой.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	}
+    },
+    {
+	"id": "mark.shame",
+	"label": "Клеймо позора",
+	"description": "Я бросил вызов Вечному Грани в древнем таинстве <i>мувасшир,</i> но этого оказалось недостаточно. Мое поражение отметило меня в глазах Часов Борьбы. И я буду носить эту метку вечно.",
+	"aspects": {
+	    "long.blocker": 1
+	}
+    },
+    {
+	"id": "mark.musvashir",
+	"label": "Метка претендента",
+	"description": "Я бросил вызов Вечному Грани в древнем таинстве <i>мувасшир,</i> и вышел победителем. Часы Грани приветствуют меня. Теперь там, где я иду, за мной следует война. [Эта карта засчитывается как три Раздора. Ни один Вечный Грани не придет, чтобы напасть на Вас.]",
+	"aspects": {
+	    "strife.tracker": 3,
+	    "challenger.mark": 1,
+	    "ascend.check": 1,
+	    "long.blocker": 1
+	}
+    },
+    {
+	"id": "contemplation.wolfdream",
+	"label": "Сон, хранимый Волком",
+	"description": "Волки помнят: 12 февраля 1922 года. Белые вырываются из окружения большевиков в Волочаевке. И где-то между всеми этими снегопадами, обстрелами и страданиями два Вечных Грани встречаются в последний раз. Во сне я могу вновь пережить их последний день вместе.",
+	"aspects": {
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "insight.sergei"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "insight.sergei",
+	"label": "Убийственное Озарение",
+	"description": "Этот всплеск безжалостного осознания не может причинить прямого вреда Сталеглоту, но он может показать ему ту правду, от которой он так отчаянно бежал: он умирает. Медленно, мучительно, неизбежно. Даже если война предотвратит его разложение, смерть его заклятого врага в конечном счете поглотит его. Это может даже спугнуть его. [Использование этой карты против Сталеглота заставит его бежать.]",
+	"aspects": {
+	    "lore": 1,
+	    "legacyplotitem": 1
+	}
+    },
+    {
+	"id": "weapon.kazimir",
+	"label": "Шашка Казимира",
+	"description": "Клинок был сломан тем же артиллерийским залпом, который по чудесной случайности оглушил и искалечил Вечного Грани, называемого Сиротой. Он был потерян на поле в Волочаевке, но теперь попал ко мне. Возможно, он все еще жаждет пустить кровь Сталеглоту. [Это оружие может породить Потрясение при использовании.]",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 12,
+	    "winter": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.kazimir.exhausted"
+	}
+    },
+    {
+	"id": "weapon.kazimir.exhausted",
+	"label": "Шашка Казимира (Подготовка)",
+	"description": "Клинок был сломан тем же артиллерийским залпом, который по чудесной случайности оглушил и искалечил Вечного Грани, называемого Сиротой. Он был потерян на поле в Волочаевке, но теперь попал ко мне. Возможно, он все еще жаждет пустить кровь Сталеглоту. [Это оружие может породить Потрясение при использовании.]",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"induces": [
+	    {
+		"id": "produce.trauma",
+		"chance": 40
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "weapon.kazimir.exhausted",
+	    "refresh": "weapon.kazimir"
+	},
+	"lifetime": 60,
+	"decayTo": "weapon.kazimir",
+	"icon": "weapon.kazimir",
+	"resaturate": true
+    },
+    {
+	"id": "duel.sergei",
+	"label": "Сталеглот",
+	"description": "Никаких слов в этот раз. Сталеглот в ненавистном молчании надвигается на нас. [Раны, нанесенные Сталеглотом, мгновенно становятся Увечьями.]",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1,
+	    "foe.sergei": 1
+	},
+	"icon": "sergei"
+    },
+    {
+	"id": "wound.sergei",
+	"label": "Рана Сталеглота",
+	"description": "Тот, кто долго служит Разделенному Волку, хорошо знает это ощущуение.",
+	"icon": "wound.foe.unstanchable",
+	"aspects": {
+	    "op": 1
+	}
+    },
+    {
+	"id": "defeated.sergei",
+	"label": "Сталеглот",
+	"description": "Старый волк выглядит устало.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	}
+    },
+    {
+	"id": "mark.surrender",
+	"label": "Акт о капитуляции",
+	"description": "Я вынудил сдаться бессмертного противника, и эта кровоточащая рана - знак капитуляции. Часы Грани распознают силу, таящуюся в нем, когда момент настанет. [Эта карта засчитывается как три Раздора.]",
+	"aspects": {
+	    "strife.tracker": 3,
+	    "challenger.mark": 1,
+	    "ascend.check": 1,
+	    "long.blocker": 1
+	},
+	"icon": "scar_edge"
+    },
+    {
+	"id": "weapon.skull",
+	"label": "Череп Соловея",
+	"description": "Соловей когда-то жил в лесах Старого Киева. Легенда гласит, что его свист мог повалить дуб и убить любого человека, который его услышит; легенда также гласит, что он был обезглавлен человеком, который не слышал ни звука. Теперь его череп принадлежит мне - возможно, Соловья-Разбойника удастся уговорить снова свистнуть.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 10,
+	    "heart": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.skull.exhausted"
+	}
+    },
+    {
+	"id": "weapon.skull.exhausted",
+	"label": "Череп Соловея (Перезарядка)",
+	"description": "Соловей когда-то жил в лесах Старого Киева. Легенда гласит, что его свист мог повалить дуб и убить любого человека, который его услышит; легенда также гласит, что он был обезглавлен человеком, который не слышал ни звука. Теперь его череп принадлежит мне - возможно, Соловья-Разбойника удастся уговорить снова свистнуть.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.skull.exhausted",
+	    "refresh": "weapon.skull"
+	},
+	"lifetime": 60,
+	"decayTo": "weapon.skull",
+	"icon": "weapon.skull",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.wormnail",
+	"label": "Червекол",
+	"description": "Траншейный нож, который служил во времена Третьей войны Червей и своего рода вошел в историю. В стали оружия скопились нечестивые примеси, делающие его смертельно опасным для смертных, бессмертных и любых ужасающих существ между ними.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 6,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.wormnail.exhausted"
+	}
+    },
+    {
+	"id": "weapon.wormnail.exhausted",
+	"label": "Червекол (Подготовка)",
+	"description": "Траншейный нож, который служил во времена Третьей войны Червей и своего рода вошел в историю. В стали оружия скопились нечестивые примеси, делающие его смертельно опасным для смертных, бессмертных и любых ужасающих существ между ними.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.wormnail.exhausted",
+	    "refresh": "weapon.wormnail"
+	},
+	"lifetime": 90,
+	"decayTo": "weapon.wormnail",
+	"icon": "weapon.wormnail",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.talon",
+	"label": "Стрикс-Коготь",
+	"description": "Освят-Боярышник и Триумфатор. Многокрылые издавна служили в Часам Борьбы, но Часы Борьбы не всегда были такими же, как сейчас.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.talon.exhausted"
+	}
+    },
+    {
+	"id": "weapon.talon.exhausted",
+	"label": "Стрикс-Коготь (Подготовка)",
+	"description": "Освят-Боярышник и Триумфатор. Многокрылые издавна служили в Часам Борьбы, но Часы Борьбы не всегда были такими же, как сейчас.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.talon.exhausted",
+	    "refresh": "weapon.talon"
+	},
+	"lifetime": 90,
+	"decayTo": "weapon.talon",
+	"icon": "weapon.talon",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.5",
+	"label": "Метеоритный револьвер",
+	"description": "Требуется кузнец редкого (и обычно нечеловеческого) мастерства, чтобы придать форму таенитовому железу. Немногие из такого рода мастеров все еще созидают, но это оружие безошибочно отличается современным дизайном. Пять пуль из таенитового железа - убийц монстров - вставлены в барабан.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 5
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.5.exhausted"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "weapon.revolver.5.exhausted",
+	"label": "Метеоритный револьвер (Подготовка)",
+	"description": "Требуется кузнец редкого (и обычно нечеловеческого) мастерства, чтобы придать форму таенитовому железу. Немногие из такого рода мастеров все еще созидают, но это оружие безошибочно отличается современным дизайном. Четыре пули из таенитового железа - убийц монстров - вставлены в барабан.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "uses.remaining": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.5.exhausted",
+	    "refresh": "weapon.revolver.4"
+	},
+	"lifetime": 30,
+	"decayTo": "weapon.revolver.4",
+	"icon": "weapon.revolver",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.4",
+	"label": "Метеоритный револьвер",
+	"description": "Требуется кузнец редкого (и обычно нечеловеческого) мастерства, чтобы придать форму таенитовому железу. Немногие из такого рода мастеров все еще созидают, но это оружие безошибочно отличается современным дизайном. Четыре пули из таенитового железа - убийц монстров - вставлены в барабан.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.4.exhausted"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "weapon.revolver.4.exhausted",
+	"label": "Метеоритный револьвер (Подготовка)",
+	"description": "Требуется кузнец редкого (и обычно нечеловеческого) мастерства, чтобы придать форму таенитовому железу. Немногие из такого рода мастеров все еще созидают, но это оружие безошибочно отличается современным дизайном. Три пули из таенитового железа - убийц монстров - вставлены в барабан.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "uses.remaining": 3
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.4.exhausted",
+	    "refresh": "weapon.revolver.3"
+	},
+	"lifetime": 30,
+	"decayTo": "weapon.revolver.3",
+	"icon": "weapon.revolver",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.3",
+	"label": "Метеоритный револьвер",
+	"description": "Требуется кузнец редкого (и обычно нечеловеческого) мастерства, чтобы придать форму таенитовому железу. Немногие из такого рода мастеров все еще созидают, но это оружие безошибочно отличается современным дизайном. Три пули из таенитового железа - убийц монстров - вставлены в барабан.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 3
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.3.exhausted"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "weapon.revolver.3.exhausted",
+	"label": "Метеоритный револьвер (Подготовка)",
+	"description": "Требуется кузнец редкого (и обычно нечеловеческого) мастерства, чтобы придать форму таенитовому железу. Немногие из такого рода мастеров все еще созидают, но это оружие безошибочно отличается современным дизайном. Две пули из таенитового железа - убийц монстров - вставлены в барабан.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "uses.remaining": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.3.exhausted",
+	    "refresh": "weapon.revolver.2"
+	},
+	"lifetime": 30,
+	"decayTo": "weapon.revolver.2",
+	"icon": "weapon.revolver",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.2",
+	"label": "Метеоритный револьвер",
+	"description": "Требуется кузнец редкого (и обычно нечеловеческого) мастерства, чтобы придать форму таенитовому железу. Немногие из такого рода мастеров все еще созидают, но это оружие безошибочно отличается современным дизайном. Две пули из таенитового железа - убийц монстров - вставлены в барабан.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.2.exhausted"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "weapon.revolver.2.exhausted",
+	"label": "Метеоритный револьвер (Подготовка)",
+	"description": "Требуется кузнец редкого (и обычно нечеловеческого) мастерства, чтобы придать форму таенитовому железу. Немногие из такого рода мастеров все еще созидают, но это оружие безошибочно отличается современным дизайном. Осталась только одна пуля.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "uses.remaining": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.2.exhausted",
+	    "refresh": "weapon.revolver.1"
+	},
+	"lifetime": 30,
+	"decayTo": "weapon.revolver.1",
+	"icon": "weapon.revolver",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.1",
+	"label": "Метеоритный револьвер",
+	"description": "Требуется кузнец редкого (и обычно нечеловеческого) мастерства, чтобы придать форму таенитовому железу. Немногие из такого рода мастеров все еще созидают, но это оружие безошибочно отличается современным дизайном. Осталась только одна пуля.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "colonel.weaponfragment",
+	"label": "Смертоносные компоненты",
+	"description": "Стертое в порошок железо, зазубренные листы металла. Могло бы быть и больше, будь у меня на это достаточно ресурсов.",
+	"aspects": {
+	    "edge": 4,
+	    "supplies": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needsfragment",
+		"label": "Части",
+		"required": {
+		    "colonel.weaponfragment": 1
+		}
+	    },
+	    {
+		"id": "needsfragment2",
+		"label": "Части",
+		"required": {
+		    "colonel.weaponfragment": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "weapon.histid",
+	"label": "Перо Гистид",
+	"description": "Все слуги Полковника смертельно опасны, но Гистиды - самые плодотворные из его созданий. Это оружие сконструировано по подобию шипастой иглы, которую они используют, чтобы принести своим целям быструю и бесшумную смерть. [Это оружие можно использовать только один раз.]",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 12
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "contemplation.skill.deflect",
+	"label": "Созерцание: Утраченная техника?",
+	"description": "Имя Полковника поделилось со мной этим тайным методом ведения боя. Это древнее, неподатливое знание, и его природа нелегко поддается пониманию.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.colonel",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.deflect"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.raisedead",
+	"label": "Созерцание: Утраченная техника?",
+	"description": "Имя Полковника поделилось со мной этим тайным методом ведения боя. Это древнее, неподатливое знание, и его природа нелегко поддается пониманию.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.colonel",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.raisedead"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.refreshally",
+	"label": "Созерцание: Утраченная техника?",
+	"description": "Имя Полковника поделилось со мной этим тайным методом ведения боя. Это древнее, неподатливое знание, и его природа нелегко поддается пониманию.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.colonel",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.refreshally"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "challenge.contemplation.colonel",
+	"label": "Испытание мастерством Полковника",
+	"aspects": {
+	    "needsedgelantern": 8,
+	    "needsedgewinter": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "skill.deflect",
+	"label": "Нерушимая Защита",
+	"description": "Мучительно требовательные движения, которые придают телу крепость. Точность и подготовленность, необходимые для их выполнения, обычно присущи только Вечному, но смертный - чрезвычайно осторожный, чрезвычайно хорошо тренированный смертный - может ограниченно использовать эти приемы, чтобы уклоняться от ударов, которые в противном случае означали бы смерть. [Вы можете использовать это для защиты от атаки из любого источника.]",
+	"aspects": {
+	    "lore": 1,
+	    "heart": 8,
+	    "legacyplotitem": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.deflect.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "skill.deflect.exhausted",
+	"label": "Нерушимая Защита (Переутомление)",
+	"description": "Мучительно требовательные движения, которые придают телу крепость. Точность и подготовленность, необходимые для их выполнения, обычно присущи только Вечному, но смертный - чрезвычайно осторожный, чрезвычайно хорошо тренированный смертный - может ограниченно использовать эти приемы, чтобы уклоняться от ударов, которые в противном случае означали бы смерть. [Вы можете использовать это для защиты от атаки из любого источника.]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.deflect.exhausted",
+	    "refresh": "skill.deflect"
+	},
+	"unique": true,
+	"icon": "skill.deflect",
+	"resaturate": true,
+	"lifetime": 160,
+	"decayTo": "skill.deflect"
+    },
+    {
+	"id": "skill.raisedead",
+	"label": "Заклятье Легата",
+	"description": "В Несметном легионе ходит такая поговорка - MORS NON EST FINIS OFFICII - ибо легионеры знали, что смерть - это не мир, а всего лишь перемирие. Эти слова они произносили, чтобы напомнить умершим о клятвах, которые они давали при жизни, и мертвые всегда их слышали. [Вы можете использовать это, чтобы превратить павших союзников в Призывников.]",
+	"aspects": {
+	    "lore": 1,
+	    "winter": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.raisedead.exhausted"
+	},
+	"slots": [
+	    {
+		"id": "needsdead",
+		"label": "Павший союзник",
+		"required": {
+		    "friend.corpses": 1
+		}
+	    }
+	],
+	"unique": true
+    },
+    {
+	"id": "skill.raisedead.exhausted",
+	"label": "Заклятье Легата (Переутомление)",
+	"description": "В Несметном легионе ходит такая поговорка - MORS NON EST FINIS OFFICII - ибо легионеры знали, что смерть - это не мир, а всего лишь перемирие. Эти слова они произносили, чтобы напомнить умершим о клятвах, которые они давали при жизни, и мертвые всегда их слышали. [Вы можете использовать это, чтобы превратить павших союзников в Призывников.]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.raisedead.exhausted",
+	    "refresh": "skill.raisedead"
+	},
+	"unique": true,
+	"icon": "skill.raisedead",
+	"resaturate": true,
+	"lifetime": 120,
+	"decayTo": "skill.raisedead"
+    },
+    {
+	"id": "skill.refreshally",
+	"label": "Глас Стали",
+	"description": "Ни одному человеку не позволено мне отказать. Никто не сделает и шагу назад. Мое слово - нерушимый приказ, и все те, кто являются солдатами, будут подчиняться ему. [Вы можете использовать это, чтобы мгновенно восстановить любого истощенного союзника.]",
+	"aspects": {
+	    "lore": 1,
+	    "lantern": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.refreshally.exhausted"
+	},
+	"slots": [
+	    {
+		"id": "needsexhausted",
+		"label": "Истощенный",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "friend.tanks.exhausted": 1,
+		    "friend.bombers.exhausted": 1,
+		    "friend.artillery.exhausted": 1
+		}
+	    }
+	],
+	"unique": true
+    },
+    {
+	"id": "skill.refreshally.exhausted",
+	"label": "Глас Стали (Переутомление)",
+	"description": "Ни одному человеку не позволено мне отказать. Никто не сделает и шагу назад. Мое слово - нерушимый приказ, и все те, кто являются солдатами, будут подчиняться ему. [Вы можете использовать это, чтобы мгновенно восстановить любого истощенного союзника.]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.refreshally.exhausted",
+	    "refresh": "skill.refreshally"
+	},
+	"unique": true,
+	"icon": "skill.refreshally",
+	"resaturate": true,
+	"lifetime": 90,
+	"decayTo": "skill.refreshally"
+    }
+]
+}

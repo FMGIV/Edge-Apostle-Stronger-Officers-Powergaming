@@ -1,0 +1,1316 @@
+{
+"elements": [
+    {
+	"id": "proterant.memento",
+	"label": "Brass Locket",
+	"description": "'One day I will be a memory, and you will still walk the Earth, as you always have - so keep this close, that I might walk with you still when my bones are dust.'",
+	"aspects": {
+	    "heart": 4,
+	    "memento": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "proterant.weapon",
+	"label": "Modello 38",
+	"description": "<i>Moschetto Automatico Beretta Modello 1938.</i> It won't jam on me; not if it knows what's good for it.",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.weapon.exhausted"
+	},
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "proterant.weapon.exhausted",
+	"label": "Modello 38 (Readying)",
+	"description": "<i>Moschetto Automatico Beretta Modello 1938.</i> It won't jam on me; not if it knows what's good for it.",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"lifetime": 120,
+	"resaturate": true,
+	"decayTo": "proterant.weapon",
+	"icon": "proterant.weapon",
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "proterant.setupitem",
+	"label": "A Golden Dawn",
+	"description": "A new day sallies forth over the horizon. I've seen the sunrise before - more times than any mortal normally would. But today something feels different. I anticipate a departure.",
+	"aspects": {
+	    "op": 1
+	},
+	"icon": "op.dawn"
+    },
+    {
+	"id": "proterant.mentor",
+	"label": "#PREVIOUSCHARACTERNAME#",
+	"description": "A smirking Libyan with fiery eyes. The others see only a partisan captain, but I know better. This one has trusted me with the truth of what they are.",
+	"aspects": {
+	    "friend": 1,
+	    "edgelong": 1
+	}
+    },
+    {
+	"id": "proterant.story",
+	"label": "The Exile's Bet",
+	"description": "'I'll say it plain: the Lionsmith is looking for a new Name. That means he needs tough, strong bastards. That means you. But you'll need to be stronger, and you'll need to prove it with blood. You'll need to learn a thing or two about monsters, so maybe you'll need to talk to Echidna. And I've heard something about a celebration at Montecassino - the Lionsmith's preparing a surprise. Don't want to miss that. Oh, and a note: I've made a wager with my Foe on whether or not you've actually got the mettle to be Named. So, if not for the glory, do it for your old friend! I have the utmost faith in you. But a little luck can't hurt, eh?'",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "proterant.fragmentedge",
+	"label": "A Hammer's Secret",
+	"description": "The hammer's touch shapes; the hammer's touch shatters. Those who study the Lionsmith's teachings know well these two natures, and how to utilise them.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 2,
+	    "forge": 1,
+	    "heart": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedge.exhausted",
+	    "epiphany": "proterant.fragmentedgeb"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "proterant.fragmentedge.exhausted",
+	"label": "A Hammer's Secret (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedge"
+	},
+	"lifetime": 300,
+	"decayTo": "proterant.fragmentedge",
+	"icon": "proterant.fragmentedge",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedgeb",
+	"label": "The Shahpur's Lesson",
+	"description": "'This is the lesson the Great One's Son found in the breaking of his blade. Even now it glints like shards of metal in the Persian sun.' My friend would sometimes murmur it when they were in their cups.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 4,
+	    "forge": 2,
+	    "heart": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgeb.exhausted",
+	    "epiphany": "proterant.fragmentedgec"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgeb.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgeb.exhausted",
+	"label": "The Shahpur's Lesson (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgeb"
+	},
+	"lifetime": 260,
+	"decayTo": "proterant.fragmentedgeb",
+	"resaturate": true,
+	"icon": "fragmentedgeb.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgec",
+	"label": "An Operation of the Labhite",
+	"description": "A series of mystic exercises that require both dedication and terror.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 6,
+	    "forge": 3,
+	    "heart": 3
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgec.exhausted",
+	    "epiphany": "proterant.fragmentedged"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgec.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgec.exhausted",
+	"label": "An Operation of the Labhite (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgec"
+	},
+	"lifetime": 220,
+	"decayTo": "proterant.fragmentedgec",
+	"icon": "fragmentedgec.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedged",
+	"label": "The Lionsmith's Names",
+	"description": "The Lionsmith is young by the standards of the Hours, but old by the standards of war. His Names are recent recruits, and their recitation has a savage power.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 8,
+	    "forge": 4,
+	    "heart": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedged.exhausted",
+	    "epiphany": "proterant.fragmentedgee"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedged.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedged.exhausted",
+	"label": "The Lionsmith's Names (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedged"
+	},
+	"lifetime": 180,
+	"decayTo": "proterant.fragmentedged",
+	"icon": "fragmentedged.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedgee",
+	"label": "The Brass Forms",
+	"description": "Seven times seven techniques for the shattering of bone.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 10,
+	    "forge": 5,
+	    "heart": 5
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgee.exhausted",
+	    "epiphany": "proterant.fragmentedgef"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgee.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgee.exhausted",
+	"label": "The Brass Forms (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgee"
+	},
+	"lifetime": 140,
+	"decayTo": "proterant.fragmentedgee",
+	"icon": "fragmentedgee.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedgef",
+	"label": "Consummation of the Helve",
+	"description": "I am the weapon that will be broken, and remade again without flaw. The argument of my flesh will at last be irrefragable.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 12,
+	    "forge": 6,
+	    "heart": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgef.exhausted",
+	    "epiphany": "proterant.fragmentedgeg"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgef.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgef.exhausted",
+	"label": "Consummation of the Helve (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [Upgrading your Edge lore will shorten its cooldown and increase its power.]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgef"
+	},
+	"lifetime": 100,
+	"decayTo": "proterant.fragmentedgef",
+	"icon": "fragmentedgef.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "proterant.fragmentedgeg",
+	"label": "The Shattered Mysteries",
+	"description": "In each rebirth there is greater strength. What has been broken can be reforged. What has never been broken must be reforged.",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 14,
+	    "forge": 7,
+	    "heart": 7,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "proterant.fragmentedgeg.exhausted",
+	    "epiphany": [
+		{
+		    "id": "lionsmith.weaponfragment",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "A Victory",
+	 	"description": "Something to learn from.",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ],
+	"icon": "fragmentedgeg.lionsmith"
+    },
+    {
+	"id": "proterant.fragmentedgeg.exhausted",
+	"label": "The Shattered Mysteries (Readying)",
+	"description": "I'll have to wait for this to recover before I can use it again. [You have mastered the Lionsmith's mysteries - as far as a mortal might master them, at least.]",
+	"aspects": {
+	    "exhausted": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "refresh": "proterant.fragmentedgeg"
+	},
+	"lifetime": 60,
+	"decayTo": "proterant.fragmentedgeg",
+	"icon": "fragmentedgeg.lionsmith",
+	"resaturate": true
+    },
+    {
+	"id": "chain.strength",
+	"label": "Gift: Strength",
+	"description": "In the days Flint worked the stars and the stones, this was known: the earth is the oldest strength. Long ago, I feasted on the earth's sacraments, and so I grew - and remain - strong.",
+	"aspects": {
+	    "edge": 6,
+	    "chain": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "chain.strength.exhausted"
+	}
+    },
+    {
+	"id": "chain.strength.exhausted",
+	"label": "Gift: Strength (Exhausted)",
+	"description": "In the days Flint worked the stars and the stones, this was known: the earth is the oldest strength. Long ago, I feasted on the earth's sacraments, and so I grew - and remain - strong.",
+	"aspects": {
+	    "exhausted": 1,
+	    "chain": 1
+	},
+	"lifetime": 90,
+	"decayTo": "chain.strength",
+	"resaturate": true,
+	"icon": "chain.strength"
+    },
+    {
+	"id": "chain.stone",
+	"label": "Gift: Stone",
+	"description": "Before we shaped metal and tamed fire, Stone gave us the means to shed blood. I learned of Stone in my youth, and so I have glimpsed those ways in which we shaped Stone, and Stone shaped us.",
+	"aspects": {
+	    "heart": 6,
+	    "forge": 6,
+	    "chain": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "chain.stone.exhausted"
+	}
+    },
+    {
+	"id": "chain.stone.exhausted",
+	"label": "Gift: Stone (Exhausted)",
+	"description": "Before we shaped metal and tamed fire, Stone gave us the means to shed blood. I learned of Stone in my youth, and so I have glimpsed those ways in which we shaped Stone, and Stone shaped us.",
+	"aspects": {
+	    "exhausted": 1,
+	    "chain": 1
+	},
+	"lifetime": 90,
+	"decayTo": "chain.stone",
+	"resaturate": true,
+	"icon": "chain.stone"
+    },
+    {
+	"id": "chain.scale",
+	"label": "Gift: Scale",
+	"description": "The Carapace Cross - those wise and mighty ones who came before, and became us - knew the ways which Flesh might endure Time, its enemy. I am closer than most to the Cross-nature that lies sleeping in so many, and so I have endured Time as the Cross once did.",
+	"aspects": {
+	    "heart": 6,
+	    "moth": 6,
+	    "chain": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "chain.scale.exhausted"
+	}
+    },
+    {
+	"id": "chain.scale.exhausted",
+	"label": "Gift: Scale (Exhausted)",
+	"description": "The Carapace Cross - those wise and mighty ones who came before, and became us - knew the ways which Flesh might endure Time, its enemy. I am closer than most to the Cross-nature that lies sleeping in so many, and so I have endured Time as the Cross once did.",
+	"aspects": {
+	    "exhausted": 1,
+	    "chain": 1
+	},
+	"lifetime": 90,
+	"decayTo": "chain.scale",
+	"resaturate": true,
+	"icon": "chain.scale"
+    },
+    {
+	"id": "constructions.a",
+	"label": "Constructions: Dadgah",
+	"description": "'Lions can be created, not as children are created, nor as words are created, but as weapons are created.' In the Shadowless Empire, these words were wisdom. [You can use this card to craft certain creations of the Lionsmith.]",
+	"aspects": {
+	    "lore": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing1",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing2",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing3",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "constructions.b",
+	"label": "Constructions: Adaran",
+	"description": "'The Lionsmith makes monsters to defeat the Tribune.' Winged, clawed, fanged - in all their dimensions, the Lionsmith's children are made for war against the enemy, and against each other. [You can use this card to craft certain stronger creations of the Lionsmith.]",
+	"aspects": {
+	    "lore": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing1",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing2",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing3",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing4",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "constructions.c",
+	"label": "Constructions: Behram",
+	"description": "'The Lionsmith's children are born by the hammer's touch; broken by the hammer's touch; reforged by the hammer's touch.' The Lionsmith's eldest children do not always survive their upbringing, but those which do crack the earth with their step and shake the sky with their strength. [You can use this card to craft some of the strongest creations of the Lionsmith.]",
+	"aspects": {
+	    "lore": 1
+	},
+	"slots": [
+	    {
+		"id": "needsthing1",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing2",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing3",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing4",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    },
+	    {
+		"id": "needsthing5",
+		"label": "Components",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "contemplation.skill.swoleup",
+	"label": "Contemplation: A Lost Technique?",
+	"description": "A Name of the Lionsmith presented me with this secret method of battle. It is untamed, savage knowledge, and its natures will not yield to understanding easily.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.lionsmith",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.swoleup.dormant"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.intimidate",
+	"label": "Contemplation: A Lost Technique?",
+	"description": "A Name of the Lionsmith presented me with this secret method of battle. It is untamed, savage knowledge, and its natures will not yield to understanding easily.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.lionsmith",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.intimidate.dormant"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.refreshself",
+	"label": "Contemplation: A Lost Technique?",
+	"description": "A Name of the Lionsmith presented me with this secret method of battle. It is untamed, savage knowledge, and its natures will not yield to understanding easily.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.lionsmith",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.refreshself"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "challenge.contemplation.lionsmith",
+	"label": "Lionsmith Master Skill Challenge ",
+	"aspects": {
+	    "needsedgeforge": 8,
+	    "needsedgeheart": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "skill.swoleup.dormant",
+	"label": "Strength of the Adversary (Dormant)",
+	"description": "Antaios the Giant - mightiest of the Lionsmith's enemies, save the Colonel. When he still walked in flesh, the Lionsmith slew Antaios, but he so admired his enemy's mettle that he laid down these arts in remembrance of him. And so the strongest, the very strongest of the Lionsmith's students may call upon the strength of Antaios, if only for a moment. [Activate this card to imbue it with a monumental amount of Edge for a brief time.]",
+	"aspects": {
+	    "lore": 1
+	},
+	"xtriggers": {
+	    "ascend": "skill.swoleup.active",
+	    "fatiguing": "skill.swoleup.exhausted"
+	}
+    },
+    {
+	"id": "skill.swoleup.active",
+	"label": "Strength of the Adversary",
+	"description": "Antaios the Giant - mightiest of the Lionsmith's enemies, save the Colonel. When he still walked in flesh, the Lionsmith slew Antaios, but he so admired his enemy's mettle that he laid down these arts in remembrance of him. And so the strongest, the very strongest of the Lionsmith's students may call upon the strength of Antaios, if only for a moment. [This card will remain active until the timer expires, or until it is used.]",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 30
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.swoleup.exhausted"
+	},
+	"lifetime": 30,
+	"decayTo": "skill.swoleup.exhausted"
+    },
+    {
+	"id": "skill.swoleup.exhausted",
+	"label": "Strength of the Adversary (Exhausted)",
+	"description": "Antaios the Giant - mightiest of the Lionsmith's enemies, save the Colonel. When he still walked in flesh, the Lionsmith slew Antaios, but he so admired his enemy's mettle that he laid down these arts in remembrance of him. And so the strongest, the very strongest of the Lionsmith's students may call upon the strength of Antaios, if only for a moment. [This card will return to its dormant state soon.]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.swoleup.exhausted",
+	    "refresh": "skill.swoleup.dormant"
+	},
+	"lifetime": 160,
+	"decayTo": "skill.swoleup.dormant",
+	"resaturate": true,
+	"icon": "skill.swoleup.dormant"
+    },
+    {
+	"id": "skill.refreshself",
+	"label": "Indefatigable Offence",
+	"description": "Refinements of self that channel all the soul's energies towards total annihilation of the opponent. The fury and endurance necessary to sustain these processes is usually found only in Long, but a mortal - a very strong, very courageous mortal - may make limited use of these techniques to strike with speed and ferocity that would otherwise be impossible. [You can use this card to refresh any Weapon or Lore card.]",
+	"aspects": {
+	    "lore": 1,
+	    "heart": 8
+	},
+	"slots": [
+	    {
+		"id": "needsexhausted",
+		"label": "Exhausted",
+		"required": {
+		    "exhausted": 1
+		},
+		"forbidden": {
+		    "friend": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "skill.refreshself.exhausted",
+	    "refresh": "skill.refreshself",
+	    "fatiguing.onlyrefreshself": "skill.refreshself.exhausted"
+	}
+    },
+    {
+	"id": "skill.refreshself.exhausted",
+	"label": "Indefatigable Offence (Exhausted)",
+	"description": "Refinements of self that channel all the soul's energies towards total annihilation of the opponent. The fury and endurance necessary to sustain these processes is usually found only in Long, but a mortal - a very strong, very courageous mortal - may make limited use of these techniques to strike with speed and ferocity that would otherwise be impossible. [You can use this card to refresh any Weapon or Lore card.]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.refreshself.exhausted",
+	    "refresh": "skill.refreshself",
+	    "fatiguing.onlyrefreshself": "skill.refreshself.exhausted"
+	},
+	"icon": "skill.refreshself",
+	"resaturate": true,
+	"lifetime": 280,
+	"decayTo": "skill.refreshself"
+    },
+    {
+	"id": "skill.intimidate.dormant",
+	"label": "Conqueror's Cry (Dormant)",
+	"description": "Courage will flee the souls of men; lions will lie low and meek; even the sky will tremble when I bellow blood. Hear me, and be afraid. [Activate this card to temporarily prevent Enemies from taking any offensive actions against you. Also, using this card will cause an earthquake.]",
+	"aspects": {
+	    "lore": 1
+	},
+	"xtriggers": {
+	    "ascend": "skill.intimidate.active",
+	    "fatiguing": "skill.intimidate.exhausted"
+	}
+    },
+    {
+	"id": "skill.intimidate.active",
+	"label": "Conqueror's Cry",
+	"description": "Courage will flee the souls of men; lions will lie low and meek; even the sky will tremble when I bellow blood. Hear me, and be afraid. [This card will remain active until the timer expires, preventing all Enemy actions against you for the duration. Also, using this card will cause an earthquake.]",
+	"xtriggers": {
+	    "fatiguing": "skill.intimidate.exhausted"
+	},
+	"lifetime": 180,
+	"decayTo": "skill.intimidate.exhausted"
+    },
+    {
+	"id": "skill.intimidate.exhausted",
+	"label": "Conqueror's Cry (Exhausted)",
+	"description": "Courage will flee the souls of men; lions will lie low and meek; even the sky will tremble when I bellow blood. Hear me, and be afraid. [This card will return to its dormant state soon.]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.intimidate.exhausted",
+	    "refresh": "skill.intimidate.dormant"
+	},
+	"lifetime": 300,
+	"decayTo": "skill.intimidate.dormant",
+	"resaturate": true,
+	"icon": "skill.intimidate.dormant"
+    },
+    {
+	"id": "mission.camilla.a",
+	"label": "Contemplation: The Continental",
+	"description": "Places of fiercest battle beckon the Edge-Long like blood beckons sharks. Going unseen in the armies of the nations, they cut swathes across the continents to reach their ordained nemeses. The Continental, then, is not directly our enemy, but she will not refuse a chance to run her drills against an army that happens to be in her way. Is there a way we can rid ourselves of her?",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.warmaker.a",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.camilla.b"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.camilla.a",
+	"label": "Continental Challenge A",
+	"aspects": {
+	    "needslantern": 8,
+	    "needsedge": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.camilla.b",
+	"label": "Contemplation: The Continental's Dyad",
+	"description": "All Edge-Long are but one half of an Edge dyad: a partnership of two immortals, locked together in eternal combat and eternal striving. Perhaps that is something that interests us. The Continental's nemesis must be on the front somewhere - if we want to be rid of her, seeking out her enemy may be a prudent first step.",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.camilla.b",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "mission.camilla.c"
+	},
+	"aspects": {
+	    "contemplation": 1
+	}
+    },
+    {
+	"id": "challenge.contemplation.camilla.b",
+	"label": "Continental Challenge B",
+	"aspects": {
+	    "needslantern": 12,
+	    "needsedge": 12
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "mission.camilla.c",
+	"label": "Contemplation: Continental and Warmaker",
+	"description": "He was the Continental's comrade against the British, once - under the sun of the New World. Perhaps he was also her paramour. But he declined her invitation to return with her to France, to guide the Corsican and his new empire. Seven wars were then fought in twelve years between France and the rest of Europe, and only when the Coalition invoked an ancient promise in desperation did the Warmaker return to rout the French advance. He bitterly proclaimed it was his duty; the Continental disagreed. And more than a hundred years later, they disagree still.",
+	"aspects": {
+	    "contemplation": 1,
+	    "completed": 1
+	}
+    },
+    {
+	"id": "friend.wilhelm",
+	"label": "The Warmaker",
+	"description": "A hulking, jolly-faced German decorated in the antique livery of a Prussian major. He carries no weapons on his person - he will not dishonour himself with one, it seems. His fists are certaintly as sure and relentless as hammers.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "wilhelm"
+    },
+    {
+	"id": "token.wilhelm",
+	"label": "Gold Spintria",
+	"description": "'Old relic of an old time, when the Sun was different. I did not see that Sun, nor his colours,' the Warmaker told me. 'But even his image will still demand respect.' He suggested that I offer it at a place of power to communicate with my friend, the Exile, so they may help arrange for <i>musvashir</i> with the Continental. But I should not make that offering until I am ready to face her.",
+	"aspects": {
+	    "legacyplotitem": 1,
+	    "dream.lionsmith": 1
+	},
+	"icon": "compensationd"
+    },
+    {
+	"id": "letter.fromexile.refusal",
+	"label": "The Exile's Reply",
+	"description": "'Dear friend,\n\nI hope the war's going as splendidly for you as it is for me. My Foe and I are having a romp of a time up north. Blood, gunfire, and always that familiar warmth of hatred. We might double back south to visit Ortucchio (my Foe's family lived there, you see), but alas - we will see where our war takes us!\n\nOnto the serious matter, now. <i>Musvashir</i> - you need a second to vouch for you at the duel, and I regret to say that it cannot be me. My Foe and I are, frankly, all too wrapped up in our contests, and neither I nor he can possibly bear to postpone our enmity. You will be disappointed in this. And for what it's worth, I am sorry.\n\nBut let it not be said I am a wholly terrible friend. I know someone who can help you. If you want to contact him, you'll need to conduct a bit of ceremony. He'll appreciate it if you offer up a weapon (a good one, mind). After that, just tell him you intend <i>musvashir</i> and I'm positive he'll help you. He loves those sorts of things.\n\nGood luck, and don't get killed.\n\n- #PREVIOUSCHARACTERNAME#'",
+	"aspects": {
+	    "legacyplotitem": 1
+	},
+	"icon": "letter.fromexile"
+    },
+    {
+	"id": "friend.maccabee",
+	"label": "Judah the Hammer",
+	"description": "Selucid-slayer; rebel-god; Name-champion of the Lionsmith. I don't know how my friend managed to get on good terms with a Name, but I don't have time to ponder it, anyhow. I'd better speak quickly.",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"lifetime": 60
+    },
+    {
+	"id": "letter.fromwilhelm",
+	"label": "The Warmaker's Reply",
+	"description": "A crisp telegram card. It reads as follows:\n\n'VALIANT PARTISAN <b>-(STOP)-</b>\n\nMUST CONFIDE THAT YOUR CHOICE OF SECOND HAD SURPRISED ME <b>-(STOP)-</b> WE LONG TRAFFICK CAUTIOUSLY WITH NAMES <b>-(STOP)-</b> REGARDLESS I HAVE NOW RECEIVED ALL THE CONFIRMATION NECESSARY TO ARRANGE PROPER PROTOCOLS OF CHALLENGE <b>-(STOP)-</b> MY DEAR ENEMY LOOKS FORWARD TO THE CONTEST AND PER THE RULES WILL LEAVE YOU IN PEACE UNTIL THE APPOINTED TIME <b>-(STOP)-</b>\n\nBE PRESENT IN THE COUNTRYSIDE ALONE WITHIN SEVEN DAYS OR BE DESTROYED <b>-(STOP)-</b> PUNCTUALITY IS NON NEGOTIABLE <b>-(STOP)-</b>\n\n- WILHELM SEIFRITZ TRAGENDORN",
+	"aspects": {
+	    "legacyplotitem": 1
+	}
+    },
+    {
+	"id": "duel.wilhelm.proterant",
+	"label": "The Warmaker",
+	"description": "A hulking, jolly-faced German decorated in the antique livery of a Prussian major. He has come to act as the representative of his enemy, the Continental.",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "wilhelm"
+    },
+    {
+	"id": "duel.camilla.proterant",
+	"label": "The Continental",
+	"description": "An imperious, strikingly-scarred woman draped in the fatigues and field cloak of a French officer. This is whom I have challenged to <i>musvashir.</i>",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1,
+	    "duel.marker": 1
+	},
+	"icon": "camilla"
+    },
+    {
+	"id": "duel.maccabee",
+	"label": "Judah the Hammer",
+	"description": "An unlikely friend of <i>my</i> unlikely friend; a Name of the Lionsmith, who has lent his authority to act as my second in <i>musvashir.</i>",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1
+	},
+	"icon": "friend.maccabee"
+    },
+    {
+	"id": "friend.echidna",
+	"label": "Echidna",
+	"description": "The Mother of Monsters has seen better days. Something has clawed her up the belly, and her spilling guts steam and writhe like black-red serpents. Her mouth is slick with blood. 'No need to fret, sweetie,' she says with a surprising amount of composure. 'It's not mine.'",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "broodscent",
+	"label": "Brood Scent",
+	"description": "'Follow your nose, sweetie - the stomach can really only indicate one thing, after all. Boccastrano smells peculiar: like hot brass, like rain, like cinnamon and wax; he kills clean and eats quietly. And Orcul smells like meat gone bad - a cart's worth of meat gone bad. When you've finished, come bring me my dinner, and then we can talk some more.'",
+	"aspects": {
+	    "scentscout": 1
+	}
+    },
+    {
+	"id": "dinnerbell",
+	"label": "Dinner Bell",
+	"description": "A small brass bell, much heavier than it looks. 'Ring it when you've got things all tidied up, and I'll come running,' Echidna told me. 'But keep in mind - I'm not a patient woman, and I don't like wasting time. If you don't have dinner ready when I arrive, I won't bother with you again.'",
+	"aspects": {
+	    "legacyplotitem": 1,
+	    "tool": 1
+	}
+    }, 
+    {
+	"id": "corpse.orcul",
+	"label": "Orcul's Carcass",
+	"description": "The brute rages no more.",
+	"aspects": {
+	    "remnant": 1
+	}
+    },
+    {
+	"id": "corpse.boccastrano",
+	"label": "Boccastrano's Carcass",
+	"description": "The sly glint has gone from his eyes.",
+	"aspects": {
+	    "remnant": 1
+	}
+    },
+    {
+	"id": "friend.echidna.enroute",
+	"label": "Echidna is En Route",
+	"description": "Echidna is dragging her wounded body across the Italian countryside as we speak. She has heard the toll of the bell, and her hunger propels her towards it - towards us.",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"unique": true,
+	"lifetime": 300,
+	"decayTo": "friend.echidna.turnin",
+	"icon": "echidna.enroute"
+    },
+    {
+	"id": "friend.echidna.turnin",
+	"label": "Echidna",
+	"description": "The Ligeian still limps, and her flesh has not fully mended yet, but here she is in attendance. Her taloned hands flex and unflex anxiously - she is hungry. 'How are my sons?' she asks me.",
+	"aspects": {
+	    "local": 1,
+	    "otherworldly": 1
+	},
+	"slots": [
+	    {
+		"id": "needscorpse1",
+		"label": "Orcul",
+		"required": {
+		    "corpse.orcul": 1
+		}
+	    },
+	    {
+		"id": "needscorpse2",
+		"label": "Boccastrano",
+		"required": {
+		    "corpse.boccastrano": 1
+		}
+	    }
+	],
+	"unique": true,
+	"icon": "friend.echidna"
+    },
+    {
+	"id": "token.echidna",
+	"label": "Echidna's Assistance",
+	"description": "The Mother of Monsters has dined well on the flesh of her children, thanks to me. In gratitude, she has promised me the Biting Key for my ascension. And so, when the time comes - when Rome burns and the day is red with death - the Savage Door will open for me.",
+	"icon": "apostleforge.pillar5"
+    },
+    {
+	"id": "corpse.jerome",
+	"label": "Jerome Alexander, Slain",
+	"description": "A ruthless man, who in the end received as much mercy as he gave. He sacrificed every principle he had at the altar of his own ambitions - even the affection of one who loved him.",
+	"aspects": {
+	    "remnant": 1,
+	    "legacyplotitem": 1
+	},
+	"slots": [
+	    {
+		"id": "needslionel",
+		"actionid": "abandon",
+		"label": "Lionel",
+		"required": {
+		    "corpse.lionel": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "corpse.lionel",
+	"label": "Lionel Saxon, Slain",
+	"description": "An honourable man, who I was privileged to face in battle and at last defeat. His greatest mistake was to avert his eyes from the evils of one he loved - but he made sure he fell atoning for that mistake.",
+	"aspects": {
+	    "remnant": 1,
+	    "legacyplotitem": 1
+	},
+	"slots": [
+	    {
+		"id": "needsjerome",
+		"actionid": "abandon",
+		"label": "Jerome",
+		"required": {
+		    "corpse.jerome": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "token.star",
+	"label": "Flame of the Interior",
+	"description": "The fire of heaven has imbrued my flesh and spirit. I am seamless; I am strong; I will never scar again. [Rather than turn into Debilitations, your wounds will now heal and disappear by themselves over time.]",
+	"aspects": {
+	    "forge": 6,
+	    "heart": 6
+	}
+    },
+    {
+	"id": "draw.hintproterant.lore",
+	"label": "Draw: Lore Hint",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.breakchains",
+	"label": "Draw: Break Chains",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.makemonsters",
+	"label": "Draw: Make Monsters",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.star",
+	"label": "Draw: Star",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.echidna",
+	"label": "Draw: Echidna",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.musvashir",
+	"label": "Draw: Musvashir",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.main",
+	"label": "Draw: Main Objectives",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.rome",
+	"label": "Draw: Rome",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+    {
+	"id": "draw.hintproterant.nodebilitations",
+	"label": "Draw: No Debilitations",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+]
+}

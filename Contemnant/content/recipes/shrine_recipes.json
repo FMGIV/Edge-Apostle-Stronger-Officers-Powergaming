@@ -1,0 +1,619 @@
+{
+"recipes": [
+    {
+	"id": "visit.shrinewolf.getskill",
+	"actionid": "mobilize",
+	"label": "Seek in the Shadow of the Wolf",
+	"startdescription": "My understanding of the arts that unmake has reached its mortal limits. Perhaps immortal knowledge is what I need, now.\n\n[This will give you Trauma.]",
+	"description": "I close my eyes, and the sounds of flame and death fade to nothing. I hear the weeping of Pale Coelle, Name of the Wolf-Divided, and she takes me and cradles me in her arms of brine-drenched bone. I want to scream at the agony her touch brings, but I cannot move. 'Killer of men,' she whispers, seawater falling from her mouth. 'I give thee a flower, which shall blossom into despair.'",
+	"requirements": {
+	    "shrine.wolf.marker": 1,
+	    "edge": 14,
+	    "skill.unmake": -1
+	},
+	"internaldeck": {
+	    "spec": [
+		"contemplation.skill.unmake",
+		"contemplation.skill.sustain",
+		"contemplation.skill.division"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": false
+	},
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+	"warmup": 60,
+	"craftable": true,
+	"maxexecutions": 3
+    },
+    {
+	"id": "visit.shrinewolf.getweapon",
+	"actionid": "mobilize",
+	"label": "Seek in the Shadow of the Wolf",
+	"startdescription": "It is rare for any shrine or monument to be raised in the Wolf's name. But where his power coalesces - where agony has indelibly stained the world - those who claim to follow him may find understanding.\n\n[This will give you Trauma.]",
+	"description": "Amidst the ash and collapsed masonry, I find a gift.",
+	"requirements": {
+	    "shrine.wolf.marker": 1,
+	    "edge": 14,
+	    "skill.unmake": -1
+	},
+	"effects": {
+	    "weapon.hair": 1,
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+	"warmup": 60,
+	"craftable": true
+    },
+    {
+	"id": "visit.shrinewolf.lore",
+	"actionid": "mobilize",
+	"label": "Seek in the Shadow of the Wolf",
+	"startdescription": "It is rare for any shrine or monument to be raised in the Wolf's name. But where his power coalesces - where agony has indelibly stained the world - those who claim to follow him may find understanding.\n\n[This will give you Trauma.]",
+	"description": "I clutch at myself, nails dug into flesh, even as the pain leaves me. I cannot stop crying.",
+	"requirements": {
+	    "shrine.wolf.marker": 1,
+	    "lore": 1,
+	    "edge": 1,
+	    "skill.unmake": -1,
+	    "skill.division": -1
+	},
+	"aspects": {
+	    "epiphany": 1
+	},
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+	"warmup": 60,
+	"craftable": true
+    },
+    {
+	"id": "hint.visit.shrinewolf.dedicategrail.alreadymade",
+	"actionid": "mobilize",
+	"label": "Make a Red Offering to the Wolf-Divided?",
+	"startdescription": "I have already made and dedicated an offering to the Wolf. I should not make another.",
+	"requirements": {
+	    "grail": 1
+	},
+	"extantreqs": {
+	    "dedication.made": 1,
+	    "contemnant.story": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.visit.shrinewolf.dedicateknock.alreadymade",
+	"actionid": "mobilize",
+	"label": "Make a Mortal Offering to the Wolf-Divided?",
+	"startdescription": "I have already made and dedicated an offering to the Wolf. I should not make another.",
+	"requirements": {
+	    "knock": 1
+	},
+	"extantreqs": {
+	    "dedication.made": 1,
+	    "contemnant.story": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.visit.shrinewolf.dedicatelantern.alreadymade",
+	"actionid": "mobilize",
+	"label": "Make a Glorious Offering to the Wolf-Divided?",
+	"startdescription": "I have already made and dedicated an offering to the Wolf. I should not make another.",
+	"requirements": {
+	    "lantern": 1
+	},
+	"extantreqs": {
+	    "dedication.made": 1,
+	    "contemnant.story": 1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "visit.shrinewolf.dedicateknock",
+	"actionid": "mobilize",
+	"label": "Make a Mortal Offering to the Wolf-Divided?",
+	"startdescription": "The Wolf will accept anything, and then devour everything, no matter what.\n\n[This will halve your Wolf-lore's Winter aspect, but also add Knock of an equal amount to it. You will not be able to make another dedication afterwards.]",
+	"requirements": {
+	    "knock": 1,
+	    "wound.generic": -1
+	},
+	"craftable": true,
+	"effects": {
+	    "knock": -99
+	},
+	"linked": [
+	    {
+		"id": "visit.shrinewolf.dedicateknock.continue"
+	    }
+	],
+	"extantreqs": {
+	    "dedication.made": -1,
+	    "contemnant.story": 1
+	}
+    },
+    {
+	"id": "visit.shrinewolf.dedicateknock.wound",
+	"actionid": "mobilize",
+	"label": "Make a Mortal Offering to the Wolf-Divided?",
+	"startdescription": "The Wolf will accept anything, and then devour everything, no matter what.\n\n[This will halve your Wolf-lore's Winter aspect, but also add Knock of an equal amount to it. You will not be able to make another dedication afterwards.]",
+	"requirements": {
+	    "knock": 1,
+	    "wound.generic": 1
+	},
+	"craftable": true,
+	"effects": {
+	    "wound.generic": -99,
+	    "debilitation.generic": 1
+	},
+	"linked": [
+	    {
+		"id": "visit.shrinewolf.dedicateknock.continue"
+	    }
+	],
+	"extantreqs": {
+	    "dedication.made": -1,
+	    "contemnant.story": 1
+	}
+    },
+    {
+	"id": "visit.shrinewolf.dedicateknock.continue",
+	"label": "Make a Mortal Offering to the Wolf-Divided?",
+	"startdescription": "The Wolf will accept anything, and then devour everything, no matter what.\n\n[This will halve your Wolf-lore's Winter aspect, but also add Knock of an equal amount to it. You will not be able to make another dedication afterwards.]",
+	"description": "My offering is ripped from the world with a horrid tearing sound, vanishing - but I could not bring myself to tolerate the wretched boon that was to come of my sacrifice.",
+	"slots": [
+	    {
+		"id": "needslore",
+		"label": "Lore",
+		"required": {
+		    "lore": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "visit.shrinewolf.dedicateknock.success"
+	    }
+	],
+	"warmup": 60
+    },
+    {
+	"id": "visit.shrinewolf.dedicateknock.success",
+	"label": "Make a Mortal Offering to the Wolf-Divided",
+	"startdescription": "'The Sun was divided, and its wound was incarnate as the Hour called Wolf-Divided...'",
+	"description": "The Sun was divided, and its wound was incarnate as the Hour called Wolf-Divided. It is said that all wounds are doors; it is said, also, that all doors lead somewhere. Where, then, does the Wolf lead? Pass the threshold of his slavering jaws, and know.",
+	"requirements": {
+	    "lore": 1,
+	    "edge": 1,
+	    "winter": 1,
+	    "skill.unmake": -1,
+	    "skill.division": -1
+	},
+	"aspects": {
+	    "add.knock": 1
+	},
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+    },
+    {
+	"id": "visit.shrinewolf.dedicategrail",
+	"actionid": "mobilize",
+	"label": "Make a Red Offering to the Wolf-Divided?",
+	"startdescription": "The Wolf will accept anything, and then devour everything, no matter what.\n\n[This will halve your Wolf-lore's Winter aspect, but also add Grail of an equal amount to it. You will not be able to make another dedication afterwards.]",
+	"requirements": {
+	    "grail": 1
+	},
+	"craftable": true,
+	"effects": {
+	    "grail": -99
+	},
+	"linked": [
+	    {
+		"id": "visit.shrinewolf.dedicategrail.continue"
+	    }
+	],
+	"extantreqs": {
+	    "dedication.made": -1,
+	    "contemnant.story": 1
+	}
+    },
+    {
+	"id": "visit.shrinewolf.dedicategrail.continue",
+	"label": "Make a Red Offering to the Wolf-Divided?",
+	"startdescription": "The Wolf will accept anything, and then devour everything, no matter what.\n\n[This will halve your Wolf-lore's Winter aspect, but also add Grail of an equal amount to it. You will not be able to make another dedication afterwards.]",
+	"description": "My offering is ripped from the world with a horrid tearing sound, vanishing - but I could not bring myself to tolerate the wretched boon that was to come of my sacrifice.",
+	"slots": [
+	    {
+		"id": "needslore",
+		"label": "Lore",
+		"required": {
+		    "lore": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "visit.shrinewolf.dedicategrail.success"
+	    }
+	],
+	"warmup": 60
+    },
+    {
+	"id": "visit.shrinewolf.dedicategrail.success",
+	"label": "Make a Red Offering to the Wolf-Divided",
+	"startdescription": "'A table has been set at the end of days...'",
+	"description": "A table has been set at the end of days. The Wolf and his names sit waiting at that table, hungrily anticipating the day the flames of the Corrivality will consume the world. That day is coming. And when the flame burns down at last, the Wolf and all who serve him will feast.",
+	"requirements": {
+	    "lore": 1,
+	    "edge": 1,
+	    "winter": 1,
+	    "skill.unmake": -1,
+	    "skill.division": -1
+	},
+	"aspects": {
+	    "add.grail": 1
+	},
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+    },
+    {
+	"id": "visit.shrinewolf.dedicatelantern",
+	"actionid": "mobilize",
+	"label": "Make a Glorious Offering to the Wolf-Divided?",
+	"startdescription": "The Wolf will accept anything, and then devour everything, no matter what.\n\n[This will halve your Wolf-lore's Winter aspect, but also add Lantern of an equal amount to it. You will not be able to make another dedication afterwards.]",
+	"requirements": {
+	    "lantern": 1
+	},
+	"craftable": true,
+	"effects": {
+	    "lantern": -99
+	},
+	"linked": [
+	    {
+		"id": "visit.shrinewolf.dedicatelantern.continue"
+	    }
+	],
+	"extantreqs": {
+	    "dedication.made": -1,
+	    "contemnant.story": 1
+	}
+    },
+    {
+	"id": "visit.shrinewolf.dedicatelantern.continue",
+	"label": "Make a Glorious Offering to the Wolf-Divided?",
+	"startdescription": "The Wolf will accept anything, and then devour everything, no matter what.\n\n[This will halve your Wolf-lore's Winter aspect, but also add Lantern of an equal amount to it. You will not be able to make another dedication afterwards.]",
+	"description": "My offering is ripped from the world with a horrid tearing sound, vanishing - but I could not bring myself to tolerate the wretched boon that was to come of my sacrifice.",
+	"slots": [
+	    {
+		"id": "needslore",
+		"label": "Lore",
+		"required": {
+		    "lore": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "visit.shrinewolf.dedicatelantern.success"
+	    }
+	],
+	"warmup": 60
+    },
+    {
+	"id": "visit.shrinewolf.dedicatelantern.success",
+	"label": "Make a Glorious Offering to the Wolf-Divided",
+	"startdescription": "'The Wolf-Divided is numbered amongst the shattered selves of the Sun-in-Splendour...'",
+	"description": "The Wolf-Divided is numbered amongst the shattered selves of the Sun-in-Splendour, and so Dawn might one day be his to wield. The colour of that dawn will be the scarlet red of gore, and the world that sees it will be the stillest white of bone and ash - but it will be a Dawn, nonetheless.",
+	"requirements": {
+	    "lore": 1,
+	    "edge": 1,
+	    "winter": 1,
+	    "skill.unmake": -1,
+	    "skill.division": -1
+	},
+	"aspects": {
+	    "add.lantern": 1
+	},
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+    },
+    {
+	"id": "visit.shrinewolf.usespear",
+	"actionid": "mobilize",
+	"label": "The Agony of the Sun",
+	"startdescription": "'The Sun was divided, and this is its wound.' I point the head of the spear at my bare chest. The wind blowing through the ruins howls louder.\n\n[This will give you Trauma.]",
+	"description": "\r\n    <i>it</i>\r\n           <i>hurts</i>",
+	"requirements": {
+	    "spear.useable": 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"mutations": [
+	    {
+		"filter": "spear.useable",
+		"mutate": "spear.useable",
+		"level": -1
+	    },
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+	"effects": {
+	    "wound.glorious": 1,
+	    "trauma": 1
+	}
+    },
+    {
+	"id": "visit.shrinewolf.gethopelessness",
+	"actionid": "mobilize",
+	"label": "Abandon Hope",
+	"startdescription": "Hopeless. It is all so hopeless.\n\n[This will give you Trauma.]",
+	"requirements": {
+	    "shrine.wolf.marker": 1,
+	    "contemnant.memento": 1
+	},
+	"effects": {
+	    "contemnant.memento": -99,
+	    "hopelessness": 1,
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    }
+	],
+	"craftable": true,
+	"warmup": 60
+    },
+    {
+	"id": "visit.shrinewolf.hopelessness",
+	"actionid": "mobilize",
+	"label": "Cry my Despair in the Shadow of the Wolf",
+	"startdescription": "What recourse does the soul have once it abandons redemption and renewal? Where does it go? What does it devolve into?",
+	"requirements": {
+	    "shrine.wolf.marker": 1,
+	    "hopelessness": 1
+	},
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "develophopelessness"
+	    }
+	]
+    },
+    {
+	"id": "develophopelessness",
+	"label": "Cry my Despair in the Shadow of the Wolf",
+	"startdescription": "What recourse does the soul have once it abandons redemption and renewal? Where does it go? What does it devolve into?",
+	"description": "No-one is witness to my tears. I am alone in the carnage.",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Something?",
+		"required": {
+		    "foe.corpses": 1,
+		    "friend.corpses": 1,
+		    "wound.generic": 1,
+		    "debilitation.generic": 1
+		}
+	    }
+	],
+	"warmup": 60,
+	"alt": [
+	    {
+		"id": "develophopelessness.enemies"
+	    },
+	    {
+		"id": "develophopelessness.allies"
+	    },
+	    {
+		"id": "develophopelessness.self"
+	    }	
+	]
+    },
+    {
+	"id": "develophopelessness.enemies",
+	"label": "My Enemies",
+	"startdescription": "I remember well the flag that flew in the place where they stripped us and starved us. I remember well the beatings and the laughter. I remember well that it was all <i>their</i> doing.",
+	"description": "Hooked cross, black eagle. Barbed wire and bootheel. They piled our dead by the dozen in graves too shallow for dogs. I will make them understand what they have done to me. I will make them understand.",
+	"requirements": {
+	    "foe.corpses": 1
+	},
+	"mutations": [
+	    {
+		"filter": "hopelessness",
+		"mutate": "hopeless.enemies",
+		"level": 1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    },
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    }
+	],
+	"maxexecutions": 1,
+	"linked": [
+	    {
+		"id": "develophopelessness.allthree"
+	    }
+	]
+    },
+    {
+	"id": "develophopelessness.allies",
+	"label": "My Allies",
+	"startdescription": "What kind of world allows such suffering to come to pass? Where were justice and fraternity and common good when I was made a prisoner by my countrymen? You, who stood by and watched as the mobs swelled and the trains were packed with bodies - you are complicit, all of you.",
+	"description": "Mankind - you good and you innocent, comfortable in your beds. We cried out to you and you did not hear. Under your sleeping eye we worked and starved and burned til nothing remained of us, not even our names. You cannot see the blood on your hands - but you will answer for it.",
+	"requirements": {
+	    "friend.corpses": 1
+	},
+	"mutations": [
+	    {
+		"filter": "hopelessness",
+		"mutate": "hopeless.allies",
+		"level": 1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    },
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    }
+	],
+	"maxexecutions": 1,
+	"linked": [
+	    {
+		"id": "develophopelessness.allthree"
+	    }
+	]
+    },
+    {
+	"id": "develophopelessness.self",
+	"label": "Myself",
+	"startdescription": "I have shed the trappings of decency and exchanged them for hate. I do not wish to see my pain healed, but instead have it inflicted upon all others who have been spared. I am a vicious, detestable thing. I am overjoyed.",
+	"description": "Creature. Hated like a beast and hateful like a man. Can you recall a delight you did not find in blood? The face of your mother? When the world burns on the pyre, know that you will deserve to burn with it.",
+	"requirements": {
+	    "damage.body": 1
+	},
+	"mutations": [
+	    {
+		"filter": "hopelessness",
+		"mutate": "hopeless.self",
+		"level": 1
+	    },
+	    {
+		"filter": "location",
+		"mutate": "location",
+		"level": -1
+	    },
+	    {
+		"filter": "shrine.wolf.marker",
+		"mutate": "shrine.wolf.marker",
+		"level": -1
+	    }
+	],
+	"maxexecutions": 1,
+	"linked": [
+	    {
+		"id": "develophopelessness.allthree"
+	    }
+	]
+    },
+    {
+	"id": "develophopelessness.allthree",
+	"label": "Perfect Hatred",
+	"startdescription": "All sufferings, all sorrows - they have opened the way for the Wolf to enter me. With him comes the final, excruciating epiphany I require to understand what he knows -",
+	"description": "Potential and hope; joy and sorrow; all things wonderful and terrible and the tomorrows that might bring them - I reject them. I loathe them. I will see them threshed and torn and made ash in the wind. I will forgive nothing.",
+	"requirements": {
+	    "hopeless.enemies": 1,
+	    "hopeless.allies": 1,
+	    "hopeless.self": 1
+	},
+	"effects": {
+	    "hopelessness": -99,
+	    "antithesis": 1
+	},
+	"warmup": 30
+    }
+]
+}

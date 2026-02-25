@@ -1,0 +1,1177 @@
+{
+"elements": [
+    {
+	"id": "friend.lunatic",
+	"label": "A Poor Lunatic",
+	"description": "Some overwhelming experience has robbed this individual of their senses.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "moth": 4,
+	    "grail": 4,
+	    "heart": 4,
+	    "prisoner": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "decline": "husk"
+	},
+	"icon": "lunatic"
+    },
+    {
+	"id": "wandering.refugees",
+	"label": "Refugees",
+	"description": "No-one suffers in war quite like innocents do. [Meet one of this card's thresholds to recruit it as an Ally.]",
+	"aspects": {
+	    "op": 1,
+	    "mortal": 1,
+	    "needsheart": 6,
+	    "needsgrail": 6,
+	    "needsedge": 6
+	},
+	"slots": [
+	    {
+		"id": "resources1",
+		"label": "Resources",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "resources2",
+		"label": "Resources",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    },
+	],
+	"icon": "side.fiorenza.complete"
+    },
+    {
+	"id": "wandering.deserters",
+	"label": "Deserters",
+	"description": "When a soldier throws away his pretenses of duty and nation, he becomes this creature. [Meet one of this card's thresholds to recruit it as an Ally.]",
+	"aspects": {
+	    "op": 1,
+	    "mortal": 1,
+	    "needsedge": 8,
+	    "needsgrail": 8,
+	    "needswinter": 8
+	},
+	"slots": [
+	    {
+		"id": "resources1",
+		"label": "Resources",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "resources2",
+		"label": "Resources",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    },
+	],
+    },
+    {
+	"id": "friend.doctor",
+	"label": "Refugee Doctor",
+	"description": "This one provides what assistance they can to those who can be saved, and mercy to those who cannot. [This Ally can heal the wounded, but can also put them out of their misery.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "heart": 4,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.doctor.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.doctor.wounded",
+	    "concealidentity": "friend.doctor.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "Casualty",
+		"required": {
+		    "wounded": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.doctor.exhausted",
+	"label": "Refugee Doctor (Exhausted)",
+	"description": "This one provides what assistance they can to those who can be saved, and mercy to those who cannot. [This Ally can heal the wounded, but can also put them out of their misery.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.doctor.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.doctor.wounded",
+	    "concealidentity": "friend.doctor.hidden",
+	    "decline": "husk"
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.doctor",
+	"icon": "friend.doctor"
+    },
+    {
+	"id": "friend.doctor.wounded",
+	"label": "Refugee Doctor (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.doctor",
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.doctor.hidden",
+	"label": "Refugee Doctor (Hidden)",
+	"description": "This one provides what assistance they can to those who can be saved, and mercy to those who cannot. [This Ally can heal the wounded, but can also put them out of their misery.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "heart": 8,
+	    "grail": 8,
+	    "winter": 8,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.doctor.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.doctor.wounded",
+	    "concealidentity": "friend.doctor.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "Casualty",
+		"required": {
+		    "wounded": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.labourer",
+	"label": "Refugee Labourer",
+	"description": "Sometimes, the hand and the hammer are all you have against the world. Grit your teeth and go to work.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "forge": 4,
+	    "knock": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labourer.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.labourer.wounded",
+	    "concealidentity": "friend.labourer.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.labourer.exhausted",
+	"label": "Refugee Labourer (Exhausted)",
+	"description": "Sometimes, the hand and the hammer are all you have against the world. Grit your teeth and go to work.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labourer.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.labourer.wounded",
+	    "concealidentity": "friend.labourer.hidden",
+	    "decline": "husk"
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.labourer",
+	"icon": "friend.labourer"
+    },
+    {
+	"id": "friend.labourer.wounded",
+	"label": "Refugee Labourer (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.labourer",
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.labourer.hidden",
+	"label": "Refugee Labourer (Hidden)",
+	"description": "Sometimes, the hand and the hammer are all you have against the world. Grit your teeth and go to work.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "forge": 8,
+	    "knock": 8,
+	    "edge": 4,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labourer.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.labourer.wounded",
+	    "concealidentity": "friend.labourer.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.lookout",
+	"label": "Refugee Lookout",
+	"description": "Conditioned by fear, this one has become adept at spotting out dangers and threats - and there are so many, after all. [This Ally can reveal Hidden Enemies, but may sometimes perish when attempting this.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "lantern": 4,
+	    "moth": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.lookout.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.lookout.wounded",
+	    "concealidentity": "friend.lookout.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needshidden",
+		"actionid": "operate",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1
+		}
+	    },
+	    {
+		"id": "needshidingplace",
+		"actionid": "operate",
+		"label": "Hiding Place",
+		"required": {
+		    "op.time.night": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.lookout.exhausted",
+	"label": "Refugee Lookout (Exhausted)",
+	"description": "Conditioned by fear, this one has become adept at spotting out dangers and threats - and there are so many, after all. [This Ally can reveal Hidden Enemies, but may sometimes perish when attempting this.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.lookout.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.lookout.wounded",
+	    "concealidentity": "friend.lookout.hidden",
+	    "decline": "husk"
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.lookout",
+	"icon": "friend.lookout"
+    },
+    {
+	"id": "friend.lookout.wounded",
+	"label": "Refugee Lookout (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.lookout",
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.lookout.hidden",
+	"label": "Refugee Lookout (Hidden)",
+	"description": "Conditioned by fear, this one has become adept at spotting out dangers and threats - and there are so many, after all. [This Ally can reveal Hidden Enemies, but may sometimes perish when attempting this.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "lantern": 8,
+	    "moth": 8,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.lookout.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.lookout.wounded",
+	    "concealidentity": "friend.lookout.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needshidden",
+		"actionid": "operate",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.gunman",
+	"label": "Refugee Gunman",
+	"description": "Not a soldier, not a partisan; only someone with a gun who wants to live, and is very, very afraid.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.gunman.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.gunman.wounded",
+	    "concealidentity": "friend.gunman.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Intent",
+		"required": {
+		    "edge": 1,
+		    "heart": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.gunman.exhausted",
+	"label": "Refugee Gunman (Exhausted)",
+	"description": "Not a soldier, not a partisan; only someone with a gun who wants to live, and is very, very afraid.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.gunman.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.gunman.wounded",
+	    "concealidentity": "friend.gunman.hidden",
+	    "decline": "husk"
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.gunman",
+	"icon": "friend.gunman"
+    },
+    {
+	"id": "friend.gunman.wounded",
+	"label": "Refugee Gunman (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.gunman",
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.gunman.hidden",
+	"label": "Refugee Gunman (Hidden)",
+	"description": "Not a soldier, not a partisan; only someone with a gun who wants to live, and is very, very afraid.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 8,
+	    "winter": 8,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.gunman.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.gunman.wounded",
+	    "concealidentity": "friend.gunman.hidden",
+	    "decline": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Intent",
+		"required": {
+		    "edge": 1,
+		    "heart": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregsoldier",
+	"label": "Dreg Soldiers",
+	"description": "Deserters, robbers, murderers. Under my direction, they will be worse.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "edge": 6,
+	    "grail": 4,
+	    "winter": 4,
+	    "vicious": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregsoldier.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregsoldier.wounded",
+	    "concealidentity": "friend.dregsoldier.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Intent",
+		"required": {
+		    "edge": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregsoldier.exhausted",
+	"label": "Dreg Soldiers (Exhausted)",
+	"description": "Deserters, robbers, murderers. Under my direction, they will be worse.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "exhausted": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregsoldier.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregsoldier.wounded",
+	    "concealidentity": "friend.dregsoldier.hidden"
+	},
+	"lifetime": 90,
+	"resaturate": true,
+	"decayTo": "friend.dregsoldier",
+	"icon": "friend.dregsoldier"
+    },
+    {
+	"id": "friend.dregsoldier.wounded",
+	"label": "Dreg Soldiers (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "wounded": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.dregsoldier"
+	}
+    },
+    {
+	"id": "friend.dregsoldier.hidden",
+	"label": "Dreg Soldiers (Hidden)",
+	"description": "Deserters, robbers, murderers. Under my direction, they will be worse.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "edge": 10,
+	    "grail": 8,
+	    "winter": 8,
+	    "vicious": 1,
+	    "friend.hidden": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregsoldier.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregsoldier.wounded",
+	    "concealidentity": "friend.dregsoldier.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Intent",
+		"required": {
+		    "edge": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregarsonists",
+	"label": "Dreg Arsonists",
+	"description": "Consign it all to the fire. [This Ally will sometimes create a Flames opportunity whenever they are used.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "forge": 6,
+	    "edge": 4,
+	    "winter": 4,
+	    "vicious": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregarsonists.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregarsonists.wounded",
+	    "concealidentity": "friend.dregarsonists.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.dregarsonists.exhausted",
+	"label": "Dreg Arsonists (Exhausted)",
+	"description": "Consign it all to the fire. [This Ally will sometimes create a Flames opportunity whenever they are used.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "exhausted": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregarsonists.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregarsonists.wounded",
+	    "concealidentity": "friend.dregarsonists.hidden"
+	},
+	"induces": [
+	    {
+		"id": "produce.flames",
+		"chance": 50
+	    }
+	],
+	"lifetime": 90,
+	"resaturate": true,
+	"decayTo": "friend.dregarsonists",
+	"icon": "friend.dregarsonists"
+    },
+    {
+	"id": "friend.dregarsonists.wounded",
+	"label": "Dreg Arsonists (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "wounded": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.dregarsonists"
+	}
+    },
+    {
+	"id": "friend.dregarsonists.hidden",
+	"label": "Dreg Arsonists (Hidden)",
+	"description": "Consign it all to the fire. [This Ally will sometimes create a Flames opportunity whenever they are used.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "forge": 10,
+	    "edge": 8,
+	    "winter": 8,
+	    "vicious": 1,
+	    "friend.hidden": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregarsonists.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregarsonists.wounded",
+	    "concealidentity": "friend.dregarsonists.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregscavengers",
+	"label": "Dreg Scavengers",
+	"description": "Before the worms and the birds take their due from the dead, these ones will take theirs. [This Ally can loot corpses faster, and has a higher chance of finding useful supplies when doing so.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 6,
+	    "grail": 4,
+	    "knock": 4,
+	    "vicious": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregscavengers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregscavengers.wounded",
+	    "concealidentity": "friend.dregscavengers.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	]
+    },
+    {
+	"id": "friend.dregscavengers.exhausted",
+	"label": "Dreg Scavengers (Exhausted)",
+	"description": "Before the worms and the birds take their due from the dead, these ones will take theirs. [This Ally can loot corpses faster, and has a higher chance of finding useful supplies when doing so.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "exhausted": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregscavengers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregscavengers.wounded",
+	    "concealidentity": "friend.dregscavengers.hidden"
+	},
+	"lifetime": 90,
+	"resaturate": true,
+	"decayTo": "friend.dregscavengers",
+	"icon": "friend.dregscavengers"
+    },
+    {
+	"id": "friend.dregscavengers.wounded",
+	"label": "Dreg Scavengers (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 2,
+	    "wounded": 1,
+	    "vicious": 1,
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.dregscavengers"
+	}
+    },
+    {
+	"id": "friend.dregscavengers.hidden",
+	"label": "Dreg Scavengers (Hidden)",
+	"description": "Before the worms and the birds take their due from the dead, these ones will take theirs. [This Ally can loot corpses faster, and has a higher chance of finding useful supplies when doing so.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 10,
+	    "grail": 8,
+	    "knock": 8,
+	    "vicious": 1,
+	    "friend.hidden": 1,
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregscavengers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregscavengers.wounded",
+	    "concealidentity": "friend.dregscavengers.hidden"
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.wrake",
+	"label": "Ally Wolf-Wrake",
+	"description": "The death screams and dying spasms of one who was slain, forced into form and compelled to persist in the waking world at my command. [This Ally will perish after being used, but will also kill any Enemy that attacks it.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 1,
+	    "edge": 12,
+	    "winter": 6,
+	    "knock": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "agony",
+	    "killfriend": [
+		{
+		    "id": "agony"
+		},
+		{
+		    "id": "friend.wrake.killtoken",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "makecasualty": [
+		{
+		    "id": "agony"
+		},
+		{
+		    "id": "friend.wrake.killtoken",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "decline": "husk"
+	}
+    },
+    {
+	"id": "friend.wrake.killtoken",
+	"label": "A Wrake was Killed!",
+	"description": "",
+	"lifetime": 1
+    },
+    {
+	"id": "friend.splinter",
+	"label": "Ally Wolf-Splinter",
+	"description": "A slavering thing carved from innermost despair, hungry for the light of a still-living soul.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 1,
+	    "edge": 16,
+	    "winter": 8,
+	    "lantern": 4
+	},
+	"xtriggers": {
+	    "killfriend": [
+		{
+		    "id": "despair"
+		},
+	    ],
+	    "makecasualty": [
+		{
+		    "id": "despair"
+		}
+	    ],
+	    "decline": "husk"
+	},
+	"lifetime": 300
+    }
+]
+}

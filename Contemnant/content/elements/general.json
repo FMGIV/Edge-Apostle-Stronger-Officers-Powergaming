@@ -1,0 +1,375 @@
+{
+"elements": [
+    {
+	"id": "wound.generic",
+	"label": "A Wound",
+	"description": "I should have this looked at immediately. [A total of five Wounds and Debilitations will kill you.]",
+	"aspects": {
+	    "damage.body": 1,
+	    "winter": 4,
+	    "knock": 4
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "Assistance",
+		"required": {
+		    "recruited.medic": 1,
+		    "friend.doctor": 1,
+		    "friend.doctor.hidden": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 300,
+	"decayTo": "debilitation.generic"
+    },
+    {
+	"id": "debilitation.generic",
+	"label": "A Debilitation",
+	"description": "Some of my life has left me and will not return. [A total of five Wounds and Debilitations will kill you.]",
+	"aspects": {
+	    "damage.body": 1,
+	    "debilitation": 1,
+	    "winter": 4
+	},
+	"decayTo": "debilitation.generic"
+    },
+    {
+	"id": "mountingdespair",
+	"label": "Mounting Despair",
+	"description": "The Wolf is coming. [Left unattended, this will become Trauma.]",
+	"lifetime": 180,
+	"decayTo": "trauma",
+	"aspects": {
+	    "needsheart": 8,
+	    "needslantern": 8,
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresources1",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "needsresources2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "needsresources3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "knock": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "reputation.infamy",
+	"label": "Infamy",
+	"description": "There are acts too unspeakable to be tolerated - even in war. [Three or more instances of Infamy will cause Neutral units in the Current Warzone to become hostile to you.]",
+	"aspects": {
+	    "local.infamy": 1
+	}
+    },
+    {
+	"id": "retribution",
+	"label": "Retribution",
+	"description": "My vengeance, measured in spilled enemy blood and trampled enemy corpses. [A measure of your brutality and savagery as a participant in the Corrivality. If you reach an ending, this card may influence the nature of that ending.]"
+    },
+    {
+	"id": "shrine.wolf",
+	"label": "A City in Flames",
+	"description": "Buildings burn by the dozen. Innocents lie butchered in the street. German and Soviet troops scramble to escape the chaos and fire. And under it all, there is an unnameable scent reeking from behind the skin of the world - not smoke, not tar, not blood. Something else.",
+	"aspects": {
+	    "location": 1,
+	    "shrine.wolf.marker": 1,
+	    "local.infamy": 3,
+	    "warzone.current": 1
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"actionid": "mobilize",
+		"label": "Intent",
+		"description": "What have I come for?",
+		"required": {
+		    "lore": 1,
+		    "contemplation": 1,
+		    "legacyplotitem": 1,
+		    "winter": 2,
+		    "memento": 1,
+		    "weapon": 1,
+		    "grail": 1,
+		    "lantern": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "completed": 1
+		}
+	    },
+	    {
+		"id": "needsscout",
+		"actionid": "recon",
+		"label": "Scouts",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"icon": "city.inflames"
+    },
+    {
+	"id": "tool.lantern.contemnant",
+	"label": "Hawkseye",
+	"description": "A gold-plated spyglass marked with the ringed cross of the Solar Church, or perhaps the Shadowless Empire. Look through, and you will see the daylit skies and white sands of an altogether different land.",
+	"aspects": {
+	    "tool": 1,
+	    "lantern": 6
+	}
+    },
+    {
+	"id": "tool.forge.contemnant",
+	"label": "Scarlet Flower",
+	"description": "Words to be said with a wink: fire reveals, smoke conceals. What will anyone say after flame's had its way?",
+	"aspects": {
+	    "tool": 1,
+	    "forge": 6
+	}
+    },
+    {
+	"id": "tool.winter.contemnant",
+	"label": "Silken Visitor",
+	"description": "An avid friend. Don't touch it with your bare hands.",
+	"aspects": {
+	    "tool": 1,
+	    "winter": 6
+	},
+    },
+    {
+	"id": "tool.heart.contemnant",
+	"label": "A Worn Physician's Journal",
+	"description": "A makeshift collection of personal notes, medical techniques, and Heart-incantations smuggled into Pawiak by a Resistance doctor who was interred and, later, executed there. The name on the inside of the cover reads: 'G. Jannings.'",
+	"aspects": {
+	    "tool": 1,
+	    "heart": 6
+	}
+    },
+    {
+	"id": "tool.grail.contemnant",
+	"label": "Aberrant Whelp",
+	"description": "A sample of grotesque German experiments in monster-breeding at Houska Castle. It's not alive - but not quite dead, either. And certainly not inert.",
+	"aspects": {
+	    "tool": 1,
+	    "grail": 6
+	}
+    },
+    {
+	"id": "tool.moth.contemnant",
+	"label": "Yeth-Hound Horn",
+	"description": "The yeth were used long ago in the Isles to hunt the impure and impious. Their kind - or beasts of very similar breeding - were used in the Third Worm War to sniff out the trickiest of the Worms, who could hide in the dark recesses of a trench or a mortal soul.",
+	"aspects": {
+	    "tool": 1,
+	    "moth": 6
+	}
+    },
+    {
+	"id": "tool.knock.contemnant",
+	"label": "Contradictory Key",
+	"description": "A clock key is of no use to a mechanism as large as the Orloj. Still, the clockmaker was instructed to hide it here, centuries ago, for one who would come after. Or was it left here yesterday by an idle German soldier? Janus has two faces, and two mouths. 'What' and 'when' are uncertain where his decrees are concerned.",
+	"aspects": {
+	    "tool": 1,
+	    "knock": 6
+	}
+    },
+    {
+	"id": "op.escapemarinette",
+	"label": "An Escape Route?",
+	"description": "As we cut through Marinette's forces, the possibility of escape becomes less and less impossible. With just a little more...",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsescape1",
+		"required": {
+		    "op.escapemarinette": 1
+		}
+	    },
+	    {
+		"id": "needsescape2",
+		"required": {
+		    "op.escapemarinette": 1
+		}
+	    },
+	    {
+		"id": "needsescape3",
+		"required": {
+		    "op.escapemarinette": 1
+		}
+	    },
+	    {
+		"id": "needsescape4",
+		"required": {
+		    "op.escapemarinette": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "shred.self",
+	"label": "Shreds of Self",
+	"description": "Old bright scraps of who I was before. Before the war. I can’t make much use of these dregs anymore - I cannot even recognize the person these scraps claim I once was - but if my dread threatens to consume me, I might sate it with this sorry morsel instead. [This card can be used to destroy a single Trauma.]",
+	"aspects": {
+	    "memory": 1,
+	    "lantern": 4
+	},
+	"slots": [
+	    {
+		"id": "needstrauma",
+		"label": "Trauma",
+		"required": {
+		    "trauma": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "benign": "husk"
+	},
+	"icon": "huskending"
+    },
+    {
+	"id": "state.sovietsneutral",
+	"label": "State: Soviets Neutral",
+	"lifetime": 1,
+	"isHidden": true,
+	"xtriggers": {
+	    "annoyance": "state.sovietsaggro"
+	}
+    },
+    {
+	"id": "state.sovietsaggro",
+	"label": "State: Soviets Aggro",
+	"lifetime": 1,
+	"isHidden": true,
+	"verbicon": "sovietaction.aggro"
+    },
+    {
+	"id": "signifier.singleattack",
+	"label": "Signifier Single Attack",
+	"lifetime": 1,
+	"isHidden": true,
+	"verbicon": "neutral.singleattack"
+    },
+    {
+	"id": "signifier.reinforcements",
+	"label": "Signifier Reinforcements",
+	"lifetime": 1,
+	"isHidden": true,
+	"verbicon": "neutral.reinforcements"
+    },
+    {
+	"id": "draw.wolf.influence",
+	"label": "Draw Wolf Influence",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wolf.obliterate",
+	"label": "Draw Wolf Obliterate",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wolf.trauma",
+	"label": "Draw Wolf Trauma",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wolf.hindrances",
+	"label": "Draw Wolf Hindrances",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wolf.enemies",
+	"label": "Draw Wolf Influence",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.singleattack",
+	"label": "Soviet Single Attack",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.destroysupplies",
+	"label": "Soviet Destroy Supplies",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.hide",
+	"label": "Soviet Hide",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.doubleattack",
+	"label": "Soviet Double Attack",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.reinforcements",
+	"label": "Soviet Reinforcements",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "long.bossfight.marker",
+	"label": "Long Bossfight Marker",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "travel.blocker": 1
+	}
+    },
+]
+}

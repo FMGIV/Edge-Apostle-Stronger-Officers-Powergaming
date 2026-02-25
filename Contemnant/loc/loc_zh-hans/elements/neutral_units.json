@@ -1,0 +1,1296 @@
+{
+"elements": [
+    {
+	"id": "neutral.corpses",
+	"label": "倒下的苏军",
+	"description": "他们曾战。他们倒落。",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "growthinfect": "foe.growth",
+	    "raiseshattered": "friend.risen",
+	    "promotiontodisciple": "friend.conscript",
+	    "killsoviet": "neutral.corpses"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "neutral.scouts",
+	"label": "红军斥候",
+	"description": "哨卫与探路者，俄国军队的前锋部队，引领苏联的反推进前往柏林。[你可以使用补给品临时招募此单位。]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 1
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.scouts",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.scouts",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.scouts",
+	"label": "红军斥候（友军）",
+	"description": "哨卫与探路者，俄国军队的前锋部队，引领苏联的反推进前往柏林。",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "lantern": 4,
+	    "moth": 4,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.scouts",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.scouts",
+	    "killsoviet": "neutral.corpses"
+	},
+	"icon": "friend.scouts",
+	"slots": [
+	    {
+		"id": "needshindrance",
+		"actionid": "operate",
+		"label": "环境",
+		"required": {
+		    "hindrance.snows": 1,
+		    "hindrance.storms": 1,
+		    "hindrance.fog": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "aggro.scouts",
+	"label": "红军斥候（敌对）",
+	"description": "哨卫与探路者，俄国军队的前锋部队，引领苏联的反推进前往柏林。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedge": 8,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.scouts",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.scouts.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.scouts.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.scouts.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.scouts",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.sniper",
+	"label": "红军狙击手",
+	"description": "一个俄国神射手正在侧翼待命，并冷静地预测着他的下一个目标。[你可以使用补给品临时招募此单位。]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 1
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.sniper",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.sniper",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.sniper",
+	"label": "红军狙击手（友军）",
+	"description": "一个俄国神射手正在侧翼待命，并冷静地预测着他的下一个目标。",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "lantern": 4,
+	    "winter": 4,
+	    "edge": 4,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.sniper",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.sniper",
+	    "killsoviet": "neutral.corpses"
+	},
+	"icon": "friend.sniper"
+    },
+    {
+	"id": "aggro.sniper",
+	"label": "红军狙击手（敌对）",
+	"description": "一个俄国神射手正在侧翼待命，并冷静地预测着他的下一个目标。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needswinter": 8,
+	    "needsmoth": 8,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.sniper",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.sniper.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.sniper.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.sniper.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.sniper",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.infantry",
+	"label": "苏军步兵",
+	"description": "苏联的步兵：衣薄受冻，武备落后，注定死亡。他们不过是即将摧毁东线防御，淹没帝国城市的大浪中的一滴水。[你可以使用补给品临时招募此单位。]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 1
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.infantry",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.infantry",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.infantry",
+	"label": "苏军步兵（友军）",
+	"description": "苏联的步兵：衣薄受冻，武备落后，注定死亡。他们不过是即将摧毁东线防御，淹没帝国城市的大浪中的一滴水。",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "edge": 6,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.infantry",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.infantry",
+	    "killsoviet": "neutral.corpses"
+	},
+	"icon": "friend.infantry"
+    },
+    {
+	"id": "aggro.infantry",
+	"label": "苏军步兵（敌对）",
+	"description": "苏联的步兵：衣薄受冻，武备落后，注定死亡。他们不过是即将摧毁东线防御，淹没帝国城市的大浪中的一滴水。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 8,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.infantry",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.infantry.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.infantry.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.infantry.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.infantry",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.medic",
+	"label": "红军医师",
+	"description": "治愈伤口，截断坏肢者——有时，也兼任为不幸的俄国士兵们主持临终仪式者。[你可以使用补给品临时招募此单位。]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 1
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.medic",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "husk",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.medic",
+	"label": "红军医师（友军）",
+	"description": "治愈伤口，截断坏肢者——有时，也兼任为不幸的俄国士兵们主持临终仪式者。",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "heart": 6,
+	    "grail": 6,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.medic",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "husk",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "伤患",
+		"required": {
+		    "wounded": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"icon": "friend.medics"
+    },
+    {
+	"id": "neutral.engineers",
+	"label": "红军工兵",
+	"description": "负责挖掘战壕与安置炸药的部队，既是建造者亦是破坏者，还是苏联工业迅猛发展成果的代表。[你可以使用补给品临时招募此单位。]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 1
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.engineers",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "husk",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.engineers",
+	"label": "红军工兵（友军）",
+	"description": "负责挖掘战壕与安置炸药的部队，既是建造者亦是破坏者，还是苏联工业迅猛发展成果的代表。",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "forge": 6,
+	    "knock": 6,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.engineers",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "husk",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsdamaged",
+		"actionid": "operate",
+		"label": "受损",
+		"required": {
+		    "damaged": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"actionid": "operate",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "operate",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"icon": "friend.engineers"
+    },
+    {
+	"id": "neutral.godbuilder",
+	"label": "造神者部队",
+	"description": "一支由修习盗火术的政委——“造神者”——们组成的小队领导着这支步兵分队。他们在麾下战士们的武器与血肉中燃起辉煌的火焰。[你可以使用补给品临时招募此单位。]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 2
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.godbuilder",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.godbuilder",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.godbuilder",
+	"label": "造神者部队（友军）",
+	"description": "一支由修习盗火术的政委——“造神者”——们组成的小队领导着这支步兵分队。他们在麾下战士们的武器与血肉中燃起辉煌的火焰。",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "forge": 4,
+	    "lantern": 4,
+	    "edge": 8,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.godbuilder",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.godbuilder",
+	    "killsoviet": "neutral.corpses"
+	},
+    },
+    {
+	"id": "aggro.godbuilder",
+	"label": "造神者部队（敌对）",
+	"description": "一支由修习盗火术的政委——“造神者”——们组成的小队领导着这支步兵分队。他们在麾下战士们的武器与血肉中燃起辉煌的火焰。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedgeknock": 8,
+	    "needsedgewinter": 8,
+	    "needsedgeforge": 8,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.godbuilder",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.godbuilder.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.godbuilder.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.godbuilder.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.godbuilder",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.tanks",
+	"label": "苏军装甲联队",
+	"description": "苏联以迅猛之势量产这些战争机器。或许数个月的高强度服役便足以报废一台，但毫无疑问其备品早已在送来前线的途中。[你可以使用补给品临时招募此单位。]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 3
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.tanks",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.tanks",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.tanks",
+	"label": "苏军装甲联队（友军）",
+	"description": "苏联以迅猛之势量产这些战争机器。或许数个月的高强度服役便足以报废一台，但毫无疑问其备品早已在送来前线的途中。",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "forge": 4,
+	    "edge": 12,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.tanks",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.tanks",
+	    "killsoviet": "neutral.corpses"
+	},
+	"icon": "friend.tanks"
+    },
+    {
+	"id": "aggro.tanks",
+	"label": "苏军装甲联队（敌对）",
+	"description": "苏联以迅猛之势量产这些战争机器。或许数个月的高强度服役便足以报废一台，但毫无疑问其备品早已在送来前线的途中。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 14,
+	    "needsforge": 10,
+	    "foe.armoured": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.tanks",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.tanks.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.tanks.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.tanks.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.tanks",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.artillery",
+	"label": "苏军火炮",
+	"description": "当红军需要完全、彻底地消灭一个目标时，记得别站在火炮打击区里。[你可以使用补给品临时招募此单位。]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 3
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.artillery",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.artillery",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.artillery",
+	"label": "苏军火炮（友军）",
+	"description": "当红军需要完全、彻底地消灭一个目标时，记得别站在火炮打击区里。",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "edge": 18,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.artillery",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.artillery",
+	    "killsoviet": "neutral.corpses"
+	},
+	"icon": "friend.artillery"
+    },
+    {
+	"id": "aggro.artillery",
+	"label": "苏军火炮（敌对）",
+	"description": "当红军需要完全、彻底地消灭一个目标时，记得别站在火炮打击区里。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 20,
+	    "needsforgemoth": 4,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.artillery",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.artillery.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.artillery.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.artillery.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.artillery",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.bombers",
+	"label": "苏军轰炸机中队",
+	"description": "近几年，俄国的飞机在天上飞可是一道罕见的风景——<i>德国空军</i>在战争伊始便折去了苏联的双翼——但各处都还有一些红鸟仍在天空飞翔。[你可以使用补给品临时招募此单位。]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+	    "price.provisions": 3
+	},
+	"xtriggers": {
+	    "recruiting": "recruited.bombers",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.bombers",
+	    "killsoviet": "neutral.corpses"
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"actionid": "communicate",
+		"label": "价码",
+		"description": "换取他们忠诚的代价。",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.bombers",
+	"label": "苏军轰炸机中队（友军）",
+	"description": "近几年，俄国的飞机在天上飞可是一道罕见的风景——<i>德国空军</i>在战争伊始便折去了苏联的双翼——但各处都还有一些红鸟仍在天空飞翔。",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "friend.aerial": 1,
+	    "edge": 12,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.bombers",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.bombers",
+	    "killsoviet": "neutral.corpses"
+	},
+	"icon": "friend.bombers"
+    },
+    {
+	"id": "aggro.bombers",
+	"label": "苏军轰炸机中队（敌对）",
+	"description": "近几年，俄国的飞机在天上飞可是一道罕见的风景——<i>德国空军</i>在战争伊始便折去了苏联的双翼——但各处都还有一些红鸟仍在天空飞翔。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 20,
+	    "foe.aerial": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.bombers",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.bombers.hidden",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ]
+	},
+	"lifetime": 180,
+	"decayTo": "aggro.bombers.refuel"
+    },
+    {
+	"id": "aggro.bombers.refuel",
+	"label": "苏军轰炸机中队（加油中）",
+	"description": "这一批困扰我们的苏联空军分队暂时撤退以加油和重装炸弹。他们终将返回此地。",
+	"lifetime": 240,
+	"decayTo": "aggro.bombers",
+	"icon": "aggro.bombers",
+	"resaturate": true
+    },
+    {
+	"id": "aggro.bombers.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "soviet": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.bombers.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.bombers",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+]
+}

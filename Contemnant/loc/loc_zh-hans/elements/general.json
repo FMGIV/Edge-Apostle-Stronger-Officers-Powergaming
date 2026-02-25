@@ -1,0 +1,373 @@
+{
+"elements": [
+    {
+	"id": "wound.generic",
+	"label": "一处伤口",
+	"description": "我应该立即找人处理这一伤口。[合计五道创伤与残疾将杀死你。]",
+	"aspects": {
+	    "damage.body": 1,
+	    "winter": 4,
+	    "knock": 4
+	},
+	"slots": [
+	    {
+		"id": "needsmedics",
+		"actionid": "abandon",
+		"label": "协助者",
+		"required": {
+		    "recruited.medic": 1,
+		    "friend.doctor": 1
+		}
+	    },
+	    {
+		"id": "needprovisions",
+		"actionid": "abandon",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"lifetime": 300,
+	"decayTo": "debilitation.generic"
+    },
+    {
+	"id": "debilitation.generic",
+	"label": "一处残疾",
+	"description": "我的一部分生命已离开了我，永不复还。[合计五道创伤与残疾将杀死你。]",
+	"aspects": {
+	    "damage.body": 1,
+	    "debilitation": 1,
+	    "winter": 4
+	},
+	"decayTo": "debilitation.generic"
+    },
+    {
+	"id": "mountingdespair",
+	"label": "恐惧渐增",
+	"description": "灵魂之死，一步一步，缓缓迫近。[若不加以应对，此卡牌将变为“精神创伤”。]",
+	"lifetime": 180,
+	"decayTo": "trauma",
+	"aspects": {
+	    "needsheart": 8,
+	    "needslantern": 8,
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresources1",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "needsresources2",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "knock": 1
+		}
+	    },
+	    {
+		"id": "needsresources3",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "knock": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "reputation.infamy",
+	"label": "恶名",
+	"description": "即便是在战时，有些过于恶劣的行为也无法被容忍。[若“恶名”累计至三，当前战区的所有中立单位将变为敌对状态。]",
+	"aspects": {
+	    "local.infamy": 1
+	}
+    },
+    {
+	"id": "retribution",
+	"label": "报应",
+	"description": "尸横遍野，血流成河。此即我的复仇。[一个衡量你作为参与纷争之人的野蛮与残暴的标准。若你抵达结局，此卡牌将影响结局的性质。]"
+    },
+    {
+	"id": "shrine.wolf",
+	"label": "火中之城",
+	"description": "建筑物成批燃烧。无辜者横尸街头。德国兵与苏联兵争相逃离这混沌与火焰的漩涡。而一股难以形容的气味自这一切之下溢出——并非烟气，并非焦油，也并非血。是另一种气味。",
+	"aspects": {
+	    "location": 1,
+	    "shrine.wolf.marker": 1,
+	    "local.infamy": 3,
+	    "warzone.current": 1
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"actionid": "mobilize",
+		"label": "意图",
+		"description": "我为何来此？",
+		"required": {
+		    "lore": 1,
+		    "contemplation": 1,
+		    "legacyplotitem": 1,
+		    "winter": 2,
+		    "memento": 1,
+		    "weapon": 1,
+		    "grail": 1,
+		    "lantern": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "completed": 1
+		}
+	    },
+	    {
+		"id": "needsscout",
+		"actionid": "recon",
+		"label": "斥候",
+		"required": {
+		    "recruited.scouts": 1,
+		    "friend.lookout": 1,
+		    "friend.lookout.hidden": 1
+		}
+	    }
+	],
+	"icon": "city.inflames"
+    },
+    {
+	"id": "tool.lantern.contemnant",
+	"label": "鹰眼",
+	"description": "一架镀金的小望远镜，上刻有太阳教会的圆环十字徽。亦或许这是无影帝国的徽记？向其中看去，你将能够看到遥远异国那日照的天空与纯白的沙砾。",
+	"aspects": {
+	    "tool": 1,
+	    "lantern": 6
+	}
+    },
+    {
+	"id": "tool.forge.contemnant",
+	"label": "猩红之花",
+	"description": "“火焰揭露，烟雾掩盖”，这句话人尽皆知。但在火焰早已离去之后，又应该说些什么？",
+	"aspects": {
+	    "tool": 1,
+	    "forge": 6
+	}
+    },
+    {
+	"id": "tool.winter.contemnant",
+	"label": "丝滑访客",
+	"description": "一个急切的朋友。切勿用手触摸。",
+	"aspects": {
+	    "tool": 1,
+	    "winter": 6
+	},
+    },
+    {
+	"id": "tool.heart.contemnant",
+	"label": "老旧医师日志",
+	"description": "一份仓促制作的，个人笔记，医疗技艺与<b>心</b>相咒语的合集。一位反抗军医生将这本日志暗地带入了帕夫拉克监狱，但此人已在那里被审讯，而后处决。在封皮的内侧写有以下姓名：“G·雅宁斯”。",
+	"aspects": {
+	    "tool": 1,
+	    "heart": 6
+	}
+    },
+    {
+	"id": "tool.grail.contemnant",
+	"label": "畸变幼兽",
+	"description": "德国人在豪斯卡城堡进行的培育怪物的荒诞实验的样本之一。它并非活着——但也并未完全死去。并且它仍能动作。",
+	"aspects": {
+	    "tool": 1,
+	    "grail": 6
+	}
+    },
+    {
+	"id": "tool.moth.contemnant",
+	"label": "夜嘶猎犬之角",
+	"description": "很久以前，夜嘶猎犬曾在英伦三岛上被用于追猎不虔者与不洁者。这种生物——或是某种十分相近的生物——也在第三次蠕虫战争中被广泛使用，它们能嗅出潜藏在凡人灵魂的黑暗沟渠深处的，最为狡诈的那些蠕虫。.",
+	"aspects": {
+	    "tool": 1,
+	    "moth": 6
+	}
+    },
+    {
+	"id": "tool.knock.contemnant",
+	"label": "对立之钥",
+	"description": "对于<i>天文钟</i>这种大型机械而言，普通的钟钥匙毫无用处，不过，百年前的那钟表匠仍被指示将这钥匙藏在这里，为了未来的某人能在此找到它。但也可能是一个闲散德国兵把这钥匙落在这了？雅努斯一人两面，一人两口。当涉及他的裁定时，“何物”与“何时”便已不再确定。",
+	"aspects": {
+	    "tool": 1,
+	    "knock": 6
+	}
+    },
+    {
+	"id": "op.escapemarinette",
+	"label": "逃脱路线？",
+	"description": "在我们切开玛丽内特的部队时，逃脱的可能性正随之增加。就差一点了……",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsescape1",
+		"required": {
+		    "op.escapemarinette": 1
+		}
+	    },
+	    {
+		"id": "needsescape2",
+		"required": {
+		    "op.escapemarinette": 1
+		}
+	    },
+	    {
+		"id": "needsescape3",
+		"required": {
+		    "op.escapemarinette": 1
+		}
+	    },
+	    {
+		"id": "needsescape4",
+		"required": {
+		    "op.escapemarinette": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "shred.self",
+	"label": "自我碎片",
+	"description": "曾经的我，战前的我那老旧、明亮的碎片。这些残渣于现在的我已无用——我早已认不出这些碎片所描绘的我曾经的样子了。但倘若我的恐惧威胁着要吞噬我，我可以先把这一丁点的后悔喂给它。[此卡牌可用于消除一份“精神创伤”。]",
+	"aspects": {
+	    "memory": 1,
+	    "lantern": 4
+	},
+	"slots": [
+	    {
+		"id": "needstrauma",
+		"label": "精神创伤",
+		"required": {
+		    "trauma": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"icon": "huskending"
+    },
+    {
+	"id": "state.sovietsneutral",
+	"label": "State: Soviets Neutral",
+	"lifetime": 1,
+	"isHidden": true,
+	"xtriggers": {
+	    "annoyance": "state.sovietsaggro"
+	}
+    },
+    {
+	"id": "state.sovietsaggro",
+	"label": "State: Soviets Aggro",
+	"lifetime": 1,
+	"isHidden": true,
+	"verbicon": "sovietaction.aggro"
+    },
+    {
+	"id": "signifier.singleattack",
+	"label": "Signifier Single Attack",
+	"lifetime": 1,
+	"isHidden": true,
+	"verbicon": "neutral.singleattack"
+    },
+    {
+	"id": "signifier.reinforcements",
+	"label": "Signifier Reinforcements",
+	"lifetime": 1,
+	"isHidden": true,
+	"verbicon": "neutral.reinforcements"
+    },
+    {
+	"id": "draw.wolf.influence",
+	"label": "Draw Wolf Influence",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wolf.obliterate",
+	"label": "Draw Wolf Obliterate",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wolf.trauma",
+	"label": "Draw Wolf Trauma",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wolf.hindrances",
+	"label": "Draw Wolf Hindrances",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.wolf.enemies",
+	"label": "Draw Wolf Influence",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.singleattack",
+	"label": "Soviet Single Attack",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.destroysupplies",
+	"label": "Soviet Destroy Supplies",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.hide",
+	"label": "Soviet Hide",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.doubleattack",
+	"label": "Soviet Double Attack",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "draw.soviet.reinforcements",
+	"label": "Soviet Reinforcements",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "long.bossfight.marker",
+	"label": "Long Bossfight Marker",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "travel.blocker": 1
+	}
+    },
+]
+}

@@ -1,0 +1,2520 @@
+{
+"elements": [
+    {
+	"id": "corpse.beast",
+	"label": "Туша Зверя",
+	"description": "Это могло двигаться само по себе, однажды. Но не сейчас.",
+	"aspects": {
+	    "remnant": 1,
+	    "supplies": 1,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "husk",
+	    "growthinfect": "foe.growth"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "friend.lion",
+	"label": "Лев",
+	"description": "<i>Panthera leo.</i> Признанный во всем мире как символ силы, чести и мужества; повелитель зверей и король джунглей - а львы даже не живут в джунглях! Репутация льва <i>настолько</i> выдающаяся.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "edge": 4,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "fatiguing": "friend.lion.exhausted"
+	},
+    },
+    {
+	"id": "friend.lion.exhausted",
+	"label": "Лев (Уставший)",
+	"description": "<i>Panthera leo.</i> Признанный во всем мире как символ силы, чести и мужества; повелитель зверей и король джунглей - а львы даже не живут в джунглях! Репутация льва <i>настолько</i> выдающаяся.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "refresh": "friend.lion"
+	},
+	"icon": "friend.lion",
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.lion"
+    },
+    {
+	"id": "friend.tiger",
+	"label": "Тигр",
+	"description": "<i>Panthera tigris.</i> Тигры, в среднем, и крупнее, и сильнее львов, но, как гласит легенда, львы были созданы первыми. Если бы все было наоборот, возможно, он был бы 'Тигрокузнецом'. Вряд ли также очаровательно.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "edge": 5,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "fatiguing": "friend.tiger.exhausted"
+	}
+    },
+    {
+	"id": "friend.tiger.exhausted",
+	"label": "Тигр (Уставший)",
+	"description": "<i>Panthera tigris.</i> Тигры, в среднем, и крупнее, и сильнее львов, но, как гласит легенда, львы были созданы первыми. Если бы все было наоборот, возможно, он был бы 'Тигрокузнецом'. Вряд ли также очаровательно.",
+	"aspects": {
+	    "mortal": 1,
+	    "friend": 1,
+	    "forcesize": 1,
+	    "exhausted": true
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "refresh": "friend.tiger"
+	},
+	"icon": "friend.tiger",
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.tiger"
+    },
+    {
+	"id": "friend.labhite",
+	"label": "Союзный Лабхит",
+	"description": "<i>Leotherium pterobellus.</i> Считается самым красивым из детей Львокузнеца. Если вы когда-нибудь увидите, вы поймете почему, но если вы увидели его в полете, вы также, вероятно, вскоре умрете.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "edge": 10,
+	    "friend.aerial": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labhite.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.labhite.wounded",
+	    "rebellion": "foe.labhite.grounded"
+	}
+    },
+    {
+	"id": "friend.labhite.exhausted",
+	"label": "Союзный Лабхит (Уставший)",
+	"description": "<i>Leotherium pterobellus.</i> Считается самым красивым из детей Львокузнеца. Если вы когда-нибудь увидите, вы поймете почему, но если вы увидели его в полете, вы также, вероятно, вскоре умрете.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labhite.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.labhite.wounded",
+	    "refresh": "friend.labhite"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.labhite",
+	"icon": "friend.labhite",
+	"resaturate": true
+    },
+    {
+	"id": "friend.labhite.wounded",
+	"label": "Союзный Лабхит (Ранен)",
+	"description": "[Используйте и Полевых Медиков, и Союзных Инженеров для того, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.labhite"
+	},
+    },
+    {
+	"id": "friend.spathiurus",
+	"label": "Союзный Спатиурус",
+	"description": "<i>Leotherium ensiformes.</i> В просторечии тератологи называют их 'фехтовальными львами'. Однако, действительно фехтовать с ними плохая идея - похожий на лезвие отросток на конце хвоста может проткнуть практически любое вещество: сталь, камень, плоть. Особенно плоть.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "edge": 8,
+	    "ap": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.spathiurus.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.spathiurus.wounded",
+	    "rebellion": "foe.spathiurus"
+	}
+    },
+    {
+	"id": "friend.spathiurus.exhausted",
+	"label": "Союзный Спатиурус (Уставший)",
+	"description": "<i>Leotherium ensiformes.</i> В просторечии тератологи называют их 'фехтовальными львами'. Однако, действительно фехтовать с ними плохая идея - похожий на лезвие отросток на конце хвоста может проткнуть практически любое вещество: сталь, камень, плоть. Особенно плоть.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.spathiurus.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.spathiurus.wounded",
+	    "refresh": "friend.spathiurus"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.spathiurus",
+	"icon": "friend.spathiurus",
+	"resaturate": true
+    },
+    {
+	"id": "friend.spathiurus.wounded",
+	"label": "Союзный Спатиурус (Ранен)",
+	"description": "[Используйте и Полевых Медиков и Союзных Инженеров для того, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.spathiurus"
+	},
+    },
+    {
+	"id": "friend.hesukhine",
+	"label": "Союзный Хесухин",
+	"description": "<i>Leotherium vitricutis.</i> Хесухины необычны среди детей Львокузнеца своей утончённостью, терпением и молчаливостью. - Они могут даже отказаться от видимой формы во время охоты. Ни один другой монстр не действует так, как хесухин. И все же, если какой-нибудь Час и отступит от традиций, то это будет Львокузнец.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "edge": 8,
+	    "winter": 8,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.hesukhine.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.hesukhine.wounded",
+	    "rebellion": "foe.hesukhine.hidden"
+	}
+    },
+    {
+	"id": "friend.hesukhine.exhausted",
+	"label": "Союзный Хесухин (Уставший)",
+	"description": "<i>Leotherium vitricutis.</i> Хесухины необычны среди детей Львокузнеца своей утончённостью, терпением и молчаливостью. - Они могут даже отказаться от видимой формы во время охоты. Ни один другой монстр не действует так, как хесухин. И все же, если какой-нибудь Час и отступит от традиций, то это будет Львокузнец.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.hesukhine.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.hesukhine.wounded",
+	    "refresh": "friend.hesukhine"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.hesukhine",
+	"icon": "friend.hesukhine",
+	"resaturate": true
+    },
+    {
+	"id": "friend.hesukhine.wounded",
+	"label": "Союзный Хесухин (Ранен)",
+	"description": "[Используйте и Полевых Медиков и Союзных Инженеров для того, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 4,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.hesukhine"
+	},
+    },
+    {
+	"id": "friend.echidniform",
+	"label": "Союзный Ехидноформ",
+	"description": "Не существует формального названия для различных отклонений нормы, которые возникают в результате совращения детей Львокузнеца Ехидной. Лоскутное одеяло из змеиной чешуи, кошачьей шкуры и еще более странных деталей - Оно само не знает, чем оно является на самом деле. Со временем оно может перерасти во что-то ещё более новое и яростное. Но для моих целей оно достаточно ново и яростно.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "edge": 12,
+	    "moth": 8,
+	    "grail": 8,
+	    "friend.aerial": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.echidniform.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.echidniform.wounded",
+	    "rebellion": "foe.echidniform.grounded"
+	},
+	"unique": true,
+	"uniquenessgroup": "uqechidniform"
+    },
+    {
+	"id": "friend.echidniform.exhausted",
+	"label": "Союзный Ехидноформ (Уставший)",
+	"description": "Не существует формального названия для различных отклонений нормы, которые возникают в результате совращения детей Львокузнеца Ехидной. Лоскутное одеяло из змеиной чешуи, кошачьей шкуры и еще более странных деталей - Оно само не знает, чем оно является на самом деле. Со временем оно может перерасти во что-то ещё более новое и яростное. Но для моих целей оно достаточно ново и яростно.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.echidniform.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.echidniform.wounded",
+	    "refresh": "friend.echidniform"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.echidniform",
+	"icon": "friend.echidniform",
+	"resaturate": true,
+	"uniquenessgroup": "uqechidniform"
+    },
+    {
+	"id": "friend.echidniform.wounded",
+	"label": "Союзный Ехидноформ (Ранен)",
+	"description": "[Используйте и Полевых Медиков и Союзных Инженеров для того, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.echidniform"
+	},
+	"uniquenessgroup": "uqechidniform"
+    },
+    {
+	"id": "friend.skaptodon",
+	"label": "Союзный Скаптодон",
+	"description": "<i>Leotherium skavodont.</i> Могучие землерои и каменотесы, которые становятся еще могущественнее, когда их оставляют в тепле и темноте под землей.  Все скаптодоны, которые до сих пор ходят по земле, - исключительные бойцы, почти не имеющие себе равных по свирепости и сырой силе. Но Львокузнец теперь редко изготавливает Скаптодонов. Возможно, теперь он считает их античными. [Использование этого Союзника имеет шанс создать Землетрясение.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "edge": 18,
+	    "forge": 6,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.skaptodon.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.skaptodon.wounded",
+	    "rebellion": "foe.skaptodon"
+	},
+	"unique": true,
+	"uniquenessgroup": "uqskaptodon"
+    },
+    {
+	"id": "friend.skaptodon.exhausted",
+	"label": "Союзный Скаптодон (Уставший)",
+	"description": "<i>Leotherium skavodont.</i> Могучие землерои и каменотесы, которые становятся еще могущественнее, когда их оставляют в тепле и темноте под землей.  Все скаптодоны, которые до сих пор ходят по земле, - исключительные бойцы, почти не имеющие себе равных по свирепости и сырой силе. Но Львокузнец теперь редко изготавливает Скаптодонов. Возможно, теперь он считает их античными.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "exhausted": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.skaptodon.exhausted",
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "friend.skaptodon.wounded",
+	    "refresh": "friend.skaptodon"
+	},
+	"lifetime": 90,
+	"decayTo": "friend.skaptodon",
+	"icon": "friend.skaptodon",
+	"resaturate": true,
+	"uniquenessgroup": "uqskaptodon",
+	"induces": [
+	    {
+		"id": "produce.earthquake.ally",
+		"chance": 40
+	    }
+	],
+    },
+    {
+	"id": "friend.skaptodon.wounded",
+	"label": "Союзный Скаптодон (Ранен)",
+	"description": "[Используйте и Полевых Медиков и Союзных Инженеров для того, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "forcesize": 6,
+	    "wounded": 1,
+	    "friend.monster": 1
+	},
+	"xtriggers": {
+	    "killmortal": "corpse.beast",
+	    "killfriend": "corpse.beast",
+	    "makecasualty": "corpse.beast",
+	    "restorehealth": "friend.skaptodon"
+	},
+	"uniquenessgroup": "uqskaptodon"
+    },
+    {
+	"id": "friend.fiorenza.local",
+	"label": "Фиоренца Скорсанти",
+	"description": "Добрая, энергичная молодая Леди, отдавшая свой голос уставшим бойцам <i>ля Резистенца.</i> Однажды, студент; Теперь, солдат.",
+	"aspects": {
+	    "lantern": 4,
+	    "heart": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.fiorenza.local.wounded",
+	    "fatiguing": "friend.fiorenza.local.exhausted",
+	    "recruiting": "friend.fiorenza",
+	    "mortal.introduce": [
+		{
+		    "id": "side.fiorenza",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.fiorenza"
+    },
+    {
+	"id": "friend.fiorenza.local.exhausted",
+	"label": "Фиоренца Скорсанти (Уставшая)",
+	"description": "Фиоренца, избежав пары неуклюжих партизан, пытавшихся с ней заигрывать, настраивает гитару и отдыхает.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.fiorenza.local.wounded",
+	    "fatiguing": "friend.fiorenza.local.exhausted",
+	    "refresh": "friend.fiorenza.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.fiorenza.local",
+	"icon": "friend.fiorenza",
+	"resaturate": true
+    },
+    {
+	"id": "friend.fiorenza.local.wounded",
+	"label": "Фиоренца Скорсанти (Ранена)",
+	"description": "Добрая, энергичная молодая Леди, отдавшая свой голос уставшим бойцам <i>ля Резистенца.</i> Однажды, студент; Теперь, солдат. [Используйте Полевого Медика или Полевую Больницу, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.fiorenza.local"
+	},
+	"icon": "friend.fiorenza.wounded"
+    },
+    {
+	"id": "friend.fiorenza",
+	"label": "Фиоренца Скорсанти",
+	"description": "Добрая, энергичная молодая Леди, отдавшая свой голос уставшим бойцам <i>ля Резистенца.</i> Однажды, студент; Теперь, солдат.",
+	"aspects": {
+	    "lantern": 4,
+	    "heart": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.fiorenza.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.fiorenza.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.fiorenza.exhausted",
+	"label": "Фиоренца Скорсанти (Уставшая)",
+	"description": "Фиоренца, избежав пары неуклюжих партизан, пытавшихся с ней заигрывать, настраивает гитару и отдыхает.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.fiorenza.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.fiorenza.exhausted",
+	    "refresh": "friend.fiorenza"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.fiorenza",
+	"icon": "friend.fiorenza",
+	"resaturate": true
+    },
+    {
+	"id": "friend.fiorenza.wounded",
+	"label": "Фиоренца Скорсанти (Ранена)",
+	"description": "Добрая, энергичная молодая Леди, отдавшая свой голос уставшим бойцам <i>ля Резистенца.</i> Однажды, студент; Теперь, солдат. [Используйте Полевого Медика или Полевую Больницу, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.fiorenza"
+	}
+    },
+    {
+	"id": "friend.lorenzo.local",
+	"label": "Лоренцо Басси",
+	"description": "Опытный повар и действующий хирург. На роль последнего он годится, но, по правде говоря, его <i>спеццатино</i> спасает больше жизней, чем его скальпель.",
+	"aspects": {
+	    "forge": 4,
+	    "grail": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.lorenzo.local.wounded",
+	    "fatiguing": "friend.lorenzo.local.exhausted",
+	    "recruiting": "friend.lorenzo",
+	    "mortal.introduce": [
+		{
+		    "id": "side.lorenzo",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.lorenzo"
+    },
+    {
+	"id": "friend.lorenzo.local.exhausted",
+	"label": "Лоренцо Басси (Уставший)",
+	"description": "Лоренцо скурпулёзно хранит свои кухонные принадлежности строго отдельно от хирургических инструментов.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.lorenzo.local.wounded",
+	    "fatiguing": "friend.lorenzo.local.exhausted",
+	    "refresh": "friend.lorenzo.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.lorenzo.local",
+	"icon": "friend.lorenzo",
+	"resaturate": true
+    },
+    {
+	"id": "friend.lorenzo.local.wounded",
+	"label": "Лоренцо Басси (Ранен)",
+	"description": "Опытный повар и действующий хирург. На роль последнего он годится, но, по правде говоря, его <i>спеццатино</i> спасает больше жизней, чем его скальпель. [Используйте Полевого Медика или Полевую Больницу, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.lorenzo.local"
+	},
+	"icon": "friend.lorenzo.wounded"
+    },
+    {
+	"id": "friend.lorenzo",
+	"label": "Лоренцо Басси",
+	"description": "Опытный повар и действующий хирург. На роль последнего он годится, но, по правде говоря, его <i>спеццатино</i> спасает больше жизней, чем его скальпель.",
+	"aspects": {
+	    "forge": 4,
+	    "grail": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.lorenzo.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.lorenzo.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.lorenzo.exhausted",
+	"label": "Лоренцо Басси (Уставший)",
+	"description": "Лоренцо скурпулёзно хранит свои кухонные принадлежности строго отдельно от хирургических инструментов.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.lorenzo.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.lorenzo.exhausted",
+	    "refresh": "friend.lorenzo"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.lorenzo",
+	"icon": "friend.lorenzo",
+	"resaturate": true
+    },
+    {
+	"id": "friend.lorenzo.wounded",
+	"label": "Лоренцо Басси (Ранен)",
+	"description": "Опытный повар и действующий хирург. На роль последнего он годится, но, по правде говоря, его <i>спеццатино</i> спасает больше жизней, чем его скальпель. [Используйте Полевого Медика или Полевую Больницу, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.lorenzo"
+	}
+    },
+    {
+	"id": "friend.padre.local",
+	"label": "Падре Ругъеро",
+	"description": "Жрец, ветеран... экзорцист? Добрый отец был капелланом во время Великой войны, и именно тогда он дал клятву искоренять зло везде, где только мог его найти, в мире, а также за его пределами.",
+	"aspects": {
+	    "winter": 4,
+	    "knock": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.padre.local.wounded",
+	    "fatiguing": "friend.padre.local.exhausted",
+	    "recruiting": "friend.padre",
+	    "mortal.introduce": [
+		{
+		    "id": "side.padre",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.padre"
+    },
+    {
+	"id": "friend.padre.local.exhausted",
+	"label": "Падре Ругъеро (Уставший)",
+	"description": "Добрый отец занимается своими молитвами: Святому Петру Ключей; Святой Агнесе Врат; Половинчатому Ангелу Порога.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.padre.local.wounded",
+	    "fatiguing": "friend.padre.local.exhausted",
+	    "refresh": "friend.padre.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.padre.local",
+	"icon": "friend.padre",
+	"resaturate": true
+    },
+    {
+	"id": "friend.padre.local.wounded",
+	"label": "Падре Ругъеро (Ранен)",
+	"description": "Жрец, ветеран... экзорцист? Добрый отец был капелланом во время Великой войны, и именно тогда он дал клятву искоренять зло везде, где только мог его найти, в мире, а также за его пределами. [Используйте Полевого Медика или Полевую Больницу, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.padre.local"
+	},
+	"icon": "friend.padre.wounded"
+    },
+    {
+	"id": "friend.padre",
+	"label": "Падре Ругъеро",
+	"description": "Жрец, ветеран... экзорцист? Добрый отец был капелланом во время Великой войны, и именно тогда он дал клятву искоренять зло везде, где только мог его найти, в мире, а также за его пределами.",
+	"aspects": {
+	    "knock": 4,
+	    "winter": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.padre.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.padre.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.padre.exhausted",
+	"label": "Падре Ругъеро (Уставший)",
+	"description": "Добрый отец занимается своими молитвами: Святому Петру Ключей; Святой Агнесе Врат; Половинчатому Ангелу Порога.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.padre.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.padre.exhausted",
+	    "refresh": "friend.padre"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.padre",
+	"icon": "friend.padre",
+	"resaturate": true
+    },
+    {
+	"id": "friend.padre.wounded",
+	"label": "Падре Ругъеро (Уставший)",
+	"description": "Жрец, ветеран... экзорцист? Добрый отец был капелланом во время Великой войны, и именно тогда он дал клятву искоренять зло везде, где только мог его найти, в мире, а также за его пределами. [Используйте Полевого Медика или Полевую Больницу, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.padre"
+	}
+    },
+    {
+	"id": "friend.daria.local",
+	"label": "Дариа Корсино",
+	"description": "Партизанка, сыскавшая какой-никакой славы. Те, кто видел ее в бою, называют ее 'Бритвой', до войны она была то ли парикмахером, то ли каторжником, то ли убийцей. Она не говорит, кем именно.",
+	"aspects": {
+	    "moth": 4,
+	    "edge": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.daria.local.wounded",
+	    "fatiguing": "friend.daria.local.exhausted",
+	    "recruiting": "friend.daria",
+	    "mortal.introduce": [
+		{
+		    "id": "side.daria",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.daria"
+    },
+    {
+	"id": "friend.daria.local.exhausted",
+	"label": "Дариа Корсино (Уставшая)",
+	"description": "Дариа отступила к деревьям и скрылась в ночи.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.daria.local.wounded",
+	    "fatiguing": "friend.daria.local.exhausted",
+	    "refresh": "friend.daria.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.daria.local",
+	"icon": "friend.daria",
+	"resaturate": true
+    },
+    {
+	"id": "friend.daria.local.wounded",
+	"label": "Дариа Корсино (Ранена)",
+	"description": "Партизанка, сыскавшая какой-никакой славы. Те, кто видел ее в бою, называют ее 'Бритвой', до войны она была то ли парикмахером, то ли каторжником, то ли убийцей. Она не говорит, кем именно. [Используйте Полевого Медика или Полевую Больницу, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.daria.local"
+	},
+	"icon": "friend.daria.wounded"
+    },
+    {
+	"id": "friend.daria",
+	"label": "Дариа Корсино",
+	"description": "Партизанка, сыскавшая какой-никакой славы. Те, кто видел ее в бою, называют ее 'Бритвой', до войны она была то ли парикмахером, то ли каторжником, то ли убийцей. Она не говорит, кем именно.",
+	"aspects": {
+	    "moth": 4,
+	    "edge": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.daria.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.daria.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.daria.exhausted",
+	"label": "Дариа Корсино (Уставшая)",
+	"description": "Дариа отступила к деревьям и скрылась в ночи.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.daria.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.daria.exhausted",
+	    "refresh": "friend.daria"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.daria",
+	"icon": "friend.daria",
+	"resaturate": true
+    },
+    {
+	"id": "friend.daria.wounded",
+	"label": "Дариа Корсино (Ранена)",
+	"description": "Партизанка, сыскавшая какой-никакой славы. Те, кто видел ее в бою, называют ее 'Бритвой', до войны она была то ли парикмахером, то ли каторжником, то ли убийцей. Она не говорит, кем именно. [Используйте Полевого Медика или Полевую Больницу, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.daria"
+	}
+    },
+    {
+	"id": "friend.giorgiou",
+	"label": "М. Георгиу",
+	"description": "Контрабандист, карточный шулер и любительский (<i>очень</i> любительский) философ; друг того, кого зовут Изгнанником. Он не без сигареты в наши дни.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "knock": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.giorgiou.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.giorgiou.wounded",
+	    "mortal.introduce": [
+		{
+		    "id": "side.termoli",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.giorgiou.exhausted",
+	"label": "М. Георгиу (Уставший)",
+	"description": "Контрабандист, карточный шулер и любительский (<i>очень</i> любительский) философ; друг того, кого зовут Изгнанником. Он не без сигареты в наши дни.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.giorgiou.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.giorgiou.wounded",
+	    "refresh": "friend.giorgiou",
+	    "refreshally": "friend.giorgiou"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.giorgiou",
+	"icon": "friend.giorgiou",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "friend.giorgiou.wounded",
+	"label": "М. Георгиу (Ранен)",
+	"description": "[Используйте Полевого Медика или Полевую Больницу, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.giorgiou"
+	},
+	"unique": true
+    },
+    {
+	"id": "friend.orsolina",
+	"label": "'Ла Скаватриче'",
+	"description": "Партизанский отряд, который теперь следует за Орсолиной, знает только, что она сильна и стара - но я могу сказать чем она была только взглянув на неё, и она также может рассмореть возраст и силу что прячется за мной. Мы понимающе улыбаемся по этому поводу.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "forge": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.orsolina.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.orsolina.wounded",
+	    "mortal.introduce": [
+		{
+		    "id": "side.campobasso",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"icon": "npc.delver"
+    },
+    {
+	"id": "friend.orsolina.exhausted",
+	"label": "'Ла Скаватриче' (Уставшая)",
+	"description": "Партизанский отряд, который теперь следует за Орсолиной, знает только, что она сильна и стара - но я могу сказать чем она была, и она также может рассмореть возраст и силу что прячется за мной. Мы понимающе улыбаемся по этому поводу.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.orsolina.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.orsolina.wounded",
+	    "refresh": "friend.orsolina",
+	    "refreshally": "friend.orsolina"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.orsolina",
+	"resaturate": true,
+	"unique": true,
+	"icon": "npc.delver"
+    },
+    {
+	"id": "friend.orsolina.wounded",
+	"label": "'Ла Скаватриче' (Ранена)",
+	"description": "[Используйте Полевого Медика или Полевую Больницу, чтобы вылечить этого Союзника.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "local": 1,
+	    "named.local": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.orsolina"
+	},
+	"unique": true
+    },
+]
+}

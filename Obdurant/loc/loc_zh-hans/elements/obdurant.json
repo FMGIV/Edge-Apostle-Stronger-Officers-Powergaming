@@ -1,0 +1,1341 @@
+{
+"elements": [
+    {
+	"id": "obdurant.memento",
+	"label": "玩具士兵",
+	"description": "“无论你遇到什么，他都将守护你。我爱你。”",
+	"aspects": {
+	    "heart": 4,
+	    "memento": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "obdurant.weapon",
+	"label": "莫辛步枪",
+	"description": "莫辛-纳甘1938卡宾枪——这是我的武器，而我则是联盟的武器。",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.weapon.exhausted"
+	},
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "obdurant.weapon.exhausted",
+	"label": "莫辛步枪（准备中）",
+	"description": "莫辛-纳甘1938卡宾枪——这是我的武器，而我则是联盟的武器。",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"lifetime": 120,
+	"resaturate": true,
+	"decayTo": "obdurant.weapon",
+	"icon": "obdurant.weapon",
+	"uniquenessgroup": "uq.mosin"
+    },
+    {
+	"id": "obdurant.setupitem",
+	"label": "寂静的夜晚",
+	"description": "炮击暂时平息——今夜给人一种和平的幻觉。什么将会来临？谁在此地，而谁又要离开？",
+	"aspects": {
+	    "op": 1
+	},
+	"icon": "op.night"
+    },
+    {
+	"id": "obdurant.mentor",
+	"label": "#PREVIOUSCHARACTERNAME#",
+	"description": "一位严厉的，浑身覆满伤疤的利比亚人。其他人只把他当作一个雇佣兵领队，但我知道并非如此。此人已将有关其本质的知识托付于我。",
+	"aspects": {
+	    "friend": 1,
+	    "edgelong": 1
+	}
+    },
+    {
+	"id": "obdurant.story",
+	"label": "职责的号召",
+	"description": "“这职责需要牺牲。战胜正确的敌人确实重要，但你自身也需要付出。一只手，一条腿，一只眼——付出任何必要之物。精进你自身，直到你身体的任一部位均可杀敌。每一位上校的具名者都曾挥舞残缺之剑，而你必须将其带上战场。若以上均齐备，证明你自己的时刻将来临。当那时刻来临时你必须到场。我想这或许会以你的死亡告终，但上校认为好的死亡有其价值。若你死的正确，上校将会在将要来临的战争中使你具名。”",
+	"aspects": {
+	    "promise": 1,
+	    "contemplation": 1
+	},
+	"unique": true
+    },
+    {
+	"id": "obdurant.fragmentedge",
+	"label": "伤疤的秘密",
+	"description": "在血刚流出时随着痛苦被说出的词句。极年迈之人将其视作咒骂，但极年迈之人知晓如何从奇怪的地方，以奇怪的方式，将决心如血一般抽出。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 2,
+	    "lantern": 1,
+	    "winter": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedge.exhausted",
+	    "epiphany": "obdurant.fragmentedgeb"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedge.exhausted",
+	"label": "伤疤的秘密（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 300,
+	"decayTo": "obdurant.fragmentedge",
+	"icon": "obdurant.fragmentedge",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgeb",
+	"label": "千夫长的教诲",
+	"description": "“千夫长在悠久的过去中学到了有关于鲜血和伤口的刻骨故事。刀剑嘶鸣声，正大声诉说着这个故事。” 吾友有时会在饮酒时低语它。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 4,
+	    "lantern": 2,
+	    "winter": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgeb.exhausted",
+	    "epiphany": "obdurant.fragmentedgec"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgeb.exhausted",
+	"label": "千夫长的教诲（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 260,
+	"decayTo": "obdurant.fragmentedgeb",
+	"icon": "obdurant.fragmentedgeb",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgec",
+	"label": "持盾蛇卫行动",
+	"description": "一套严格的训练：将皮肤武装起来，使每一根手指都化作致命的矛尖。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 6,
+	    "lantern": 3,
+	    "winter": 3
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgec.exhausted",
+	    "epiphany": "obdurant.fragmentedged"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgec.exhausted",
+	"label": "持盾蛇卫行动（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 220,
+	"decayTo": "obdurant.fragmentedgec",
+	"icon": "obdurant.fragmentedgec",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedged",
+	"label": "上校的具名者",
+	"description": "上校在不同的时代有着不同的形象。他目盲；他耳聋；他不受创伤；他不容违抗。他的具名者皆如极年迈之人一般狡诈。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 8,
+	    "lantern": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedged.exhausted",
+	    "epiphany": "obdurant.fragmentedgee"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedged.exhausted",
+	"label": "上校的具名者（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 180,
+	"decayTo": "obdurant.fragmentedged",
+	"icon": "obdurant.fragmentedged",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgee",
+	"label": "钢铁之构",
+	"description": "七七四十九种裂肉之技。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 10,
+	    "lantern": 5,
+	    "winter": 5
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgee.exhausted",
+	    "epiphany": "obdurant.fragmentedgef"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgee.exhausted",
+	"label": "钢铁之构（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 140,
+	"decayTo": "obdurant.fragmentedgee",
+	"icon": "obdurant.fragmentedgee",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgef",
+	"label": "铁銎之规",
+	"description": "如果我要成为一柄利器，我就必须知晓自己的灵魂在何处被其经历强化，以及我的极限在何时会变得至关重要。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 12,
+	    "lantern": 6,
+	    "winter": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgef.exhausted",
+	    "epiphany": "obdurant.fragmentedgeg"
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory2",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            },
+            {
+                "id": "victory3",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "foe.corpse.unnatural": 1
+                },
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgef.exhausted",
+	"label": "铁銎之规（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[升级你的刃之密传能够缩短其冷却并增强其力量]",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"lifetime": 100,
+	"decayTo": "obdurant.fragmentedgef",
+	"icon": "obdurant.fragmentedgef",
+	"resaturate": true
+    },
+    {
+	"id": "obdurant.fragmentedgeg",
+	"label": "伤疤之秘",
+	"description": "狡诈乃胜利的根基。经验乃狡诈的根基。没有痛苦就没有经验，而伤疤是痛苦的外在表现。",
+	"aspects": {
+	    "lore": 1,
+	    "edge": 14,
+	    "lantern": 7,
+	    "winter": 7,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "obdurant.fragmentedgeg.exhausted",
+	    "epiphany": [
+		{
+		    "id": "colonel.weaponfragment",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+        "slots": [
+            {
+                "id": "victory",
+                "label": "胜利",
+	 	"description": "可从中学习的某物",
+                "required": {
+                    "remnant": 1
+                },
+		"forbidden": {
+		    "friend.corpses": 1
+		},
+                "consumes": true,
+                "actionid": "abandon"
+            }
+        ]
+    },
+    {
+	"id": "obdurant.fragmentedgeg.exhausted",
+	"label": "伤疤之秘（准备中）",
+	"description": "在我能够再次使用此物之前，我需要等待其恢复。[你精通了上校的秘密——至少已经抵达了凡人所能精通的极限。]",
+	"aspects": {
+	    "exhausted": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 60,
+	"decayTo": "obdurant.fragmentedgeg",
+	"icon": "obdurant.fragmentedgeg",
+	"resaturate": true
+    },
+    {
+	"id": "debilitation.eye.colonel",
+	"label": "千夫长之眼",
+	"description": "上校目盲，但无物可逃离上校的关注。[你可以使用此卡牌揭露匿踪敌军的行踪。此卡牌亦算作一道残疾。]",
+	"aspects": {
+	    "lantern": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "debilitation.eye.colonel.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "debilitation.eye.colonel.exhausted",
+	"label": "千夫长之眼（准备中）",
+	"description": "上校目盲，但无物可逃离上校的关注。[此卡牌亦使你离死亡更近一步。]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 160,
+	"decayTo": "debilitation.eye.colonel",
+	"icon": "debilitation.eye.colonel",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "debilitation.ear.colonel",
+	"label": "最敏锐之耳",
+	"description": "我能够听到雪落于石时发出的声音。[此卡牌亦使你离死亡更近一步。]",
+	"aspects": {
+	    "lantern": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "debilitation.ear.colonel.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "debilitation.ear.colonel.exhausted",
+	"label": "最敏锐之耳（准备中）",
+	"description": "我能够听到雪落于石时发出的声音。[此卡牌亦使你离死亡更近一步。]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 160,
+	"decayTo": "debilitation.ear.colonel",
+	"icon": "debilitation.ear.colonel",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "debilitation.hand.colonel",
+	"label": "千夫长的军礼",
+	"description": "护民官的每道伤疤都是一件武器，我的伤疤也应如此。[敌军无法破坏这件武器。此卡牌亦使你离死亡更近一步。]",
+	"aspects": {
+	    "edge": 6,
+	    "ap": 1,
+	    "weapon": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "debilitation.hand.colonel.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "debilitation.hand.colonel.exhausted",
+	"label": "千夫长的军礼（准备中）",
+	"description": "护民官的每道伤疤都是一件武器，我的伤疤也应如此。[此卡牌亦使你离死亡更近一步。]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 160,
+	"decayTo": "debilitation.hand.colonel",
+	"icon": "debilitation.hand.colonel",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "debilitation.leg.colonel",
+	"label": "神圣义肢",
+	"description": "义肢的橡木外壳刻满了士兵圣者的名字，并用一位敌军军官的血洗礼。[此卡牌亦使你离死亡更近一步。]",
+	"aspects": {
+	    "winter": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "debilitation.leg.colonel.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "debilitation.leg.colonel.exhausted",
+	"label": "神圣义肢（准备中）",
+	"description": "义肢的橡木外壳刻满了士兵圣者的名字，并用一位敌军军官的血洗礼。[此卡牌亦使你离死亡更近一步。]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+	    "defiance.consecration.colonel": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 160,
+	"decayTo": "debilitation.leg.colonel",
+	"icon": "debilitation.leg.colonel",
+	"resaturate": true,
+	"unique": true
+    },
+    {
+	"id": "flock.clue",
+	"label": "翼间低语",
+	"description": "在林中之湖周围飞舞的群鸟的低语或许将会指引我们找到残缺之剑的看守人。在一条道路显现之前，我们需要合并更多的翼间流言与鸟群低语。",
+	"aspects": {
+	    "op": 1
+	},
+	"slots": [
+	    {
+		"id": "needsclue",
+		"label": "线索",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue2",
+		"label": "线索",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue3",
+		"label": "线索",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue4",
+		"label": "线索",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue5",
+		"label": "线索",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    },
+	    {
+		"id": "needsclue6",
+		"label": "线索",
+		"required": {
+	 	    "flock.clue": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "nimiane",
+	"label": "水中的妮米亚涅",
+	"description": "残缺之剑的管理者；双生女巫的具名者，亦是双生巫女的具名者。她因反抗蚁母布下的针对古老的阿瓦隆上一条血脉的诅咒诞生。她是因为惩罚而被流放到这片湖泊的吗？还是为保证她的安全而被藏匿于此处？双子之神确实对被回避者有好感——但为什么仅是一人？为什么仅是二人？",
+	"aspects": {
+	    "otherworldly": 1,
+	    "local": 1
+	}
+    },
+    {
+	"id": "ebrehel",
+	"label": "残缺之剑艾布雷赫",
+	"description": "伤疤之剑、造门者、孤儿、湖之赠礼、神之镰、流亡之剑。这把剑曾被许多人挥舞，而它从未因它真正的目的而被挥舞。或许这就是它游荡于许多战士之手的原因：希望寻得铭记这把剑为何而被铸造之人。[敌军无法破坏这件武器。]",
+	"aspects": {
+	    "edge": 6,
+	    "forge": 6,
+	    "knock": 6,
+	    "weapon": 1,
+	    "ascend.check": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "ebrehel.exhausted"
+	},
+	"icon": "weapon.c",
+	"unique": true
+    },
+    {
+	"id": "ebrehel.exhausted",
+	"label": "残缺之剑艾布雷赫（准备中）",
+	"description": "伤疤之剑、造门者、孤儿、湖之赠礼、神之镰、流亡之剑。这把剑曾被许多人挥舞，而它从未因它真正的目的而被挥舞。或许这就是它游荡于许多战士之手的原因：希望寻得铭记这把剑为何而被铸造之人。[敌军无法破坏这件武器。]",
+	"aspects": {
+	    "exhausted": 1,
+	    "weapon": 1,
+	    "ascend.check": 1
+	},
+	"lifetime": 90,
+	"decayTo": "ebrehel",
+	"resaturate": true,
+	"icon": "weapon.c",
+	"unique": true
+    },
+    {
+	"id": "promise.medusa",
+	"label": "命令石板",
+	"description": "由石灰岩雕成的寒冷石板，在久远的过去有上校与蚁母制作，以宣告七蟠的败北。五条极深的刻痕横穿石板背面。丽姬亚美杜莎，最为古老的丽姬亚，是因一个特定的承诺而受这一石板约束者之一。向她提及这一石板会强制她协助我，不过她不愿如此。",
+	"aspects": {
+	    "promise": 1
+	}
+    },
+    {
+	"id": "op.ligeianmedusa",
+	"label": "何物不得见？",
+	"description": "非生亦非死的某物在夜晚行于街道。我必须不去注视它。",
+	"aspects": {
+	    "op": 1
+	},
+	"lifetime": 300,
+	"icon": "op.medusa",
+	"unique": true
+    },
+    {
+	"id": "friend.camilla",
+	"label": "大陆之敌",
+	"description": "一位盛气凌人的，因遍布伤痕而引人注目的女性，她身着法军军官的军服与战地披风。在本应有着右腿的地方，她有着一条铁制假腿；在本应有着左手的地方，她有着一件固定于残肢上的锐利器具。她的表情如石头般难以辨别。",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "camilla"
+    },
+    {
+	"id": "token.camilla",
+	"label": "古铁币",
+	"description": "“当然，它早已失去其作为货币的价值，”大陆之敌如是说，“它现在仅剩象征价值。但你或许会因都有什么认可这份象征价值而吃惊。”她建议我将此物供奉于一个具有力量的地点以与吾友，流亡者，联络，这样他就可以协助筹备我与战争制造者之间的<i>狮鼠之斗</i>仪式。但我不应该在未准备好面对他之前供奉此物。",
+	"aspects": {
+	    "legacyplotitem": 1
+	},
+	"icon": "compensation"
+    },
+    {
+	"id": "letter.fromexile",
+	"label": "流亡者的答复",
+	"description": "“吾友，\n\n得知你还活着我十分高兴。或许当这封信到达我手边时已不再如此，但我宁愿相信你那时候仍然活着。\n\n好了，关于手头之事：你已表明向另一位不朽之人发起<i>狮鼠之斗</i>仪式的决心，并请求我出场作为决斗的副手。我认为这是一项十分值得为之努力的事业，并且若你成功，毫无疑问这将助你飞升。因此，我同意作为副手代表你。\n\n给我时间告知卡米拉我已接受你的请求。我也需要一点时间与我的大敌商讨暂时停战的事宜。他或许也愿意参加，即使只是旁观。\n\n同时，祝你武运昌隆。\n\n——#PREVIOUSCHARACTERNAME#”",
+	"aspects": {
+	    "legacyplotitem": 1
+	}
+    },
+    {
+	"id": "letter.fromcamilla",
+	"label": "大陆之敌的答复",
+	"description": "“士兵，\n\n我已收到你朋友的确认，他同意作为副手参加。你应该会乐于知晓我的敌手已经正式注意到了你的挑战，而他很期待那场战斗。\n\n从现在起，密切注意太阳的运动。决斗将于七日之后举行。依据这一圣礼的规则，我的敌手不被允许在约定的时间之前同你战斗。七日之后，做好准备并身处荒野，否则失去生命。独自前来，否则失去生命。准时前来，否则失去生命。\n\n祝你好运。\n\n——卡米拉·德·贝内热拉克”",
+	"aspects": {
+	    "legacyplotitem": 1
+	}
+    },
+    {
+	"id": "duel.wilhelm",
+	"label": "战争制造者",
+	"description": "一位身材高大、面带愉悦的德国人，身着普鲁士少校那古典的制服。这就是我发起<i>狮鼠之斗</i>仪式挑战之人。",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "wilhelm"
+    },
+    {
+	"id": "duel.camilla",
+	"label": "大陆之敌",
+	"description": "一位盛气凌人的、因遍布伤痕而引人注目的女性，她身着法军军官的军服与战地披风。她作为她的敌手，战争制造者，的代表来此。",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "camilla"
+    },
+    {
+	"id": "duel.exile",
+	"label": "#PREVIOUSCHARACTERNAME#",
+	"description": "一位严厉的、浑身覆满伤疤的利比亚人。他此次前来是为了充当我的副手，为我担保，并在战斗之前的流程中代表我。",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	},
+	"icon": "obdurant.mentor"
+    },
+    {
+	"id": "duel.foe",
+	"label": "杜弗尔上尉，大敌",
+	"description": "一位高挑、独眼的法国与意大利混血，面带积习难改的怒视。据吾友所说，他是“一个令人厌恶的、冷酷无情的混账。”但他这么说时总是面带笑容。",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1
+	}
+    },
+    {
+	"id": "mark.shame",
+	"label": "耻辱的印记",
+	"description": "我向一位刃之长生者发起了名为<i>狮鼠之斗</i>的古老圣礼的挑战，但我不够强。我的败北玷污了我在斗争之司辰眼中的形象。我将永远带着这印记。[不会有刃之长生者会前来袭击你了。]",
+	"aspects": {
+	    "long.blocker": 1
+	}
+    },
+    {
+	"id": "mark.musvashir",
+	"label": "挑战者的印记",
+	"description": "我向一位刃之长生者发起了名为<i>狮鼠之斗</i>的古老圣礼的挑战，并最终获胜。刃之司辰对我表示尊敬。现在战争跟随着我，无论我前往何处。[此卡牌视作三份“抗争”。不会有刃之长生者会前来袭击你了。]",
+	"aspects": {
+	    "strife.tracker": 3,
+	    "challenger.mark": 1,
+	    "ascend.check": 1,
+	    "long.blocker": 1
+	}
+    },
+    {
+	"id": "contemplation.wolfdream",
+	"label": "狼群保管之梦",
+	"description": "狼群仍记得：1922年2月12日。白军逃出了沃洛恰耶夫卡的布尔什维克包围圈。而在那大雪与炮火与痛苦中的某处，两位刃之长生者最后一次见面。在梦中，我可以再次体验他们最后的那些日子。",
+	"aspects": {
+	    "contemplation": 1
+	},
+	"xtriggers": {
+	    "advancement": [
+		{
+		    "id": "insight.sergei"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "insight.sergei",
+	"label": "致死洞见",
+	"description": "这一尖刺般的无情启示无法直接伤及食铁者，但它能够向他展现他不顾一切回避着的真实：他正在死去。缓慢地，痛苦地，确定地死去。即便他以战争延缓其衰败，他宿敌的死亡也终有一天会吞噬他。那或许会使他惊恐。[使用此对抗食铁者会使他逃跑。]",
+	"aspects": {
+	    "lore": 1,
+	    "legacyplotitem": 1
+	}
+    },
+    {
+	"id": "weapon.kazimir",
+	"label": "卡济米尔的恰西克马刀",
+	"description": "这把利刃被炮火齐射轰断，而同一轮齐射奇迹般地命中并重伤了被称为孤儿的刃之长生者。它曾在沃洛恰耶夫卡的战场上遗失，但现在它来到了我的手中。或许它仍渴望着使食铁者流血。[这件武器在使用时有概率产生精神创伤。]",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 12,
+	    "winter": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.kazimir.exhausted"
+	}
+    },
+    {
+	"id": "weapon.kazimir.exhausted",
+	"label": "卡济米尔的恰西克马刀（枯竭）",
+	"description": "这把利刃被炮火齐射轰断，而同一轮齐射奇迹般地命中并重伤了被称为孤儿的刃之长生者。它曾在沃洛恰耶夫卡的战场上遗失，但现在它来到了我的手中。或许它仍渴望着使食铁者流血。[这件武器在使用时有概率产生精神创伤。]",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"induces": [
+	    {
+		"id": "produce.trauma",
+		"chance": 40
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "weapon.kazimir.exhausted",
+	    "refresh": "weapon.kazimir"
+	},
+	"lifetime": 60,
+	"decayTo": "weapon.kazimir",
+	"icon": "weapon.kazimir",
+	"resaturate": true
+    },
+    {
+	"id": "duel.sergei",
+	"label": "食铁者",
+	"description": "这一次，不再有言语。食铁者带着憎恶的寂静向我们骑马冲锋。[食铁者造成的伤口将立刻变成残疾。]",
+	"aspects": {
+	    "edgelong": 1,
+	    "local": 1,
+	    "foe.sergei": 1
+	},
+	"icon": "sergei"
+    },
+    {
+	"id": "wound.sergei",
+	"label": "食铁者的伤口",
+	"description": "侍奉裂分之狼的长生者想必十分清楚此物感觉如何。",
+	"icon": "wound.foe.unstanchable",
+	"aspects": {
+	    "op": 1
+	}
+    },
+    {
+	"id": "defeated.sergei",
+	"label": "食铁者",
+	"description": "老狼看上去累了。",
+	"aspects": {
+	    "edgelong": 1,
+	    "foe.sergei": 1,
+	    "local": 1
+	}
+    },
+    {
+	"id": "mark.surrender",
+	"label": "投降的根据",
+	"description": "我迫使一位不朽之敌投降，而这悲痛的伤口正是其投降的标志。在时机来临时，刃之司辰将会承认于这一伤口中恶化的力量。[此卡牌视作三份“抗争”。不会有刃之长生者会前来袭击你了。]",
+	"aspects": {
+	    "strife.tracker": 3,
+	    "challenger.mark": 1,
+	    "ascend.check": 1,
+	    "long.blocker": 1
+	},
+	"icon": "scar_edge"
+    },
+    {
+	"id": "weapon.skull",
+	"label": "索洛维的颅骨",
+	"description": "“夜莺”索洛维曾定居于古时基辅的森林中。传说他的口哨声能够击倒一棵橡树并杀死一切听到哨声的人；传说中还说他被一个无法听到任何声音的人砍下了头。现在他的颅骨是我的了——或许我能劝诱夜莺再次鸣叫。",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 10,
+	    "heart": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.skull.exhausted"
+	}
+    },
+    {
+	"id": "weapon.skull.exhausted",
+	"label": "索洛维的颅骨（枯竭）",
+	"description": "“夜莺”索洛维曾定居于古时基辅的森林中。传说他的口哨声能够击倒一棵橡树并杀死一切听到哨声的人；传说中还说他被一个无法听到任何声音的人砍下了头。现在他的颅骨是我的了——或许我能劝诱夜莺再次鸣叫。",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.skull.exhausted",
+	    "refresh": "weapon.skull"
+	},
+	"lifetime": 60,
+	"decayTo": "weapon.skull",
+	"icon": "weapon.skull",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.wormnail",
+	"label": "蠕虫之钉",
+	"description": "一把曾于第三次蠕虫战争中服役的匕首，现在则已流入这一重历史。隐伏的污染早已在钢铁的利刃中积累，使这把匕首变得致命，无论对手是凡人，不朽之人，还是任何在二者之间的恐怖事物。",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 6,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.wormnail.exhausted"
+	}
+    },
+    {
+	"id": "weapon.wormnail.exhausted",
+	"label": "蠕虫之钉（枯竭）",
+	"description": "一把曾于第三次蠕虫战争中服役的匕首，现在则已流入这一重历史。隐伏的污染早已在钢铁的利刃中积累，使这把匕首变得致命，无论对手是凡人，不朽之人，还是任何在二者之间的恐怖事物。",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.wormnail.exhausted",
+	    "refresh": "weapon.wormnail"
+	},
+	"lifetime": 90,
+	"decayTo": "weapon.wormnail",
+	"icon": "weapon.wormnail",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.talon",
+	"label": "林鸮利爪",
+	"description": "被山楂祝福，于战斗中取胜。多翼者已侍奉斗争之司辰许久，但斗争之司辰并不与现在始终一致。",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.talon.exhausted"
+	}
+    },
+    {
+	"id": "weapon.talon.exhausted",
+	"label": "林鸮利爪（枯竭）",
+	"description": "被山楂祝福，于战斗中取胜。多翼者已侍奉斗争之司辰许久，但斗争之司辰并不与现在始终一致。",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.talon.exhausted",
+	    "refresh": "weapon.talon"
+	},
+	"lifetime": 90,
+	"decayTo": "weapon.talon",
+	"icon": "weapon.talon",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.5",
+	"label": "陨铁左轮",
+	"description": "一位铁匠需要具有罕见（且通常非人）的技术才能重塑镍纹铁。在现代已极少有这样的匠人活跃，但这把武器毫无疑问是现代设计。五枚镍纹铁子弹——这些子弹被称为“怪兽杀手”——居于弹匣之中。",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 5
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.5.exhausted"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "weapon.revolver.5.exhausted",
+	"label": "陨铁左轮（枯竭）",
+	"description": "一位铁匠需要具有罕见（且通常非人）的技术才能重塑镍纹铁。在现代已极少有这样的匠人活跃，但这把武器毫无疑问是现代设计。四枚镍纹铁子弹——这些子弹被称为“怪兽杀手”——居于弹匣之中。",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "uses.remaining": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.5.exhausted",
+	    "refresh": "weapon.revolver.4"
+	},
+	"lifetime": 30,
+	"decayTo": "weapon.revolver.4",
+	"icon": "weapon.revolver",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.4",
+	"label": "陨铁左轮",
+	"description": "一位铁匠需要具有罕见（且通常非人）的技术才能重塑镍纹铁。在现代已极少有这样的匠人活跃，但这把武器毫无疑问是现代设计。四枚镍纹铁子弹——这些子弹被称为“怪兽杀手”——居于弹匣之中。",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.4.exhausted"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "weapon.revolver.4.exhausted",
+	"label": "陨铁左轮（枯竭）",
+	"description": "一位铁匠需要具有罕见（且通常非人）的技术才能重塑镍纹铁。在现代已极少有这样的匠人活跃，但这把武器毫无疑问是现代设计。三枚镍纹铁子弹——这些子弹被称为“怪兽杀手”——居于弹匣之中。",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "uses.remaining": 3
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.4.exhausted",
+	    "refresh": "weapon.revolver.3"
+	},
+	"lifetime": 30,
+	"decayTo": "weapon.revolver.3",
+	"icon": "weapon.revolver",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.3",
+	"label": "陨铁左轮",
+	"description": "一位铁匠需要具有罕见（且通常非人）的技术才能重塑镍纹铁。在现代已极少有这样的匠人活跃，但这把武器毫无疑问是现代设计。三枚镍纹铁子弹——这些子弹被称为“怪兽杀手”——居于弹匣之中。",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 3
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.3.exhausted"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "weapon.revolver.3.exhausted",
+	"label": "陨铁左轮（枯竭）",
+	"description": "一位铁匠需要具有罕见（且通常非人）的技术才能重塑镍纹铁。在现代已极少有这样的匠人活跃，但这把武器毫无疑问是现代设计。两枚镍纹铁子弹——这些子弹被称为“怪兽杀手”——居于弹匣之中。",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "uses.remaining": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.3.exhausted",
+	    "refresh": "weapon.revolver.2"
+	},
+	"lifetime": 30,
+	"decayTo": "weapon.revolver.2",
+	"icon": "weapon.revolver",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.2",
+	"label": "陨铁左轮",
+	"description": "一位铁匠需要具有罕见（且通常非人）的技术才能重塑镍纹铁。在现代已极少有这样的匠人活跃，但这把武器毫无疑问是现代设计。两枚镍纹铁子弹——这些子弹被称为“怪兽杀手”——居于弹匣之中。",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.2.exhausted"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "weapon.revolver.2.exhausted",
+	"label": "陨铁左轮（枯竭）",
+	"description": "一位铁匠需要具有罕见（且通常非人）的技术才能重塑镍纹铁。在现代已极少有这样的匠人活跃，但这把武器毫无疑问是现代设计。现在弹匣里只剩一枚镍纹铁子弹了。",
+	"aspects": {
+	    "weapon": 1,
+	    "exhausted": 1,
+	    "uses.remaining": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "weapon.revolver.2.exhausted",
+	    "refresh": "weapon.revolver.1"
+	},
+	"lifetime": 30,
+	"decayTo": "weapon.revolver.1",
+	"icon": "weapon.revolver",
+	"resaturate": true
+    },
+    {
+	"id": "weapon.revolver.1",
+	"label": "陨铁左轮",
+	"description": "一位铁匠需要具有罕见（且通常非人）的技术才能重塑镍纹铁。在现代已极少有这样的匠人活跃，但这把武器毫无疑问是现代设计。现在弹匣里只剩一枚镍纹铁子弹了。",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 4,
+	    "uses.remaining": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"icon": "weapon.revolver"
+    },
+    {
+	"id": "colonel.weaponfragment",
+	"label": "致命部件",
+	"description": "粉末状的铁，锯齿状的钢之叶片。若我具有足够的部件，它们就可以成为更强大之物。",
+	"aspects": {
+	    "edge": 4,
+	    "supplies": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"slots": [
+	    {
+		"id": "needsfragment",
+		"label": "部件",
+		"required": {
+		    "colonel.weaponfragment": 1
+		}
+	    },
+	    {
+		"id": "needsfragment2",
+		"label": "部件",
+		"required": {
+		    "colonel.weaponfragment": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "weapon.histid",
+	"label": "持盾蛇卫之羽",
+	"description": "上校所有的下仆都极其致命，但持盾蛇卫是其造物中最为众多的。这件武器仿造持盾蛇卫的倒钩制成，他们使用这种倒钩为目标带去迅速，寂静的死亡。[这是一件神圣的武器，但只能使用一次。]",
+	"aspects": {
+	    "weapon": 1,
+	    "edge": 12
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+    {
+	"id": "contemplation.skill.deflect",
+	"label": "意图：失落技术？",
+	"description": "一位上校的具名者向我展示了这种秘密的战斗技术。这是古老且固执的知识，它的本性不会轻易地让我理解。",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.colonel",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.deflect"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.raisedead",
+	"label": "意图：失落技术？",
+	"description": "一位上校的具名者向我展示了这种秘密的战斗技术。这是古老且固执的知识，它的本性不会轻易地让我理解。",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.colonel",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.raisedead"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "contemplation.skill.refreshally",
+	"label": "意图：失落技术？",
+	"description": "一位上校的具名者向我展示了这种秘密的战斗技术。这是古老且固执的知识，它的本性不会轻易地让我理解。",
+	"xtriggers": {
+	    "opx.progress0": [
+		{
+		    "id": "challenge.contemplation.colonel",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "ascend": "skill.refreshally"
+	},
+	"aspects": {
+	    "contemplation": 1
+	},
+	"icon": "contemplation.skill"
+    },
+    {
+	"id": "challenge.contemplation.colonel",
+	"label": "上校精通技能挑战",
+	"aspects": {
+	    "needsedgelantern": 8,
+	    "needsedgewinter": 8
+	},
+	"isHidden": true,
+	"lifetime": 1
+    },
+    {
+	"id": "skill.deflect",
+	"label": "不侵守御",
+	"description": "这些极其折磨且费力的动作可将身体变为一座要塞。执行这一动作所需的精准与训练通常仅能在长生者身上寻得，但一个凡人——一个极其谨慎，极其训练有素的凡人——或许能够在一定限度上使用这些技术以使本将致命的攻击偏向。[你可以使用这一技能防御来自任何来源的攻击。]",
+	"aspects": {
+	    "lore": 1,
+	    "heart": 8,
+	    "legacyplotitem": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.deflect.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "skill.deflect.exhausted",
+	"label": "不侵守御（枯竭）",
+	"description": "这些极其折磨且费力的动作可将身体变为一座要塞。执行这一动作所需的精准与训练通常仅能在长生者身上寻得，但一个凡人——一个极其谨慎，极其训练有素的凡人——或许能够在一定限度上使用这些技术以使本将致命的攻击偏向。[你可以使用这一技能防御来自任何来源的攻击。]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.deflect.exhausted",
+	    "refresh": "skill.deflect"
+	},
+	"unique": true,
+	"icon": "skill.deflect",
+	"resaturate": true,
+	"lifetime": 160,
+	"decayTo": "skill.deflect"
+    },
+    {
+	"id": "skill.raisedead",
+	"label": "使节祷文",
+	"description": "在无尽军团中，流传着这样一句话——MORS NON EST FINIS OFFICII——因为军团士兵们知晓死亡并非安息，仅是一时休战。这些是他们向死者说出的祷文，以提醒死者其在生前立下的誓言，而死者总是会聆听。[你可以使用这一技能将倒下的友军变为受征召者。]",
+	"aspects": {
+	    "lore": 1,
+	    "winter": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.raisedead.exhausted"
+	},
+	"slots": [
+	    {
+		"id": "needsdead",
+		"label": "倒下的友军",
+		"required": {
+		    "friend.corpses": 1
+		}
+	    }
+	],
+	"unique": true
+    },
+    {
+	"id": "skill.raisedead.exhausted",
+	"label": "使节祷文（枯竭）",
+	"description": "在无尽军团中，流传着这样一句话——MORS NON EST FINIS OFFICII——因为军团士兵们知晓死亡并非安息，仅是一时休战。这些是他们向死者说出的祷文，以提醒死者其在生前立下的誓言，而死者总是会聆听。[你可以使用这一技能将倒下的友军变为受征召者。]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.raisedead.exhausted",
+	    "refresh": "skill.raisedead"
+	},
+	"unique": true,
+	"icon": "skill.raisedead",
+	"resaturate": true,
+	"lifetime": 120,
+	"decayTo": "skill.raisedead"
+    },
+    {
+	"id": "skill.refreshally",
+	"label": "钢铁之声",
+	"description": "无人被允许退缩。无人能后退一步。我的言语即为不容违抗的命令，而一切身为士兵之人都将服从。[你可以使用这一技能立刻刷新一个枯竭的友军。]",
+	"aspects": {
+	    "lore": 1,
+	    "lantern": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.refreshally.exhausted"
+	},
+	"slots": [
+	    {
+		"id": "needsexhausted",
+		"label": "枯竭",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+		    "friend.tanks.exhausted": 1,
+		    "friend.bombers.exhausted": 1,
+		    "friend.artillery.exhausted": 1
+		}
+	    }
+	],
+	"unique": true
+    },
+    {
+	"id": "skill.refreshally.exhausted",
+	"label": "钢铁之声（枯竭）",
+	"description": "无人被允许退缩。无人能后退一步。我的言语即为不容违抗的命令，而一切身为士兵之人都将服从。[你可以使用这一技能立刻刷新一个枯竭的友军。]",
+	"aspects": {
+	    "lore": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "skill.refreshally.exhausted",
+	    "refresh": "skill.refreshally"
+	},
+	"unique": true,
+	"icon": "skill.refreshally",
+	"resaturate": true,
+	"lifetime": 90,
+	"decayTo": "skill.refreshally"
+    }
+]
+}

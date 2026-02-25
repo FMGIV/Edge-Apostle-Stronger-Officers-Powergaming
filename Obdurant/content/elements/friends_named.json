@@ -1,0 +1,2004 @@
+{
+"elements": [
+    {
+	"id": "friend.yuri.local",
+	"label": "W.O. Yuri Serenko",
+	"description": "A sneering <i>politruk</i> with a spike of fanaticism driven through his brain.",
+	"aspects": {
+	    "lantern": 4,
+	    "edge": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.yuri.local.wounded",
+	    "fatiguing": "friend.yuri.local.exhausted",
+	    "recruiting": "friend.yuri",
+	    "mortal.introduce": [
+		{
+		    "id": "side.yuri",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.yuri"
+    },
+    {
+	"id": "friend.yuri.local.exhausted",
+	"label": "W.O. Yuri Serenko (Exhausted)",
+	"description": "Yuri has withdrawn to his tent to read more of the Founder's literature.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.yuri.local.wounded",
+	    "fatiguing": "friend.yuri.local.exhausted",
+	    "refresh": "friend.yuri.local",
+	    "refreshally": "friend.yuri.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.yuri.local",
+	"icon": "friend.yuri",
+	"resaturate": true
+    },
+    {
+	"id": "friend.yuri.local.wounded",
+	"label": "W.O. Yuri Serenko (Wounded)",
+	"description": "A sneering <i>politruk</i> with a spike of fanaticism driven through his brain. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.yuri.local"
+	},
+	"icon": "friend.yuri.wounded"
+    },
+    {
+	"id": "friend.yuri",
+	"label": "W.O. Yuri Serenko",
+	"description": "A sneering <i>politruk</i> with a spike of fanaticism driven through his brain.",
+	"aspects": {
+	    "lantern": 4,
+	    "edge": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.yuri.wounded"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.yuri.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.yuri.exhausted",
+	"label": "W.O. Yuri Serenko (Exhausted)",
+	"description": "Yuri has withdrawn to his tent to read more of the Founder's literature.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.yuri.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.yuri.exhausted",
+	    "refresh": "friend.yuri",
+	    "refreshally": "friend.yuri"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.yuri",
+	"icon": "friend.yuri",
+	"resaturate": true
+    },
+    {
+	"id": "friend.yuri.wounded",
+	"label": "W.O. Yuri Serenko (Wounded)",
+	"description": "A sneering <i>politruk</i> with a spike of fanaticism driven through his brain. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.yuri"
+	}
+    },
+    {
+	"id": "friend.konstantin.local",
+	"label": "Dr. Konstantin Ismailov",
+	"description": "A field surgeon of questionable ethics and unquestionable results.",
+	"aspects": {
+	    "knock": 4,
+	    "heart": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.konstantin.local.wounded",
+	    "fatiguing": "friend.konstantin.local.exhausted",
+	    "recruiting": "friend.konstantin",
+	    "mortal.introduce": [
+		{
+		    "id": "side.konstantin",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.konstantin"
+    },
+    {
+	"id": "friend.konstantin.local.exhausted",
+	"label": "Dr. Konstantin Ismailov (Exhausted)",
+	"description": "The doctor needs time to both sanitise and admire his instruments.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.konstantin.local.wounded",
+	    "fatiguing": "friend.konstantin.local.exhausted",
+	    "refresh": "friend.konstantin.local",
+	    "refreshally": "friend.konstantin.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.konstantin.local",
+	"icon": "friend.konstantin",
+	"resaturate": true
+    },
+    {
+	"id": "friend.konstantin.local.wounded",
+	"label": "Dr. Konstantin Ismailov (Wounded)",
+	"description": "A field surgeon of questionable ethics and unquestionable results. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.konstantin.local"
+	},
+	"icon": "friend.konstantin.wounded"
+    },
+    {
+	"id": "friend.konstantin",
+	"label": "Dr. Konstantin Ismailov",
+	"description": "A field surgeon of questionable ethics and unquestionable results.",
+	"aspects": {
+	    "knock": 4,
+	    "heart": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.konstantin.wounded"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.konstantin.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.konstantin.exhausted",
+	"label": "Dr. Konstantin Ismailov (Exhausted)",
+	"description": "The doctor needs time to both sanitise and admire his instruments.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.konstantin.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.konstantin.exhausted",
+	    "refresh": "friend.konstantin",
+	    "refreshally": "friend.konstantin"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.konstantin",
+	"icon": "friend.konstantin",
+	"resaturate": true
+    },
+    {
+	"id": "friend.konstantin.wounded",
+	"label": "Dr. Konstantin Ismailov (Wounded)",
+	"description": "A field surgeon of questionable ethics and unquestionable results. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.konstantin"
+	}
+    },
+    {
+	"id": "friend.iosef.local",
+	"label": "Iosef Volodin",
+	"description": "A wiry <i>shtrafniki</i> remnant, punished with glorious duty.",
+	"aspects": {
+	    "moth": 4,
+	    "grail": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.iosef.local.wounded",
+	    "fatiguing": "friend.iosef.local.exhausted",
+	    "recruiting": "friend.iosef",
+	    "mortal.introduce": [
+		{
+		    "id": "side.iosef",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.iosef"
+    },
+    {
+	"id": "friend.iosef.local.exhausted",
+	"label": "Iosef Volodin (Exhausted)",
+	"description": "Iosef shakes under his blanket, eyes shut. He really, <i>really</i> misses cigarettes.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.iosef.local.wounded",
+	    "fatiguing": "friend.iosef.local.exhausted",
+	    "refresh": "friend.iosef.local",
+	    "refreshally": "friend.iosef.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.iosef.local",
+	"icon": "friend.iosef",
+	"resaturate": true
+    },
+    {
+	"id": "friend.iosef.local.wounded",
+	"label": "Iosef Volodin (Wounded)",
+	"description": "A wiry <i>shtrafniki</i> remnant, punished with glorious duty. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.iosef.local"
+	},
+	"icon": "friend.iosef.wounded"
+    },
+    {
+	"id": "friend.iosef",
+	"label": "Iosef Volodin",
+	"description": "A wiry <i>shtrafniki</i> remnant, punished with glorious duty.",
+	"aspects": {
+	    "moth": 4,
+	    "grail": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.iosef.wounded"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.iosef.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.iosef.exhausted",
+	"label": "Iosef Volodin (Exhausted)",
+	"description": "Iosef shakes under his blanket, eyes shut. He really, <i>really</i> misses cigarettes.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.iosef.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.iosef.exhausted",
+	    "refresh": "friend.iosef",
+	    "refreshally": "friend.iosef"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.iosef",
+	"icon": "friend.iosef",
+	"resaturate": true
+    },
+    {
+	"id": "friend.iosef.wounded",
+	"label": "Iosef Volodin (Wounded)",
+	"description": "A wiry <i>shtrafniki</i> remnant, punished with glorious duty. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.iosef"
+	}
+    },
+    {
+	"id": "friend.nikolai.local",
+	"label": "Nikolai Belyaev",
+	"description": "A morose, stone-faced artilleryman who stringently rations out his words.",
+	"aspects": {
+	    "forge": 4,
+	    "winter": 4,
+	    "friend": 1,
+	    "mortal": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.nikolai.local.wounded",
+	    "fatiguing": "friend.nikolai.local.exhausted",
+	    "recruiting": "friend.nikolai",
+	    "mortal.introduce": [
+		{
+		    "id": "side.nikolai",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"icon": "friend.nikolai"
+    },
+    {
+	"id": "friend.nikolai.local.exhausted",
+	"label": "Nikolai Belyaev (Exhausted)",
+	"description": "Nikolai is doing his best to be alone.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.nikolai.local.wounded",
+	    "fatiguing": "friend.nikolai.local.exhausted",
+	    "refresh": "friend.nikolai.local",
+	    "refreshally": "friend.nikolai.local"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.nikolai.local",
+	"icon": "friend.nikolai",
+	"resaturate": true
+    },
+    {
+	"id": "friend.nikolai.local.wounded",
+	"label": "Nikolai Belyaev (Wounded)",
+	"description": "A morose, stone-faced artilleryman who stringently rations out his words. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1,
+	    "named.local": 1
+	},
+	"xtriggers": {
+	    "killfriend": "friend.corpses",
+	    "killmortal": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.nikolai.local"
+	},
+	"icon": "friend.nikolai.wounded"
+    },
+    {
+	"id": "friend.nikolai",
+	"label": "Nikolai Belyaev",
+	"description": "A morose, stone-faced artilleryman who stringently rations out his words.",
+	"aspects": {
+	    "forge": 4,
+	    "winter": 4,
+	    "friend": 1,
+	    "mortal": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.nikolai.wounded"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": [
+		{
+		    "id": "friend.nikolai.exhausted"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "upgrade.exile.ally": [
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": -3
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.nikolai.exhausted",
+	"label": "Nikolai Belyaev (Exhausted)",
+	"description": "Nikolai is doing his best to be alone.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "makecasualty": "friend.nikolai.wounded",
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "fatiguing": "friend.nikolai.exhausted",
+	    "refresh": "friend.nikolai",
+	    "refreshally": "friend.nikolai"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.nikolai",
+	"icon": "friend.nikolai",
+	"resaturate": true
+    },
+    {
+	"id": "friend.nikolai.wounded",
+	"label": "Nikolai Belyaev (Wounded)",
+	"description": "A morose, stone-faced artilleryman who stringently rations out his words. [Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "makecasualty": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killfriend": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "killmortal": [
+		{
+		    "id": "friend.corpses"
+		},
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ],
+	    "restorehealth": "friend.nikolai"
+	}
+    },
+]
+}

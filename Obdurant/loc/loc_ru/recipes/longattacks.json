@@ -1,0 +1,1145 @@
+{
+"recipes": [
+    {
+	"id": "long.arrival.exile",
+	"label": "Ужасающая сила",
+	"startdescription": "Во сне я снова вижу грязь и лёд Собибора. Жестокий смех шипит мне в ухо. Что-то грядёт.",
+	"effects": {
+	    "exile": 1
+	},
+	"requirements": {
+	    "draw.exile": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"playAudioTrack": "theme_exile.mp3"
+    },
+    {
+	"id": "long.arrival.duffoure",
+	"label": "Ужасающая сила",
+	"startdescription": "Мороз щиплет окна, и тень хрустит на пламени свечей. Моё отражение в лезвии ножа дрожит, словно отражение на поверхности воды. Что-то приближается.",
+	"effects": {
+	    "duffoure": 1
+	},
+	"requirements": {
+	    "draw.duffoure": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"playAudioTrack": "theme_foe.mp3"
+    },
+    {
+	"id": "long.arrival.camilla.router",
+	"actionid": "long.camilla",
+	"label": "Ужасающая Сила",
+	"startdescription": "",
+	"requirements": {
+	    "draw.camilla": 1
+	},
+	"extantreqs": {
+	    "strife.tracker": 7,
+	    "lake.here": -1,
+	    "long.blocker": -1
+	},
+	"linked": [
+	    {
+		"id": "long.arrival.camilla.first"
+	    },
+	    {
+		"id": "long.arrival.camilla"
+	    }
+	]
+    },
+    {
+	"id": "long.arrival.camilla.first",
+	"actionid": "long.camilla",
+	"label": "Ужасающая Сила",
+	"startdescription": "Воцаряется тишина. Ветер становится резким и холодным. В воздухе витает едкий запах пороха, железа и крови. От малейшего его дуновения болят старые раны. Что-то приближается.",
+	"effects": {
+	    "camilla.first": 1,
+	    "mission.camilla.a": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"maxexecutions": 1,
+	"playAudioTrack": "camillatheme.mp3"
+    },
+    {
+	"id": "long.arrival.camilla",
+	"actionid": "long.camilla",
+	"label": "Ужасающая Сила",
+	"startdescription": "Воцаряется тишина. Ветер становится резким и холодным. В воздухе витает едкий запах пороха, железа и крови. От малейшего его дуновения болят старые раны. Что-то приближается.",
+	"effects": {
+	    "camilla": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"playAudioTrack": "camillatheme.mp3"
+    },
+    {
+	"id": "edgelong.cycle",
+	"label": "Вечный Грани Рыщет",
+	"startdescription": "@#foe.exile|'Вот мы и снова вместе. Давай посмотрим, усвоил ли ты хоть один из моих уроков.'#foe.duffoure|'Хочешь выход из всего этого? Тогда иди сюда. Я дам тебе выход.'#foe.camilla|'Это война. Она не бывает чистой, быстрой и приятной. Но это лишь необходимость.'#foe.wilhelm|'Где твои воины? Где эти удалые храбрецы? Покажите себя - солдату не подобает бежать от хорошей смерти.'#foe.sergei|'Слишком много лет без крови - земля забыла что такое ужас. Но я это исправлю.'@\n\n[Вечный Грани будет пытаться убить вас и ваших союзников, пока вы не покинете текущую зону боевых действий.]",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "ambush.cross.startup",
+		"chance": 50
+	    },
+	    {
+		"id":  "camilla.here"
+	    },
+	    {
+		"id":  "wilhelm.here"
+	    },
+	    {
+		"id": "edgelong.prep.attack",
+		"chance": 40
+	    },
+	    {
+		"id": "exilehere.executetrauma",
+		"chance": 40
+	    },
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"effects": {
+	    "readiness.token": 1
+	},
+    },
+    {
+	"id": "exilehere.executetrauma",
+	"label": "Вечный Грани Рыщет",
+	"startdescription": "@#foe.exile|'Вот мы и снова вместе. Давай посмотрим, усвоил ли ты хоть один из моих уроков.'#foe.duffoure|'Хочешь выход из всего этого? Тогда иди сюда. Я дам тебе выход.'#foe.camilla|'Это война. Она не бывает чистой, быстрой и приятной. Но это лишь необходимость.'#foe.wilhelm|'Где твои воины? Где эти удалые храбрецы? Покажите себя - солдату не подобает бежать от хорошей смерти.'#foe.sergei|'Слишком много лет без крови - земля забыла что такое ужас. Но я это исправлю.'@\n\n[Вечный Грани будет пытаться убить вас и ваших союзников, пока вы не покинете текущую зону боевых действий.]",
+	"requirements": {
+	    "readiness.token": 6
+	},
+	"alt": [
+	    {
+		"id": "exiletrauma.contemnant",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "exilehere.clearreadinesstokens"
+	    }
+	]
+    },
+    {
+	"id": "exilehere.clearreadinesstokens",
+	"label": "Вечный Грани Рыщет",
+	"startdescription": "@#foe.exile|'Вот мы и снова вместе. Давай посмотрим, усвоил ли ты хоть один из моих уроков.'#foe.duffoure|'Хочешь выход из всего этого? Тогда иди сюда. Я дам тебе выход.'#foe.camilla|'Это война. Она не бывает чистой, быстрой и приятной. Но это лишь необходимость.'#foe.wilhelm|'Где твои воины? Где эти удалые храбрецы? Покажите себя - солдату не подобает бежать от хорошей смерти.'#foe.sergei|'Слишком много лет без крови - земля забыла что такое ужас. Но я это исправлю.'@\n\n[Вечный Грани будет пытаться убить вас и ваших союзников, пока вы не покинете текущую зону боевых действий.]",
+	"effects": {
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.prep.attack",
+	"label": "Вечный Грани Атакует!",
+	"linked": [
+	    {
+		"id": "edgelong.contemnant.attackothers",
+		"chance": 40
+	    },
+	    {
+		"id": "edgelong.sergei.attack.allies",
+		"chance": 50
+	    },
+	    {
+		"id": "edgelong.attack.allies",
+		"chance": 50
+	    },
+	    {
+		"id": "edgelong.attack.you"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.attack.allies",
+	"label": "Вечный Грани Атакует!",
+	"startdescription": "@#foe.exile|'Ты — ничто.'#foe.duffoure|'Прочь с дороги.'#foe.camilla|'Ты погибнешь, исполняя свой долг. Это лучший конец, чем многие могут себе представить.'#foe.wilhelm|'Хах! Больше! День не закончен, пока я не буду стоять по пояс в трупах!'#foe.sergei|'Грррр. Больше мертвых.'@",
+	"warmup": 10,
+	"tablereqs": {
+	    "friend": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": -1
+	},
+	"slots": [
+	    {
+		"id": "needsallies",
+		"label": "Союзник",
+		"required": {
+		    "friend": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "killmortal": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	]
+    },
+    {
+	"id": "expel.immortalfriend",
+	"actionid": "spit.moth",
+	"label": "Баланс Сил",
+	"startdescription": "Мой бессмертный союзник смог защитить меня от Вечного Грани. Скоро он сможет сделать это ещё раз -",
+	"warmup": 10,
+	"requirements": {
+	    "friend.immortal": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+    {
+	"id": "edgelong.attack.you",
+	"label": "Вечный Грани Атакует!",
+	"startdescription": "@#foe.exile|'Что будешь делать, пёс? Вилять хвостиком, бежать или кусать?'#foe.duffoure|'Я сделаю всё быстро и аккуратно - если сам мне позволишь.'#foe.camilla|'Убить тебя можно считать маленькой разминкой. Может быть.'#foe.wilhelm|'Ты! Хруст твоих костей станет прекрасным разогревом перед <i>настоящей</i> битвой.'#foe.sergei|'Я разорву тебя на части, солдатик.'@\n\n[Чтобы защититься, найдите союзника, который встанет между вами и атакой Вечного Грани. Это убьет союзника.]",
+	"warmup": 30,
+	"slots": [
+	    {
+		"id": "needsallies",
+		"label": "Пушечное мясо?",
+		"required": {
+		    "friend": 1,
+		    "legacyplotitem": 1,
+		    "challenge": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "dream.colonel": 1,
+		    "dream.lionsmith": 1,
+		    "tool": 1,
+		    "ascension.marker.casket": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "edgelong.attack.you.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "contemnant.usechallenge"
+	    },
+	    {
+		"id": "contemnant.friend.immortal"
+	    },
+	    {
+		"id": "sergei.usedinsight"
+	    },
+	    {
+		"id": "longdefend.skill.deflect"
+	    },
+	    {
+		"id": "edgelong.attack.you.defense"
+	    }
+	]
+    },
+    {
+	"id": "contemnant.friend.immortal",
+	"label": "Бессмертный Союзник",
+	"startdescription": "@#foe.exile|'О, какой неприятный сюрприз.'#foe.duffoure|'Они не смогут защищать тебя вечно.'#foe.camilla|'Платишь за побег кровью? Надеюсь, у тебя толстые карманы.'#foe.wilhelm|'Вот как ты поступаешь? Используешь своих братьев как щит? Убегаешь? <i>Отвратительно.'</i>#foe.sergei|'Спасайся, маленький солдатик! Беги! Расскажи своим товарищам, как я заставил их молить перед кончиной!'@",
+	"requirements": {
+	    "friend.immortal": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+    },
+    {
+	"id": "edgelong.attack.you.defense",
+	"label": "Thrown to the Fires",
+	"startdescription": "@#foe.exile|'Да и кому они вообще были нужны?'#foe.duffoure|'И куда ты бежишь? Подальше отсюда? Или ближе чему-то?'#foe.camilla|'Платишь за побег кровью? Надеюсь, у тебя толстые карманы.'#foe.wilhelm|Вот как ты поступаешь? Используешь своих братьев как щит? Убегаешь? <i>Отвратительно.'</i>#foe.sergei|'Спасайся, маленький солдатик! Беги! Расскажи своим товарищам, как я заставил их молить перед кончиной!'@",
+	"requirements": {
+	    "friend": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel",
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	]
+    },
+    {
+	"id": "edgelong.attack.you.nodefense",
+	"label": "Без Защиты!",
+	"startdescription": "@#foe.exile|'Похоже, было больно.'#foe.duffoure|'Тихо. Скоро всё закончится.'#foe.camilla|'Вот - этот урок не скоро забудется.'#foe.wilhelm|'Ой? Не умер сразу? <i>Очень</i> впечатляет.'#foe.sergei|'Взывай сколько влезет - Бога здесь нет, <i>только я</i>.'@",
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "edgelong.spitout.wounds",
+		"additional": true
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	]
+    },
+    {
+	"id": "edgelong.contemnant.attackothers",
+	"label": "Вечный Грани атакует!",
+	"startdescription": "@#foe.exile|'Ты — ничто.'#foe.duffoure|'Прочь с дороги.'@",
+	"warmup": 10,
+	"requirements": {
+	    "foe.duffoure": -1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Цель",
+		"required": {
+		    "friend": 1,
+		    "foe": 1,
+		    "neutral": 1
+		},
+		"forbidden": {
+		    "foe.bombers.refuel": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "killfriend": 1,
+	    "killfoe": 1,
+	    "killmortal": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	],
+	"effects": {
+	    "foe.chasseur.reviving": -99
+	}
+    },
+    {
+	"id": "edgelong.seamlesswounds",
+	"label": "Боль и Страх",
+	"startdescription": "",
+	"extantreqs": {
+	    "token.star": 1
+	},
+	"aspects": {
+	    "brilliant": 1
+	}
+    },
+    {
+	"id": "wilhelm.here",
+	"label": "Воевода вмешался!",
+	"startdescription": "'Дорогая,' Воевода сплевывает сквозь стиснутые зубы. 'Опаздывать тебе не к лицу. Тебе придется кое-что объяснить.' Удар приближающегося кулака Воеводы подобен падающей звезде -",
+	"description": "- и два бессмертных сошлись в схватке. Для них больше ничего не существует. Минуту я наблюдаю, восхищенный тем, что кажется прекрасно поставленным танцем двух мастеров, - а затем мне приходится отскочить в сторону. двое Вечных надолго исчезают в шуме битвы.",
+	"tablereqs": {
+	    "friend.wilhelm": 1
+	},
+	"slots": [
+	    {
+		"id": "needswilhelm",
+		"label": "Совраг",
+		"required": {
+		    "friend.wilhelm": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "edgelong": -99,
+	    "blocker.wilhelmandcamilla": 1
+	},
+	"warmup": 60
+    },
+    {
+	"id": "long.arrival.wilhelm.router",
+	"actionid": "long.wilhelm",
+	"label": "Ужасающая сила",
+	"startdescription": "",
+	"requirements": {
+	    "draw.wilhelm": 1
+	},
+	"extantreqs": {
+	    "strife.tracker": 7,
+	    "lake.here": -1,
+	    "long.blocker": -1
+	},
+	"linked": [
+	    {
+		"id": "long.arrival.wilhelm.first"
+	    },
+	    {
+		"id": "long.arrival.wilhelm"
+	    }
+	]
+    },
+    {
+	"id": "long.arrival.wilhelm.first",
+	"actionid": "long.wilhelm",
+	"label": "Ужасающая сила",
+	"startdescription": "Выстрелы становятся громче. Огни на горизонте полыхают все ярче и яростнее. В воздухе стоит вонь керосина и крови, и <i>жара</i> - невыносимая, удушающая жара. Что-то приближается.",
+	"effects": {
+	    "wilhelm.first": 1,
+	    "mission.wilhelm.a": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"maxexecutions": 1,
+	"playAudioTrack": "wilhelmtheme.mp3"
+    },
+    {
+	"id": "long.arrival.wilhelm",
+	"actionid": "long.wilhelm",
+	"label": "Ужасающая сила",
+	"startdescription": "Выстрелы становятся громче. Огни на горизонте полыхают все ярче и яростнее. В воздухе стоит вонь керосина и крови, и <i>жара</i> - невыносимая, удушающая жара. Что-то приближается.",
+	"effects": {
+	    "wilhelm": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"playAudioTrack": "wilhelmtheme.mp3"
+    },
+    {
+	"id": "long.arrival.sergei.router",
+	"actionid": "long.sergei",
+	"label": "Ужасающая сила",
+	"startdescription": "",
+	"requirements": {
+	    "draw.sergei": 1
+	},
+	"extantreqs": {
+	    "strife.tracker": 7,
+	    "lake.here": -1,
+	    "long.blocker": -1
+	},
+	"linked": [
+	    {
+		"id": "long.arrival.sergei.first"
+	    },
+	    {
+		"id": "long.arrival.sergei"
+	    }
+	]
+    },
+    {
+	"id": "long.arrival.sergei.first",
+	"actionid": "long.sergei",
+	"label": "Ужасающая сила",
+	"startdescription": "Ветра ревут, точно крики. Ночные кошмары стали обыденностью. И когда я нахожу время поспать, мне тоже снятся кошмары: стук копыт по земле; алый цвет на снегу; ряды желтых зубов, обнаженных в улыбке.",
+	"effects": {
+	    "sergei.first": 1,
+	    "mission.sergei.a": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"maxexecutions": 1,
+	"playAudioTrack": "sergeitheme.mp3"
+    },
+    {
+	"id": "long.arrival.sergei",
+	"actionid": "long.sergei",
+	"label": "Ужасающая сила",
+	"startdescription": "Ветра ревут, точно крики. Ночные кошмары стали обыденностью. И когда я нахожу время поспать, мне тоже снятся кошмары: стук копыт по земле; алый цвет на снегу; ряды желтых зубов, обнаженных в улыбке.",
+	"effects": {
+	    "sergei": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"playAudioTrack": "sergeitheme.mp3"
+    },
+    {
+	"id": "edgelong.prep.attack",
+	"label": "Вечный Грани Атакует!",
+	"linked": [
+	    {
+		"id": "edgelong.sergei.attack.allies",
+		"chance": 50
+	    },
+	    {
+		"id": "edgelong.attack.allies",
+		"chance": 50
+	    },
+	    {
+		"id": "edgelong.attack.you"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.attack.allies",
+	"label": "Вечный Грани Атакует!",
+	"startdescription": "@#foe.wilhelm|'Хах! Больше! День не закончен, пока я не буду стоять по пояс в трупах!'#foe.sergei|'Грррр. Больше мертвых.'@",
+	"warmup": 10,
+	"tablereqs": {
+	    "friend": 1
+	},
+	"slots": [
+	    {
+		"id": "needsallies",
+		"label": "Союзник",
+		"required": {
+		    "friend": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "killmortal": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    }
+	]
+    },
+    {
+	"id": "edgelong.sergei.attack.allies",
+	"label": "Вечный Грани Атакует!",
+	"startdescription": "@#foe.sergei|'Грррр. Больше мертвых.'@",
+	"warmup": 10,
+	"requirements": {
+	    "foe.sergei": 1
+	},
+	"tablereqs": {
+	    "friend": 1
+	},
+	"slots": [
+	    {
+		"id": "needsallies",
+		"label": "Цель",
+		"required": {
+		    "friend": 1,
+		    "foe": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+	    "killfriend": 1,
+	    "killfoe": 1,
+	    "killmortal": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    }
+	]
+    },
+    {
+	"id": "edgelong.expel",
+	"label": "Вечный Грани Атакует!",
+	"aspects": {
+	    "killfriend": 1,
+	    "killfoe": 1,
+	    "killmortal": 1
+	},
+	"alt": [
+	    {
+		"id": "expel.insight",
+		"additional": true,
+		"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"lore": 1
+		    }
+		}
+	    },
+	    {
+		"id": "expel.skill.deflect",
+		"additional": true,
+		"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"skill.deflect": 1,
+			"skill.deflect.exhausted": 1
+		    }
+		}
+	    },
+	    {
+		"id": "expel.dead",
+		"additional": true,
+		"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"remnant": 1,
+			"moth": 1,
+			"lantern": 1,
+			"forge": 1,
+			"edge": 1,
+			"winter": 1,
+			"heart": 1,
+			"grail": 1,
+			"knock": 1
+		    }
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	]
+    },
+    {
+	"id": "expel.dead",
+	"actionid": "fatality",
+	"label": "Аннигилирован!",
+	"startdescription": "Стерты в порошок Вечным Грани — без шансов.",
+	"warmup": 10,
+	"requirements": {
+	    "remnant": 1
+	}
+    },
+    {
+	"id": "expel.insight",
+	"actionid": "spit.moth",
+	"label": "Тайное Оружие",
+	"startdescription": "Сталеглот в шоке отшатывается от увиденного. Я буду держаться за этот осколок недоброго откровения-",
+	"warmup": 10,
+	"requirements": {
+	    "insight.sergei": 1
+	}
+    },
+    {
+	"id": "expel.skill.deflect",
+	"actionid": "spit.moth",
+	"label": "Истощение!",
+	"startdescription": "Этот прием уже использовался против своего противника, и мне потребуется время для передышки-",
+	"warmup": 10,
+	"requirements": {
+	    "skill.deflect.exhausted": 1
+	}
+    },
+    {
+	"id": "edgelong.attack.you",
+	"label": "Вечный Грани Атакует!",
+	"startdescription": "@#foe.wilhelm|'Ты! Хруст твоих костей станет прекрасной разминкой перед <i>настоящей</i> битвой.'#foe.sergei|'Я разорву тебя на части, солдатик.'@\n\n[Чтобы защититься, найдите союзника, который встанет между вами и атакой Вечного Грани. Это убьет союзника.]",
+	"warmup": 30,
+	"slots": [
+	    {
+		"id": "needsallies",
+		"label": "Fodder?",
+		"required": {
+		    "friend": 1,
+		    "legacyplotitem": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "edgelong.attack.you.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "sergei.usedinsight"
+	    },
+	    {
+		"id": "longdefend.skill.deflect"
+	    },
+	    {
+		"id": "edgelong.attack.you.defense"
+	    }
+	]
+    },
+    {
+	"id": "sergei.usedinsight",
+	"label": "Осколок Жестокой Реальности",
+	"startdescription": "Сталеглот тянет поводья, заслышав что я сказал. Его рука останавливается. Он сжимает челюсти. Затем он сплевывает проклятие в мою сторону и уезжает в другом направлении, убивать и грабить в другом месте, где ему не придется снова слышать имя 'Казимир'.",
+	"requirements": {
+	    "insight.sergei": 1
+	},
+	"linked": [
+	    {
+		"id": "sergei.retreats"
+	    },
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "edgelong",
+		"mutate": "afraid",
+		"level": 1,
+		"additive": true
+	    }
+	]
+    },
+    {
+	"id": "longdefend.skill.deflect",
+	"label": "Непревзойденная Защита",
+	"startdescription": "Меридианы моей души сходятся с меридианами моей плоти. Мои шрамы защитят меня. Меня не ранить.",
+	"requirements": {
+	    "skill.deflect": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+	    }
+	],
+    },
+    {
+	"id": "edgelong.attack.you.defense",
+	"label": "Брошены в Огонь",
+	"startdescription": "@#foe.wilhelm|'Вот как ты поступаешь? Используешь своих братьев как щит? Убегаешь? <i>Отвратительно.'</i>#foe.sergei|'Спасайся, маленький солдатик! Беги! Расскажи своим товарищам, как я заставил их молить перед кончиной!'@",
+	"requirements": {
+	    "friend": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"aspects": {
+	    "killmortal": 1,
+	    "killfriend": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.expel",
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    }
+	]
+    },
+    {
+	"id": "edgelong.attack.you.nodefense",
+	"label": "Без Защиты!",
+	"startdescription": "@#foe.wilhelm|'Ой? Не умер сразу? <i>Очень</i> впечатляет.'#foe.sergei|'Взывай сколько влезет - Бога здесь нет, <i>только я</i>.'@",
+	"linked": [
+	    {
+		"id": "edgelong.cycle"
+	    }
+	],
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "edgelong.spitout.wounds",
+		"additional": true
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    }
+	]
+    },
+    {
+	"id": "sergei.retreats",
+	"label": "Сталеглот Отступает!",
+	"startdescription": "Сталеглот поднимает своего коня на дыбы - и сворачивает с поля боя! Он скачет быстрым галопом, опустив голову.",
+	"description": "Я думаю, мы еще долго его не увидим.",
+	"requirements": {
+	    "afraid": 3
+	},
+	"effects": {
+	    "sergei": -99,
+	    "wasteland.ironeater": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "edgelong.spitout.wounds",
+	"actionid": "edgelong.wounds",
+	"label": "Боль и Ужас",
+	"startdescription": "Неужели это то, к чему все сведется? Это будет ударом, что положит мне конец?",
+	"requirements": {
+	    "winter": -8
+	},
+	"deckeffects": {
+	    "mywounds": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.givewound.fifth"
+	    },
+	    {
+		"id": "edgelong.givewound.ear"
+	    },
+	    {
+		"id": "edgelong.givewound.eye"
+	    },
+	    {
+		"id": "edgelong.givewound.hand"
+	    },
+	    {
+		"id": "edgelong.givewound.leg"
+	    },
+	    {
+		"id": "edgelong.givewound.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "edgelong.spitout.wounds.again",
+	"actionid": "edgelong.wounds",
+	"label": "Боль и Ужас",
+	"startdescription": "Неужели это то, к чему все сведется? Это будет ударом, что положит мне конец?",
+	"requirements": {
+	    "winter": -8
+	},
+	"deckeffects": {
+	    "mywounds": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.givewound.fifth"
+	    },
+	    {
+		"id": "edgelong.givewound.ear"
+	    },
+	    {
+		"id": "edgelong.givewound.eye"
+	    },
+	    {
+		"id": "edgelong.givewound.hand"
+	    },
+	    {
+		"id": "edgelong.givewound.leg"
+	    },
+	    {
+		"id": "edgelong.givewound.clear"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.fifth",
+	"label": "Боль и Ужас",
+	"startdescription": "Неужели это то, к чему все сведется? Это будет ударом, что положит мне конец?",
+	"extantreqs": {
+	    "damage.body": 4
+	},
+	"internaldeck": {
+	    "spec": [
+		"wound.eye",
+		"wound.ear",
+		"wound.hand",
+		"wound.leg"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true,
+	    "defaultcard": "wound.eye"
+	},
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds.again"
+	    },
+	    {
+		"id": "edgelong.turnwounds"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.ear",
+	"label": "Боль и Ужас",
+	"startdescription": "Неужели это то, к чему все сведется? Это будет ударом, что положит мне конец?",
+	"extantreqs": {
+	    "wound.ear": -1,
+	    "debilitation.ear": -1,
+	    "debilitation.ear.colonel": -1,
+	    "debilitation.ear.colonel.exhausted": -1
+	},
+	"requirements": {
+	    "draw.ear": 1
+	},
+	"effects": {
+	    "wound.ear": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds.again"
+	    },
+	    {
+		"id": "edgelong.turnwounds"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.eye",
+	"label": "Боль и Ужас",
+	"startdescription": "Неужели это то, к чему все сведется? Это будет ударом, что положит мне конец?",
+	"extantreqs": {
+	    "wound.eye": -1,
+	    "debilitation.eye": -1,
+	    "debilitation.eye.colonel": -1,
+	    "debilitation.eye.colonel.exhausted": -1
+	},
+	"requirements": {
+	    "draw.eye": 1
+	},
+	"effects": {
+	    "wound.eye": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds.again"
+	    },
+	    {
+		"id": "edgelong.turnwounds"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.hand",
+	"label": "Боль и Ужас",
+	"startdescription": "Неужели это то, к чему все сведется? Это будет ударом, что положит мне конец?",
+	"extantreqs": {
+	    "wound.hand": -1,
+	    "debilitation.hand": -1,
+	    "debilitation.hand.colonel": -1,
+	    "debilitation.hand.colonel.exhausted": -1
+	},
+	"requirements": {
+	    "draw.hand": 1
+	},
+	"effects": {
+	    "wound.hand": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds.again"
+	    },
+	    {
+		"id": "edgelong.turnwounds"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.leg",
+	"label": "Боль и Ужас",
+	"startdescription": "Неужели это то, к чему все сведется? Это будет ударом, что положит мне конец?",
+	"extantreqs": {
+	    "wound.leg": -1,
+	    "debilitation.leg": -1,
+	    "debilitation.leg.colonel": -1,
+	    "debilitation.leg.colonel.exhausted": -1
+	},
+	"requirements": {
+	    "draw.leg": 1
+	},
+	"effects": {
+	    "wound.leg": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.spitout.wounds.again"
+	    },
+	    {
+		"id": "edgelong.turnwounds"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.clear",
+	"label": "Боль и Ужас",
+	"startdescription": "Неужели это то, к чему все сведется? Это будет ударом, что положит мне конец?",
+	"effects": {
+	    "draw.ear": -1,
+	    "draw.eye": -1,
+	    "draw.leg": -1,
+	    "draw.hand": -1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.givewound.drawagain"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.givewound.drawagain",
+	"label": "Боль и Ужас",
+	"startdescription": "Неужели это то, к чему все сведется? Это будет ударом, что положит мне конец?",
+	"deckeffects": {
+	    "mywounds": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.givewound.ear"
+	    },
+	    {
+		"id": "edgelong.givewound.eye"
+	    },
+	    {
+		"id": "edgelong.givewound.hand"
+	    },
+	    {
+		"id": "edgelong.givewound.leg"
+	    },
+	    {
+		"id": "edgelong.givewound.clear"
+	    }
+	]
+    },
+    {
+	"id": "edgelong.turnwounds",
+	"label": "Боль и Ужас",
+	"startdescription": "Неужели это то, к чему все сведется? Это будет ударом, что положит мне конец?",
+	"extantreqs": {
+	    "foe.sergei": 1
+	},
+	"aspects": {
+	    "malign": 1
+	}
+    },
+    {
+	"id": "camilla.here",
+	"label": "Континенталь Вмешалась!",
+	"startdescription": "'Вильгельм, не трать моё время, слоняясь без дела. Ты же знаешь, как сильно я ценю пунктуальность.' Яркая вспышка рапиры Континенталь подобна удару молнии-",
+	"description": "-и два бессмертных сошлись в схватке. Весь остальной мир для них исчез. Я с минуту наблюдаю, пораженный тем, что кажется прекрасно поставленным танцем двух мастеров, - а потом мне приходится нырнуть в сторону. Эти двое надолго исчезают в грохоте битвы.",
+	"tablereqs": {
+	    "friend.camilla": 1
+	},
+	"slots": [
+	    {
+		"id": "needscamilla",
+		"label": "Совражество",
+		"required": {
+		    "friend.camilla": 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects": {
+	    "edgelong": -99,
+	    "blocker.wilhelmandcamilla": 1
+	},
+	"warmup": 60
+    }
+]
+}

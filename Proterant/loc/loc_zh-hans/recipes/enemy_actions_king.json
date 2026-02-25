@@ -1,0 +1,676 @@
+{
+"recipes": [
+    {
+	"id": "king.cycle",
+	"actionid": "action.king",
+	"label": "新王的军队等待时机",
+	"startdescription": "光洁的军靴与无瑕的步枪于太阳之下行进。新王的军队即将采取行动。",
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "king.pickaction.router",
+		"chance": 40
+	    },
+	    {
+		"id": "king.cycle.afraid_create"
+	    },
+	    {
+		"id": "king.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "king.reinforcements",
+		"additional": true,
+		"chance": 50
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "king.reinforcements",
+	"actionid": "reinforcements.king",
+	"label": "新王的人马",
+	"startdescription": "当黎明到来，我们发现更多的新王军队前来支援此地。真是麻烦。",
+	"extantreqs": {
+	    "faction.king": -6,
+	    "corpse.jerome": -1
+	},
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"foe.riflemen",
+		"foe.riflemen",
+		"foe.riflemen",
+		"foe.riflemen",
+		"foe.riflemen",
+		"foe.phlogisticant",
+		"foe.phlogisticant",
+		"foe.phlogisticant",
+		"foe.engine",
+		"foe.engine",
+		"foe.engine"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "king.cycle.afraid_create",
+	"label": "恐惧即我",
+	"startdescription": "当雄狮怒吼时，其它一切生物均在恐惧中低伏，只因它们理解了百兽之王已君临于此。于此，我即为雄狮，他们的灵魂则为我的猎物。[敌人不会攻击你或是干涉你完成目标的尝试。]",
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"effects": {
+	    "signaller_afraid_king": 1
+	},
+	"linked": [
+	    {
+		"id": "king.cycle.afraid_continue"
+	    },
+	    {
+		"id": "king.cycle.afraid_end"
+	    }
+	]
+    },
+    {
+	"id": "king.cycle.afraid_continue",
+	"label": "恐惧即我",
+	"startdescription": "当雄狮怒吼时，其它一切生物均在恐惧中低伏，只因它们理解了百兽之王已君临于此。于此，我即为雄狮，他们的灵魂则为我的猎物。[敌人不会攻击你或是干涉你完成目标的尝试。]",
+	"warmup": 30,
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"linked": [
+	    {
+		"id": "king.cycle.afraid_continue"
+	    },
+	    {
+		"id": "king.cycle.afraid_end"
+	    }
+	]
+    },
+    {
+	"id": "king.cycle.afraid_end",
+	"label": "恐惧即我",
+	"startdescription": "当雄狮怒吼时，其它一切生物均在恐惧中低伏，只因它们理解了百兽之王已君临于此。于此，我即为雄狮，他们的灵魂则为我的猎物。[敌人不会攻击你或是干涉你完成目标的尝试。]",
+	"effects": {
+	    "signaller_afraid_king": -99
+	},
+	"linked": [
+	    {
+		"id": "king.cycle"
+	    }
+	]
+    },
+    {
+	"id": "king.pickaction.router",
+	"label": "新王的军队行动了！",
+	"startdescription": "警报响起——我们的敌人开始行动了！",
+	"extantreqs": {
+	    "skill.intimidate.active": -1
+	},
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"alt": [
+	    {
+		"id": "jerome.attack.startup",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "king.singleattack.startup",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "king.clear"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "king.clear",
+	"label": "新王的军队行动了！",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "king.cycle"
+	    }
+	]
+    },
+    {
+	"id": "king.singleattack.startup",
+	"actionid": "attack.king",
+	"label": "一次敌袭！",
+	"startdescription": "我们的敌人之一寻求对我们的袭击——",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌军",
+		"required": {
+		    "faction.king": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqjerome": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "found.riflemen"
+	    },
+	    {
+		"id": "found.otherkingenemy"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "found.riflemen",
+	"label": "一次敌袭！",
+	"startdescription": "这一敌军与其同伴步调一致地移动——",
+	"requirements": {
+	    "foe.coordinated": 1,
+	    "foe.riflemen": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌军",
+		"required": {
+		    "foe.riflemen": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqjerome": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "target.legion",
+		"chance": 40
+	    },
+	    {
+		"id": "king.defend.opportunity.pre"
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "found.otherkingenemy",
+	"label": "一次敌袭！",
+	"startdescription": "我们的敌人之一寻求对我们的袭击——",
+	"requirements": {
+	    "faction.king": 1
+	},
+	"linked": [
+	    {
+		"id": "target.legion",
+		"chance": 40
+	    },
+	    {
+		"id": "king.defend.opportunity.pre"
+	    }
+	]
+    },
+    {
+	"id": "target.legion",
+	"label": "针对门关军团？",
+	"startdescription": "我们全部都在争夺那颗星——这意味着我们三方势力相互之间均为敌对。而这一次，新王的军队选择了另一方作为目标。",
+	"tablereqs": {
+	    "faction.legion": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌军",
+		"required": {
+		    "faction.legion": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqlionel": 1,
+		    "foe.malkin": 1,
+		    "foe.malkin.hidden": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "target.legion.defeat",
+		"chance": 35
+	    },
+	    {
+		"id": "target.legion.victory"
+	    }
+	]
+    },
+    {
+	"id": "target.legion.defeat",
+	"label": "新王的军队并未获胜",
+	"startdescription": "僵局——一次断续的进攻。军团仍盘踞于那里；英国人则以最小的损失从交战中撤退。参战人员后退，而后消失。",
+    },
+    {
+	"id": "target.legion.victory",
+	"label": "新王的军队获胜了！",
+	"startdescription": "当枪火声散去，战场上满地都是死去的军团士兵。新王的军队踏过战场，踏过死去的军团士兵。他们继续推进。",
+	"aspects": {
+	    "killlegion": 1
+	}
+    },
+    {
+	"id": "king.defend.opportunity.pre",
+	"label": "一次敌袭！",
+	"startdescription": "",
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "defend.opportunity"
+	    }
+	]
+    },
+    {
+	"id": "jerome.attack.startup",
+	"actionid": "attack.jerome",
+	"label": "指挥官行动了！",
+	"startdescription": "“退下。我代表新王来此。”",
+	"tablereqs": {
+	    "uqjerome": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"slots": [
+	    {
+		"id": "needsjerome",
+		"label": "敌军",
+		"required": {
+		    "uqjerome": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"internaldeck": {
+	    "spec": [
+		"decision.enemy.doubleattack",
+		"decision.enemy.doubleattack",
+		"decision.enemy.attack",
+		"decision.enemy.reinforcements"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "jerome.physicalattack"
+	    },
+	    {
+		"id": "jerome.dreamattack.pre"
+	    },
+	    {
+		"id": "jerome.orderguard"
+	    }
+	]
+    },
+    {
+	"id": "jerome.physicalattack",
+	"label": "无情突袭！",
+	"startdescription": "“我最近并不需要劳烦自己上战场。但偶尔一名士兵会认为有必要亲自动手杀敌。而我仍<i>十分</i>擅长此事。”\n\n[杰罗姆尝试对你和你的友军造成物理伤害。放入一张卡牌并达到他的任一阈值以成功防御。]",
+	"requirements": {
+	    "decision.enemy.attack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "防御",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "defend.edge"
+	    },
+	    {
+		"id": "defend.edgelantern"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "jerome.dreamattack.pre",
+	"label": "不可视之剑",
+	"startdescription": "",
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": -14
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": -8
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 6
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 6
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 6
+	    }
+	],
+	"linked": [
+	    {
+		"id": "jerome.dreamattack"
+	    }
+	]
+    },
+    {
+	"id": "jerome.dreamattack",
+	"label": "不可视之剑",
+	"startdescription": "在漫宿之内，杰罗姆的手中有着一束可怖、尖锐的光。即便闭上眼，我也能看到它发出的光。而它正越来越近。\n\n[杰罗姆尝试对你造成精神创伤。放入一张卡牌并达到他的任一阈值以成功防御。]",
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "防御",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "friend": 1,
+		    "weapon": 1,
+		    "tool": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "jerome.dreamattack.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "dreamattack.defend.lantern"
+	    },
+	    {
+		"id": "dreamattack.defend.heart"
+	    },
+	    {
+		"id": "dreamattack.defend.moth"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "jerome.dreamattack.nodefense",
+	"label": "不可视之剑",
+	"startdescription": "我的神智沸腾；感官吞噬彼此。我发现我的手中满是我的头发。而我的口中还残留着燃烧臭氧的味道。光——有太多的光。察觉即为死亡。",
+	"effects": {
+	    "trauma": 1
+	},
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "dreamattack.defend.lantern",
+	"label": "唤起守护，抵御光芒",
+	"startdescription": "光芒退去。我的灵魂得到守护。",
+	"requirements": {
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "dreamattack.defend.heart",
+	"label": "唤起守护，抵御光芒",
+	"startdescription": "光芒退去。我的灵魂得到守护。",
+	"requirements": {
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "dreamattack.defend.moth",
+	"label": "唤起守护，抵御光芒",
+	"startdescription": "光芒退去。我的灵魂得到守护。",
+	"requirements": {
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"alt": [
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedge",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsedgelantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needslantern",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsheart",
+		"level": 0
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "needsmoth",
+		"level": 0
+	    }
+	]
+    },
+    {
+	"id": "jerome.orderguard",
+	"label": "炮灰上前",
+	"startdescription": "“快点找到那东西，快！你们的国家——你们的<i>王</i>要求你们成功！”\n\n[杰罗姆能够指示其他敌军保护他，使他在这些护卫被击杀前无法被攻击。]",
+	"requirements": {
+	    "decision.enemy.reinforcements": 1
+	},
+	"slots": [
+	    {
+		"id": "needsking",
+		"label": "敌军",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsking2",
+		"label": "敌军",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "faction.king",
+		"mutate": "foe.guardjerome",
+		"level": 1
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "foe.guardjerome",
+		"level": 0
+	    }
+	],
+	"warmup": 15
+    }
+]
+}

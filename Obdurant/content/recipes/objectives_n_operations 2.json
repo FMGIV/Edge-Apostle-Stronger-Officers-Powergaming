@@ -1,0 +1,4476 @@
+{
+"recipes": [
+    {
+	"id": "start.objective.main.already.hint",
+	"actionid": "operate",
+	"label": "Spread Too Thin",
+	"startdescription": "I already have my men working to secure a Main Objective at our Current Warzone. It would not be wise to dilute my strategic focus now.",
+	"grandReqs": { 
+	    "[~/extant:main.marker]=1": 1
+	},
+	"requirements": {
+	    "main": 1,
+	    "provisions": 3
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "operate.start.main",
+	"actionid": "operate",
+	"label": "Pursue a Main Objective",
+	"startdescription": "Men, weaponry, willpower - these will carry the day. Let us hope I have enough of each.",
+	"extantreqs": {
+	    "main.marker": -1
+	},
+	"requirements": {
+	    "main": 1,
+	    "provisions": 3
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "objective.main.mark",
+		"additional": true,
+		"expulsion": {
+		    "limit": 4,
+		    "filter": {
+			"main": 1,
+			"moth": 1,
+			"lantern": 1,
+			"forge": 1,
+			"edge": 1,
+			"winter": 1,
+			"heart": 1,
+			"grail": 1,
+			"knock": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "start.objective.side.threealready.hint",
+	"actionid": "operate",
+	"label": "Spread Too Thin",
+	"startdescription": "I already have my men working to secure three Secondary Objectives at our Current Warzone. It would not be wise to make plans for a fourth.",
+	"grandReqs": { 
+	    "[~/extant:side.marker]=3": 1 
+	},
+	"requirements": {
+	    "side": 1,
+	    "provisions": 2
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "start.objective.side.3",
+	"actionid": "operate",
+	"label": "Pursue yet another Secondary Objective",
+	"startdescription": "I already have my men pursuing two other secondary objectives, but if I have the manpower to spare, I could order third be put into motion. Any more may spread us too thin.",
+	"grandReqs": { 
+	    "[~/extant:side.marker]=2": 1
+	},
+	"requirements": {
+	    "side": 1,
+	    "provisions": 2
+	},
+	"craftable": true,
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "objective.side.mark.3",
+	 	"additional": true,
+		"expulsion": {
+		    "filter": {
+		 	"main": 1,
+			"side": 1,
+			"edge": 1,
+			"winter": 1,
+			"heart": 1,
+			"grail": 1,
+			"moth": 1,
+			"lantern": 1,
+			"forge": 1,
+			"knock": 1
+		    },
+		    "limit": 4
+		}
+	    }
+	]
+    },
+    {
+	"id": "start.objective.side.2",
+	"actionid": "operate",
+	"label": "Pursue another Secondary Objective",
+	"startdescription": "I already have my men pursuing another secondary objective, but if I have the manpower to spare, I could order second be put into motion.",
+	"grandReqs": { 
+	    "[~/extant:side.marker]=1": 1
+	},
+	"requirements": {
+	    "side": 1,
+	    "provisions": 2
+	},
+	"craftable": true,
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "objective.side.mark.2",
+	 	"additional": true,
+		"expulsion": {
+		    "filter": {
+		 	"main": 1,
+			"side": 1,
+			"edge": 1,
+			"winter": 1,
+			"heart": 1,
+			"grail": 1,
+			"moth": 1,
+			"lantern": 1,
+			"forge": 1,
+			"knock": 1
+		    },
+		    "limit": 4
+		}
+	    }
+	]
+    },
+    {
+	"id": "start.objective.side",
+	"actionid": "operate",
+	"label": "Pursue a Secondary Objective",
+	"startdescription": "My preparations and strategies are laid accordingly. Here we will strive after an advantage.",
+	"requirements": {
+	    "side": 1,
+	    "provisions": 2
+	},
+	"extantreqs": {
+	    "side.marker": -1
+	},
+	"craftable": true,
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "objective.side.mark",
+	 	"additional": true,
+		"expulsion": {
+		    "filter": {
+		 	"main": 1,
+			"side": 1,
+			"edge": 1,
+			"winter": 1,
+			"heart": 1,
+			"grail": 1,
+			"moth": 1,
+			"lantern": 1,
+			"forge": 1,
+			"knock": 1
+		    },
+		    "limit": 4
+		}
+	    }
+	]
+    },
+    {
+	"id": "objective.side.mark.3",
+	"actionid": "side",
+	"label": "Out into the Field",
+	"startdescription": "Into the fray. Our goal lies ahead.\n\n[You must accumulate three Progress to complete an Objective, but Enemies and Hindrances on the board may create further difficulties. Failure to take an Objective will have its cost in lives and morale.]",
+	"effects": {
+	    "side.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "side.startup"
+	    }
+	]
+    },
+    {
+	"id": "objective.side.mark.2",
+	"actionid": "side",
+	"label": "Out into the Field",
+	"startdescription": "Into the fray. Our goal lies ahead.\n\n[You must accumulate three Progress to complete an Objective, but Enemies and Hindrances on the board may create further difficulties. Failure to take an Objective will have its cost in lives and morale.]",
+	"effects": {
+	    "side.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "side.startup"
+	    }
+	]
+    },
+    {
+	"id": "objective.side.mark",
+	"actionid": "side",
+	"label": "Out into the Field",
+	"startdescription": "Into the fray. Our goal lies ahead.\n\n[You must accumulate three Progress to complete an Objective, but Enemies and Hindrances on the board may create further difficulties. Failure to take an Objective will have its cost in lives and morale.]",
+	"effects": {
+	    "side.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "side.startup"
+	    }
+	]
+    },
+    {
+	"id": "objective.main.mark",
+	"actionid": "main",
+	"label": "On the Eve of Battle...",
+	"startdescription": "Now comes the time in which we will be tested.\n\n[You must accumulate three Progress to complete an Objective, but Enemies and Hindrances on the board may create further difficulties. Failure to take an Objective will have its cost in lives and morale.]",
+	"effects": {
+	    "main.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "main.startup"
+	    }
+	]
+    },
+    {
+	"id": "main.startup",
+	"actionid": "main",
+	"label": "On the Eve of Battle...",
+	"startdescription": "Now comes the time in which we will be tested.\n\n[You must accumulate three Progress to complete an Objective, but Enemies and Hindrances on the board may create further difficulties. Failure to take an Objective will have its cost in lives and morale.]",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	]
+    },
+    {
+	"id": "side.startup",
+	"label": "Out into the Field",
+	"startdescription": "Into the fray. Our goal lies ahead.\n\n[You must accumulate three Progress to complete an Objective, but Enemies and Hindrances on the board may create further difficulties. Failure to take an Objective will have its cost in lives and morale.]",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional.afraid",
+	"label": "A Changing Battlefield?",
+	"startdescription": "Fierce weather, patrolling hostiles, things from beyond the veil - the circumstances of battle can change in an instant.\n\n[Before every obstacle on an Objective, there will be a check to determine if any Enemies or Complications are on the board. If one is found, it will become an additional obstacle on the Objective.]",
+	"requirements": {
+	    "main": 1
+	},
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Complications?",
+		"required": {
+		    "hindrance": 1
+		},
+		"forbidden": {
+		    "foe.rankofficer": 1,
+		    "uqbrood": 1,
+		    "foe.exile": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "detectadditional.success.foe"
+	    },
+	    {
+		"id": "detectadditional.success.hindrance"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional",
+	"label": "A Changing Battlefield?",
+	"startdescription": "Fierce weather, patrolling hostiles, things from beyond the veil - the circumstances of battle can change in an instant.\n\n[Before every obstacle on an Objective, there will be a check to determine if any Enemies or Complications are on the board. If one is found, it will become an additional obstacle on the Objective.]",
+	"requirements": {
+	    "main": 1
+	},
+	"extantreqs": {
+	    "skill.intimidate.active": -1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Complications?",
+		"required": {
+		    "foe": 1,
+		    "hindrance": 1
+		},
+		"forbidden": {
+		    "foe.rankofficer": 1,
+		    "uqbrood": 1,
+		    "foe.exile": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "detectadditional.success.foe"
+	    },
+	    {
+		"id": "detectadditional.success.hindrance"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional.side.afraid",
+	"label": "A Changing Battlefield?",
+	"startdescription": "Fierce weather, patrolling hostiles, things from beyond the veil - the circumstances of battle can change in an instant.\n\n[Before every obstacle on an Objective, there will be a check to determine if any Enemies or Complications are on the board. If one is found, it will become an additional obstacle on the Objective.]",
+	"requirements": {
+	    "side": 1
+	},
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Complications?",
+		"required": {
+		    "hindrance": 1
+		},
+		"forbidden": {
+		    "foe.rankofficer": 1,
+		    "uqbrood": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "detectadditional.success.foe"
+	    },
+	    {
+		"id": "detectadditional.success.hindrance"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional.side",
+	"label": "A Changing Battlefield?",
+	"startdescription": "Fierce weather, patrolling hostiles, things from beyond the veil - the circumstances of battle can change in an instant.\n\n[Before every obstacle on an Objective, there will be a check to determine if any Enemies or Complications are on the board. If one is found, it will become an additional obstacle on the Objective.]",
+	"requirements": {
+	    "side": 1
+	},
+	"extantreqs": {
+	    "skill.intimidate.active": -1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Complications?",
+		"required": {
+		    "foe": 1,
+		    "hindrance": 1
+		},
+		"forbidden": {
+		    "foe.rankofficer": 1,
+		    "uqbrood": 1,
+		    "foe.exile": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "detectadditional.success.foe"
+	    },
+	    {
+		"id": "detectadditional.success.hindrance"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional.success.foe",
+	"label": "Threats Unforeseen!",
+	"startdescription": "Something new attempts to stymie our advance -",
+	"requirements": {
+	    "foe": 1
+	},
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"linked": [
+	    {
+		"id": "detectadditional.success.makeadditional"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional.success.hindrance",
+	"label": "Threats Unforeseen!",
+	"startdescription": "Something new attempts to stymie our advance -",
+	"requirements": {
+	    "hindrance": 1
+	},
+	"linked": [
+	    {
+		"id": "encounteradditional"
+	    }
+	]
+    },
+    {
+	"id": "detectadditional.success.makeadditional",
+	"label": "Threats Unforeseen!",
+	"startdescription": "Something new attempts to stymie our advance -",
+	"aspects": {
+	    "makeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "encounteradditional"
+	    }
+	]
+    },
+    {
+	"id": "encounteradditional",
+	"label": "Adversity",
+	"startdescription": "@#foe.campguard|I remember them well: how they cracked our ribs and pointed their rifles and laughed when we yelped like beaten dogs. Men only following orders.#foe.watchdog|<i>Deutscher Schäferhund.</i> These beasts became fashionable in the Reich for how closely they resembled wolves, and they were fashionable at Sobibor, too, for how quickly they could rip a man apart for an officer's amusement.#foe.searchlight|They say mercy is only found in shadow. This glare from above let me understand that truth firsthand.#foe.starvation|Now and then, in my hunger, I would dream of the Red Cup, and I would listen to it laugh at me.#foe.cold|Sometimes, it got so cold there that the mind would fool itself into thinking it was warm outside. But we all knew there was only one season at Sobibor, and it was Winter.#foe.grame|If wolf-splinters are the soul's despair outpacing its light, and wrakes the agonies that consume the spirit, then wolf-grames are the simmering, festering rage of the unavenged and unanswered. I must be host to dozens.#foe.shade|'Are you not tired? Come, come. Walk with us on the road that knows no sun nor moon; no pain nor grief; no here nor there. Come, and there will be no more.'#hindrance.exilevoice|Rich like wine and cold as winter and as dead as bone. Laughter so cruel it could slip between the ribs like a knife-blade and twist in the guts. No sound fills me with more dread.#hindrance.exiletouch|Beatings, burnings; the pulling of nails and the peeling of skin. And there were things worse still the Exile would inflict on my body, and inflict with ecstasy.#hindrance.exiledesign|Night after night they would wax poetic of what they intended for me. All the pains inflicted and secrets whispered would hone me into something awful. I fear that - becoming the Exile’s perfect, awful instrument. But should I?#aggro.bombers|It is rare, these days, to see a Russian craft in the sky - the <i>Luftwaffe</i> clipped the Union's wings so early on in the war - but here and there remain a few red birds that still fly.#aggro.artillery|For when the Red Army must absolutely, positively obliterate a target. Don't stand in the firing zone.#aggro.tanks|The Union produces these machines at a furious pace. A few more months of hard service might finally retire these ones, but their replacements are no doubt already rolling to the front.#aggro.godbuilder|A cadre of commissars-ithast - 'god-builders' - leads this infantry detachment, stoking glorious fires in the weapons and flesh of their men.#aggro.infantry|The Soviet infantryman: cold-bitten, under-equipped, bound for death. He is a droplet in a wave that will smash the Eastern Front and drown the cities of the Reich.#aggro.sniper|A Russian sharpshooter waiting in the wings, coolly anticipating his next target.#aggro.scouts|Lookouts; pathfinders; forward troops for the Russian Army, guiding the Soviet counter-advance to Berlin.#foe.wrake|Some agonies are so intense that they can outlive the body that suffered them - and without a vessel, this wandering excruciation will hasten to find a new home. You don't want it to be you.#foe.cross|The Carapace Cross fled the world when we took it from them. Why have they come back?#hindrance.colonel|The Colonel's unseeing eyes scour the battlefield today. This power is only the lingering chill of his animosity, but it is enough to freeze screams in the throat and silence even the boldest man with dread.#foe.skaptodon|Burrowing giants, armed with claws and fangs that part stone like water. When one comes above ground, it is usually to part something else, like men, or tanks, or anything else that might be unlucky enough to come across a skaptodon in battle.#foe.echidniform.airborne|Temptation is a great enemy of honour. Those of the Lionsmith's warriors who submit to the seductions of the Ligeian Echidna lose their honour, but also undergo a great change. In them grow new innovations, new strengths, and most of all, new hungers.#foe.echidniform.grounded|Temptation is a great enemy of honour. Those of the Lionsmith's warriors who submit to the seductions of the Ligeian Echidna lose their honour, but also undergo a great change. In them grow new innovations, new strengths, and most of all, new hungers.#foe.hesukhine|Unusually patient, quiet, and perhaps even 'shy,' hesukhines are the most subtle of the Lionsmith's children. On the hunt, a hesukhine's operating standard is to go unseen - specifically, to go unseen until it is too late.#foe.spathiurus|These have been colloquially referred to as 'fencing lions' by teratologists. Don't try to fence with one, though - the blade-like appendage at the end of its tail can pierce and cut through almost any substance: steel, stone, flesh. Especially flesh.#foe.malkin|The cat and the owl are both holy to the Horned Axe. When the cat attains the wisdom of the owl - when its fur turns grey and its claws grow long and its life longer still - it is said to become one of these. It is only barely in our world, and as such we cannot touch it. But it can most certainly touch us.#foe.warder|High-ranking officers of the Légion du Seuil; keepers of the borders between this world and the Mansus. All of them claim Vak as their birth-tongue; all of them know what words forbid or permit passage.#foe.boundsmen|The quasi-human soldiers of the Légion du Seuil. They have been trained to move upright and speak in the tongues of men, but one cannot wholly suppress the original nature of a thing. Sometimes they will forget to blink. Sometimes they will eat the corpses of the dead.#foe.phlogisticant|Free from its cage of glass and steel, this wicked flame greedily devours all that it touches. The fierceness with which it burns isn't sustainable - but I don't think it much cares.#foe.engine|It looks like some kind of artillery fixture, though parts of its construction seem too complicated for its own good: cylinders of glass, coils of steel, tubes trembling with fire. But what firepower! Where this machine hits the mark, earth becomes glass and flesh becomes light. The King's toys are impressive, if nothing else.#foe.riflemen|Servants of the King on the Isle. Nothing exceptional, other than the fact they seemed to be trained a hair better than your average soldier.#foe.chasseur|Most soldiers give up the fight when they're killed. These ones don't.#hindrance.snows|Frost prohibits the way. Machines may fail, and men may freeze to death.#hindrance.storms|Thunder stalks the lightning through the clouds. Rain pounds like artillery-fire.#hindrance.fog|Sight and mobility are limited. It would be easy to walk into an ambush, or for a nasty fall to go misjudged.#hindrance.forest|Legions of trees stand upright and unmoving in the gloom. No easy road presents itself.#hindrance.fortifications|Minefields, caltrops, steel baricades. We will need to dismantle these defenses, or find a viable path through them.#hindrance.crags|Crags and shell-craters scar the land. Perception and caution will allow us to pass safely; fire and ingenuity will allow us to clear a path through these ruins.#hindrance.earthquake|The earth lies not dead, but sleeping.#hindrance.nocturnal|A shadow on the spirit, a disease of the soul, a knot of petrifying darkness.#hindrance.apollonian|This is the sort of light that scours the soul. Come and see, come and see -#hindrance.dionysian|The wilding-waste, the green-sickness that grows in the forest beneath the world - the Wood! The Wood! The Wood!#hindrance.lionsmith|The Lionsmith's proud brow scrutinizes the battlefield today. This power is only a passing ember of his animosity, but it is enough to ignite fires in the flesh and drive even the bravest man from the field.#hindrance.wolf|The Wolf-Divided walked here. His hatred lingers in the world, much like how the stench of a carcass lingers long after it has been dragged away. Even this mere echo of his enmity is a force that can unmake a man.#hindrance.worms|Here the world's skin is rotted to nothing. Things have crawled in through the wound.#hindrance.unknownlocation|Our goal is somewhere around here, but 'here' is a very broad word. Narrow the search.#hindrance.door|A heavy steel door bars the way. It is almost comforting how normal that is.#hindrance.wreckage|The way forward is blocked by collapsed masonry and rubble. We could blow the path clear with the proper tools, or painstakingly set about clearing what we can by hand.#hindrance.secretdoor|There is no point of ingress visible here, but that does not mean there isn't one here. Teasing it out will call for keen eyes.#hindrance.moonspace|Under the strange moon, up is sometimes down, and forward doesn't always lead ahead. The Meniscate's making trouble for us.#hindrance.greatseal|A dizzying knot of immutable magics prevents entry. We will need a great power of both unseaming and purification to clear the way.#foe.infantry|Man, the weapon.#foe.kommando|Formidable skirmishers and ambush tacticians, trained in tactics that emphasize aggression and manoeuvrability behind enemy lines.#foe.sniper|A skilled marksman, positioned advantageously, can hold back a hundred men. Someone silent or sneaky might be able to close in on him undetected.#foe.tanks|A German tank is a fearsome machine. Facing it head-on would require a serious amount of direct firepower, but specialized munitions may allow us to circumvent an otherwise brutal fight.#foe.bombers|First there is the thrum of the rotors, then the long whistle of the descent, and then the scream of new fire.#foe.artillery|A heavy gun emplacement watched by German engineers and enemy patrols. A brute force assault might work - we could storm the position, destroy the guns. Or a saboteur might leave the engineers a very loud, very forceful surprise.#foe.manhunters|An infantry detachment led by initiates of the fatal arts. Force alone will not suffice here - we must equal whatever adeptry they bring to field with some of our own.#foe.undead|Not all the dead see the end of war. We can banish them with force and weaponry, but the secrets of Winter might offer a way to lay them to rest.#foe.warrior|The Lionsmith's monsters are bound by certain honours. If one disgraces itself by consuming that which they have not slain themselves, he will revoke their strength and intellect. This monster had gotten greedy, and the pains of its degeneration have rendered it half-mad, but even in its death throes it will prove a nasty foe.#foe.serpent|A monstrous serpent, come to glut itself on the battlefield dead. Its crushing strength and dreadful venoms might be overcome in battle, but Knock might offer us a way to placate it.#foe.growth|Corpses touched by a power from Nowhere, set again in the world as a walking, budding disease. Scour it with fire, or with light.#foe.labhite.grounded|The youngest of the Lionsmith's children, and the most beautiful. Labhites are especially fierce on the wing, but one on the ground is no easy foe, either. Its strength is monstrous, and its body glows with candescent heat.#foe.labhite.airborne|The youngest of the Lionsmith's children, and the most beautiful. Labhites are especially fierce on the wing, armed with burning-breath and razor-talons to decimate those unfortunate enough to have drawn their wrath.#foe.splinter|A prowling shard of lean grey malice. No weapons we wield can harm it, but we can send it whimpering back to the Wood with enough light or constancy.#foe.niniame|Protectress-beast of the Unseen Lake and elder sister of the sword-keeper, who bore her away at great cost when the Serpent-Mother demanded her death. She did not always have fangs; she did not always have scales and talons - but she still holds dear her younger sister.#foe.ostlingant|Minor servants of the Aviform Hours, known as secret-carriers and minstrel-deceivers. They do not fly by daylight - nor anywhere in the waking world, for that matter - and their songs are not meant for mortal ears.#foe.voice|'Turn back, turn back...'@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "A Response?",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "encounteradditional.lucky",
+		"chance": 30
+	    },
+	    {
+		"id": "encounteradditional.failure.nonlethal"
+	    },
+	    {
+		"id": "encounteradditional.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "respondadditional.aerial"
+	    },
+	    {
+		"id": "respondadditional.ap"
+	    },
+	    {
+		"id": "respondadditional.edge"
+	    },
+	    {
+		"id": "respondadditional.winter"
+	    },
+	    {
+		"id": "respondadditional.heart"
+	    },
+	    {
+		"id": "respondadditional.grail"
+	    },
+	    {
+		"id": "respondadditional.moth"
+	    },
+	    {
+		"id": "respondadditional.lantern"
+	    },
+	    {
+		"id": "respondadditional.forge"
+	    },
+	    {
+		"id": "respondadditional.knock"
+	    },
+	    {
+		"id": "respondadditional.forgemoth"
+	    },
+	    {
+		"id": "respondadditional.edgelantern"
+	    },
+	    {
+		"id": "respondadditional.edgewinter"
+	    },
+	    {
+		"id": "respondadditional.edgeforge"
+	    },
+	    {
+		"id": "respondadditional.knocklantern"
+	    },
+	    {
+		"id": "respondadditional.forgeheart"
+	    },
+	    {
+		"id": "respondadditional.winterlantern"
+	    },
+	    {
+		"id": "respondadditional.edgeknock"
+	    },
+	    {
+		"id": "respondadditional.edgeheart"
+	    },
+	    {
+		"id": "respondadditional.edgegrail"
+	    },
+	    {
+		"id": "respondadditional.winterheart"
+	    },
+	    {
+		"id": "respondadditional.lanternheart"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "encounteradditional.lucky",
+	"label": "A Good Turn of Fortune",
+	"startdescription": "Somehow, we have prevailed.\n\n[Sometimes, you will overcome an obstacle even when you would normally fail.]",
+	"warmup": 10,
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.aerial",
+	"label": "Death from Above",
+	"startdescription": "Fire and smoke in the clouds. Burning remnants descend from on high like a cluster of comets. For the moment, the skies are ours.",
+	"requirements": {
+	    "foe.aerial": 1,
+	    "friend.aerial": "foe.aerial"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.ap",
+	"label": "Breaking Through",
+	"startdescription": "Like smashing open an egg. This enemy's armour might have protected them for a time, but no more.",
+	"requirements": {
+	    "foe.armoured": 1,
+	    "ap": "foe.armoured"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edge",
+	"label": "Force Prevails",
+	"startdescription": "This will be our strategy: we will break them, and grind them to nothing under our bootheels.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.winter",
+	"label": "Patience Prevails",
+	"startdescription": "Under silence and snow we will come for them. And then it will be too late for anyone.",
+	"requirements": {
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.heart",
+	"label": "Persistence Prevails",
+	"startdescription": "We cannot be stilled. Our march forward is inexorable.",
+	"requirements": {
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.grail",
+	"label": "Appetite Prevails",
+	"startdescription": "Blood has been spilt; blood spills forth. And still we are hungry for more.",
+	"requirements": {
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.moth",
+	"label": "Deception Prevails",
+	"startdescription": "Ordered chaos, I would like to think. Sometimes we must rely on the unpredictable and unorthodox.",
+	"requirements": {
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.lantern",
+	"label": "Glory Prevails",
+	"startdescription": "Here is truth, hard and sharp enough to cut with. The way is illuminated.",
+	"requirements": {
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.forge",
+	"label": "Ingenuity Prevails",
+	"startdescription": "This is sufficient. Fire and machinery and all their clever applications have won us this bout.",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.knock",
+	"label": "Ingress Prevails",
+	"startdescription": "I have heard that a wound is a door - here, then, is a different kind of door. The path forward lies opened.",
+	"requirements": {
+	    "needsknock": 1,
+	    "knock": "needsknock"
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.forgemoth",
+	"label": "Deception and Destruction",
+	"startdescription": "First, shadow. Then, fire.",
+	"requirements": {
+	    "needsforgemoth": 1,
+	    "forge": "needsforgemoth",
+	    "moth": "needsforgemoth",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edgelantern",
+	"label": "The Bright Edge",
+	"startdescription": "When we strike, we ought to strike with clarity and without mercy. The Colonel knew this, as did the Watchman, as did the Sun.",
+	"requirements": {
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edgewinter",
+	"label": "The Anguished Edge",
+	"startdescription": "All battles resolve in death, and until the battle resolves, there is agony. We bring agony, now.",
+	"requirements": {
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edgeforge",
+	"label": "The Shattered Edge",
+	"startdescription": "The shattering of the Lionsmith's sword is a great mystery of both Forge and Edge. We evoke that mystery now, even if we do not know it.",
+	"requirements": {
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.knocklantern",
+	"label": "The Key and the Light",
+	"startdescription": "Sometimes it is not enough to simply open a door; sometimes one must bring about its dissolution.",
+	"requirements": {
+	    "needsknocklantern": 1,
+	    "knock": "needsknocklantern",
+	    "lantern": "needsknocklantern",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.forgeheart",
+	"label": "Our Hearts Burn",
+	"startdescription": "Fire alights in the lungs; purpose seizes the soul. Ours is the will to go on.",
+	"requirements": {
+	    "needsforgeheart": 1,
+	    "forge": "needsforgeheart",
+	    "heart": "needsforgeheart",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.winterlantern",
+	"label": "Light Resolves, Silence Settles",
+	"startdescription": "Cutting clarity and cold dispassion. We won't be denied, not here.",
+	"requirements": {
+	    "needswinterlantern": 1,
+	    "winter": "needswinterlantern",
+	    "lantern": "needswinterlantern",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edgeknock",
+	"label": "The Edge Opens",
+	"startdescription": "The Chilliarch knew of blood and its exits. And with our weapons, we will shape an exit as he did.",
+	"requirements": {
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edgeheart",
+	"label": "Joyous Destruction",
+	"startdescription": "The Thunderskin was flayed; the Thunderskin was destroyed. We move now to destroy our enemy in the manner he was.",
+	"requirements": {
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.edgegrail",
+	"label": "A Feast, a Fight",
+	"startdescription": "We tear and we rip. Teeth. Blood. Thirst. Flesh.",
+	"requirements": {
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.winterheart",
+	"label": "The Peace of an End",
+	"startdescription": "With the warmth and solemnity of last rites being read, we move to conclude our adversary.",
+	"requirements": {
+	    "needswinterheart": 1,
+	    "winter": "needswinterheart",
+	    "heart": "needswinterheart",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondadditional.lanternheart",
+	"label": "Not Yet Defeated",
+	"startdescription": "With enough spirit, I can shield myself from their beckoning whispers; with enough light, I can turn aside their grasping hands.",
+	"requirements": {
+	    "needslanternheart": 1,
+	    "lantern": "needslanternheart",
+	    "heart": "needslanternheart",
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "encounteradditional.failure.nightmare",
+	"label": "A Defeat!",
+	"startdescription": "I am foiled! Again, I find myself as weak and helpless as I did when I first walked through the gates at Sobibor. The teeth of the nightmare sink into me.",
+	"extantreqs": {
+	    "sobibor.here": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "developing.trauma": 2
+	},
+	"warmup": 10
+    },
+    {
+	"id": "encounteradditional.failure.nonlethal",
+	"label": "A Setback!",
+	"startdescription": "We are foiled! This particular setback has not cost us any lives, but it has cost us time - that, perhaps, is more valuable.",
+	"requirements": {
+	    "nonlethal": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"warmup": 10
+    },
+    {
+	"id": "encounteradditional.failure",
+	"label": "A Defeat!",
+	"startdescription": "@#main.exile|My nightmares and traumas howl and jeer, delighting in my failure. My spirit bleeds.#|We are foiled! Wounded men and battered vehicles make hasty retreat as the sun falls red on the horizon. I must reassess the strategy, lest we suffer another defeat like this.@",
+	"aspects": {
+	    "takeadditional": 1,
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+		"id": "encounteradditional.failure.growth"
+	    },
+	    {
+		"id": "encounteradditional.failure.makecasualty"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "encounteradditional.failure.growth",
+	"label": "A Defeat!",
+	"startdescription": "We are foiled! Wounded men and battered vehicles make hasty retreat as the sun falls red on the horizon. I must reassess the strategy, lest we suffer another defeat like this.",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	},
+	"linked": [
+	    {
+		"id": "encounteradditional.failure.growthcontinue",
+	    }
+	]
+    },
+    {
+	"id": "encounteradditional.failure.growthcontinue",
+	"label": "A Defeat!",
+	"startdescription": "We are foiled! Wounded men and battered vehicles make hasty retreat as the sun falls red on the horizon. I must reassess the strategy, lest we suffer another defeat like this.",
+	"aspects": {
+	    "growthinfect": 1
+	}
+    },
+    {
+	"id": "encounteradditional.failure.makecasualty",
+	"label": "A Defeat!",
+	"startdescription": "We are foiled! Wounded men and battered vehicles make hasty retreat as the sun falls red on the horizon. I must reassess the strategy, lest we suffer another defeat like this.",
+	"extantreqs": {
+	    "sobibor.here": -1
+	},
+	"aspects": {
+	    "makecasualty": 1
+	},
+	"alt": [
+	    {
+		"id": "encounteradditional.failure.killfriends",
+		"chance": 30
+	    }
+	]
+    },
+    {
+	"id": "encounteradditional.failure.killfriends",
+	"label": "A Crushing Defeat!",
+	"startdescription": "Fatalities. We have failed here, and spectacularly.\n\n[There is a small chance for failure in taking an Objective to result in the death of the Allies used.]",
+	"requirements": {
+	    "friend": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "makethirdobstacle",
+	"label": "Finishing the Fight...",
+	"startdescription": "Nearly there. Struggle to the last.",
+	"requirements": {
+	    "progression": 2
+	},
+	"aspects": {
+	    "opx.progress2": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "encounternative.makeadditional"
+	    }
+	]
+    },
+    {
+	"id": "makesecondobstacle",
+	"label": "The Battle Continues...",
+	"startdescription": "Our force progresses onwards, but still there is more to be done.",
+	"requirements": {
+	    "progression": 1
+	},
+	"aspects": {
+	    "opx.progress1": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "encounternative.makeadditional"
+	    }
+	]
+    },
+    {
+	"id": "makefirstobstacle",
+	"label": "On the Approach...",
+	"startdescription": "Our offensive begins in earnest, now. Steady on.",
+	"aspects": {
+	    "opx.progress0": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "encounternative.makeadditional"
+	    }
+	]
+    },
+    {
+	"id": "encounternative.makeadditional",
+	"aspects": {
+	    "makeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "encounternative"
+	    }
+	]
+    },
+    {
+	"id": "encounternative",
+	"label": "Adversity",
+	"startdescription": "@#foe.campguard|I remember them well: how they cracked our ribs and pointed their rifles and laughed when we yelped like beaten dogs. Men only following orders.#foe.watchdog|<i>Deutscher Schäferhund.</i> These beasts became fashionable in the Reich for how closely they resembled wolves, and they were fashionable at Sobibor, too, for how quickly they could rip a man apart for an officer's amusement.#foe.searchlight|They say mercy is only found in shadow. This glare from above let me understand that truth firsthand.#foe.starvation|Now and then, in my hunger, I would dream of the Red Cup, and I would listen to it laugh at me.#foe.cold|Sometimes, it got so cold there that the mind would fool itself into thinking it was warm outside. But we all knew there was only one season at Sobibor, and it was Winter.#foe.grame|If wolf-splinters are the soul's despair outpacing its light, and wrakes the agonies that consume the spirit, then wolf-grames are the simmering, festering rage of the unavenged and unanswered. I must be host to dozens.#foe.shade|'Are you not tired? Come, come. Walk with us on the road that knows no sun nor moon; no pain nor grief; no here nor there. Come, and there will be no more.'#hindrance.exilevoice|Rich like wine and cold as winter and as dead as bone. Laughter so cruel it could slip between the ribs like a knife-blade and twist in the guts. No sound fills me with more dread.#hindrance.exiletouch|Beatings, burnings; the pulling of nails and the peeling of skin. And there were things worse still the Exile would inflict on my body, and inflict with ecstasy.#hindrance.exiledesign|Night after night they would wax poetic of what they intended for me. All the pains inflicted and secrets whispered would hone me into something awful. I fear that - becoming the Exile’s perfect, awful instrument. But should I?#aggro.bombers|It is rare, these days, to see a Russian craft in the sky - the <i>Luftwaffe</i> clipped the Union's wings so early on in the war - but here and there remain a few red birds that still fly.#aggro.artillery|For when the Red Army must absolutely, positively obliterate a target. Don't stand in the firing zone.#aggro.tanks|The Union produces these machines at a furious pace. A few more months of hard service might finally retire these ones, but their replacements are no doubt already rolling to the front.#aggro.godbuilder|A cadre of commissars-ithast - 'god-builders' - leads this infantry detachment, stoking glorious fires in the weapons and flesh of their men.#aggro.infantry|The Soviet infantryman: cold-bitten, under-equipped, bound for death. He is a droplet in a wave that will smash the Eastern Front and drown the cities of the Reich.#aggro.sniper|A Russian sharpshooter waiting in the wings, coolly anticipating his next target.#aggro.scouts|Lookouts; pathfinders; forward troops for the Russian Army, guiding the Soviet counter-advance to Berlin.#foe.wrake|Some agonies are so intense that they can outlive the body that suffered them - and without a vessel, this wandering excruciation will hasten to find a new home. You don't want it to be you.#foe.cross|The Carapace Cross fled the world when we took it from them. Why have they come back?#hindrance.robigo|<i>Who's there? Lacombe? Lee? Please, help me. It's getting harder to breathe... it's so dark. Dark.</i>#hindrance.colonel|The Colonel's unseeing eyes scour the battlefield today. This power is only the lingering chill of his animosity, but it is enough to freeze screams in the throat and silence even the boldest man with dread.#foe.skaptodon|Burrowing giants, armed with claws and fangs that part stone like water. When one comes above ground, it is usually to part something else, like men, or tanks, or anything else that might be unlucky enough to come across a skaptodon in battle.#foe.echidniform.airborne|Temptation is a great enemy of honour. Those of the Lionsmith's warriors who submit to the seductions of the Ligeian Echidna lose their honour, but also undergo a great change. In them grow new innovations, new strengths, and most of all, new hungers.#foe.echidniform.grounded|Temptation is a great enemy of honour. Those of the Lionsmith's warriors who submit to the seductions of the Ligeian Echidna lose their honour, but also undergo a great change. In them grow new innovations, new strengths, and most of all, new hungers.#foe.hesukhine|Unusually patient, quiet, and perhaps even 'shy,' hesukhines are the most subtle of the Lionsmith's children. On the hunt, a hesukhine's operating standard is to go unseen - specifically, to go unseen until it is too late.#foe.spathiurus|These have been colloquially referred to as 'fencing lions' by teratologists. Don't try to fence with one, though - the blade-like appendage at the end of its tail can pierce and cut through almost any substance: steel, stone, flesh. Especially flesh.#foe.malkin|The cat and the owl are both holy to the Horned Axe. When the cat attains the wisdom of the owl - when its fur turns grey and its claws grow long and its life longer still - it is said to become one of these. It is only barely in our world, and as such we cannot touch it. But it can most certainly touch us.#foe.warder|High-ranking officers of the Légion du Seuil; keepers of the borders between this world and the Mansus. All of them claim Vak as their birth-tongue; all of them know what words forbid or permit passage.#foe.boundsmen|The quasi-human soldiers of the Légion du Seuil. They have been trained to move upright and speak in the tongues of men, but one cannot wholly suppress the original nature of a thing. Sometimes they will forget to blink. Sometimes they will eat the corpses of the dead.#foe.phlogisticant|Free from its cage of glass and steel, this wicked flame greedily devours all that it touches. The fierceness with which it burns isn't sustainable - but I don't think it much cares.#foe.engine|It looks like some kind of artillery fixture, though parts of its construction seem too complicated for its own good: cylinders of glass, coils of steel, tubes trembling with fire. But what firepower! Where this machine hits the mark, earth becomes glass and flesh becomes light. The King's toys are impressive, if nothing else.#foe.riflemen|Servants of the King on the Isle. Nothing exceptional, other than the fact they seemed to be trained a hair better than your average soldier.#foe.chasseur|Most soldiers give up the fight when they're killed. These ones don't.#hindrance.snows|Frost prohibits the way. Machines may fail, and men may freeze to death.#hindrance.storms|Thunder stalks the lightning through the clouds. Rain pounds like artillery-fire.#hindrance.fog|Sight and mobility are limited. It would be easy to walk into an ambush, or for a nasty fall to go misjudged.#hindrance.forest|Legions of trees stand upright and unmoving in the gloom. No easy road presents itself.#hindrance.fortifications|Minefields, caltrops, steel baricades. We will need to dismantle these defenses, or find a viable path through them.#hindrance.crags|Crags and shell-craters scar the land. Perception and caution will allow us to pass safely; fire and ingenuity will allow us to clear a path through these ruins.#hindrance.earthquake|The earth lies not dead, but sleeping.#hindrance.nocturnal|A shadow on the spirit, a disease of the soul, a knot of petrifying darkness.#hindrance.apollonian|This is the sort of light that scours the soul. Come and see, come and see -#hindrance.dionysian|The wilding-waste, the green-sickness that grows in the forest beneath the world - the Wood! The Wood! The Wood!#hindrance.lionsmith|The Lionsmith's proud brow scrutinizes the battlefield today. This power is only a passing ember of his animosity, but it is enough to ignite fires in the flesh and drive even the bravest man from the field.#hindrance.wolf|The Wolf-Divided walked here. His hatred lingers in the world, much like how the stench of a carcass lingers long after it has been dragged away. Even this mere echo of his enmity is a force that can unmake a man.#hindrance.worms|Here the world's skin is rotted to nothing. Things have crawled in through the wound.#hindrance.unknownlocation|Our goal is somewhere around here, but 'here' is a very broad word. Narrow the search.#hindrance.door|A heavy steel door bars the way. It is almost comforting how normal that is.#hindrance.wreckage|The way forward is blocked by collapsed masonry and rubble. We could blow the path clear with the proper tools, or painstakingly set about clearing what we can by hand.#hindrance.secretdoor|There is no point of entry visible here, but that does not mean one does not exist. Teasing it out will call for keen eyes.#hindrance.moonspace|Under the strange moon, up is sometimes down, and forward doesn't always lead ahead. The Meniscate's making trouble for us.#hindrance.greatseal|A dizzying knot of immutable magics prevents entry. We will need a great power of both unseaming and purification to clear the way.#foe.infantry|Man, the weapon.#foe.kommando|Formidable skirmishers and ambush tacticians, trained in tactics that emphasize aggression and manoeuvrability behind enemy lines.#foe.sniper|A skilled marksman, positioned advantageously, can hold back a hundred men. Someone silent or sneaky might be able to close in on him undetected.#foe.tanks|A German tank is a fearsome machine. Facing it head-on would require a serious amount of direct firepower, but specialized munitions may allow us to circumvent an otherwise brutal fight.#foe.bombers|First there is the thrum of the rotors, then the long whistle of the descent, and then the scream of new fire.#foe.artillery|A heavy gun emplacement watched by German engineers and enemy patrols. A brute force assault might work - we could storm the position, destroy the guns. Or a saboteur might leave the engineers a very loud, very forceful surprise.#foe.manhunters|An infantry detachment led by initiates of the fatal arts. Force alone will not suffice here - we must equal whatever adeptry they bring to field with some of our own.#foe.undead|Not all the dead see the end of war. We can banish them with force and weaponry, but the secrets of Winter might offer a way to lay them to rest.#foe.warrior|The Lionsmith's monsters are bound by certain honours. If one disgraces itself by consuming that which they have not slain themselves, he will revoke their strength and intellect. This monster had gotten greedy, and the pains of its degeneration have rendered it half-mad, but even in its death throes it will prove a nasty foe.#foe.serpent|A monstrous serpent, come to glut itself on the battlefield dead. Its crushing strength and dreadful venoms might be overcome in battle, but Knock might offer us a way to placate it.#foe.growth|Corpses touched by a power from Nowhere, set again in the world as a walking, budding disease. Scour it with fire, or with light.#foe.labhite.grounded|The youngest of the Lionsmith's children, and the most beautiful. Labhites are especially fierce on the wing, but one on the ground is no easy foe, either. Its strength is monstrous, and its body glows with candescent heat.#foe.labhite.airborne|The youngest of the Lionsmith's children, and the most beautiful. Labhites are especially fierce on the wing, armed with burning-breath and razor-talons to decimate those unfortunate enough to have drawn their wrath.#foe.splinter|A prowling shard of lean grey malice. No weapons we wield can harm it, but we can send it whimpering back to the Wood with enough light or constancy.#foe.niniame|Protectress-beast of the Unseen Lake and elder sister of the sword-keeper, who bore her away at great cost when the Serpent-Mother demanded her death. She did not always have fangs; she did not always have scales and talons - but she still holds dear her younger sister.#foe.ostlingant|Minor servants of the Aviform Hours, known as secret-carriers and minstrel-deceivers. They do not fly by daylight - nor anywhere in the waking world, for that matter - and their songs are not meant for mortal ears.#foe.voice|'Turn back, turn back...'#hindrance.star.a|A furious fire from heaven, thrown down to earth by the stroke of the Lionsmith's hammer. Angry would be an understatement.#hindrance.star.b|The star is dying, now; its light flickers red. But still, I must do one more thing: I must take its heart in my hand, rip it free, and devour it. Trying to do this might turn me to ash. Still, I will try.@",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "A Response?",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "encounternative.lucky",
+		"chance": 30
+	    },
+	    {
+		"id": "encounternative.failure.nightmare"
+	    },
+	    {
+		"id": "encounternative.failure.nonlethal"
+	    },
+	    {
+		"id": "encounternative.failure"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "respondnative.special"
+	    },
+	    {
+		"id": "respondnative.aerial"
+	    },
+	    {
+		"id": "respondnative.ap"
+	    },
+	    {
+		"id": "respondnative.edge"
+	    },
+	    {
+		"id": "respondnative.winter"
+	    },
+	    {
+		"id": "respondnative.heart"
+	    },
+	    {
+		"id": "respondnative.grail"
+	    },
+	    {
+		"id": "respondnative.moth"
+	    },
+	    {
+		"id": "respondnative.lantern"
+	    },
+	    {
+		"id": "respondnative.forge"
+	    },
+	    {
+		"id": "respondnative.knock"
+	    },
+	    {
+		"id": "respondnative.forgemoth"
+	    },
+	    {
+		"id": "respondnative.edgelantern"
+	    },
+	    {
+		"id": "respondnative.edgewinter"
+	    },
+	    {
+		"id": "respondnative.edgeforge"
+	    },
+	    {
+		"id": "respondnative.knocklantern"
+	    },
+	    {
+		"id": "respondnative.forgeheart"
+	    },
+	    {
+		"id": "respondnative.winterlantern"
+	    },
+	    {
+		"id": "respondnative.edgeknock"
+	    },
+	    {
+		"id": "respondnative.edgeheart"
+	    },
+	    {
+		"id": "respondnative.edgegrail"
+	    },
+	    {
+		"id": "respondnative.winterheart"
+	    },
+	    {
+		"id": "respondnative.lanternheart"
+	    }
+	],
+	"warmup": 30
+    },
+    {
+	"id": "encounternative.lucky",
+	"label": "A Good Turn of Fortune",
+	"startdescription": "Somehow, we have prevailed.\n\n[Sometimes, you will overcome an Enemy or Hindrance even when you would normally fail.]",
+	"warmup": 10,
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	]
+    },
+    {
+	"id": "respondnative.special",
+	"label": "Confronting my Fears",
+	"startdescription": "The one called Exile told me that my hate might one day overpower my fear. How right they were.",
+	"requirements": {
+	    "needsspecial": 1,
+	    "contemplation.sobibor.complete": "needsspecial"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.aerial",
+	"label": "Death from Above",
+	"startdescription": "Fire and smoke in the clouds. Burning remnants descend from on high like a cluster of comets. For the moment, the skies are ours.",
+	"requirements": {
+	    "foe.aerial": 1,
+	    "friend.aerial": "foe.aerial"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.ap",
+	"label": "Breaking Through",
+	"startdescription": "Like smashing open an egg. This enemy's armour might have protected them for a time, but no more.",
+	"requirements": {
+	    "foe.armoured": 1,
+	    "ap": "foe.armoured"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edge",
+	"label": "Force Prevails",
+	"startdescription": "This will be our strategy: we will break them, and grind them to nothing under our bootheels.",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.winter",
+	"label": "Patience Prevails",
+	"startdescription": "Under silence and snow we will come for them. And then it will be too late for anyone.",
+	"requirements": {
+	    "needswinter": 1,
+	    "winter": "needswinter"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.heart",
+	"label": "Persistence Prevails",
+	"startdescription": "We cannot be stilled. Our march forward is inexorable.",
+	"requirements": {
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.grail",
+	"label": "Appetite Prevails",
+	"startdescription": "Blood has been spilt; blood spills forth. And still we are hungry for more.",
+	"requirements": {
+	    "needsgrail": 1,
+	    "grail": "needsgrail"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.moth",
+	"label": "Deception Prevails",
+	"startdescription": "Ordered chaos, I would like to think. Sometimes we must rely on the unpredictable and unorthodox.",
+	"requirements": {
+	    "needsmoth": 1,
+	    "moth": "needsmoth"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.lantern",
+	"label": "Glory Prevails",
+	"startdescription": "Here is truth, hard and sharp enough to cut with. The way is illuminated.",
+	"requirements": {
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.forge",
+	"label": "Ingenuity Prevails",
+	"startdescription": "This is sufficient. Fire and machinery and all their clever applications have won us this bout.",
+	"requirements": {
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.knock",
+	"label": "Ingress Prevails",
+	"startdescription": "I have heard that a wound is a door - here, then, is a different kind of door. The path forward lies opened.",
+	"requirements": {
+	    "needsknock": 1,
+	    "knock": "needsknock"
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.forgemoth",
+	"label": "Deception and Destruction",
+	"startdescription": "First, shadow. Then, fire.",
+	"requirements": {
+	    "needsforgemoth": 1,
+	    "forge": "needsforgemoth",
+	    "moth": "needsforgemoth",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edgelantern",
+	"label": "The Bright Edge",
+	"startdescription": "When we strike, we ought to strike with clarity and without mercy. The Colonel knew this, as did the Watchman, as did the Sun.",
+	"requirements": {
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edgewinter",
+	"label": "The Anguished Edge",
+	"startdescription": "All battles resolve in death, and until the battle resolves, there is agony. We bring agony, now.",
+	"requirements": {
+	    "needsedgewinter": 1,
+	    "edge": "needsedgewinter",
+	    "winter": "needsedgewinter",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edgeforge",
+	"label": "The Shattered Edge",
+	"startdescription": "The shattering of the Lionsmith's sword is a great mystery of both Forge and Edge. We evoke that mystery now, even if we do not know it.",
+	"requirements": {
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.knocklantern",
+	"label": "The Key and the Light",
+	"startdescription": "Sometimes it is not enough to simply open a door; sometimes one must bring about its dissolution.",
+	"requirements": {
+	    "needsknocklantern": 1,
+	    "knock": "needsknocklantern",
+	    "lantern": "needsknocklantern",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.forgeheart",
+	"label": "Our Hearts Burn",
+	"startdescription": "Fire alights in the lungs; purpose seizes the soul. Ours is the will to go on.",
+	"requirements": {
+	    "needsforgeheart": 1,
+	    "forge": "needsforgeheart",
+	    "heart": "needsforgeheart",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.winterlantern",
+	"label": "Light Resolves, Silence Settles",
+	"startdescription": "Cutting clarity and cold dispassion. We won't be denied, not here.",
+	"requirements": {
+	    "needswinterlantern": 1,
+	    "winter": "needswinterlantern",
+	    "lantern": "needswinterlantern",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edgeknock",
+	"label": "The Edge Opens",
+	"startdescription": "The Chilliarch knew of blood and its exits. And with our weapons, we will shape an exit as he did.",
+	"requirements": {
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edgeheart",
+	"label": "Joyous Destruction",
+	"startdescription": "The Thunderskin was flayed; the Thunderskin was destroyed. We move now to destroy our enemy in the manner he was.",
+	"requirements": {
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.edgegrail",
+	"label": "A Feast, a Fight",
+	"startdescription": "We tear and we rip. Teeth. Blood. Thirst. Flesh.",
+	"requirements": {
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.winterheart",
+	"label": "The Peace of an End",
+	"startdescription": "With the warmth and solemnity of last rites being read, we move to conclude our adversary.",
+	"requirements": {
+	    "needswinterheart": 1,
+	    "winter": "needswinterheart",
+	    "heart": "needswinterheart",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "respondnative.lanternheart",
+	"label": "Not Yet Defeated",
+	"startdescription": "With enough spirit, I can shield myself from their beckoning whispers; with enough light, I can turn aside their grasping hands.",
+	"requirements": {
+	    "needslanternheart": 1,
+	    "lantern": "needslanternheart",
+	    "heart": "needslanternheart",
+	},
+	"effects": {
+	    "progression": 1,
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"linked": [
+	    {
+		"id": "ob.success"
+	    },
+	    {
+		"id": "detectadditional.side.afraid",
+		"chance": 30
+	    },
+	    {
+		"id": "detectadditional.side",
+		"chance": 30
+	    },
+	    {
+		"id": "leadinto.thirdobstacle.side"
+	    },
+	    {
+		"id": "leadinto.secondobstacle.side"
+	    },
+	    {
+		"id": "leadinto.firstobstacle.side"
+	    },
+	    {
+		"id": "detectadditional.afraid"
+	    },
+	    {
+		"id": "detectadditional"
+	    },
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "leadinto.thirdobstacle.side",
+	"label": "Finishing the Fight...",
+	"startdescription": "",
+	"requirements": {
+	    "side": 1,
+	    "progression": 2
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    }
+	]
+    },
+    {
+	"id": "leadinto.secondobstacle.side",
+	"label": "The Battle Continues...",
+	"startdescription": "",
+	"requirements": {
+	    "side": 1,
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "makesecondobstacle"
+	    }
+	]
+    },
+    {
+	"id": "leadinto.firstobstacle.side",
+	"label": "The Battle Continues...",
+	"startdescription": "",
+	"requirements": {
+	    "side": 1,
+	    "progression": -1
+	},
+	"linked": [
+	    {
+		"id": "makefirstobstacle"
+	    }
+	]
+    },
+    {
+	"id": "encounternative.failure.nightmare",
+	"label": "A Defeat!",
+	"startdescription": "I am foiled! Again, I find myself as weak and helpless as I did when I first walked through the gates at Sobibor. The teeth of the nightmare sink into me.",
+	"extantreqs": {
+	    "sobibor.here": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99,
+	    "developing.trauma": 2
+	},
+	"warmup": 10
+    },
+    {
+	"id": "encounternative.failure.nonlethal",
+	"label": "A Setback!",
+	"startdescription": "We are foiled! This particular setback has not cost us any lives, but it has cost us time - that, perhaps, is more valuable.",
+	"requirements": {
+	    "nonlethal": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"warmup": 10
+    },
+    {
+	"id": "encounternative.failure",
+	"label": "A Defeat!",
+	"startdescription": "@#main.exile|My nightmares and traumas howl and jeer, delighting in my failure. My spirit bleeds.#|We are foiled! Wounded men and battered vehicles make hasty retreat as the sun falls red on the horizon. I must reassess the strategy, lest we suffer another defeat like this.@",
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+	    	"id": "encounternative.failure.growth"
+	    },
+	    {
+	    	"id": "encounternative.failure.makecasualty"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "niniame.spawn",
+		"additional": true
+	    },
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "niniame.spawn",
+	"actionid": "haunting",
+	"label": "The Serpent, Returning",
+	"startdescription": "The mists on the lake-grove swirl and hiss. We confronted the protectress-beast and vanquished her, but it will only be a matter of time before we see her again, resurgent from her latest defeat.",
+	"extantreqs": {
+	    "foe.niniame": -1,
+	    "foe.niniame.hidden": -1,
+	    "niniame.reviving": -1,
+	    "lake.here": 1
+	},
+	"effects": {
+	    "niniame.reviving": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "encounternative.failure.growth",
+	"label": "A Defeat!",
+	"startdescription": "We are foiled! Wounded men and battered vehicles make hasty retreat as the sun falls red on the horizon. I must reassess the strategy, lest we suffer another defeat like this.",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"aspects": {
+	    "killfriend": 1
+	},
+	"linked": [
+	    {
+		"id": "encounternative.failure.growthcontinue",
+	    }
+	]
+    },
+    {
+	"id": "encounternative.failure.growthcontinue",
+	"label": "Abhorrence, Blossoming",
+	"startdescription": "The touch of the Crowned Growth promises not death, but life. One learns quickly to fear that promise.",
+	"aspects": {
+	    "growthinfect": 1
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	}
+    },
+    {
+	"id": "encounternative.failure.makecasualty",
+	"label": "A Defeat!",
+	"startdescription": "We are foiled! Wounded men and battered vehicles make hasty retreat as the sun falls red on the horizon. I must reassess the strategy, lest we suffer another defeat like this.",
+	"extantreqs": {
+	    "sobibor.here": -1
+	},
+	"aspects": {
+	    "makecasualty": 1
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"alt": [
+	    {
+	    	"id": "encounternative.failure.killfriends",
+		"chance": 30
+	    }
+	],
+	"warmup": 10
+    },
+    {
+	"id": "encounternative.failure.killfriends",
+	"label": "A Crushing Defeat!",
+	"startdescription": "Fatalities. We have failed here, and spectacularly.\n\n[There is a small chance for failure in taking an Objective to result in the death of the Allies used.]",
+	"requirements": {
+	    "friend": 1
+	},
+	"effects": {
+	    "foe": -99,
+	    "hindrance": -99
+	},
+	"aspects": {
+	    "killfriend": 1
+	}
+    },
+    {
+	"id": "ob.success",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "progression": 3
+	},
+	"aspects": {
+	    "careeradvancement": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "ob.success.sobibor"
+	    },
+	    {
+		"id": "ob.success.raze"
+	    },
+	    {
+		"id": "ob.success.seize"
+	    },
+	    {
+		"id": "ob.success.breakout"
+	    },
+	    {
+		"id": "ob.success.rescuerefugees"
+	    },
+	    {
+		"id": "ob.success.weaponscache"
+	    },
+	    {
+		"id": "ob.success.rescueallies"
+	    },
+	    {
+		"id": "ob.success.rescuepartisans"
+	    },
+	    {
+		"id": "star.convertwounds.healing"
+	    }
+	]
+    },
+    {
+	"id": "ob.success.weaponscache",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "weaponscache.complete": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares",
+		"supplies.flares"
+	    ],
+	    "draws": 5,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "ob.success.rescueallies",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "rescueallies.complete": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.infantry",
+		"friend.infantry",
+		"friend.scouts",
+		"friend.engineers",
+		"friend.engineers",
+		"friend.medics",
+		"friend.medics",
+		"friend.tanks",
+		"friend.artillery"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "ob.success.rescuepartisans",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "rescuepartisans.complete": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.militia",
+		"friend.militia",
+		"friend.militia",
+		"friend.militia",
+		"friend.sniper",
+		"friend.sniper",
+		"friend.medics",
+		"friend.medics",
+		"friend.scouts",
+		"friend.scouts",
+		"friend.engineers"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "producecasualty",
+	"actionid": "explorevault_casualty",
+	"label": "Casualties!",
+	"startdescription": "We have achieved a victory here, but some of our comrades were wounded in the process. Unavoidable in war, I suppose.\n\n[Sometimes your Allies will suffer injuries while pursuing Objectives and fighting Enemies, even if you are successful at overcoming an Enemy or Hindrance.]",
+	"warmup": 10,
+	"requirements": {
+	    "friend": 1,
+	    "nonlethal": -1
+	},
+	"aspects": {
+	    "makecasualty": 1
+	}
+    },
+    {
+	"id": "warzone.abused.hint",
+	"actionid": "operate",
+	"label": "Hated and Feared",
+	"startdescription": "We cannot come with the olive branch in-hand, now; not after what we have done to these people. They won't accept our help.",
+	"requirements": {
+	    "friend.infantry": 1,
+	    "warzone.current": 1,
+	    "heart": 1,
+	    "warzone.abused": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+    {
+	"id": "operate.startup.shakedown",
+	"actionid": "operate",
+	"label": "Seize supplies from the local population",
+	"startdescription": "We shall say it is for the war effort. And it is. But they won't like it.\n\n[This can grant you a substantial amount of Provisions, but will permanently destroy any beneficial relationships you might have with the locals. You cannot do this more than once per Warzone.]",
+	"requirements": {
+	    "friend.infantry": 1,
+	    "warzone.current": 1,
+	    "edge": 7,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "warzone.abused": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "shakedown.prep",
+	"actionid": "operation.edge",
+	"label": "From Door to Door...",
+	"startdescription": "Let's begin.\n\n[Challenges will occur while this Operation is running. If you can match their Aspect requirements by adding cards, your Operation will be more effective.]",
+	"warmup": 10,
+	"effects": {
+	    "challenge.shakedown.1": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Resources",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "opx.meetchallenge"
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.assistlocals",
+	"actionid": "operate",
+	"label": "Offer relief to the local population",
+	"startdescription": "Times are tough. Perhaps we can spare some time and labour to ease the pains of those who do not fight.\n\n[This can grant you resources like shelter and Local Allies for passing challenges.]",
+	"requirements": {
+	    "friend.infantry": 1,
+	    "warzone.current": 1,
+	    "heart": 1,
+	    "warzone.abused": -1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "assistlocals.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 2,
+		    "filter": {
+			"edge": 1,
+			"heart": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "assistlocals.prep",
+	"actionid": "operation.heart",
+	"label": "From Door to Door...",
+	"startdescription": "Let's begin.\n\n[Challenges will occur while this Operation is running. If you can match their Aspect requirements by adding cards, your Operation will be more effective.]",
+	"warmup": 10,
+	"effects": {
+	    "challenge.assistlocals.1": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Resources",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "opx.meetchallenge"
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.shakedown.militia",
+	"actionid": "operate",
+	"label": "Seize supplies from the local population",
+	"startdescription": "We shall say it is for the war effort. And it is. But they won't like it.\n\n[This can grant you a substantial amount of Provisions, but will permanently destroy any beneficial relationships you might have with the locals. You cannot do this more than once per Warzone.]",
+	"requirements": {
+	    "friend.militia": 1,
+	    "warzone.current": 1,
+	    "edge": 5,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "warzone.abused": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "operate.startup.assistlocals.militia",
+	"actionid": "operate",
+	"label": "Offer relief to the local population",
+	"startdescription": "Times are tough. Perhaps we can spare some time and labour to ease the pains of those who do not fight.\n\n[This can grant you resources like shelter and Local Allies for passing challenges.]",
+	"requirements": {
+	    "friend.militia": 1,
+	    "warzone.current": 1,
+	    "heart": 5,
+	    "warzone.abused": -1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "assistlocals.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 2,
+		    "filter": {
+			"edge": 1,
+			"heart": 1
+		    }
+		}
+	    }
+	]
+    },
+    {
+	"id": "opx.meetchallenge",
+	"label": "A Challenge",
+	"startdescription": "@#challenge.shakedown.1|Intimidation - raucous fury, or grim silence?\n#challenge.shakedown.2|They aren't showing us everything. What will make these people talk? Public beatings? Or making a fatal example of someone?\n#challenge.shakedown.3|We could squeeze these people for all they have. Will we leave them with terror or agony?\n#challenge.assistlocals.1|We can start with introductions - a token of good faith might earn us local favour. Charming words might do the trick, too.\n#challenge.assistlocals.2|What relief can we provide? Dispense with medicine, or share our food?\n#challenge.assistlocals.3|Our doctors could visit some of the local hospitals, or our provisioners could set up kitchens in the churches and squares.\n@",
+	"warmup": 30,
+	"requirements": {
+	    "complication": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Resources",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+		    "damaged": 1,
+		    "exhausted": 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "opx.resolve.heart"
+	    },
+	    {
+		"id": "opx.resolve.grail"
+	    },
+	    {
+		"id": "opx.resolve.edge"
+	    },
+	    {
+		"id": "opx.resolve.winter"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "opx.failchallenge"
+	    }
+	]
+    },
+    {
+	"id": "opx.resolve.heart",
+	"label": "A Challenge Resolved",
+	"startdescription": "This will be sufficient.",
+	"requirements": {
+	    "minheart": 1,
+	    "heart": "minheart"
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.resolve.grail",
+	"label": "A Challenge Resolved",
+	"startdescription": "This will be sufficient.",
+	"requirements": {
+	    "mingrail": 1,
+	    "grail": "mingrail"
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.resolve.edge",
+	"label": "A Challenge Resolved",
+	"startdescription": "This will be sufficient.",
+	"requirements": {
+	    "minedge": 1,
+	    "edge": "minedge"
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.resolve.winter",
+	"label": "A Challenge Resolved",
+	"startdescription": "This will be sufficient.",
+	"requirements": {
+	    "minwinter": 1,
+	    "winter": "minwinter"
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.resolve.lantern",
+	"label": "A Challenge Resolved",
+	"startdescription": "This will be sufficient.",
+	"requirements": {
+	    "minlantern": 1,
+	    "lantern": "minlantern"
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.resolve.forge",
+	"label": "A Challenge Resolved",
+	"startdescription": "This will be sufficient.",
+	"requirements": {
+	    "minforge": 1,
+	    "forge": "minforge"
+	},
+	"effects": {
+	    "progression": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.failchallenge",
+	"label": "Missed Challenge!",
+	"startdescription": "That could have gone better.",
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+    {
+	"id": "opx.gonext",
+	"label": "An Operation Continues",
+	"startdescription": "@#opx.speaklocals|More time passes; boots shuffle on earth. We continue with the townsfolk.\n@",
+	"aspects": {
+	    "next": 1
+	},
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "opx.meetchallenge",
+	    },
+	    {
+		"id": "opx.conclude"
+	    }
+	]
+    },
+    {
+	"id": "opx.conclude",
+	"label": "An Operation Concludes",
+	"startdescription": "@#end.shakedown|Broken-down doors and weeping women make evident our work. What do we have to show for our trouble?\n#end.assistlocals|Here and there, we receive nods of acknowledgement from the townsfolk. No-one is at ease - this is wartime, after all - but the tension seem to subside, if only a little.@",
+	"warmup": 30,
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"linked": [
+	    {
+		"id": "opx.conclude.wolfshadowpresent"
+	    },
+	    {
+		"id": "opx.conclude.assistlocals.3"
+	    },
+	    {
+		"id": "opx.conclude.assistlocals.2"
+	    },
+	    {
+		"id": "opx.conclude.assistlocals.1"
+	    },
+	    {
+		"id": "opx.conclude.shakedown.3"
+	    },
+	    {
+		"id": "opx.conclude.shakedown.2"
+	    },
+	    {
+		"id": "opx.conclude.shakedown.1"
+	    }
+	]
+    },
+    {
+	"id": "opx.conclude.wolfshadowpresent",
+	"label": "A Feast of Fires",
+	"startdescription": "Among the flames, I remember something the Exile said to me at Sobibor, regaling me with one of their tales of terror: 'When we know not whom we serve, we serve the Wolf-Divided. But I knew what I was doing.'\n\nAnd so do I.",
+	"requirements": {
+	    "op.wolf.husk.active": 99
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "strife": 4,
+	    "reputation.infamy": 3,
+	    "shrine.wolf": 1,
+	    "provisions": 4
+	},
+	"linked": [
+	    {
+		"id": "wolfshrine.assignsectora"
+	    },
+	    {
+		"id": "wolfshrine.assignsectorb"
+	    }
+	]
+    },
+    {
+	"id": "wolfshrine.assignsectora",
+	"label": "A Feast of Fires",
+	"startdescription": "Among the flames, I remember something the Exile said to me at Sobibor, regaling me with one of their tales of terror: 'When we know not whom we serve, we serve the Wolf-Divided. But I knew what I was doing.'\n\nAnd so do I.",
+	"requirements": {
+	    "sector.a": 1
+	},
+	"effects": {
+	    "sector.a": -99
+	},
+	"linked": [
+	    {
+		"id": "wolfshrine.assignsectora.conclude"
+	    }
+	]
+    },
+    {
+	"id": "wolfshrine.assignsectora.conclude",
+	"label": "A Feast of Fires",
+	"startdescription": "Among the flames, I remember something the Exile said to me at Sobibor, regaling me with one of their tales of terror: 'When we know not whom we serve, we serve the Wolf-Divided. But I knew what I was doing.'\n\nAnd so do I.",
+	"mutations": [
+	    {
+		"filter": "shrine.wolf",
+		"mutate": "sector.a",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "wolfshrine.assignsectorb",
+	"label": "A Feast of Fires",
+	"startdescription": "Among the flames, I remember something the Exile said to me at Sobibor, regaling me with one of their tales of terror: 'When we know not whom we serve, we serve the Wolf-Divided. But I knew what I was doing.'\n\nAnd so do I.",
+	"requirements": {
+	    "sector.b": 1
+	},
+	"effects": {
+	    "sector.b": -99
+	},
+	"linked": [
+	    {
+		"id": "wolfshrine.assignsectorb.conclude"
+	    }
+	]
+    },
+    {
+	"id": "wolfshrine.assignsectorb.conclude",
+	"label": "A Feast of Fires",
+	"startdescription": "Among the flames, I remember something the Exile said to me at Sobibor, regaling me with one of their tales of terror: 'When we know not whom we serve, we serve the Wolf-Divided. But I knew what I was doing.'\n\nAnd so do I.",
+	"mutations": [
+	    {
+		"filter": "shrine.wolf",
+		"mutate": "sector.b",
+		"level": 1
+	    }
+	]
+    },
+    {
+	"id": "opx.conclude.assistlocals.3",
+	"label": "A Relief Effort, Complete",
+	"startdescription": "The townspeople offer what recompense they can for our services: some food and some drink, shelter, local knowledge - even the odd volunteer. Useful.",
+	"requirements": {
+	    "end.assistlocals": 1,
+	    "progression": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.joy",
+		"mem.ingenuity",
+		"mem.unexpected",
+		"friend.militia",
+		"friend.militia",
+		"friend.militia",
+		"provisions",
+		"provisions",
+		"provisions",
+		"loc.farm",
+		"loc.church",
+		"loc.church",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	},
+	"alt": [
+	    {
+		"id": "opx.conclude.assistlocals.3.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "opx.conclude.assistlocals.2",
+	"label": "A Relief Effort, Complete",
+	"startdescription": "The townspeople offer what recompense they can for our services: some food and some drink, shelter, local knowledge - even the odd volunteer. Useful.",
+	"requirements": {
+	    "end.assistlocals": 1,
+	    "progression": 2
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.joy",
+		"mem.ingenuity",
+		"mem.unexpected",
+		"friend.militia",
+		"friend.militia",
+		"friend.militia",
+		"provisions",
+		"provisions",
+		"provisions",
+		"loc.farm",
+		"loc.church",
+		"loc.church",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"alt": [
+	    {
+		"id": "opx.conclude.assistlocals.2.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "opx.conclude.assistlocals.1",
+	"label": "A Relief Effort, Complete",
+	"startdescription": "The townspeople offer what recompense they can for our services: some food and some drink, shelter, local knowledge - even the odd volunteer. Useful.",
+	"requirements": {
+	    "end.assistlocals": 1
+	},
+	"effects": {
+	    "provisions": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"mem.joy",
+		"mem.ingenuity",
+		"mem.unexpected",
+		"friend.militia",
+		"friend.militia",
+		"friend.militia",
+		"provisions",
+		"provisions",
+		"provisions",
+		"loc.farm",
+		"loc.church",
+		"loc.church",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"alt": [
+	    {
+		"id": "opx.conclude.assistlocals.1.contemnant"
+	    }
+	]
+    },
+    {
+	"id": "opx.conclude.assistlocals.3.contemnant",
+	"label": "A Relief Effort, Complete",
+	"startdescription": "The townspeople offer what recompense they can for our services: some food and some drink, shelter, local knowledge - even the odd volunteer. Useful.",
+	"requirements": {
+	    "end.assistlocals": 1,
+	    "progression": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	}
+    },
+    {
+	"id": "opx.conclude.assistlocals.2.contemnant",
+	"label": "A Relief Effort, Complete",
+	"startdescription": "The townspeople offer what recompense they can for our services: some food and some drink, shelter, local knowledge - even the odd volunteer. Useful.",
+	"requirements": {
+	    "end.assistlocals": 1,
+	    "progression": 2
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	}
+    },
+    {
+	"id": "opx.conclude.assistlocals.1.contemnant",
+	"label": "A Relief Effort, Complete",
+	"startdescription": "The townspeople offer what recompense they can for our services: some food and some drink, shelter, local knowledge - even the odd volunteer. Useful.",
+	"requirements": {
+	    "end.assistlocals": 1
+	},
+	"effects": {
+	    "provisions": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"friend.doctor",
+		"friend.labourer",
+		"friend.lookout",
+		"friend.gunman",
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"provisions",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace",
+		"op.ruins",
+		"op.sewers",
+		"op.highplace"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	}
+    },
+    {
+	"id": "opx.conclude.shakedown.3",
+	"label": "A Ransacking, Complete",
+	"startdescription": "My men come away with roughly-earnt spoils: meat, liquor, medicine, and other scarce pleasures the locals had tried to hide away. Bad for the townsfolk, but good for us. So how bad is it, really?",
+	"requirements": {
+	    "end.shakedown": 1,
+	    "progression": 3
+	},
+	"effects": {
+	    "provisions": 9
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "warzone.abused",
+		"level": 1
+	    }
+	],
+	"purge": {
+	    "friend.militia": 99,
+	    "friend.militia.exhausted": 99,
+	    "friend.militia.wounded": 99
+	}
+    },
+    {
+	"id": "opx.conclude.shakedown.2",
+	"label": "A Ransacking, Complete",
+	"startdescription": "My men come away with roughly-earnt spoils: meat, liquor, salt, and other scarce pleasures the locals had tried to hide away. Bad for the townsfolk, but good for us. So how bad is it, really?",
+	"requirements": {
+	    "end.shakedown": 1,
+	    "progression": 2
+	},
+	"effects": {
+	    "provisions": 6
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "warzone.abused",
+		"level": 1
+	    }
+	],
+	"purge": {
+	    "friend.militia": 99,
+	    "friend.militia.exhausted": 99,
+	    "friend.militia.wounded": 99
+	}
+    },
+    {
+	"id": "opx.conclude.shakedown.1",
+	"label": "A Ransacking, Complete",
+	"startdescription": "My men come away with roughly-earnt spoils: meat, liquor, salt, and other scarce pleasures the locals had tried to hide away. Bad for the townsfolk, but good for us. So how bad is it, really?",
+	"requirements": {
+	    "end.shakedown": 1
+	},
+	"effects": {
+	    "provisions": 3
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "warzone.abused",
+		"level": 1
+	    }
+	],
+	"purge": {
+	    "friend.militia": 99,
+	    "friend.militia.exhausted": 99,
+	    "friend.militia.wounded": 99
+	}
+    },
+    {
+	"id": "star.convertwounds.healing",
+	"label": "A Victory!",
+	"extantreqs": {
+	    "token.star": 1
+	},
+	"maxexecutions": 1,
+	"furthermore": { "target": "~/tabletop[situationstorage]+", "aspects": { "brilliant": 1 } },
+	"xpans": { 
+	    "brilliant": 1 
+	},
+	"warmup": 10
+    },
+    {
+	"id": "operate.endinginitiate",
+	"actionid": "operate",
+	"label": "The Battle of Stalingrad, 1943",
+	"startdescription": "The city has been bombed to ruins. The streets are choked with slain Germans, Russians. But in the dawn, when the wind of the new day banishes the smoke, the Hammer and the Sickle yet fly in their red and gold over the Premier's city. The Germans are fleeing west - Stalingrad stands.",
+	"requirements": {
+	    "main": 3
+	},
+	"extantreqs": {
+	    "obdurant.story": 1
+	},
+	"warmup": 60,
+	"craftable": true,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictory.mp3",
+	"linked": [
+	    {
+		"id": "ascendname.colonel"
+	    },
+	    {
+		"id": "obdurant.ending.high"
+	    },
+	    {
+		"id": "obdurant.ending.med"
+	    },
+	    {
+		"id": "obdurant.ending.low"
+	    }
+	],
+	"burnimage": "flagwave"
+    },
+    {
+	"id": "obdurant.ending.high",
+	"label": "The Battle of Stalingrad, 1943",
+	"extantreqs": {
+	    "resolution": 14
+	},
+	"ending": "obdurant.high",
+	"achievements": [
+	    "ending.highresolution"
+	]
+    },
+    {
+	"id": "obdurant.ending.med",
+	"label": "The Battle of Stalingrad, 1943",
+	"extantreqs": {
+	    "resolution": 7
+	},
+	"ending": "obdurant.med",
+	"achievements": [
+	    "ending.medresolution"
+	]
+    },
+    {
+	"id": "obdurant.ending.low",
+	"label": "The Battle of Stalingrad, 1943",
+	"ending": "obdurant.low",
+	"achievements": [
+	    "ending.lowresolution"
+	]
+    },
+    {
+	"id": "ascendname.colonel",
+	"label": "DESTINY",
+	"startdescription": "And then Stalingrad is gone. The streets beneath my feet are ancient Mansus-Stone. A sky of cobalt-blue glimmers beyond my reach. Before me, the Ligiean Medusa presents her wriggling, pale Key to the Stag Door. Its old scars groan with pain, and the scars of my body groan with it when it opens truly. I am blind; I am scarred; I cannot be denied. There is a light.",
+	"extantreqs": {
+	    "gotmedusa": 1,
+	    "challenger.mark": 1,
+	    "defiance.consecration.colonel": 3,
+	    "hasebrehel": 1,
+	    "resolution": 12
+	},
+	"warmup": 60,
+	"signalEndingFlavour": "Grand",
+	"signalMusic": "nearvictoryascend.mp3",
+	"ending": "majorcolonelvictory",
+	"achievements": [
+	    "ending.nameascensioncolonel"
+	]
+    }
+]
+}
