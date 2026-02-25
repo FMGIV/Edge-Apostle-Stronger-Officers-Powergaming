@@ -1,6 +1,55 @@
 {
 "recipes": [
     {
+	"id": "crater.setupguard.jerome",
+	"actionid": "spit.lantern",
+	"label": "Fodder to the Front",
+	"startdescription": "'Quickly to it, now! Your country expects success - your <i>King</i> expects success!'\n\n[Jerome can command other Enemies to guard him, preventing him from being attacked until they are slain.]",
+	"slots": [
+	    {
+		"id": "needsking",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsking2",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsking3",
+		"label": "Enemy",
+		"required": {
+		    "faction.king": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [
+	    {
+		"filter": "faction.king",
+		"mutate": "foe.guardjerome",
+		"level": 1
+	    },
+	    {
+		"filter": "uqjerome",
+		"mutate": "foe.guardjerome",
+		"level": 0
+	    }
+	],
+	"warmup": 15,
+	"maxexecutions": 1,
+	"extantreqs": {
+	    "uqjerome": 1
+	}
+    },
+    {
 	"id": "target.legion.victory",
 	"label": "The King's Men Have Prevailed!",
 	"startdescription": "When the gunfire settles, the battlefield is littered with dead legionnaires. The bootprints of the King's men mark the earth, mark the corpses of the fallen. They have moved on.",
@@ -193,18 +242,15 @@
 	    "uqjerome": 1
 	},
 	"aspects": {
-	    "takeadditional": 1
+	    "revealidentity": 1,
 	},
 	"internaldeck": {
 	    "spec": [
 		"decision.enemy.doubleattack",
 		"decision.enemy.doubleattack",
-		"decision.enemy.doubleattack",
 		"decision.enemy.reinforcements",
 		"decision.enemy.reinforcements",
 		"decision.enemy.reinforcements",
-		"decision.enemy.reinforcements",
-		"decision.enemy.attack",
 		"decision.enemy.attack",
 		"decision.enemy.attack",
 	    ],
@@ -227,7 +273,7 @@
 		"id": "jerome.orderguard.pre"
 		},
 	    {
-		"id": "jerome.physicalattack"
+		"id": "jerome.physicalattack.pre"
 	    },
 	    {
 		"id": "jerome.dreamattack.pre"
@@ -238,6 +284,59 @@
 	]
     },
     {
+	"id": "jerome.physicalattack.pre",
+	"label": "A Merciless Assault!",
+	"requirements": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "jerome.physicalattack"
+	    }
+	],
+    },
+    {
+	"id": "jerome.physicalattack",
+	"label": "A Merciless Assault!",
+	"startdescription": "'I don't much bother fighting boots-on-ground these days. But, now and then, a soldier feels compelled to shed blood with his own two hands. And I am still <i>very</i> good at that.'\n\n[Jerome is attempting to do you and your Allies physical harm. Defend by providing a card to equal any of his Thresholds.]",
+	"requirements": {
+	    "decision.enemy.attack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "Defense",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "defend.edge"
+	    },
+	    {
+		"id": "defend.edgelantern"
+	    }
+	],
+	"warmup": 30
+    },
+    {
 	"id": "jerome.orderguard.pre",
 	"label": "Fodder to the Front",
 	"tablereqs": {
@@ -246,18 +345,6 @@
 	"effects": {
 		"decision.enemy.reinforcements": 1
 	},
-	"mutations": [
-	    {
-		"filter": "faction.king",
-		"mutate": "foe.guardjerome",
-		"level": 1
-	    },
-	    {
-		"filter": "uqjerome",
-		"mutate": "foe.guardjerome",
-		"level": 0
-	    }
-	],
 	"linked": [
 		{
 			"id": "jerome.orderguard"
@@ -271,9 +358,6 @@
 	"startdescription": "'Quickly to it, now! Your country expects success - your <i>King</i> expects success!'\n\n[Jerome can command other Enemies to guard him, preventing him from being attacked until they are slain.]",
 	"requirements": {
 	    "decision.enemy.reinforcements": 1
-	},
-	"aspects": {
-		"makeadditional": 1
 	},
 	"slots": [
 	    {

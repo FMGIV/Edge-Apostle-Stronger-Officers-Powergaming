@@ -1,6 +1,198 @@
 {
     "recipes": [
         {
+            "id": "foe.umiri.attack.rally_f.withanno",
+            "label": "Enemy Regrouping",
+            "startdescription": "We've intercepted a German message; they are rallying their troops and reorganizing their units.",
+            "description": "They have touched these corpses with the reach of the Void. Now they serve the Germans—regardless of whose allegiance they once belonged to.",
+            "actionId": "foerally",
+            "warmup": 10,
+            "extantreqs": {
+                "strife.tracker": 7,
+                "proterant.story": 1
+            },
+            "grandReqs": {
+                "([~/exterior:foe.corpses] >= 1) || ([~/exterior:friend.corpses] >= 1)": 1
+            },
+            "effects": {
+            },
+            "slots": [
+                {
+                "id": "needsfoe",
+                "label": "Enemy",
+                "required": {
+                    "foe.corpses": 1,
+                    "friend.corpses": 1,
+                },
+                "essential": {
+                },
+                "forbidden": {
+                    "otherworldly": 1,
+                    "foe.bombers.refuel": 1,
+                    "foe.rankofficer": 1,
+                },
+                "greedy": true
+                },
+                {
+                "id": "needsfoe2",
+                "label": "Enemy",
+                "required": {
+                    "foe.corpses": 1,
+                    "friend.corpses": 1,
+                },
+                "essential": {
+                },
+                "forbidden": {
+                    "otherworldly": 1,
+                    "foe.bombers.refuel": 1,
+                    "foe.rankofficer": 1,
+                },
+                "greedy": true
+                },
+                {
+                "id": "needsfoe3",
+                "label": "Enemy",
+                "required": {
+                    "foe.corpses": 1,
+                    "friend.corpses": 1,
+                },
+                "essential": {
+                },
+                "forbidden": {
+                    "otherworldly": 1,
+                    "foe.bombers.refuel": 1,
+                    "foe.rankofficer": 1,
+                },
+                "greedy": true
+                },
+            ],
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "weakened",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needswinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsmoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforgemoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgeforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgewinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgelantern",
+                    "level": 0
+                },
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_f1.withanno",
+                    "chance": 100
+                }
+            ],
+            "craftable": false,
+            "hintonly": false,
+            "inductions": []
+        },
+        {
+            "id": "foe.umiri.attack.rally_f1.withanno",
+            "label": "Enemy Regrouping",
+            "startdescription": "We've intercepted a German message; they are rallying their troops and reorganizing their units.",
+            "description": "They have touched these corpses with the reach of the Void. Now they serve the Germans—regardless of whose allegiance they once belonged to.",
+            "actionId": "foerally",
+            "warmup": 30,
+            "requirements": {
+                "remnant": 1
+            },
+            "effects": {
+                "foe.chasseur": "remnant",
+            },
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "weakened",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needswinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsmoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforgemoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgeforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgewinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgelantern",
+                    "level": 0
+                },
+            ],
+            "craftable": false,
+            "hintonly": false,
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_downf"
+                }
+            ],
+            "inductions": []
+        },
+        {
             "id": "foe.umiri.coming2.first.withanno",
             "label": "Enemy Colonel on the Way",
             "startdescription": "New movements in the enemy ranks: troop rotations, fortifications being reinforced. It seems the Germans are pressing their advantage. We will have a new adversary.",
@@ -607,7 +799,7 @@
     {
 	"id": "contemplation.complete.anno",
 	"label": "Drawing a Conclusion",
-	"startdescription": "The war with the Reshaper is far from over. This evenly matched struggle is fated to drag on without conclusion. They will resume their unfinished duel at the most critical turning points of the war.\n\n[You may find the Reshaper when the conflict between both sides pauses temporarily. While both are present, entering a dream will grant you <i>Side Quest: Raid the Enemy Command Post</i>]",
+	"startdescription": "The war with the Reshaper is far from over. This evenly matched struggle is fated to drag on without conclusion. They will resume their unfinished duel at the most critical turning points of the war.\n\n[You may find the Reshaper when the conflict between both sides pauses temporarily.]",
 	"requirements": {
 	    "contemplation": 1,
 	    "completed": 1,
@@ -2160,6 +2352,35 @@
 		}
 	    }
 	]
+    },
+	
+    {
+	"id": "attackenemy.umiri_withanno.hint",
+	"actionid": "operate",
+	"label": "Raid the Enemy Commander?",
+	"startdescription": "She is entrenched deep behind enemy lines. Killing her would be a fantasy—but if the opportunity permits, we might be able to raid her command post. Perhaps at the end of the liberation of Italy, we can join forces with the New Army and slay this terrible adversary...\n\n[You need to find another way to make this commander withdraw.]",
+	"requirements": {
+	    "foe.umiri.2.withanno": 1
+	},
+	"extantreqs": {
+		"tool.shape": -1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.umiri_withanno.hint",
+	"actionid": "operate",
+	"label": "Raid the Enemy Commander?",
+	"startdescription": "We have already alerted the enemy. She will not show herself so easily now. She is heavily guarded, beyond our reach. Perhaps in the future, at the end of the liberation of Italy, we can join forces with the New Army and slay this terrible adversary...\n\n[You may now force this commander to withdraw in Rome.]",
+	"requirements": {
+	    "foe.umiri.2.withanno": 1
+	},
+	"extantreqs": {
+		"tool.shape": 1
+	},
+	"craftable": false,
+	"hintonly": true
     },
     ]
 }

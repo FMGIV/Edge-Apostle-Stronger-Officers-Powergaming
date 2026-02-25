@@ -189,7 +189,7 @@
 	    "uqlionel": 1
 	},
 	"aspects": {
-	    "takeadditional": 1
+	    "revealidentity": 1,
 	},
 	"slots": [
 	    {
@@ -213,12 +213,64 @@
 	},
 	"linked": [
 	    {
-		"id": "lionel.physicalattack"
+		"id": "lionel.physicalattack.pre"
 	    },
 	    {
 		"id": "lionel.makemaze"
 	    }
 	]
+    },
+    {
+	"id": "lionel.physicalattack.pre",
+	"requirements": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"linked": [
+	    {
+		"id": "lionel.physicalattack"
+	    }
+	],
+    },
+    {
+	"id": "lionel.physicalattack",
+	"label": "A Vicious Assault!",
+	"startdescription": "'I will make it clean if you allow me to.'\n\n[Lionel is attempting to do you and your Allies physical harm. Defend by providing a card to equal any of his Thresholds.]",
+	"requirements": {
+	    "decision.enemy.attack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "Defense",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "attack.nodefense"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "defend.edge"
+	    },
+	    {
+		"id": "defend.edgeknock"
+	    }
+	],
+	"warmup": 30
     },
     {
 	"id": "lionel.makemaze",
@@ -227,9 +279,6 @@
 	"description": "For a moment, I lose all sense of balance and direction. Something has changed. Now the latitudes and longitudes of the waking world have new orders, and their orders are to sabotage our war effort.",
 	"requirements": {
 	    "decision.enemy.doubleattack": 1
-	},
-	"aspects": {
-		"makeadditional": 1
 	},
 	"effects": {
 	    "side.spacemaze": 1

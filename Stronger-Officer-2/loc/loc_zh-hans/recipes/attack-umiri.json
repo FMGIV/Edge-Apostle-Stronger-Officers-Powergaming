@@ -1,6 +1,198 @@
 {
     "recipes": [
         {
+            "id": "foe.umiri.attack.rally_f.withanno",
+            "label": "敌军正在重整部队",
+            "startdescription": "我们截获了德国人的电报，他们正召集部队，重整编制。",
+            "description": "他们以虚界的力量触碰了这些尸骸，现在它们为德国人所用了，无论这些尸体曾经隶属于何方。",
+            "actionId": "foerally",
+            "warmup": 10,
+            "extantreqs": {
+                "strife.tracker": 7,
+                "proterant.story": 1
+            },
+            "grandReqs": {
+                "([~/exterior:foe.corpses] >= 1) || ([~/exterior:friend.corpses] >= 1)": 1
+            },
+            "effects": {
+            },
+            "slots": [
+                {
+                "id": "needsfoe",
+                "label": "敌军",
+                "required": {
+                    "foe.corpses": 1,
+                    "friend.corpses": 1,
+                },
+                "essential": {
+                },
+                "forbidden": {
+                    "otherworldly": 1,
+                    "foe.bombers.refuel": 1,
+                    "foe.rankofficer": 1,
+                },
+                "greedy": true
+                },
+                {
+                "id": "needsfoe2",
+                "label": "敌军",
+                "required": {
+                    "foe.corpses": 1,
+                    "friend.corpses": 1,
+                },
+                "essential": {
+                },
+                "forbidden": {
+                    "otherworldly": 1,
+                    "foe.bombers.refuel": 1,
+                    "foe.rankofficer": 1,
+                },
+                "greedy": true
+                },
+                {
+                "id": "needsfoe3",
+                "label": "敌军",
+                "required": {
+                    "foe.corpses": 1,
+                    "friend.corpses": 1,
+                },
+                "essential": {
+                },
+                "forbidden": {
+                    "otherworldly": 1,
+                    "foe.bombers.refuel": 1,
+                    "foe.rankofficer": 1,
+                },
+                "greedy": true
+                },
+            ],
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "weakened",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needswinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsmoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforgemoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgeforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgewinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgelantern",
+                    "level": 0
+                },
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_f1.withanno",
+                    "chance": 100
+                }
+            ],
+            "craftable": false,
+            "hintonly": false,
+            "inductions": []
+        },
+        {
+            "id": "foe.umiri.attack.rally_f1.withanno",
+            "label": "敌军正在重整部队",
+            "startdescription": "我们截获了德国人的电报，他们正召集部队，重整编制。",
+            "description": "他们以虚界的力量触碰了这些尸骸，现在它们为德国人所用了，无论这些尸体曾经隶属于何方。",
+            "actionId": "foerally",
+            "warmup": 30,
+            "requirements": {
+                "remnant": 1
+            },
+            "effects": {
+                "foe.chasseur": "remnant",
+            },
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "weakened",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needswinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsmoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforgemoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgeforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgewinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgelantern",
+                    "level": 0
+                },
+            ],
+            "craftable": false,
+            "hintonly": false,
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_downf"
+                }
+            ],
+            "inductions": []
+        },
+        {
             "id": "foe.umiri.coming2.first.withanno",
             "label": "敌军上校正在赶来",
             "startdescription": "敌人的军队传来了新动向，部队轮换，工事重整，看来德国人要乘胜追击了。我们要有一个新对手了。",
@@ -610,7 +802,7 @@
     {
 	"id": "contemplation.complete.anno",
 	"label": "得出一个结论",
-	"startdescription": "重塑者与的战争仍未结束，这场势均力敌的较量注定难以得出结果。他们会在那些战场最重要的节点继续他们未结束的角斗。\n\n[当双方的争斗暂时结束的时候，你可以找到重塑者。双方都在场时，入梦后可获得<i>次要任务：突袭敌军指挥部</i>]",
+	"startdescription": "重塑者与的战争仍未结束，这场势均力敌的较量注定难以得出结果。他们会在那些战场最重要的节点继续他们未结束的角斗。\n\n[当双方的争斗暂时结束的时候，你可以找到重塑者。]",
 	"requirements": {
 	    "contemplation": 1,
 	    "completed": 1,
@@ -2367,6 +2559,35 @@
 		}
 	    }
 	]
+    },
+	
+    {
+	"id": "attackenemy.umiri_withanno.hint",
+	"actionid": "operate",
+	"label": "突袭敌军指挥官？",
+	"startdescription": "她深藏在敌军的防线后，想杀死她可谓是天方夜谭，不过若机会允许，我们将有机会突袭她的指挥营地。或许在解放意大利的最后，我们可以与新军联手，杀死这个可怕的对手……\n\n[你需要另寻途径使这位指挥官撤退]",
+	"requirements": {
+	    "foe.umiri.2.withanno": 1
+	},
+	"extantreqs": {
+		"tool.shape": -1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.umiri_withanno.hint",
+	"actionid": "operate",
+	"label": "突袭敌军指挥官？",
+	"startdescription": "我们已经打草惊蛇，她现在不会再这么轻易地出现在我们面前了。她被严密的保护起来，我们难以触及，或许在未来，在解放意大利的最后，我们可以与新军联手，杀死这个可怕的对手……\n\n[你现在可在罗马使这位指挥官撤退]",
+	"requirements": {
+	    "foe.umiri.2.withanno": 1
+	},
+	"extantreqs": {
+		"tool.shape": 1
+	},
+	"craftable": false,
+	"hintonly": true
     },
     ]
 }
