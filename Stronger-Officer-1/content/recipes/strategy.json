@@ -581,6 +581,10 @@
                     "chance": 50
                 },
                 {
+                    "id": "foe.umiri.attack.rally_f.withanno",
+                    "chance": 50
+                },
+                {
                     "id": "foe.umiri.attack.rally_f",
                     "chance": 50
                 },
@@ -1485,7 +1489,8 @@
             "actionId": "foerally",
             "warmup": 10,
             "extantreqs": {
-                "strife.tracker": 7
+                "strife.tracker": 7,
+                "obdurant.story": 1
             },
             "grandReqs": {
                 "([~/exterior:foe.corpses] >= 1) || ([~/exterior:friend.corpses] >= 1)": 1
@@ -1697,10 +1702,14 @@
         {
             "id": "foe.umiri.attack.rally_downf",
             "label": "Enemy Adjusting Defensive Strategy",
-            "description": "It seems they've brought in more specialized personnel. Hopefully, they won't cause even greater trouble.",
+            "description": "They have touched these corpses with the reach of the Void. Now they serve the Germans—regardless of whose allegiance they once belonged to.",
             "actionId": "foerally",
             "warmup": 0,
             "requirements": {
+            },
+            "effects": {
+                "foe.corpses": -99,
+                "friend.corpses": -99,
             },
             "aspects": {
                 "concealidentity": 1
