@@ -285,10 +285,11 @@
 	"isAspect": true
     },
     {
-	"id": "karotechia.rankofficer",
+	"id": "karotechia",
 	"label": "地位：索隐会军官",
 	"description": "[要想袭击拥有这个性相的敌军需要先击杀对应的护卫]",
 	"isAspect": true,
+	"isHidden": true,
 	"comments": "这个性相没用"
     },
     {
@@ -486,10 +487,10 @@
 	"description": "The most dangerous enemy is one that goes unanticipated.",
 	"inherits": "foe.template",
 	"aspects": {
-	    "clockwork": 1,
 	    "foe.hidden": 1,
+		"faction.karotechia": 1,
 	    "clockwork.mark": 1,
-	    "faction.karotechia": 1
+	    "clockwork": 1,
 	},
 	"xtriggers": {
 	    "longded": "corpse.clockwork",
@@ -545,15 +546,16 @@
 	"description": "The most dangerous enemy is one that goes unanticipated.",
 	"inherits": "foe.template",
 	"aspects": {
-	    "foe.hidden": 1,
 	    "clockwork.mark": 1,
 	    "clockwork": 1,
-		"faction.karotechia": 1
+	    "foe.hidden": 1,
+		"faction.karotechia": 1,
 	},
 	"decayTo": "foe.clockwork.hidden",
 	"xtriggers": {
 	    "longded": "corpse.clockwork",
-	    "refresh": "foe.clockwork.hidden",
+	    "refresh": "foe.clockwork.exhausted.hidden",
+	    "revealidentity": "foe.clockwork.exhausted",
 	    "refreshonlyclockwork": "foe.clockwork.hidden",
 	    "killfoe": [
 		{
@@ -569,7 +571,6 @@
 		    "level": 1
 		},
 	    ],
-	    "revealidentity": "foe.clockwork.exhausted",
 	    "takeadditional": [
 		{
 		    "id": "foe.clockwork",
@@ -758,6 +759,7 @@
 	"aspects": {
 	    "foe.hidden": 1,
 		"faction.karotechia": 1,
+		"karotechia": 1
 	},
 	"xtriggers": {
 	    "refresh": "foe.task.hidden",
@@ -856,6 +858,7 @@
 	"aspects": {
 	    "foe.hidden": 1,
 		"faction.karotechia": 1,
+		"karotechia": 1
 	},
 	"xtriggers": {
 	    "refresh": "foe.disaster.hidden",
@@ -953,6 +956,7 @@
 	"aspects": {
 	    "foe.hidden": 1,
 		"faction.karotechia": 1,
+		"karotechia": 1
 	},
 	"xtriggers": {
 	    "refresh": "foe.goliath.hidden",

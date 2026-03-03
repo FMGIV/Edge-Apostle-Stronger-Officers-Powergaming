@@ -354,9 +354,6 @@
 	"aspects": {
 	    "revealidentity": 1
 	},
-	"xpans": {
-		"refreshonlyclockwork": 99
-	},
 	"slots": [
 	    {
 		"id": "needsenemy",
@@ -418,9 +415,6 @@
 	},
 	"effects": {
 		"decision.enemy.attack": 1
-	},
-	"xpans": {
-		"refreshonlyclockwork": 99
 	},
 	"slots": [
 	    {
@@ -1009,25 +1003,28 @@
 	"warmup": 30
     },
     {
-	"id": "clockwork.orderguard",
+	"id": "clockwork.orderguard.3",
 	"actionId": "karotechia.rankofficer",
-	"label": "Gears Engage",
-	"startdescription": "The clockwork continues to turn, though the body lies broken. Gears mesh, pistons thrust—precision-crafted artificial joints ignore the limits of mortal flesh. His eyes hold no pain, only cold, relentless calculation. The Clockwork Lord slowly retreats into shadow, as soldiers to either side advance to block my path.\n\n[The Clockwork Lord can order other enemy forces to protect him. He cannot be attacked until these guardians are eliminated.]",
+	"label": "Concealed in Darkness",
+	"startdescription": "The clockwork continues to turn, though the body is broken. Gears mesh, pistons thrust. From the Clockwork Lord's throat emerge obscure syllables, and the surrounding night thickens like a black veil descending, drawing him into the shadows.\n\n[The Clockwork Lord can conceal himself among other enemy forces.]",
 	"requirements": {
-	    "monster.wound": -2,
+	    "monster.wound": -3,
 		"clockwork.mark": 1
 	},
 	"aspects": {
+		"concealidentity": 1
 	},
 	"slots": [
 	    {
 		"id": "needsss",
 		"label": "Enemy",
 		"required": {
-		    "faction.karotechia": 1
+		    "foe.task": 1,
+		    "foe.task.hidden": 1,
 		},
 		"forbidden": {
-		    "clockwork.mark": 1
+		    "clockwork.mark": 1,
+			"karotechia.officerdetail": 1
 		},
 		"greedy": true
 	    },
@@ -1035,10 +1032,25 @@
 		"id": "needsss2",
 		"label": "Enemy",
 		"required": {
-		    "faction.karotechia": 1
+		    "foe.disaster": 1,
+		    "foe.disaster.hidden": 1,
 		},
 		"forbidden": {
-		    "clockwork.mark": 1
+		    "clockwork.mark": 1,
+			"karotechia.officerdetail": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsss3",
+		"label": "Enemy",
+		"required": {
+		    "foe.goliath": 1,
+		    "foe.goliath.hidden": 1,
+		},
+		"forbidden": {
+		    "clockwork.mark": 1,
+			"karotechia.officerdetail": 1
 		},
 		"greedy": true
 	    }
@@ -1046,24 +1058,24 @@
 	"mutations": [
 	    {
 		"filter": "faction.karotechia",
-		"mutate": "karotechia.officerdetail",
-		"level": 1
+		"mutate": "foe.umiri.wound",
+		"level": "monster.wound"
 	    },
 	    {
 		"filter": "clockwork.mark",
-		"mutate": "karotechia.officerdetail",
+		"mutate": "foe.umiri.wound",
 		"level": 0
 	    }
 	],
 	"warmup": 15
     },
     {
-	"id": "clockwork.orderguard.3",
+	"id": "clockwork.orderguard",
 	"actionId": "karotechia.rankofficer",
 	"label": "Gears Engage",
 	"startdescription": "The clockwork continues to turn, though the body lies broken. Gears mesh, pistons thrust—precision-crafted artificial joints ignore the limits of mortal flesh. His eyes hold no pain, only cold, relentless calculation. The Clockwork Lord slowly retreats into shadow, as soldiers to either side advance to block my path.\n\n[The Clockwork Lord can order other enemy forces to protect him. He cannot be attacked until these guardians are eliminated.]",
 	"requirements": {
-	    "monster.wound": -3,
+	    "monster.wound": -2,
 		"clockwork.mark": 1
 	},
 	"aspects": {
@@ -1255,12 +1267,16 @@
 	"label": "Reposition",
 	"startdescription": "The enemy forces are overwhelming. Soon, another unit is lost from our sight.",
 	"aspects": {
-	    "concealidentity": 1
+	    "concealidentity": 1,
+	    "refreshonlyclockwork": 1
 	},
 	"extantreqs": {
 		"faction.king": 1,
 		"faction.legion": 1,
 		"faction.karotechia": 1,
+	},
+	"xpans": {
+		"refreshonlyclockwork": 99
 	},
 	"slots": [
 	    {
