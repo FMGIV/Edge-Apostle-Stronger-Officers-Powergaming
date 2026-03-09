@@ -1,0 +1,133 @@
+{
+    "recipes": [
+    {
+	"id": "carrying_explosives.ally",
+	"actionid": "communicate",
+	"label": "Order an Ally to carry explosives",
+	"startdescription": "[An ally carrying explosives guarantees the success of a suicide attack and permanently increases the Edge and Forge aspects.]",
+	"aspects": {
+	    "sede_up": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "vicious": 1,
+	    "hired": -1,
+	    "supplies.explosives": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"effects": {
+	    "supplies.explosives": -99
+	},
+	"warmup": 15,
+	"craftable": true
+    },
+    {
+	"id": "hint.getreinforcements.contemnant",
+	"actionid": "communicate",
+	"label": "No-One is Coming",
+	"startdescription": "We are no standing army or resistance network; we have no-one to call upon for relief or reinforcement. But this has forced us to adapt.\n\n[You cannot call reinforcements normally, but certain unconventional actions are available to you and your Allies while in Warzones and also in the Ruined Country.]",
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "exhausted": -1,
+	    "supplies.explosives": -1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "hint.getreinforcements.contemnant.hopecatchall",
+	"actionid": "communicate",
+	"label": "No-One is Coming",
+	"startdescription": "We are no standing army or resistance network; we have no-one to call upon for relief or reinforcement. But this has forced us to adapt.\n\n[You cannot call reinforcements normally, but certain unconventional actions are available to you and your Allies while in Warzones and also in the Ruined Country.]",
+	"extantreqs": {
+	    "contemnant.memento": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "exhausted": -1,
+	    "supplies.explosives": -1
+	},
+	"craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "carrying_explosives.ally.hint",
+	"actionid": "communicate",
+	"label": "Order an Ally to carry explosives?",
+	"previewdescription": "[Equipping an ally with explosives requires the ally to have the Vicious aspect.]",
+	"requirements": {
+	    "supplies.explosives": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+    "craftable": false,
+	"hintonly": true
+    },
+    {
+	"id": "attackenemy.suicideattack.failure",
+	"label": "A Failed Gambit!",
+	"startdescription": "My allies are dead, and the enemy remains. A wretched waste of time.",
+	"aspects": {
+	    "fatiguing": 1,
+	    "revealidentity": 1
+	},
+	"alt": [
+	    {
+		"id": "attackenemy.suicideattack.carrying_explosives",
+		"chance": 100
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.suicideattack.carrying_explosives",
+	"label": "A Failed Gambit!",
+	"requirements": {
+	    "carrying_explosives": 1
+	},
+	"linked": [
+	    {
+		"id": "attackenemy.suicideattack.success",
+		"chance": 100
+	    }
+	]
+    },
+    {
+	"id": "produce.strife.contemnant",
+	"actionid": "spit.edge",
+	"label": "Strife!",
+	"startdescription": "Battle begets battle. The Corrivality seethes and actuates anew, and so struggle will endure.",
+	"warmup": 10,
+    "requirements": {
+        "neutral_monster": -1
+    },
+	"effects": {
+	    "strife": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"linked": [
+	    {
+		"id": "vulneration.killrandom",
+		"chance": 70
+	    }
+	]
+    }
+    ]
+}

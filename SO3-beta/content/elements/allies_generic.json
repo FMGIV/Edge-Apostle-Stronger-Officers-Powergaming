@@ -1,0 +1,1003 @@
+{
+"elements": [
+    {
+	"id": "hindrance.snows",
+	"label": "Relentless Cold",
+	"description": "Frost prohibits the way. Machines may fail, and men may freeze to death.",
+	"aspects": {
+	    "hindrance": 1,
+	    "environmenthidden": 1,
+	    "needswinter": 6,
+	    "needsforge": 8
+	},
+	"xtriggers": {
+	    "turnhindrance": "op.snows"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "hindrance.storms",
+	"label": "Furious Storms",
+	"description": "Thunder stalks the lightning through the clouds. Rain pounds like artillery-fire.",
+	"aspects": {
+	    "hindrance": 1,
+	    "environmenthidden": 1,
+	    "needsheart": 6,
+	    "needsforge": 8
+	},
+	"xtriggers": {
+	    "turnhindrance": "op.storms"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "hindrance.fog",
+	"label": "Obscuring Fog",
+	"description": "Sight and mobility are limited. It would be easy to walk into an ambush, or for a nasty fall to go misjudged.",
+	"aspects": {
+	    "hindrance": 1,
+	    "environmenthidden": 1,
+	    "needslantern": 6,
+	    "needsforge": 8
+	},
+	"xtriggers": {
+	    "turnhindrance": "op.fog"
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "friend.doctor",
+	"label": "Refugee Doctor",
+	"description": "This one provides what assistance they can to those who can be saved, and mercy to those who cannot. [This Ally can heal the wounded, but can also put them out of their misery.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "heart": 4,
+	    "grail": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.doctor.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.doctor.wounded",
+	    "concealidentity": "friend.doctor.hidden",
+	    "decline": "husk",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "Casualty",
+		"required": {
+		    "wounded": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.doctor.hidden",
+	"label": "Refugee Doctor (Hidden)",
+	"description": "This one provides what assistance they can to those who can be saved, and mercy to those who cannot. [This Ally can heal the wounded, but can also put them out of their misery.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "heart": 8,
+	    "grail": 8,
+	    "winter": 8,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.doctor.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.doctor.wounded",
+	    "concealidentity": "friend.doctor.hidden",
+	    "decline": "husk",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswounded",
+		"actionid": "operate",
+		"label": "Casualty",
+		"required": {
+		    "wounded": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "friend.labourer",
+	"label": "Refugee Labourer",
+	"description": "Sometimes, the hand and the hammer are all you have against the world. Grit your teeth and go to work.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "forge": 4,
+	    "knock": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labourer.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.labourer.wounded",
+	    "concealidentity": "friend.labourer.hidden",
+	    "decline": "husk",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.labourer.hidden",
+	"label": "Refugee Labourer (Hidden)",
+	"description": "Sometimes, the hand and the hammer are all you have against the world. Grit your teeth and go to work.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "forge": 8,
+	    "knock": 8,
+	    "edge": 4,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.labourer.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.labourer.wounded",
+	    "concealidentity": "friend.labourer.hidden",
+	    "decline": "husk",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.lookout",
+	"label": "Refugee Lookout",
+	"description": "Conditioned by fear, this one has become adept at spotting out dangers and threats - and there are so many, after all. [This Ally can reveal Hidden Enemies, but may sometimes perish when attempting this.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "lantern": 4,
+	    "moth": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.lookout.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.lookout.wounded",
+	    "concealidentity": "friend.lookout.hidden",
+	    "decline": "husk",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needshidden",
+		"actionid": "operate",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1
+		}
+	    },
+	    {
+		"id": "needshidingplace",
+		"actionid": "operate",
+		"label": "Hiding Place",
+		"required": {
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.lookout.hidden",
+	"label": "Refugee Lookout (Hidden)",
+	"description": "Conditioned by fear, this one has become adept at spotting out dangers and threats - and there are so many, after all. [This Ally can reveal Hidden Enemies, but may sometimes perish when attempting this.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "lantern": 8,
+	    "moth": 8,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.lookout.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.lookout.wounded",
+	    "concealidentity": "friend.lookout.hidden",
+	    "decline": "husk",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needshidden",
+		"actionid": "operate",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.gunman",
+	"label": "Refugee Gunman",
+	"description": "Not a soldier, not a partisan; only someone with a gun who wants to live, and is very, very afraid.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 4,
+	    "winter": 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.gunman.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.gunman.wounded",
+	    "concealidentity": "friend.gunman.hidden",
+	    "decline": "husk",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Intent",
+		"required": {
+		    "edge": 1,
+		    "heart": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.gunman.hidden",
+	"label": "Refugee Gunman (Hidden)",
+	"description": "Not a soldier, not a partisan; only someone with a gun who wants to live, and is very, very afraid.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 8,
+	    "winter": 8,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.gunman.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.gunman.wounded",
+	    "concealidentity": "friend.gunman.hidden",
+	    "decline": "husk",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "promise": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Intent",
+		"required": {
+		    "edge": 1,
+		    "heart": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregsoldier",
+	"label": "Dreg Soldiers",
+	"description": "Deserters, robbers, murderers. Under my direction, they will be worse.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "edge": 6,
+	    "grail": 4,
+	    "winter": 4,
+	    "vicious": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregsoldier.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregsoldier.wounded",
+	    "concealidentity": "friend.dregsoldier.hidden",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+		    "warzone.current": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Intent",
+		"required": {
+		    "edge": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregsoldier.hidden",
+	"label": "Dreg Soldiers (Hidden)",
+	"description": "Deserters, robbers, murderers. Under my direction, they will be worse.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "edge": 10,
+	    "grail": 8,
+	    "winter": 8,
+	    "vicious": 1,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregsoldier.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregsoldier.wounded",
+	    "concealidentity": "friend.dregsoldier.hidden",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    },
+	    {
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    },
+	    {
+		"id": "needsintent",
+		"actionid": "operate",
+		"label": "Intent",
+		"required": {
+		    "edge": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregarsonists",
+	"label": "Dreg Arsonists",
+	"description": "Consign it all to the fire. [This Ally will sometimes create a Flames opportunity whenever they are used.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "forge": 6,
+	    "edge": 4,
+	    "winter": 4,
+	    "vicious": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregarsonists.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregarsonists.wounded",
+	    "concealidentity": "friend.dregarsonists.hidden",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregarsonists.hidden",
+	"label": "Dreg Arsonists (Hidden)",
+	"description": "Consign it all to the fire. [This Ally will sometimes create a Flames opportunity whenever they are used.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "forge": 10,
+	    "edge": 8,
+	    "winter": 8,
+	    "vicious": 1,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregarsonists.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregarsonists.wounded",
+	    "concealidentity": "friend.dregarsonists.hidden",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregscavengers",
+	"label": "Dreg Scavengers",
+	"description": "Before the worms and the birds take their due from the dead, these ones will take theirs. [This Ally can loot corpses faster, and has a higher chance of finding useful supplies when doing so.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 6,
+	    "grail": 4,
+	    "knock": 4,
+	    "vicious": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregscavengers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregscavengers.wounded",
+	    "concealidentity": "friend.dregscavengers.hidden",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "friend.dregscavengers.hidden",
+	"label": "Dreg Scavengers (Hidden)",
+	"description": "Before the worms and the birds take their due from the dead, these ones will take theirs. [This Ally can loot corpses faster, and has a higher chance of finding useful supplies when doing so.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 10,
+	    "grail": 8,
+	    "knock": 8,
+	    "vicious": 1,
+	    "friend.hidden": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dregscavengers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.dregscavengers.wounded",
+	    "concealidentity": "friend.dregscavengers.hidden",
+	    "sede_up": [
+		{
+		    "id": "carrying_explosives",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needscorpse",
+		"actionid": "communicate",
+		"label": "Intention",
+		"required": {
+		    "foe.corpses": 1,
+		    "neutral.corpses": 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"supplies.explosives": 1
+		},
+		"forbidden": {
+		    "looted": 1
+		}
+	    }
+	]
+    }
+]
+}

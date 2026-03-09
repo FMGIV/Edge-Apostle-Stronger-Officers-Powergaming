@@ -1,0 +1,741 @@
+{
+"elements": [
+    {
+	"id": "environmenthidden",
+	"label": "environmenthidden",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡牌用来判定不利环境"
+    },
+    {
+	"id": "enemyhidden",
+	"label": "Enemy hidden",
+	"description": "This enemy blends into the environment, granting them an advantage in combat.\n\n[This enemy's aspects are temporarily increased, and the effect expires after launching an attack.]",
+	"isAspect": true
+    },
+    {
+	"id": "enemyhidden.mark",
+	"label": "Enemy hidden",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡牌用来检测敌军隐匿"
+    },
+    {
+	"id": "enemyintoenvironment",
+	"label": "Enemy hidden",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡牌用来升级敌军隐匿"
+    },
+
+    {
+	"id": "foe.infantry.environment",
+	"label": "Enemy Infantry Company",
+	"description": "Man, the weapon.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 12,
+		"foe_points": 3,
+		"enemyhidden": 1,
+		"enemyhidden.mark": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.infantry.environment",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.infantry.environment.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.infantry.environment.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 3,
+		"enemyhidden.mark": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.infantry.environment.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.infantry.environment",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.kommando.environment",
+	"label": "Enemy Kommandotruppe",
+	"description": "Formidable skirmishers and ambush tacticians, trained in tactics that emphasize aggression and manoeuvrability behind enemy lines.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedge": 12,
+		"foe_points": 3,
+		"defence_up": 1,
+		"enemyhidden.mark": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.kommando.environment",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.kommando.environment.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.kommando",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.kommando.environment.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 3,
+		"defence_up": 1,
+		"enemyhidden.mark": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.kommando.environment.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.kommando.environment",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.sniper.environment",
+	"label": "Enemy Sniper",
+	"description": "A skilled marksman, positioned advantageously, can hold back a hundred men. Someone silent or sneaky might be able to close in on him undetected.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needswinter": 12,
+	    "needsmoth": 12,
+		"foe_points": 3,
+		"attack_up": 1,
+		"enemyhidden.mark": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.sniper.environment",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.sniper.environment.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.sniper",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.sniper.environment.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 3,
+		"attack_up": 1,
+		"enemyhidden.mark": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.sniper.environment.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.sniper.environment",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.manhunters.environment",
+	"label": "Enemy Menschenjäger Company",
+	"description": "An infantry detachment led by initiates of the fatal arts. Force alone will not suffice here - we must equal whatever adeptry they bring to field with some of our own.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedgelantern": 12,
+	    "needsedgewinter": 12,
+	    "needsedgeforge": 12,
+		"foe_points": 4,
+		"enemyhidden.mark": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.manhunters.environment",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "enemyintoenvironment": "foe.manhunters.environment.hidden",
+	    "concealidentity": "foe.manhunters.environment.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.manhunters.environment.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 4,
+		"enemyhidden.mark": 1,
+	    "german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.manhunters.environment.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.manhunters.environment",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.chasseur.environment",
+	"label": "Enemy Chasseur",
+	"description": "Most soldiers give up the fight when they're killed. These ones don't.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedgewinter": 12,
+	    "needsedgelantern": 12,
+		"foe_points": 4,
+		"neutral_monster": 1,
+		"enemyhidden.mark": 1,
+		"german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.chasseur.environment",
+	    "killgerman": "foe.chasseur.reviving",
+	    "killfoe": "foe.chasseur.reviving",
+	    "concealidentity": "foe.chasseur.environment.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.chasseur",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.chasseur.environment.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 4,
+		"neutral_monster": 1,
+		"enemyhidden.mark": 1,
+		"german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.chasseur.environment.hidden",
+	    "killgerman": "foe.chasseur.reviving",
+	    "killfoe": "foe.chasseur.reviving",
+	    "revealidentity": "foe.chasseur.environment",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    }
+]
+}
