@@ -581,8 +581,8 @@
     },
 	{
 	"id": "produce.illumination.startup",
-	"label": "The enemy's flare has exposed our position.",
-	"startdescription": ".",
+	"label": "Exposed!",
+	"startdescription": "In their last breath, they fire a flare gun at us!",
 	"actionId": "eyetoillumination",
 	"warmup": 0,
 	"requirements": {
@@ -597,8 +597,9 @@
     },
 	{
 	"id": "produce.illumination",
-	"label": "The enemy's flare has exposed our position.",
-	"startdescription": ".",
+	"label": "Exposed!",
+	"startdescription": "In their last breath, they fire a flare gun at us!",
+	"description": "The shadows recede, our ally has to scramble back to safety!",
 	"actionId": "eyetoillumination",
 	"warmup": 10,
 	"aspects": {
@@ -702,6 +703,16 @@
 		"additional": true,
 		"chance": 15
 	    },
+	    {
+		"id": "produce.watchtower.2",
+		"additional": true,
+		"chance": 15
+	    },
+	    {
+		"id": "produce.watchtower.3",
+		"additional": true,
+		"chance": 15
+	    },
 
 	    {
 		"id": "produce.craterfield",
@@ -802,8 +813,9 @@
     },
 	{
 	"id": "produce.watchtower",
-	"label": "The Watchtower is reconnoitering our position.",
-	"startdescription": ".",
+	"label": "Exposed!",
+	"startdescription": "From up high, a searchlight shines down at us!",
+	"description": "The shadows recede, our ally has to scramble back to safety!",
 	"actionId": "eyetounhidden",
 	"warmup": 0,
 	"extantreqs": {
@@ -820,9 +832,50 @@
 	]
     },
 	{
+	"id": "produce.watchtower.2",
+	"label": "Exposed!",
+	"startdescription": "From up high, a searchlight shines down at us!",
+	"description": "The shadows recede, our ally has to scramble back to safety!",
+	"actionId": "eyetounhidden",
+	"warmup": 0,
+	"extantreqs": {
+		"watchtower": 2
+	},
+	"linked": [
+		{
+			"id": "produce.watchtower.soviet",
+			"chance": 50
+		},
+		{
+			"id": "produce.watchtower.hidden"
+		}
+	]
+    },
+	{
+	"id": "produce.watchtower.3",
+	"label": "Exposed!",
+	"startdescription": "From up high, a searchlight shines down at us!",
+	"description": "The shadows recede, our ally has to scramble back to safety!",
+	"actionId": "eyetounhidden",
+	"warmup": 0,
+	"extantreqs": {
+		"watchtower": 3
+	},
+	"linked": [
+		{
+			"id": "produce.watchtower.soviet",
+			"chance": 50
+		},
+		{
+			"id": "produce.watchtower.hidden"
+		}
+	]
+    },
+	{
 	"id": "produce.watchtower.hidden",
-	"label": "The Watchtower is reconnoitering our position.",
-	"startdescription": ".",
+	"label": "Exposed!",
+	"startdescription": "From up high, a searchlight shines down at us!",
+	"description": "The shadows recede, our ally has to scramble back to safety!",
 	"warmup": 10,
 	"aspects": {
 		"fatiguing": 1
@@ -847,8 +900,9 @@
     },
 	{
 	"id": "produce.watchtower.soviet",
-	"label": "The Watchtower is reconnoitering our position.",
-	"startdescription": ".",
+	"label": "Exposed!",
+	"startdescription": "From up high, a searchlight shines down at us!",
+	"description": "The shadows recede, our ally has to scramble back to safety!",
 	"warmup": 10,
 	"extantreqs": {
 		"local.infamy": 3
@@ -875,8 +929,9 @@
     },
 	{
 	"id": "produce.factory",
-	"label": "The enemy is upgrading its equipment.",
-	"startdescription": ".",
+	"label": "Factory producing enemy equipment!",
+	"startdescription": "The factory churns out equipment for the wehrmacht. More for us to take off their corpses.",
+	"description": "Even with the red army at its gates, the work goes on.",
 	"actionId": "foerally",
 	"warmup": 10,
 	"extantreqs": {
@@ -929,9 +984,122 @@
 	]
     },
 	{
+	"id": "produce.factory.2",
+	"label": "Factory producing enemy equipment!",
+	"startdescription": "The factory churns out equipment for the wehrmacht. More for us to take off their corpses.",
+	"description": "Even with the red army at its gates, the work goes on.",
+	"actionId": "foerally",
+	"warmup": 10,
+	"extantreqs": {
+		"factory": 2
+	},
+	"internaldeck": {
+	    "spec": [
+		"special_ammunition.complete",
+		"self_destruction.complete",
+		"illumination.complete",
+		"special_ammunition.complete",
+		"self_destruction.complete",
+		"illumination.complete"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true,
+		"defaultcard": "special_ammunition.complete"
+	},
+	"slots": [
+		{
+		"id": "needsfactory",
+		"label": "Factory",
+		"required": {
+			"factory": 1
+		},
+		"forbidden": {
+		},
+		"greedy": true
+		}
+	],
+	"linked": [
+		{
+			"id": "produce.factory.needsfoe.special_ammunition.officer"
+		},
+		{
+			"id": "produce.factory.needsfoe.self_destruction.officer"
+		},
+		{
+			"id": "produce.factory.needsfoe.illumination.officer"
+		},
+		{
+			"id": "produce.factory.needsfoe.special_ammunition"
+		},
+		{
+			"id": "produce.factory.needsfoe.self_destruction"
+		},
+		{
+			"id": "produce.factory.needsfoe.illumination"
+		}
+	]
+    },
+	{
+	"id": "produce.factory.3",
+	"label": "Factory producing enemy equipment!",
+	"startdescription": "The factory churns out equipment for the wehrmacht. More for us to take off their corpses.",
+	"description": "Even with the red army at its gates, the work goes on.",
+	"actionId": "foerally",
+	"warmup": 10,
+	"extantreqs": {
+		"factory": 3
+	},
+	"internaldeck": {
+	    "spec": [
+		"special_ammunition.complete",
+		"self_destruction.complete",
+		"illumination.complete",
+		"special_ammunition.complete",
+		"self_destruction.complete",
+		"illumination.complete"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true,
+		"defaultcard": "special_ammunition.complete"
+	},
+	"slots": [
+		{
+		"id": "needsfactory",
+		"label": "Factory",
+		"required": {
+			"factory": 1
+		},
+		"forbidden": {
+		},
+		"greedy": true
+		}
+	],
+	"linked": [
+		{
+			"id": "produce.factory.needsfoe.special_ammunition.officer"
+		},
+		{
+			"id": "produce.factory.needsfoe.self_destruction.officer"
+		},
+		{
+			"id": "produce.factory.needsfoe.illumination.officer"
+		},
+		{
+			"id": "produce.factory.needsfoe.special_ammunition"
+		},
+		{
+			"id": "produce.factory.needsfoe.self_destruction"
+		},
+		{
+			"id": "produce.factory.needsfoe.illumination"
+		}
+	]
+    },
+	{
 	"id": "produce.factory.needsfoe.special_ammunition.officer",
-	"label": "The enemy is upgrading its equipment.",
-	"startdescription": ".",
+	"label": "Factory producing enemy equipment!",
+	"startdescription": "The factory churns out equipment for the wehrmacht. More for us to take off their corpses.",
+	"description": "Even with the red army at its gates, the work goes on.",
 	"actionId": "foerally",
 	"warmup": 10,
 	"extantreqs": {
@@ -996,8 +1164,9 @@
     },
 	{
 	"id": "produce.factory.needsfoe.self_destruction.officer",
-	"label": "The enemy is upgrading its equipment.",
-	"startdescription": ".",
+	"label": "Factory producing enemy equipment!",
+	"startdescription": "The factory churns out equipment for the wehrmacht. More for us to take off their corpses.",
+	"description": "Even with the red army at its gates, the work goes on.",
 	"actionId": "foerally",
 	"warmup": 10,
 	"extantreqs": {
@@ -1062,8 +1231,9 @@
     },
 	{
 	"id": "produce.factory.needsfoe.illumination.officer",
-	"label": "The enemy is upgrading its equipment.",
-	"startdescription": ".",
+	"label": "Factory producing enemy equipment!",
+	"startdescription": "The factory churns out equipment for the wehrmacht. More for us to take off their corpses.",
+	"description": "Even with the red army at its gates, the work goes on.",
 	"actionId": "foerally",
 	"warmup": 10,
 	"extantreqs": {
@@ -1129,8 +1299,9 @@
 
 	{
 	"id": "produce.factory.needsfoe.special_ammunition",
-	"label": "The enemy is upgrading its equipment.",
-	"startdescription": ".",
+	"label": "Factory producing enemy equipment!",
+	"startdescription": "The factory churns out equipment for the wehrmacht. More for us to take off their corpses.",
+	"description": "Even with the red army at its gates, the work goes on.",
 	"actionId": "foerally",
 	"warmup": 10,
 	"requirements": {
@@ -1170,8 +1341,9 @@
     },
 	{
 	"id": "produce.factory.special_ammunition",
-	"label": "The enemy is upgrading its equipment.",
-	"startdescription": ".",
+	"label": "Factory producing enemy equipment!",
+	"startdescription": "The factory churns out equipment for the wehrmacht. More for us to take off their corpses.",
+	"description": "Even with the red army at its gates, the work goes on.",
 	"actionId": "foerally",
 	"warmup": 0,
 	"effects": {
@@ -1195,8 +1367,9 @@
     },
 	{
 	"id": "produce.factory.needsfoe.self_destruction",
-	"label": "The enemy is upgrading its equipment.",
-	"startdescription": ".",
+	"label": "Factory producing enemy equipment!",
+	"startdescription": "The factory churns out equipment for the wehrmacht. More for us to take off their corpses.",
+	"description": "Even with the red army at its gates, the work goes on.",
 	"actionId": "foerally",
 	"warmup": 10,
 	"requirements": {
@@ -1236,8 +1409,9 @@
     },
 	{
 	"id": "produce.factory.self_destruction",
-	"label": "The enemy is upgrading its equipment.",
-	"startdescription": ".",
+	"label": "Factory producing enemy equipment!",
+	"startdescription": "The factory churns out equipment for the wehrmacht. More for us to take off their corpses.",
+	"description": "Even with the red army at its gates, the work goes on.",
 	"actionId": "foerally",
 	"warmup": 0,
 	"effects": {
@@ -1258,8 +1432,9 @@
     },
 	{
 	"id": "produce.factory.needsfoe.illumination",
-	"label": "The enemy is upgrading its equipment.",
-	"startdescription": ".",
+	"label": "Factory producing enemy equipment!",
+	"startdescription": "The factory churns out equipment for the wehrmacht. More for us to take off their corpses.",
+	"description": "Even with the red army at its gates, the work goes on.",
 	"actionId": "foerally",
 	"warmup": 10,
 	"requirements": {
@@ -1299,8 +1474,9 @@
     },
 	{
 	"id": "produce.factory.illumination",
-	"label": "The enemy is upgrading its equipment.",
-	"startdescription": ".",
+	"label": "Factory producing enemy equipment!",
+	"startdescription": "The factory churns out equipment for the wehrmacht. More for us to take off their corpses.",
+	"description": "Even with the red army at its gates, the work goes on.",
 	"actionId": "foerally",
 	"warmup": 0,
 	"effects": {
