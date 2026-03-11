@@ -1,6 +1,196 @@
 {
     "recipes": [
     {
+	"id": "attackenemy.suicideattack.success",
+	"label": "A Successful Gambit!",
+	"startdescription": "My allies went to their deaths - but the enemy followed after them.",
+	"aspects": {
+	    "fatiguing": 1,
+	    "revealidentity": 1,
+	    "killfoe": 1
+	},
+	"effects": {
+	    "friend": -99,
+	    "supplies": -99,
+	    "weapon": -99,
+	    "op": -99,
+	    "memory": -99
+	},
+	"alt": [
+	    {
+		"id": "resilient.survived",
+		"chance": 30
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.trauma",
+		"additional": true,
+		"chance": 40
+	    },
+	    {
+		"id": "produce.escape",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.escape.marinette",
+		"additional": true,
+		"chance": 100
+	    },
+	    {
+		"id": "produce.escape.bloodonhands",
+		"additional": true,
+		"chance": 100
+	    }
+	]
+    },
+    {
+	"id": "ob.success",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "progression": 3
+	},
+	"aspects": {
+	    "careeradvancement": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "ob.success.sobibor"
+	    },
+	    {
+		"id": "ob.success.raze"
+	    },
+	    {
+		"id": "ob.success.seize"
+	    },
+	    {
+		"id": "ob.success.breakout"
+	    },
+	    {
+		"id": "ob.success.rescuerefugees"
+	    },
+	    {
+		"id": "ob.success.weakenairfield"
+	    },
+	    {
+		"id": "ob.success.factory"
+	    },
+	    {
+		"id": "ob.success.weaponscache"
+	    },
+	    {
+		"id": "ob.success.rescueallies"
+	    },
+	    {
+		"id": "ob.success.rescuepartisans"
+	    },
+	    {
+		"id": "star.convertwounds.healing"
+	    }
+	]
+    },
+    {
+	"id": "ob.success.weakenairfield",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "weakenairfield.complete": 1
+	},
+	"effects": {
+	},
+	"internaldeck": {
+	    "spec": [
+		"supplies.flares",
+		"supplies.apmunitions",
+		"provisions",
+		"husk",
+		"provisions",
+		"husk",
+		"provisions",
+		"husk",
+		"provisions",
+		"husk",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 5,
+	    "resetonexhaustion": true
+	}
+    },
+    {
+	"id": "ob.success.factory",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "factory.complete": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.flares",
+		"provisions",
+		"provisions",
+		"husk",
+		"husk",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 5,
+	    "resetonexhaustion": true
+	}
+    },
+
+    {
+	"id": "use.unmake.foe",
+	"actionid": "abandon",
+	"label": "Unmake",
+	"startdescription": "A shadow falls across my soul, and hatred deeper and older than my own moves through me - through my veins and into my hands, burning. I reach out for my enemy -",
+	"description": "Nothing remains. Utterly nothing.",
+	"requirements": {
+	    "skill.unmake": 1,
+	    "foe": 1,
+	    "foe.officer": -1,
+	    "foe.ingluviate.engorged": -1,
+	    "foe.marinette": -1,
+	    "foe.marinette.hidden": -1
+	},
+	"effects": {
+	    "foe": -99,
+	    "aggro.bombers.refuel": -99,
+	    "foe.bombers.refuel": -99,
+	    "foe.bomberslocal.refuel": -99
+	},
+	"aspects": {
+	    "fatiguing": 1
+	},
+	"craftable": true,
+	"warmup": 15,
+	"alt": [
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 60
+	    }
+	],
+	"linked": [
+	    {
+		"id": "unmake.getshadow",
+		"chance": 45
+	    }
+	]
+    },
+    {
 	"id": "carrying_explosives.ally",
 	"actionid": "communicate",
 	"label": "Order an Ally to carry explosives",
@@ -116,12 +306,12 @@
 	    {
 		"id": "startup.desertion",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    },
 	    {
 		"id": "produce.localinfamy",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    }
 	]
     },
@@ -170,12 +360,12 @@
 	    {
 		"id": "startup.desertion",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    },
 	    {
 		"id": "produce.localinfamy",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    }
 	]
     },
@@ -224,12 +414,12 @@
 	    {
 		"id": "startup.desertion",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    },
 	    {
 		"id": "produce.localinfamy",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    }
 	]
     },
@@ -278,12 +468,12 @@
 	    {
 		"id": "startup.desertion",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    },
 	    {
 		"id": "produce.localinfamy",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    }
 	]
     },
@@ -332,12 +522,12 @@
 	    {
 		"id": "startup.desertion",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    },
 	    {
 		"id": "produce.localinfamy",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    }
 	]
     },
@@ -386,12 +576,12 @@
 	    {
 		"id": "startup.desertion",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    },
 	    {
 		"id": "produce.localinfamy",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    }
 	]
     },
@@ -440,12 +630,12 @@
 	    {
 		"id": "startup.desertion",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    },
 	    {
 		"id": "produce.localinfamy",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    }
 	]
     },
@@ -494,12 +684,12 @@
 	    {
 		"id": "startup.desertion",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    },
 	    {
 		"id": "produce.localinfamy",
 		"additional": true,
-		"chance": 40
+		"chance": 100
 	    }
 	]
     },
