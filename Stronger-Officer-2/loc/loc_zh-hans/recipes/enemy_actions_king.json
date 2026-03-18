@@ -348,5 +348,39 @@
 	],
 	"warmup": 15
     },
+    {
+	"id": "target.legion",
+	"label": "针对门关军团？",
+	"startdescription": "我们全部都在争夺那颗星——这意味着我们多方势力相互之间均为敌对。而这一次，新王的军队选择了另一方作为目标。",
+	"tablereqs": {
+	    "faction.legion": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌军",
+		"required": {
+		    "faction.legion": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqlionel": 1,
+		    "foe.malkin": 1,
+		    "foe.malkin.hidden": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "target.legion.defeat",
+		"chance": 35
+	    },
+	    {
+		"id": "target.legion.victory"
+	    }
+	]
+    },
 ]
 }

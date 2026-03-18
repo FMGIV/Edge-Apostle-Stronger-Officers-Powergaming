@@ -255,6 +255,38 @@
 		}
 	],
 	"warmup": 30
-    }
+    },
+    {
+	"id": "target.king",
+	"label": "针对新王亨利的私兵队？",
+	"startdescription": "我们全部都在争夺那颗星——这意味着我们多方势力相互之间均为敌对。而这一次，门关军团选择了另一方作为目标。",
+	"tablereqs": {
+	    "faction.king": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌军",
+		"required": {
+		    "faction.king": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "uqjerome": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "target.king.defeat",
+		"chance": 35
+	    },
+	    {
+		"id": "target.king.victory"
+	    }
+	]
+    },
 ]
 }
