@@ -1,0 +1,73 @@
+{
+"recipes": [
+    {
+	"id": "hide.allysniper",
+	"actionid": "communicate",
+	"label": "Order a sniper to go into hiding",
+	"startdescription": "To the dark. Our enemy won't be able to find us, or harm us. And when we choose to strike again, it will be with the advantage of surprise...\n\n[A Hidden Ally will not be targeted by most Enemy offensive actions, and will also have their aspects increased until the next time they are used.]",
+	"description": "Here we wait. Here we bristle with anticipation.",
+	"aspects": {
+	    "concealidentity": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "hired": -1,
+	    "friend.hidden": -1,
+	    "op": 1,
+		"friend.sniper" : 1
+	},
+	"effects": {
+	    "op": -99
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+	
+	{
+	"id": "hint.sniper",
+	"actionid": "operate",
+	"label": "Consult with a Sniper?",
+	"startdescription": "If the infantry and tanks are our hammers, these men are our scalpels. I can order them into a hiding place to increase their effectiveness.",
+	"requirements": {
+	    "friend.sniper": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{  
+    "id": "bury.fallen.ally",  
+    "actionid": "abandon",  
+    "label": "Bury a Fallen Ally",  
+    "startdescription": "Their war is over, but ours isn't. If we have time to spare, we could bury them properly. [You will gain a memory from this.]",  
+    "description": "They Fought, and now they rest in a proper grave. I think about them briefly, and move on.",  
+    "requirements": {  
+        "friend.corpses": 1  
+    },  
+    "effects": {  
+        "friend.corpses": -1  
+    },  
+    "extantreqs": {  
+        "contemnant.story": -1,  
+        "contemnant.memento": -1  
+    },  
+    "internaldeck": {  
+        "spec": [  
+            "mem.regret",  
+            "mem.joy",  
+            "mem.rage",  
+            "mem.fear",  
+            "mem.calm",  
+            "mem.grief",  
+            "mem.ingenuity",  
+            "mem.taste",  
+            "mem.unexpected"  
+        ],  
+        "draws": 1,  
+        "resetonexhaustion": true  
+    },  
+    "warmup": 30,  
+    "craftable": true  
+	}
+]
+}

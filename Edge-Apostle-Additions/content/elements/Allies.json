@@ -1,0 +1,59 @@
+{
+"elements": [
+    {
+	"id": "friend.sniper",
+	"label": "Ally Sniper",
+	"description": "Solitary, patient, observant. And accurate.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 4,
+	    "winter": 4,
+	    "lantern": 4
+	},
+	"slots": [
+	{
+		"id": "hideyoself",
+		"actionid": "communicate",
+		"label": "A Hiding Place?",
+		"required": {
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1
+		},
+	},
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.sniper.wounded",
+		"concealidentity": "friend.sniper.hidden"
+	}
+    },
+	
+	{
+	"id": "friend.sniper.hidden",
+	"label": "Ally Sniper (Hidden)",
+	"description": "Solitary, patient, observant. And accurate.",
+	"icon": "friend.sniper",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+		"friend.hidden": 1,
+	    "forcesize": 1,
+	    "edge": 8,
+	    "winter": 8,
+	    "lantern": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.sniper.wounded"
+	}
+    }
+]
+}
