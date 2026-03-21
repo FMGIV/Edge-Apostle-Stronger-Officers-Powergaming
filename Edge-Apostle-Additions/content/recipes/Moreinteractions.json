@@ -74,12 +74,61 @@
 	"id": "refreshally.provision.hint",
 	"actionid": "abandon",
 	"label": "Refresh an ally with Provisions?",
-	"startdescription": "If I have extra provisions to spare, I can give them to my exhuasted allies to get them back in the fight sooner.",
+	"startdescription": "If I have extra provisions to spare, I can give them to my exhuasted allies to get them back in the fight sooner. Certain allies may need more provisions.",
 	"requirements": {
 	    "provisions" : 1
 	},
 	"hintonly": true,
 	"craftable": false
+    },
+	
+	{
+	"id": "refreshally.provisions",
+	"$priority" : 1,
+	"actionid": "abandon",
+	"label": "Refresh an ally with Provisions?",
+	"startdescription": "If I have extra provisions to spare, I can give them to my exhuasted allies to get them back in the fight sooner.",
+	"description": "Extra rations and rest. Back in the fight.",
+	"requirements": {
+	    "provisions" : 1,
+		"friend" : 1,
+		"exhausted" : 1,
+		"otherwordly" : -1,
+		"friend.tanks.exhausted" : -1,
+		"friend.bombers.exhausted" : -1,
+		"friend.artillery.exhuasted" : -1
+	},
+	"aspects": {   
+        "refreshally": 1   
+    },
+	"effects": {  
+    "provisions": -99  
+	},
+	"warmup": 15, 
+	"craftable": true
+    },
+	
+	{
+	"id": "refreshally.provisions.mechormonster",
+	"$priority" : 2,
+	"actionid": "abandon",
+	"label": "Refresh an ally with Provisions?",
+	"startdescription": "If I have extra provisions to spare, I can give them to my exhuasted allies to get them back in the fight sooner.",
+	"description": "Extra rations and rest. Back in the fight.",
+	"aspects": {
+		"provisionrefresh" : 1
+	},
+	"effects": {  
+    "provisions": -99  
+	},
+	"requirements": {
+	    "provisions" : 2,
+		"friend" : 1,
+		"exhausted" : 1
+	},
+	"warmup": 30,
+	"craftable": true
     }
+
 ]
 }
