@@ -99,7 +99,7 @@
 		"friend.artillery.exhuasted" : -1
 	},
 	"aspects": {   
-        "refreshally": 1   
+        "refresh": 1   
     },
 	"effects": {  
     "provisions": -99  
@@ -128,7 +128,39 @@
 	},
 	"warmup": 30,
 	"craftable": true
-    }
+    },
+	
+	{  
+    "id": "assistlocals.weakenenemy",  
+    "label": "Assistance From Locals!",  
+    "startdescription": "Our assistance to the locals here has given an unexpected boon, some townspeople come forward to tell us about the enemy...",  
+    "description": "The locals have shared information about enemy positions and composition. We can use this to our advantage..",  
+    "tablereqs": {  
+        "foe": 1,  
+        "warzone.current": 1  
+    },  
+    "slots": [  
+        {  
+            "id": "needsfoe",  
+            "label": "Enemy",  
+            "required": {  
+                "foe": 1  
+            },  
+            "forbidden": {  
+                "remnant": 1,  
+                "weakened": 1,  
+                "foe.rankofficer": 1,  
+                "otherworldly": 1  
+            },  
+            "greedy": true  
+        }  
+    ],  
+    "aspects": {  
+        "weaken": 1,
+		"revealenemy": 1
+    },  
+    "warmup": 10  
+	}
 
 ]
 }
