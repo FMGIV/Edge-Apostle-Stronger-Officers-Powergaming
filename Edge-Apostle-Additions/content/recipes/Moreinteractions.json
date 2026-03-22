@@ -2,6 +2,7 @@
 "recipes": [
     {
 	"id": "hide.allysniper",
+	"$priority" : 1,
 	"actionid": "communicate",
 	"label": "Order a sniper to go into hiding",
 	"startdescription": "To the dark. Our enemy won't be able to find us, or harm us. And when we choose to strike again, it will be with the advantage of surprise...\n\n[A Hidden Ally will not be targeted by most Enemy offensive actions, and will also have their aspects increased until the next time they are used.]",
@@ -37,19 +38,21 @@
 	
 	{  
     "id": "bury.fallen.ally",  
-    "actionid": "abandon",  
+    "actionid": "abandon",
+	"$priority" : 1,
     "label": "Bury a Fallen Ally",  
-    "startdescription": "Their war is over, but ours isn't. If we have time to spare, we could bury them properly. [You will gain a memory from this.]",  
+    "startdescription": "Their war is over, but ours isn't. If we have time and effort to spare, we could bury them properly. [You will gain a memory from this.]",  
     "description": "They Fought, and now they rest in a proper grave. I think about them briefly, and move on.",  
     "requirements": {  
-        "friend.corpses": 1  
+        "friend.corpses": 1,
+		"heart" : 1
     },  
     "effects": {  
         "friend.corpses": -1  
     },  
     "extantreqs": {  
-        "contemnant.story": -1,  
-        "contemnant.memento": -1  
+        "hopelessness": -1,  
+        "antithesis": -1   
     },  
     "internaldeck": {  
         "spec": [  
@@ -69,6 +72,48 @@
     "warmup": 30,  
     "craftable": true  
 	},
+	
+	{
+	"id": "hint.bury.fallen.ally",
+	"actionid": "abandon",
+	"label": "Bury a Fallen Ally?",
+	"startdescription": "With some effort and time, I can bury these allies to give them some proper rest. Or if I'm desperate enough, I could do something else with them...",
+	"requirements": {
+	    "friend.corpses": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{
+	"id": "hint.bury.fallen.ally.hopelessness",
+	"actionid": "abandon",
+	"$priority" : 1,
+	"label": "Pointless",
+	"startdescription": "There is nothing to look back on. There is no meaning to this.",
+	"requirements": {
+	    "friend.corpses": 1,
+		"heart" : 1
+	},
+	"extantreqs" : { "hopelessness" : 1},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{
+	"id": "hint.bury.fallen.ally.antithesis",
+	"actionid": "abandon",
+	"$priority" : 1,
+	"label": "<color=red>Worthless<color=#005500>",
+	"startdescription": "<color=red>This is all they deserve.<color=#005500>",
+	"requirements": {
+	    "friend.corpses": 1,
+		"heart" : 1
+	},
+	"extantreqs" : { "antithesis" : 1},
+	"hintonly": true,
+	"craftable": false
+    },
 	
 	{
 	"id": "refreshally.provision.hint",
