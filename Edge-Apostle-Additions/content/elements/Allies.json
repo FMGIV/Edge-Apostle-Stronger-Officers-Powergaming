@@ -4,20 +4,30 @@
 	"id": "friend.sniper",
 	"slots$append": [
 	{
-		"id": "hideyoself",
+		"id": "intent",
 		"actionid": "communicate",
-		"label": "A Hiding Place?",
-		"description": "Somewhere to hide.",
+		"label": "Intent?",
 		"required": {
 		    "op.time.night": 1,
 		    "op.woods": 1,
 		    "op.ruins": 1,
-		    "op.sewers": 1
+		    "op.sewers": 1,
+			"warzone" : 1
 		},
 	},
 	],
 	"xtriggers$add": {
-		"concealidentity": "friend.sniper.hidden"
+		"concealidentity": "friend.sniper.hidden",
+		"timetobail" : {
+			"morpheffect" : "mutate",
+			"id": "friend.getthefuckout",
+			"level" : 1
+		},
+		"timetobail.cancel" : {
+			"morpheffect" : "mutate",
+			"id": "friend.getthefuckout",
+			"level" : -1
+		}
 	}
     },
 	
