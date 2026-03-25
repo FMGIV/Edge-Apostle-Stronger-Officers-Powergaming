@@ -683,15 +683,19 @@
 	"label": "Prepare ally to Evacuate Early",
 	"startdescription": "We will have to leave eventually. I want this one to leave earlier than the others, though.",
 	"description": "Done. This one is ready to bail out on command.",
-	"aspects": {
-	    "Timetobail": 1
-	},
 	"requirements": {
 	    "friend": 1,
 	    "local": -1,
 	    "warzone": 1,
 		"friend.getthefuckout" : -1
 	},
+	"mutations": [  
+		{  
+			"filter": "friend",  
+			"mutate": "friend.getthefuckout",  
+			"level": 1  
+		}  
+	], 
 	"warmup": 10,
 	"craftable": true
     },
@@ -703,14 +707,18 @@
 	"label": "Cancel preparations to Evacuate Early",
 	"startdescription": "This one is prepared to leave before the others. I could order otherwise.",
 	"description": "Done. This one will evacuate with the others.",
-	"aspects": {
-	    "Timetobail.cancel": 1
-	},
 	"requirements": {
 	    "friend": 1,
 	    "friend.getthefuckout": 1,
 		"warzone": 1
 	},
+	"mutations": [  
+		{  
+			"filter": "friend",  
+			"mutate": "friend.getthefuckout",  
+			"level": -1  
+		}  
+	], 
 	"warmup": 10,
 	"craftable": true
     },
