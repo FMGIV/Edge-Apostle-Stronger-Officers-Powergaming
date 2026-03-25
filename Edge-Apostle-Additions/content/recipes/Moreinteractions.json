@@ -793,7 +793,117 @@
 		"id": "travelslot.takefriends"
 	    }
 	]
-    }
+    },
+	
+	{
+	"id": "hint.no.cannibalism",
+	"actionid": "abandon",
+	"$priority" : 1,
+	"label": "Cannibalise the Fallen?",
+	"startdescription": "I'm not about to stoop that low. They don't deserve this.",
+	"requirements": {
+	    "remnant": 1,
+		"grail": 5
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{  
+    "id": "talk.with.companion",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Talk with a Companion",  
+    "startdescription": "I have some time. I can talk with my companion for a little while. [This will give you a useful memory]",  
+    "description": "An enjoyable diversion. Back to striving.",  
+    "requirements": {  
+        "friend.named": 1,
+		"memento" : 1
+    },  
+    "internaldeck": {  
+        "spec": [  
+            "mem.regret",  
+            "mem.joy",  
+            "mem.rage",  
+            "mem.fear",  
+            "mem.calm",  
+            "mem.grief",  
+            "mem.ingenuity",  
+            "mem.taste",  
+            "mem.unexpected"  
+        ],  
+        "draws": 1,  
+        "resetonexhaustion": true  
+    },  
+    "warmup": 30,  
+    "craftable": true  
+	},
+	
+	{  
+    "id": "cannibalize.corpse.eva",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Canniballize the Fallen: Eva",  
+    "startdescription": "Eva has some experience eating corpses. She can get more out of it than others could, and faster.\n\n[This will produce more Provisions than the usual interaction, but may cause Allies without the stomach for atrocity to abandon you.]",  
+    "description": "Just a little more to eat, now.",  
+    "requirements": {  
+        "friend.eva": 1,
+		"remnant" : 1
+    },
+	"extantreqs": {
+		"contemnant.memento" : -1
+	},
+	"aspects" : {
+		"fatiguing": 1
+	},
+    "effects": {
+	    "remnant": -1,
+	    "provisions": 2,
+	}, 
+    "warmup": 30,  
+    "craftable": true,
+	"alt": [
+	    {
+		"id": "startup.desertion",
+		"additional": true,
+		"chance": 25
+	    },
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 45
+	    }
+	],
+	},
+	
+	{  
+    "id": "cannibalize.monstercorpse.eva",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "Devour a Slain Creature: Eva",  
+    "startdescription": "Eva has some experience eating corpses. She can get more out of it than others could, and faster.\n\n[This will produce more Provisions than the usual interaction.]",  
+    "description": "Just a little more to eat, now.",  
+    "requirements": {  
+        "friend.eva": 1,
+		"foe.corpse.unnatural": 1
+    },  
+    "aspects" : {
+		"fatiguing": 1
+	},
+    "effects": {
+	    "remnant": -1,
+	    "provisions": 4,
+	},
+    "warmup": 30,  
+    "craftable": true,
+	"alt": [
+	    {
+		"id": "produce.localinfamy",
+		"additional": true,
+		"chance": 45
+	    }
+	],
+	}
 	
 ]
 }
