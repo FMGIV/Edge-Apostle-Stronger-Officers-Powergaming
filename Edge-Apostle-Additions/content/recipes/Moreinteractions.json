@@ -993,7 +993,7 @@
 		{
 		"id": "weakenenemy.vanja.failure"
 	    }
-	],
+	]
 	},
 	
 	{  
@@ -1054,6 +1054,106 @@
     "warmup": 30,  
     "craftable": true
 	},
+	
+	{  
+    "id": "counsel.walther",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Counselling: Walther",  
+    "startdescription": "What doubts do I have, what traumas do I want to get off my chest? Walther may be able to help me with them.",  
+    "description": "Walther nods. 'Light persists. The dawn will arrive, eventually.'",
+    "requirements": {  
+        "friend.walther": 1,
+		"trauma" : 1
+    },
+	"extantreqs": {  
+        "hopelessness": -1,
+		"antithesis" : -1
+    },
+	"aspects" : {
+		"fatiguing": 1
+	},
+	"effects" : {
+		"trauma": -1
+	},
+    "warmup": 30,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "counsel.walther.hopelessness",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Counselling?",  
+    "startdescription": "Hopeless, its all so hopeless. Walther can't help me.",  
+    "requirements": {  
+        "friend.walther": 1,
+		"trauma" : 1
+    },
+	"extantreqs" : {"hopelessness" : 1},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{  
+    "id": "counsel.walther.antithesis",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "<color=red>Clarity<color=#005500>",  
+    "startdescription": "<color=red>I deserve this.<color=#005500>",
+    "requirements": {  
+        "friend.walther": 1,
+		"trauma" : 1
+    },
+	"extantreqs" : {"antithesis" : 1},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{  
+    "id": "purge.walther",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Scour Impurity: Walter",  
+    "startdescription": "Walther still remembers his time as a solar clergyman. The sun can extirpate this obstacle from my path. Hopefully. [This can fail and wound Walther.]",  
+    "requirements": {  
+        "friend.walther": 1,
+		"hindrance": 1
+    },
+    "warmup": 30,  
+    "craftable": true,
+	"linked": [
+	    {
+		"id": "purge.walther.success",
+		"chance": 70
+	    },
+		
+		{
+		"id": "purge.walther.failure"
+	    }
+	]
+	},
+	
+	{  
+    "id": "purge.walther.success",  
+    "label": "Scour Impurity: Walter. Success!",  
+    "description": "Dawn breaks, and Walther is there. He raises his hands towards the sky. A force moves through the air. There is a light. I find my path clearer.",   
+    "aspects" : {
+		"fatiguing" : 1
+	},
+	"effects" : {
+		"hindrance" : -1
+	}
+	},
+	
+	{  
+    "id": "purge.walther.failure",  
+    "label": "Scour Impurity: Walter. Failure!",
+	"description": "Dawn breaks, and so does Walther, with a few pieces missing.",  
+    "aspects" : {
+		"makecasualty": 1
+	}
+	}
 	
 ]
 }
