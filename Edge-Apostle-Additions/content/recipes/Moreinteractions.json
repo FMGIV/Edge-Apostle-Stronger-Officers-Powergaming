@@ -1544,7 +1544,68 @@
 	    "draws": 1,
 	    "resetonexhaustion": true
 	}
-    }
+    },
 	
+	{  
+    "id": "healally.lorenzo",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Heal Wounded: Lorenzo",  
+    "startdescription": "Lorenzo nods.\n\n'I'll get them back in the fight.'",  
+    "description": "<i>Spezzatino<.i> and some rest. Back to liberation.",  
+    "requirements": {  
+        "friend.lorenzo": 1,
+		"wounded" : 1,
+    },
+	"aspects" : {
+		"fatiguing": 1,
+		"restorehealth" : 1
+	},
+    "warmup": 30,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "healyou.lorenzo",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Heal Me: Lorenzo",  
+    "startdescription": "'Don't worry, my friend. Some <i>spezzatino</i>, stiches, and bandages will do you good.",  
+    "description": "I wince as Lorenzo finishes patching me up. at least the <i>spezzatino</i> was good.",  
+    "requirements": {  
+        "friend.lorenzo": 1,
+		"damage.body" : 1
+    },
+	"aspects" : {
+		"fatiguing": 1
+	},
+	"effects" : {
+		"damage.body": -1
+	},
+    "warmup": 30,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "cook.monstercorpse.lorenzo",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "Cook a monstrous corpse?",  
+    "startdescription": "Lorenzo takes a moment to examine the cadaver.\n\n'This will add flavor to the <i>spezzatino</i>.",  
+    "description": "'Just don't ask where the meat came from.'",  
+    "requirements": {  
+        "friend.lorenzo": 1,
+		"remnant": 1
+    },  
+    "aspects" : {
+		"fatiguing": 1
+	},
+    "effects": {
+	    "remnant": -1,
+	    "provisions": 2,
+	},
+    "warmup": 30,  
+    "craftable": true,
+	}
 ]
 }
