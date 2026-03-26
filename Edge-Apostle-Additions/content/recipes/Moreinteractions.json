@@ -1119,6 +1119,58 @@
 	"craftable": false
     },
 	
+	{
+	"id": "hint.companion.fiorenza",
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "Consult with Fiorenza?",
+	"startdescription": "I am forced to go through a few of Fiorenza's admirers while attempting to speak with her. Once she's free from them, she lets out a sigh of relief.\n\n'<i>Grazie</i>... I appreciate everybody being so nice towards to me, but a break would be nice... Anyhow, is there anything I can help with?'",
+	"requirements": {
+	    "friend.fiorenza": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{
+	"id": "hint.companion.lorenzo",
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "Consult with Lorenzo?",
+	"startdescription": "Althought I didn't go to him for a meal, I am forced to wait in line just like everybody who wishes to taste Lorenzo's dishes. There's no shortage of grumbles as I take our cook away from the kitchen to talk.\n\n'Just make it quick friend, our comrades won't make it for long without their <i>spezzatino</i>.'",
+	"requirements": {
+	    "friend.lorenzo": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{
+	"id": "hint.companion.padre",
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "Consult with Padre?",
+	"startdescription": "I find Padre praying at our makeshift chapel. I respectully give our exorcist time to finish his prayers before starting to talk with him.\n\n'I wish times were better, but if you say it's time to act then I shall oblige.'",
+	"requirements": {
+	    "friend.padre": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{
+	"id": "hint.companion.daria",
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "Consult with Daria?",
+	"startdescription": "Daria is resting calmly from a high place as she always does. She notices me in spite of me approaching in complete silence and smiles as she looks down on me.\n\n'I knew you would be back... Who am I killing today ?'",
+	"requirements": {
+	    "friend.daria": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
 	{  
     "id": "talk.with.companion",  
     "actionid": "communicate",
@@ -1397,7 +1449,102 @@
     "aspects" : {
 		"makecasualty": 1
 	}
+	},
+	
+	{  
+    "id": "scavenge.warzone.daria",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Scavenge Warzone: Daria",  
+    "startdescription": "I talk to daria about the current warzone.\n\n'I can find some useful things here, <i>capitan</i>. [This can fail, wounding Daria. Sometimes this produces nothing.]",  
+    "requirements": {  
+        "friend.daria": 1,
+		"warzone.current": 1
+    },
+    "warmup": 30,  
+    "craftable": true,
+	"linked": [
+	    {
+		"id": "scavenge.warzone.daria.success",
+		"chance": 70
+	    },
+		
+		{
+		"id": "scavenge.warzone.daria.failure"
+	    }
+	]
+	},
+	
+	{  
+    "id": "scavenge.warzone.daria.success",  
+    "label": "Scavenge Warzone: Daria. Success!",  
+    "description": "'Presto!'",  
+    "aspects" : {
+		"fatiguing" : 1
+	},  
+    "internaldeck": {  
+        "spec": [  
+            "provisions",  
+            "provisions",  
+            "supplies.explosives",  
+            "supplies.flares",  
+            "supplies.apmunitions",  
+            "husk",  
+            "nothing"
+        ],  
+        "draws": 2,  
+        "resetonexhaustion": true  
+    }, 
+	},
+	
+	{  
+    "id": "scavenge.warzone.daria.failure",  
+    "label": "Scavenge Warzone: Daria. Failure!",  
+    "description": "Daria returns, battered.\n\n'Fucking <i>fascisti</i>'.",  
+    "aspects" : {
+		"makecasualty": 1
 	}
+	},
+	
+	{
+	"id": "loot.corpse.daria",
+	"actionid": "communicate",
+	"label": "Search the dead for anything useful: Daria",
+	"startdescription": "Check their packs and pockets; their stiff and clutching hands.",
+	"description": "Here's what we have to show.",
+	"requirements": {
+	    "friend.daria": 1,
+	    "remnant": 1,
+	    "looted": -1,
+	    "foe.corpse.unnatural": -1
+	},
+	"mutations": [
+	    {
+		"filter": "remnant",
+		"mutate": "looted",
+		"level": 1
+	    }
+	],
+	"craftable": true,
+	"warmup": 15,
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"husk",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares",
+		"provisions",
+		"provisions"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    }
 	
 ]
 }
