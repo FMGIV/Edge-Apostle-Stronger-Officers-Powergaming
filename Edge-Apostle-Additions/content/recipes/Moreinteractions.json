@@ -903,6 +903,50 @@
 		"chance": 45
 	    }
 	],
+	},
+	
+	{  
+    "id": "weakenenemy.vanja",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Scope out the enemy: Vanja",  
+    "startdescription": "Someone small and quiet can probe the enemy, giving us useful intel. [This can fail, wounding Vanja]",  
+    "requirements": {  
+        "friend.vanja": 1,
+		"foe": 1,
+		"edgelong": -1
+    },  
+    "warmup": 30,  
+    "craftable": true,
+	"linked": [
+	    {
+		"id": "weakenenemy.vanja.success",
+		"chance": 70
+	    },
+		
+		{
+		"id": "weakenenemy.vanja.failure"
+	    }
+	],
+	},
+	
+	{  
+    "id": "weakenenemy.vanja.success",  
+    "label": "Scope out the enemy: Vanja. Success!",  
+    "description": "Vanja comes back, with information on our enemy.",  
+    "aspects" : {
+		"weaken": 1,
+		"fatiguing" : 1
+	}
+	},
+	
+	{  
+    "id": "weakenenemy.vanja.failure",  
+    "label": "Scope out the enemy: Vanja. Failure!",  
+    "description": "Vanja comes back, crying and wounded.",  
+    "aspects" : {
+		"makecasualty": 1
+	}
 	}
 	
 ]
