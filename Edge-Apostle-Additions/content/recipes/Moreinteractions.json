@@ -1111,7 +1111,7 @@
 	"actionid": "communicate",
 	"$priority" : 1,
 	"label": "Consult with Nikolai?",
-	"startdescription": "Nikolai was once again busy maintaining our machinery in his spare time when I find him. He doesn't interrupt his work and barely looks at me as I talk to him.\n\n'Yes?'",
+	"startdescription": "Nikolai was once again busy maintaining our machinery in his spare time when I find him. He doesn't interrupt his work and barely looks at me as I talk to him.\n\n'Da?'",
 	"requirements": {
 	    "friend.nikolai": 1
 	},
@@ -1336,7 +1336,7 @@
 	"$priority" : 1,
     "label": "Heal Me: Tibor",  
     "startdescription": "The good doctor still has his healing techniques. It'll do, for me.",  
-    "description": "I grimace as Tibor finishes stiching my wound. This will do.",  
+    "description": "I grimace as Tibor finishes stiching my wound. Back towards an ending.",  
     "requirements": {  
         "friend.tibor": 1,
 		"damage.body" : 1
@@ -1761,6 +1761,77 @@
 	},
     "warmup": 30,  
     "craftable": true,
+	},
+	
+	{  
+    "id": "healally.konstantin",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Heal Wounded: Konstantin",  
+    "startdescription": "I have to remind Konstantin that this one is not to be used for experimentation.\n\n'A pity. Well, they'll be back up for you, comrade.'",  
+    "description": "My ally comes out looking a little shaken, but unscarred.",  
+    "requirements": {  
+        "friend.konstantin": 1,
+		"wounded" : 1,
+    },
+	"aspects" : {
+		"fatiguing": 1,
+		"restorehealth" : 1
+	},
+    "warmup": 30,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "healyou.konstantin",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Heal Me: Konstantin",  
+    "startdescription": "'You look a little worse for wear, comrade. Just relax, this wont take long.'\n\nNot very reassuring words.",  
+    "description": "I grunt as Konstantin finishes his work. Back to duty.",  
+    "requirements": {  
+        "friend.konstantin": 1,
+		"damage.body" : 1
+    },
+	"aspects" : {
+		"fatiguing": 1
+	},
+	"effects" : {
+		"damage.body": -1
+	},
+    "warmup": 30,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "recycle.corpse.nikolai",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Recycle Corpse: Nikolai",  
+    "startdescription": "I gesture at the corpse. Nikolai nods.\n\n'Da.'",
+	"description": "Nikolai hands me something, and leaves in silence.",	
+    "requirements": {  
+        "friend.nikolai": 1,
+		"remnant": 1
+    },
+	"aspects" : {
+		"fatiguing" : 1
+	},  
+	"effects" : {
+		"remnant": -1
+	}, 
+	"internaldeck": {  
+        "spec": [  
+            "supplies.explosives",  
+            "supplies.apmunitions",  
+            "supplies.flares",
+			"provisions"
+        ],  
+        "draws": 1,  
+        "resetonexhaustion": true  
+    }, 
+    "warmup": 30,  
+    "craftable": true
 	}
 	
 	
