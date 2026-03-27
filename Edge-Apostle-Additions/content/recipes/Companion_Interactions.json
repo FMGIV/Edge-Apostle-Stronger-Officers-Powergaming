@@ -463,7 +463,7 @@
     "actionid": "communicate",
 	"$priority" : 1,
     "label": "Scope out the enemy: Vanja",  
-    "startdescription": "Someone small and quiet can probe the enemy, giving us useful intel. [This can fail, wounding Vanja]",  
+    "startdescription": "Someone small and quiet can probe the enemy, giving us useful intel. [This can fail, wounding Vanja. The chances of this working is higher the more moth aspect Vanja has.]",  
     "requirements": {  
         "friend.vanja": 1,
 		"foe": 1,
@@ -474,7 +474,7 @@
 	"linked": [
 	    {
 		"id": "weakenenemy.vanja.success",
-		"chance": 70
+		"chance": "50+[moth]*5"
 	    },
 		
 		{
@@ -603,7 +603,7 @@
     "actionid": "communicate",
 	"$priority" : 1,
     "label": "Scour Impurity: Walter",  
-    "startdescription": "Walther still remembers his time as a solar clergyman. The sun can extirpate this obstacle from my path. Hopefully. [This can fail and wound Walther.]",  
+    "startdescription": "Walther still remembers his time as a solar clergyman. The sun can extirpate this obstacle from my path. Hopefully. [This can fail and wound Walther. The more lantern Walther has the higher chance this succeeds.]",  
     "requirements": {  
         "friend.walther": 1,
 		"hindrance": 1
@@ -613,7 +613,7 @@
 	"linked": [
 	    {
 		"id": "purge.walther.success",
-		"chance": 70
+		"chance": "50+[lantern]*5"
 	    },
 		
 		{
@@ -648,7 +648,7 @@
     "actionid": "communicate",
 	"$priority" : 1,
     "label": "Scavenge Warzone: Daria",  
-    "startdescription": "I talk to daria about the current warzone.\n\n'I can find some useful things here, <i>capitan</i>. [This can fail, wounding Daria. Sometimes this produces nothing.]",  
+    "startdescription": "I talk to daria about the current warzone.\n\n'I can find some useful things here, <i>capitan</i>. [This can fail, wounding Daria. Sometimes this produces nothing. The more moth aspect Daria has the higher chance this will succeed.]",  
     "requirements": {  
         "friend.daria": 1,
 		"warzone.current": 1
@@ -658,7 +658,7 @@
 	"linked": [
 	    {
 		"id": "scavenge.warzone.daria.success",
-		"chance": 70
+		"chance": "50+[moth]*5"
 	    },
 		
 		{
@@ -846,7 +846,7 @@
     "actionid": "communicate",
 	"$priority" : 1,
     "label": "Exorcise Undead: Padre",  
-    "startdescription": "Padre has some experience putting the dead to rest. I can have him attempt to exorcise these living dead, and put them at peace once more. [This can fail, wounding Padre.]",  
+    "startdescription": "Padre has some experience putting the dead to rest. I can have him attempt to exorcise these living dead, and put them at peace once more. [This can fail, wounding Padre. The more winter Padre has the higher chance this will succeed.]",  
     "requirements": {  
         "friend.padre": 1,
 		"foe": 1
@@ -856,7 +856,7 @@
 	"linked": [
 	    {
 		"id": "exorcise.padre.success",
-		"chance": 70
+		"chance": "50+[winter]*5"
 	    },
 		
 		{
@@ -1031,7 +1031,7 @@
     "actionid": "communicate",
 	"$priority" : 1,
     "label": "Scope out the enemy: Iosef",  
-    "startdescription": "'<i>tovarisch</i>, I don't think this is a good idea.' [This can fail, wounding Iosef]",  
+    "startdescription": "'<i>tovarisch</i>, I don't think this is a good idea.' [This can fail, wounding Iosef. The higher moth aspect Iosef has the higher chance this will succeed.]",  
     "requirements": {  
         "friend.iosef": 1,
 		"foe": 1
@@ -1041,7 +1041,7 @@
 	"linked": [
 	    {
 		"id": "weakenenemy.iosef.success",
-		"chance": 70
+		"chance": "50+[moth]*5"
 	    },
 		
 		{
@@ -1108,6 +1108,77 @@
 	    "draws": 1,
 	    "resetonexhaustion": true
 	}
+    },
+	
+	{
+	"id": "abandon.companion",
+	"actionid": "abandon",
+	"$priority" : 1,
+	"label": "Reassign a Companion",
+	"startdescription": "I could cut down on the size of my contingent by assigning my companion elsewhere. Perhaps we must travel lighter. Perhaps we must run. But the connection i've made will still last.",
+	"description": "I shake hands with my companion, and watch them leave. I may have need of their services again, someday.",
+	"extantreqs": {
+	    "lake.here": -1,
+	    "contemnant.story": -1,
+	    "contemnant.memento": -1,
+		"friend.named" : 1
+	},
+	"requirements": {
+	    "friend.named": 1,
+	    "damage.body": -1,
+	    "lore": -1
+	},
+	"aspects": {
+	    "reassign" : 1
+	},
+	"warmup": 10,
+	"craftable": true
+    },
+	
+	{
+	"id": "recall.companion.nocomms",
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "Recall a Companion",
+	"startdescription": "I have need of my companion's services once more. Without working communications, someone is going to need to be a courier.",
+	"description": "It's good to have friends.",
+	"extantreqs": {
+	    "lake.here": -1
+	},
+	"requirements": {
+		"friend" : 1,
+		"wounded" : -1,
+		"damaged" : -1,
+		"edgelong" : -1,
+		"exhausted" : -1,
+	    "friend.away": 1
+	},
+	"aspects": {
+	    "recall" : 1
+	},
+	"warmup": 120,
+	"craftable": true
+    },
+	
+	{
+	"id": "recall.companion.comms",
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "Recall a Companion",
+	"startdescription": "I have need of my companion's services once more.",
+	"description": "It's good to have friends.",
+	"extantreqs": {
+	    "lake.here": -1,
+		"loc.commtower": 1
+	},
+	"requirements": {
+	    "friend.away": 1
+	},
+	"aspects": {
+	    "recall" : 1
+	},
+	"warmup": 60,
+	"craftable": true
     }
 
 ]
