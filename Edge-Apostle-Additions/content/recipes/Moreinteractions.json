@@ -1357,7 +1357,7 @@
 	"$priority" : 1,
     "label": "Counselling: Walther",  
     "startdescription": "What doubts do I have, what traumas do I want to get off my chest? Walther may be able to help me with them.",  
-    "description": "Walther nods. 'Light persists. The dawn will arrive, eventually.'",
+    "description": "Walther nods.\n\n'Light persists. The dawn will arrive, eventually.'",
     "requirements": {  
         "friend.walther": 1,
 		"trauma" : 1
@@ -1626,6 +1626,123 @@
 	},
     "warmup": 30,  
     "craftable": true,
+	},
+	
+	{  
+    "id": "counsel.padre",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Counselling: Padre",  
+    "startdescription": "What doubts do I have, what traumas do I want to get off my chest? Padre may be able to help me with them.",  
+    "description": "Padre nods, solemnly.\n\n'<i>Remember why you fight. Remember the fallen. Keep your faith, no matter how many times you may fall.</i>'",
+    "requirements": {  
+        "friend.padre": 1,
+		"trauma" : 1
+    },
+	"aspects" : {
+		"fatiguing": 1
+	},
+	"effects" : {
+		"trauma": -1
+	},
+    "warmup": 30,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "exorcise.padre",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Exorcise Undead: Padre",  
+    "startdescription": "Padre has some experience putting the dead to rest. I can have him attempt to exorcise these living dead, and put them at peace once more. [This can fail, wounding Padre.]",  
+    "requirements": {  
+        "friend.padre": 1,
+		"foe": 1
+    },
+    "warmup": 30,  
+    "craftable": true,
+	"linked": [
+	    {
+		"id": "exorcise.padre.success",
+		"chance": 70
+	    },
+		
+		{
+		"id": "exorcise.padre.failure"
+	    }
+	]
+	},
+	
+	{  
+    "id": "exorcise.padre.success",  
+    "label": "Exorcise Undead: Padre. Success!",  
+    "description": "'<i>L'eterno riposo dona loro, o Signore, e splenda ad essi la luce perpetua. Riposino in pace. Amen.</i>'",  
+    "aspects" : {
+		"fatiguing" : 1
+	},  
+	"effects" : {
+		"foe" : -1
+	},  
+    "internaldeck": {  
+        "spec": [  
+            "influenceknockc",  
+            "influencewinterc",  
+            "influenceedgec",  
+            "influencelanternc",  
+            "influencemothc",  
+            "influenceheartc",  
+            "influencegrailc",
+			"influenceforgec"
+        ],  
+        "draws": 1,  
+        "resetonexhaustion": true  
+    }, 
+	},
+	
+	{  
+    "id": "exorcise.padre.failure",  
+    "label": "Exorcise Undead: Padre. Success!",  
+    "description": "Padre returns, saddened and wounded.\n\n'I have failed.'",  
+    "aspects" : {
+		"makecasualty": 1
 	}
+	},
+	
+	{  
+    "id": "exorcise.padre.revivingchasseur",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Exorcise Fallen Soldiers: Padre",  
+    "startdescription": "These soldiers are already dead. It's time they knew that. [This won't fail.]",
+	"description": "'<i>L'eterno riposo dona loro, o Signore, e splenda ad essi la luce perpetua. Riposino in pace. Amen.</i>'",	
+    "requirements": {  
+        "friend.padre": 1,
+		"foe.chasseur.reviving": 1
+    },
+	"aspects" : {
+		"fatiguing" : 1
+	},  
+	"effects" : {
+		"foe.chasseur.reviving": -1
+	}, 
+	"internaldeck": {  
+        "spec": [  
+            "influenceknockc",  
+            "influencewinterc",  
+            "influenceedgec",  
+            "influencelanternc",  
+            "influencemothc",  
+            "influenceheartc",  
+            "influencegrailc",
+			"influenceforgec"
+        ],  
+        "draws": 1,  
+        "resetonexhaustion": true  
+    }, 
+    "warmup": 30,  
+    "craftable": true
+	}
+	
+	
 ]
 }
