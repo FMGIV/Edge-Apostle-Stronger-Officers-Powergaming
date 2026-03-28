@@ -1137,6 +1137,54 @@
     },
 	
 	{
+	"id": "abandon.companion.wounded",
+	"actionid": "abandon",
+	"$priority" : 2,
+	"label": "Reassign a Wounded Companion",
+	"startdescription": "I could cut down on the size of my contingent by assigning my companion elsewhere. They're wounded, so it's going to take some time before I can call them back if I need them.",
+	"extantreqs": {
+	    "lake.here": -1,
+	    "contemnant.story": -1,
+	    "contemnant.memento": -1,
+		"friend.named" : 1,
+		"wounded" : 1
+	},
+	"requirements": {
+	    "friend.named": 1,
+	    "damage.body": -1,
+	    "lore": -1
+	},
+	"aspects": {
+	    "reassign" : 1
+	},
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "spit.wounded.companion",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend.away" : 1
+		    }
+		}
+	    }
+	],
+	"craftable": true
+    },
+	
+	{
+	"id": "spit.wounded.companion",
+	"actionid": "resupply",
+	"label": "Companion in Healing...",
+	"startdescription": "Time does what it usually does, and passes. I hope my companion is doing well.",
+	"aspects": {
+	    "reassign": 1
+	},
+	"warmup": 180,
+    },
+	
+	{
 	"id": "hint.companion.recall",
 	"actionid": "communicate",
 	"label": "Recall a Companion?",
@@ -1166,17 +1214,27 @@
 		"exhausted" : -1,
 	    "friend.away": 1
 	},
-	"aspects": {
-	    "recall" : 1
-	},
-	"warmup": 120,
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "spit.recall.companion.nocomms",
+		"additional": true,
+		"expulsion": {
+		    "limit": 2,
+		    "filter": {
+			"friend": 1,
+			"friend.away" : 1
+		    }
+		}
+	    }
+	],
 	"craftable": true
     },
 	
 	{
 	"id": "recall.companion.comms",
 	"actionid": "communicate",
-	"$priority" : 1,
+	"$priority" : 2,
 	"label": "Recall a Companion",
 	"startdescription": "Send word over wire and wave. I have need of my companion's services once more.",
 	"description": "It's good to have friends.",
@@ -1187,11 +1245,72 @@
 	"requirements": {
 	    "friend.away": 1
 	},
-	"aspects": {
-	    "recall" : 1
+	"alt": [
+	    {
+		"id": "spit.recall.companion.withcomms",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend.away" : 1
+		    }
+		}
+	    }
+	],
+	"warmup": 10,
+	"craftable": true
+    },
+	
+	{
+	"id": "spit.recall.companion.withcomms",
+	"actionid": "sendinglettercompanion",
+	"label": "Awaiting Companion...",
+	"startdescription": "Time does what it usually does, and passes. With luck, my companion is already en route.",
+	"effects": {
+	    "readiness.token": 1
 	},
 	"warmup": 60,
-	"craftable": true
+	"linked": [
+	    {
+		"id": "recall.companion.success",
+		"chance": 50
+	    },
+	    {
+		"id": "spit.recall.companion.withcomms"
+	    }
+	]
+    },
+	
+	{
+	"id": "spit.recall.companion.nocomms",
+	"actionid": "sendinglettercompanion",
+	"label": "Awaiting Companion...",
+	"startdescription": "Time does what it usually does, and passes. I can only hope that our messenger has gone unharried by the enemy or by the elements.",
+	"effects": {
+	    "readiness.token": 1
+	},
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "recall.companion.success",
+		"chance": 30
+	    },
+	    {
+		"id": "spit.recall.companion.nocomms"
+	    }
+	]
+    },
+	
+	{
+	"id": "recall.companion.success",
+	"label": "Arrived!",
+	"startdescription": "It's good to have friends.",
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"aspects": {
+	    "recall": 1
+	},
     }
 
 ]
