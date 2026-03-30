@@ -1,0 +1,141 @@
+{
+"elements": [
+	
+	{
+	"id": "hindrance.moonspace.active",
+	"icon" : "influence.meniscate",
+	"label": "The Mensicate's Disdain",
+	"description": "The Mirror-Queen's disfavor is upon us. Problematic. [You cannot scout while this card is active.]",
+	"aspects": {
+	    "hindrance.active": 1
+	},
+	"lifetime": 90
+    },
+	
+	{
+	"id": "foe.worms",
+	"label": "Enemy Worms",
+	"description": "Wriggling things from Nowhere, from a wound in the skein of the world. I'm not sure what dead things these came from, but we should send them back there, and fast.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needslantern": 16,
+	    "needsheart": 16,
+		"needsmoth": 16,
+	    "foe.corrosive": 1,
+		"foe.lethal" : 1,
+	    "foe.monster": 1
+	},
+	"overlays": [
+    {
+      "image": "foe.worms",
+      "grayscale": true,
+      "color": "#000000"
+    }
+	],
+	"xtriggers": {
+	    "refresh": "foe.worms",
+	    "killfoe": "hindrance.worms",
+	    "concealidentity": "foe.worms.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+	
+    {
+	"id": "foe.worms.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.worms.hidden",
+	    "killfoe": "hindrance.worms",
+	    "revealidentity": "foe.worms",
+	   "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    }
+	
+]
+}

@@ -1,0 +1,547 @@
+{
+"recipes": [
+    {
+	"id": "active.hindrance.verb.cycle",
+	"actionid": "active.hindrances",
+	"label": "Hindrances in the field...",
+	"startdescription": "Obstacles, mundane and otherwise are active on the field. Soon those will get in the way.",
+	"linked": [
+	    {
+		"id": "active.hindrance.nohindrances",
+	    },
+		
+	    {
+		"id": "active.hindrance.hindrancefound.foewinning",
+		"chance" : 50
+	    },
+		
+	    {
+		"id": "active.hindrance.hindrancefound",
+		"chance" : 25
+	    },
+		
+		{
+		"id": "active.hindrance.verb.cycle"
+	    }
+	],
+	"warmup": 30
+    },
+	
+	{
+	"id": "active.hindrance.nohindrances",
+	"label": "The Battlefield is Clear",
+	"description": "There are no more hindrances on the field, for now. Back to striving with the enemy.",
+	"warmup": 0,
+	"tablereqs": {
+		"hindrance": -1
+	},
+	"extantreqs": {
+		"hindrance": -1
+	}
+	},
+	
+	{
+	"id": "active.hindrance.hindrancefound.foewinning",
+	"label": "Circumstances Hostile",
+	"description": "The foe has my friend at a disadvantage. The battlefield turns against us, and a hindrance suddenly becomes far more of an immediate concern.",
+	"warmup": 10,
+	"tablereqs": {
+		"hindrance": 1
+	},
+	"extantreqs": {
+		"corrivality.foe" : 1
+	},
+	"linked": [
+	    {
+		"id": "active.hindrance.hindrancefound"
+	    }
+	],
+	},
+	
+	{
+	"id": "active.hindrance.hindrancefound",
+	"label": "Obstacle!",
+	"description": "Something on the field is actively hindering us. Troublesome.",
+	"warmup": 30,
+	"extantreqs": {
+		"hindrance": 1
+	},
+	
+	"slots": [
+	    {
+		"id": "needshindrance",
+		"label": "Hindrance",
+		"description": "An Obstacle.",
+		"required": {
+			"hindrance": 1
+		},
+		"forbidden": {
+			"hindrance.fortifications": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "active.hindrance.verb.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "active.hindrance.snows",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"hindrance" : 1
+		    }
+		}
+	    },
+		
+	    {
+		"id": "active.hindrance.storms",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"hindrance" : 1
+		    }
+		}
+	    },
+		
+		{
+		"id": "active.hindrance.fog",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"hindrance" : 1
+		    }
+		}
+	    },
+		
+		{
+		"id": "active.hindrance.earthquake",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"hindrance" : 1
+		    }
+		}
+	    },
+		
+		{
+		"id": "active.hindrance.nocturnal",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"hindrance" : 1
+		    }
+		}
+	    },
+		
+		{
+		"id": "active.hindrance.apollonian",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"hindrance" : 1
+		    }
+		}
+	    },
+		
+		{
+		"id": "active.hindrance.dionysian",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"hindrance" : 1
+		    }
+		}
+	    },
+		
+		{
+		"id": "active.hindrance.worms",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"hindrance" : 1
+		    }
+		}
+	    },
+		
+		{
+		"id": "active.hindrance.moonspace",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"hindrance" : 1
+		    }
+		}
+	    },
+		
+		{
+		"id": "active.hindrance.colonel",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"hindrance" : 1
+		    }
+		}
+	    },
+		
+		{
+		"id": "active.hindrance.lionsmith",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"hindrance" : 1
+		    }
+		}
+	    },
+		
+		{
+		"id": "active.hindrance.wolf",
+		"additional": true,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"hindrance" : 1
+		    }
+		}
+	    }
+
+	]
+	},
+	
+	{
+	"id": "active.hindrance.snows",
+	"label": "Snowstorm!",
+	"actionid": "badweather",
+	"startdescription": "Cold, so very cold!",
+	"description": "General winter sends his regards.",
+	"warmup": 30,
+	"requirements": {
+		"hindrance.snows": 1
+	},
+	"slots": [
+	    {
+		"id": "needsally",
+		"label": "Ally",
+		"description": "An Ally.",
+		"required": {
+			"friend": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects" : {
+		"makecasualty" : 1
+	}
+	},
+	
+	{
+	"id": "active.hindrance.fog",
+	"label": "Lost in Fog!",
+	"actionid": "badweather",
+	"startdescription": "My ally has lost their way in the fog. It's going to be a while before they get back to us.",
+	"description": "My ally returns to me. Good to have them back.",
+	"warmup": 90,
+	"requirements": {
+		"hindrance.fog": 1
+	},
+	"slots": [
+	    {
+		"id": "needsally",
+		"label": "Ally",
+		"description": "An Ally.",
+		"required": {
+			"friend": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects" : {
+		"makecasualty" : 1
+	}
+	},
+	
+	{
+	"id": "active.hindrance.earthquake",
+	"label": "Earthquake!",
+	"actionid": "badweather",
+	"startdescription": "The earth takes what it will.",
+	"description": "The earth returns to sleep, for now.",
+	"warmup": 30,
+	"requirements": {
+		"hindrance.earthquake": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Something?",
+		"required": {
+			"supplies": 1,
+			"infrastructure" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects" : {
+		"fatiguing" : 1,
+		"destroy" : 1
+	}
+	},
+	
+	{
+	"id": "active.hindrance.storms",
+	"label": "Heavy Storms!",
+	"actionid": "badweather",
+	"startdescription": "The sky sends down its wrath.",
+	"description": "What is below cannot escape what is above.",
+	"warmup": 30,
+	"requirements": {
+		"hindrance.storms": 1
+	},
+	"slots": [
+	    {
+		"id": "needsally",
+		"label": "Ally",
+		"required": {
+			"friend": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects" : {
+		"fatiguing" : 1
+	}
+	},
+	
+	{
+	"id": "active.hindrance.colonel",
+	"label": "The Colonel's Due",
+	"actionid": "badweather",
+	"startdescription": "All soldierly dead pass through the colonel's hands. His unseeing gaze is upon the battlefield, looking for some to take...",
+	"description": "More soldiers for the Colonel. Not good for us.",
+	"warmup": 30,
+	"requirements": {
+		"hindrance.colonel": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Dead",
+		"required": {
+			"friend.corpses": 1,
+			"foe.corpses" : 1,
+			"neutral.corpses" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects" : {
+		"becomezombiesoldier" : 1
+	}
+	},
+	
+	{
+	"id": "active.hindrance.lionsmith",
+	"label": "The Lionsmith's Roar",
+	"actionid": "badweather",
+	"startdescription": "When a lion roars, all other creatures know the king has taken the field. And we are not lions.",
+	"description": "Desertion is a form of betrayal. Cowards.",
+	"warmup": 30,
+	"requirements": {
+		"hindrance.lionsmith": 1
+	},
+	"slots": [
+	    {
+		"id": "needsally",
+		"label": "Ally",
+		"required": {
+			"friend": 1
+		},
+		"forbidden": {
+			"friend.named": 1,
+			"edgelong" : 1
+		},
+		"greedy": true
+	    },
+	],
+	"effects" : {
+		"friend": -1
+	},
+	},
+	
+	{
+	"id": "active.hindrance.wolf",
+	"label": "The Wolf-Divided's Enmity",
+	"actionid": "badweather",
+	"startdescription": "Something's gotten to close to this shard of enmity. Someone is about to be unmade...",
+	"description": "Gone. Nothing remains.",
+	"warmup": 30,
+	"requirements": {
+		"hindrance.wolf": 1
+	},
+	"slots": [
+	    {
+		"id": "needssomeone",
+		"label": "Someone",
+		"required": {
+			"mortal": 1
+		},
+		"forbidden": {
+			"friend.named": 1,
+			"edgelong" : 1
+		},
+		"greedy": true
+	    },
+	],
+	"effects" : {
+		"mortal": -1
+	},
+	},
+	
+	{
+	"id": "active.hindrance.moonspace",
+	"label": "The Mensicate's Disdain",
+	"actionid": "badweather",
+	"startdescription": "The moon's disfavor is upon us. Reality starts to distort...",
+	"description": "The air stinks with hawthorn; owls that are not there echo in the night. Scouting seems impossible, now.",
+	"warmup": 30,
+	"requirements": {
+		"hindrance.moonspace": 1
+	},
+	"effects" : {
+		"hindrance.moonspace.active": 1
+	},
+	},
+	
+	{
+	"id": "recon.blocked",
+	"actionid": "recon",
+	"label": "Lost in Moonlight",
+	"$priority" : 1,
+	"startdescription": "If I, or my scouts go out, I don't think we'd come back. [Starting this recipe causes a 90 second countdown.]",
+	"extantreqs": {
+		"hindrance.moonspace.active": 1
+	},
+	"warmup": 90,
+	"craftable": true
+    },
+	
+	{
+	"id": "active.hindrance.dionysian",
+	"label": "Dionysian Desires",
+	"actionid": "badweather",
+	"startdescription": "The Wood grows closer to the dream. Something is being lost...",
+	"description": "Gone.",
+	"warmup": 30,
+	"requirements": {
+		"hindrance.dionysian": 1
+	},
+	"slots": [
+	    {
+		"id": "needsopportunity",
+		"label": "Something",
+		"required": {
+			"op": 1
+		},
+		"greedy": true
+	    },
+	],
+	"aspects" : {
+		"fatiguing": 1
+	},
+	},
+	
+	{
+	"id": "active.hindrance.nocturnal",
+	"label": "Nocturnal Fears",
+	"actionid": "badweather",
+	"startdescription": "The shadows grow longer, scarier. Night feels longer. Something is being lost...",
+	"description": "Gone.",
+	"warmup": 30,
+	"requirements": {
+		"hindrance.nocturnal": 1
+	},
+	"slots": [
+	    {
+		"id": "needsmemory",
+		"label": "Something",
+		"required": {
+			"memory": 1
+		},
+		"greedy": true
+	    },
+	],
+	"effects" : {
+		"memory": -1
+	},
+	},
+	
+	{
+	"id": "active.hindrance.apollonian",
+	"label": "Apollonian Grievances",
+	"actionid": "badweather",
+	"startdescription": "I've strayed too close to this light, and it penetrates my spirit. I see, I see...",
+	"description": "I SEE.",
+	"warmup": 30,
+	"requirements": {
+		"hindrance.apollonian": 1
+	},
+	"effects" : {
+		"trauma": 1
+	},
+	},
+	
+	{
+	"id": "active.hindrance.worms",
+	"label": "Worms, Here!",
+	"actionid": "badweather",
+	"startdescription": "These are the things that have crawled in through the world.",
+	"description": "This is going to be a problem.",
+	"warmup": 30,
+	"requirements": {
+		"hindrance.worms": 1
+	},
+	"effects" : {
+		"foe.worms": 1
+	},
+	},
+	
+	{
+	"id": "foe.corrosive.dissolve",
+	"label": "Nothing Remains",
+	"startdescription": "This enemy left nothing left for us.",
+	"requirements": {
+	    "foe.corrosive": 1
+	},
+	"aspects": {
+	    "fatiguing": 1
+	}
+    },
+	
+	{
+	"id": "foe.corrosive.dissolve.building",
+	"label": "Nothing Remains",
+	"startdescription": "This enemy left nothing left for us.",
+	"requirements": {
+	    "foe.corrosive": 1
+	},
+	"aspects": {
+	    "dissolve": 1
+	}
+    }
+	
+]
+}
