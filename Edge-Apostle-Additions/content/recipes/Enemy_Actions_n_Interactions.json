@@ -1,0 +1,845 @@
+{
+"recipes": [
+	
+	{
+	"id": "enemy.capture.infrastructure.startup",
+	"actionid": "enemyaction.infrastructure",
+	"label": "Targeting Infrastructure!",
+	"startdescription": "The enemy seeks to capture a vital artery of the war effort -",
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"effects": {
+	    "decision.enemy.infrastructure.capture": 1
+	},
+	"requirements": {
+		"decision.enemy.infrastructure.capture" : 1
+	},
+	"tablereqs": {
+	    "infrastructure": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1,
+			"otherworldly" : 1,
+			"foe.artillery" : 1,
+			"foe.artillery.hidden" : 1,
+			"foe.bombers" : 1,
+			"foe.bombers.hidden" : 1,
+			"foe.tanks" : 1,
+			"foe.tanks.hidden" : 1,
+			"foe.monster" : 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	},
+	
+    {
+	"id": "enemy.capture.infrastructure.nodefence",
+	"label": "Lost Infrastructure!",
+	"startdescription": "Our vital facilities are captured!",
+	"requirements": {
+	    "decision.enemy.infrastructure.capture": 1
+	},
+	"aspects": {
+	    "enemycontrolled": 1,
+	    "makeadditional": 1
+	},
+	"slots": [
+	    {
+		"id": "needsinfrastructure",
+		"label": "Infrastructure",
+		"required": {
+		    "infrastructure": 1
+		},
+		"forbidden": {
+		    "loc.farm": 1,
+		    "loc.church": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+	
+	{
+	"id": "convert.to.enemy.buildings",
+	"actionid" : "enemycontrolledwarzone",
+	"label": "Enemy Controlled Warzone",
+	"startdescription": "This warzone is under enemy control. No one said war would be easy.",
+	"description": "This warzone is under enemy control. No one said war would be easy.",
+	"warmup": 0,
+	"extantreqs": {
+	    "warzone.enemy.controlled": 1,
+		"enemy.infrastructure" : -1
+	},
+	"xpans": {
+	    "enemycontrolled": 1
+	}
+	},
+	
+    {
+	"id": "foe.coordinated.getsecond.enemycomms.pre",
+	"label": "Coordinated Infantry Assault!",
+	"startdescription": "This Enemy joins its force with another -",
+	"tablereqs": {
+	    "loc.commtower.enemy": 1
+	},
+	"requirements" : {
+		"foe.coordinated.comms.marker" : 1
+	},
+	"linked": [
+	    {
+		"id": "foe.coordinated.getsecond.enemycomms"
+	    }
+	]
+    },
+	
+	{
+	"id": "foe.coordinated.getsecond.enemycomms",
+	"label": "Coordinated Infantry Assault!",
+	"startdescription": "This Enemy joins its force with another -",
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"slots": [
+	    {
+		"id": "needscoordinated",
+		"label": "Enemy",
+		"required": {
+		    "foe.infantry": 1,
+			"foe.kommando.hidden": 1,
+			"foe.kommando" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "defend.opportunity"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.fieldhospital.survived",
+	"label": "The Enemy Stands!",
+	"startdescription": "A frustration - our target was treated at the enemy's field hospital. At least they'll be easier to kill next time.\n\n[An enemy field hospital is still active at this location. Troublesome.]",
+	"description": "A frustration - our target was treated at the enemy's field hospital. At least they'll ve easier to kill next time.\n\n[An enemy field hospital is still active at this location. Troublesome.]",
+	"tablereqs": {
+	    "loc.hospital.enemy": 1
+	},
+	"requirements": {
+	    "weakened": -1,
+		"otherworldly" : -1,
+		"foe.monster" : -1
+	},
+	"aspects": {
+	    "weaken": 1
+	}
+    },
+	
+	{
+	"id": "enemy.controlled.warzone.interference.router",
+	"label": "Enemy Interference?",
+	"startdescription": "We don't control this warzone. An enemy could interfere with our dealings with the locals.",
+	"extantreqs": {
+	    "warzone.enemy.controlled": 1
+	},
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "enemy.controlled.warzone.interference.afraid"
+	    },
+		
+		{
+		"id": "enemy.controlled.warzone.interference"
+	    }
+	]
+    },
+	
+	{
+	"id": "enemy.controlled.warzone.interference.afraid",
+	"label": "A Changing Battlefield - Afraid",
+	"startdescription": "I am a lion, and they are prey. They will not interfere.",
+	"extantreqs": {
+	    "skill.intimidate.active": 1
+	},
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.controlled.warzone.interference",
+	"label": "Enemy Interference?",
+	"startdescription": "We don't control this warzone. An enemy could interfere with our dealings with the locals.",
+	"extantreqs": {
+	    "skill.intimidate.active": -1
+	},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Complications?",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "foe.rankofficer": 1,
+		    "uqbrood": 1,
+		    "foe.exile": 1,
+			"otherworldly" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 45,
+	"alt": [
+	    {
+		"id": "enemy.controlled.warzone.interference.foe"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+
+    {
+	"id": "enemy.controlled.warzone.interference.foe",
+	"label": "Enemy Delaying action!",
+	"startdescription": "With the warzone not under control, our enemies can still interfere here!",
+	"requirements": {
+	    "foe": 1
+	},
+	"aspects": {
+	    "revealidentity": 1
+	},
+	"movements": {
+        "~/tabletop": "foe"
+    },
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "opx.gonext"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.main.objective.pre",
+	"actionid": "enemy.doing.main.objective",
+	"label": "Enemy Pursuing Main Objective!",
+	"startdescription": "We're here for a reason, and so are our enemies. They're going after our main objective!",
+	"tablereqs": {
+		"main": 1
+	},
+	"extantreqs": {
+	    "strife.tracker": 4,
+		"berlin.here" : -1,
+		"rome.here" : -1,
+		"stalingrad.here" : -1,
+		"enemy.doing.main.objective" : -1,
+		"andnowwhat" : -1,
+		"lake.here" : -1,
+		"craterfield" : -1,
+		"sobibor.here" : -1,
+		"main.raze" : -1
+	},
+	"slots": [
+	    {
+		"id": "needsmainobj",
+		"label": "Main objective",
+		"required": {
+		    "main": 1
+		},
+		"greedy": true
+	    },
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "enemy.main.objective.take.enemies"
+	    },
+		
+	    {
+		"id": "enemy.nonefound"
+	    }
+	],
+    },
+	
+	{
+	"id": "enemy.main.objective.take.enemies",
+	"label": "Enemy Pursuing Main Objective!",
+	"startdescription": "The enemy gathers it's strength...",
+	"aspects": {
+	    "takeadditional": 1,
+		"revealidentity": 1
+	},
+	"requirements": {
+	    "main": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "german": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1,
+		    "otherworldly": 1,
+			"foe.sniper" : 1,
+			"foe.sniper.hidden" : 1,
+			"foe.manhunters" : 1,
+			"foe.manhunters.hidden" : 1
+		},
+		"greedy": true
+	    },
+		
+	    {
+		"id": "needsenemy2",
+		"label": "Enemy",
+		"required": {
+		    "german": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1,
+		    "otherworldly": 1,
+			"foe.sniper" : 1,
+			"foe.sniper.hidden" : 1,
+			"foe.manhunters" : 1,
+			"foe.manhunters.hidden" : 1
+		},
+		"greedy": true
+	    },
+		
+	    {
+		"id": "needsenemy3",
+		"label": "Enemy",
+		"required": {
+		    "german": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1,
+		    "otherworldly": 1,
+			"foe.sniper" : 1,
+			"foe.sniper.hidden" : 1,
+			"foe.manhunters" : 1,
+			"foe.manhunters.hidden" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+		"id": "enemy.main.objective.defense"
+	    },
+
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10
+    },
+	
+    {
+	"id": "enemy.main.objective.defense",
+	"label": "Mount a Defense?",
+	"startdescription": "The enemy approaches - can we rise to meet them?\n\n[Defend by providing cards to equal the enemy's combined edge threshold. Involiate Defence won't work here.]",
+	"requirements": {
+	    "foe": 1
+	},
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "Defense",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "friend.away": 1
+		}
+	    },
+		
+	    {
+		"id": "needsresponse2",
+		"label": "Defense",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "friend.away": 1
+		}
+	    },
+		
+	    {
+		"id": "needsresponse3",
+		"label": "Defense",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "friend.away": 1
+		}
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "enemy.main.objective.defense.failure.enemy.overrun"
+	    },
+		
+	    {
+		"id": "enemy.main.objective.defense.failure.enemy.capture"
+	    },
+		
+	    {
+		"id": "enemy.main.objective.defense.failure.enemy.default"
+	    }
+		
+	],
+	"alt": [
+	    {
+		"id": "defend.friend.immortal"
+	    },
+	    {
+		"id": "defend.edge"
+	    }
+	]
+    },
+	
+	
+    {
+	"id": "enemy.main.objective.defense.failure.enemy.overrun",
+	"label": "Enemy Overrunning Our Positions!",
+	"startdescription": "We could not muster the strength to meet our enemy in combat. Now the enemy tramples over my allies I was duty-sworn to cover-",
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+		"main.withdraw" : 1
+	},
+	"effects": {
+		"main" : -1
+	},
+	"alt": [
+	    {
+		"id": "enemy.overrun.detect",
+		"additional" : true
+	    },
+		
+		{
+		"id": "enemy.capture.warzone",
+		"additional" : true
+	    }
+	],
+	"warmup": 15
+    },
+	
+	{
+	"id": "enemy.overrun.detect",
+	"actionid" : "fatality.overrun",
+	"label": "Enemy Overrunning Our Positions!",
+	"startdescription": "We could not muster the strength to meet our enemy in combat. Now the enemy tramples over my allies I was duty-sworn to cover-",
+	"description": "We could not muster the strength to meet our enemy in combat. Now the enemy tramples over my allies I was duty-sworn to cover-",
+	"slots": [
+	    {
+		"id": "needslocal",
+		"label": "Local Ally",
+		"required": {
+		    "local": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "enemy.overrun.detect.foundlocal"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "enemy.overrun.detect.conclude"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.overrun.detect.foundlocal",
+	"label": "Enemy Overrunning Our Positions!",
+	"startdescription": "We could not muster the strength to meet our enemy in combat. Now the enemy tramples over my allies I was duty-sworn to cover-",
+	"description": "We could not muster the strength to meet our enemy in combat. Now the enemy tramples over my allies I was duty-sworn to cover-",
+	"requirements": {
+	    "local": 1,
+		"mortal" : 1
+	},
+	"aspects" : {
+		"killfriend" : 1
+	},
+	"linked": [
+	    {
+		"id": "enemy.overrun.detect"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.overrun.detect.conclude",
+	"label": "Enemy Overrunning Our Positions!",
+	"startdescription": "We could not muster the strength to meet our enemy in combat. Now the enemy tramples over my allies I was duty-sworn to cover-",
+	"description": "We could not muster the strength to meet our enemy in combat. Now the enemy tramples over my allies I was duty-sworn to cover-"
+	},
+	
+    {
+	"id": "enemy.main.objective.defense.failure.enemy.capture",
+	"label": "Enemy Capturing Warzone!",
+	"startdescription": "This sector is lost. I should pull out as soon as possible.",
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+		"main.sabotage" : 1
+	},
+	"effects": {
+		"main" : -1
+	},
+	"linked": [	
+		{
+		"id": "enemy.capture.warzone"
+	    }
+	],
+	"warmup": 15
+    },
+	
+    {
+	"id": "enemy.capture.warzone",
+	"actionid" : "enemycontrolledwarzone",
+	"label": "Warzone Lost!",
+	"startdescription": "This sector is lost. I should pull back as soon as I can!",
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "enemy.capture.warzone.warzonefound"
+	    },
+	    {
+		"id": "enemy.capture.warzone"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.capture.warzone.warzonefound",
+	"label": "Warzone Lost!",
+	"startdescription": "This sector is lost. I should pull back as soon as I can!",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "warzone.enemy.controlled",
+		"level": 1
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.main.objective.defense.failure.enemy.default",
+	"label": "Enemy Objective Complete",
+	"startdescription": "We were after something here, but the enemy got to it first. This opportunity is gone, now.",
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "enemy.withdraw.leaving.detect"
+	    },
+
+	    {
+		"id": "enemy.remove.main.objective"
+	    }
+	]
+    },
+	
+	{
+	"id": "enemy.withdraw.leaving.detect",
+	"actionid": "scandal",
+	"label": "Enemy Withdrawl!",
+	"startdescription": "The Germans done what they came here to do. They're retreating to their back lines.",
+	"description": "The Germans done what they came here to do. They're retreating to their back lines.",
+	"extantreqs": {
+		"obdurant.story" : -1
+	},
+	"requirements" : {
+		"evacuate.trigger":1	
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "uqbrood": 1,
+		    "soviet": 1,
+			"hidden" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "enemy.withdraw.leaving.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "enemy.withdraw.leaving.conclude"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.withdraw.leaving.success",
+	"label": "Enemy Withdrawl!",
+	"description": "The Germans have done what they came here to do. They're retreating to their back lines.",
+	"requirements": {
+	    "foe": 1
+	},
+	"effects" : {
+		"foe" : -1
+	},
+	"linked": [
+	    {
+		"id": "enemy.withdraw.leaving.detect"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.withdraw.leaving.conclude",
+	"label": "Enemy Withdrawl!",
+	"description": "The Germans have done what they came here to do. They're retreating to their back lines.",
+	"effects": {
+		"main" : -1
+	},
+	"linked": [
+	    {
+		"id": "enemy.main.objective.abandon.warzone"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.main.objective.abandon.warzone",
+	"label": "A Liberated City?",
+	"startdescription": "The germans have left this warzone. This is a good thing. So why do I feel so defeated?",
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"linked": [
+		{
+		"id": "enemy.main.objective.warzonefound"
+	    },
+		
+	    {
+		"id": "enemy.main.objective.abandon.warzone"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.main.objective.warzonefound",
+	"label": "A Liberated City?",
+	"description": "The germans have left this warzone. This is a good thing. So why do I feel so defeated?",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"xpans": { 
+	    "capture": 1 
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "warzone.enemy.controlled",
+		"level": -1
+	    }
+	],
+	"linked": [
+	    {
+		"id": "enemy.remove.main.objective"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.remove.main.objective",
+	"label": "Enemy Objective Complete",
+	"description": "We were after something here, but the enemy got to it first. This opportunity is gone, now.",
+	"effects": {
+		"main" : -1
+	},
+	"linked": [
+	    {
+		"id": "enemy.main.objective.complete.contemnant"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.wounds",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.main.objective.complete.contemnant",
+	"label": "And now what?",
+	"description": "We were after something here, but the enemy got to it first. This opportunity is gone, now. What will I do now?",
+	"extantreqs": {
+		"contemnant.story" : 1
+	},
+	"effects": {
+		"andnowwhat" : 1
+	}
+    }
+	
+	
+]
+}

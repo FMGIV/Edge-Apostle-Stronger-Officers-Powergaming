@@ -1,0 +1,575 @@
+{
+"recipes": [
+
+	{
+	"id": "random.enemy.router",
+	"label": "Random Enemy Router",
+	"description": "Who do we have to kill now?",
+	"warmup": 0,
+	"linked": [
+	    {
+		"id": "pick.occult.enemy.obdurant",
+	    },
+		
+		{
+		"id": "pick.occult.enemy.proterant",
+	    },
+		
+		{
+		"id": "pick.occult.enemy.contemnant",
+	    },
+		
+	    {
+		"id": "pick.mundane.enemy",
+	    },
+
+	]
+	},
+	
+	{
+	"id": "random.hindrance.router",
+	"label": "Random Hindrance Router",
+	"description": "What's in our way now?",
+	"warmup": 0,
+	"linked": [
+	    {
+		"id": "pick.occult.hindrance.obdurant",
+	    },
+		
+		{
+		"id": "pick.occult.hindrance.proterant",
+	    },
+		
+		{
+		"id": "pick.occult.hindrance.contemnant",
+	    },
+		
+		{
+		"id": "pick.mundane.hindrance"
+	    },
+	]
+	},
+	
+	{
+	"id": "pick.mundane.enemy",
+	"label": "Mundane enemy spawner",
+	"startdescription": "spawn german",
+	"description": "spawn german",
+	"warmup": 0,
+	"deckeffects" : {
+		"enemies" : 1
+	}
+	},
+	
+	{
+	"id": "pick.mundane.hindrance",
+	"label": "Mundane hindrance spawner",
+	"startdescription": "spawn hindrance",
+	"description": "spawn hindrance",
+	"warmup": 0,
+	"deckeffects" : {
+		"hindrances.mundane" : 1
+	}
+	},
+	
+	{
+	"id": "pick.occult.enemy.obdurant",
+	"label": "Occult enemy spawner - obdurant",
+	"startdescription": "ouchies",
+	"description": "ouchies",
+	"extantreqs": {
+		"obdurant.story": 1,
+		"strife.tracker" : 4
+	},
+	"warmup": 0,
+	"deckeffects" : {
+		"enemies.occult.obdurant" : 1
+	}
+	},
+	
+	{
+	"id": "pick.occult.enemy.proterant",
+	"label": "Occult enemy spawner - proterant",
+	"startdescription": "ouchies",
+	"description": "ouchies",
+	"extantreqs": {
+		"proterant.story": 1,
+		"strife.tracker" : 4
+	},
+	"warmup": 0,
+	"deckeffects" : {
+		"enemies.occult.proterant" : 1
+	}
+	},
+	
+	{
+	"id": "pick.occult.enemy.contemnant",
+	"label": "Occult enemy spawner - contemnant",
+	"startdescription": "contemnant",
+	"description": "ouchies",
+	"extantreqs": {
+		"contemnant.story": 1,
+		"strife.tracker" : 4
+	},
+	"warmup": 0,
+	"deckeffects" : {
+		"enemies.occult.contemnant" : 1
+	}
+	},
+	
+	{
+	"id": "pick.occult.hindrance.obdurant",
+	"label": "Occult hindrance spawner - obdurant",
+	"startdescription": "ouchies",
+	"description": "ouchies",
+	"extantreqs": {
+		"obdurant.story": 1,
+		"strife.tracker" : 4
+	},
+	"warmup": 0,
+	"deckeffects" : {
+		"hindrances.heavy.obdurant" : 1
+	}
+	},
+	
+	{
+	"id": "pick.occult.hindrance.proterant",
+	"label": "Occult hindrance spawner - proterant",
+	"startdescription": "ouchies",
+	"description": "ouchies",
+	"extantreqs": {
+		"proterant.story": 1,
+		"strife.tracker" : 4
+	},
+	"warmup": 0,
+	"deckeffects" : {
+		"hindrances.heavy.proterant" : 1
+	}
+	},
+	
+	{
+	"id": "pick.occult.hindrance.contemnant",
+	"label": "Occult hindrance spawner - contemnant",
+	"startdescription": "ouchies",
+	"description": "ouchies",
+	"extantreqs": {
+		"contemnant.story": 1,
+		"strife.tracker" : 4
+	},
+	"warmup": 0,
+	"deckeffects" : {
+		"hindrances.heavy.contemnant" : 1
+	}
+	},
+	
+	{
+	"id": "ob.success.repossess",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "repossess.complete": 1
+	},
+	"effects" : {
+		"resolution" : 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	}
+    },
+	
+	{
+	"id": "ob.success.eliminate",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "eliminate.complete": 1
+	},
+	"effects" : {
+		"resolution" : 1
+	},
+	"alt": [
+	    {
+		"id": "weakenenemies.detect",
+		"additional": true
+	    }
+	],
+    },
+	
+	{
+	"id": "ob.success.eliminate.contemnant",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "eliminate.contemnant.complete": 1
+	},
+	"effects" : {
+		"retribution" : 1
+	},
+	"alt": [
+	    {
+		"id": "weakenenemies.detect",
+		"additional": true
+	    }
+	],
+    },
+	
+	{
+	"id": "ob.success.rout",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "rout.complete": 1
+	},
+	"alt": [
+	    {
+		"id": "routenemies.detect",
+		"additional": true
+	    }
+	],
+	"linked": [
+		{
+		"id": "ob.success.capture.fromrout"
+	    }
+	],
+    },
+	
+    {
+	"id": "ob.success.capture.fromrout",
+	"label": "A Liberated City!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "ob.success.capture.warzonefound"
+	    },
+	    {
+		"id": "ob.success.capture.fromrout"
+	    }
+	]
+    },
+	
+	{
+	"id": "ob.success.rout.contemnant",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "rout.contemnant.complete": 1
+	},
+	"effects" : {
+		"retribution" : 1
+	},
+	"alt": [
+	    {
+		"id": "routenemies.detect",
+		"additional": true
+	    }
+	],
+    },
+	
+	{
+	"id": "routenemies.detect",
+	"actionid": "scandal",
+	"label": "Routed Enemies!",
+	"startdescription": "The Germans have been beaten here, and thoroughly. They're running away to their back lines!",
+	"description": "The Germans have been beaten here, and thoroughly. They're running away to their back lines!",
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "uqbrood": 1,
+		    "soviet": 1,
+			"hidden" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "routenemies.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "routenemies.conclude"
+	    }
+	]
+    },
+	
+    {
+	"id": "routenemies.success",
+	"label": "Routed Enemies!",
+	"startdescription": "The Germans have been beaten here, and thoroughly. They're running away to their back lines!",
+	"description": "The Germans have been beaten here, and thoroughly. They're running away to their back lines!",
+	"requirements": {
+	    "foe": 1
+	},
+	"effects" : {
+		"foe" : -1
+	},
+	"linked": [
+	    {
+		"id": "routenemies.detect"
+	    }
+	]
+    },
+	
+    {
+	"id": "routenemies.conclude",
+	"label": "Routed Enemies!",
+	"startdescription": "The Germans have been beaten here, and thoroughly. They're running away to their back lines!",
+	"description": "The Germans have been beaten here, and thoroughly. They're running away to their back lines!",
+	"effects" : {
+		"resolution" : 1
+	}
+    },
+	
+	{
+	"id": "ob.success.sabotage",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so we are victorious.",
+	"requirements": {
+	    "sabotage.complete": 1
+	},
+	"alt": [
+	    {
+		"id": "sabotageinfrastructure.detect",
+		"additional": true
+	    }
+	],
+    },
+	
+	{
+	"id": "sabotageinfrastructure.detect",
+	"actionid": "scandal",
+	"label": "Successfully Sabotaged Infrastructure!",
+	"startdescription": "Blown apart. What's ours wont be theirs.",
+	"description": "Blown apart. What's ours wont be theirs.",
+	"slots": [
+	    {
+		"id": "needsinfrastructure",
+		"label": "Infrastructure",
+		"required": {
+		    "infrastructure": 1,
+			"enemy.infrastructure" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "sabotageinfrastructure.success"
+	    },
+	
+	    {
+		"id": "sabotageinfrastructure.success.enemyinfra"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "sabotageinfrastructure.conclude"
+	    }
+	]
+    },
+	
+    {
+	"id": "sabotageinfrastructure.success",
+	"label": "Sabotaged Infrastructure!",
+	"startdescription": "Blown apart. What's ours wont be theirs.",
+	"description": "Blown apart. What's ours wont be theirs.",
+	"requirements": {
+	    "infrastructure": 1
+	},
+	"aspects": {
+	    "destroy": 1
+	},
+	"linked": [
+	    {
+		"id": "sabotageinfrastructure.detect"
+	    }
+	]
+    },
+	
+    {
+	"id": "sabotageinfrastructure.success.enemyinfra",
+	"label": "Successfully Sabotaged Infrastructure!",
+	"startdescription": "Blown apart. What's ours wont be theirs.",
+	"description": "Blown apart. What's ours wont be theirs.",
+	"requirements": {
+	    "enemy.infrastructure": 1
+	},
+	"aspects": {
+	    "destroy": 1
+	},
+	"linked": [
+	    {
+		"id": "sabotageinfrastructure.detect"
+	    }
+	]
+    },
+	
+    {
+	"id": "sabotageinfrastructure.conclude",
+	"label": "Successfully Sabotaged Infrastructure!",
+	"startdescription": "Blown apart. What's ours wont be theirs.",
+	"description": "Blown apart. What's ours wont be theirs.",
+	"effects" : {
+		"resolution" : 1
+	}
+    },
+	
+    {
+	"id": "ob.success.capture",
+	"label": "A Liberated City!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"requirements": {
+	    "capture.complete": 1
+	},
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "ob.success.capture.warzonefound"
+	    },
+	    {
+		"id": "ob.success.capture"
+	    }
+	]
+    },
+	
+    {
+	"id": "ob.success.capture.warzonefound",
+	"label": "A Victory!",
+	"startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+	"description": "And so another city is liberated. Garibaldi would be proud.",
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"xpans": { 
+	    "capture": 1 
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "warzone.enemy.controlled",
+		"level": -1
+	    }
+	]
+    },
+	
+	{
+	"id": "ob.success.withdraw",
+	"label": "Successful Withdrawl!",
+	"startdescription": "I have provided enough cover for my allies. They are pulling out.",
+	"description": "I have provided enough cover for my allies. They are pulling out.",
+	"requirements": {
+	    "withdraw.complete": 1
+	},
+	"linked": [
+	    {
+		"id": "withdraw.detect"
+	    }
+	],
+    },
+	
+	{
+	"id": "withdraw.detect",
+	"label": "Successful Withdrawl!",
+	"startdescription": "I have provided enough cover for my allies. They are pulling out.",
+	"description": "I have provided enough cover for my allies. They are pulling out.",
+	"slots": [
+	    {
+		"id": "needslocal",
+		"label": "Local Ally",
+		"required": {
+		    "local": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "withdraw.foundlocal"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "withdraw.conclude"
+	    }
+	]
+    },
+	
+    {
+	"id": "withdraw.foundlocal",
+	"label": "Successful Withdrawl!",
+	"startdescription": "I have provided enough cover for my allies. They are pulling out.",
+	"description": "I have provided enough cover for my allies. They are pulling out.",
+	"requirements": {
+	    "local": 1
+	},
+	"effects" : {
+		"local" : -1
+	},
+	"linked": [
+	    {
+		"id": "withdraw.detect"
+	    }
+	]
+    },
+	
+    {
+	"id": "withdraw.conclude",
+	"label": "Successful Withdrawl!",
+	"startdescription": "I have provided enough cover for my allies. They are pulling out.",
+	"description": "I have provided enough cover for my allies. They are pulling out.",
+	"effects" : {
+		"resolution" : 1
+	}
+    }
+	
+]
+}

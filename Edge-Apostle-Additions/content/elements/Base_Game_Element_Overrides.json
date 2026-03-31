@@ -118,7 +118,7 @@
         "actionid": "abandon",
         "label": "Intent",
         "required": {
-					"proterant.story": 1
+			"proterant.story": 1
             }
         }
 	]
@@ -167,7 +167,8 @@
 	{
     "id": "loc.commtower",
 	"xtriggers$add": {
-		"dissolve": "husk"
+		"dissolve": "husk",
+		"enemycontrolled" : "loc.commtower.enemy"
 	}
 	},
 	
@@ -181,7 +182,8 @@
 	{
     "id": "loc.hospital",
 	"xtriggers$add": {
-		"dissolve": "husk"
+		"dissolve": "husk",
+		"enemycontrolled" : "loc.hospital.enemy"
 	}
 	},
 	
@@ -195,7 +197,8 @@
 	{
     "id": "loc.barracks",
 	"xtriggers$add": {
-		"dissolve": "husk"
+		"dissolve": "husk",
+		"enemycontrolled" : "loc.barracks.enemy"
 	}
 	},
 	
@@ -204,7 +207,679 @@
 	"xtriggers$add": {
 		"dissolve": "husk"
 	}
-	}
+	},
+	
+	{
+    "id": "main.repossess",
+	"description": "A valuable asset has gone missing somewhere amidst the rubble and flame. The Germans are on the hunt for it - we cannot allow it to fall into their hands. [Completing this objective gives you some loot.]",
+    "xtriggers$dictedit": {
+		"careeradvancement": [
+		{
+		    "id": "resolution"
+		},
+			
+		{
+			"id": "repossess.complete"
+		}
+		],
 		
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "main.withdraw",
+	"description": "This position is quickly becoming untenable. We must provide sufficient cover against the German attack so that our allies may evacuate. [Completing this objective will cause local allies in the warzone to evacuate.]",
+    "xtriggers$dictedit": {
+		"careeradvancement": [
+		{
+		    "id": "resolution"
+		},
+			
+		{
+			"id": "withdraw.complete"
+		}
+		],
+		
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "main.eliminate",
+	"description": "Local intelligence indicates a high profile target is present at our current position. If we can eliminate this target before moving on, that would bode well for the war effort. [Completing this objective will weaken enemies at the current warzone.]",
+    "xtriggers$dictedit": {
+		
+		"careeradvancement": [
+		{
+		    "id": "resolution"
+		},
+			
+		{
+			"id": "eliminate.complete"
+		}
+		],
+		
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "main.sabotage",
+	"description": "The position here is rife with valuable infrastructure - the kind we cannot take with us. Before moving on, we should ensure that the Wehrmacht cannot enjoy what we leave behind. [Completing this objective will destroy all infrastructure at the current warzone.]",
+    "xtriggers$dictedit": {
+		
+		"careeradvancement": [
+		{
+		    "id": "resolution"
+		},
+			
+		{
+			"id": "sabotage.complete"
+		}
+		],
+		
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "main.rout",
+	"description": "Our aim is simple: utter annihilation of the enemy. Kill them all. [Completing this objective will cause all Germans at the warzone to retreat.]",
+    "aspects$add" : {"evacuate.trigger":1},
+    "xtriggers$dictedit": {
+		
+		"careeradvancement": [
+		{
+		    "id": "resolution"
+		},
+			
+		{
+			"id": "rout.complete"
+		}
+		],
+		
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "main.capture",
+	"description": "The enemy has taken up position here - here, in our homes and our streets. Drive them out and reclaim this city. [Completing this objective will transfer the warzone to your control.]",	
+    "aspects$add" : {"evacuate.trigger":1},
+	"xtriggers$dictedit": {
+		
+		"careeradvancement": [
+		{
+		    "id": "resolution"
+		},
+			
+		{
+			"id": "capture.complete"
+		}
+		],
+		
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "main.rout.contemnant",
+	"description": "Our aim is simple: utter annihilation of the enemy. Kill them all. [Completing this objective will cause all Germans at the warzone to retreat.]",
+    "aspects$add" : {"evacuate.trigger":1},
+	"xtriggers$dictedit": {
+		
+		"careeradvancement": [
+		{
+		    "id": "resolution"
+		},
+			
+		{
+			"id": "rout.contemnant.complete"
+		}
+		],
+		
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "main.eliminate.contemnant",
+	"description": "A red-handed high officer of the German Army moves within the city - I will have his death. [Completing this objective weakens germans at the current warzone.]",
+    "xtriggers$dictedit": {
+		
+		"careeradvancement": [
+		{
+		    "id": "resolution"
+		},
+			
+		{
+			"id": "eliminate.contemnant.complete"
+		}
+		],
+		
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "main.raze",
+    "xtriggers$dictedit": {
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "side.cutoff",
+    "xtriggers$dictedit": {
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "side.weaponscache",
+    "xtriggers$dictedit": {
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "side.rescueallies",
+    "xtriggers$dictedit": {
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "side.rescuepartisans",
+    "xtriggers$dictedit": {
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ]
+    }
+    },
+	
+	{
+    "id": "side.rescuerefugees",
+    "xtriggers$dictedit": {
+        "opx.progress0": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.hindrance.router"
+        }
+        ],
+		
+        "opx.progress1": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ],
+		
+        "opx.progress2": [
+        {
+            "morpheffect": "recipe",
+            "id": "random.enemy.router"
+        }
+        ]
+    }
+    },
+	
+	{
+	"id": "strife",
+	"description": "When we fight, we fuel the Corrivality and help drive its titanic convolutions. In turn, the Corrivality inflames and excites the warring world around us. The one called Exile described the phenomenon as 'beautiful.' [As Strife increases, your Enemies will become more aggressive and more numerous. Objectives will become harder. A terrifying force may be drawn to your location once Strife reaches seven.]"
+	},
+	
+    {
+    "id": "paestum.here",
+    "aspects$add" : {"warzone.enemy.controlled":1},
+    },
+	
+	{
+	"id": "potenza.here",
+    "aspects$add" : {"warzone.enemy.controlled":1},
+	},
+	
+	{
+	"id": "salerno.here",
+    "aspects$add" : {"warzone.enemy.controlled":1},
+    },
+	
+	{
+	"id": "benevento.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "napoli.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "campobasso.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "termoli.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "minturno.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "gaeta.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "montecassino.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+		
+	{
+	"id": "pontecorvo.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "ortucchio.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "ortona.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "valmontone.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "velletri.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "anzio.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "rome.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "foe.infantry",
+	"aspects$add" : {"foe.coordinated.comms.marker":1}
+	},
+	
+	{
+	"id": "foe.infantry.hidden",
+	"aspects$add" : {"foe.coordinated.comms.marker":1}
+	},
+	
+	{
+	"id": "foe.kommando",
+	"aspects$add" : {"foe.coordinated.comms.marker":1}
+	},
+	
+	{
+	"id": "foe.kommando.hidden",
+	"aspects$add" : {"foe.coordinated.comms.marker":1}
+	},
+
+	{
+	"id": "kaunas.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+		
+	{
+	"id": "brest.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "konigsberg.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "gdansk.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},	
+
+	{
+	"id": "grudziadz.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "grudziadz.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "lodz.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+
+	{
+	"id": "warsaw.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "lublin.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "katowice.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "krakow.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+
+	{
+	"id": "vienna.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "brno.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "prague.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "liberec.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "dresden.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "wroclaw.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "poznan.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "szczecin.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	{
+	"id": "berlin.here",
+	"aspects$add" : {"warzone.enemy.controlled":1}
+	},
+	
+	
 ]
 }

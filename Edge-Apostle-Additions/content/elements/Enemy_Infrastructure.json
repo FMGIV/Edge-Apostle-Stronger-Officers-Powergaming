@@ -1,0 +1,54 @@
+{
+"elements": [
+
+	{
+	"id": "decision.enemy.infrastructure.capture",
+	"label": "Decision: Capture Infrastructure",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+
+    {
+	"id": "loc.commtower.enemy",
+	"label": "Enemy Communications Post",
+	"description": "Words on wires. The enemy is listening... [While this card is on the board, enemy infantry will sometimes do coordinated attacks.]",
+	"aspects": {
+	    "enemy.infrastructure": 1
+	},
+	"xtriggers": {
+	    "destroy": "loc.commtower.destroyed",
+		"capture": "loc.commtower"
+	}
+    },
+	
+	{
+	"id": "loc.hospital.enemy",
+	"label": "Enemy Field Hospital",
+	"description": "This is where the enemy treats their wounded. [While this card is on the board, successful attacks on German soldiers will sometimes only weaken them.]",
+	"aspects": {
+	    "enemy.infrastructure": 1
+	},
+	"xtriggers": {
+	    "destroy": "loc.hospital.destroyed",
+		"capture": "loc.hospital"
+	}
+    },
+	
+	{
+	"id": "loc.barracks.enemy",
+	"label": "Enemy Barracks",
+	"description": "This is where the enemy sleeps.",
+	"aspects": {
+	    "enemy.infrastructure": 1
+	},
+	"xtriggers": {
+	    "destroy": "loc.hospital.destroyed",
+		"capture": "loc.hospital"
+	}
+    }
+	
+]
+}

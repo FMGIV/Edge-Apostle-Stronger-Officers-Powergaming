@@ -82,6 +82,10 @@
 	    }
 	],
 	"linked": [
+		{
+		"id": "active.hindrance.nohindrances"
+		},
+
 	    {
 		"id": "active.hindrance.verb.cycle"
 	    }
@@ -234,17 +238,18 @@
 	},
 	"slots": [
 	    {
-		"id": "needsally",
-		"label": "Ally",
-		"description": "An Ally.",
+		"id": "needssomething",
+		"label": "Someone?",
+		"description": "Someone unfortunate.",
 		"required": {
-			"friend": 1
+			"mortal": 1
 		},
 		"greedy": true
 	    }
 	],
 	"aspects" : {
-		"makecasualty" : 1
+		"makecasualty" : 1,
+		"weaken" : 1
 	}
 	},
 	
@@ -252,26 +257,23 @@
 	"id": "active.hindrance.fog",
 	"label": "Lost in Fog!",
 	"actionid": "badweather",
-	"startdescription": "My ally has lost their way in the fog. It's going to be a while before they get back to us.",
-	"description": "My ally returns to me. Good to have them back.",
+	"startdescription": "Someone has lost their way in the fog. It's going to be a while before they get back on the field.",
+	"description": "Returned.",
 	"warmup": 90,
 	"requirements": {
 		"hindrance.fog": 1
 	},
 	"slots": [
 	    {
-		"id": "needsally",
-		"label": "Ally",
-		"description": "An Ally.",
+		"id": "needssomeone",
+		"label": "Someone?",
+		"description": "Someone unlucky.",
 		"required": {
-			"friend": 1
+			"mortal": 1
 		},
 		"greedy": true
 	    }
 	],
-	"aspects" : {
-		"makecasualty" : 1
-	}
 	},
 	
 	{
@@ -290,7 +292,8 @@
 		"label": "Something?",
 		"required": {
 			"supplies": 1,
-			"infrastructure" : 1
+			"infrastructure" : 1,
+			"enemy.infrastructure" : 1
 		},
 		"greedy": true
 	    }
@@ -313,16 +316,17 @@
 	},
 	"slots": [
 	    {
-		"id": "needsally",
-		"label": "Ally",
+		"id": "needssomething",
+		"label": "Someone?",
 		"required": {
-			"friend": 1
+			"mortal": 1
 		},
 		"greedy": true
 	    }
 	],
 	"aspects" : {
-		"fatiguing" : 1
+		"fatiguing" : 1,
+		"weaken" : 1
 	}
 	},
 	
@@ -338,7 +342,7 @@
 	},
 	"slots": [
 	    {
-		"id": "needssomething",
+		"id": "needscorpse",
 		"label": "Dead",
 		"required": {
 			"friend.corpses": 1,
@@ -365,20 +369,19 @@
 	},
 	"slots": [
 	    {
-		"id": "needsally",
-		"label": "Ally",
+		"id": "needssomething",
+		"label": "Someone",
 		"required": {
-			"friend": 1
+			"mortal": 1
 		},
 		"forbidden": {
-			"friend.named": 1,
-			"edgelong" : 1
+			"friend.named": 1
 		},
 		"greedy": true
 	    },
 	],
 	"effects" : {
-		"friend": -1
+		"mortal": -1
 	},
 	},
 	

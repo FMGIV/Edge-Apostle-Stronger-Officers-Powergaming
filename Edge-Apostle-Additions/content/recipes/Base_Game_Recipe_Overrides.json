@@ -403,22 +403,26 @@
 	
 	{
 	"id": "travelling.cycle.haltverbs",
-	"haltverb$add" : {"sendinglettercompanion" : 5, "active.hindrances" : 1}
+	"haltverb$add" : {"sendinglettercompanion" : 5, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
+	"purge$add" : {"enemy.infrastructure" : 99}
 	},
 	
 	{
 	"id": "travelling.cycle.purge",
-	"haltverb$add" : {"sendinglettercompanion" : 5, "active.hindrances" : 1}
+	"haltverb$add" : {"sendinglettercompanion" : 5, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
+	"purge$add" : {"enemy.infrastructure" : 99}
 	},
 	
 	{
 	"id": "travelling.cycle.complete.haltverbs",
-	"haltverb$add" : {"sendinglettercompanion" : 5, "active.hindrances" : 1}
+	"haltverb$add" : {"sendinglettercompanion" : 5, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
+	"purge$add" : {"enemy.infrastructure" : 99}
 	},
 	
 	{
 	"id": "travelling.cycle.complete.purge",
-	"haltverb$add" : {"sendinglettercompanion" : 5, "active.hindrances" : 1}
+	"haltverb$add" : {"sendinglettercompanion" : 5, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
+	"purge$add" : {"enemy.infrastructure" : 99}
 	},
 	
 	{
@@ -435,6 +439,113 @@
 	"linked$append" : [
 		{
 			"id": "foe.corrosive.dissolve.building"
+		}
+		]
+	},
+	
+	{
+	"id": "ob.success",
+	"linked$append" : [
+		{
+			"id": "ob.success.withdraw"
+		},
+		
+		{
+			"id": "ob.success.eliminate"
+		},
+		
+		{
+			"id": "ob.success.eliminate.contemnant"
+		},
+		
+		{
+			"id": "ob.success.repossess"
+		},
+		
+		{
+			"id": "ob.success.sabotage"
+		},
+		
+		{
+			"id": "ob.success.capture"
+		},
+		
+		{
+			"id": "ob.success.rout"
+		},
+		
+		{
+			"id": "ob.success.rout.contemnnant"
+		},
+		
+		]
+	},
+	
+	{
+	"id": "enemy.executeaction",
+	"alt$append" : [
+		{
+			"id": "enemy.capture.infrastructure.startup",
+			"additional" : true
+		}
+		]
+	},
+	
+	{
+	"id": "defend.opportunity",
+	"linked$append" : [
+		{
+			"id": "enemy.capture.infrastructure.nodefence"
+		}
+		]
+	},
+	
+	{
+	"id": "doubleattack.1.startup",
+	"linked$prepend" : [
+		{
+			"id": "foe.coordinated.getsecond.enemycomms.pre",
+			"chance": 25
+		}
+		]
+	},
+	
+	{
+	"id": "doubleattack.2.startup",
+	"linked$prepend" : [
+		{
+			"id": "foe.coordinated.getsecond.enemycomms.pre",
+			"chance": 25
+		}
+		]
+	},
+	
+	{
+	"id": "singleattack.startup",
+	"linked$prepend" : [
+		{
+			"id": "foe.coordinated.getsecond.enemycomms.pre",
+			"chance": 25
+		}
+		]
+	},
+	
+	{
+	"id": "attackenemy.success",
+	"alt$append" : [
+		{
+			"id": "enemy.fieldhospital.survived",
+			"chance": 25
+		}
+		]
+	},
+	
+	{
+	"id": "opx.gonext",
+	"linked$prepend" : [
+		{
+			"id": "enemy.controlled.warzone.interference.router",
+			"chance": 25
 		}
 		]
 	}
