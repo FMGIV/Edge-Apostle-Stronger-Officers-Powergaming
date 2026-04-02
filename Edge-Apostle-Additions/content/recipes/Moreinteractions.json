@@ -1,21 +1,23 @@
 {
 "recipes": [
     {
-	"id": "hide.allysniper",
+	"id": "hide.noncontemnant",
 	"$priority" : 1,
 	"actionid": "communicate",
-	"label": "Order a sniper to go into hiding",
+	"label": "Order an ally into hiding",
 	"startdescription": "To the dark. Our enemy won't be able to find us, or harm us. And when we choose to strike again, it will be with the advantage of surprise...\n\n[A Hidden Ally will not be targeted by most Enemy offensive actions, and will also have their aspects increased until the next time they are used.]",
 	"description": "Here we wait. Here we bristle with anticipation.",
 	"aspects": {
 	    "concealidentity": 1
-	},
+	},  
+    "extantreqs": {  
+        "contemnant.story": -1   
+    },  
 	"requirements": {
 	    "friend": 1,
 	    "hired": -1,
 	    "friend.hidden": -1,
-	    "op": 1,
-		"friend.sniper" : 1
+	    "op": 1
 	},
 	"effects": {
 	    "op": -99
@@ -34,6 +36,11 @@
 	},
 	"hintonly": true,
 	"craftable": false
+    },
+	
+	{
+	"id": "hint.militia",
+	"startdescription": "Not soldiers, but fighters all the same, and high in spirit. I can send them into town to offer the locals relief, or to strongarm those same locals into being useful. I can order them into a hiding place to increase their effectiveness."
     },
 	
 	{  
@@ -813,6 +820,70 @@
 	},
 	"hintonly": true,
 	"craftable": false
+    },
+	
+    {
+	"id": "operate.startup.assistlocals.militia.hidden",
+	"actionid": "operate",
+	"label": "Offer relief to the local population",
+	"startdescription": "Times are tough. Perhaps we can spare some time and labour to ease the pains of those who do not fight.\n\n[This can grant you resources like shelter and Local Allies for passing challenges.]",
+	"requirements": {
+	    "friend.militia.hidden": 1,
+	    "warzone.current": 1,
+	    "heart": 9,
+	    "warzone.abused": -1,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "assistlocals.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 2,
+		    "filter": {
+			"edge": 1,
+			"heart": 1
+		    }
+		}
+	    }
+	]
+    },
+	
+    {
+	"id": "operate.startup.shakedown.militia.hidden",
+	"actionid": "operate",
+	"label": "Seize supplies from the local population",
+	"startdescription": "We shall say it is for the war effort. And it is. But they won't like it.\n\n[This can grant you a substantial amount of Provisions, but will permanently destroy any beneficial relationships you might have with the locals. You cannot do this more than once per Warzone.]",
+	"requirements": {
+	    "friend.militia.hidden": 1,
+	    "warzone.current": 1,
+	    "edge": 9,
+	    "lake.here": -1,
+	    "craterfield.here": -1,
+	    "wasteland.ironeater.here": -1,
+	    "wasteland": -1,
+	    "warzone.abused": -1
+	},
+	"warmup": 10,
+	"craftable": true,
+	"alt": [
+	    {
+		"id": "shakedown.prep",
+		"additional": true,
+		"expulsion": {
+		    "limit": 3,
+		    "filter": {
+			"edge": 1,
+			"warzone.current": 1
+		    }
+		}
+	    }
+	]
     }
 	
 	

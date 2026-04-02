@@ -23,18 +23,8 @@
 	
 	{
 	"id": "friend.sniper.hidden",
+	"$extends" : ["friend.sniper"],
 	"label": "Ally Sniper (Hidden)",
-	"description": "Solitary, patient, observant. And accurate.",
-	"slots": [
-	{
-		"id": "intent",
-		"actionid": "communicate",
-		"label": "Intent?",
-		"required": {
-			"warzone" : 1
-		},
-	},
-	],
 	"icon": "friend.sniper",
 	"aspects": {
 	    "friend": 1,
@@ -44,47 +34,43 @@
 	    "edge": 8,
 	    "winter": 8,
 	    "lantern": 8
+	}
+    },
+	
+	{
+	"id": "friend.militia",
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"warzone" : 1
+		},
 	},
-	"xtriggers": {
-	    "fatiguing": "friend.sniper.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.sniper.wounded",
-		"bestronger": [
-		{
-		    "id": "friend.stronger",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "edge",
-		    "morpheffect": "mutate",
-		    "level": 4
-		},
-		{
-		    "id": "lantern",
-		    "morpheffect": "mutate",
-		    "level": 2
-		},
-	    ],
-	    "destronger": [
-		{
-		    "id": "friend.stronger",
-		    "morpheffect": "mutate",
-		    "level": -1
-		},
-		{
-		    "id": "edge",
-		    "morpheffect": "mutate",
-		    "level": -4
-		},
-		{
-		    "id": "lantern",
-		    "morpheffect": "mutate",
-		    "level": -2
-		},
-			]
-		}
+	],
+	"xtriggers$add": {
+		"concealidentity" : "friend.militia.hidden"
+	}
+    },
+	
+	{
+	"id": "friend.militia.hidden",
+	"$extends" : ["friend.militia"],
+	"icon" : "friend.militia",
+	"label": "Ally Militia (Hidden)",
+	"aspects": {
+		"friend" : 1,
+		"mortal" : 1,
+	    "forcesize": 2,
+		"friend.hidden": 1,
+	    "edge": 8,
+	    "heart": 8
+	}
     },
 	
 	{
