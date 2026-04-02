@@ -40,7 +40,7 @@
 	
 	{
 	"id": "hint.militia",
-	"startdescription": "Not soldiers, but fighters all the same, and high in spirit. I can send them into town to offer the locals relief, or to strongarm those same locals into being useful. I can order them into a hiding place to increase their effectiveness."
+	"startdescription": "Not soldiers, but fighters all the same, and high in spirit. I can send them into town to offer the locals relief, or to strongarm those same locals into being useful. I can order them into hiding to increase their effectiveness."
     },
 	
 	{  
@@ -824,9 +824,7 @@
 	
     {
 	"id": "operate.startup.assistlocals.militia.hidden",
-	"actionid": "operate",
-	"label": "Offer relief to the local population",
-	"startdescription": "Times are tough. Perhaps we can spare some time and labour to ease the pains of those who do not fight.\n\n[This can grant you resources like shelter and Local Allies for passing challenges.]",
+	"$extends" : ["operate.startup.assistlocals.militia"],
 	"requirements": {
 	    "friend.militia.hidden": 1,
 	    "warzone.current": 1,
@@ -836,29 +834,12 @@
 	    "craterfield.here": -1,
 	    "wasteland.ironeater.here": -1,
 	    "wasteland": -1
-	},
-	"warmup": 10,
-	"craftable": true,
-	"alt": [
-	    {
-		"id": "assistlocals.prep",
-		"additional": true,
-		"expulsion": {
-		    "limit": 2,
-		    "filter": {
-			"edge": 1,
-			"heart": 1
-		    }
-		}
-	    }
-	]
+	}
     },
 	
     {
 	"id": "operate.startup.shakedown.militia.hidden",
-	"actionid": "operate",
-	"label": "Seize supplies from the local population",
-	"startdescription": "We shall say it is for the war effort. And it is. But they won't like it.\n\n[This can grant you a substantial amount of Provisions, but will permanently destroy any beneficial relationships you might have with the locals. You cannot do this more than once per Warzone.]",
+	"$extends" : ["operate.startup.shakedown.militia"],
 	"requirements": {
 	    "friend.militia.hidden": 1,
 	    "warzone.current": 1,
@@ -868,22 +849,7 @@
 	    "wasteland.ironeater.here": -1,
 	    "wasteland": -1,
 	    "warzone.abused": -1
-	},
-	"warmup": 10,
-	"craftable": true,
-	"alt": [
-	    {
-		"id": "shakedown.prep",
-		"additional": true,
-		"expulsion": {
-		    "limit": 3,
-		    "filter": {
-			"edge": 1,
-			"warzone.current": 1
-		    }
-		}
-	    }
-	]
+	}
     }
 	
 	
