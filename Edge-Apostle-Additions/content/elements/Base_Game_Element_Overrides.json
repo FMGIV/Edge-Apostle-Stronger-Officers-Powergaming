@@ -1032,7 +1032,7 @@
 	"description": "I may hear the snow as it falls upon the stone. [This card counts towards your death. You can use this card to convert a hindrance on the board to something useful.]",
 	"slots$append" : [
 		{
-		"id": "hindrance1",
+		"id": "hindrance",
 		"actionid": "abandon",
 		"label": "Hindrance",
 		"description": "Something in my way.",
@@ -1042,6 +1042,56 @@
 			}
 		}
 	],
+	},
+	
+	{
+	"id": "debilitation.leg.colonel",
+	"description": "The oak exterior has been inscribed with the names of soldier-saints, and anointed with the blood of an enemy officer. [This card counts towards your death. You can use this card to raise a conscript from a fallen soldier.]",
+	"slots$append" : [
+		{
+		"id": "corpse",
+		"actionid": "abandon",
+		"label": "Fallen Soldier",
+		"description": "A fallen soldier.",
+		"required": {
+		    "remnant": 1
+			},
+		"forbidden": {
+		    "foe.corpse.unnatural": 1
+			}
+		}
+	],
+	},
+	
+	{
+	"id": "foe.growth",
+	"xtriggers$add": {
+		"promotiontodisciple": "friend.conscript"
+	}
+	},
+	
+	{
+	"id": "foe.chasseur",
+	"xtriggers$add": {
+		"promotiontodisciple": "friend.conscript"
+	}
+	},
+	
+	{
+	"id": "foe.undead",
+	"xtriggers$add": {
+		"promotiontodisciple": "friend.conscript"
+	}
+	},
+	
+	{
+	"id": "skill.raisedead",
+	"description": "In the Unnumbered Legion, they had a saying - MORS NON EST FINIS OFFICII - for the legionaries knew that death was not peace, but only armistice. These are the words they spoke to remind the dead of the oaths they took in life, and the dead would always listen. [You can use this to turn all enemy undead and soldier corpses on the board into Conscripts.]"	
+	},
+	
+	{
+	"id": "skill.refreshally",
+	"description": "No man will be permitted to shirk. No backwards step will be taken. My word is command inviolate, and all those who are soldiers will obey it. [You can use this to instantly refresh all exhausted, non-mechanized Allies on the board. This card can also be used to convert hindrances on the board to useful things.]",
 	}
 	
 	
