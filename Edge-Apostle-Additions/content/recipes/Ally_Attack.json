@@ -6,7 +6,7 @@
 	"$priority" : 1,
 	"actionid": "operate",  
 	"label": "Command Allies to Attack an Enemy",  
-	"startdescription": "The enemy is ahead. I will need a strategy, and then the resources and manpower to execute it. Or, failing that, a willingness to throw away the lives of my allies.\n\n[Meet any of an Enemy's thresholds to launch an attack against it. Exceed a threshold by at least 5 of the appropriate aspect, and the attack will be a guaranteed success.]",
+	"startdescription": "The enemy is ahead. I will need a strategy, and then the resources and manpower to execute it. Or, failing that, a willingness to throw away the lives of my allies.\n\n[Meet any of an Enemy's thresholds to launch an attack against it. Exceed a threshold by at least 5 of the appropriate aspect, and the attack will be a guaranteed success. You can only do three of these simulatenously.]",
 	"requirements": {  
 	    "friend": 1,
 		"foe" : 1,
@@ -14,6 +14,9 @@
 		"weapon" : -1,
 		"lore" : -1,
 		"tool" : -1
+	},
+	"grandReqs": { 
+	    "[~/extant:allyattackmarker]=3": -1 
 	},   
 	"effects" : {
 	"allyattackmarker" : 1,
@@ -41,6 +44,27 @@
 		"id": "attackenemy.*",
 	    }
 	], 
+	},
+	
+	{  
+	"id": "command.ally.attack.toomany.hint",
+	"$priority" : 2,
+	"actionid": "operate",  
+	"label": "Spread Too Thin",  
+	"startdescription": "I can't coordinate this many attacks at once. I'm going to have to wait for one to finish before sending more men out. [You can only do three ally attacks simultaneously.]",
+	"requirements": {  
+	    "friend": 1,
+		"foe" : 1,
+		"provisions": 1,
+		"weapon" : -1,
+		"lore" : -1,
+		"tool" : -1
+	},   
+	"extantreqs" : {
+	"allyattackmarker" : 3
+	},
+	"hintonly": true,
+	"craftable": false
 	}
 	
 ]
