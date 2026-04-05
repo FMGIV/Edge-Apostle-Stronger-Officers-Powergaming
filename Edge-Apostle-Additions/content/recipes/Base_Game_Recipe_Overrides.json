@@ -170,7 +170,19 @@
 	{
 	"id": "communicate.givevicious.antithesis",
 	"label": "<color=red>Show an Ally the Wolf's truth<color=#005500>",
-	"startdescription": "<color=red>Even after all they have suffered, this one is still clinging to delusions of restraint and dignity. I could try to break them of those delusions - but this might just break them, instead.<color=#005500>\n\n[This can give your Ally the Vicious aspect, but it might also fail and cause them to go mad.]",
+	"startdescription": "<color=red>Even after all they have suffered, this one is still clinging to delusions of restraint and dignity. I could try to break them of those delusions - but this might just break them, instead.<color=#005500>\n\n[This can give your Ally the Vicious aspect, but it might also fail and cause them to go mad. Slot trauma in to increase the chance of this working.]",
+	"slots$append": [
+        {
+        "id": "traumadump",
+        "actionid": "communicate",
+        "label": "Trauma",
+		"description": "A mind partially unmade.",
+        "required": {
+          "trauma": 1
+        }
+        }
+	],
+	"linked$listedit": {"0$dictedit" : { "chance": "60+[Trauma]*30" }}
 	},
 	
 	{
