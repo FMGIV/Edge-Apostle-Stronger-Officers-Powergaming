@@ -1005,6 +1005,46 @@
 	"craftable": false
 	},
 	
+	{  
+	"id": "command.hired.soviet.attack.pre",
+	"$priority" : 1,
+	"actionid": "operate",  
+	"label": "Command Soviets to Attack an Enemy",  
+	"startdescription": "The enemy is ahead. I will need a strategy, and then the resources and manpower to execute it. Or, failing that, a willingness to throw away the lives of my allies.\n\n[You can only do three of these simulatenously. Failing the attack has a higher chance of wounding and outright killing the ally, but wont give you any wounds or trauma.]",
+	"requirements": {  
+	    "hired": 1,
+		"foe" : 1,
+		"provisions": 1,
+		"weapon" : -1,
+		"lore" : -1,
+		"tool" : -1,
+		"chain" : -1,
+		"trauma" : -1,
+		"damage.body" : -1,
+		"faction.anno" : -1
+	},
+	"grandReqs": { 
+	    "[~/extant:allyattackmarker]=3": -1 
+	},  
+    "extantreqs": {  
+        "contemnant.story": 1   
+    },
+	"effects" : {
+	"allyattackmarker" : 1,
+	"provisions" : 1
+	},
+	"inductions": [  
+		{
+		"id": "command.ally.attack",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+		}
+	    }
+	],  
+	"craftable": true  
+	},
+	
 	{
 	"id": "operate.church.edge.contemnant.hope.hint",
 	"actionid": "mobilize",
