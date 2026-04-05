@@ -947,7 +947,8 @@
 		"tool" : -1,
 		"chain" : -1,
 		"trauma" : -1,
-		"damage.body" : -1
+		"damage.body" : -1,
+		"faction.anno" : -1
 	},
 	"grandReqs": { 
 	    "[~/extant:allyattackmarker]=3": -1 
@@ -1002,7 +1003,120 @@
 	},
 	"hintonly": true,
 	"craftable": false
-	}
+	},
+	
+	{
+	"id": "operate.church.edge.contemnant.hope.hint",
+	"actionid": "mobilize",
+	"$priority" : 1,
+	"label": "Shakedown a Church?",
+	"startdescription": "Refugees and holy men reside here. I don't have it in me to take what little they have, yet.",
+	"requirements": {
+	    "op.church.contemnant": 1,
+		"edge" : 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{
+	"id": "operate.church.edge.contemnant.hopelessness",
+	"actionid": "mobilize",
+	"label": "Shakedown a Church",
+	"startdescription": "Refugees and holy men reside here. What little they have will be more useful for me than for them. I might even get some 'volunteers' out of this. [This may produce refugees, provisions, or nothing at all. This might also cause infamy, desertion, and hostile locals.]",
+	"description": "What's theirs is mine. They should be grateful I haven't outright killed them.",
+	"$priority" : 1,
+	"requirements": {
+	    "op.church.contemnant": 1,
+		"edge" : 1
+	},  
+    "effects": {  
+        "op.church.contemnant": -1   
+    },
+    "extantreqs": {  
+        "hopelessness": 1   
+    },
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"wandering.refugees",
+		"wandering.refugees",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 2,
+	    "resetonexhaustion": true
+	},
+	"warmup": 30,
+	"craftable": true,
+	"inductions": [
+	    {
+		"id": "startup.desertion",
+		"chance": 25
+	    },
+		
+	    {
+		"id": "produce.localinfamy",
+		"chance": 45
+	    },
+		
+	    {
+		"id": "spit.hostilelocals",
+		"chance": 45
+	    }
+	] 
+    },
+	
+	{
+	"id": "operate.church.edge.contemnant.antithesis",
+	"actionid": "mobilize",
+	"$priority" : 1,
+	"label": "<color=red>Raze a Church<color=#005500>",
+	"startdescription": "<color=red>People who still have <i>hope</i> for a better future cower here, away from this war. I've got their future right here.<color=#005500>\n\n [This will cause desertion, infamy, and hostile locals. It might produce something helpful, or not.]",
+	"description": "<color=red>Wolf's work. Breathe deep, and smell the ashes of hope and rubble. A taste of what I have planned for this city.<color=#005500>",
+	"requirements": {
+	    "op.church.contemnant": 1,
+		"edge" : 1
+	},  
+    "extantreqs": {  
+        "antithesis": 1   
+    },  
+    "effects": {  
+        "op.church.contemnant": -1   
+    },
+	"internaldeck": {
+	    "spec": [
+		"agony",
+		"despair",
+		"hatred",
+		"friend.wrake",
+		"op.wolfdivided",
+		"foe.wrake",
+		"foe.splinter",
+		"foe.undead",
+		"husk",
+		"op.fire"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	},
+	"warmup": 30,
+	"craftable": true,
+	"inductions": [
+	    {
+		"id": "startup.desertion"
+	    },
+		
+	    {
+		"id": "produce.localinfamy"
+	    },
+		
+	    {
+		"id": "spit.hostilelocals"
+	    }
+	] 
+    }
 	
 	
 ]
