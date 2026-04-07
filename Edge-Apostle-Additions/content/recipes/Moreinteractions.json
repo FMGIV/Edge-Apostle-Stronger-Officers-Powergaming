@@ -1345,8 +1345,65 @@
 		"chance": 45
 	    }
 	]
-    }
+    },
 	
+    {
+	"id": "repairdamaged.engineers.faster",
+	"$extends" : ["repairdamaged.engineers"],
+	"requirements": {
+	    "damaged": 1,
+	    "provisions": 2,
+	    "friend.engineers.wellstocked": 1
+	},
+	"warmup": 15
+	},
+	
+    {
+	"id": "repairinfrastructure.faster",
+	"$extends" : ["repairinfrastructure"],
+	"requirements": {
+	    "infrastructure.destroyed": 1,
+	    "friend.engineers.wellstocked": 1,
+	    "provisions": 2
+	},
+	"warmup": 30
+	},
+	
+    {
+	"id": "buildbarracks.faster",
+	"$extends" : ["buildbarracks"],
+	"requirements": {
+	    "provisions": 2,
+		"friend.engineers.wellstocked": 1
+	},
+	"warmup": 30,
+	"effects": {
+	    "friend.engineers.wellstocked": -1,
+	    "loc.barracks": 1
+	}
+	},
+	
+    {
+	"id": "Ally.Give.Provisions",
+	"actionid": "communicate",
+	"label": "Assign Extra Provisions to an ally",
+	"startdescription": "Assigning extra resources to my allies will increase their effectiveness at what they do.",
+	"description": "And done. My ally will be more effective, now.",
+	"aspects": {
+	    "giveallyprovisions": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "well.stocked": -1,
+		"moralebuff": -1,
+		"provisions" : 1
+	},
+	"effects": {
+	    "provisions": -1
+	},
+	"warmup": 15,
+	"craftable": true
+    }
 	
 ]
 }
