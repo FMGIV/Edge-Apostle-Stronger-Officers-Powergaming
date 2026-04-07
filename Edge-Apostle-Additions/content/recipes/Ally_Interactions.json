@@ -1,0 +1,247 @@
+{
+"recipes": [
+   
+    {
+	"id": "repairdamaged.engineers.faster",
+	"$extends" : ["repairdamaged.engineers"],
+	"requirements": {
+	    "damaged": 1,
+	    "provisions": 2,
+	    "friend.engineers.wellstocked": 1
+	},
+	"warmup": 15
+	},
+	
+    {
+	"id": "repairinfrastructure.faster",
+	"$extends" : ["repairinfrastructure"],
+	"requirements": {
+	    "infrastructure.destroyed": 1,
+	    "friend.engineers.wellstocked": 1,
+	    "provisions": 2
+	},
+	"warmup": 30
+	},
+	
+    {
+	"id": "buildbarracks.faster",
+	"$extends" : ["buildbarracks"],
+	"requirements": {
+	    "provisions": 2,
+		"friend.engineers.wellstocked": 1
+	},
+	"warmup": 30,
+	"effects": {
+	    "friend.engineers.wellstocked": -1,
+	    "loc.barracks": 1
+	}
+	},
+	
+    {
+	"id": "Ally.Give.Provisions",
+	"actionid": "communicate",
+	"label": "Assign Extra Provisions to an ally",
+	"startdescription": "Assigning extra resources to my allies will increase their effectiveness at what they do.",
+	"description": "And done. My ally will be more effective, now.",
+	"aspects": {
+	    "giveallyprovisions": 1
+	},
+	"requirements": {
+	    "friend": 1,
+	    "well.stocked": -1,
+		"moralebuff": -1,
+		"provisions" : 1
+	},
+	"effects": {
+	    "provisions": -1
+	},
+	"warmup": 15,
+	"craftable": true
+    },
+	
+    {
+	"id": "heal.wound.faster",
+	"$extends" : ["heal.wound"],
+	"requirements": {
+	    "provisions": 1,
+	    "friend.medics.supplied": 1,
+	    "damage.body": 1,
+	    "debilitation": -1
+	},
+	"warmup": 15
+	},
+	
+    {
+	"id": "healcasualty.medics.monster.faster",
+	"$extends" : ["healcasualty.medics.monster"],
+	"requirements": {
+	    "friend.medics.supplied": 1,
+	    "provisions": 1,
+	    "friend.monster": 1,
+	    "wounded": 1
+	},
+	"warmup": 15,
+	"slots": [
+	    {
+		"id": "needsengineer",
+		"label": "An Engineer",
+		"required": {
+		    "friend.engineers": 1,
+			"friend.engineers.wellstocked" : 1
+		}
+	    }
+	],
+	"alt": [
+	    {
+		"id": "healcasualty.medics.monster.success"
+	    },
+		
+		{
+		"id": "healcasualty.medics.monster.success.faster"
+	    }
+	],
+	},
+	
+	
+    {
+	"id": "healcasualty.medics.faster",
+	"$extends" : ["healcasualty.medics"],
+	"requirements": {
+	    "friend.medics.supplied": 1,
+	    "provisions": 1,
+	    "wounded": 1
+	},
+	"warmup": 15
+	},
+
+    {
+	"id": "healcasualty.medics.monster.success.faster",
+	"$extends" : ["healcasualty.medics.monster.success"],
+	"requirements": {
+	    "friend.engineers.wellstocked": 1
+	}
+	},
+
+    {
+	"id": "heal.adeptgrail.wounded.monster.success.faster",
+	"$extends" : ["heal.adeptgrail.wounded.monster.success"],
+	"requirements": {
+	    "friend.engineers.wellstocked": 1
+	}
+    },
+	
+	{  
+	"id": "command.ally.attack.pre",
+	"$priority" : 1,
+	"actionid": "operate",  
+	"label": "Command Allies to Attack an Enemy",  
+	"startdescription": "The enemy is ahead. I will need a strategy, and then the resources and manpower to execute it. Or, failing that, a willingness to throw away the lives of my allies.\n\n[You can only do three of these simulatenously. Failing the attack has a higher chance of wounding and outright killing the ally, but wont give you any wounds or trauma.]",
+	"requirements": {  
+	    "friend": 1,
+		"foe" : 1,
+		"provisions": 1,
+		"weapon" : -1,
+		"lore" : -1,
+		"tool" : -1,
+		"chain" : -1,
+		"trauma" : -1,
+		"damage.body" : -1,
+		"faction.anno" : -1
+	},
+	"grandReqs": { 
+	    "[~/extant:allyattackmarker]=3": -1 
+	},  
+    "extantreqs": {  
+        "contemnant.story": -1   
+    },
+	"effects" : {
+	"allyattackmarker" : 1,
+	"provisions" : 1
+	},
+	"inductions": [  
+		{
+		"id": "command.ally.attack",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+		}
+	    }
+	],  
+	"craftable": true  
+	},
+	
+	{  
+	"id": "command.ally.attack",
+	"actionid": "allyattack",  
+	"label": "Command an Ally to Attack an Enemy",  
+	"startdescription": "The enemy is ahead. I will need a strategy, and then the resources and manpower to execute it. Or, failing that, a willingness to throw away the lives of my allies.\n\n[Meet any of an Enemy's thresholds to launch an attack against it. Exceed a threshold by at least 5 of the appropriate aspect, and the attack will be a guaranteed success]",
+	"linked": [  
+		{
+		"id": "attackenemy*",
+	    }
+	], 
+	},
+	
+	{  
+	"id": "command.ally.attack.toomany.hint",
+	"$priority" : 2,
+	"actionid": "operate",  
+	"label": "Spread Too Thin",  
+	"startdescription": "I can't coordinate this many attacks at once. I'm going to have to wait for one to finish before sending more men out. [You can only do three ally attacks simultaneously.]",
+	"requirements": {  
+	    "friend": 1,
+		"foe" : 1,
+		"provisions": 1,
+		"weapon" : -1,
+		"lore" : -1,
+		"tool" : -1
+	},   
+	"extantreqs" : {
+	"allyattackmarker" : 3
+	},
+	"hintonly": true,
+	"craftable": false
+	},
+	
+	{  
+	"id": "command.hired.soviet.attack.pre",
+	"$priority" : 1,
+	"actionid": "operate",  
+	"label": "Command Soviets to Attack an Enemy",  
+	"startdescription": "The enemy is ahead. I will need a strategy, and then the resources and manpower to execute it. Or, failing that, a willingness to throw away the lives of my allies.\n\n[You can only do three of these simulatenously. Failing the attack has a higher chance of wounding and outright killing the ally, but wont give you any wounds or trauma.]",
+	"requirements": {  
+	    "hired": 1,
+		"foe" : 1,
+		"provisions": 1,
+		"weapon" : -1,
+		"lore" : -1,
+		"tool" : -1,
+		"chain" : -1,
+		"trauma" : -1,
+		"damage.body" : -1,
+		"faction.anno" : -1
+	},
+	"grandReqs": { 
+	    "[~/extant:allyattackmarker]=3": -1 
+	},  
+    "extantreqs": {  
+        "contemnant.story": 1   
+    },
+	"effects" : {
+	"allyattackmarker" : 1,
+	"provisions" : 1
+	},
+	"inductions": [  
+		{
+		"id": "command.ally.attack",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+		}
+	    }
+	],  
+	"craftable": true  
+	}
+	
+]
+}
