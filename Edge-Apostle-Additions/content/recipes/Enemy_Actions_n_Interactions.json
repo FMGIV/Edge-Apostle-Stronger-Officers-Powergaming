@@ -485,6 +485,7 @@
 	    {
 		"id": "defend.friend.immortal"
 	    },
+		
 	    {
 		"id": "defend.edge"
 	    }
@@ -528,7 +529,8 @@
 		"id": "needslocal",
 		"label": "Local Ally",
 		"required": {
-		    "local": 1
+		    "local": 1,
+			"mortal" : 1
 		},
 		"forbidden": {
 		    "edgelong": 1
@@ -902,7 +904,186 @@
 		"id": "enemy.cycle"
 	    }
 	]
-	}
+	},
+	
+	{
+	"id": "hint.enemy.infrastructure",
+	"actionid": "operate",
+	"label": "Dealing with Enemy Infrastructure?",
+	"startdescription": "The enemy controls this piece of infrastructure. I could capture it, or try to blow it up. [Slot forge or an non-mechanized/non-monster ally with edge to decide your intent here.]",
+	"requirements": {
+	    "enemy.infrastructure": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{
+	"id": "destroy.enemy.infrastructure.pre",
+	"actionid": "operate",
+	"label": "Attempt Destruction of Enemy Infrastructure",
+	"startdescription": "I've decided I want this piece of infrastructure gone.",
+	"requirements": {
+	    "enemy.infrastructure": 1,
+		"forge" : 1,
+		"provisions" : 1,
+		"faction.anno" : -1
+	},
+	"warmup" : 15,
+	"effects": {
+	    "destroy.infrastructure.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "enemy.infrastructure.getenemy"
+	    }
+	],
+	"craftable": true
+    },
+	
+	{
+	"id": "capture.enemy.infrastructure.pre",
+	"actionid": "operate",
+	"label": "Attempt Capture of Enemy Infrastructure",
+	"startdescription": "I've decided I want this piece of infrastructure for myself. I'll have to send some foot soldiers in to take it.",
+	"requirements": {
+	    "enemy.infrastructure": 1,
+		"provisions" : 1,
+		"edge" : 1,
+		"friend" : 1,
+		"faction.anno" : -1,
+		"otherwordly" : -1,
+		"friend.tanks" : -1,
+		"friend.tanks.inspired" : -1,
+		"friend.bombers" : -1,
+		"friend.bombers.inspired" : -1,
+		"friend.artillery" : -1,
+		"friend.artillery.inspired" : -1,
+	},
+	"effects": {
+	    "capture.infrastructure.marker": 1
+	},
+	"warmup" : 15,
+	"linked": [
+	    {
+		"id": "enemy.infrastructure.getenemy"
+	    }
+	],
+	"craftable": true
+    },
+	
+	{
+	"id": "enemy.infrastructure.getenemy",
+	"label": "Enemy Guard!",
+	"startdescription": "An enemy defends this piece of infastructure. Here is that enemy. [Meet the enemy's threshold's to attempt to capture this infrastructure]",
+	"aspects": {
+		"revealidentity": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "german": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+		    "otherworldly": 1
+		},
+		"greedy": true
+	    },
+	],
+	"linked": [
+		{
+		"id": "enemy.infrastructure.response"
+	    },
+
+	    {
+		"id": "capture.enemy.infrastructure.success"
+	    },
+
+	    {
+		"id": "destroy.enemy.infrastructure.success"
+	    }
+	],
+	"warmup": 15
+    },
+	
+	{
+	"id": "enemy.infrastructure.response",
+	"label": "Enemy Guard!",
+	"startdescription": "An enemy defends this piece of infastructure. Here is that enemy. [Meet the enemy's threshold's to launch a proper attack against it.]",
+	"requirements" : {
+		"foe" : 1
+	},
+	"slots": [
+		{
+		"id": "needsresponse",
+		"label": "Response",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1,
+		},
+        "forbidden": {
+			"faction.anno": 1,
+			"exhausted" : 1,
+			"friend.away" : 1,
+			"friend.tanks" : -1,
+			"friend.tanks.inspired" : -1,
+			"friend.bombers" : -1,
+			"friend.bombers.inspired" : -1,
+			"friend.artillery" : -1,
+			"friend.artillery.inspired" : -1,
+        }
+	    }
+	],
+	"linked": [
+		{
+		"id": "attackenemy*"
+	    }
+	],
+	"warmup": 15
+	},
+	
+	{
+	"id": "capture.enemy.infrastructure.success",
+	"label": "Captured Enemy Infrastructure!",
+	"startdescription": "What's theirs is ours. This is a good day; this is merely a drop in the ocean.",
+	"requirements": {
+	    "enemy.infrastructure": 1,
+		"capture.infrastructure.marker" : 1
+	},
+	"aspects": {
+		"killfoe": 1,
+		"fatiguing" : 1,
+		"capture" : 1
+	},
+	"warmup": 15
+    },
+	
+	{
+	"id": "destroy.enemy.infrastructure.success",
+	"label": "Enemy Infrastructure Destroyed!",
+	"startdescription": "What's theirs isn't theirs anymore. This is a good day; this is merely a drop in the ocean.",
+	"requirements": {
+	    "enemy.infrastructure": 1,
+		"destroy.infrastructure.marker" : 1
+	},
+	"aspects": {
+		"killfoe": 1,
+		"fatiguing" : 1,
+		"destroy" : 1
+	},
+	"warmup": 15
+    }
 	
 	
 ]
