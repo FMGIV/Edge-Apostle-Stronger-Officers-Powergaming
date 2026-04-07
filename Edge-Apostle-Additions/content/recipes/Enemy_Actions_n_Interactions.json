@@ -1104,13 +1104,14 @@
 	"requirements": {
 		"decision.enemy.defensive.preparation" : 1
 	},
-	"warmup": 15,
+	"warmup": 30,
 	"slots": [
 	    {
 		"id": "needsenemy",
 		"label": "Enemy",
 		"required": {
-		    "foe": 1
+		    "german": 1,
+			"foe" : 1
 		},
 		"forbidden": {
 		    "remnant": 1,
@@ -1126,6 +1127,121 @@
 		"greedy": true
 	    }
 	]
+	},
+	
+	{
+	"id": "enemy.offensive.preparation.startup",
+	"actionid": "enemy.offensive.preparation",
+	"label": "Enemy Preparing Offensive Strategy!",
+	"startdescription": "The enemy plans it offense -",
+	"effects": {
+	    "decision.enemy.offensive.preparation": 1
+	},
+	"requirements": {
+		"decision.enemy.offensive.preparation" : 1
+	},
+	"warmup": 30,
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1,
+			"german" : 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+			"otherworldly" : 1,
+			"foe.hidden" : 1,
+			"offensive.buffed" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked" : [
+		{
+		"id" : "enemy.offensive.preparation.router"
+		}
+	]
+	},
+	
+	{
+	"id": "enemy.offensive.preparation.router",
+	"label": "Enemy Preparing Offensive Strategy!",
+	"startdescription": "The enemy plans it offense -",
+	"description": "The enemy is more prepared to kill us now. It won't help them.",
+	"linked" : [
+		{
+		"id" : "enemy.offensive.preparation.ammo",
+		"chance" : 25
+		},
+		
+		{
+		"id" : "enemy.offensive.preparation.elusive",
+		"chance" : 25
+		},
+		
+		{
+		"id" : "enemy.offensive.preparation.commander",
+		"chance" : 25
+		},
+		
+		{
+		"id" : "enemy.offensive.preparation.lethal",
+		"chance" : 25
+		},
+		
+		{
+		"id" : "enemy.offensive.preparation.router"
+		}
+	]
+	},
+	
+	{
+	"id": "enemy.offensive.preparation.ammo",
+	"label": "Enemy Preparing Offensive Strategy!",
+	"startdescription": "The enemy plans it offense -",
+	"description": "The enemy is more prepared to kill us now. It won't help them.",
+	"aspects": {
+	    "givespecialammo": 1,
+		"makeadditional" : 1,
+		"offensivebuff" : 1
+	}
+	},
+	
+	{
+	"id": "enemy.offensive.preparation.elusive",
+	"label": "Enemy Preparing Offensive Strategy!",
+	"startdescription": "The enemy plans it offense -",
+	"description": "The enemy is more prepared to kill us now. It won't help them.",
+	"aspects": {
+	    "giveelusive": 1,
+		"offensivebuff" : 1
+	}
+	},
+	
+	{
+	"id": "enemy.offensive.preparation.commander",
+	"label": "Enemy Preparing Offensive Strategy!",
+	"startdescription": "The enemy plans it offense -",
+	"description": "The enemy is more prepared to kill us now. It won't help them.",
+	"aspects": {
+	    "givecommander": 1,
+		"offensivebuff" : 1
+	}
+	},
+	
+	{
+	"id": "enemy.offensive.preparation.lethal",
+	"label": "Enemy Preparing Offensive Strategy!",
+	"startdescription": "The enemy plans it offense -",
+	"description": "The enemy is more prepared to kill us now. It won't help them.",
+	"aspects": {
+	    "givelethal": 1,
+		"offensivebuff" : 1
+	}
 	}
 	
 	
