@@ -240,11 +240,30 @@
 		"actionid": "communicate",
 		"label": "Intent?",
 		"required": {
-			"warzone" : 1
+			"warzone" : 1,
+			"provisions" : 1
 		}
 	}
-	]
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.tanks.inspired"
+	}
 	},
+	
+	{
+	"id": "friend.tanks.inspired",
+	"$extends" : ["friend.infantry"],
+	"label": "Ally Armoured Company (Inspired)",
+	"icon": "friend.tanks",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "forge": 6,
+	    "edge": 14,
+		"friend.inspired" : 1
+	}
+    },
 	
 	{
 	"id": "friend.medics",
@@ -334,25 +353,29 @@
 		"actionid": "communicate",
 		"label": "Intent?",
 		"required": {
-			"warzone" : 1
-		},
-	},
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
 	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.bombers.inspired"
+	}
 	},
 	
 	{
-	"id": "friend.tanks",
-	"slots$append": [
-	{
-		"id": "intent",
-		"actionid": "communicate",
-		"label": "Intent?",
-		"required": {
-			"warzone" : 1
-		},
-	},
-	],
-	},
+	"id": "friend.bombers.inspired",
+	"$extends" : ["friend.bombers"],
+	"label": "Ally Bomber Squadron (Inspired)",
+	"icon": "friend.bombers",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "friend.aerial": 1,
+	    "edge": 14
+	}
+    },
 	
 	{
 	"id": "friend.artillery",
@@ -362,11 +385,28 @@
 		"actionid": "communicate",
 		"label": "Intent?",
 		"required": {
-			"warzone" : 1
-		},
-	},
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
 	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.artillery.inspired"
+	}
 	},
+	
+	{
+	"id": "friend.artillery.inspired",
+	"$extends" : ["friend.artillery"],
+	"label": "Ally Artillery (Inspired)",
+	"icon": "friend.artillery",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 10,
+	    "edge": 18
+	}
+    },
 	
 	{
 	"id": "friend.lion",
