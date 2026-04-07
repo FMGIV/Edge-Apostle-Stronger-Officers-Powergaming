@@ -15,9 +15,6 @@
 	"requirements": {
 		"decision.enemy.infrastructure.capture" : 1
 	},
-	"tablereqs": {
-	    "infrastructure": 1
-	},
 	"warmup": 15,
 	"slots": [
 	    {
@@ -29,6 +26,7 @@
 		"forbidden": {
 		    "remnant": 1,
 		    "foe.rankofficer": 1,
+			"foe.emplaced" : 1,
 		    "soviet": 1,
 		    "detectivetemptation": 1,
 			"otherworldly" : 1,
@@ -232,6 +230,7 @@
 		},
 		"forbidden": {
 		    "foe.rankofficer": 1,
+			"foe.emplaced" : 1,
 		    "uqbrood": 1,
 		    "foe.exile": 1,
 			"otherworldly" : 1,
@@ -337,6 +336,7 @@
 		"forbidden": {
 		    "remnant": 1,
 		    "foe.rankofficer": 1,
+			"foe.emplaced" : 1,
 		    "soviet": 1,
 		    "detectivetemptation": 1,
 		    "otherworldly": 1,
@@ -358,6 +358,7 @@
 		    "remnant": 1,
 		    "foe.rankofficer": 1,
 		    "soviet": 1,
+			"foe.emplaced" : 1,
 		    "detectivetemptation": 1,
 		    "otherworldly": 1,
 			"foe.sniper" : 1,
@@ -378,6 +379,7 @@
 		    "remnant": 1,
 		    "foe.rankofficer": 1,
 		    "soviet": 1,
+			"foe.emplaced" : 1,
 		    "detectivetemptation": 1,
 		    "otherworldly": 1,
 			"foe.sniper" : 1,
@@ -1085,7 +1087,46 @@
 		"destroy" : 1
 	},
 	"warmup": 15
-    }
+    },
+	
+	{
+	"id": "enemy.defensive.preparation.startup",
+	"actionid": "enemy.defensive.preparation",
+	"label": "Enemy Preparing Defensive Strategy!",
+	"startdescription": "The enemy plans it defense -",
+	"description": "The enemy is more prepared for us now. It won't help them.",
+	"aspects": {
+	    "defensiveprep": 1
+	},
+	"effects": {
+	    "decision.enemy.defensive.preparation": 1
+	},
+	"requirements": {
+		"decision.enemy.defensive.preparation" : 1
+	},
+	"warmup": 15,
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+			"otherworldly" : 1,
+			"foe.hidden" : 1,
+			"kommando.retaliatory" : 1,
+			"foe.hulldown" : 1,
+			"foe.escorted" : 1,
+			"foe.emplaced" : 1
+		},
+		"greedy": true
+	    }
+	]
+	}
 	
 	
 ]
