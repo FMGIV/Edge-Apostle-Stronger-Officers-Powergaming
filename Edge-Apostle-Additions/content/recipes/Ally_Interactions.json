@@ -1,5 +1,48 @@
 {
 "recipes": [
+
+	{
+	"id": "command.ally.action.engineers.pre",
+	"actionid": "operate",
+	"$priority" : 1,
+	"label": "Command Engineers",
+	"startdescription": "I have something to fix or build for the engineers to do. Get to it.",
+	"grandReqs": {
+	    "provisions": 2,
+	    "([friend.engineers] || [friend.engineers.wellstocked])": 1,
+		"[~/extant:allyattackmarker]=3": -1 
+	},
+	"effects" : {
+	"allyattackmarker" : 1,
+	"provisions" : 2
+	},
+	"inductions": [  
+		{
+		"id" : "command.ally.action.engineers",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+			}
+		}
+	],  
+	"craftable": true  
+	},
+	
+	{  
+	"id": "command.ally.action.engineers",
+	"actionid": "ally.engineer.action",  
+	"label": "Command Engineers",  
+	"startdescription": "I have something to fix or build for the engineers to do. Get to it.",
+	"linked": [  
+		{
+		"id": "repair*"
+	    },
+		
+		{
+		"id": "buildbarrack*"
+	    }
+	] 
+	},
    
     {
 	"id": "repairdamaged.engineers.faster",
@@ -208,7 +251,7 @@
 	"startdescription": "The enemy is ahead. I will need a strategy, and then the resources and manpower to execute it. Or, failing that, a willingness to throw away the lives of my allies.\n\n[Meet any of an Enemy's thresholds to launch an attack against it. Exceed a threshold by at least 5 of the appropriate aspect, and the attack will be a guaranteed success]",
 	"linked": [  
 		{
-		"id": "attackenemy*",
+		"id": "attackenemy*"
 	    }
 	], 
 	},
