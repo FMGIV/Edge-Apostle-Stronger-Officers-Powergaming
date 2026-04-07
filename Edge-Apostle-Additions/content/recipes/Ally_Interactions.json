@@ -103,6 +103,45 @@
 	"craftable": true
     },
 	
+	{
+	"id": "command.ally.action.medics.pre",
+	"actionid": "operate",
+	"$priority" : 1,
+	"label": "Command Medics",
+	"startdescription": "I have someone or something for the medics to heal. Patch em up.",
+	"grandReqs": {
+	    "provisions": 1,
+	    "([friend.medics] || [friend.medics.supplied])": 1,
+		"[~/extant:allyattackmarker]=3": -1 
+	},
+	"effects" : {
+	"allyattackmarker" : 1,
+	"provisions" : 1
+	},
+	"inductions": [  
+		{
+		"id" : "command.ally.action.medics",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+			}
+		}
+	],  
+	"craftable": true  
+	},
+	
+	{  
+	"id": "command.ally.action.medics",
+	"actionid": "ally.medics.action",  
+	"label": "Command Medics",
+	"startdescription": "I have someone or something for the medics to heal. Patch em up.",
+	"linked": [  
+		{
+		"id": "healcasualty.medics*"
+	    }
+	] 
+	},
+	
     {
 	"id": "heal.wound.faster",
 	"$extends" : ["heal.wound"],
