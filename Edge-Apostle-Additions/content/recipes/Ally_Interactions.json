@@ -111,6 +111,7 @@
 	"startdescription": "I have someone or something for the medics to heal. Patch em up.",
 	"grandReqs": {
 	    "provisions": 1,
+		"wounded" : 1,
 	    "([friend.medics] || [friend.medics.supplied])": 1,
 		"[~/extant:allyattackmarker]=3": -1 
 	},
@@ -138,6 +139,46 @@
 	"linked": [  
 		{
 		"id": "healcasualty.medics*"
+	    }
+	] 
+	},
+	
+	{
+	"id": "command.ally.action.scouts.pre",
+	"actionid": "operate",
+	"$priority" : 1,
+	"label": "Command Scouts",
+	"startdescription": "The broad movements of the sky and the air can threaten the unprepared, but my scouts can devise a way to turn even this to our advantage.\n\n[This will convert a Hindrance into a useful Opportunity.]",
+	"grandReqs": {
+	    "provisions": 1,
+	    "friend.scouts": 1,
+		"hindrance" : 1,
+		"[~/extant:allyattackmarker]=3": -1 
+	},
+	"effects" : {
+	"allyattackmarker" : 1,
+	"provisions" : 1
+	},
+	"inductions": [  
+		{
+		"id" : "command.ally.action.scouts",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+			}
+		}
+	],  
+	"craftable": true  
+	},
+	
+	{  
+	"id": "command.ally.action.scouts",
+	"actionid": "ally.scouts.action",  
+	"label": "Command Scouts",
+	"startdescription": "I have a hindrance for my scouts to devise a path though. Find it.",
+	"linked": [  
+		{
+		"id": "turnhindrance.scouts"
 	    }
 	] 
 	},
@@ -245,7 +286,7 @@
 	
 	{  
 	"id": "command.ally.attack.pre",
-	"$priority" : 1,
+	"$priority" : 2,
 	"actionid": "operate",  
 	"label": "Command Allies to Attack an Enemy",  
 	"startdescription": "The enemy is ahead. I will need a strategy, and then the resources and manpower to execute it. Or, failing that, a willingness to throw away the lives of my allies.\n\n[You can only do three of these simulatenously. Failing the attack has a higher chance of wounding and outright killing the ally, but wont give you any wounds or trauma.]",
