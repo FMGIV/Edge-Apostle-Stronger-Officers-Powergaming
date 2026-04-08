@@ -7,6 +7,13 @@
 	"isAspect": true
     },
     {
+	"id": "foe.infrastructure.destroyed",
+	"label": "Infrastructure, Destroyed",
+	"icon": "infrastructure.destroyed",
+	"description": "The mangled remains of a support system.",
+	"isAspect": true
+    },
+    {
 	"id": "german",
 	"label": "German",
 	"isHidden": true,
@@ -342,24 +349,8 @@
 	    "makeadditional": [],
 	    "weaken": [
 		{
-		    "id": "weakened",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "needsedgelantern",
-		    "morpheffect": "mutate",
-		    "level": -2
-		},
-		{
-		    "id": "needsedgeknock",
-		    "morpheffect": "mutate",
-		    "level": -2
-		},
-		{
-		    "id": "needsedgeforge",
-		    "morpheffect": "mutate",
-		    "level": -2
+		    "id": "foe_arch.watchtower.weaken",
+		    "morpheffect": "transform"
 		}
 	    ]
 	}
@@ -382,26 +373,64 @@
 	    "revealidentity": "foe_arch.watchtower",
 	    "weaken": [
 		{
-		    "id": "weakened",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "needsedgelantern",
-		    "morpheffect": "mutate",
-		    "level": -2
-		},
-		{
-		    "id": "needsedgeknock",
-		    "morpheffect": "mutate",
-		    "level": -2
-		},
-		{
-		    "id": "needsedgeforge",
-		    "morpheffect": "mutate",
-		    "level": -2
+		    "id": "foe_arch.watchtower.hidden.weaken",
+		    "morpheffect": "transform"
 		}
 	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe_arch.watchtower.weaken",
+	"label": "Enemy Watchtower",
+	"description": "Watched from up high. The shadows aren’t as safe, now. [While this building is present, you cannot carry out the Raze City mission. It periodically reveals the location of allied forces and exhausts them.]",
+	"inherits": "foe_arch.template",
+	"aspects": {
+	    "needsedgelantern": 8,
+	    "needsedgeknock": 8,
+	    "needsedgeforge": 8,
+		"foe_points": 5,
+		"foe.infrastructure.destroyed": 1
+	},
+	"resaturate": true,
+	"icon": "foe_arch.watchtower",
+	"lifetime": 90,
+	"decayTo": "foe_arch.watchtower",
+	"xtriggers": {
+	    "refresh": "foe_arch.watchtower",
+	    "killgerman": "op.ruins",
+	    "killfoe": [
+		{
+		    "id": "supplies.flares"
+		},
+		{
+		    "id": "op.ruins",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killmortal": "op.ruins",
+	    "concealidentity": "foe_arch.watchtower.hidden",
+	    "takeadditional": [],
+	    "makeadditional": []
+	}
+    },
+    {
+	"id": "foe_arch.watchtower.hidden.weaken",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe_arch_hidden.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 5
+	},
+	"xtriggers": {
+	    "refresh": "foe_arch.watchtower.hidden",
+	    "killgerman": "op.ruins",
+	    "killfoe": "op.ruins",
+	    "killmortal": "op.ruins",
+	    "revealidentity": "foe_arch.watchtower.weaken"
 	},
 	"icon": "foe.unknown",
 	"noStack": true
@@ -437,19 +466,8 @@
 	    "makeadditional": [],
 	    "weaken": [
 		{
-		    "id": "weakened",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "needsedge",
-		    "morpheffect": "mutate",
-		    "level": -4
-		},
-		{
-		    "id": "needsforgemoth",
-		    "morpheffect": "mutate",
-		    "level": -2
+		    "id": "foe_arch.artillery_position.weaken",
+		    "morpheffect": "transform"
 		}
 	    ]
 	}
@@ -472,21 +490,63 @@
 	    "revealidentity": "foe_arch.artillery_position",
 	    "weaken": [
 		{
-		    "id": "weakened",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "needsedge",
-		    "morpheffect": "mutate",
-		    "level": -4
-		},
-		{
-		    "id": "needsforgemoth",
-		    "morpheffect": "mutate",
-		    "level": -2
+		    "id": "foe_arch.artillery_position.hidden.weaken",
+		    "morpheffect": "transform"
 		}
 	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe_arch.artillery_position.weaken",
+	"label": "Enemy Artillery Position",
+	"description": "A concentration of German mortars and artillery is deployed here. We could storm the position, or send some saboteurs in for a nasty surprise. [While this building is present, you cannot carry out the Raze City mission.]",
+	"inherits": "foe_arch.template",
+	"aspects": {
+	    "needsedge": 20,
+	    "needsforgemoth": 6,
+		"foe_points": 5,
+		"foe.infrastructure.destroyed": 1
+	},
+	"resaturate": true,
+	"icon": "foe_arch.artillery_position",
+	"lifetime": 90,
+	"decayTo": "foe_arch.artillery_position",
+	"xtriggers": {
+	    "refresh": "foe_arch.artillery_position",
+	    "killgerman": "op.ruins",
+	    "killfoe": [
+		{
+		    "id": "supplies.explosives"
+		},
+		{
+		    "id": "op.ruins",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killmortal": "op.ruins",
+	    "concealidentity": "foe_arch.artillery_position.hidden",
+	    "takeadditional": [],
+	    "makeadditional": []
+	}
+    },
+    {
+	"id": "foe_arch.artillery_position.hidden.weaken",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe_arch_hidden.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 5
+	},
+	"xtriggers": {
+	    "refresh": "foe_arch.artillery_position.hidden",
+	    "killgerman": "op.ruins",
+	    "killfoe": "op.ruins",
+	    "killmortal": "op.ruins",
+	    "revealidentity": "foe_arch.artillery_position.weaken"
 	},
 	"icon": "foe.unknown",
 	"noStack": true
@@ -536,6 +596,12 @@
 		    "id": "foe.bombers",
 		    "morpheffect": "spawn"
 		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "foe_arch.military_airfield.weaken",
+		    "morpheffect": "transform"
+		}
 	    ]
 	}
     },
@@ -554,7 +620,83 @@
 	    "killgerman": "op.ruins",
 	    "killfoe": "op.ruins",
 	    "killmortal": "op.ruins",
-	    "revealidentity": "foe_arch.military_airfield"
+	    "revealidentity": "foe_arch.military_airfield",
+	    "weaken": [
+		{
+		    "id": "foe_arch.military_airfield.hidden.weaken",
+		    "morpheffect": "transform"
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe_arch.military_airfield.weaken",
+	"label": "Enemy Military Airfield",
+	"description": "These are where the luftwaffe’s birds go to refuel. We should burn this nest, and cripple their wings. [When this building is present, it provides additional enemy fighter jets to the battlefield.]",
+	"inherits": "foe_arch.template",
+	"aspects": {
+	    "side": 1,
+	    "objective": 1,
+		"foe_points": 5,
+		"foe.infrastructure.destroyed": 1
+	},
+	"resaturate": true,
+	"icon": "foe_arch.military_airfield",
+	"lifetime": 180,
+	"decayTo": "foe_arch.military_airfield",
+	"xtriggers": {
+	    "refresh": "foe_arch.military_airfield",
+	    "killgerman": "op.ruins",
+	    "killfoe": "op.ruins",
+	    "killmortal": "op.ruins",
+	    "concealidentity": "foe_arch.military_airfield.hidden",
+	    "careeradvancement": [
+		{
+		    "id": "weakenairfield.complete"
+		},
+		{
+		    "id": "op.ruins",
+		    "morpheffect": "spawn",
+			"level": 3
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.chasseur",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.bombers",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe_arch.military_airfield.hidden.weaken",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe_arch_hidden.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 5
+	},
+	"xtriggers": {
+	    "refresh": "foe_arch.military_airfield.hidden",
+	    "killgerman": "op.ruins",
+	    "killfoe": "op.ruins",
+	    "killmortal": "op.ruins",
+	    "revealidentity": "foe_arch.military_airfield.weaken"
 	},
 	"icon": "foe.unknown",
 	"noStack": true
@@ -604,6 +746,12 @@
 		    "id": "foe.tanks",
 		    "morpheffect": "spawn"
 		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "foe_arch.factory.weaken",
+		    "morpheffect": "transform"
+		}
 	    ]
 	}
     },
@@ -622,7 +770,95 @@
 	    "killgerman": "op.ruins",
 	    "killfoe": "op.ruins",
 	    "killmortal": "op.ruins",
-	    "revealidentity": "foe_arch.factory"
+	    "revealidentity": "foe_arch.factory",
+	    "weaken": [
+		{
+		    "id": "foe_arch.factory.hidden.weaken",
+		    "morpheffect": "transform"
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe_arch.factory.weaken",
+	"label": "Enemy Factory",
+	"description": "Work never stops, not in peacetime and certainly not in wartime. This factory still produces arms and equipment for the enemy, for now. [While this building is present, it provides weapons and equipment to German forces on the field.]",
+	"inherits": "foe_arch.template",
+	"aspects": {
+	    "side": 1,
+	    "objective": 1,
+		"foe_points": 5,
+		"foe.infrastructure.destroyed": 1
+	},
+	"resaturate": true,
+	"icon": "foe_arch.factory",
+	"lifetime": 180,
+	"decayTo": "foe_arch.factory",
+	"xtriggers": {
+	    "refresh": "foe_arch.factory",
+	    "killgerman": "op.ruins",
+	    "killfoe": "op.ruins",
+	    "killmortal": "op.ruins",
+	    "concealidentity": "foe_arch.factory.hidden",
+	    "careeradvancement": [
+		{
+		    "id": "factory.complete"
+		},
+		{
+		    "id": "op.ruins",
+		    "morpheffect": "spawn",
+			"level": 3
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "foe_arch.factory.weaken",
+		    "morpheffect": "transform"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe_arch.factory.hidden.weaken",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe_arch_hidden.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 5
+	},
+	"xtriggers": {
+	    "refresh": "foe_arch.factory.hidden",
+	    "killgerman": "op.ruins",
+	    "killfoe": "op.ruins",
+	    "killmortal": "op.ruins",
+	    "revealidentity": "foe_arch.factory.weaken",
+	    "weaken": [
+		{
+		    "id": "foe_arch.factory.hidden.weaken",
+		    "morpheffect": "transform"
+		}
+	    ]
 	},
 	"icon": "foe.unknown",
 	"noStack": true

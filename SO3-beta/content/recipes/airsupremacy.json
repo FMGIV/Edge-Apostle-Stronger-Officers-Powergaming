@@ -1,0 +1,1080 @@
+{
+    "recipes": [
+    {
+	"id": "airsupremacy.cycle",
+	"actionId": "airsupremacy",
+	"label": "Neither side has gained air supremacy.",
+	"startdescription": "[Once air superiority is achieved by either side, the scales of battle will tilt toward that side.]",
+	"aspects": {
+	},
+	"xpans": {
+		"adv_none": 99
+	},
+	"warmup": 30,
+	"effects": {
+	},
+	"linked": [
+		{
+			"id": "airsupremacy.german.startup"
+		},
+		{
+			"id": "airsupremacy.soviet.aggro.startup"
+		},
+		{
+			"id": "airsupremacy.soviet.neutral.startup"
+		},
+		{
+			"id": "airsupremacy.cycle"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.german.startup",
+	"actionId": "airsupremacy",
+	"label": "German aircraft are roaring across the sky.",
+	"startdescription": "-",
+	"grandreqs": {
+		"[german_airsupremacy] - [soviet_airsupremacy]": 3
+	},
+	"playAudioTrack": "german_airsupremacy.mp3",
+	"warmup": 10,
+	"xpans": {
+		"adv_german": 99
+	},
+	"aspects": {
+		"revealidentity": 1,
+		"fatiguing": 1
+	},
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1,
+			"friend.hidden": 1
+		},
+		"forbidden": {
+			"german": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsgerman2",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1,
+			"friend.hidden": 1
+		},
+		"forbidden": {
+			"german": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsgerman3",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1,
+			"friend.hidden": 1
+		},
+		"forbidden": {
+			"german": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    }
+	],
+    "movements": {
+        "~/tabletop": {
+			"filter": "[soviet] || [friend]"
+		}
+    },
+	"effects": {
+		"soviet_airsupremacy": -99,
+		"turn_german": 1
+	},
+	"linked": [
+		{
+			"id": "airsupremacy.german.movements"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.german.start",
+	"actionId": "airsupremacy",
+	"label": "German aircraft are roaring across the sky.",
+	"startdescription": "-",
+	"warmup": 10,
+	"xpans": {
+		"adv_german": 99
+	},
+	"aspects": {
+		"revealidentity": 1,
+		"fatiguing": 1
+	},
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1,
+			"friend.hidden": 1
+		},
+		"forbidden": {
+			"german": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsgerman2",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1,
+			"friend.hidden": 1
+		},
+		"forbidden": {
+			"german": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsgerman3",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1,
+			"friend.hidden": 1
+		},
+		"forbidden": {
+			"german": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    }
+	],
+    "movements": {
+        "~/tabletop": {
+			"filter": "[soviet] || [friend]"
+		}
+    },
+	"effects": {
+	},
+	"linked": [
+		{
+			"id": "airsupremacy.german.movements"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.german.movements",
+	"actionId": "airsupremacy",
+	"label": "German aircraft are roaring across the sky.",
+	"startdescription": "-",
+    "movements": {
+        "~/tabletop": {
+			"filter": "[soviet] || [friend]"
+		}
+    },
+	"xpans": {
+		"adv_german": 99
+	},
+	"alt": [
+		{
+			"id": "airsupremacy.german.cutoff",
+			"chance": 50,
+			"additional": true
+		}
+	],
+	"linked": [
+		{
+			"id": "airsupremacy.german"
+		},
+		{
+			"id": "airsupremacy.german.end"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.german",
+	"actionId": "airsupremacy",
+	"label": "German aircraft are roaring across the sky.",
+	"startdescription": "[Sentry reconnaissance efficiency drops. German bombardment risks weakening friendlies and causing supply shortages.]",
+	"grandreqs": {
+		"[german_airsupremacy] - [soviet_airsupremacy]": 1
+	},
+	"warmup": 60,
+	"effects": {
+		"german_airsupremacy": -1
+	},
+	"xpans": {
+		"adv_german": 99
+	},
+	"linked": [
+		{
+			"id": "airsupremacy.german.start"
+		},
+		{
+			"id": "airsupremacy.german.end"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.german.end",
+	"actionId": "airsupremacy",
+	"label": "German aircraft are roaring across the sky.",
+	"startdescription": "-",
+	"warmup": 10,
+	"effects": {
+		"turn_german": -99
+	},
+	"xpans": {
+		"adv_none": 99
+	},
+	"linked": [
+		{
+			"id": "airsupremacy.cycle"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.neutral.startup",
+	"actionId": "airsupremacy",
+	"label": "Soviet aircraft are roaring across the sky.",
+	"startdescription": "-",
+	"grandreqs": {
+		"[soviet_airsupremacy] - [german_airsupremacy]": 3
+	},
+	"xpans": {
+		"adv_soviet": 99
+	},
+	"aspects": {
+		"revealidentity": 1,
+		"fatiguing": 1
+	},
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1
+		},
+		"forbidden": {
+			"soviet": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsgerman2",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1
+		},
+		"forbidden": {
+			"soviet": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsgerman3",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1
+		},
+		"forbidden": {
+			"soviet": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    }
+	],
+    "movements": {
+        "~/tabletop": {
+			"filter": "german"
+		}
+    },
+	"playAudioTrack": "soviet_airsupremacy.mp3",
+	"warmup": 10,
+	"effects": {
+		"german_airsupremacy": -99,
+		"turn_soviet_neutral": 1
+	},
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.neutral.movements"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.neutral.start",
+	"actionId": "airsupremacy",
+	"label": "Soviet aircraft are roaring across the sky.",
+	"startdescription": "-",
+	"xpans": {
+		"adv_soviet": 99
+	},
+	"aspects": {
+		"revealidentity": 1,
+		"fatiguing": 1
+	},
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1
+		},
+		"forbidden": {
+			"soviet": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsgerman2",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1
+		},
+		"forbidden": {
+			"soviet": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsgerman3",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1
+		},
+		"forbidden": {
+			"soviet": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    }
+	],
+    "movements": {
+        "~/tabletop": {
+			"filter": "german"
+		}
+    },
+	"warmup": 10,
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.neutral.movements"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.neutral.movements",
+	"actionId": "airsupremacy",
+	"label": "German aircraft are roaring across the sky.",
+	"startdescription": "-",
+    "movements": {
+        "~/tabletop": {
+			"filter": "[german] || [friend] || [foe_arch]"
+		}
+    },
+	"xpans": {
+		"adv_soviet": 99
+	},
+	"alt": [
+		{
+			"id": "airsupremacy.soviet.neutral.cutoff",
+			"chance": 50,
+			"additional": true
+		}
+	],
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.neutral"
+		},
+		{
+			"id": "airsupremacy.soviet.end"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.neutral",
+	"actionId": "airsupremacy",
+	"label": "Soviet aircraft are roaring across the sky.",
+	"startdescription": "[Though the Soviets bear you no ill will, their sweeping bombardment of German positions may still catch you in the blast.]",
+	"grandreqs": {
+		"[soviet_airsupremacy] - [german_airsupremacy]": 1
+	},
+	"xpans": {
+		"adv_soviet": 99
+	},
+	"warmup": 60,
+	"effects": {
+		"soviet_airsupremacy": -1
+	},
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.aggro.startup"
+		},
+		{
+			"id": "airsupremacy.soviet.neutral.start"
+		},
+		{
+			"id": "airsupremacy.soviet.end"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.aggro.startup",
+	"actionId": "airsupremacy",
+	"label": "Soviet aircraft are roaring across the sky.",
+	"startdescription": "-",
+	"grandreqs": {
+		"[soviet_airsupremacy] - [german_airsupremacy]": 3,
+		"local.infamy": 3
+	},
+	"xpans": {
+		"adv_soviet": 99
+	},
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1,
+		    "friend.hidden": 1
+		},
+		"forbidden": {
+			"soviet": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsgerman2",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1,
+		    "friend.hidden": 1
+		},
+		"forbidden": {
+			"soviet": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsgerman3",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1,
+		    "friend.hidden": 1
+		},
+		"forbidden": {
+			"soviet": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    }
+	],
+    "movements": {
+        "~/tabletop": {
+			"filter": "[german] || [friend] || [foe_arch]"
+		}
+    },
+	"playAudioTrack": "soviet_airsupremacy.mp3",
+	"warmup": 10,
+	"effects": {
+		"german_airsupremacy": -99,
+		"turn_soviet_neutral": -99,
+		"turn_soviet_aggro": 1
+	},
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.aggro.movements"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.aggro.start",
+	"actionId": "airsupremacy",
+	"label": "Soviet aircraft are roaring across the sky.",
+	"startdescription": "-",
+	"xpans": {
+		"adv_soviet": 99
+	},
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1,
+		    "friend.hidden": 1
+		},
+		"forbidden": {
+			"soviet": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsgerman2",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1,
+		    "friend.hidden": 1
+		},
+		"forbidden": {
+			"soviet": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needsgerman3",
+		"label": "Enemy",
+		"required": {
+		    "foe.hidden": 1,
+		    "friend.hidden": 1
+		},
+		"forbidden": {
+			"soviet": 1,
+			"umiri.mark": 1,
+			"tomori.mark": 1,
+			"neutral_monster": 1
+		},
+		"greedy": true
+	    }
+	],
+    "movements": {
+        "~/tabletop": {
+			"filter": "[german] || [friend] || [foe_arch]"
+		}
+    },
+	"warmup": 10,
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.aggro.movements"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.aggro.movements",
+	"actionId": "airsupremacy",
+	"label": "German aircraft are roaring across the sky.",
+	"startdescription": "-",
+    "movements": {
+        "~/tabletop": {
+			"filter": "[german] || [friend] || [foe_arch]"
+		}
+    },
+	"xpans": {
+		"adv_soviet": 99
+	},
+	"alt": [
+		{
+			"id": "airsupremacy.soviet.aggro.cutoff",
+			"chance": 50,
+			"additional": true
+		}
+	],
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.aggro"
+		},
+		{
+			"id": "airsupremacy.soviet.end"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.aggro",
+	"actionId": "airsupremacy",
+	"label": "Soviet aircraft are roaring across the sky.",
+	"startdescription": "[Now you face the hammering of two armies from above. Whatever birds fly in that sky — none bring you good fortune.]",
+	"grandreqs": {
+		"[soviet_airsupremacy] - [german_airsupremacy]": 1
+	},
+	"warmup": 60,
+	"effects": {
+		"soviet_airsupremacy": -1
+	},
+	"xpans": {
+		"adv_soviet": 99
+	},
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.aggro.start"
+		},
+		{
+			"id": "airsupremacy.soviet.end"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.end",
+	"actionId": "airsupremacy",
+	"label": "Soviet aircraft are roaring across the sky.",
+	"startdescription": "-",
+	"warmup": 10,
+	"effects": {
+		"turn_soviet_neutral": -99,
+		"turn_soviet_aggro": -99
+	},
+	"xpans": {
+		"adv_none": 99
+	},
+	"linked": [
+		{
+			"id": "airsupremacy.cycle"
+		}
+	]
+    },
+	
+    {
+	"id": "airsupremacy.german.cutoff",
+	"actionId": "german_airsupremacy_trigger",
+	"label": "German bombers are in action.",
+	"startdescription": "-",
+	"aspects": {
+		"bombers_airsupremacy": 1
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "foe.bombers.ins": 1,
+		    "foe.bombers.hidden.ins": 1
+		},
+		"forbidden": {
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+			"id": "airsupremacy.german.cutoff.weaken",
+			"chance": 50
+		},
+		{
+			"id": "airsupremacy.german.cutoff.destroysupplies"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.german.cutoff.weaken",
+	"label": "German bombers are in action.",
+	"startdescription": "-",
+	"requirements": {
+		"foe.bombers.refuel": 1
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "soviet": 1,
+			"friend": 1
+		},
+		"forbidden": {
+			"weakened": 1,
+	    	"friend.immortal": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+			"id": "airsupremacy.german.cutoff.weaken",
+			"chance": 40
+		},
+		{
+			"id": "airsupremacy.german.cutoff.destroysupplies",
+			"chance": 20
+		},
+		{
+			"id": "airsupremacy.german.cutoff.end"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.german.cutoff.destroysupplies",
+	"label": "German bombers are in action.",
+	"startdescription": "-",
+	"requirements": {
+		"foe.bombers.refuel": 1
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needssupplies",
+		"label": "Supplies",
+		"required": {
+		    "supplies": 1,
+		    "weapon": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral_monster": 1,
+		    "debilitation": 1,
+		    "contemnant.weapon": 1,
+		    "friend.immortal.blocker": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+			"id": "airsupremacy.german.cutoff.destroysupplies",
+			"chance": 20
+		},
+		{
+			"id": "airsupremacy.german.cutoff.weaken",
+			"chance": 40
+		},
+		{
+			"id": "airsupremacy.german.cutoff.end"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.german.cutoff.end",
+	"label": "German bombers are in action.",
+	"startdescription": "-",
+	"aspects": {
+		"weaken": 1
+	},
+	"warmup": 15,
+	"effects": {
+		"side.cutoff": 1,
+	    "supplies": -99,
+	    "weapon": -99
+	}
+    },
+	
+    {
+	"id": "airsupremacy.soviet.aggro.cutoff",
+	"actionId": "soviet_aggro_airsupremacy_trigger",
+	"label": "Soviet bombers are in action.",
+	"startdescription": "-",
+	"aspects": {
+		"bombers_airsupremacy": 1
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "aggro.bombers.ins": 1,
+		    "aggro.bombers.hidden.ins": 1
+		},
+		"forbidden": {
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.aggro.cutoff.weaken",
+			"chance": 50
+		},
+		{
+			"id": "airsupremacy.soviet.aggro.cutoff.destroysupplies"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.aggro.cutoff.weaken",
+	"label": "Soviet bombers are in action.",
+	"startdescription": "-",
+	"requirements": {
+		"aggro.bombers.refuel": 1
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "german": 1,
+		    "foe_arch": 1,
+			"friend": 1
+		},
+		"forbidden": {
+			"weakened": 1,
+	    	"friend.immortal": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.aggro.cutoff.weaken",
+			"chance": 40
+		},
+		{
+			"id": "airsupremacy.soviet.aggro.cutoff.destroysupplies",
+			"chance": 20
+		},
+		{
+			"id": "airsupremacy.soviet.aggro.cutoff.end"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.aggro.cutoff.destroysupplies",
+	"label": "Soviet bombers are in action.",
+	"startdescription": "-",
+	"requirements": {
+		"aggro.bombers.refuel": 1
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needssupplies",
+		"label": "Supplies",
+		"required": {
+		    "supplies": 1,
+		    "weapon": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral_monster": 1,
+		    "debilitation": 1,
+		    "contemnant.weapon": 1,
+		    "friend.immortal.blocker": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.aggro.cutoff.destroysupplies",
+			"chance": 20
+		},
+		{
+			"id": "airsupremacy.soviet.aggro.cutoff.weaken",
+			"chance": 40
+		},
+		{
+			"id": "airsupremacy.soviet.aggro.cutoff.end"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.aggro.cutoff.end",
+	"label": "Soviet bombers are in action.",
+	"startdescription": "-",
+	"aspects": {
+		"weaken": 1
+	},
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "foe_arch": 1
+		},
+		"forbidden": {
+			"weakened": 1,
+	    	"friend.immortal": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 15,
+	"effects": {
+	    "supplies": -99,
+	    "weapon": -99
+	}
+    },
+	
+    {
+	"id": "airsupremacy.soviet.neutral.cutoff",
+	"actionId": "soviet_neutral_airsupremacy_trigger",
+	"label": "Soviet bombers are in action.",
+	"startdescription": "-",
+	"aspects": {
+		"bombers_airsupremacy": 1
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "neutral.bombers.ins": 1,
+		    "neutral.bombers.hidden.ins": 1
+		},
+		"forbidden": {
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.neutral.cutoff.weaken",
+			"chance": 50
+		},
+		{
+			"id": "airsupremacy.soviet.neutral.cutoff.destroysupplies"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.neutral.cutoff.weaken",
+	"label": "Soviet bombers are in action.",
+	"startdescription": "-",
+	"requirements": {
+		"neutral.bombers.refuel": 1
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "german": 1,
+		    "foe_arch": 1
+		},
+		"forbidden": {
+			"weakened": 1,
+	    	"friend.immortal": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.neutral.cutoff.weaken",
+			"chance": 40
+		},
+		{
+			"id": "airsupremacy.soviet.neutral.cutoff.destroysupplies",
+			"chance": 20
+		},
+		{
+			"id": "airsupremacy.soviet.neutral.cutoff.end"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.neutral.cutoff.destroysupplies",
+	"label": "Soviet bombers are in action.",
+	"startdescription": "-",
+	"requirements": {
+		"neutral.bombers.refuel": 1
+	},
+	"warmup": 10,
+	"slots": [
+	    {
+		"id": "needssupplies",
+		"label": "Supplies",
+		"required": {
+		    "supplies": 1,
+		    "weapon": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "neutral_monster": 1,
+		    "debilitation": 1,
+		    "contemnant.weapon": 1,
+		    "friend.immortal.blocker": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+			"id": "airsupremacy.soviet.neutral.cutoff.destroysupplies",
+			"chance": 20
+		},
+		{
+			"id": "airsupremacy.soviet.neutral.cutoff.weaken",
+			"chance": 40
+		},
+		{
+			"id": "airsupremacy.soviet.neutral.cutoff.end"
+		}
+	]
+    },
+    {
+	"id": "airsupremacy.soviet.neutral.cutoff.end",
+	"label": "Soviet bombers are in action.",
+	"startdescription": "-",
+	"aspects": {
+		"weaken": 1
+	},
+	"slots": [
+	    {
+		"id": "needsgerman1",
+		"label": "Enemy",
+		"required": {
+		    "foe_arch": 1
+		},
+		"forbidden": {
+			"weakened": 1,
+	    	"friend.immortal": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 15,
+	"effects": {
+	    "supplies": -99,
+	    "weapon": -99
+	}
+    }
+    ]
+}

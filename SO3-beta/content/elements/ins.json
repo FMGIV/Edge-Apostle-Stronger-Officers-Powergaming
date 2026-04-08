@@ -1,0 +1,3928 @@
+{
+"elements": [
+    {
+	"id": "bombers_airsupremacy",
+	"label": "bombers_airsupremacy",
+	"lifetime": 1,
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来改变执行任务的飞机"
+    },
+    {
+	"id": "foe.infantry.ins",
+	"label": "Enemy Infantry Company",
+	"description": "Man, the weapon.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 10,
+		"foe_points": 2,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"icon": "foe.infantry",
+	"xtriggers": {
+	    "refresh": "foe.infantry.ins",
+	    "adv_none": "foe.infantry",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "enemyintoenvironment": "foe.infantry.environment.hidden.ins",
+	    "concealidentity": "foe.infantry.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.infantry.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 2,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.infantry.hidden.ins",
+	    "adv_none": "foe.infantry.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "enemyintoenvironment": "foe.infantry.environment.hidden.ins",
+	    "revealidentity": "foe.infantry.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.kommando.ins",
+	"label": "Enemy Kommandotruppe",
+	"description": "Formidable skirmishers and ambush tacticians, trained in tactics that emphasize aggression and manoeuvrability behind enemy lines.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedge": 10,
+		"foe_points": 2,
+		"defence_up": 2,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"icon": "foe.kommando",
+	"xtriggers": {
+	    "refresh": "foe.kommando.ins",
+	    "adv_none": "foe.kommando",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "enemyintoenvironment": "foe.kommando.environment.hidden.ins",
+	    "concealidentity": "foe.kommando.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.kommando.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 2,
+		"defence_up": 2,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.kommando.hidden.ins",
+	    "adv_none": "foe.kommando.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "enemyintoenvironment": "foe.kommando.environment.hidden.ins",
+	    "revealidentity": "foe.kommando.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.sniper.ins",
+	"label": "Enemy Sniper",
+	"description": "A skilled marksman, positioned advantageously, can hold back a hundred men. Someone silent or sneaky might be able to close in on him undetected.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needswinter": 10,
+	    "needsmoth": 10,
+		"foe_points": 2,
+		"attack_up": 2,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"icon": "foe.sniper",
+	"xtriggers": {
+	    "refresh": "foe.sniper.ins",
+	    "adv_none": "foe.sniper",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "enemyintoenvironment": "foe.sniper.environment.hidden.ins",
+	    "concealidentity": "foe.sniper.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.sniper.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 2,
+		"attack_up": 2,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.sniper.hidden.ins",
+	    "adv_none": "foe.sniper.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "enemyintoenvironment": "foe.sniper.environment.hidden.ins",
+	    "revealidentity": "foe.sniper.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.tanks.ins",
+	"label": "Enemy Armoured Company",
+	"description": "A German tank is a fearsome machine. Facing it head-on would require a serious amount of direct firepower, but specialized munitions may allow us to circumvent an otherwise brutal fight.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 16,
+	    "needsforge": 12,
+	    "foe.armoured": 2,
+		"foe_points": 3,
+		"defence_up": 2,
+	    "german": 1,
+	    "ins_german": 1,
+		"machanized_forces": 1
+	},
+	"icon": "foe.tanks",
+	"xtriggers": {
+	    "refresh": "foe.tanks.ins",
+	    "adv_none": "foe.tanks",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.tanks.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.tanks.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 3,
+		"defence_up": 2,
+	    "german": 1,
+	    "ins_german": 1,
+		"machanized_forces": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.tanks.hidden.ins",
+	    "adv_none": "foe.tanks.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.tanks.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.bombers.ins",
+	"label": "Enemy Bomber Squadron",
+	"description": "First there is the thrum of the rotors, then the long whistle of the descent, and then the scream of new fire.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 24,
+	    "foe.aerial": 2,
+		"foe_points": 4,
+	    "german": 1,
+	    "ins_german": 1,
+		"german_airsupremacy_mark": 2,
+		"machanized_forces": 1
+	},
+	"icon": "foe.bombers",
+	"xtriggers": {
+	    "refresh": "foe.bombers.ins",
+	    "refreshair": "foe.bombers.ins",
+		"bombers_airsupremacy": "foe.bombers.refuel",
+	    "adv_none": "foe.bombers",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.bombers.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 8
+		}
+	    ]
+	},
+	"lifetime": 180,
+	"decayTo": "foe.bombers.refuel"
+    },
+    {
+	"id": "foe.bombers.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1,
+	    "ins_german": 1,
+		"foe_points": 4,
+		"german_airsupremacy_mark": 2,
+		"machanized_forces": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.bombers.hidden.ins",
+	    "refreshair": "foe.bombers.hidden.ins",
+		"bombers_airsupremacy": "foe.bombers.refuel",
+	    "adv_none": "foe.bombers.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.bombers.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 8
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.fighter_aircraft.ins",
+	"label": "Enemy fighter aircraft",
+	"description": "First there is the thrum of the rotors, then the long whistle of the descent, and then the scream of new fire.\n\n[When the air base is destroyed, this aircraft will be destroyed as well.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 20,
+	    "foe.aerial": 3,
+		"foe_points": 5,
+	    "german": 1,
+	    "ins_german": 1,
+		"german_airsupremacy_mark": 3,
+		"machanized_forces": 1
+	},
+	"icon": "foe.fighter_aircraft",
+	"xtriggers": {
+	    "refresh": "foe.fighter_aircraft.ins",
+	    "refreshair": "foe.fighter_aircraft.ins",
+	    "adv_none": "foe.fighter_aircraft",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.fighter_aircraft.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 8
+		}
+	    ]
+	},
+	"lifetime": 240,
+	"decayTo": "foe.fighter_aircraft.refuel"
+    },
+    {
+	"id": "foe.fighter_aircraft.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1,
+	    "ins_german": 1,
+		"foe_points": 5,
+		"german_airsupremacy_mark": 3,
+		"machanized_forces": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.fighter_aircraft.hidden.ins",
+	    "refreshair": "foe.fighter_aircraft.hidden.ins",
+	    "adv_none": "foe.fighter_aircraft.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.fighter_aircraft.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 8
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.artillery.ins",
+	"label": "Enemy Artillery",
+	"description": "A heavy gun emplacement watched by German engineers and enemy patrols. A brute force assault might work - we could storm the position, destroy the guns. Or a saboteur might leave the engineers a very loud, very forceful surprise.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 24,
+	    "needsforgemoth": 6,
+		"foe_points": 5,
+	    "german": 1,
+	    "ins_german": 1,
+		"machanized_forces": 1
+	},
+	"icon": "foe.artillery",
+	"xtriggers": {
+	    "refresh": "foe.artillery.ins",
+	    "adv_none": "foe.artillery",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.artillery.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.artillery.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 5,
+	    "german": 1,
+	    "ins_german": 1,
+		"machanized_forces": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.artillery.hidden.ins",
+	    "adv_none": "foe.artillery.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.artillery.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.manhunters.ins",
+	"label": "Enemy Menschenjäger Company",
+	"description": "An infantry detachment led by initiates of the fatal arts. Force alone will not suffice here - we must equal whatever adeptry they bring to field with some of our own.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedgelantern": 10,
+	    "needsedgewinter": 10,
+	    "needsedgeforge": 10,
+		"foe_points": 3,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"icon": "foe.manhunters",
+	"xtriggers": {
+	    "refresh": "foe.manhunters.ins",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "enemyintoenvironment": "foe.manhunters.environment.hidden.ins",
+	    "concealidentity": "foe.manhunters.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.manhunters.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 3,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.manhunters.hidden.ins",
+	    "adv_none": "foe.manhunters.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "enemyintoenvironment": "foe.manhunters.environment.hidden.ins",
+	    "revealidentity": "foe.manhunters.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.chasseur.ins",
+	"label": "Enemy Chasseur",
+	"description": "Most soldiers give up the fight when they're killed. These ones don't.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedgewinter": 10,
+	    "needsedgelantern": 10,
+		"foe_points": 3,
+		"neutral_monster": 1,
+		"german": 1,
+	    "ins_german": 1
+	},
+	"icon": "foe.chasseur",
+	"xtriggers": {
+	    "refresh": "foe.chasseur.ins",
+	    "adv_none": "foe.chasseur",
+	    "killgerman": "foe.chasseur.reviving",
+	    "killfoe": "foe.chasseur.reviving",
+	    "enemyintoenvironment": "foe.chasseur.environment.hidden.ins",
+	    "concealidentity": "foe.chasseur.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.chasseur.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 3,
+		"neutral_monster": 1,
+		"german": 1,
+	    "ins_german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.chasseur.hidden.ins",
+	    "adv_none": "foe.chasseur.hidden",
+	    "killgerman": "foe.chasseur.reviving",
+	    "killfoe": "foe.chasseur.reviving",
+	    "enemyintoenvironment": "foe.chasseur.environment.hidden.ins",
+	    "revealidentity": "foe.chasseur.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+
+    {
+	"id": "foe.infantry.environment.ins",
+	"label": "Enemy Infantry Company",
+	"description": "Man, the weapon.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 14,
+		"foe_points": 4,
+		"enemyhidden": 1,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"icon": "foe.infantry.environment",
+	"xtriggers": {
+	    "refresh": "foe.infantry.environment.ins",
+	    "adv_none": "foe.infantry.environment",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.infantry.environment.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.infantry.environment.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 4,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.infantry.environment.hidden.ins",
+	    "adv_none": "foe.infantry.environment.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.infantry.environment.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.kommando.environment.ins",
+	"label": "Enemy Kommandotruppe",
+	"description": "Formidable skirmishers and ambush tacticians, trained in tactics that emphasize aggression and manoeuvrability behind enemy lines.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedge": 14,
+		"foe_points": 4,
+		"defence_up": 2,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"icon": "foe.kommando.environment",
+	"xtriggers": {
+	    "refresh": "foe.kommando.environment.ins",
+	    "adv_none": "foe.kommando.environment",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.kommando.environment.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.kommando",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.kommando.environment.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 4,
+		"defence_up": 2,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.kommando.environment.hidden",
+	    "adv_german": "foe.kommando.environment.hidden.ins",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.kommando.environment",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.sniper.environment.ins",
+	"label": "Enemy Sniper",
+	"description": "A skilled marksman, positioned advantageously, can hold back a hundred men. Someone silent or sneaky might be able to close in on him undetected.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needswinter": 14,
+	    "needsmoth": 14,
+		"foe_points": 4,
+		"attack_up": 2,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"icon": "foe.sniper.environment",
+	"xtriggers": {
+	    "refresh": "foe.sniper.environment.ins",
+	    "adv_none": "foe.sniper.environment",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.sniper.environment.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.sniper",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.sniper.environment.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 4,
+		"attack_up": 2,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.sniper.environment.hidden.ins",
+	    "adv_none": "foe.sniper.environment.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.sniper.environment.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.manhunters.environment.ins",
+	"label": "Enemy Menschenjäger Company",
+	"description": "An infantry detachment led by initiates of the fatal arts. Force alone will not suffice here - we must equal whatever adeptry they bring to field with some of our own.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedgelantern": 14,
+	    "needsedgewinter": 14,
+	    "needsedgeforge": 14,
+		"foe_points": 5,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"icon": "foe.manhunters.environment",
+	"xtriggers": {
+	    "refresh": "foe.manhunters.environment.ins",
+	    "adv_none": "foe.manhunters.environment",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "enemyintoenvironment": "foe.manhunters.environment.hidden.ins",
+	    "concealidentity": "foe.manhunters.environment.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.manhunters.environment.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 5,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+	    "ins_german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.manhunters.environment.hidden.ins",
+	    "adv_none": "foe.manhunters.environment.hidden",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.manhunters.environment.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+    {
+	"id": "foe.chasseur.environment.ins",
+	"label": "Enemy Chasseur",
+	"description": "Most soldiers give up the fight when they're killed. These ones don't.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedgewinter": 14,
+	    "needsedgelantern": 14,
+		"foe_points": 5,
+		"neutral_monster": 1,
+		"enemyhidden.mark": 1,
+		"german": 1,
+	    "ins_german": 1
+	},
+	"icon": "foe.chasseur.environment",
+	"xtriggers": {
+	    "refresh": "foe.chasseur.environment.ins",
+	    "adv_none": "foe.chasseur.environment",
+	    "killgerman": "foe.chasseur.reviving",
+	    "killfoe": "foe.chasseur.reviving",
+	    "concealidentity": "foe.chasseur.environment.hidden.ins",
+	    "takeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.chasseur",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe.chasseur.environment.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 5,
+		"neutral_monster": 1,
+		"enemyhidden.mark": 1,
+		"german": 1,
+	    "ins_german": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.chasseur.environment.hidden.ins",
+	    "adv_german": "foe.chasseur.environment.hidden",
+	    "killgerman": "foe.chasseur.reviving",
+	    "killfoe": "foe.chasseur.reviving",
+	    "revealidentity": "foe.chasseur.environment.ins",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+
+    {
+	"id": "neutral.scouts.ins",
+	"label": "Red Army Scouts",
+	"description": "Lookouts; pathfinders; forward troops for the Russian Army, guiding the Soviet counter-advance to Berlin. [This one can be temporarily recruited with Provisions.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+		"soviet_points": 2,
+		"defence_up": 2,
+	    "soviet": 1,
+	    "price.provisions": 1,
+	    "ins_soviet_neutral": 1
+	},
+	"icon": "neutral.scouts",
+	"xtriggers": {
+	    "recruiting": "recruited.scouts.ins",
+	    "adv_none": "neutral.scouts",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.scouts.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.scouts.ins",
+	"label": "Red Army Scouts (Ally)",
+	"description": "Lookouts; pathfinders; forward troops for the Russian Army, guiding the Soviet counter-advance to Berlin.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "lantern": 6,
+	    "moth": 6,
+		"soviet_points": 2,
+		"defence_up": 2,
+	    "soviet": 1,
+	    "ins_soviet_neutral": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.scouts.ins",
+	    "adv_none": "recruited.scouts",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.scouts.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+	    ]
+	},
+	"icon": "friend.scouts",
+	"slots": [
+	    {
+		"id": "needshindrance",
+		"actionid": "operate",
+		"label": "Environment",
+		"required": {
+		    "hindrance.snows": 1,
+		    "hindrance.storms": 1,
+		    "hindrance.fog": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions",
+		"actionid": "operate",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "aggro.scouts.ins",
+	"label": "Red Army Scouts (Hostile)",
+	"description": "Lookouts; pathfinders; forward troops for the Russian Army, guiding the Soviet counter-advance to Berlin.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedge": 10,
+		"soviet_points": 2,
+		"defence_up": 2,
+	    "soviet": 1,
+	    "ins_soviet_aggro": 1
+	},
+	"icon": "aggro.scouts",
+	"xtriggers": {
+	    "refresh": "aggro.scouts.ins",
+	    "adv_none": "aggro.scouts",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.scouts.hidden.ins",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.scouts.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"soviet_points": 2,
+		"defence_up": 2,
+	    "soviet": 1,
+	    "ins_soviet_aggro": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.scouts.hidden.ins",
+	    "adv_none": "aggro.scouts.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.scouts.ins",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.sniper.ins",
+	"label": "Red Army Sniper",
+	"description": "A Russian sharpshooter waiting in the wings, coolly anticipating his next target. [This one can be temporarily recruited with Provisions.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+		"soviet_points": 2,
+		"attack_up": 2,
+	    "soviet": 1,
+	    "price.provisions": 1,
+	    "ins_soviet_neutral": 1
+	},
+	"icon": "neutral.sniper",
+	"xtriggers": {
+	    "recruiting": "recruited.sniper.ins",
+	    "adv_none": "neutral.sniper",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.sniper.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.sniper.ins",
+	"label": "Red Army Sniper (Ally)",
+	"description": "A Russian sharpshooter waiting in the wings, coolly anticipating his next target.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "lantern": 6,
+	    "winter": 6,
+	    "edge": 6,
+		"soviet_points": 2,
+		"attack_up": 2,
+	    "soviet": 1,
+	    "ins_soviet_neutral": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.sniper.ins",
+	    "adv_none": "recruited.sniper",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.sniper.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "friend.sniper"
+    },
+    {
+	"id": "aggro.sniper.ins",
+	"label": "Red Army Sniper (Hostile)",
+	"description": "A Russian sharpshooter waiting in the wings, coolly anticipating his next target.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needswinter": 10,
+	    "needsmoth": 10,
+		"soviet_points": 2,
+		"attack_up": 2,
+	    "soviet": 1,
+	    "ins_soviet_aggro": 1
+	},
+	"icon": "aggro.sniper",
+	"xtriggers": {
+	    "refresh": "aggro.sniper.ins",
+	    "adv_none": "aggro.sniper",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.sniper.hidden.ins",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.sniper.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"soviet_points": 2,
+		"attack_up": 2,
+	    "soviet": 1,
+	    "ins_soviet_aggro": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.sniper.hidden.ins",
+	    "adv_none": "aggro.sniper.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.sniper.ins",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.infantry.ins",
+	"label": "Soviet Infantry",
+	"description": "The Soviet infantryman: cold-bitten, under-equipped, bound for death. He is a droplet in a wave that will smash the Eastern Front and drown the cities of the Reich. [This one can be temporarily recruited with Provisions.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+		"soviet_points": 2,
+	    "soviet": 2,
+	    "price.provisions": 1,
+	    "ins_soviet_neutral": 1
+	},
+	"icon": "neutral.infantry",
+	"xtriggers": {
+	    "recruiting": "recruited.infantry.ins",
+	    "adv_none": "neutral.infantry",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.infantry.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.infantry.ins",
+	"label": "Soviet Infantry (Ally)",
+	"description": "The Soviet infantryman: cold-bitten, under-equipped, bound for death. He is a droplet in a wave that will smash the Eastern Front and drown the cities of the Reich.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "edge": 8,
+		"soviet_points": 2,
+	    "soviet": 1,
+	    "ins_soviet_neutral": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.infantry.ins",
+	    "adv_none": "recruited.infantry",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.infantry.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "friend.infantry"
+    },
+    {
+	"id": "aggro.infantry.ins",
+	"label": "Soviet Infantry (Hostile)",
+	"description": "The Soviet infantryman: cold-bitten, under-equipped, bound for death. He is a droplet in a wave that will smash the Eastern Front and drown the cities of the Reich.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 10,
+		"soviet_points": 2,
+	    "soviet": 1,
+	    "ins_soviet_aggro": 1
+	},
+	"icon": "aggro.infantry",
+	"xtriggers": {
+	    "refresh": "aggro.infantry.ins",
+	    "adv_none": "aggro.infantry",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.infantry.hidden.ins",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.infantry.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"soviet_points": 2,
+	    "soviet": 1,
+	    "ins_soviet_aggro": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.infantry.hidden.ins",
+	    "adv_none": "aggro.infantry.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.infantry.ins",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.godbuilder.ins",
+	"label": "Bogostroiteli Troop",
+	"description": "A cadre of commissars-ithast - 'god-builders' - leads this infantry detachment, stoking glorious fires in the weapons and flesh of their men. [This one can be temporarily recruited with Provisions.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+		"soviet_points": 3,
+	    "soviet": 1,
+	    "price.provisions": 2,
+	    "ins_soviet_neutral": 1
+	},
+	"icon": "neutral.godbuilder",
+	"xtriggers": {
+	    "recruiting": "recruited.godbuilder.ins",
+	    "adv_none": "neutral.godbuilder",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.godbuilder.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.godbuilder.ins",
+	"label": "Bogostroiteli Troop (Ally)",
+	"description": "A cadre of commissars-ithast - 'god-builders' - leads this infantry detachment, stoking glorious fires in the weapons and flesh of their men.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "forge": 6,
+	    "lantern": 6,
+	    "edge": 10,
+		"soviet_points": 3,
+	    "soviet": 1,
+	    "ins_soviet_neutral": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.godbuilder.ins",
+	    "adv_none": "recruited.godbuilder",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.godbuilder.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.godbuilder.ins",
+	"label": "Bogostroiteli Troop (Hostile)",
+	"description": "A cadre of commissars-ithast - 'god-builders' - leads this infantry detachment, stoking glorious fires in the weapons and flesh of their men.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedgeknock": 10,
+	    "needsedgewinter": 10,
+	    "needsedgeforge": 10,
+		"soviet_points": 3,
+	    "soviet": 1,
+	    "ins_soviet_aggro": 1
+	},
+	"icon": "aggro.godbuilder",
+	"xtriggers": {
+	    "refresh": "aggro.godbuilder.ins",
+	    "adv_none": "aggro.godbuilder",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.godbuilder.hidden.ins",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.godbuilder.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"soviet_points": 3,
+	    "soviet": 1,
+	    "ins_soviet_aggro": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.godbuilder.hidden.ins",
+	    "adv_none": "aggro.godbuilder.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.godbuilder.ins",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgeknock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.tanks.ins",
+	"label": "Soviet Armoured Company",
+	"description": "The Union produces these machines at a furious pace. A few more months of hard service might finally retire these ones, but their replacements are no doubt already rolling to the front. [This one can be temporarily recruited with Provisions.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+		"soviet_points": 3,
+		"defence_up": 2,
+	    "soviet": 1,
+	    "price.provisions": 3,
+	    "ins_soviet_neutral": 1
+	},
+	"icon": "neutral.tanks",
+	"xtriggers": {
+	    "recruiting": "recruited.tanks.ins",
+	    "adv_none": "neutral.tanks",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.tanks.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.tanks.ins",
+	"label": "Soviet Armoured Company (Ally)",
+	"description": "The Union produces these machines at a furious pace. A few more months of hard service might finally retire these ones, but their replacements are no doubt already rolling to the front.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "forge": 6,
+	    "edge": 16,
+		"soviet_points": 3,
+		"defence_up": 2,
+	    "soviet": 1,
+	    "ins_soviet_neutral": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.tanks.ins",
+	    "adv_none": "recruited.tanks",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.tanks.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+	    ]
+	},
+	"icon": "friend.tanks"
+    },
+    {
+	"id": "aggro.tanks.ins",
+	"label": "Soviet Armoured Company (Hostile)",
+	"description": "The Union produces these machines at a furious pace. A few more months of hard service might finally retire these ones, but their replacements are no doubt already rolling to the front.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 18,
+	    "needsforge": 12,
+	    "foe.armoured": 2,
+		"soviet_points": 3,
+		"defence_up": 2,
+	    "soviet": 1,
+	    "ins_soviet_aggro": 1
+	},
+	"icon": "aggro.tanks",
+	"xtriggers": {
+	    "refresh": "aggro.tanks.ins",
+	    "adv_none": "aggro.tanks",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.tanks.hidden.ins",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.tanks.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"soviet_points": 3,
+		"defence_up": 2,
+	    "soviet": 1,
+	    "ins_soviet_aggro": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.tanks.hidden.ins",
+	    "adv_none": "aggro.tanks.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.tanks.ins",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.artillery.ins",
+	"label": "Soviet Artillery",
+	"description": "For when the Red Army must absolutely, positively obliterate a target. Don't stand in the firing zone. [This one can be temporarily recruited with Provisions.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+	    "soviet": 1,
+		"soviet_points": 5,
+	    "price.provisions": 3,
+	    "ins_soviet_neutral": 1
+	},
+	"icon": "neutral.artillery",
+	"xtriggers": {
+	    "recruiting": "recruited.artillery.ins",
+	    "adv_none": "neutral.artillery",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.artillery.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.artillery.ins",
+	"label": "Soviet Artillery (Ally)",
+	"description": "For when the Red Army must absolutely, positively obliterate a target. Don't stand in the firing zone.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "edge": 20,
+		"soviet_points": 5,
+	    "soviet": 1,
+	    "ins_soviet_neutral": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.artillery.ins",
+	    "adv_none": "recruited.artillery",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.artillery.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "friend.artillery"
+    },
+    {
+	"id": "aggro.artillery.ins",
+	"label": "Soviet Artillery (Hostile)",
+	"description": "For when the Red Army must absolutely, positively obliterate a target. Don't stand in the firing zone.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 24,
+	    "needsforgemoth": 6,
+		"soviet_points": 5,
+	    "soviet": 1,
+	    "ins_soviet_aggro": 1
+	},
+	"icon": "aggro.artillery",
+	"xtriggers": {
+	    "refresh": "aggro.artillery.ins",
+	    "adv_none": "aggro.artillery",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.artillery.hidden.ins",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	}
+    },
+    {
+	"id": "aggro.artillery.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"soviet_points": 5,
+	    "soviet": 1,
+	    "ins_soviet_aggro": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.artillery.hidden.ins",
+	    "adv_none": "aggro.artillery.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.artillery.ins",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+    {
+	"id": "neutral.bombers.ins",
+	"label": "Soviet Bomber Squadron",
+	"description": "It is rare, these days, to see a Russian craft in the sky - the <i>Luftwaffe</i> clipped the Union's wings so early on in the war - but here and there remain a few red birds that still fly. [This one can be temporarily recruited with Provisions.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+		"soviet_points": 4,
+	    "soviet": 1,
+	    "price.provisions": 3,
+		"soviet_airsupremacy_mark": 2,
+	    "ins_soviet_neutral": 1
+	},
+	"icon": "neutral.bombers",
+	"xtriggers": {
+	    "recruiting": "recruited.bombers.ins",
+	    "adv_none": "neutral.bombers",
+		"bombers_airsupremacy": "neutral.bombers.refuel",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.bombers.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "neutral.bombers.refuel",
+	"label": "Soviet Bomber Squadron (Refueling)",
+	"description": "It is rare, these days, to see a Russian craft in the sky - the <i>Luftwaffe</i> clipped the Union's wings so early on in the war - but here and there remain a few red birds that still fly.",
+	"lifetime": 240,
+	"xtriggers": {
+	    "refresh": "neutral.bombers",
+	    "refreshair": "neutral.bombers"
+	},
+	"decayTo": "neutral.bombers",
+	"icon": "neutral.bombers",
+	"resaturate": true
+    },
+    {
+	"id": "recruited.bombers.ins",
+	"label": "Soviet Bomber Squadron (Ally)",
+	"description": "It is rare, these days, to see a Russian craft in the sky - the <i>Luftwaffe</i> clipped the Union's wings so early on in the war - but here and there remain a few red birds that still fly.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "friend.aerial": 2,
+	    "edge": 16,
+		"soviet_points": 4,
+	    "soviet": 1,
+		"soviet_airsupremacy_mark": 2,
+	    "ins_soviet_neutral": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.bombers.ins",
+	    "adv_none": "recruited.bombers",
+		"bombers_airsupremacy": "neutral.bombers.refuel",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.bombers.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "friend.bombers"
+    },
+    {
+	"id": "aggro.bombers.ins",
+	"label": "Soviet Bomber Squadron (Hostile)",
+	"description": "It is rare, these days, to see a Russian craft in the sky - the <i>Luftwaffe</i> clipped the Union's wings so early on in the war - but here and there remain a few red birds that still fly.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 24,
+	    "foe.aerial": 2,
+		"soviet_points": 4,
+	    "soviet": 1,
+		"soviet_airsupremacy_mark": 2,
+	    "ins_soviet_aggro": 1
+	},
+	"icon": "aggro.bombers",
+	"xtriggers": {
+	    "refresh": "aggro.bombers.ins",
+	    "adv_none": "aggro.bombers",
+		"bombers_airsupremacy": "aggro.bombers.refuel",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.bombers.hidden.ins",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ]
+	},
+	"lifetime": 180,
+	"decayTo": "aggro.bombers.refuel"
+    },
+    {
+	"id": "aggro.bombers.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"soviet_points": 4,
+	    "soviet": 1,
+		"soviet_airsupremacy_mark": 2,
+	    "ins_soviet_aggro": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.bombers.hidden.ins",
+	    "adv_none": "aggro.bombers.hidden",
+		"bombers_airsupremacy": "aggro.bombers.refuel",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.bombers.ins",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    },
+
+    {
+	"id": "neutral.fighter_aircraft.ins",
+	"label": "Soviet fighter aircraft",
+	"description": "It is rare, these days, to see a Russian craft in the sky - the <i>Luftwaffe</i> clipped the Union's wings so early on in the war - but here and there remain a few red birds that still fly. [This one can be temporarily recruited with Provisions.]",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "neutral": 1,
+		"soviet_points": 5,
+	    "soviet": 1,
+	    "price.provisions": 3,
+		"soviet_airsupremacy_mark": 3,
+	    "ins_soviet_neutral": 1
+	},
+	"icon": "neutral.fighter_aircraft",
+	"xtriggers": {
+	    "recruiting": "recruited.fighter_aircraft.ins",
+	    "adv_none": "neutral.fighter_aircraft",
+	    "killmortal": "neutral.corpses",
+	    "killneutral": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.fighter_aircraft.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -6
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"actionid": "communicate",
+		"label": "Price",
+		"description": "The cost of this one's loyalty.",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "recruited.fighter_aircraft.ins",
+	"label": "Soviet fighter aircraft (Ally)",
+	"description": "It is rare, these days, to see a Russian craft in the sky - the <i>Luftwaffe</i> clipped the Union's wings so early on in the war - but here and there remain a few red birds that still fly.",
+	"aspects": {
+	    "mortal": 1,
+	    "local": 1,
+	    "hired": 1,
+	    "friend": 1,
+	    "friend.aerial": 3,
+	    "edge": 20,
+		"soviet_points": 5,
+	    "soviet": 1,
+		"soviet_airsupremacy_mark": 3,
+	    "ins_soviet_neutral": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "neutral.fighter_aircraft.ins",
+	    "adv_none": "recruited.fighter_aircraft",
+	    "killmortal": "neutral.corpses",
+	    "killfriend": "neutral.corpses",
+	    "makecasualty": "neutral.corpses",
+	    "resentment": "aggro.fighter_aircraft.ins",
+	    "killsoviet": "neutral.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "friend.fighter_aircraft"
+    },
+    {
+	"id": "aggro.fighter_aircraft.ins",
+	"label": "Soviet fighter aircraft (Hostile)",
+	"description": "It is rare, these days, to see a Russian craft in the sky - the <i>Luftwaffe</i> clipped the Union's wings so early on in the war - but here and there remain a few red birds that still fly.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 24,
+	    "foe.aerial": 3,
+		"soviet_points": 5,
+	    "soviet": 1,
+		"soviet_airsupremacy_mark": 3,
+	    "ins_soviet_aggro": 1
+	},
+	"icon": "aggro.fighter_aircraft",
+	"xtriggers": {
+	    "refresh": "aggro.fighter_aircraft.ins",
+	    "adv_none": "aggro.fighter_aircraft",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "aggro.fighter_aircraft.hidden.ins",
+	    "killsoviet": "foe.corpses",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ]
+	},
+	"lifetime": 240,
+	"decayTo": "aggro.fighter_aircraft.refuel"
+    },
+    {
+	"id": "aggro.fighter_aircraft.hidden.ins",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+		"soviet_points": 5,
+	    "soviet": 1,
+		"soviet_airsupremacy_mark": 3,
+	    "ins_soviet_aggro": 1
+	},
+	"xtriggers": {
+	    "refresh": "aggro.fighter_aircraft.hidden.ins",
+	    "adv_none": "aggro.fighter_aircraft.hidden",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "aggro.fighter_aircraft.ins",
+	    "killsoviet": "foe.corpses",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "soviet_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ]
+	},
+	"icon": "foe.unknown.soviet",
+	"noStack": true
+    }
+]
+}

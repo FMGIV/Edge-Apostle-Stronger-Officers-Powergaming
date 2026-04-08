@@ -74,6 +74,66 @@
 		"chance": 40
 	    },
 	    {
+		"id": "soviet.cycle.cutoff"
+	    },
+	    {
+		"id": "soviet.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "soviet.neutral.reinforcements.ex",
+		"chance": 15,
+		"additional": true
+	    },
+	    {
+		"id": "aggro.startup.reinforcements.ex",
+		"chance": 15,
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "soviet.cycle.cutoff",
+	"label": "The Red Army Prepares",
+	"startdescription": "@#state.sovietsneutral|The Soviet war machine devises a plan to further its western advance through Europe. It will strike against the Germans here, and soon.\n\n[The Soviet supply lines have been severely damaged, temporarily stalling the frontline offensive.]\n#state.sovietsaggro|The Soviet war machine devises its next course of action, but the Germans are no longer its only concern. Our actions have proven us worthy of Russian enmity (or at least abhorrence) and they won't be so friendly, anymore.\n\n[The Soviet supply lines have been severely damaged, temporarily stalling the frontline offensive.]@",
+	"warmup": 50,
+	"extantreqs": {
+		"side.cutoff": 1
+	},
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.turnaggro.inflames"
+	    },
+	    {
+		"id": "soviet.turnaggro",
+		"chance": 50
+	    },
+	    {
+		"id": "aggro.turnstragglers.neutral"
+	    },
+	    {
+		"id": "aggro.turnstragglers.hired"
+	    },
+	    {
+		"id": "soviet.pickaction.aggro.high",
+		"chance": 40
+	    },
+	    {
+		"id": "soviet.pickaction.aggro.low",
+		"chance": 40
+	    },
+	    {
+		"id": "soviet.act.neutral",
+		"chance": 40
+	    },
+	    {
+		"id": "soviet.cycle.cutoff"
+	    },
+	    {
 		"id": "soviet.cycle"
 	    }
 	],
@@ -256,7 +316,9 @@
 		"forbidden": {
 		    "friend": 1,
 		    "neutral.medic": 1,
-			"neutral.engineers": 1
+			"neutral.engineers": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -426,7 +488,9 @@
 		    "remnant": 1,
 		    "foe.officer": 1,
 		    "foe.hidden": 1,
-		    "soviet": 1
+		    "soviet": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -545,15 +609,56 @@
 	],
 	"linked": [
 		{
-			"id": "soviet.neutral.singleattack.victory.self_destruction"
+			"id": "soviet.neutral.airsupremacy"
 		}
 	],
 	"alt": [
+		{
+			"id": "soviet.neutral.singleattack.victory.self_destruction"
+		},
 	    {
 		"id": "produce.strife.contemnant",
 		"additional": true,
 		"chance": 50
 	    }
+	]
+    },
+    {
+	"id": "soviet.neutral.airsupremacy",
+	"label": "The Red Army Prevails!",
+	"startdescription": "I watch the battle from afar - watch the Russian contingent wash over the German defense. There is the distant popping of the guns, the low boom of shellfire, and then that particular silence that comes after victory. The Russians move onwards.",
+	"requirements": {
+	    "soviet_airsupremacy_mark": 1
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!airsupremacy[situationstorage]+",
+			"effects": {
+				"soviet_airsupremacy": 1
+			}
+		}
+	],
+	"linked": [
+		{
+			"id": "soviet.neutral.airsupremacy.2",
+			"chance": 50
+		}
+	]
+    },
+    {
+	"id": "soviet.neutral.airsupremacy.2",
+	"label": "The Red Army Prevails!",
+	"startdescription": "I watch the battle from afar - watch the Russian contingent wash over the German defense. There is the distant popping of the guns, the low boom of shellfire, and then that particular silence that comes after victory. The Russians move onwards.",
+	"requirements": {
+	    "soviet_airsupremacy_mark": 1
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!airsupremacy[situationstorage]+",
+			"effects": {
+				"soviet_airsupremacy": 1
+			}
+		}
 	]
     },
     {
@@ -564,6 +669,31 @@
 	    "self_destruction": 1
 	},
 	"mutations": [
+	    {
+		"filter": "soviet",
+		"mutate": "defence_up",
+		"level": 0
+	    },
+	    {
+		"filter": "foe",
+		"mutate": "foe_points",
+		"level": 0
+	    },
+	    {
+		"filter": "soviet",
+		"mutate": "soviet_points",
+		"level": 0
+	    },
+	    {
+		"filter": "foe",
+		"mutate": "foe.officerdetail",
+		"level": 0
+	    },
+	    {
+		"filter": "remnant",
+		"mutate": "foe.officerdetail",
+		"level": 0
+	    },
 	    {
 		"filter": "foe",
 		"mutate": "self_destruction",
@@ -576,7 +706,8 @@
 	    }
 	],
 	"aspects": {
-	    "killsoviet": 1
+	    "killsoviet": 1,
+	    "killgerman": 1
 	}
     },
     {
@@ -810,7 +941,9 @@
 		    "soviet": 1
 		},
 		"forbidden": {
-		    "friend": 1
+		    "friend": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -909,10 +1042,33 @@
 	],
 	"linked": [
 	    {
+		"id": "aggro.againstgerman.soviet_airsupremacy"
+	    },
+	    {
 		"id": "aggro.againstgerman.singleattack"
 	    }
 	]
     },
+    {
+	"id": "aggro.againstgerman.soviet_airsupremacy",
+	"label": "Mount a Defense?",
+	"startdescription": "The enemy approaches - can we rise to meet them?\n\n[Defend by providing a card to equal any of the Enemy's Thresholds.]",
+	"requirements": {
+	    "soviet_airsupremacy_mark": 1,
+		"soviet": 1
+	},
+	"extantreqs": {
+		"soviet_have_airsupremacy": 1
+	},
+	"effects": {
+		"soviet_airsupremacy_up": 1
+	},
+	"linked": [
+	    {
+		"id": "aggro.againstgerman.singleattack"
+	    }
+	]
+	},
     {
 	"id": "aggro.againstgerman.singleattack",
 	"label": "The Red Army Attacks!",
@@ -930,7 +1086,9 @@
 		    "otherworldly": 1,
 		    "remnant": 1,
 		    "foe.officer": 1,
-		    "soviet": 1
+		    "soviet": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -939,6 +1097,9 @@
 	"linked": [
 	    {
 		"id": "soviet.aggro.singleattack.defence_up"
+	    },
+	    {
+		"id": "soviet.aggro.singleattack.soviet_airsupremacy"
 	    },
 	    {
 		"id": "soviet.aggro.singleattack.defence_clear"
@@ -964,10 +1125,33 @@
 	],
 	"linked": [
 	    {
+		"id": "soviet.aggro.singleattack.soviet_airsupremacy"
+	    },
+	    {
 		"id": "soviet.aggro.singleattack.defence_clear"
 	    }
 	]
     },
+    {
+	"id": "soviet.aggro.soviet_airsupremacy",
+	"label": "Mount a Defense?",
+	"startdescription": "The enemy approaches - can we rise to meet them?\n\n[Defend by providing a card to equal any of the Enemy's Thresholds.]",
+	"requirements": {
+	    "soviet_airsupremacy_mark": 1,
+		"soviet": 1
+	},
+	"extantreqs": {
+		"soviet_have_airsupremacy": 1
+	},
+	"effects": {
+		"soviet_airsupremacy_up": 1
+	},
+	"linked": [
+	    {
+		"id": "soviet.aggro.singleattack.defence_clear"
+	    }
+	]
+	},
     {
 	"id": "soviet.aggro.singleattack.defence_clear",
 	"label": "The Red Army Prevails!",
@@ -1025,7 +1209,9 @@
 		    "remnant": 1,
 		    "foe.officer": 1,
 		    "foe.hidden": 1,
-		    "soviet": 1
+		    "soviet": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -1144,15 +1330,56 @@
 	],
 	"linked": [
 		{
-			"id": "soviet.aggro.singleattack.victory.self_destruction"
+			"id": "soviet.aggro.airsupremacy"
 		}
 	],
 	"alt": [
+		{
+			"id": "soviet.aggro.singleattack.victory.self_destruction"
+		},
 	    {
 		"id": "produce.strife.contemnant",
 		"additional": true,
 		"chance": 50
 	    }
+	]
+    },
+    {
+	"id": "soviet.aggro.airsupremacy",
+	"label": "The Red Army Prevails!",
+	"startdescription": "I watch the battle from afar - watch the Russian contingent wash over the German defense. There is the distant popping of the guns, the low boom of shellfire, and then that particular silence that comes after victory. The Russians move onwards.",
+	"requirements": {
+	    "soviet_airsupremacy_mark": 1
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!airsupremacy[situationstorage]+",
+			"effects": {
+				"soviet_airsupremacy": 1
+			}
+		}
+	],
+	"linked": [
+		{
+			"id": "soviet.aggro.airsupremacy.2",
+			"chance": 50
+		}
+	]
+    },
+    {
+	"id": "soviet.aggro.airsupremacy.2",
+	"label": "The Red Army Prevails!",
+	"startdescription": "I watch the battle from afar - watch the Russian contingent wash over the German defense. There is the distant popping of the guns, the low boom of shellfire, and then that particular silence that comes after victory. The Russians move onwards.",
+	"requirements": {
+	    "soviet_airsupremacy_mark": 1
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!airsupremacy[situationstorage]+",
+			"effects": {
+				"soviet_airsupremacy": 1
+			}
+		}
 	]
     },
     {
@@ -1163,6 +1390,31 @@
 	    "self_destruction": 1
 	},
 	"mutations": [
+	    {
+		"filter": "soviet",
+		"mutate": "defence_up",
+		"level": 0
+	    },
+	    {
+		"filter": "foe",
+		"mutate": "foe_points",
+		"level": 0
+	    },
+	    {
+		"filter": "soviet",
+		"mutate": "soviet_points",
+		"level": 0
+	    },
+	    {
+		"filter": "foe",
+		"mutate": "foe.officerdetail",
+		"level": 0
+	    },
+	    {
+		"filter": "remnant",
+		"mutate": "foe.officerdetail",
+		"level": 0
+	    },
 	    {
 		"filter": "foe",
 		"mutate": "self_destruction",
@@ -1175,6 +1427,7 @@
 	    }
 	],
 	"aspects": {
+	    "killgerman": 1,
 	    "killsoviet": 1
 	}
     },
@@ -1217,7 +1470,8 @@
 		"forbidden": {
 		    "hired": 1,
 		    "neutral": 1,
-		    "foe.hidden": 1
+		    "foe.hidden": 1,
+		    "tomori.mark": 1
 		},
 		"greedy": true
 	    }
@@ -1286,7 +1540,9 @@
 		"forbidden": {
 		    "remnant": 1,
 		    "neutral": 1,
-		    "hired": 1
+		    "hired": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -1334,7 +1590,9 @@
 		"forbidden": {
 		    "remnant": 1,
 		    "neutral": 1,
-		    "hired": 1
+		    "hired": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -1370,7 +1628,9 @@
 		"forbidden": {
 		    "remnant": 1,
 		    "neutral": 1,
-		    "hired": 1
+		    "hired": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -1418,7 +1678,9 @@
 		"forbidden": {
 		    "remnant": 1,
 		    "neutral": 1,
-		    "hired": 1
+		    "hired": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }

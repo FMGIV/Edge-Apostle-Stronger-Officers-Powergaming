@@ -1,10 +1,168 @@
 {
 "elements": [
     {
+	"id": "german_airsupremacy_up",
+	"label": "Soviet_airsupremacy",
+	"lifetime": 1,
+	"aspects": {
+	},
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来提升飞机的性相"
+    },
+    {
+	"id": "soviet_airsupremacy_up",
+	"label": "Soviet_airsupremacy",
+	"lifetime": 1,
+	"aspects": {
+	},
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来提升飞机的性相"
+    },
+    {
+	"id": "soviet_airsupremacy_mark",
+	"label": "Soviet_airsupremacy",
+	"lifetime": 1,
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来判断飞机"
+    },
+    {
+	"id": "german_airsupremacy_mark",
+	"label": "German_airsupremacy",
+	"lifetime": 1,
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来判断飞机"
+    },
+    {
+	"id": "foe_airsupremacy",
+	"label": "foe_airsupremacy",
+	"lifetime": 1,
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来判断敌军拥有空优"
+    },
+    {
+	"id": "soviet_have_airsupremacy",
+	"label": "Soviet_airsupremacy",
+	"lifetime": 1,
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来判断苏军拥有空优"
+    },
+    {
+	"id": "soviet_airsupremacy",
+	"label": "Soviet_airsupremacy",
+	"lifetime": 1,
+	"isAspect": false,
+	"isHidden": false,
+	"comments": "此卡用来判断阶段性空优"
+    },
+    {
+	"id": "german_airsupremacy",
+	"label": "German_airsupremacy",
+	"lifetime": 1,
+	"isAspect": false,
+	"isHidden": false,
+	"comments": "此卡用来判断阶段性空优"
+    },
+    {
+	"id": "turn_soviet_neutral",
+	"label": "turn_soviet_neutral",
+	"verbicon": "soviet_neutral_airsupremacy",
+	"lifetime": 1,
+	"aspects": {
+		"soviet_have_airsupremacy": 1
+	},
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来转换行动图案"
+    },
+    {
+	"id": "turn_soviet_aggro",
+	"label": "turn_soviet_aggro",
+	"verbicon": "soviet_aggro_airsupremacy",
+	"lifetime": 1,
+	"aspects": {
+		"soviet_have_airsupremacy": 1,
+		"foe_airsupremacy": 1
+	},
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来转换行动图案"
+    },
+    {
+	"id": "turn_german",
+	"label": "turn_german",
+	"verbicon": "german_airsupremacy",
+	"lifetime": 1,
+	"aspects": {
+		"foe_airsupremacy": 1
+	},
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来转换行动图案"
+    },
+    {
+	"id": "turn_valkyrie",
+	"label": "turn_valkyrie",
+	"verbicon": "valkyrie_airsupremacy",
+	"lifetime": 1,
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来转换行动图案"
+    },
+    {
+	"id": "adv_german",
+	"label": "adv_german",
+	"lifetime": 1,
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来转换场上卡牌是否空优"
+    },
+    {
+	"id": "adv_soviet",
+	"label": "adv_soviet",
+	"lifetime": 1,
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来转换场上卡牌是否空优"
+    },
+    {
+	"id": "adv_none",
+	"label": "adv_none",
+	"lifetime": 1,
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来转换场上卡牌是否空优"
+    },
+    {
+	"id": "ins_german",
+	"label": "intelligence superiority",
+	"isAspect": true,
+	"comments": "此卡用来标记空中优势"
+    },
+    {
+	"id": "ins_soviet_neutral",
+	"label": "intelligence superiority",
+	"isAspect": true,
+	"comments": "此卡用来标记空中优势"
+    },
+    {
+	"id": "ins_soviet_aggro",
+	"label": "intelligence superiority",
+	"isAspect": true,
+	"comments": "此卡用来标记空中优势"
+    },
+
+    {
 	"id": "umiri_promotiontodisciple",
 	"label": "Umiri_promotiontodisciple",
 	"isAspect": true,
-	"isHidden": true
+	"isHidden": true,
+	"comments": "此卡用来把尸体变为追猎者"
     },
 
     {
@@ -130,6 +288,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.infantry",
+	    "adv_german": "foe.infantry.ins",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -192,6 +351,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.infantry.hidden",
+	    "adv_german": "foe.infantry.hidden.ins",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -246,6 +406,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.kommando",
+	    "adv_german": "foe.kommando.ins",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -309,6 +470,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.kommando.hidden",
+	    "adv_german": "foe.kommando.hidden.ins",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -362,6 +524,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.sniper",
+	    "adv_german": "foe.sniper.ins",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -445,6 +608,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.sniper.hidden",
+	    "adv_german": "foe.sniper.hidden.ins",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -548,6 +712,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.tanks",
+	    "adv_german": "foe.tanks.ins",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -631,6 +796,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.tanks.hidden",
+	    "adv_german": "foe.tanks.hidden.ins",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -689,10 +855,12 @@
 	    "foe.aerial": 1,
 		"foe_points": 3,
 	    "german": 1,
+		"german_airsupremacy_mark": 1,
 		"machanized_forces": 1
 	},
 	"xtriggers": {
 	    "refresh": "foe.bombers",
+	    "adv_german": "foe.bombers.ins",
 	    "refreshair": "foe.bombers",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
@@ -770,10 +938,12 @@
 	    "foe.hidden": 1,
 	    "german": 1,
 		"foe_points": 3,
+		"german_airsupremacy_mark": 1,
 		"machanized_forces": 1
 	},
 	"xtriggers": {
 	    "refresh": "foe.bombers.hidden",
+	    "adv_german": "foe.bombers.hidden.ins",
 	    "refreshair": "foe.bombers.hidden",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
@@ -813,25 +983,27 @@
 	"noStack": true
     },
     {
-	"id": "foe.bomberslocal",
-	"label": "Enemy Close Air Support Aircraft",
+	"id": "foe.fighter_aircraft",
+	"label": "Enemy fighter aircraft",
 	"description": "First there is the thrum of the rotors, then the long whistle of the descent, and then the scream of new fire.\n\n[When the air base is destroyed, this aircraft will be destroyed as well.]",
 	"inherits": "foe.template",
 	"aspects": {
 	    "mortal": 1,
-	    "needsedge": 16,
+	    "needsedge": 20,
 	    "foe.aerial": 2,
-		"foe_points": 3,
+		"foe_points": 4,
 	    "german": 1,
+		"german_airsupremacy_mark": 2,
 		"machanized_forces": 1
 	},
 	"xtriggers": {
-	    "refresh": "foe.bomberslocal",
-	    "refreshair": "foe.bomberslocal",
+	    "refresh": "foe.fighter_aircraft",
+	    "adv_german": "foe.fighter_aircraft.ins",
+	    "refreshair": "foe.fighter_aircraft",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
-	    "concealidentity": "foe.bomberslocal.hidden",
+	    "concealidentity": "foe.fighter_aircraft.hidden",
 	    "takeadditional": [
 		{
 		    "id": "needsedge",
@@ -877,42 +1049,44 @@
 	    ]
 	},
 	"lifetime": 240,
-	"decayTo": "foe.bomberslocal.refuel"
+	"decayTo": "foe.fighter_aircraft.refuel"
     },
     {
-	"id": "foe.bomberslocal.refuel",
-	"label": "Enemy Close Air Support Aircraft (Refueling)",
+	"id": "foe.fighter_aircraft.refuel",
+	"label": "Enemy fighter aircraft (Refueling)",
 	"description": "The Luftwaffe contingent plaguing us has withdrawn to refuel and rearm. They won't be gone forever.",
 	"lifetime": 60,
 	"aspects": {
 		"machanized_forces": 1
 	},
 	"xtriggers": {
-	    "refresh": "foe.bomberslocal",
-	    "refreshair": "foe.bomberslocal"
+	    "refresh": "foe.fighter_aircraft",
+	    "refreshair": "foe.fighter_aircraft"
 	},
-	"decayTo": "foe.bomberslocal",
-	"icon": "foe.bomberslocal",
+	"decayTo": "foe.fighter_aircraft",
+	"icon": "foe.fighter_aircraft",
 	"resaturate": true
     },
     {
-	"id": "foe.bomberslocal.hidden",
+	"id": "foe.fighter_aircraft.hidden",
 	"label": "Unknown Enemy",
 	"description": "The most dangerous enemy is one that goes unanticipated.",
 	"inherits": "foe.template",
 	"aspects": {
 	    "foe.hidden": 1,
 	    "german": 1,
-		"foe_points": 3,
+		"foe_points": 4,
+		"german_airsupremacy_mark": 2,
 		"machanized_forces": 1
 	},
 	"xtriggers": {
-	    "refresh": "foe.bomberslocal.hidden",
-	    "refreshair": "foe.bomberslocal.hidden",
+	    "refresh": "foe.fighter_aircraft.hidden",
+	    "adv_german": "foe.fighter_aircraft.hidden.ins",
+	    "refreshair": "foe.fighter_aircraft.hidden",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
-	    "revealidentity": "foe.bomberslocal",
+	    "revealidentity": "foe.fighter_aircraft",
 	    "weaken": [
 		{
 		    "id": "weakened",
@@ -961,6 +1135,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.artillery",
+	    "adv_german": "foe.artillery.ins",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -1038,6 +1213,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.artillery.hidden",
+	    "adv_german": "foe.artillery.hidden.ins",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -1095,6 +1271,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.manhunters",
+	    "adv_german": "foe.manhunters.ins",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -1197,6 +1374,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.manhunters.hidden",
+	    "adv_german": "foe.manhunters.hidden.ins",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -3081,6 +3259,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.chasseur",
+	    "adv_german": "foe.chasseur.ins",
 	    "killgerman": "foe.chasseur.reviving",
 	    "killfoe": "foe.chasseur.reviving",
 	    "enemyintoenvironment": "foe.chasseur.environment.hidden",
@@ -3158,6 +3337,7 @@
 	},
 	"xtriggers": {
 	    "refresh": "foe.chasseur.hidden",
+	    "adv_german": "foe.chasseur.hidden.ins",
 	    "killgerman": "foe.chasseur.reviving",
 	    "killfoe": "foe.chasseur.reviving",
 	    "enemyintoenvironment": "foe.chasseur.environment.hidden",

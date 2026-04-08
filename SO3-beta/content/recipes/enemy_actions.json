@@ -432,7 +432,9 @@
 			"marinette.marker": 1,
 		    "soviet": 1,
 		    "detectivetemptation": 1,
-		    "foe.exilenightmare": 1
+		    "foe.exilenightmare": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -490,7 +492,9 @@
 			"marinette.marker": 1,
 		    "soviet": 1,
 		    "detectivetemptation": 1,
-		    "foe.exilenightmare": 1
+		    "foe.exilenightmare": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -548,7 +552,9 @@
 		    "soviet": 1,
 		    "detectivetemptation": 1,
 		    "marinette.marker": 1,
-		    "foe.exilenightmare": 1
+		    "foe.exilenightmare": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -685,7 +691,9 @@
 		    "foe.rankofficer": 1,
 			"marinette.marker": 1,
 		    "foe.niniame": 1,
-		    "foe.niniame.hidden": 1
+		    "foe.niniame.hidden": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -731,7 +739,9 @@
 		    "soviet": 1,
 		    "detectivetemptation": 1,
 		    "marinette.marker": 1,
-		    "foe.exilenightmare": 1
+		    "foe.exilenightmare": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -802,7 +812,9 @@
 		    "soviet": 1,
 		    "detectivetemptation": 1,
 		    "marinette.marker": 1,
-		    "foe.exilenightmare": 1
+		    "foe.exilenightmare": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -862,7 +874,9 @@
 		    "soviet": 1,
 		    "detectivetemptation": 1,
 		    "marinette.marker": 1,
-		    "foe.exilenightmare": 1
+		    "foe.exilenightmare": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -896,7 +910,9 @@
 		    "foe.rankofficer": 1,
 			"marinette.marker": 1,
 		    "soviet": 1,
-		    "detectivetemptation": 1
+		    "detectivetemptation": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -992,6 +1008,12 @@
 		"id": "defend.opportunity.ingluviate"
 	    },
 	    {
+		"id": "defend.opportunity.german_airsupremacy"
+	    },
+	    {
+		"id": "defend.opportunity.soviet_airsupremacy"
+	    },
+	    {
 		"id": "defend.opportunity"
 	    }
 	],
@@ -1002,6 +1024,46 @@
 	    }
 	]
     },
+    {
+	"id": "defend.opportunity.german_airsupremacy",
+	"label": "Mount a Defense?",
+	"startdescription": "The enemy approaches - can we rise to meet them?\n\n[Defend by providing a card to equal any of the Enemy's Thresholds.]",
+	"requirements": {
+	    "german_airsupremacy_mark": 1,
+		"german": 1
+	},
+	"extantreqs": {
+		"turn_german": 1
+	},
+	"effects": {
+		"german_airsupremacy_up": 1
+	},
+	"linked": [
+	    {
+		"id": "defend.opportunity"
+	    }
+	]
+	},
+    {
+	"id": "defend.opportunity.soviet_airsupremacy",
+	"label": "Mount a Defense?",
+	"startdescription": "The enemy approaches - can we rise to meet them?\n\n[Defend by providing a card to equal any of the Enemy's Thresholds.]",
+	"requirements": {
+	    "soviet_airsupremacy_mark": 1,
+		"soviet": 1
+	},
+	"extantreqs": {
+		"soviet_have_airsupremacy": 1
+	},
+	"effects": {
+		"soviet_airsupremacy_up": 1
+	},
+	"linked": [
+	    {
+		"id": "defend.opportunity"
+	    }
+	]
+	},
     {
 	"id": "defend.opportunity.ingluviate",
 	"label": "A Voracious Abomination!",
@@ -2417,6 +2479,12 @@
 	},
 	"linked": [
 	    {
+		"id": "foe.soviet.airsupremacy"
+	    },
+	    {
+		"id": "foe.german.airsupremacy"
+	    },
+	    {
 		"id": "friend.wrake.killed"
 	    },
 	    {
@@ -2450,6 +2518,82 @@
 		"additional": true,
 		"chance": 40
 	    }
+	]
+    },
+    {
+	"id": "foe.german.airsupremacy",
+	"label": "No Survivors",
+	"startdescription": "Screams are silenced. Blood grows black in the moonlight. This enemy had shown no mercy.",
+	"requirements": {
+	    "german_airsupremacy_mark": 1
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!airsupremacy[situationstorage]+",
+			"effects": {
+				"german_airsupremacy": 1
+			}
+		}
+	],
+	"linked": [
+		{
+			"id": "foe.german.airsupremacy.2",
+			"chance": 50
+		}
+	]
+    },
+    {
+	"id": "foe.german.airsupremacy.2",
+	"label": "No Survivors",
+	"startdescription": "Screams are silenced. Blood grows black in the moonlight. This enemy had shown no mercy.",
+	"requirements": {
+	    "german_airsupremacy_mark": 1
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!airsupremacy[situationstorage]+",
+			"effects": {
+				"german_airsupremacy": 1
+			}
+		}
+	]
+    },
+    {
+	"id": "foe.soviet.airsupremacy",
+	"label": "No Survivors",
+	"startdescription": "Screams are silenced. Blood grows black in the moonlight. This enemy had shown no mercy.",
+	"requirements": {
+	    "soviet_airsupremacy_mark": 1
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!airsupremacy[situationstorage]+",
+			"effects": {
+				"soviet_airsupremacy": 1
+			}
+		}
+	],
+	"linked": [
+		{
+			"id": "foe.soviet.airsupremacy.2",
+			"chance": 50
+		}
+	]
+    },
+    {
+	"id": "foe.soviet.airsupremacy.2",
+	"label": "No Survivors",
+	"startdescription": "Screams are silenced. Blood grows black in the moonlight. This enemy had shown no mercy.",
+	"requirements": {
+	    "soviet_airsupremacy_mark": 1
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!airsupremacy[situationstorage]+",
+			"effects": {
+				"soviet_airsupremacy": 1
+			}
+		}
 	]
     },
     {
@@ -2764,7 +2908,9 @@
 			"marinette.marker": 1,
 		    "friend": 1,
 		    "soviet": 1,
-		    "otherworldly": 1
+		    "otherworldly": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -2814,10 +2960,33 @@
 	],
 	"linked": [
 	    {
+		"id": "german_airsupremacy.targetsoviets"
+	    },
+	    {
 		"id": "enemy.targetsoviets"
 	    }
 	]
     },
+    {
+	"id": "german_airsupremacy.targetsoviets",
+	"label": "Mount a Defense?",
+	"startdescription": "The enemy approaches - can we rise to meet them?\n\n[Defend by providing a card to equal any of the Enemy's Thresholds.]",
+	"requirements": {
+	    "german_airsupremacy_mark": 1,
+		"german": 1
+	},
+	"extantreqs": {
+		"turn_german": 1
+	},
+	"effects": {
+		"german_airsupremacy_up": 1
+	},
+	"linked": [
+	    {
+		"id": "enemy.targetsoviets"
+	    }
+	]
+	},
     {
 	"id": "enemy.targetsoviets",
 	"label": "A Hostile Offensive!",
@@ -2831,6 +3000,9 @@
 		"label": "Target",
 		"required": {
 		    "soviet": 1
+		},
+		"forbidden": {
+			"tomori.mark": 1
 		},
 		"greedy": true
 	    }
@@ -2989,6 +3161,11 @@
 		"level": 0
 	    }
 	],
+	"linked": [
+		{
+			"id": "foe.german.airsupremacy"
+		}
+	],
 	"alt": [
 	    {
 		"id": "produce.strife.contemnant",
@@ -3073,7 +3250,9 @@
 			"marinette.marker": 1,
 		    "soviet": 1,
 		    "detectivetemptation": 1,
-		    "otherworldly": 1
+		    "otherworldly": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }
@@ -3120,7 +3299,10 @@
 			"marinette.marker": 1,
 		    "soviet": 1,
 		    "detectivetemptation": 1,
-		    "otherworldly": 1
+		    "otherworldly": 1,
+			"tomori.mark": 1,
+			"umiri.mark": 1,
+			"umiri.mark": 1
 		},
 		"greedy": true
 	    }

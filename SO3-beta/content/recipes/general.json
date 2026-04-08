@@ -72,12 +72,16 @@
 	    "marinettearrival": 99,
 	    "nightmare_action": 99,
 	    "monster": 99,
+	    "airsupremacy": 99,
+	    "german_airsupremacy_trigger": 99,
+	    "soviet_neutral_airsupremacy_trigger": 99,
+	    "soviet_aggro_airsupremacy_trigger": 99,
 	    "foerally": 99,
 	    "foe_destruction": 99,
 	    "eyetoweakened": 99,
 	    "eyetounhidden": 99,
 	    "eyetoillumination": 99,
-	    "bomberslocal": 99
+	    "fighter_aircraft": 99
 	},
 	"linked": [
 	    {
@@ -145,16 +149,20 @@
 	    "spit.grail": 99,
 	    "nightmare_action": 99,
 	    "monster": 99,
+	    "airsupremacy": 99,
+	    "german_airsupremacy_trigger": 99,
+	    "soviet_neutral_airsupremacy_trigger": 99,
+	    "soviet_aggro_airsupremacy_trigger": 99,
 	    "foerally": 99,
 	    "foe_destruction": 99,
 	    "eyetoweakened": 99,
 	    "eyetounhidden": 99,
 	    "eyetoillumination": 99,
-	    "bomberslocal": 99
+	    "fighter_aircraft": 99
 	},
 	"purge": {
 	    "foe.bombers.refuel": 99,
-	    "foe.bomberslocal.refuel": 99,
+	    "foe.fighter_aircraft.refuel": 99,
 	    "aggro.bombers.refuel": 99,
 	    "objective": 99,
 	    "location": 99,
@@ -249,7 +257,7 @@
 	    "eyetoweakened": 99,
 	    "eyetounhidden": 99,
 	    "eyetoillumination": 99,
-	    "bomberslocal": 99
+	    "fighter_aircraft": 99
 	},
 	"linked": [
 	    {
@@ -289,16 +297,20 @@
 	    "action.king": 99,
 	    "produce.monster": 99,
 	    "monster": 99,
+	    "airsupremacy": 99,
+	    "german_airsupremacy_trigger": 99,
+	    "soviet_neutral_airsupremacy_trigger": 99,
+	    "soviet_aggro_airsupremacy_trigger": 99,
 	    "foerally": 99,
 	    "foe_destruction": 99,
 	    "eyetoweakened": 99,
 	    "eyetounhidden": 99,
 	    "eyetoillumination": 99,
-	    "bomberslocal": 99
+	    "fighter_aircraft": 99
 	},
 	"purge": {
 	    "foe.bombers.refuel": 99,
-	    "foe.bomberslocal.refuel": 99,
+	    "foe.fighter_aircraft.refuel": 99,
 	    "objective": 99,
 	    "location": 99,
 	    "hindrance": 99,
@@ -355,7 +367,11 @@
 		"additional": true
 	    },
 	    {
-		"id": "airfield.bomberslocal",
+		"id": "airsupremacy.cycle",
+		"additional": true
+	    },
+	    {
+		"id": "airfield.fighter_aircraft",
 		"additional": true
 	    },
 	    {
@@ -696,6 +712,9 @@
 		"id": "pre.trauma"
 	    },
 	    {
+		"id": "time.airfield"
+	    },
+	    {
 		"id": "time.clear"
 	    }
 	],
@@ -784,12 +803,26 @@
 	]
     },
     {
-	"id": "airfield.bomberslocal",
-	"actionid": "bomberslocal",
+	"id": "time.airfield",
+	"xpans": {
+		"refreshair": "[~/extant:airfield]"
+	},
+	"extantreqs": {
+		"airfield": 1
+	},
+	"linked": [
+		{
+			"id": "time.clear"
+		}
+	]
+    },
+    {
+	"id": "airfield.fighter_aircraft",
+	"actionid": "fighter_aircraft",
 	"label": "The air base is providing local fighter support.",
 	"startdescription": "The air base is providing local fighter support.",
 	"effects": {
-	    "foe.bomberslocal.hidden": "[~/extant:airfield] * 2"
+	    "foe.fighter_aircraft.hidden": "[~/extant:airfield] * 2"
 	},
 	"warmup": 15,
 	"extantreqs": {
@@ -1755,6 +1788,5 @@
 	"hintonly": true,
 	"craftable": false
     }
-
     ]
 }
