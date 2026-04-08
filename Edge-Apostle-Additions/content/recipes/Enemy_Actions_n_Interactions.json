@@ -1090,7 +1090,7 @@
     },
 	
 	{
-	"id": "enemy.defensive.preparation.startup",
+	"id": "enemy.defensive.preparation",
 	"actionid": "enemy.defensive.preparation",
 	"label": "Enemy Preparing Defensive Strategy!",
 	"startdescription": "The enemy plans it defense -",
@@ -1155,7 +1155,7 @@
 		    "soviet": 1,
 			"otherworldly" : 1,
 			"foe.hidden" : 1,
-			"offensive.buffed" : 1
+			"foe.offensive.buffed" : 1
 		},
 		"greedy": true
 	    }
@@ -1250,7 +1250,52 @@
 	"aspects": {
 	    "givelethal": 1
 	}
-	}
+	},
+	
+    {
+	"id": "attackenemy.failure.kommando.retaliatory",
+	"label": "Enemy Counterattack!",
+	"startdescription": "It's an ambush! The enemy was prepared for us, and isn't leaving without some pieces of us...",
+	"requirements": {
+	    "kommando.retaliatory": 1
+	},
+	"effects" : {
+		"decision.enemy.singleattack": 1	
+	},
+	"aspects": {
+	    "makecasualty": 1,
+	},
+	"warmup" : 5,
+	"inductions": [
+	    {
+		"id": "kommando.counterattack"
+	    }
+	]
+    },
+	
+    {
+	"id": "kommando.counterattack",
+	"$extends" : ["singleattack.startup"],
+	"actionid": "enemyaction.single",
+	"label": "Enemy Counterattack!",
+	"startdescription": "It's an ambush! The enemy was prepared for us, and isn't leaving without some pieces of us...",
+	"requirements" : {},
+	"effects" : {"decision.enemy.attack" : 1},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "kommando.retaliatory": 1
+		},
+		"forbidden": {
+		    "remnant": 1
+		},
+		"greedy": true
+	    },
+	],
+	"warmup": 10
+    }
 	
 	
 ]
