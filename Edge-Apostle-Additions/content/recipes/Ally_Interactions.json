@@ -175,12 +175,64 @@
 	"id": "command.ally.action.scouts",
 	"actionid": "ally.scouts.action",  
 	"label": "Command Scouts",
-	"startdescription": "I have a hindrance for my scouts to devise a path though. Find it.",
+	"startdescription": "I have something for my scouts to uncover. Find it.",
 	"linked": [  
+	
 		{
 		"id": "turnhindrance.scouts"
+	    },
+		
+		{
+		"id": "scouts.scopeout"
 	    }
+		
 	] 
+	},
+	
+	{
+	"id": "command.ally.action.scouts.recon.pre",
+	"actionid": "recon",
+	"label": "Command Scouts",
+	"startdescription": "I have an enemy I need intelligence on, and these are the men to get it.",
+	"grandReqs": {
+	    "provisions": 1,
+	    "friend.scouts": 1,
+		"[foe] || [foe.hidden]" : 1,
+		"[~/extant:allyattackmarker]=3": -1 
+	},
+	"effects" : {
+	"allyattackmarker" : 1
+	},
+	"inductions": [  
+		{
+		"id" : "command.ally.action.scouts",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+			}
+		}
+	],  
+	"craftable": true  
+	},
+	
+	{  
+    "id": "scouts.scopeout",  
+    "actionid": "recon",
+	"$priority" : 1,
+    "label": "Scope out the enemy: Scouts",  
+	"startdescription": "I have an enemy I need intelligence on, and these are the men to get it.",
+    "description": "The scouts return, with information on my enemy.",  
+    "aspects" : {
+		"revealidentity": 1,
+		"weaken": 1,
+		"fatiguing" : 1
+	},
+	"grandReqs" : {
+		"([foe] || [foe.hidden])": 1,
+		"provisions": 1,
+	    "friend.scouts": 1
+	},
+    "warmup": 30
 	},
 	
     {
