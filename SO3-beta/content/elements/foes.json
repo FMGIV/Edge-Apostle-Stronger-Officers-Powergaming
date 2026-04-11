@@ -1,6 +1,13 @@
 {
 "elements": [
     {
+	"id": "decaytoair",
+	"label": "decaytoair",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来清空飞机弹夹"
+    },
+    {
 	"id": "german_airsupremacy_up",
 	"label": "Soviet_airsupremacy",
 	"lifetime": 1,
@@ -1000,6 +1007,8 @@
 	    "refresh": "foe.fighter_aircraft",
 	    "adv_german": "foe.fighter_aircraft.ins",
 	    "refreshair": "foe.fighter_aircraft",
+	    "decaytoair": "foe.fighter_aircraft.refuel",
+	    "makecasualty": "foe.fighter_aircraft.damaged",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",
@@ -1052,6 +1061,17 @@
 	"decayTo": "foe.fighter_aircraft.refuel"
     },
     {
+	"id": "foe.fighter_aircraft.damaged",
+	"label": "Enemy fighter aircraft (Damaged)",
+	"description": "The Luftwaffe contingent plaguing us has withdrawn to refuel and rearm. They won't be gone forever.",
+	"lifetime": 240,
+	"aspects": {
+		"machanized_forces": 1
+	},
+	"decayTo": "foe.fighter_aircraft",
+	"resaturate": true
+    },
+    {
 	"id": "foe.fighter_aircraft.refuel",
 	"label": "Enemy fighter aircraft (Refueling)",
 	"description": "The Luftwaffe contingent plaguing us has withdrawn to refuel and rearm. They won't be gone forever.",
@@ -1083,6 +1103,8 @@
 	    "refresh": "foe.fighter_aircraft.hidden",
 	    "adv_german": "foe.fighter_aircraft.hidden.ins",
 	    "refreshair": "foe.fighter_aircraft.hidden",
+	    "decaytoair": "foe.fighter_aircraft.refuel",
+	    "makecasualty": "foe.fighter_aircraft.damaged",
 	    "killgerman": "foe.corpses",
 	    "killfoe": "foe.corpses",
 	    "killmortal": "foe.corpses",

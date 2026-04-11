@@ -55,6 +55,7 @@
 		},
 		"forbidden": {
 			"german": 1,
+		    "foe_arch": 1,
 			"umiri.mark": 1,
 			"tomori.mark": 1,
 			"neutral_monster": 1
@@ -70,6 +71,7 @@
 		},
 		"forbidden": {
 			"german": 1,
+		    "foe_arch": 1,
 			"umiri.mark": 1,
 			"tomori.mark": 1,
 			"neutral_monster": 1
@@ -85,6 +87,7 @@
 		},
 		"forbidden": {
 			"german": 1,
+		    "foe_arch": 1,
 			"umiri.mark": 1,
 			"tomori.mark": 1,
 			"neutral_monster": 1
@@ -130,6 +133,7 @@
 		},
 		"forbidden": {
 			"german": 1,
+		    "foe_arch": 1,
 			"umiri.mark": 1,
 			"tomori.mark": 1,
 			"neutral_monster": 1
@@ -145,6 +149,7 @@
 		},
 		"forbidden": {
 			"german": 1,
+		    "foe_arch": 1,
 			"umiri.mark": 1,
 			"tomori.mark": 1,
 			"neutral_monster": 1
@@ -160,6 +165,7 @@
 		},
 		"forbidden": {
 			"german": 1,
+		    "foe_arch": 1,
 			"umiri.mark": 1,
 			"tomori.mark": 1,
 			"neutral_monster": 1
@@ -1075,6 +1081,553 @@
 	    "supplies": -99,
 	    "weapon": -99
 	}
+    },
+	
+    {
+	"id": "enemy.executeaction.targetsoviets.airsupremacy.pre",
+	"label": "The Enemy Acts!",
+	"startdescription": "The alarm cries out - our adversary mobilises!",
+	"effects": {
+	    "decision": -99
+	},
+	"linked": [
+	    {
+		"id": "enemy.clear"
+	    }
+	],
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "enemy.executeaction.targetsoviets.airsupremacy",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "enemy.executeaction.targetsoviets.airsupremacy",
+	"actionid": "german_airsupremacy_gain",
+	"label": "The Enemy Acts!",
+	"startdescription": "The alarm cries out - our adversary mobilises!",
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Manpower",
+		"required": {
+		    "foe.fighter_aircraft": 1,
+			"foe.fighter_aircraft.hidden": 1,
+		    "foe.fighter_aircraft.ins": 1,
+			"foe.fighter_aircraft.hidden.ins": 1
+		},
+		"forbidden": {
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+		"revealidentity": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "enemy.executeaction.targetsoviets.airsupremacy.abfoe"
+	    }
+	]
+    },
+    {
+	"id": "enemy.executeaction.targetsoviets.airsupremacy.abfoe",
+	"label": "Aerial Combat!",
+	"startdescription": "Victory and defeat are often decided in an instant.",
+	"requirements": {
+	    "german": 1
+	},
+	"aspects": {
+		"revealidentity": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Manpower",
+		"required": {
+		    "neutral.fighter_aircraft": 1,
+			"neutral.fighter_aircraft.hidden": 1,
+		    "neutral.fighter_aircraft.ins": 1,
+			"neutral.fighter_aircraft.hidden.ins": 1,
+		    "aggro.fighter_aircraft": 1,
+			"aggro.fighter_aircraft.hidden": 1,
+		    "aggro.fighter_aircraft.ins": 1,
+			"aggro.fighter_aircraft.hidden.ins": 1
+		},
+		"forbidden": {
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "gain_airsupremacy.fight"
+	    }
+	]
+    },
+	
+    {
+	"id": "soviet.act.neutral.airsupremacy",
+	"label": "The Red Army Attacks!",
+	"startdescription": "The Russians move to orchestrate an offensive against their next target -",
+	"description": "The front is quiet. The Red Army makes no move.",
+	"extantreqs": {
+	    "state.sovietsaggro": -1
+	},
+	"requirements": {
+	    "readiness.token": 3
+	},
+	"effects": {
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "soviet.cycle"
+	    }
+	],
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "soviet.pickaction.router.neutral.airsupremacy",
+		"additional": true
+	    }
+	]
+    },
+    {
+	"id": "soviet.pickaction.router.neutral.airsupremacy",
+	"actionid": "soviet_neutral_airsupremacy_gain",
+	"label": "The Red Army Attacks!",
+	"startdescription": "The Russians move to orchestrate an offensive against their next target -",
+	"description": "The front is quiet. The Red Army makes no move.",
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Manpower",
+		"required": {
+		    "neutral.fighter_aircraft": 1,
+			"neutral.fighter_aircraft.hidden": 1,
+		    "neutral.fighter_aircraft.ins": 1,
+			"neutral.fighter_aircraft.hidden.ins": 1
+		},
+		"forbidden": {
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+		"revealidentity": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "soviet.pickaction.router.neutral.airsupremacy.abfoe"
+	    }
+	]
+    },
+    {
+	"id": "soviet.pickaction.router.neutral.airsupremacy.abfoe",
+	"label": "Aerial Combat!",
+	"startdescription": "Victory and defeat are often decided in an instant.",
+	"requirements": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Manpower",
+		"required": {
+		    "foe.fighter_aircraft": 1,
+			"foe.fighter_aircraft.hidden": 1,
+		    "foe.fighter_aircraft.ins": 1,
+			"foe.fighter_aircraft.hidden.ins": 1
+		},
+		"forbidden": {
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+		"revealidentity": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "gain_airsupremacy.fight"
+	    }
+	]
+    },
+
+    {
+	"id": "aggro.startup.singleattack.airsupremacy",
+	"actionid": "soviet_aggro_airsupremacy_gain",
+	"label": "The Red Army Attacks!",
+	"startdescription": "The Russians move to orchestrate an offensive against their next target -",
+	"description": "The front is quiet. The Red Army makes no move.",
+	"requirements": {
+	    "draw.soviet.singleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Manpower",
+		"required": {
+		    "aggro.fighter_aircraft": 1,
+			"aggro.fighter_aircraft.hidden": 1,
+		    "aggro.fighter_aircraft.ins": 1,
+			"aggro.fighter_aircraft.hidden.ins": 1
+		},
+		"forbidden": {
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+		"revealidentity": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "aggro.startup.singleattack.airsupremacy.abfoe"
+	    }
+	]
+    },
+    {
+	"id": "aggro.startup.singleattack.airsupremacy.abfoe",
+	"label": "Aerial Combat!",
+	"startdescription": "Victory and defeat are often decided in an instant.",
+	"requirements": {
+	    "soviet": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Manpower",
+		"required": {
+		    "foe.fighter_aircraft": 1,
+			"foe.fighter_aircraft.hidden": 1,
+		    "foe.fighter_aircraft.ins": 1,
+			"foe.fighter_aircraft.hidden.ins": 1
+		},
+		"forbidden": {
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+		"revealidentity": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "gain_airsupremacy.fight"
+	    }
+	]
+    },
+	
+    {
+	"id": "gain_airsupremacy.fight",
+	"label": "Aerial Combat!",
+	"startdescription": "Victory and defeat are often decided in an instant.",
+	"requirements": {
+	},
+	"warmup": 20,
+	"alt": [
+		{
+			"id": "gain_airsupremacy.makecasualty",
+			"chance": 30,
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"[soviet] || [german]": 1
+				},
+				"limit": 1
+			}
+		},
+	    {
+		"id": "gain_airsupremacy.sovietwin"
+	    },
+	    {
+		"id": "gain_airsupremacy.germanwin"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "gain_airsupremacy.broken"
+	    }
+	]
+    },
+    {
+	"id": "gain_airsupremacy.sovietwin",
+	"label": "The Red Army Prevails!",
+	"startdescription": "-",
+	"requirements": {
+		"soviet_airsupremacy": 2
+	},
+	"effects": {
+		"soviet_airsupremacy": -99,
+		"german_airsupremacy": -99
+	},
+	"aspects": {
+		"decaytoair": 1
+	},
+	"warmup": 15,
+	"furthermore": [
+		{
+			"target": "~/tabletop!airsupremacy[situationstorage]+",
+			"effects": {
+				"soviet_airsupremacy": 2
+			}
+		}
+	],
+	"linked": [
+	]
+    },
+    {
+	"id": "gain_airsupremacy.germanwin",
+	"label": "The Enemy Prevails!",
+	"startdescription": "-",
+	"requirements": {
+		"german_airsupremacy": 2
+	},
+	"effects": {
+		"soviet_airsupremacy": -99,
+		"german_airsupremacy": -99
+	},
+	"aspects": {
+		"decaytoair": 1
+	},
+	"warmup": 15,
+	"furthermore": [
+		{
+			"target": "~/tabletop!airsupremacy[situationstorage]+",
+			"effects": {
+				"german_airsupremacy": 2
+			}
+		}
+	],
+	"linked": [
+	]
+    },
+    {
+	"id": "gain_airsupremacy.broken",
+	"label": "Aerial Combat!",
+	"startdescription": "Victory and defeat are often decided in an instant.",
+	"requirements": {
+	},
+	"warmup": 0,
+	"linked": [
+	    {
+		"id": "gain_airsupremacy.soviet"
+	    },
+	    {
+		"id": "gain_airsupremacy.german"
+	    },
+	    {
+		"id": "gain_airsupremacy.none",
+		"chance": 50
+	    },
+	    {
+		"id": "gain_airsupremacy.end"
+	    }
+	]
+    },
+    {
+	"id": "gain_airsupremacy.soviet",
+	"label": "Aerial Combat!",
+	"startdescription": "Victory and defeat are often decided in an instant.",
+	"requirements": {
+	},
+	"grandreqs": {
+		"[soviet_points] - [foe_points]": 2
+	},
+	"effects": {
+		"german_airsupremacy": -99,
+		"soviet_airsupremacy": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Manpower",
+		"required": {
+		    "foe.fighter_aircraft": 1,
+			"foe.fighter_aircraft.hidden": 1,
+		    "foe.fighter_aircraft.ins": 1,
+			"foe.fighter_aircraft.hidden.ins": 1
+		},
+		"forbidden": {
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+		"revealidentity": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "gain_airsupremacy.fight"
+	    }
+	]
+    },
+    {
+	"id": "gain_airsupremacy.german",
+	"label": "Aerial Combat!",
+	"startdescription": "Victory and defeat are often decided in an instant.",
+	"requirements": {
+	},
+	"grandreqs": {
+		"[foe_points] - [soviet_points]": 2
+	},
+	"effects": {
+		"soviet_airsupremacy": -99,
+		"german_airsupremacy": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Manpower",
+		"required": {
+		    "neutral.fighter_aircraft": 1,
+			"neutral.fighter_aircraft.hidden": 1,
+		    "neutral.fighter_aircraft.ins": 1,
+			"neutral.fighter_aircraft.hidden.ins": 1,
+		    "aggro.fighter_aircraft": 1,
+			"aggro.fighter_aircraft.hidden": 1,
+		    "aggro.fighter_aircraft.ins": 1,
+			"aggro.fighter_aircraft.hidden.ins": 1
+		},
+		"forbidden": {
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+		"revealidentity": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "gain_airsupremacy.fight"
+	    }
+	]
+    },
+    {
+	"id": "gain_airsupremacy.none",
+	"label": "Aerial Combat!",
+	"startdescription": "Victory and defeat are often decided in an instant.",
+	"requirements": {
+	},
+	"effects": {
+		"soviet_airsupremacy": -99,
+		"german_airsupremacy": 1
+	},
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Manpower",
+		"required": {
+		    "foe.fighter_aircraft": 1,
+			"foe.fighter_aircraft.hidden": 1,
+		    "foe.fighter_aircraft.ins": 1,
+			"foe.fighter_aircraft.hidden.ins": 1,
+		    "neutral.fighter_aircraft": 1,
+			"neutral.fighter_aircraft.hidden": 1,
+		    "neutral.fighter_aircraft.ins": 1,
+			"neutral.fighter_aircraft.hidden.ins": 1,
+		    "aggro.fighter_aircraft": 1,
+			"aggro.fighter_aircraft.hidden": 1,
+		    "aggro.fighter_aircraft.ins": 1,
+			"aggro.fighter_aircraft.hidden.ins": 1
+		},
+		"forbidden": {
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+		"revealidentity": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "gain_airsupremacy.fight"
+	    }
+	]
+    },
+    {
+	"id": "gain_airsupremacy.end",
+	"label": "No one wins.",
+	"startdescription": "-",
+	"requirements": {
+	},
+	"aspects": {
+		"decaytoair": 1
+	},
+	"effects": {
+		"soviet_airsupremacy": -99,
+		"german_airsupremacy": -99
+	},
+	"warmup": 15,
+	"linked": [
+	]
+    },
+    {
+	"id": "gain_airsupremacy.makecasualty",
+	"actionId": "air.makecasualty",
+	"label": "Damaged!",
+	"startdescription": "It's been hit in the wing! Oh, it's caught fire!",
+	"requirements": {
+	},
+	"aspects": {
+		"makecasualty": 1,
+		"killsoviet": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "gain_airsupremacy.more",
+		"chance": 50
+	    }
+	]
+    },
+    {
+	"id": "gain_airsupremacy.more",
+	"actionId": "air.makecasualty",
+	"label": "Damaged!",
+	"startdescription": "It's been hit in the wing! Oh, it's caught fire!",
+	"requirements": {
+	},
+	"aspects": {
+		"makecasualty": 1
+	},
+	"extantreqs": {
+		"airfield": -1
+	},
+	"warmup": 0,
+	"linked": [
+	]
     }
     ]
 }
