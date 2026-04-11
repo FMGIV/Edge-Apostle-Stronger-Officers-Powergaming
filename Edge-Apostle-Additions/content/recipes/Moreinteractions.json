@@ -1184,7 +1184,52 @@
 		"chance": 45
 	    }
 	]
-    }
+    },
+	
+	{
+	"id": "hint.killmarinette",
+	"actionid": "operate",
+	"$priority" : 1,
+	"label": "Dealing with Marinette?",
+	"startdescription": "If I want to deal with my Dry-Witch problem in totality, I'm going to have to unmake all the Ivories and the Blood-on-Hand's Marinette's brought with her. I will also need the <color=red>Desire<color=#005500> to utterly end her.",
+	"requirements": {
+	    "marinette.opening": 1
+	},  
+    "grandReqs": {
+        "([~/extant:foe.bloodonhands] || [~/extant:foe.bloodonhands.hidden] || [~/extant:foe.ivory] || [~/extant:foe.ivory.hidden]) >= 1": 1
+     },
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{  
+    "id": "killmarinette",  
+    "actionid": "operate",
+	"$priority" : 1,
+    "label": "Annihilation over Desire",  
+    "startdescription": "A hatred stronger than desire moves through my soul and my flesh. A great howling resounds through the wasteland. I reach out for Marinette...",  
+    "description": "A great shadow consumes Marinette. I hear a bloodcurdling, unnatural scream and then nothing. She won't be a problem anymore.",  
+    "requirements": {  
+        "antithesis": 1,
+		"op.wolfdivided" : 2,
+		"skill.unmake" : 1
+    },
+	"grandReqs" : {
+		"([foe.marinette] || [foe.marinette.recovering])": 1,
+		"[edge]>[needsedge]": 1
+	},
+    "aspects": {  
+		"fatiguing" : 1
+    },
+    "effects": {  
+		"foe.marinette" : -1,
+		"foe.marinette.recovering" : -1,
+		"op.wolfdivided" : -2,
+		"marinette.gone" : 1
+    },    
+    "warmup": 30,  
+    "craftable": true  
+	}
 	
 ]
 }
