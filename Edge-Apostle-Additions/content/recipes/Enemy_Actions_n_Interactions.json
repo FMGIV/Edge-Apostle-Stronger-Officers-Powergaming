@@ -1177,6 +1177,7 @@
 	
 	{
 	"id": "enemy.offensive.preparation.router",
+	"actionid": "enemy.offensive.preparation",
 	"label": "Enemy Preparing Offensive Strategy!",
 	"startdescription": "The enemy plans it offense -",
 	"description": "The enemy is more prepared to kill us now. It won't help them.",
@@ -1212,9 +1213,6 @@
 	"label": "Enemy Preparing Offensive Strategy!",
 	"startdescription": "The enemy plans it offense -",
 	"description": "The enemy is more prepared to kill us now. It won't help them.",
-	"requirements": {
-		"foe.equipped" : -1
-	},
 	"aspects": {
 	    "giveammo": 1,
 		"makeadditional" : 1
@@ -1303,7 +1301,166 @@
 	    },
 	],
 	"warmup": 10
-    }
+    },
+	
+	{
+	"id": "enemy.defensive.preparation.alternate",
+	"actionid": "enemy.defensive.preparation",
+	"label": "Enemy Preparing Defensive Strategy!",
+	"startdescription": "The enemy plans it defense -",
+	"description": "The enemy is more prepared for us now. It won't help them.",
+	"aspects": {
+	    "defensiveprep": 1
+	}
+	},
+	
+	{  
+	"id": "enemy.preparation.pre",
+	"actionid": "enemybuffs",  
+	"label": "Enemy Preparations!",
+	"startdescription": "Enemy Authorities have noticed our results, and have assigned more resources to our enemies here-",
+	"extantreqs": {
+		"foe.preparation.buffed" : -1,
+		"lake.here" : -1,
+		"craterfield.here" : -1,
+		"wasteland.ironeater.here" : -1,
+		"wasteland.a" : -1,
+		"wasteland.b" : -1,
+		"wasteland.a.italy" : -1,
+		"wasteland.b.italy" : -1,
+		"sobibor.here" : -1,
+		"wasteland.a.contemnant" : -1,
+		"wasteland.b.contemnant" : -1
+	},
+	"grandReqs": { 
+        "([~/exterior:resolution] > 1) || ([~/exterior:retribution] > 1)": 1
+    },
+	"xpans": {
+		"dynamicbuffonce" : 1
+	},
+	"linked": [  
+		{
+		"id": "enemy.preparation.resolution"
+	    },
+		
+		{
+		"id": "enemy.preparation.retribution"
+	    }
+	] 
+	},
+	
+	{
+	"id": "enemy.preparation.resolution",
+	"label": "Enemy Preparations!",
+	"startdescription": "Enemy Authorities have noticed our results, and have assigned more resources to our enemies here-",
+	"description": "They're more prepared for us now.",
+	"warmup": 5,
+	"effects" : {
+		"buffcounter" : 1
+	},
+	"grandReqs": { 
+        "([~/exterior:resolution] + [~/exterior:rome.here] * 10 + [~/exterior:stalingrad.here] * 10) > ([buffcounter] * 2)": 1 
+    },
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "german": 1,
+			"foe" : 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+			"otherworldly" : 1,
+			"foe.hidden" : 1,
+			"kommando.retaliatory" : 1,
+			"foe.hulldown" : 1,
+			"foe.escorted" : 1,
+			"foe.emplaced" : 1,
+			"foe.braced" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"inductions": [
+	    {
+		"id": "enemy.defensive.preparation.alternate",
+		"chance" : 50,
+		"expulsion": {
+			"filter": { "tlg.note": -1, "buffcounter" : -1},
+		    "limit": 5
+		}
+	    },
+		
+		{
+		"id": "enemy.offensive.preparation.router",
+		"expulsion": {
+			"filter": { "tlg.note": -1, "buffcounter" : -1},
+		    "limit": 5
+		}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "enemy.preparation.resolution"
+	    }
+	]
+	},
+	
+	{
+	"id": "enemy.preparation.retribution",
+	"actionid": "enemybuffs",
+	"label": "Enemy Preparations!",
+	"startdescription": "Enemy Authorities have noticed our results, and have assigned more resources to our enemies here-",
+	"description": "They're more prepared for us now.",
+	"warmup": 5,
+	"effects" : {
+		"buffcounter" : 1
+	},
+	"grandReqs": { 
+        "([~/exterior:retribution] + [~/exterior:berlin.here] * 10) > ([buffcounter] * 2)": 1 
+    },
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "german": 1,
+			"foe" : 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+			"otherworldly" : 1,
+			"foe.hidden" : 1,
+			"kommando.retaliatory" : 1,
+			"foe.hulldown" : 1,
+			"foe.escorted" : 1,
+			"foe.emplaced" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"inductions": [
+	    {
+		"id": "enemy.defensive.preparation.alternate",
+		"expulsion": {
+			"filter": { "tlg.note": -1, "buffcounter" : -1},
+		    "limit": 5
+		}
+	    }
+	],
+	"linked": [
+	
+	    {
+		"id": "enemy.preparation.retribution"
+	    }
+		
+	]
+	}
 	
 	
 ]
