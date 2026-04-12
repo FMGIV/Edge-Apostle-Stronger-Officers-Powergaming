@@ -1,0 +1,677 @@
+{
+"recipes": [
+
+	{
+	"id": "duelling.longattack.feint",
+	"$extends" : ["duelling.longattack"],
+	"warmup": 20,
+	"linked": [
+		{
+		"id": "duelling.successful.feint"
+	    },
+		
+	    {
+		"id": "duelling.failed.feint"
+	    }
+	],
+	"alt" : []
+	},
+	
+	{
+	"id": "duelling.failed.feint",
+	"label" : "A Feint, Failed",
+	"startdescription" : "I was not drawn out by the Edge-Long's feint. They continue circling, looking for an opening.",
+	"description" : "And so we continue circling each other.",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "duelling.clear"
+	    }
+	]
+	},
+	
+	{
+	"id": "duelling.successful.feint",
+	"label" : "A Feint, Succeeded!",
+	"startdescription" : "I've unwisely used my defence in the abscence of a real attack. Now the Edge-Long closes in, capitalizing on my opening-",
+	"description" : "I'd best hope I still have a defence.",
+	"warmup": 5,
+	"grandReqs" : {
+	"[edge] || [lantern] || [winter]" : 1,
+	"([edge] >= [needsedge]) || ([lantern] >= [needslantern]) || ([winter] >= [needswinter]) || [skill.deflect]" : 1
+	},
+	"linked": [
+	    {
+		"id": "duelling.longattack"
+	    }
+	],
+	"inductions": [
+	    {
+		"id": "eject.exhausted",
+	 	"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"exhausted": 1,
+			"husk": 1,
+		    	"edge": 1,
+		    	"winter": 1,
+		    	"heart": 1,
+		    	"grail": 1,
+		    	"moth": 1,
+		    	"lantern": 1,
+		    	"forge": 1,
+		    	"knock": 1
+		    }
+		}
+	    }
+	]
+	},
+	
+    {
+	"id": "duelling.respond.lantern",
+	"$extends" : ["duelling.respond.edge"],
+	"label": "Sight, Unhindered",
+	"startdescription": "The Colonel is blind, but his unseeing eyes percieve everything. I am blinded by the steam the Warmaker produces, but those are not my only senses to draw on. I percieve him, and fend him off.",
+	"requirements": {
+	    "needslantern": 1,
+	    "lantern": "needslantern"
+	},
+	"warmup" : 5
+    },
+	
+    {
+	"id": "duelling.respond.edgelantern",
+	"$extends" : ["duelling.respond.edge"],
+	"label": "Wisdom and Cunning",
+	"startdescription": "I percieve his strikes through the steam and defend accordingly. His punches hit only air.",
+	"requirements": {
+	    "needsedgelantern": 1,
+	    "edge": "needsedgelantern",
+	    "lantern": "needsedgelantern"
+	},
+	"warmup" : 5
+    },
+	
+	{
+	"id": "duelling.longattack.feint.proterant",
+	"$extends" : ["duelling.longattack.proterant"],
+	"warmup": 20,
+	"linked": [
+		{
+		"id": "duelling.successful.feint.proterant"
+	    },
+		
+	    {
+		"id": "duelling.failed.feint.proterant"
+	    }
+	],
+	"alt" : []
+	},
+	
+	{
+	"id": "duelling.failed.feint.proterant",
+	"$extends" : ["duelling.failed.feint"],
+	"linked": [
+	    {
+		"id": "duelling.clear.proterant"
+	    }
+	]
+	},
+	
+	{
+	"id": "duelling.successful.feint.proterant",
+	"$extends" : ["duelling.successful.feint"],
+	"grandReqs" : {
+	"[edge] || [forge] || [heart]" : 1,
+	"([edge] >= [needsedge]) || ([forge] >= [needsforge]) || ([heart] >= [needsheart])" : 1
+	},
+	"linked": [
+	    {
+		"id": "duelling.longattack.proterant"
+	    }
+	]
+	},
+	
+    {
+	"id": "duelling.respond.heart.proterant",
+	"$extends" : ["duelling.respond.edge.proterant"],
+	"label": "The Heart's Defiance",
+	"startdescription": "The Lionsmith defied his enemy, and now so do I. My heart remains resolute against the Continental. My defiance continues.",
+	"requirements": {
+	    "needsheart": 1,
+	    "heart": "needsheart"
+	},
+	"warmup" : 5
+    },
+	
+    {
+	"id": "duelling.respond.edgeheart.proterant",
+	"$extends" : ["duelling.respond.edge.proterant"],
+	"label": "Courage and Strength",
+	"startdescription": "My blood is not so easily stilled. My flesh remains irrefragible and unbroken against the Continental's unrelenting assault.",
+	"requirements": {
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart"
+	},
+	"warmup" : 5
+    },
+	
+	{
+	"id": "exile.feint",
+	"$extends" : ["exile.attacks"],
+	"warmup": 20,
+	"linked": [
+		{
+		"id": "exile.successful.feint"
+	    },
+		
+	    {
+		"id": "exile.failed.feint"
+	    }
+	],
+	"alt" : []
+	},
+	
+	{
+	"id": "exile.failed.feint",
+	"$extends" : ["duelling.failed.feint"],
+	"linked": [
+	    {
+		"id": "exile.bossfight.clear"
+	    }
+	]
+	},
+	
+	{
+	"id": "exile.successful.feint",
+	"$extends" : ["duelling.successful.feint"],
+	"grandReqs" : {
+	"[edge] || [grail]" : 1,
+	"([edge] >= [needsedge]) || ([grail] >= [needsgrail])" : 1
+	},
+	"linked": [
+	    {
+		"id": "exile.attacks"
+	    }
+	]
+	},
+	
+	{
+	"id": "foe.feint",
+	"$extends" : ["foe.attacks"],
+	"warmup": 20,
+	"linked": [
+		{
+		"id": "foe.successful.feint"
+	    },
+		
+	    {
+		"id": "foe.failed.feint"
+	    }
+	],
+	"alt" : []
+	},
+	
+	{
+	"id": "foe.failed.feint",
+	"$extends" : ["duelling.failed.feint"],
+	"linked": [
+	    {
+		"id": "foe.bossfight.clear"
+	    }
+	]
+	},
+	
+	{
+	"id": "foe.successful.feint",
+	"$extends" : ["duelling.successful.feint"],
+	"grandReqs" : {
+	"[edge] || [lantern]" : 1,
+	"([edge] >= [needsedge]) || ([lantern] >= [needslantern])" : 1
+	},
+	"linked": [
+	    {
+		"id": "foe.attacks"
+	    }
+	]
+	},
+	
+	{
+	"id": "sergei.feint",
+	"$extends" : ["fightingsergei.longattack"],
+	"warmup": 20,
+	"linked": [
+		{
+		"id": "sergei.successful.feint"
+	    },
+		
+	    {
+		"id": "sergei.failed.feint"
+	    }
+	],
+	"alt" : []
+	},
+	
+	{
+	"id": "sergei.failed.feint",
+	"$extends" : ["duelling.failed.feint"],
+	"linked": [
+	    {
+		"id": "fightingsergei.clear"
+	    }
+	]
+	},
+	
+	{
+	"id": "sergei.successful.feint",
+	"$extends" : ["duelling.successful.feint"],
+	"grandReqs" : {
+	"[edge] || [forge]" : 1,
+	"([edge] >= [needsedge]) || ([forge] >= [needsforge])" : 1
+	},
+	"linked": [
+	    {
+		"id": "fightingsergei.longattack"
+	    }
+	]
+	},
+	
+    {
+	"id": "wilhelm.usechallenge",
+	"label": "Resolve",
+	"startdescription": "'Oh? You're approaching me? Instead of running away, you're coming right to me? <i>Wunderbar.<i/>'\n\n[Once you initiate this battle, there will be no turning back.]",
+	"requirements": {
+		"challenge" : 1
+	},
+	"extantreqs" : {
+		"foe.wilhelm": 1
+	},
+	"effects": {
+	    "long.bossfight.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "intro.bossfight.wilhelm"
+	    }
+	]
+    },
+	
+    {
+	"id": "intro.bossfight.wilhelm",
+	"label": "Immortal Confrontation",
+	"startdescription": "",
+	"requirements": {
+	    "foe.wilhelm": 1
+	},
+	"effects": {
+	    "long.bossfight.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "duelling.longattack.pre"
+	    }
+	]
+    },
+	
+    {
+	"id": "camilla.usechallenge",
+	"label": "Audacity",
+	"startdescription": "'Impressive Audacity. This may actually be worth my time.'\n\n[Once you initiate this battle, there will be no turning back.]",
+	"requirements": {
+		"challenge" : 1
+	},
+	"extantreqs" : {
+		"foe.camilla": 1
+	},
+	"effects": {
+	    "long.bossfight.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "intro.bossfight.camilla"
+	    }
+	]
+    },
+	
+    {
+	"id": "intro.bossfight.camilla",
+	"label": "Immortal Confrontation",
+	"startdescription": "",
+	"requirements": {
+	    "foe.camilla": 1
+	},
+	"effects": {
+	    "long.bossfight.marker": 1
+	},
+	"linked": [
+	    {
+		"id": "duelling.longattack.pre.proterant"
+	    }
+	]
+    },
+	
+    {
+	"id": "summon.camilla.musicstart",
+	"actionid": "long.camilla",
+	"label": "Enemies-in-Arms",
+	"startdescription": "'So this is where you've been gallivanting about, <i>Darling</i>. I'll deal with you after I deal with him.'",
+	"effects": {
+	    "camilla": 1,
+		"long.bossfight.marker": 1
+	},
+	"extantreqs": {
+	    "wound.wilhelm": 1,
+	    "camilla": -1
+	},
+	"linked": [
+	    {
+		"id": "summoncamilla"
+	    }
+	],
+	"playAudioTrack": "continentalduel.mp3"
+    },
+	
+    {
+	"id": "summoncamilla",
+	"actionid": "long.camilla",
+	"label": "Enemies-in-Arms",
+	"startdescription": "'So this is where you've been gallivanting about, <i>Darling</i>. I'll deal with you after I deal with him.'",
+	"linked": [
+	    {
+		"id": "duelling.cycle.proterant"
+	    }
+	],
+	"warmup": 15
+    },
+	
+    {
+	"id": "summon.wilhelm.musicstart",
+	"actionid": "long.wilhelm",
+	"label": "Enemies-in-Arms",
+	"startdescription": "'I salute your audacity, brave soldier. Unfortunately, my <i>Darling</i> is mine to defeat, not yours.'",
+	"effects": {
+	    "wilhelm": 1,
+		"long.bossfight.marker": 1
+	},
+	"extantreqs": {
+	    "wound.camilla": 1,
+	    "wilhelm": -1
+	},
+	"linked": [
+	    {
+		"id": "summonwilhelm"
+	    }
+	],
+	"playAudioTrack": "warmakerduel.mp3"
+    },
+	
+    {
+	"id": "summonwilhelm",
+	"actionid": "long.wilhelm",
+	"label": "Enemies-in-Arms",
+	"startdescription": "'I salute your audacity, brave soldier. Unfortunately, my <i>Darling</i> is mine to defeat, not yours.'",
+	"linked": [
+	    {
+		"id": "duelling.cycle"
+	    }
+	],
+	"warmup": 15
+    },
+	
+    {
+	"id": "produce.opening.wilhelm",
+	"$extends" : ["produce.opening"],
+	"extantreqs" : { "foe.wilhelm" : 1},
+	"grandreqs" : {},
+	"effects": {
+	    "long.opening.wilhelm": 1
+		}
+    },
+	
+    {
+	"id": "produce.opening.camilla",
+	"$extends" : ["produce.opening"],
+	"grandreqs" : {},
+	"extantreqs" : { "foe.camilla" : 1},
+	"effects": {
+	    "long.opening.camilla": 1
+		}
+    },
+	
+    {
+	"id": "operate.strike.wilhelm.pre",
+	"$extends" : ["operate.strike.sergei.pre"],
+	"label": "Execute an Impossible Attack?",
+	"extantreqs": {
+	    "foe.wilhelm": 1
+	},
+	"requirements": {
+	    "long.opening.wilhelm": 3
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"linked": [
+	    {
+		"id": "operate.strike.wilhelm"
+	    }
+	]
+    },
+	
+    {
+	"id": "operate.strike.wilhelm",
+	"$extends" : ["operate.strike.sergei"],
+	"label": "Execute an Impossible Attack?",
+	"linked": [
+		{
+		"id": "operate.strike.wilhelm.failure",
+		"chance" : 20
+	    },
+		
+	    {
+		"id": "operate.strike.wilhelm.success"
+	    }
+	],
+	"alt" : []
+    },
+	
+    {
+	"id": "operate.strike.wilhelm.success",
+	"$extends" : ["operate.strike.sergei.success"],
+	"effects": {
+	    "wound.wilhelm": 1,
+	    "long.opening.wilhelm": -2
+		}
+    },
+	
+    {
+	"id": "operate.strike.wilhelm.failure",
+	"$extends" : ["operate.strike.sergei.failure"],
+	"effects": {
+	    "long.opening.wilhelm": -2
+		}
+    },
+	
+    {
+	"id": "operate.strike.camilla.pre",
+	"$extends" : ["operate.strike.sergei.pre"],
+	"label": "Execute an Impossible Attack?",
+	"extantreqs": {
+	    "foe.camilla": 1
+	},
+	"requirements": {
+	    "long.opening.camilla": 3
+	},
+	"effects": {
+	    "long.breakthrough.challenge": 1
+	},
+	"linked": [
+	    {
+		"id": "operate.strike.camilla"
+	    }
+	]
+    },
+	
+    {
+	"id": "operate.strike.camilla",
+	"$extends" : ["operate.strike.sergei"],
+	"label": "Execute an Impossible Attack?",
+	"linked": [
+		{
+		"id": "operate.strike.camilla.failure",
+		"chance" : 20
+	    },
+		
+	    {
+		"id": "operate.strike.camilla.success"
+	    }
+	],
+	"alt" : []
+    },
+	
+    {
+	"id": "operate.strike.camilla.success",
+	"$extends" : ["operate.strike.sergei.success"],
+	"effects": {
+	    "wound.camilla": 1,
+	    "long.opening.camilla": -2
+		}
+    },
+	
+    {
+	"id": "operate.strike.camilla.failure",
+	"$extends" : ["operate.strike.sergei.failure"],
+	"effects": {
+	    "long.opening.camilla": -2
+		}
+    },
+	
+    {
+	"id": "warmakerandcontinental.finalstrike",
+	"actionid": "operate",
+	"label": "Execute a Truly Impossible Attack?",
+	"startdescription": "The Warmaker and Continental are still fighting furiously, but their movements are dull and getting duller. With a final blow, I may be able to force their surrender-",
+	"requirements": {
+	    "wound.wilhelm": 2,
+	    "wound.camilla": 2
+	},
+	"effects": {
+	    "long.breakthrough.challenge.double": 1
+	},
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "warmakerandcontinental.finalstrike.continue"
+	    }
+	]
+    },
+	
+    {
+	"id": "warmakerandcontinental.finalstrike.continue",
+	"actionid": "operate",
+	"label": "Execute a Truly Impossible Attack?",
+	"startdescription": "The Warmaker and Contintal are still fighting furiously, but their movements are dull and getting duller. With a final blow, I may be able to force their surrender-",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"required": {
+		    "edge": 1
+			}
+		},
+		
+		{
+		"id": "needssomething2",
+		"required": {
+		    "edge": 1
+			}
+		},
+		
+		{
+		"id": "needssomething3",
+		"required": {
+		    "edge": 1
+			}
+		}
+	],
+	"warmup": 15,
+	"linked": [
+		{
+		"id": "warmakerandcontinental.finalstrike.failure",
+		"chance" : 20
+	    },
+		
+	    {
+		"id": "warmakerandcontinental.finalstrike.success.pre"
+	    }
+	],
+	"alt" : []
+    },
+	
+    {
+	"id": "warmakerandcontinental.finalstrike.failure",
+	"$extends" : ["operate.strike.sergei.failure"]
+    },
+	
+    {
+	"id": "warmakerandcontinental.finalstrike.success.pre",
+	"label": "GEKOKUJO",
+	"startdescription": "The Warmaker and Continental close in, as do I. I feel the gaze of the Edge-Hours on me. The corrivality burns hot. We charge at each other one final time-",
+	"requirements": {
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"haltverb": {
+	    "long.camilla": 1,
+	    "long.wilhelm": 1
+	},
+	"effects": {
+	    "foe": -99,
+	    "wound.wilhelm": -99,
+	    "wound.camilla": -99
+	},
+	"playAudioTrack": "duelend.mp3",
+	"linked": [
+	    {
+		"id": "warmakerandcontinental.finalstrike.success"
+	    }
+	]
+    },
+	
+    {
+	"id": "warmakerandcontinental.finalstrike.success",
+	"label": "GEKOKUJO",
+	"startdescription": "The Warmaker and Continental close in, as do I. I feel the gaze of the Edge-Hours on me. The corrivality burns hot. We charge at each other one final time-",
+	"description": "After the smoke clears, I am still standing, and they are not. I feel destiny upon me, and instinctively know that I have the <i>Respect</i> of the Edge-Hours on me now. The Warmaker and Continental acknowledge my victory, and retreat in defeat.", 
+	"slots": [
+	    {
+		"id": "needswilhelm",
+		"label": "The Warmaker",
+		"required": {
+		    "wilhelm": 1
+		},
+		"greedy": true
+	    },
+	    {
+		"id": "needscamilla",
+		"label": "The Continental",
+		"required": {
+		    "camilla": 1
+		},
+		"greedy": true
+	    },
+	],
+	"warmup": 15,
+	"effects": {
+	    "foe": -99,
+	    "foe.wilhelm": -99,
+		"wilhelm" : -99,
+	    "foe.camilla": -99,
+		"camilla" : -99,
+		"mark.victory" : 1
+	}
+    }
+
+	
+]
+}

@@ -349,25 +349,25 @@
 	
 	{
 	"id": "travelling.cycle.haltverbs",
-	"haltverb$add" : {"sendinglettercompanion" : 5, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
+	"haltverb$add" : {"sendinglettercompanion" : 5, "sergei_enemy_verb" : 2, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
 	"purge$add" : {"enemy.infrastructure" : 99, "andnowwhat" : 99, "enemy.defensive.preparation" : 99, "enemy.offensive.preparation" : 99}
 	},
 	
 	{
 	"id": "travelling.cycle.purge",
-	"haltverb$add" : {"sendinglettercompanion" : 5, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
+	"haltverb$add" : {"sendinglettercompanion" : 5, "sergei_enemy_verb" : 2, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
 	"purge$add" : {"enemy.infrastructure" : 99, "andnowwhat" : 99, "enemy.defensive.preparation" : 99, "enemy.offensive.preparation" : 99}
 	},
 	
 	{
 	"id": "travelling.cycle.complete.haltverbs",
-	"haltverb$add" : {"sendinglettercompanion" : 5, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
+	"haltverb$add" : {"sendinglettercompanion" : 5, "sergei_enemy_verb" : 2, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
 	"purge$add" : {"enemy.infrastructure" : 99, "andnowwhat" : 99, "enemy.defensive.preparation" : 99, "enemy.offensive.preparation" : 99}
 	},
 	
 	{
 	"id": "travelling.cycle.complete.purge",
-	"haltverb$add" : {"sendinglettercompanion" : 5, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
+	"haltverb$add" : {"sendinglettercompanion" : 5, "sergei_enemy_verb" : 2, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
 	"purge$add" : {"enemy.infrastructure" : 99, "andnowwhat" : 99, "enemy.defensive.preparation" : 99, "enemy.offensive.preparation" : 99}
 	},
 	
@@ -941,6 +941,493 @@
 	{
 	"id": "use.unmake.foe.marinette",
 	"effects$add" : {"marinette.opening":1}
+	},
+	
+	{
+    "id": "duelling.longattack.pre",
+	"internaldeck$dictedit" : {
+    "spec$append": [
+		"wilhelm.attack.d",
+		"wilhelm.attack.d",
+		"wilhelm.attack.e",
+		"wilhelm.attack.e"
+        ]
+	},
+	"linked$prepend" : [
+		{
+			"id": "duelling.longattack.feint",
+			"chance" : 25
+		}
+		]
+    },
+	
+	{
+    "id": "duelling.longattack",
+	"startdescription": "@#wilhelm.attack.a|The Warmaker closes in hideously fast, and his mighty fists speed towards me -#wilhelm.attack.b|With an earth-cracking stomp, the Warmaker shakes the earth, and he lunges when he sees I am off balance -#wilhelm.attack.c|With a grunt of exertion, the Warmaker raises his arm to strike me, and I see in his hand there is fire -#wilhelm.attack.d|The warmaker clasps his hands together, and a great amount of steam is produced. I cannot see where he is, but feel him approaching rapidly -#wilhelm.attack.e|The warmaker charges towards me, with steam billowing from his arms and into my eyes and senses -@",
+	"linked" : [
+	
+		{
+		"id": "duelling.skill.deflect"
+	    },
+		
+	    {
+		"id": "duelling.respond.edge"
+	    },
+		
+	    {
+		"id": "duelling.respond.winter"
+	    },
+		
+	    {
+		"id": "duelling.respond.edgewinter"
+	    },
+		
+		{
+		"id": "duelling.respond.lantern"
+		},
+		
+		{
+		"id": "duelling.respond.edgelantern"
+		},
+		
+		{
+		"id": "duelling.wounded"
+	    },
+		
+		{
+		"id" : "edgelong.attack.you.nodefense"	
+		}
+		
+		],
+	"alt" : []
+    },
+	
+    {
+	"id": "duelling.respond.edge",
+	"warmup" : 5,
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.wilhelm",
+		"chance" : 40
+	    }
+	],
+	},
+	
+    {
+	"id": "duelling.skill.deflect",
+	"warmup" : 5,
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.wilhelm",
+		"chance" : 40
+	    }
+	]
+	},
+	
+    {
+	"id": "duelling.respond.winter",
+	"warmup" : 5,
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.wilhelm",
+		"chance" : 40
+	    }
+	]
+	},
+	
+    {
+	"id": "duelling.respond.edgewinter",
+	"warmup" : 5,
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.wilhelm",
+		"chance" : 40
+	    }
+	]
+	},
+	
+	{
+    "id": "duelling.longattack.pre.proterant",
+	"internaldeck$dictedit" : {
+    "spec$append": [
+		"camilla.attack.d",
+		"camilla.attack.d",
+		"camilla.attack.e",
+		"camilla.attack.e"
+        ]
+	},
+	"linked$prepend" : [
+		{
+			"id": "duelling.longattack.feint.proterant",
+			"chance" : 25
+		}
+		]
+    },
+	
+	{
+    "id": "duelling.longattack.proterant",
+	"startdescription": "@#camilla.attack.a|The Contintental is wreathed in weapons, and she is able to wield them all with such a vicious efficacy. A storm of blows: of knives, of sabres, of gunshots -#camilla.attack.b|There is an near-imperceptible, spear-shaped shimmering where the Continental's left hand should be. The wind crackles and hums. With a grunt of exertion, she thrusts her arm forward, and an unseen lance of killing force hurtles forth -#camilla.attack.c|The Continental jams a spike of jagged iron into an old scar on her throat, and when she opens her mouth, relentless winter spills forth -#camilla.attack.d|The Continental commands my surrender in an eldrich voice of pure coldness. My blood freezes, and she closes in -#camilla.attack.e|Winter erupts from the continental, and she charges at me. I bat away her initial strikes, but my reactions are getting colder and slower -@",
+	"linked" : [
+		
+	    {
+		"id": "duelling.respond.edge.proterant"
+	    },
+		
+	    {
+		"id": "duelling.respond.forge.proterant"
+	    },
+		
+	    {
+		"id": "duelling.respond.edgeforge.proterant"
+	    },
+		
+		{
+		"id": "duelling.respond.heart.proterant"
+		},
+		
+		{
+		"id": "duelling.respond.edgeheart.proterant"
+		},
+		
+		{
+		"id": "duelling.wounded.proterant"
+	    },
+		
+		{
+		"id" : "edgelong.attack.you.nodefense"	
+		}
+		],
+	"alt" : []
+    },
+	
+    {
+	"id": "duelling.respond.edge.proterant",
+	"warmup" : 5,
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.camilla",
+		"chance" : 40
+	    }
+	]
+	},
+	
+    {
+	"id": "duelling.respond.forge.proterant",
+	"warmup" : 5,
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.camilla",
+		"chance" : 40
+	    }
+	]
+	},
+	
+    {
+	"id": "duelling.respond.edgeforge.proterant",
+	"warmup" : 5,
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.camilla",
+		"chance" : 40
+	    }
+	]
+	},
+	
+    {
+	"id": "edgelong.spitout.wounds",
+	"inductions$append" : [
+		{
+			"id": "produce.trauma"
+		}
+		]
+	},
+	
+    {
+	"id": "edgelong.spitout.wounds.contemnant",
+	"inductions$append" : [
+		{
+			"id": "produce.trauma"
+		}
+		]
+	},
+	
+	{
+    "id": "exile.attacks",
+	"linked" : [
+	    {
+		"id": "exile.respond.friend.immortal"
+	    },
+	    {
+		"id": "exile.respond.edge"
+	    },
+	    {
+		"id": "exile.respond.grail"
+	    },
+	    {
+		"id": "exile.respond.edgegrail"
+	    },
+		{
+		"id": "exile.woundsyou"
+	    }
+		],
+	"alt" : []
+    },
+	
+    {
+	"id": "exile.respond.edge",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "exile.respond.grail",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "exile.respond.edgegrail",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "exile.friend.immortal",
+	"warmup" : 5
+	},
+	
+	{
+    "id": "exile.attacks.pre",
+	"linked$prepend" : [
+		{
+			"id": "exile.feint",
+			"chance" : 25
+		}
+		]
+    },
+	
+    {
+	"id": "foe.attacks",
+	"linked" : [
+		{
+		"id": "foe.respond.friend.immortal"
+	    },
+	    {
+		"id": "foe.respond.edge"
+	    },
+	    {
+		"id": "foe.respond.lantern"
+	    },
+	    {
+		"id": "foe.respond.edgelantern"
+	    },
+	    {
+		"id": "foe.woundsyou"
+	    }
+	],
+	"alt" : []
+	},
+	
+    {
+	"id": "foe.respond.friend.immortal",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "foe.respond.edge",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "foe.respond.lantern",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "foe.respond.edgelantern",
+	"warmup" : 5
+	},
+	
+	{
+    "id": "foe.attacks.pre",
+	"linked$prepend" : [
+		{
+			"id": "foe.feint",
+			"chance" : 25
+		}
+		]
+    },
+	
+	{
+    "id": "fightingsergei.longattack.pre",
+	"linked$prepend" : [
+		{
+			"id": "sergei.feint",
+			"chance" : 25
+		}
+		]
+    },
+	
+    {
+	"id": "fightingsergei.longattack",
+	"linked" : [
+	    {
+		"id": "fightingsergei.skill.deflect"
+	    },
+	    {
+		"id": "fightingsergei.respond.edge"
+	    },
+	    {
+		"id": "fightingsergei.respond.forge"
+	    },
+	    {
+		"id": "fightingsergei.respond.edgeforge"
+	    },
+	    {
+		"id": "fightingsergei.wounded"
+	    }
+	],
+	"alt" : []
+	},
+	
+    {
+	"id": "fightingsergei.skill.deflect",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "fightingsergei.respond.edge",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "fightingsergei.respond.forge",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "fightingsergei.respond.edgeforge",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "fightingsergei.cycle",
+	"inductions$append" : [
+	
+		{
+			"id": "sergei.phase.one.enemies"
+		},
+		
+		{
+			"id": "sergei.phase.two.enemies"
+		}
+		
+		]
+	},
+	
+    {
+	"id": "duelling.wounded",
+	"requirements$add": {"duel.wilhelm" : 1}
+	},
+	
+    {
+	"id": "duelling.wounded.proterant",
+	"requirements$add": {"duel.camilla.proterant" : 1}
+	},
+	
+    {
+	"id": "duelling.cycle",
+	"grandreqs" : {"([foe.wilhelm] || [duel.wilhelm] || [wilhelm])": 1},
+	"inductions$append" : [
+		{
+			"id": "summon.camilla.musicstart"
+		}
+		]
+	},
+	
+    {
+	"id": "edgelong.cycle",
+	"requirements$add": {"long.bossfight.marker" : -1}
+	},
+	
+    {
+	"id": "duelling.cycle.proterant",
+	"grandreqs" : {"([foe.camilla] || [duel.camilla.proterant] || [camilla])": 1},
+	"inductions$append" : [
+		{
+			"id": "summon.wilhelm.musicstart"
+		}
+		]
+	},
+	
+    {
+	"id": "edgelong.attack.you.nodefense",
+	"effects$add" : {
+		"decision": -99
+	},
+	"linked$append" : [
+		{
+			"id": "duelling.cycle"
+		},
+		
+		{
+			"id": "duelling.cycle.proterant"
+		}
+		]
+	},
+	
+	{
+	"id": "operate.strike.edgelong.success.complete",
+	"extantreqs$add" : {
+		"duel.wilhelm" : 1
+		}
+	},
+	
+	{
+	"id": "operate.strike.edgelong.success.complete.proterant",
+	"extantreqs$add" : {
+		"duel.camilla.proterant" : 1
+		}
+	},
+	
+    {
+	"id": "produce.opening",
+	"grandreqs$add" : {
+		"([~/visible:duel.wilhelm] = 1) || ([~/visible:duel.camilla.proterant] = 1) || ([~/visible:foe.sergei] = 1)": 1
+		}
+    },
+	
+    {
+	"id": "contemnant.usechallenge",
+	"grandreqs$add" : {
+		"([~/exterior:foe.exile] = 1) || ([~/exterior:foe.duffoure] = 1)": 1
+		}
+    },
+	
+    {
+	"id": "edgelong.attack.you",
+	"alt$prepend" : [
+		{
+			"id": "wilhelm.usechallenge"
+		},
+		
+		{
+			"id": "camilla.usechallenge"
+		}
+		]
+	},
+	
+    {
+	"id": "find.side.camilla",
+	"extantreqs$add" : {
+		"mark.victory" : -1,
+		"foe.wilhelm" : -1
+	}
+	},
+	
+    {
+	"id": "find.side.wilhelm",
+	"extantreqs$add" : {
+		"mark.victory" : -1,
+		"foe.camilla" : -1
+	}
 	}
 
 ]

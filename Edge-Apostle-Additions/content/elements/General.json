@@ -132,7 +132,327 @@
 		}  
 	],
 	"unique": true
+	},
+	
+    {
+	"id": "foe.wrake.sergei",
+	"label": "Wolf-Wrake",
+	"description": "Some agonies are so intense that they can outlive the body that suffered them - and without a vessel, this wandering excruciation will hasten to find a new home. You don't want it to be you.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needswinter": 14,
+	    "needswinterheart": 6
+	},
+	"xtriggers": {
+	    "refresh": "foe.wrake",
+	    "killfoe": "husk",
+	    "concealidentity": "foe.wrake.sergei.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.wrake",
+    },
+	
+    {
+	"id": "foe.wrake.sergei.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.wrake.sergei.hidden",
+	    "killfoe": "agony",
+	    "revealidentity": "foe.wrake.sergei",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "foe.cold.sergei",
+	"label": "Cold",
+	"description": "The weather around the Iron-Eater seems active and hostile. Men will freeze and die without as much as a scream in this unnatural cold.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "needsforge": 8,
+	    "needsheart": 8
+	},
+	"xtriggers": {
+	    "killfoe": "husk",
+	    "concealidentity": "foe.cold.sergei.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ]
+	},
+	"icon": "foe.cold",
+    },
+	
+    {
+	"id": "foe.cold.sergei.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.cold.sergei.hidden",
+	    "killfoe": "agony",
+	    "revealidentity": "foe.cold.sergei",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "foe.wolves.sergei",
+	"label": "Wolves",
+	"description": "Here are the Old Wolf's hounds.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "needsedge": 10,
+	    "foe.coordinated": 1
+	},
+	"xtriggers": {
+	    "killfoe": "provisions",
+	    "concealidentity": "foe.wolves.sergei.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.watchdog"
+    },
+	
+    {
+	"id": "foe.wolves.sergei.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.wolves.sergei.hidden",
+	    "killfoe": "provisions",
+	    "revealidentity": "foe.wolves.sergei",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "foe.grame.sergei",
+	"label": "Wolf-Grame",
+	"description": "If wolf-splinters are the soul's despair outpacing its light, and wrakes the agonies that consume the spirit, then wolf-grames are the simmering, festering rage of the unavenged and unanswered. Only the Wolf knows how many the Iron-Eater has.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "needsedgewinter": 10,
+	    "foe.commander": 1
+	},
+	"xtriggers": {
+	    "killfoe": "husk",
+	    "concealidentity": "foe.grame.sergei.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.grame"
+    },
+	
+    {
+	"id": "foe.grame.sergei.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.grame.sergei.hidden",
+	    "killfoe": "husk",
+	    "revealidentity": "foe.grame.sergei",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "long.bossfight.marker",
+	"label": "Long Bossfight Marker",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "travel.blocker": 1
 	}
+    }
+	
 	
 ]
 }

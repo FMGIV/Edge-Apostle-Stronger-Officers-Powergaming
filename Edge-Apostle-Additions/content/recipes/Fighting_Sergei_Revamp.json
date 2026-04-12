@@ -1,0 +1,169 @@
+{
+"recipes": [
+
+    {
+	"id": "sergei.phase.one.enemies",
+	"label": "Hounds of the Iron-Eater",
+	"actionid": "enemyaction.reinforcements",
+	"startdescription": "As the Iron-Eater suffers a wound, his agony materializes into the world-",
+	"grandReqs" : {
+		"([~/exterior:wound.sergei] + [~/exterior:wound.sergei.forumiri_end]) = 1" : 1
+	},
+	"effects": {
+	    "foe.wrake.sergei": 3,
+	    "foe.cold.sergei": 3,
+	    "foe.wolves.sergei": 3
+	},
+	"maxexecutions": 1,
+	"inductions": [
+	    {
+		"id": "sergei.enemies.cycle"
+	    }
+	]
+    },
+	
+	{
+	"id": "sergei.phase.two.enemies",
+	"label": "Hounds of the Iron-Eater",
+	"actionid": "enemyaction.reinforcements",
+	"startdescription": "As the Iron-Eater suffers a wound, his agony materializes into the world-",
+	"grandReqs" : {
+		"([~/exterior:wound.sergei] + [~/exterior:wound.sergei.forumiri_end]) = 2" : 1
+	},
+	"effects": {
+	    "foe.splinter": 3,
+	    "foe.growth": 3,
+	    "foe.grame.sergei": 3
+	},
+	"maxexecutions": 1,
+	"inductions": [
+	    {
+		"id": "sergei.enemies.cycle"
+	    }
+	]
+    },
+	
+    {
+	"id": "sergei.enemies.cycle",
+	"actionid": "sergei_enemy_verb",
+	"label": "On the Prowl",
+	"startdescription": "The Iron-Eater isn't happy were here for him. His retinue doesn't look very happy either.",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "sergei.enemies.pickaction.router",
+		"chance": 45
+	    },
+	    {
+		"id": "sergei.enemies.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "sergei.enemies.reinforcements",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+	
+    {
+	"id": "sergei.enemies.pickaction.router",
+	"label": "The Pack Moves!",
+	"startdescription": "The forces of the Old Wolf close in - prepare for agony!",
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"deckeffects": {
+	    "decisions.enemy.sergei": 1
+	},
+	"linked": [
+	    {
+		"id": "sergei.enemies.executeaction"
+	    }
+	]
+    },
+	
+    {
+	"id": "sergei.enemies.executeaction",
+	"label": "The Pack Moves!",
+	"startdescription": "The forces of the Old Wolf close in - prepare for agony!",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "sergei.enemies.clear"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "singleattack.startup",
+		"additional": true
+	    },
+	    {
+		"id": "destroysupplies.startup",
+		"additional": true
+	    },
+	    {
+		"id": "hide.startup",
+		"additional": true
+	    },
+		{
+		"id": "doubleattack.1.startup",
+		"additional": true
+	    },
+	    {
+		"id": "doubleattack.2.startup",
+		"additional": true
+	    }
+	]
+    },
+	
+    {
+	"id": "sergei.enemies.clear",
+	"label": "The Pack Moves!",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "sergei.enemies.cycle"
+	    }
+	]
+    },
+	
+    {
+	"id": "sergei.enemies.reinforcements",
+	"actionid": "enemyaction.reinforcements",
+	"label": "The Pack Grows",
+	"startdescription": "The longer we fight the Iron-Eater, the more <i>things</i> come for our blood -",
+	"extantreqs": {
+	    "foe": -10
+	},
+	"grandReqs" : {
+		"([~/exterior:wound.sergei] + [~/exterior:wound.sergei.forumiri_end]) = 2" : 1
+	},
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"foe.splinter",
+		"foe.splinter",
+		"foe.wrake.sergei",
+		"foe.wrake.sergei",
+		"foe.cold.sergei",
+		"foe.cold.sergei",
+		"foe.grame.sergei",
+		"foe.grame.sergei",
+		"foe.growth",
+		"foe.growth"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    }
+	
+]
+}
