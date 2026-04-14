@@ -1,0 +1,443 @@
+{
+"recipes": [
+
+	{
+	"id": "hint.requisitioning",
+	"actionid": "communicate",
+	"label": "Requisitions?",
+	"startdescription": "If I have seen enough matters to their end, the Authorities on my side of the war may see fit to grant me more assistance. [As resolution increases, you can request more things. While requisitioning something, you won't get provisions from resupply convoys. You can requisition one thing at a time.]",
+	"requirements": {
+	    "loc.commtower": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{
+	"id": "hint.cutoff",
+	"actionid": "communicate",
+	"label": "Blockade!",
+	"$priority" : 1,
+	"startdescription": "With our supply cut off, nothing is going to reach me until I break this blockade. [You cannot requisition anything while the enemy has cut off your supply lines.]",
+	"requirements": {
+	    "loc.commtower": 1
+	},  
+    "extantreqs": {  
+        "side.cutoff": 1
+    },
+	"hintonly": true,
+	"craftable": false
+    },
+	
+    {
+	"id": "requisitioning.startup.provisions",
+	"actionid": "communicate",
+	"label": "Requsition Provisions",
+	"startdescription": "Send word over wire and wave. If we need more provisions, this is the way to ask for it.",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"heart" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 3,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.provisions" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.provisions": 1
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.supplies",
+	"actionid": "communicate",
+	"label": "Requsition Special Supplies",
+	"startdescription": "Send word over wire and wave. If we need more special supplies, this is the way to ask for it.",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"knock" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 3,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.supplies" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.supplies": 1
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.medics",
+	"actionid": "communicate",
+	"label": "Requsition Medics",
+	"startdescription": "Send word over wire and wave. If we need more medics, this is the way to ask for it.",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"grail" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 6,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.medics" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.medics": 1,
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.engineers",
+	"actionid": "communicate",
+	"label": "Requsition Engineers",
+	"startdescription": "Send word over wire and wave. If we need more engineers, this is the way to ask for it.",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"forge" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 6,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.engineers" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.engineers": 1
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.heavyunits",
+	"actionid": "communicate",
+	"label": "Requsition Heavy Units",
+	"startdescription": "Send word over wire and wave. If we need more heavy hitters, this is the way to ask for it.",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"edge" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 9,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.heavyunits" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.heavyunits": 1
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.scouts",
+	"actionid": "communicate",
+	"label": "Requsition Scouts",
+	"startdescription": "Send word over wire and wave. If we need more scouts, this is the way to ask for it.",
+	"requirements" : {
+		"loc.commtower" : 1
+	},
+	"grandReqs" : {
+	"[moth] || [lantern]" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 6,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.scouts" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.scouts": 1,
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.snipers",
+	"actionid": "communicate",
+	"label": "Requsition Snipers",
+	"startdescription": "Send word over wire and wave. If we need more Snipers, this is the way to ask for it.",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"winter" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 6,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.snipers" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.snipers": 1
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.router",
+	"actionid": "resupply",
+	"label": "Awaiting Requisitions...",
+	"startdescription": "Time does what it usually does, and passes. I can only hope that what I requested is en route.",
+	"effects": {
+	    "readiness.token": 1
+	},
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "requisitioning.success*",
+		"chance": 50
+	    },
+	    {
+		"id": "requisitioning.router"
+	    }
+	]
+    },
+	
+    {
+	"id": "requisitioning.success.provisions",
+	"label": "Arrived!",
+	"startdescription": "Food, Drink, Medicine, Bullets. All things we need to fight this war.",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.provisions" : 1
+	},
+	"effects": {
+	    "provisions": 3,
+		"requisitioning.provisions": -1,
+		"requisitioning" : -1,
+		"readiness.token": -99
+	},
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"provisions",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "resupply.givemodello"
+	    },
+	    {
+		"id": "resupply.giverifle"
+	    }
+	],
+	"warmup": 30
+    },
+	
+    {
+	"id": "requisitioning.success.supplies",
+	"label": "Arrived!",
+	"startdescription": "More supplies for specific situations. Useful.",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.supplies" : 1
+	},
+	"effects": {
+		"requisitioning.supplies" : -1,
+		"requisitioning" : -1,
+		"readiness.token": -99
+	},  
+    "internaldeck": {  
+        "spec": [  
+            "supplies.explosives",  
+			"supplies.explosives",  
+            "supplies.flares",  
+			"supplies.flares",  
+            "supplies.apmunitions",
+		    "supplies.apmunitions",
+			"supplies.smokegrenade",
+			"supplies.smokegrenade",
+            "husk",  
+		    "husk",  
+            "nothing",
+		    "nothing"
+        ],  
+        "draws": 4,  
+        "resetonexhaustion": true  
+    }, 
+	"warmup": 30
+    },
+	
+    {
+	"id": "requisitioning.success.medics",
+	"label": "Arrived!",
+	"startdescription": "More medics for the treatment of the wounded, and possibly myself.",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.medics" : 1
+	},
+	"effects": {
+		"requisitioning.medics" : -1,
+		"requisitioning" : -1,
+		"friend.medics" : 2,
+		"readiness.token": -99
+	},  
+	"warmup": 30
+    },
+	
+    {
+	"id": "requisitioning.success.scouts",
+	"label": "Arrived!",
+	"startdescription": "'If you know the enemy and know yourself, your victory will not stand in doubt; if you know Heaven and know Earth, you may make your victory complete.'\n\n- Sun Tzu, <i>The Art of War</i>",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.scouts" : 1
+	},
+	"effects": {
+		"requisitioning.scouts" : -1,
+		"requisitioning" : -1,
+		"friend.scouts" : 2,
+		"readiness.token": -99
+	},  
+	"warmup": 30
+    },
+	
+    {
+	"id": "requisitioning.success.engineers",
+	"label": "Arrived!",
+	"startdescription": "More engineers, in case I need something built or repaired.",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.engineers" : 1
+	},
+	"effects": {
+		"requisitioning.engineers" : -1,
+		"requisitioning" : -1,
+		"friend.engineers" : 2,
+		"readiness.token": -99
+	},  
+	"warmup": 30
+    },
+	
+    {
+	"id": "requisitioning.success.snipers",
+	"label": "Arrived!",
+	"startdescription": "More Snipers, for scenarios that require more precision.",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.snipers" : 1
+	},
+	"effects": {
+		"requisitioning.snipers" : -1,
+		"requisitioning" : -1,
+		"friend.sniper" : 2,
+		"readiness.token": -99
+	},  
+	"warmup": 30
+    },
+	
+    {
+	"id": "requisitioning.success.heavyunits",
+	"label": "Arrived!",
+	"startdescription": "I have need of a bigger force multiplier. Now I have it.",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.heavyunits" : 1
+	},
+	"deckeffects": {
+		"allies.heavy" : 3
+	},
+	"effects": {
+		"requisitioning.heavyunits" : -1,
+		"requisitioning" : -1,
+		"readiness.token": -99
+	},  
+	"warmup": 30
+    }
+	
+]
+}
