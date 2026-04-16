@@ -334,6 +334,26 @@
 	"effects" : {
 		"foe" : -1
 	},
+	"haltverb" : {
+		"foeactionumiri" : 99,
+		"eyetoweakened" : 99,
+		"foerally" : 99,
+		"foetactics2" : 99,
+		"foetactics3" : 99,
+		"foedefense" : 99,
+		"foerally" : 99,
+		"annoaction" : 99,
+		"reinforcements.king" : 99,
+		"friendvalkyrie" : 99,
+		"friendairstrike" : 99,
+		"friendpowerup" : 99,
+		"friendstun" : 99,
+	},
+	"inductions": [
+	    {
+		"id": "anno.pursuit.detect"
+	    }
+	],
 	"linked": [
 	    {
 		"id": "routenemies.detect"
@@ -717,6 +737,86 @@
 		"final.battle.german" : 1,
 		"final.battle.soviet" : 1
 	}
+    },
+	
+	{
+	"id": "anno.pursuit.detect",
+	"actionid": "annopursuit",
+	"label": "New Kings forces pursuing the enemy!",
+	"startdescription": "The Germans are retreating, and the New King's forces are pursuing them!",
+	"description": "The Germans are retreating, and the New King's forces are pursuing them!",
+	"extantreqs" : {
+		"faction.anno" : 1
+	},
+	"slots": [
+	    {
+		"id": "needsannoforces",
+		"label": "New King's Forces",
+		"required": {
+		    "faction.anno": 1
+		},
+		"greedy": true
+	    }
+	],
+	"haltverb" : {
+		"annoaction" : 99,
+		"reinforcements.king" : 99,
+		"friendvalkyrie" : 99,
+		"friendairstrike" : 99,
+		"friendpowerup" : 99,
+		"friendstun" : 99,
+	},
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "anno.pursuit.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "anno.pursuit.conclude"
+	    }
+	]
+    },
+	
+    {
+	"id": "anno.pursuit.success",
+	"label": "New Kings forces pursuing the enemy!",
+	"startdescription": "The Germans are retreating, and the New King's forces are pursuing them!",
+	"description": "The Germans are retreating, and the New King's forces are pursuing them!",
+	"requirements": {
+	    "faction.anno" : 1
+	},
+	"effects" : {
+		"faction.anno" : -1
+	},
+	"linked": [
+	    {
+		"id": "anno.pursuit.detect"
+	    }
+	]
+    },
+	
+    {
+	"id": "anno.pursuit.conclude",
+	"label": "New Kings forces pursuing the enemy!",
+	"startdescription": "The Germans are retreating, and the New King's forces are pursuing them!",
+	"description": "The Germans are retreating, and the New King's forces are pursuing them!",
+	"haltverb" : {
+		"foeactionumiri" : 99,
+		"eyetoweakened" : 99,
+		"foerally" : 99,
+		"foetactics2" : 99,
+		"foetactics3" : 99,
+		"foedefense" : 99,
+		"foerally" : 99,
+		"annoaction" : 99,
+		"reinforcements.king" : 99,
+		"friendvalkyrie" : 99,
+		"friendairstrike" : 99,
+		"friendpowerup" : 99,
+		"friendstun" : 99,
+		}
     }
 	
 ]
