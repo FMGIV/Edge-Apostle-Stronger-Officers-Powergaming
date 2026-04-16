@@ -37,7 +37,7 @@
 	"description" : "I'd best hope I still have a defence.",
 	"warmup": 5,
 	"grandReqs" : {
-	"[edge] || [lantern] || [winter]" : 1,
+	"[edge] || [lantern] || [winter] || [heart]" : 1,
 	"([edge] >= [needsedge]) || ([lantern] >= [needslantern]) || ([winter] >= [needswinter]) || [skill.deflect]" : 1
 	},
 	"linked": [
@@ -77,6 +77,22 @@
 	    "lantern": "needslantern"
 	},
 	"warmup" : 5
+    },
+	
+    {
+	"id": "duelling.skill.deflect.proterant",
+	"$extends" : ["duelling.skill.deflect"],
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.camilla",
+		"chance" : 40
+	    }
+	],
+	"linked": [
+	    {
+		"id": "duelling.clear.proterant"
+	    }
+	]
     },
 	
     {
@@ -123,7 +139,7 @@
 	"$extends" : ["duelling.successful.feint"],
 	"grandReqs" : {
 	"[edge] || [forge] || [heart]" : 1,
-	"([edge] >= [needsedge]) || ([forge] >= [needsforge]) || ([heart] >= [needsheart])" : 1
+	"([edge] >= [needsedge]) || ([forge] >= [needsforge]) || ([heart] >= [needsheart]) || [skill.deflect]" : 1
 	},
 	"linked": [
 	    {
@@ -280,7 +296,7 @@
     {
 	"id": "wilhelm.usechallenge",
 	"label": "Resolve",
-	"startdescription": "'Oh? You're approaching me? Instead of running away, you're coming right to me? <i>Wunderbar.<i/>'\n\n[Once you initiate this battle, there will be no turning back.]",
+	"startdescription": "'Oh? You're approaching me? Instead of running away, you're coming right to me? <i>Wunderbar.</i>'\n\n[Once you initiate this battle, there will be no turning back.]",
 	"requirements": {
 		"challenge" : 1
 	},
