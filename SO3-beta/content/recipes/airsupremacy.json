@@ -7,6 +7,9 @@
 	"startdescription": "[Once air superiority is achieved by either side, the scales of battle will tilt toward that side.]",
 	"aspects": {
 	},
+	"extantreqs": {
+		"sobibor.here": -1
+	},
 	"xpans": {
 		"adv_none": 99
 	},
@@ -794,10 +797,17 @@
 	},
 	"warmup": 15,
 	"effects": {
-		"side.cutoff": 1,
+		"side.cutoff.soviet": 1,
 	    "supplies": -99,
 	    "weapon": -99
-	}
+	},
+	"alt": [
+		{
+			"id": "produce.strife.contemnant",
+			"additional": true,
+			"chance": 30
+		}
+	]
     },
 	
     {
@@ -939,7 +949,14 @@
 	"effects": {
 	    "supplies": -99,
 	    "weapon": -99
-	}
+	},
+	"alt": [
+		{
+			"id": "produce.strife.contemnant",
+			"additional": true,
+			"chance": 30
+		}
+	]
     },
 	
     {
@@ -1080,7 +1097,14 @@
 	"effects": {
 	    "supplies": -99,
 	    "weapon": -99
-	}
+	},
+	"alt": [
+		{
+			"id": "produce.strife.contemnant",
+			"additional": true,
+			"chance": 30
+		}
+	]
     },
 	
     {
@@ -1089,6 +1113,9 @@
 	"startdescription": "The alarm cries out - our adversary mobilises!",
 	"effects": {
 	    "decision": -99
+	},
+	"extantreqs": {
+		"german_airsupremacy_mark": 1
 	},
 	"linked": [
 	    {
@@ -1180,7 +1207,8 @@
 	"startdescription": "The Russians move to orchestrate an offensive against their next target -",
 	"description": "The front is quiet. The Red Army makes no move.",
 	"extantreqs": {
-	    "state.sovietsaggro": -1
+	    "state.sovietsaggro": -1,
+		"soviet_airsupremacy_mark": 1
 	},
 	"requirements": {
 	    "readiness.token": 3
@@ -1277,6 +1305,9 @@
 	"description": "The front is quiet. The Red Army makes no move.",
 	"requirements": {
 	    "draw.soviet.singleattack": 1
+	},
+	"extantreqs": {
+		"soviet_airsupremacy_mark": 1
 	},
 	"slots": [
 	    {
@@ -1591,6 +1622,13 @@
 	},
 	"warmup": 15,
 	"linked": [
+	],
+	"alt": [
+		{
+			"id": "produce.strife.contemnant",
+			"additional": true,
+			"chance": 30
+		}
 	]
     },
     {
@@ -1602,6 +1640,7 @@
 	},
 	"aspects": {
 		"makecasualty": 1,
+		"makecasualty_air": 1,
 		"killsoviet": 1
 	},
 	"warmup": 10,
@@ -1614,13 +1653,14 @@
     },
     {
 	"id": "gain_airsupremacy.more",
-	"actionId": "air.makecasualty",
 	"label": "Damaged!",
 	"startdescription": "It's been hit in the wing! Oh, it's caught fire!",
 	"requirements": {
+		"german": 1
 	},
 	"aspects": {
-		"makecasualty": 1
+		"makecasualty": 1,
+		"makecasualty_air": 1
 	},
 	"extantreqs": {
 		"airfield": -1
