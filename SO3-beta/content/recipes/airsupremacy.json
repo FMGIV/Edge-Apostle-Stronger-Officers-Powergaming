@@ -1417,7 +1417,71 @@
 	"aspects": {
 		"decaytoair": 1
 	},
+	"warmup": 0,
+	"linked": [
+		{
+			"id": "gain_airsupremacy.sovietwin.ex"
+		}
+	]
+    },
+    {
+	"id": "gain_airsupremacy.sovietwin.ex",
+	"label": "The Red Army Prevails!",
+	"startdescription": "-",
+	"slots": [
+	    {
+		"id": "needssoviet",
+		"label": "Anti-aircraft Gun",
+		"required": {
+		    "artillery_position": 1
+		},
+		"forbidden": {
+			"tomori.mark": 1,
+			"umiri.mark": 1
+		},
+		"greedy": true
+	    }
+	],
 	"warmup": 15,
+	"alt": [
+		{
+			"id": "gain_airsupremacy.sovietwin.anti_air"
+		}
+	],
+	"linked": [
+		{
+			"id": "gain_airsupremacy.sovietwin.no_anti_air"
+		}
+	]
+    },
+    {
+	"id": "gain_airsupremacy.sovietwin.anti_air",
+	"label": "The Red Army Prevails!",
+	"startdescription": "-",
+	"requirements": {
+		"artillery_position": 1
+	},
+	"warmup": 0,
+	"furthermore": [
+		{
+			"target": "~/tabletop!airsupremacy[situationstorage]+",
+			"effects": {
+				"soviet_airsupremacy": 1
+			}
+		}
+	]
+    },
+    {
+	"id": "gain_airsupremacy.sovietwin.no_anti_air",
+	"label": "The Red Army Prevails!",
+	"startdescription": "-",
+	"requirements": {
+	},
+	"effects": {
+	},
+	"aspects": {
+	},
+	"warmup": 0,
 	"furthermore": [
 		{
 			"target": "~/tabletop!airsupremacy[situationstorage]+",
@@ -1426,7 +1490,15 @@
 			}
 		}
 	],
+	"alt": [
+		{
+			"id": "gain_airsupremacy.sovietwin.no_anti_air"
+		}
+	],
 	"linked": [
+		{
+			"id": "gain_airsupremacy.sovietwin.anti_air"
+		}
 	]
     },
     {
