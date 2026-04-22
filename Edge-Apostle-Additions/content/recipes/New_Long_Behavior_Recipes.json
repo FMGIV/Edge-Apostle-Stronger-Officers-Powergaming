@@ -5,7 +5,8 @@
 	"id": "sergei.cycle",
 	"$extends" : ["edgelong.cycle"],
 	"requirements" : {
-		"foe.sergei" : 1
+		"foe.sergei" : 1,
+		"long.bossfight.marker" : -1
 	},
 	"linked": [
 		{
@@ -18,15 +19,116 @@
 	    },
 		
 	    {
-		"id": "edgelong.prep.attack",
+		"id": "sergei.prep.attack",
 		"chance": "19+[~/visible:strife.tracker]*3"
 	    },
 	
 	    {
 		"id": "sergei.cycle"
 	    }
+		],
+	"effects" : {
+		"sergei.attackplayer.token" : 1
+		}
+	},
+	
+    {
+	"id": "sergei.attack.player.prep",
+	"label": "A Withdrawl?",
+	"startdescription": "The Iron-Eater has temporarily withdrawn from this zone. Where has he gone?",
+	"requirements" : {"sergei.attackplayer.token" : 3},
+	"warmup" : 30,
+	"effects" : {"sergei.attackplayer.token" : -99},
+	"linked": [
+		{
+		"id": "edgelong.attack.you"
+	    }
 		]
+	},
+	
+    {
+	"id": "sergei.prep.attack",
+	"$extends" : ["edgelong.prep.attack"],
+		"linked": [
+	    {
+		"id": "edgelong.sergei.attack.allies.noanno",
+		"chance": "70"
+	    },
+		
+	    {
+		"id": "edgelong.sergei.attack.allies",
+		"chance": "70"
+	    },
+		
+	    {
+		"id": "edgelong.attack.allies.noanno",
+		"chance": "70"
+	    },
+		
+	    {
+		"id": "edgelong.attack.allies",
+		"chance": "70"
+	    },
+		
+	    {
+		"id": "edgelong.attack.you"
+	    }
+	]
+	},
+	
+	{
+	"id": "camilla.cycle",
+	"$extends" : ["edgelong.cycle"],
+	"requirements" : {
+		"foe.camilla" : 1,
+		"long.bossfight.marker" : -1
+	},
+	"linked": [
+		{
+		"id":  "wilhelm.here"
+	    },
+		
+	    {
+		"id": "edgelong.prep.attack",
+		"chance": 20
+	    },
+	
+	    {
+		"id": "camilla.cycle"
+	    }
+		],
+	"inductions": [
+	    {
+		"id": "spawn.camilla.army"
+	    }
+	] 
+	},
+	
+	{
+	"id": "wilhelm.cycle",
+	"$extends" : ["edgelong.cycle"],
+	"requirements" : {
+		"foe.wilhelm" : 1,
+		"long.bossfight.marker" : -1
+	},
+	"linked": [
+		{
+		"id":  "camilla.here"
+	    },
+		
+	    {
+		"id": "edgelong.prep.attack",
+		"chance": "19 + [~/visible:strife.tracker]*3"
+	    },
+	
+	    {
+		"id": "wilhelm.cycle"
+	    }
+		],
 	}
+	
+	
+	
 
 ]
 }
