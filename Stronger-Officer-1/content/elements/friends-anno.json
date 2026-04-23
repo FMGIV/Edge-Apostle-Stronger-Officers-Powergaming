@@ -130,14 +130,15 @@
 		    "id": "lantern",
 		    "morpheffect": "mutate",
 		    "level": -2
-		},
-	    ],
-	},
+		}
+	    ]
+	}
     },
+	
     {
 	"id": "friend.scoutsanno.exhausted",
+	"$extends" : ["friend.scoutsanno"],
 	"label": "Allied Scout (Exhausted)",
-	"description": "The eyes and ears of the British Allied forces, helping their army keep track of the battlefield situation.",
 	"aspects": {
 	    "friend": 1,
 		"faction.anno": 1,
@@ -146,52 +147,12 @@
 	    "exhausted": 1,
 		"isscouts": 1
 	},
-	"xtriggers": {
-	    "fatiguing": "friend.scoutsanno.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.scoutsanno.wounded",
-	    "refresh": "friend.scoutsanno",
-	    "bestronger": [
-		{
-		    "id": "friend.stronger",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "edge",
-		    "morpheffect": "mutate",
-		    "level": 4
-		},
-		{
-		    "id": "lantern",
-		    "morpheffect": "mutate",
-		    "level": 2
-		},
-	    ],
-	    "destronger": [
-		{
-		    "id": "friend.stronger",
-		    "morpheffect": "mutate",
-		    "level": -1
-		},
-		{
-		    "id": "edge",
-		    "morpheffect": "mutate",
-		    "level": -4
-		},
-		{
-		    "id": "lantern",
-		    "morpheffect": "mutate",
-		    "level": -2
-		},
-	    ],
-	},
 	"lifetime": 60,
 	"decayTo": "friend.scoutsanno",
 	"icon": "friend.scoutsanno",
 	"resaturate": true
     },
+	
     {
 	"id": "friend.scoutsanno.wounded",
 	"label": "Allied Scout (Wounded)",
@@ -616,10 +577,10 @@
 	"icon": "friend.valkyrie",
 	"resaturate": true
     },
+	
 	{
 	"id": "friend.valkyrie2",
-	"label": "'Valkyrie' Bomber",
-	"description": "Soaring through the heavens like a suanni, tearing the earth asunder like a saber-toothed beast, as indestructible as the spawn of Echidna. How does that ill-omened figure on the island manufacture such creations, and how does he command such terrible power?!",
+	"$extends" : ["friend.valkyrie3"],
 	"aspects": {
 	    "friend": 1,
 		"faction.anno": 1,
@@ -631,9 +592,6 @@
 		"valkyrie.mark": 1,
 		"valkyrie": 1
 	},
-	"icon": "friend.valkyrie",
-	"uniquenessgroup": "valkyrie",
-	"unique": true,
 	"xtriggers": {
 	    "fatiguing": "friend.valkyrie1.exhausted",
 	    "killmortal": "friend.valkyrie.damaged",
@@ -641,6 +599,7 @@
 	    "makecasualty": "friend.valkyrie.damaged"
 	}
     },
+	
     {
 	"id": "friend.valkyrie1.exhausted",
 	"label": "'Valkyrie' Bomber (Exhausted)",
@@ -667,8 +626,7 @@
     },
 	{
 	"id": "friend.valkyrie1",
-	"label": "'Valkyrie' Bomber",
-	"description": "Soaring through the heavens like a suanni, tearing the earth asunder like a saber-toothed beast, as indestructible as the spawn of Echidna. How does that ill-omened figure on the island manufacture such creations, and how does he command such terrible power?!",
+	"$extends" : ["friend.valkyrie3"],
 	"aspects": {
 	    "friend": 1,
 		"faction.anno": 1,
@@ -680,9 +638,6 @@
 		"valkyrie.mark": 1,
 		"valkyrie": 1
 	},
-	"icon": "friend.valkyrie",
-	"uniquenessgroup": "valkyrie",
-	"unique": true,
 	"xtriggers": {
 	    "fatiguing": "friend.valkyrie.damaged",
 	    "killmortal": "friend.valkyrie.damaged",
@@ -711,21 +666,10 @@
 	
     {
 	"id": "friend.scouts",
-	"label": "Ally Scouting Party",
-	"description": "The sharp ears and quick feet of our contingent.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 2,
-	    "moth": 4,
-	    "lantern": 4,
+	"aspects$add": {
 		"isscouts": 1
 	},
-	"xtriggers": {
-	    "fatiguing": "friend.scouts.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.scouts.wounded",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -761,46 +705,14 @@
 		},
 	    ],
 	},
-	"slots": [
-	    {
-		"id": "needshindrance",
-		"actionid": "operate",
-		"label": "Environment",
-		"required": {
-		    "hindrance.snows": 1,
-		    "hindrance.storms": 1,
-		    "hindrance.fog": 1
-		}
-	    },
-	    {
-		"id": "needsprovisions",
-		"actionid": "operate",
-		"label": "Provisions",
-		"required": {
-		    "provisions": 1
-		},
-		"consumes": true
-	    }
-	]
     },
+	
     {
 	"id": "friend.scouts.exhausted",
-	"label": "Ally Scouting Party (Exhausted)",
-	"description": "The sharp ears and quick feet of our contingent.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 2,
-	    "exhausted": 1,
+	"aspects$add": {
 		"isscouts": 1
 	},
-	"xtriggers": {
-	    "fatiguing": "friend.scouts.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.scouts.wounded",
-	    "refresh": "friend.scouts",
-	    "refreshally": "friend.scouts",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -834,28 +746,13 @@
 		    "morpheffect": "mutate",
 		    "level": -2
 		},
-	    ],
-	},
-	"lifetime": 60,
-	"decayTo": "friend.scouts",
-	"icon": "friend.scouts",
-	"resaturate": true
+	    ]
+	}
     },
+	
     {
 	"id": "friend.scouts.wounded",
-	"label": "Ally Scouting Party (Wounded)",
-	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 2,
-	    "wounded": 1
-	},
-	"xtriggers": {
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.corpses",
-	    "restorehealth": "friend.scouts",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -889,24 +786,13 @@
 		    "morpheffect": "mutate",
 		    "level": -2
 		},
-	    ],
-	},
+	    ]
+	}
     },
+	
     {
 	"id": "friend.infantry",
-	"label": "Ally Infantry Company",
-	"description": "No matter the stakes or the battlefield, at war's heart is always this strange thing: man.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 3,
-	    "edge": 6
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.infantry.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.infantry.wounded",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -930,49 +816,16 @@
 		    "morpheffect": "mutate",
 		    "level": -4
 		},
-	    ],
+	    ]
 	},
-	"slots": [
-	    {
-		"id": "needswarzone",
-		"actionid": "operate",
-		"label": "Warzone",
-		"required": {
-		    "warzone.current": 1
-		},
-		"forbidden": {
-		    "wasteland": 1
+	"slots$listedit": {
+	"0$dictedit" : { "required$add" : { "faction.anno" : 1 }}
 		}
-	    },
-	    {
-		"id": "needsintent",
-		"actionid": "operate",
-		"label": "Intent",
-		"required": {
-		    "edge": 1,
-		    "heart": 1,
-			"faction.anno": 1
-		}
-	    }
-	]
     },
+	
     {
 	"id": "friend.infantry.exhausted",
-	"label": "Ally Infantry Company (Exhausted)",
-	"description": "No matter the stakes or the battlefield, at war's heart is always this strange thing: man.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 3,
-	    "exhausted": 1
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.infantry.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.infantry.wounded",
-	    "refresh": "friend.infantry",
-	    "refreshally": "friend.infantry",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -996,28 +849,13 @@
 		    "morpheffect": "mutate",
 		    "level": -4
 		},
-	    ],
-	},
-	"lifetime": 90,
-	"decayTo": "friend.infantry",
-	"icon": "friend.infantry",
-	"resaturate": true
+	    ]
+	}
     },
+	
     {
 	"id": "friend.infantry.wounded",
-	"label": "Ally Infantry Company (Wounded)",
-	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 3,
-	    "wounded": 1
-	},
-	"xtriggers": {
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.corpses",
-	    "restorehealth": "friend.infantry",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1041,25 +879,13 @@
 		    "morpheffect": "mutate",
 		    "level": -4
 		},
-	    ],
-	},
+	    ]
+	}
     },
+	
     {
 	"id": "friend.medics",
-	"label": "Ally Field Medics",
-	"description": "Doctors, surgeons, nurses. Any fighting man who wishes to make it past his first serious injury should treat these men and women with the utmost respect.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 3,
-	    "heart": 6,
-	    "grail": 6
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.medics.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.medics.wounded",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1083,49 +909,16 @@
 		    "morpheffect": "mutate",
 		    "level": -4
 		},
-	    ],
+	    ]
 	},
-	"slots": [
-	    {
-		"id": "needswounded",
-		"actionid": "operate",
-		"label": "Casualty",
-		"required": {
-		    "wounded": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-			"faction.anno": 1,
+	"slots$listedit": {
+	"0$dictedit" : { "forbidden$add" : { "faction.anno" : 1 }}
 		}
-	    },
-	    {
-		"id": "needsprovisions",
-		"actionid": "operate",
-		"label": "Provisions",
-		"required": {
-		    "provisions": 1
-		},
-		"consumes": true
-	    }
-	]
     },
+	
     {
 	"id": "friend.medics.exhausted",
-	"label": "Ally Field Medics (Exhausted)",
-	"description": "Doctors, surgeons, nurses. Any fighting man who wishes to make it past his first serious injury should treat these men and women with the utmost respect.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 3,
-	    "exhausted": 1
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.medics.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.medics.wounded",
-	    "refresh": "friend.medics",
-	    "refreshally": "friend.medics",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1149,28 +942,13 @@
 		    "morpheffect": "mutate",
 		    "level": -4
 		},
-	    ],
-	},
-	"lifetime": 90,
-	"decayTo": "friend.medics",
-	"icon": "friend.medics",
-	"resaturate": true
+	    ]
+	}
     },
+	
     {
 	"id": "friend.medics.wounded",
-	"label": "Ally Field Medics (Wounded)",
-	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 3,
-	    "wounded": 1
-	},
-	"xtriggers": {
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.corpses",
-	    "restorehealth": "friend.medics",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1194,25 +972,13 @@
 		    "morpheffect": "mutate",
 		    "level": -4
 		},
-	    ],
-	},
+	    ]
+		}
     },
+	
     {
 	"id": "friend.engineers",
-	"label": "Ally Engineers' Company",
-	"description": "If I need a bridge raised or a trench dug, it will be these men I call upon; if I need a building dynamited or an enemy position blown apart, it will be these men I call upon.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 3,
-	    "forge": 6,
-	    "knock": 6
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.engineers.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.engineers.wounded",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1246,58 +1012,16 @@
 		    "morpheffect": "mutate",
 		    "level": -2
 		},
-	    ],
+	    ]
 	},
-	"slots": [
-	    {
-		"id": "needsdamaged",
-		"actionid": "operate",
-		"label": "Damaged",
-		"required": {
-		    "damaged": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-			"faction.anno": 1,
+	"slots$listedit": {
+	"0$dictedit" : { "forbidden$add" : { "faction.anno" : 1 }}
 		}
-	    },
-	    {
-		"id": "needsprovisions1",
-		"actionid": "operate",
-		"label": "Provisions",
-		"required": {
-		    "provisions": 1
-		},
-		"consumes": true
-	    },
-	    {
-		"id": "needsprovisions2",
-		"actionid": "operate",
-		"label": "Provisions",
-		"required": {
-		    "provisions": 1
-		},
-		"consumes": true
-	    }
-	]
     },
+	
     {
 	"id": "friend.engineers.exhausted",
-	"label": "Ally Engineers' Company (Exhausted)",
-	"description": "If I need a bridge raised or a trench dug, it will be these men I call upon; if I need a building dynamited or an enemy position blown apart, it will be these men I call upon.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 3,
-	    "exhausted": 1
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.engineers.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.engineers.wounded",
-	    "refresh": "friend.engineers",
-	    "refreshally": "friend.engineers",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1331,28 +1055,13 @@
 		    "morpheffect": "mutate",
 		    "level": -2
 		},
-	    ],
-	},
-	"lifetime": 90,
-	"decayTo": "friend.engineers",
-	"icon": "friend.engineers",
-	"resaturate": true
+	    ]
+		}
     },
+	
     {
 	"id": "friend.engineers.wounded",
-	"label": "Ally Engineers' Company (Wounded)",
-	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 3,
-	    "wounded": 1
-	},
-	"xtriggers": {
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.corpses",
-	    "restorehealth": "friend.engineers",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1386,25 +1095,13 @@
 		    "morpheffect": "mutate",
 		    "level": -2
 		},
-	    ],
+	    ]
 	}
     },
+	
     {
 	"id": "friend.tanks",
-	"label": "Ally Armoured Company",
-	"description": "A big gun and some armour on a pair of treads. Terrifyingly simple, terrifyingly effective.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 6,
-	    "forge": 4,
-	    "edge": 12
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.tanks.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.tanks.damaged",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1438,25 +1135,13 @@
 		    "morpheffect": "mutate",
 		    "level": -2
 		},
-	    ],
+	    ]
 	}
     },
+	
     {
 	"id": "friend.tanks.exhausted",
-	"label": "Ally Armoured Company (Exhausted)",
-	"description": "A big gun and some armour on a pair of treads. Terrifyingly simple, terrifyingly effective.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 6,
-	    "exhausted": 1
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.tanks.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.tanks.damaged",
-	    "refresh": "friend.tanks",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1490,28 +1175,13 @@
 		    "morpheffect": "mutate",
 		    "level": -2
 		},
-	    ],
-	},
-	"lifetime": 160,
-	"decayTo": "friend.tanks",
-	"icon": "friend.tanks",
-	"resaturate": true
+	    ]
+	}
     },
+	
     {
 	"id": "friend.tanks.damaged",
-	"label": "Ally Armoured Company (Damaged)",
-	"description": "[Use Engineers to initiate repairs for this Ally.]",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 6,
-	    "damaged": 1
-	},
-	"xtriggers": {
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.corpses",
-	    "restorehealth": "friend.tanks",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1545,24 +1215,13 @@
 		    "morpheffect": "mutate",
 		    "level": -2
 		},
-	    ],
-	},
+	    ]
+	}
     },
+	
     {
 	"id": "friend.artillery",
-	"label": "Ally Artillery",
-	"description": "Mortars and other heavy guns, capable of raining death at great range. Astoundingly destructive, but immobile and not good for much else save direct bombardment.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 10,
-	    "edge": 18
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.artillery.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.artillery.damaged",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1586,25 +1245,13 @@
 		    "morpheffect": "mutate",
 		    "level": -2
 		},
-	    ],
+	    ]
 	}
     },
+	
     {
 	"id": "friend.artillery.exhausted",
-	"label": "Ally Artillery (Exhausted)",
-	"description": "Mortars and other heavy guns, capable of raining death at great range. Astoundingly destructive, but immobile and not good for much else save direct bombardment.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 10,
-	    "exhausted": 1
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.artillery.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.artillery.damaged",
-	    "refresh": "friend.artillery",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1628,28 +1275,13 @@
 		    "morpheffect": "mutate",
 		    "level": -2
 		},
-	    ],
-	},
-	"lifetime": 280,
-	"decayTo": "friend.artillery",
-	"icon": "friend.artillery",
-	"resaturate": true
+	    ]
+	}
     },
+	
     {
 	"id": "friend.artillery.damaged",
-	"label": "Ally Artillery (Damaged)",
-	"description": "[Use Engineers to initiate repairs for this Ally.]",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 10,
-	    "damaged": 1
-	},
-	"xtriggers": {
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.corpses",
-	    "restorehealth": "friend.artillery",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1674,24 +1306,12 @@
 		    "level": -2
 		},
 		]
-	},
+	}
     },
+	
     {
 	"id": "friend.bombers",
-	"label": "Ally Bomber Squadron",
-	"description": "Friends in the sky - a welcome sight.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 6,
-	    "friend.aerial": 1,
-	    "edge": 12
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.bombers.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.bombers.damaged",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1718,22 +1338,10 @@
 		]
 	}
     },
+	
     {
 	"id": "friend.bombers.exhausted",
-	"label": "Ally Bomber Squadron (Exhausted)",
-	"description": "Friends in the sky - a welcome sight.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 6,
-	    "exhausted": 1
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.bombers.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.bombers.damaged",
-	    "refresh": "friend.bombers",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1758,27 +1366,12 @@
 		    "level": -4
 		},
 		]
-	},
-	"lifetime": 160,
-	"decayTo": "friend.bombers",
-	"icon": "friend.bombers",
-	"resaturate": true
+	}
     },
+	
     {
 	"id": "friend.bombers.damaged",
-	"label": "Ally Bomber Squadron (Damaged)",
-	"description": "[Use Engineers to initiate repairs for this Ally.]",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 6,
-	    "damaged": 1
-	},
-	"xtriggers": {
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.corpses",
-	    "restorehealth": "friend.bombers",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1803,24 +1396,12 @@
 		    "level": -4
 		},
 		]
-	},
+	}
     },
+	
     {
 	"id": "friend.militia",
-	"label": "Ally Volunteer Militia",
-	"description": "It takes more than a rifle and a bit of fighting spirit to make a man a soldier. But not that much more, I suppose.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 2,
-	    "edge": 4,
-	    "heart": 4
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.militia.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.militia.wounded",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1846,47 +1427,14 @@
 		},
 		]
 	},
-	"slots": [
-	    {
-		"id": "needswarzone",
-		"actionid": "operate",
-		"label": "Warzone",
-		"required": {
-		    "warzone.current": 1
-		},
-		"forbidden": {
-		    "wasteland": 1
+	"slots$listedit": {
+	"0$dictedit" : { "required$add" : { "faction.anno" : 1 }}
 		}
-	    },
-	    {
-		"id": "needsintent",
-		"actionid": "operate",
-		"label": "Intent",
-		"required": {
-		    "edge": 1,
-		    "heart": 1,
-			"faction.anno": 1
-		}
-	    }
-	]
     },
+	
     {
 	"id": "friend.militia.exhausted",
-	"label": "Ally Volunteer Militia (Exhausted)",
-	"description": "It takes more than a rifle and a bit of fighting spirit to make a man a soldier. But not that much more, I suppose.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 2,
-	    "exhausted": 1
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.militia.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.militia.wounded",
-	    "refresh": "friend.militia",
-	    "refreshally": "friend.militia",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1912,26 +1460,11 @@
 		},
 		]
 	},
-	"lifetime": 60,
-	"decayTo": "friend.militia",
-	"icon": "friend.militia",
-	"resaturate": true
     },
+	
     {
 	"id": "friend.militia.wounded",
-	"label": "Ally Volunteer Militia (Wounded)",
-	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 2,
-	    "wounded": 1
-	},
-	"xtriggers": {
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.corpses",
-	    "restorehealth": "friend.militia",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -1956,25 +1489,12 @@
 		    "level": -2
 		},
 		]
-	},
+	}
     },
+	
     {
 	"id": "friend.sniper",
-	"label": "Ally Sniper",
-	"description": "Solitary, patient, observant. And accurate.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 1,
-	    "edge": 4,
-	    "winter": 4,
-	    "lantern": 4
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.sniper.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.sniper.wounded",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -2011,23 +1531,10 @@
 		]
 	}
     },
+	
     {
 	"id": "friend.sniper.exhausted",
-	"label": "Ally Sniper (Exhausted)",
-	"description": "Solitary, patient, observant. And accurate.",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 1,
-	    "exhausted": 1
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.sniper.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.sniper.wounded",
-	    "refresh": "friend.sniper",
-	    "refreshally": "friend.sniper",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -2072,27 +1579,12 @@
 		    "level": -2
 		},
 		]
-	},
-	"lifetime": 70,
-	"decayTo": "friend.sniper",
-	"icon": "friend.sniper",
-	"resaturate": true
+	}
     },
+	
     {
 	"id": "friend.sniper.wounded",
-	"label": "Ally Sniper (Wounded)",
-	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 1,
-	    "wounded": 1
-	},
-	"xtriggers": {
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.corpses",
-	    "restorehealth": "friend.sniper",
+	"xtriggers$add": {
 	    "bestronger": [
 		{
 		    "id": "friend.stronger",
@@ -2138,87 +1630,8 @@
 		},
 		]
 	}
-    },
-
-    {
-	"id": "friend.lion",
-	"label": "Lion",
-	"description": "<i>Panthera leo.</i> Recognized everywhere as a symbol of strength, honour, and courage; lord of the beasts and king of the jungle - and lions do not even live in jungles! A lion's reputation is just <i>that</i> eminent.",
-	"aspects": {
-	    "mortal": 1,
-	    "friend": 1,
-	    "forcesize": 1,
-	    "edge": 4,
-	    "friend.monster": 1
-	},
-	"xtriggers": {
-	    "killmortal": "corpse.beast",
-	    "killfriend": "corpse.beast",
-	    "makecasualty": "corpse.beast",
-	    "fatiguing": "friend.lion.exhausted"
-	},
-    },
-    {
-	"id": "friend.lion.exhausted",
-	"label": "Lion (Exhausted)",
-	"description": "<i>Panthera leo.</i> Recognized everywhere as a symbol of strength, honour, and courage; lord of the beasts and king of the jungle - and lions do not even live in jungles! A lion's reputation is just <i>that</i> eminent.",
-	"aspects": {
-	    "mortal": 1,
-	    "friend": 1,
-	    "forcesize": 1,
-	    "exhausted": 1,
-	    "friend.monster": 1
-	},
-	"xtriggers": {
-	    "killmortal": "corpse.beast",
-	    "killfriend": "corpse.beast",
-	    "makecasualty": "corpse.beast",
-	    "refresh": "friend.lion"
-	},
-	"icon": "friend.lion",
-	"lifetime": 60,
-	"resaturate": true,
-	"decayTo": "friend.lion"
-    },
-    {
-	"id": "friend.tiger",
-	"label": "Tiger",
-	"description": "<i>Panthera tigris.</i> Tigers, on average, are actually both bigger and stronger than lions - but lions, legend relates, were made first. If it were the other way around, perhaps he'd be the 'Tigersmith' instead. Hardly as charming.",
-	"aspects": {
-	    "mortal": 1,
-	    "friend": 1,
-	    "forcesize": 1,
-	    "edge": 5,
-	    "friend.monster": 1
-	},
-	"xtriggers": {
-	    "killmortal": "corpse.beast",
-	    "killfriend": "corpse.beast",
-	    "makecasualty": "corpse.beast",
-	    "fatiguing": "friend.tiger.exhausted"
-	},
-    },
-    {
-	"id": "friend.tiger.exhausted",
-	"label": "Tiger (Exhausted)",
-	"description": "<i>Panthera tigris.</i> Tigers, on average, are actually both bigger and stronger than lions - but lions, legend relates, were made first. If it were the other way around, perhaps he'd be the 'Tigersmith' instead. Hardly as charming.",
-	"aspects": {
-	    "mortal": 1,
-	    "friend": 1,
-	    "forcesize": 1,
-	    "exhausted": 1,
-	    "friend.monster": 1
-	},
-	"xtriggers": {
-	    "killmortal": "corpse.beast",
-	    "killfriend": "corpse.beast",
-	    "makecasualty": "corpse.beast",
-	    "refresh": "friend.tiger"
-	},
-	"icon": "friend.tiger",
-	"lifetime": 60,
-	"resaturate": true,
-	"decayTo": "friend.tiger"
-    },
+    }
+	
+	
 ]
 }
