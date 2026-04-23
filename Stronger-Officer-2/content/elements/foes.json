@@ -84,25 +84,12 @@
 
     {
 	"id": "foe.malkin",
-	"label": "Great Malkin",
-	"description": "The cat and the owl are both holy to the Horned Axe. When the cat attains the wisdom of the owl - when its fur turns grey and its claws grow long and its life longer still - it is said to become one of these. It is only barely in our world, and as such we cannot touch it. But it can most certainly touch us. [This Enemy cannot be defended against, nor targeted by attacks from any source. However, killing all Légion Clavigers on the board will banish it completely.]",
-	"inherits": "foe.template",
-	"aspects": {
-	    "otherworldly": 1,
-	    "foe.guardlionel": 1,
-	    "faction.legion": 1
-	},
 	"induces": [
 		{
 			"id": "produce.warder",
 			"chance": 100
 		}
-	],
-	"xtriggers": {
-	    "refresh": "foe.malkin",
-	    "concealidentity": "foe.malkin.hidden",
-	    "annoyance": "husk"
-	}
+	]
     },
         {
             "id": "foe.umiri.2.withanno",
@@ -118,7 +105,6 @@
                 "foe.umiri.mark": 1,
                 "foe": 1
             },
-			"slots": [],
 			"icon": "foe.umiri.2",
             "unique": true,
             "uniquenessgroup": "umiri",
@@ -179,85 +165,22 @@
             "unique": true,
             "isAspect": false,
         },
+		
     {
 	"id": "foe.template",
-	"label": "Foe Template",
-	"aspects": {
-	    "foe": 1
-	},
-	"slots": [
-	    {
-		"id": "needsresources1",
-		"label": "Resources",
-		"required": {
-		    "moth": 1,
-		    "lantern": 1,
-		    "forge": 1,
-		    "edge": 1,
-		    "winter": 1,
-		    "heart": 1,
-		    "grail": 1,
-		    "knock": 1
-		},
-		"forbidden": {
-		    "exhausted": 1,
-		    "wounded": 1,
-		    "damaged": 1,
-			"faction.anno": 1
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "faction.anno" : 1 }
+			},
+		"1$dictedit" : {
+			"forbidden$add" : { "faction.anno" : 1 }
+			},
+		"2$dictedit" : {
+			"forbidden$add" : { "faction.anno" : 1 }
+			}
 		}
-	    },
-	    {
-		"id": "needsresources2",
-		"label": "Resources",
-		"required": {
-		    "moth": 1,
-		    "lantern": 1,
-		    "forge": 1,
-		    "edge": 1,
-		    "winter": 1,
-		    "heart": 1,
-		    "grail": 1,
-		    "knock": 1
-		},
-		"forbidden": {
-		    "exhausted": 1,
-		    "wounded": 1,
-		    "damaged": 1,
-			"faction.anno": 1
-		}
-	    },
-	    {
-		"id": "needsresources3",
-		"label": "Something More?",
-		"description": "A knot of power? A confluence? A sign of the earth, or the sky?",
-		"required": {
-		    "moth": 1,
-		    "lantern": 1,
-		    "forge": 1,
-		    "edge": 1,
-		    "winter": 1,
-		    "heart": 1,
-		    "grail": 1,
-		    "knock": 1
-		},
-		"forbidden": {
-		    "exhausted": 1,
-		    "friend": 1,
-		    "supplies": 1,
-		    "weapon": 1,
-			"faction.anno": 1
-		}
-	    },
-	    {
-		"id": "needsprovisions",
-		"label": "Provisions",
-		"required": {
-		    "provisions": 1
-		},
-		"consumes": true
-	    }
-	]
     },
+	
     {
 	"id": "clockwork",
 	"label": "这是发条",
@@ -330,27 +253,21 @@
 	"lifetime": 1,
 	"isHidden": true
     },
+	
     {
     "id": "clockwork.attack2",
-    "label": "Clockwork Threshold",
-    "description": "[When this enemy directly attacks you, it inflicts a crippling injury rather than a simple wound.]",
-    "isAspect": false,
+	"$extends" : ["clockwork.attack1"],
 	"aspects": {
 		"needsedgeforge": 6
-	},
-	"lifetime": 1,
-	"isHidden": true
+		}
     },
+	
     {
     "id": "clockwork.attack3",
-    "label": "Clockwork Threshold",
-    "description": "[When this enemy directly attacks you, it inflicts a crippling injury rather than a simple wound.]",
-    "isAspect": false,
+	"$extends" : ["clockwork.attack1"],
 	"aspects": {
 		"needsedgewinter": 6
-	},
-	"lifetime": 1,
-	"isHidden": true
+		}
     },
 
     {
@@ -417,6 +334,7 @@
 	    ]
     	}
     },
+	
     {
 	"id": "foe.clockwork.exhausted",
 	"label": "Clockwork Lord (Adjusting)",
@@ -481,6 +399,7 @@
 	    ],
     	}
     },
+	
     {
 	"id": "foe.clockwork.hidden",
 	"label": "Unknown Enemy",
@@ -540,6 +459,7 @@
 	"icon": "foe.unknown",
 	"noStack": true
     },
+	
     {
 	"id": "foe.clockwork.exhausted.hidden",
 	"label": "Unknown Enemy",
@@ -609,12 +529,6 @@
 
     {
 	"id": "corpse.jerome",
-	"label": "Jerome Alexander, Slain",
-	"description": "A ruthless man, who in the end received as much mercy as he gave. He sacrificed every principle he had at the altar of his own ambitions - even the affection of one who loved him.",
-	"aspects": {
-	    "remnant": 1,
-	    "legacyplotitem": 1
-	},
 	"slots": [
 	    {
 		"id": "needslionel",
@@ -634,14 +548,9 @@
 	    }
 	]
     },
+	
     {
 	"id": "corpse.lionel",
-	"label": "Lionel Saxon, Slain",
-	"description": "An honourable man, who I was privileged to face in battle and at last defeat. His greatest mistake was to avert his eyes from the evils of one he loved - but he made sure he fell atoning for that mistake.",
-	"aspects": {
-	    "remnant": 1,
-	    "legacyplotitem": 1
-	},
 	"slots": [
 	    {
 		"id": "needsclockwork",
@@ -661,6 +570,7 @@
 	    }
 	]
     },
+	
     {
 	"id": "corpse.clockwork",
 	"label": "The Clockwork Lord Has Been Killed",
@@ -984,28 +894,8 @@
 	},
 	"icon": "foe.unknown",
 	"noStack": true
-    },
-    {
-	"id": "faction.king",
-	"label": "The 9th King Henry's Own Rifles",
-	"description": "On paper, this regiment fights for Great Britain and her Allies. But why has this column diverted from the main force? Why are they pursuing my prize? The King on the Isle is a ill-omened figure - perhaps he sees opportunity in seizing what I seek for his own ends. [Enemies of this faction will also sometimes target Enemies from the Légion du Seuil.]",
-	"isaspect": true,
-	"induces": [
-	    {
-		"id": "king.cycle"
-	    }
-	]
-    },
-    {
-	"id": "faction.legion",
-	"label": "The Légion du Seuil",
-	"description": "A brutal army that keeps a brutal peace in the Bounds. They rarely fight their wars on this side of the dream - so why have they come? Perhaps this particular contingent has received orders to send my prize back to the sky. Perhaps something more personal is at play. [Enemies of this faction will also sometimes target Enemies from the 9th Rifles.]",
-	"isaspect": true,
-	"induces": [
-	    {
-		"id": "legion.cycle"
-	    }
-	]
-    },
+    }
+	
+
 ]
 }
