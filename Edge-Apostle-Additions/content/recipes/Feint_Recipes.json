@@ -1,0 +1,138 @@
+{
+"recipes": [
+	
+    {
+	"id": "attackenemy.failure",
+	"requirements$add" : {
+		"fake.enemy" : -1
+		}
+	},
+	
+	{
+	"id" : "attack.nodefense.failedfeint",
+	"label": "A Failed Feint",
+	"startdescription": "The enemy sought to draw us out, but found nothing.",
+	"description": "And so we remain vigilant.",
+	"warmup" : 10,
+	"requirements" : {
+		"fake.enemy" : 1
+		},
+	"effects" : {
+		"fake.enemy" : -1
+		}
+	},
+	
+	{
+	"id" : "defend.successfulfeint",
+	"label": "A Succesful Feint!",
+	"startdescription": "I've fallen for my enemies bait. They move to capitalise on my opening-",
+	"warmup" : 10,
+	"requirements" : {
+		"fake.enemy" : 1
+		},
+	"effects" : {
+		"fake.enemy" : -1,
+		"readiness.token": 2
+		},
+	"aspects" : {
+		"fatiguing" : 1
+		},
+	"linked": [
+	    {
+		"id": "enemy.pickaction.router"
+	    },
+	]
+	},
+	
+    {
+	"id": "defend.opportunity",
+   "linked$prepend": [
+	    {
+		"id": "attack.nodefense.failedfeint"
+	    }
+	]
+	},
+	
+    {
+	"id": "defend.skill.deflect",
+   "linked$prepend": [
+	    {
+		"id": "defend.successfulfeint"
+	    }
+	]
+	},
+	
+    {
+	"id": "defend.friend.immortal",
+   "linked$prepend": [
+	    {
+		"id": "defend.successfulfeint"
+	    }
+	]
+	},
+	
+    {
+	"id": "defend.ap",
+   "linked$prepend": [
+	    {
+		"id": "defend.successfulfeint"
+	    }
+	]
+	},
+	
+    {
+	"id": "defend.edge",
+   "linked$prepend": [
+	    {
+		"id": "defend.successfulfeint"
+	    }
+	]
+	},
+	
+    {
+	"id": "defend.winter",
+   "linked$prepend": [
+	    {
+		"id": "defend.successfulfeint"
+	    }
+	]
+	},
+	
+    {
+	"id": "defend.forgemoth",
+   "linked$prepend": [
+	    {
+		"id": "defend.successfulfeint"
+	    }
+	]
+	},
+	
+    {
+	"id": "defend.edgelantern",
+   "linked$prepend": [
+	    {
+		"id": "defend.successfulfeint"
+	    }
+	]
+	},
+	
+    {
+	"id": "defend.edgewinter",
+   "linked$prepend": [
+	    {
+		"id": "defend.successfulfeint"
+	    }
+	]
+	},
+	
+    {
+	"id": "defend.edgeforge",
+   "linked$prepend": [
+	    {
+		"id": "defend.successfulfeint"
+	    }
+	]
+	}
+	
+]
+}
