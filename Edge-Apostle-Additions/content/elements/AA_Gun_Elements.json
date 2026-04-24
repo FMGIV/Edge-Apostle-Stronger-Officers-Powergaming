@@ -1,0 +1,80 @@
+{
+"elements": [
+	
+	{
+	"id": "anti_air_friendly",
+	"label": "Anti-aircraft Gun",
+	"description": "This structure has anti-air capabilities.",
+	"isAspect": true,
+	"isHidden": false
+    },
+	
+    {
+	"id": "loc.antiairgun",
+	"label": "Anti-Air Gun [Aimed up]",
+	"description": "A fixed gun emplacement for shooting things out of the sky we don't want in the sky.",
+	"aspects": {
+	    "infrastructure": 1,
+		"anti_air_friendly" : 1,
+		"edge" : 1
+	},
+	"xtriggers": {
+	    "fatiguing": "loc.antiairgun.exhausted",
+	    "destroy": "loc.antiairgun.destroyed",
+		"aimelsewhere" : "loc.antiairgun.horizontal"
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1
+		}
+	    },
+		
+	    {
+		"id": "provisions",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+		}
+	    },
+		
+	    {
+		"id": "provisions",
+		"label": "More Provisions"
+	    }
+		
+	]
+    },
+	
+    {
+	"id": "loc.antiairgun.horizontal",
+	"$extends" : ["loc.antiairgun"],
+	"label": "Anti-Air Gun [Aimed Horizontally]",
+	"description": "A fixed gun emplacement for shooting things out of the sky we don't want in the sky.",
+	"aspects": {
+	    "infrastructure": 1,
+		"ap" : 2,
+		"edge" : 14
+	},
+	"xtriggers": {
+	    "fatiguing": "loc.antiairgun.horziontal.exhausted",
+	    "destroy": "loc.antiairgun.destroyed",
+		"aimelsewhere" : "loc.antiairgun"
+	}
+    },
+	
+    {
+	"id": "loc.antiairgun.destroyed",
+	"$extends" : ["loc.commtower.destroyed"],
+	"label": "Anti-Air Gun (Destroyed)",
+	"description": "The skies are more hostile, now. [You can restore this card with Engineers and Provisions.]",
+	"xtriggers": {
+	    "restore": "loc.antiairgun"
+		},
+	}
+	
+	
+]
+}
