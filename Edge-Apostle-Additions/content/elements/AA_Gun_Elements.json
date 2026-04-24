@@ -59,11 +59,30 @@
 		"edge" : 14
 	},
 	"xtriggers": {
-	    "fatiguing": "loc.antiairgun.horziontal.exhausted",
+	    "fatiguing": "loc.antiairgun.horizontal.exhausted",
 	    "destroy": "loc.antiairgun.destroyed",
 		"aimelsewhere" : "loc.antiairgun"
-	}
+	},
+	"icon": "loc.antiairgun"
     },
+	
+    {
+	"id": "loc.antiairgun.exhausted",
+	"$extends" : ["loc.hospital.exhausted"],
+	"label": "Anti-Air Gun (Exhausted)",
+	"description": "A fixed gun emplacement for shooting things out of the sky we don't want in the sky.",
+	"xtriggers": {
+	    "destroy": "loc.antiairgun.destroyed"
+	},
+	"decayTo": "loc.antiairgun",
+	"icon": "loc.antiairgun"
+	},
+	
+    {
+	"id": "loc.antiairgun.horizontal.exhausted",
+	"$extends" : ["loc.antiairgun.exhausted"],
+	"decayTo": "loc.antiairgun.horizontal"
+	},
 	
     {
 	"id": "loc.antiairgun.destroyed",
