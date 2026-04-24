@@ -13,6 +13,49 @@
 	"warmup" : 30
 	},
 	
+	{
+	"id": "AA.gun.damaged",
+	"actionid": "explorevault_casualty",
+	"startdescription": "The rigors of war have taken a toll on this gun emplacement. It's going to need repairs to be functional again.",
+	"description": "The rigors of war have taken a toll on this gun emplacement. It's going to need repairs to be functional again.",
+	"requirements": {
+	    "loc.antiairgun.horizontal": 1
+		},
+	"aspects" : { "destroy"  : 1 },
+	"warmup" : 10
+	},
+
+    {
+	"id": "attackenemy.success",
+	"inductions$append" : [
+		{
+			"id" : "AA.gun.damaged",
+			"
+		}
+		]	
+	},
+
+    {
+	"id": "weaken.enemy.aagun",
+	"actionid": "operate",
+	"label": "Weaken a monster with an AA gun",
+	"startdescription": "Weaken monster with AA gun [PLACEHOLDER].",
+	"requirements" : {
+		"foe.monster" : 1,
+		"loc.antiairgun.horizontal" : 1,
+		"provisions" : 1,
+		"weakened" : -1
+	},
+	"aspects" : {
+		"fatiguing" : 1,
+		"weaken" : 1
+	}
+	"craftable": true,
+	"warmup": 30,
+	}
+	
+	
+	
 	
 	
 ]
