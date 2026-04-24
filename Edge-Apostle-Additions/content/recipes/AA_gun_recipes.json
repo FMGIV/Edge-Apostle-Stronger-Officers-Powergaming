@@ -52,7 +52,25 @@
 	}
 	"craftable": true,
 	"warmup": 30,
-	}
+	},
+	
+    {
+	"id": "defend.aagun",
+	"$extends" : ["defend.aerial"],
+	"requirements": {
+	    "foe.aerial": 1,
+	    "anti_air_friendly": 1
+		}
+    },
+	
+	{
+    "id": "defend.opportunity",
+	"alt$append" : [
+		{
+			"id": "defend.aagun",
+			"chance" : "([anti_air_friendly] / [foe.aerial]) * 100"
+		}
+    }
 	
 	
 	
