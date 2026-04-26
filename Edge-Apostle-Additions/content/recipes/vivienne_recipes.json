@@ -1,0 +1,143 @@
+{
+"recipes": [
+	
+    {
+	"id": "hide.startup.general",
+	"linked$append" : [
+		{
+			"id": "spawn.vivienne",
+			"chance" : 2
+		}
+		]
+	},
+	
+    {
+	"id": "attackenemy.success",
+	"requirements$add" : {
+		"vivienne.mark" : -1
+		}
+	},
+	
+	{
+	"id": "attackenemy.hidden",
+	"linked$listedit": {"0$dictedit" : { "chance": "70+[vivienne.mark]*30"  }}
+	},
+	
+    {
+	"id": "spawn.vivienne",
+	"$extends" : ["hide.startup"],
+	"aspects": {},
+	"requirements": {},
+	"grandReqs" : {
+		"([foe.sniper.hidden] || [foesniper])": 1,
+		},
+	"extantreqs" : {
+		"vivienne.mark" : -1,
+		"obdurant.story" : 1
+		},
+	"effects" : {
+		"foe.sniper" : -1,
+		"foesniper" : -1,
+		"foe.vivienne.hidden" : 1
+		},
+	"linked": []
+	},
+	
+	{
+	"id": "defend.opportunity",
+	"inductions$append" : [
+		{
+			"id" : "make.vivienne.opening"
+		}
+		]
+	},
+	
+    {
+	"id": "make.vivienne.opening",
+	"actionid": "spit.winter",
+	"label": "An Opening?",
+	"startdescription": "This sniper is good. *Very* good. It's going to take some effort to root her out-",
+	"description": "This sniper is good. *Very* good. It's going to take some effort to root her out-",
+	"extantreqs" : {
+		"side.vivienne" : -1
+		},
+	"effects" : {
+		"side.vivienne" : 1
+		},
+	"warmup" : 15
+	},
+	
+    {
+	"id": "foe.vivienne.kill",
+	"$extends" : ["foe.lethal.kill"],
+	"requirements": {
+	    "vivienne.mark": 1,
+		"friend" : 1
+		}
+	},
+	
+	{
+	"id": "foe.elusive.conceal",
+	"linked$append" : [
+		{
+			"id" : "foe.vivienne.kill"
+		}
+		]
+	},
+	
+    {
+	"id": "ob.success.vivienne",
+	"label": "Viviane, Beaten",
+	"startdescription": "The sniper harrying us has been driven off, for now. She won't be a problem for the rest of this warzone.",
+	"description" : "Hope we don't run into her again.",
+	"requirements": {
+	    "vivienne.side.complete": 1,
+		"vivienne.mark" : -1
+	},
+	"slots": [
+	    {
+		"id": "needsvivienne",
+		"label": "Viviane",
+		"required": {
+		    "vivienne.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"linked": [
+		{
+		"id": "ob.success.vivienne.conclude"
+		},
+	
+	    {
+		"id": "ob.success.vivienne"
+	    }
+		]
+    },
+	
+    {
+	"id": "ob.success.vivienne.conclude",
+	"label": "Viviane, Beaten",
+	"startdescription": "The sniper harrying us has been driven off, for now. She won't be a problem for the rest of this warzone.",
+	"description" : "Hope we don't run into her again.",
+	"requirements": {
+		"vivienne.mark" : 1
+	},
+	"effects": {
+	    "vivienne.mark": -1,
+		"foe" : -1
+		}
+    },
+	
+    {
+	"id": "ob.success",
+	"linked$append" : [
+		{
+			"id": "ob.success.vivienne"
+		}
+		]
+	}
+	
+]
+}

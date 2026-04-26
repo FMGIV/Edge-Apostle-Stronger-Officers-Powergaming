@@ -1,0 +1,168 @@
+{
+"elements": [
+
+    {
+	"id": "vivienne.mark",
+	"label": "Foe: Vivenne",
+	"isAspect": true,
+	"isHidden": true
+    },
+	
+	{
+	"id": "vivienne.side.complete",
+	"label": "Found Vivenne Opening",
+	"isHidden": true,
+	"lifetime": 1,
+	},
+	
+	{
+    "id": "foe.vivienne",
+	"label": "Vänrikki Vivian",
+	"$extends" : ["foe.sniper"],
+	"description": "A Finnish markswoman who made a name for herself in the winter war. 'The White Death' the Finnish called her. I can see why she got that moniker.",
+	"aspects": {
+	    "mortal": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+		"foe.lethal" : 1,
+		"foe.braced" : 1,
+		"vivienne.mark" : 1,
+		"needswinter" : 12,
+		"needsmoth" : 12
+	},
+	"xtriggers": {
+	    "refresh": "foe.vivienne",
+	    "killgerman": "nothing",
+	    "killfoe": "nothing",
+	    "killmortal": "nothing",
+	    "concealidentity": "foe.vivienne.hidden",
+		"revealidentity" : "foe.vivienne",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+	{
+    "id": "foe.vivienne.hidden",
+	"$extends" : ["foe.vivienne"],
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemy is one that goes unanticipated.",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "vivienne.mark" : 1
+		},
+	"xtriggers": {
+	    "refresh": "foe.vivienne.hidden",
+	    "killgerman": "nothing",
+	    "killfoe": "nothing",
+	    "killmortal": "nothing",
+		"revealidentity" : "foe.vivienne",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+	},
+	
+	{
+    "id": "hindrance.vivienne",
+	"$extends" : ["foe.vivienne"],
+	"aspects": {
+	    "needswinter": 14,
+	    "needsmoth" : 14
+		},
+	"icon" : "foe.vivienne"
+	},
+	
+    {
+	"id": "side.vivienne",
+	"label": "An Opening?",
+	"description": "The sniper that's been harrying us has presented an opening. It's slight, but theres a small window to act before she relocates to another position.",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "vivienne.side.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.snows",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.unknownlocation",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.vivienne",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"unique": true,
+	"lifetime" : 60
+    }
+	
+	
+	
+]
+}
