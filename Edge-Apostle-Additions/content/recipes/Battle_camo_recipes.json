@@ -1,25 +1,72 @@
 {
 "recipes": [
+
+	{  
+	"id": "create.distraction.hint",
+	"$priority" : 1,
+	"actionid": "operate",  
+	"label": "Create a Distraction?",  
+	"startdescription": "The fires of the corrivalty burn hot here. Too hot, and it may attract unwanted attention. I can have some scouts and fighting men create a distraction with enough resources. [Provide Scouts and at least 16 Edge to do this.]",
+	"requirements": {  
+	    "strife": 1
+	},
+	"hintonly": true,
+	"craftable": false
+	},
 	
     {
-	"id": "clockwork.slain",
-	"requirements": {
-	    "monster.wound": 2,
-		"clockwork.mark": 1
-		},
+	"id": "create.distraction",
+	"actionid": "operate",
+	"label": "Order men to create a diversion in the battlefield",
+	"startdescription": "The enemy assault grows fiercer and fiercer. If I have some scouts and fighting men to spare, I can order them to create a diversion to attract attention.",
+	"description": "Blood for Time. A little more sand in the hourglass.",
+	"grandReqs": {
+	    "friend": 3,
+	    "provisions": 2,
+	    "strife": 2,
+		"edge" : 16,
+		"([friend.scouts] || [friendscouts])": 1
 	},
-	
-	{
-	"id": "ss.cycle",
-	"linked$listedit": { 
-		"0$dictedit" : 	 { "chance": "40+[~/visible:strife.tracker]*3" }
+	"effects": {
+	    "provisions": -2,
+	    "strife": -2,
+	},
+	"craftable": true,
+	"warmup": 60,
+	"inductions": [
+	    {
+		"id": "producecasualty",
+		"chance": 75,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
 		}
-	},
-	
-	{
-	"id": "ss.pickaction.router",
-	"requirements": {}
-	}
+	    },
+		{
+		"id": "producecasualty",
+		"chance": 75,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		
+		{
+		"id": "producecasualty",
+		"chance": 75,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    }
+	]
+    }
 	
 ]
 }
