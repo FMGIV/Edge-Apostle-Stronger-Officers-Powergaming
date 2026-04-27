@@ -188,13 +188,17 @@
 		
 		{
 		"id": "scouts.scopeout"
+	    },
+		
+		{
+		"id": "recon*"
 	    }
 		
 	] 
 	},
 	
 	{
-	"id": "command.ally.action.scouts.recon.pre",
+	"id": "command.ally.action.scouts.scopeout.pre",
 	"actionid": "recon",
 	"label": "Command Scouts",
 	"startdescription": "I have an enemy I need intelligence on, and these are the men to get it.",
@@ -250,6 +254,32 @@
 	    "debilitation": -1
 	},
 	"warmup": 15
+	},
+	
+	{
+	"id": "command.ally.action.scouts.recon.warzone.pre",
+	"actionid": "recon",
+	"$priority" : 1,
+	"label": "Command Scouts",
+	"startdescription": "I have a Warzone I need intelligence on, and these are the men to get it.",
+	"grandReqs": {
+	    "friend.scouts": 1,
+		"warzone.current" : 1,
+		"[~/extant:allyattackmarker]=3": -1 
+	},
+	"effects" : {
+	"allyattackmarker" : 1
+	},
+	"inductions": [  
+		{
+		"id" : "command.ally.action.scouts",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+			}
+		}
+	],  
+	"craftable": true  
 	},
 	
     {
