@@ -1617,15 +1617,19 @@
 	{
 	"id": "enemy.cycle",
 	"linked$listedit": { 
-		"1$dictedit" : 	 { "chance": "40+[~/visible:strife.tracker]*3" },
-		"2$dictedit" : 	 { "chance": "40+[~/visible:strife.tracker]*3" }
+		"1$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"2$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
 		},
 	"linked$prepend" : [
 		{
 			"id": "enemy.cycle.afraid_create.retribution",
 			"chance" : "[~/extant:retribution]"
 		}
-		]
+		],
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "20 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"1$dictedit" : 	 { "chance": "20 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
 	},
 	
     {
@@ -1646,14 +1650,14 @@
 	{
 	"id": "king.cycle",
 	"linked$listedit": { 
-		"0$dictedit" : 	 { "chance": "40+[~/visible:strife.tracker]*3" }
+		"0$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker]*3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
 		}
 	},
 	
 	{
 	"id": "legion.cycle",
 	"linked$listedit": { 
-		"0$dictedit" : 	 { "chance": "40+[~/visible:strife.tracker]*3" }
+		"0$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker]*3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
 		}
 	},
 	
