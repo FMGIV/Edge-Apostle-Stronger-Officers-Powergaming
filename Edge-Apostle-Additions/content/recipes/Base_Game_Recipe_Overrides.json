@@ -255,7 +255,12 @@
 		"0$dictedit" : {
 			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1 }
 			}
+		},
+	"inductions$append" : [
+		{
+			"id" : "make.vivienne.opening"
 		}
+		]
     },
 	
 	{
@@ -462,6 +467,10 @@
 		
 		{
 			"id": "stalingrad.third.complete"
+		},
+		
+		{
+			"id": "ob.success.vivienne"
 		}
 		
 	],
@@ -3042,7 +3051,7 @@
 	{
 	"id": "attackenemy.hidden",
 	"linked$listedit": { 
-		"0$dictedit" : 	 { "chance": "70 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		"0$dictedit" : 	 { "chance": "70 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 + [vivienne.mark]*60" }
 		}
 	},
 	
@@ -3239,13 +3248,6 @@
 	},
 	
 	{
-	"id": "getreinforcements.success",
-	"alt$listedit": { 
-		"0$dictedit" : 	 { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" }
-		}
-	},
-	
-	{
 	"id": "operate.church.edge",
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
@@ -3285,6 +3287,25 @@
 	"linked$listedit": { 
 		"0$dictedit" : 	 { "chance": "0" }
 		}
+	},
+	
+    {
+	"id": "hide.startup.general",
+	"linked$append" : [
+		{
+			"id": "spawn.vivienne",
+			"chance" : 2
+		}
+		]
+	},
+	
+	{
+	"id": "foe.elusive.conceal",
+	"linked$append" : [
+		{
+			"id" : "foe.vivienne.kill"
+		}
+		]
 	}
 	
 
