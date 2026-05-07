@@ -111,6 +111,24 @@
     },
 	
     {
+	"id": "Ally.Talk.Unafraid",
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "Motivate Ally",
+	"startdescription": "My ally has been shaken by some harrowing experince. With some time, I can motivate them back to normal effectiveness.",
+	"description": "And done. Back in the fight.",
+	"aspects": {
+	    "deweaken": 1
+	},
+	"requirements": {
+	    "friend.weakened": 1,
+		"memento" : 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+	
+    {
 	"id": "Ally.Give.Provisions",
 	"actionid": "communicate",
 	"$priority" : 1,
@@ -617,6 +635,18 @@
 	},
 	"warmup": 30,
 	"craftable": true
+    },
+	
+    {
+	"id": "healcasualty.hospital.wounded.faster",
+	"$extends" : ["healcasualty.hospital.wounded"],
+	"$priority" : 1,
+	"requirements": {
+	    "friend": 1,
+	    "wounded": -1,
+	    "loc.hospital.staffed": 1
+	},
+	"warmup": 15
     }
 	
 ]
