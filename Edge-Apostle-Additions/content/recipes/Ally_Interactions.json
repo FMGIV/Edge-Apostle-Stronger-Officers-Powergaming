@@ -9,7 +9,7 @@
 	"startdescription": "I have something to fix or build for the engineers to do. Get to it.",
 	"grandReqs": {
 	    "provisions": 2,
-	    "([friend.engineers] || [friend.engineers.wellstocked] || [friendengineers])": 1,
+	    "([friend.engineers] || [well.stocked] || [friendengineers])": 1,
 		"[~/extant:allyattackmarker]=3": -1,
 		"main": -1,
 		"side" : -1,
@@ -38,6 +38,10 @@
 	"startdescription": "I have something to fix or build for the engineers to do. Get to it.",
 	"linked": [  
 		{
+		"id": "faster*"
+	    },
+		
+		{
 		"id": "repair*"
 	    },
 		
@@ -48,40 +52,63 @@
 	},
    
     {
-	"id": "repairdamaged.engineers.faster",
+	"id": "faster.repairdamaged.engineers",
 	"$extends" : ["repairdamaged.engineers"],
 	"requirements": {
 	    "damaged": 1,
 	    "provisions": 2,
-	    "friend.engineers.wellstocked": 1
+	    "well.stocked": 1
 	},
 	"warmup": 15
 	},
 	
     {
-	"id": "repairinfrastructure.faster",
+	"id": "faster.repairinfrastructure",
 	"$extends" : ["repairinfrastructure"],
 	"requirements": {
 	    "infrastructure.destroyed": 1,
-	    "friend.engineers.wellstocked": 1,
+	    "well.stocked": 1,
 	    "provisions": 2
 	},
 	"warmup": 30
 	},
 	
     {
-	"id": "buildbarracks.faster",
+	"id": "faster.buildbarracks",
 	"$extends" : ["buildbarracks"],
 	"requirements": {
 	    "provisions": 2,
-		"friend.engineers.wellstocked": 1
+		"well.stocked": 1
 	},
 	"warmup": 30,
 	"effects": {
-	    "friend.engineers.wellstocked": -1,
-	    "loc.barracks": 1
+	    "well.stocked": -1,
+	    "loc.barracks": 1,
+		"provisions" : -2
 	}
 	},
+	
+    {
+	"id": "Ally.Give.Provisions.Unweaken",
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "Restore Ally to Nominal Effectiveness",
+	"startdescription": "Assigning extra resources to weakened allies will restore their effectiveness in battle.",
+	"description": "And done. Back at nominal effectiveness.",
+	"aspects": {
+	    "deweaken": 1
+	},
+	"requirements": {
+	    "friend": 1,
+		"weakened": 1,
+		"provisions" : 1
+	},
+	"effects": {
+	    "provisions": -1
+	},
+	"warmup": 15,
+	"craftable": true
+    },
 	
     {
 	"id": "Ally.Give.Provisions",
@@ -98,6 +125,8 @@
 	    "well.stocked": -1,
 		"medic.stocked": -1,
 		"moralebuff": -1,
+		"friend.weakened": -1,
+		"weakened": -1,
 		"provisions" : 1
 	},
 	"effects": {
@@ -116,7 +145,7 @@
 	"grandReqs": {
 	    "provisions": 1,
 		"wounded" : 1,
-	    "([friend.medics] || [friend.medics.supplied])": 1,
+	    "([friend.medics] || [friend.medics.supplied] || [friendmedics])": 1,
 		"[~/extant:allyattackmarker]=3": -1
 	},
 	"effects" : {
@@ -142,6 +171,11 @@
 	"startdescription": "I have someone or something for the medics to heal. Patch em up.",
 	"linked": [  
 		{
+		"id": "faster*"
+	    },
+		
+		
+		{
 		"id": "healcasualty.medics*"
 	    }
 	] 
@@ -155,7 +189,7 @@
 	"startdescription": "The broad movements of the sky and the air can threaten the unprepared, but my scouts can devise a way to turn even this to our advantage.\n\n[This will convert a Hindrance into a useful Opportunity.]",
 	"grandReqs": {
 	    "provisions": 1,
-	    "friend.scouts": 1,
+		"([friend.scouts] || [friendscouts])": 1,
 		"hindrance" : 1,
 		"[~/extant:allyattackmarker]=3": -1 
 	},
@@ -204,7 +238,7 @@
 	"startdescription": "I have an enemy I need intelligence on, and these are the men to get it.",
 	"grandReqs": {
 	    "provisions": 1,
-	    "friend.scouts": 1,
+	    "([friend.scouts] || [friendscouts])": 1,
 		"[foe] || [foe.hidden]" : 1,
 		"[~/extant:allyattackmarker]=3": -1 
 	},
@@ -238,14 +272,14 @@
 	"grandReqs" : {
 		"([foe] || [foe.hidden])": 1,
 		"provisions": 1,
-	    "friend.scouts": 1,
+	    "([friend.scouts] || [friendscouts])": 1,
 		"weakened" : -1
 	},
     "warmup": 30
 	},
 	
     {
-	"id": "heal.wound.faster",
+	"id": "faster.heal.wound",
 	"$extends" : ["heal.wound"],
 	"requirements": {
 	    "provisions": 1,
@@ -263,7 +297,7 @@
 	"label": "Command Scouts",
 	"startdescription": "I have a Warzone I need intelligence on, and these are the men to get it.",
 	"grandReqs": {
-	    "friend.scouts": 1,
+	    "([friend.scouts] || [friendscouts])": 1,
 		"warzone.current" : 1,
 		"[~/extant:allyattackmarker]=3": -1 
 	},
@@ -283,10 +317,10 @@
 	},
 	
     {
-	"id": "healcasualty.medics.monster.faster",
+	"id": "faster.healcasualty.medics.monster",
 	"$extends" : ["healcasualty.medics.monster"],
 	"requirements": {
-	    "friend.medics.supplied": 1,
+	    "medic.stocked": 1,
 	    "provisions": 1,
 	    "friend.monster": 1,
 	    "wounded": 1
@@ -303,22 +337,23 @@
 	    }
 	],
 	"alt": [
-	    {
-		"id": "healcasualty.medics.monster.success"
-	    },
-		
 		{
 		"id": "healcasualty.medics.monster.success.faster"
+	    },
+		
+	    {
+		"id": "healcasualty.medics.monster.success"
 	    }
-	],
+
+	]
 	},
 	
 	
     {
-	"id": "healcasualty.medics.faster",
+	"id": "faster.healcasualty.medics",
 	"$extends" : ["healcasualty.medics"],
 	"requirements": {
-	    "friend.medics.supplied": 1,
+	    "medic.stocked": 1,
 	    "provisions": 1,
 	    "wounded": 1
 	},
@@ -329,7 +364,7 @@
 	"id": "healcasualty.medics.monster.success.faster",
 	"$extends" : ["healcasualty.medics.monster.success"],
 	"requirements": {
-	    "friend.engineers.wellstocked": 1
+	    "well.stocked": 1
 	}
 	},
 
@@ -337,7 +372,7 @@
 	"id": "heal.adeptgrail.wounded.monster.success.faster",
 	"$extends" : ["heal.adeptgrail.wounded.monster.success"],
 	"requirements": {
-	    "friend.engineers.wellstocked": 1
+	    "well.stocked": 1
 	}
     },
 
