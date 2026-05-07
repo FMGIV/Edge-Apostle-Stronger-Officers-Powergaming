@@ -637,16 +637,63 @@
 	"craftable": true
     },
 	
-    {
-	"id": "healcasualty.hospital.wounded.faster",
-	"$extends" : ["healcasualty.hospital.wounded"],
+	{
+	"id": "command.ally.action.field.hospital.pre",
+	"actionid": "operate",
+	"startdescription": "Here, we have the necessary instruments and supplies to treat our wounded.\n\n[Place any Wounded Allies here to treat their injuries. You can also put Wounds of your own here to heal them.]",
 	"$priority" : 1,
-	"requirements": {
-	    "friend": 1,
-	    "wounded": -1,
-	    "loc.hospital.staffed": 1
+	"label": "Have allies heal at a field hospital",
+	"grandReqs": {
+		"wounded" : 1,
+		"damage.body": -1,
+	    "([loc.hospital] || [loc.hospital.staffed])": 1,
+		"[~/extant:allyattackmarker]=3": -1
 	},
-	"warmup": 15
+	"effects" : {
+	"allyattackmarker" : 1
+	},
+	"inductions": [  
+		{
+		"id" : "command.ally.action.hospital",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+			}
+		}
+	],  
+	"craftable": true  
+	},
+	
+	{  
+	"id": "command.ally.action.hospital",
+	"actionid": "ally.medics.action",  
+	"label": "Command Field Hospital",
+	"startdescription": "I have someone or something for the medics to heal. Patch em up.",
+	"linked": [  
+		{
+		"id": "healcasualty.hospital*"
+	    }
+	] 
+	},
+	
+    {
+	"id": "assign.medics.hospital",
+	"actionid": "abandon",
+	"$priority" : 1,
+	"label": "Assign Field Medics to Field Hospital",
+	"startdescription": "Assigning medics to a Field Hospital will make healing allies faster. [You will lose the medics assigned here.].",
+	"description": "Done.",
+	"grandReqs": {
+	    "([friend.medics] || [medic.stocked] || [friendmedics])": 1,
+		"loc.hospital" : 1
+	},
+	"effects": {
+	    "friend": -1,
+		"loc.hospital" : -1,
+		"loc.hospital.staffed" : 1
+	},
+	"warmup": 30,
+	"craftable": true
     }
 	
 ]

@@ -2,8 +2,8 @@
 "elements": [
     {
 	"id" : "allyattackmarker",
-	"label" : "Ally Attack Marker",
-	"description" : "Commanded Allies to Attack",
+	"label" : "Ally Command Marker",
+	"description" : "Commanded Allies",
 	"lifetime" : 1,
 	"isHidden": true
 	},
@@ -533,7 +533,26 @@
 	"aspects": {
 	    "local.infamy": 1
 		}
-    }
+    },
+	
+	{  
+	"id": "loc.hospital.staffed",
+	"$derives" : ["loc.hospital"], 
+	"label": "Field Hospital (Staffed)",
+	"icon": "loc.hospital",
+	"xtriggers": {
+	    "fatiguing": "loc.hospital.staffed.exhausted",
+	}
+	},
+	
+    {
+	"id": "loc.hospital.staffed.exhausted",
+	"$derives" : ["loc.hospital.exhausted"], 
+	"label": "Field Hospital (Staffed - Exhausted)",
+	"lifetime": 150,
+	"decayTo": "loc.hospital.staffed"
+	}
+	
 	
 	
 ]
