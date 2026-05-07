@@ -34,7 +34,27 @@
 	    "edge": 8,
 	    "winter": 8,
 	    "lantern": 8
-	}
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.sniper.hidden.ins"
+		}
+    },
+	
+	{
+	"id": "friend.sniper.hidden.ins",
+	"$derives" : ["friend.sniper.ins"],
+	"label": "Ally Sniper (Hidden)",
+	"aspects": {
+		"friend.hidden": 1,
+	    "edge": 14,
+	    "winter": 12,
+	    "lantern": 12
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.sniper.hidden.ins"
+	},
+	"icon": "friend.sniper.hidden",
+	"decayTo": "friend.sniper.hidden",
     },
 	
 	{
@@ -63,6 +83,22 @@
     },
 	
 	{
+	"id": "friend.militia.hidden.ins",
+	"$derives" : ["friend.militia.ins"],
+	"label": "Ally Militia (Hidden)",
+	"aspects": {
+		"friend.hidden": 1,
+	    "edge": 10,
+	    "heart": 8
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.militia.hidden.ins"
+	},
+	"icon": "friend.militia.hidden",
+	"decayTo": "friend.militia.hidden",
+    },
+	
+	{
 	"id": "friend.militia.hidden",
 	"$derives" : ["friend.militia"],
 	"label": "Ally Volunteer Militia (Hidden)",
@@ -70,7 +106,10 @@
 		"friend.hidden": 1,
 	    "edge": 8,
 	    "heart": 8
-	}
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.militia.hidden.ins"
+		}
     },
 	
 	{
@@ -212,13 +251,10 @@
 	
 	{
 	"id": "friend.infantry.inspired",
-	"$extends" : ["friend.infantry"],
+	"$derives" : ["friend.infantry"],
 	"label": "Ally Infantry (Inspired)",
 	"icon": "friend.infantry",
 	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 3,
 	    "edge": 8,
 		"friend.inspired" : 1
 	}
@@ -244,13 +280,10 @@
 	
 	{
 	"id": "friend.tanks.inspired",
-	"$extends" : ["friend.tanks"],
+	"$derives" : ["friend.tanks"],
 	"label": "Ally Armoured Company (Inspired)",
 	"icon": "friend.tanks",
 	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 6,
 	    "forge": 6,
 	    "edge": 14,
 		"friend.inspired" : 1
@@ -349,6 +382,24 @@
 	    "forge": 8,
 	    "knock": 8,
 		"well.stocked" : 1
+	},
+	"xtriggers$add": {
+		"adv_soviet": "friend.engineers.wellstocked.ins"
+	}
+    },
+	
+	{
+	"id": "friend.engineers.wellstocked.ins",
+	"$derives" : ["friend.engineers.ins"],
+	"label": "Ally Engineers (Stocked up)",
+	"aspects": {
+	    "forge": 10,
+	    "knock": 10,
+		"well.stocked" : 1
+	},
+	"decayTo": "friend.engineers.wellstocked",
+	"xtriggers$add": {
+		"adv_soviet": "friend.engineers.wellstocked.ins"
 	}
     },
 	

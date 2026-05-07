@@ -1,0 +1,439 @@
+{
+"elements": [
+	
+	{
+    "id": "main.rout.exhausted",
+	"description": "Our aim is simple: utter annihilation of the enemy. Kill them all. [Completing this objective will cause all Germans at the warzone to retreat, and transfer the warzone plus any enemy infastructure to your control.]",
+    "aspects$add" : {"evacuate.trigger":1}
+	},
+	
+	{
+    "id": "main.capture.exhausted",
+	"description": "The enemy has taken up position here - here, in our homes and our streets. Drive them out and reclaim this city. [Completing this objective will transfer the warzone and all enemy infrastructure here to your control.]",	
+    "aspects$add" : {"evacuate.trigger":1}
+	},
+	
+	{
+	"id": "foe.infantry.ins",
+	"aspects$add" : {"foe.coordinated.comms.marker":1},
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.braced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.infantry.environment.ins",
+	"aspects$add" : {"foe.coordinated.comms.marker":1},
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.braced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.kommando.ins",
+	"aspects$add" : {"foe.coordinated.comms.marker":1},
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "kommando.retaliatory",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.kommando.environment.ins",
+	"aspects$add" : {"foe.coordinated.comms.marker":1},
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "kommando.retaliatory",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.sniper.ins",
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.emplaced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.sniper.environment.ins",
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.emplaced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.tanks.ins",
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.armoured",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		
+		{
+		    "id": "foe.hulldown",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.bombers.ins",
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.aerial",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		
+		{
+		    "id": "foe.escorted",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.fighter_aircraft.ins",
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.aerial",
+		    "morpheffect": "mutate",
+		    "level": -3
+		},
+		
+		{
+		    "id": "foe.escorted",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.artillery.ins",
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.emplaced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+	},
+	
+	
+	{
+	"id": "foe.manhunters.ins",
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.resilient",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	
+	{
+	"id": "foe.manhunters.environment.ins",
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.resilient",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.fighter_aircraft.exhausted",
+	"xtriggers$add": {
+		"provisionrefresh": "friend.bombers"
+		},
+	},
+	
+	{
+	"id": "friend.fighter_aircraft.inspired",
+	"$derives" : ["friend.fighter_aircraft"],
+	"label": "Ally Fighter Aircraft (Inspired)",
+	"icon": "friend.fighter_aircraft",
+	"aspects": {
+	    "edge": 18
+		},
+	"xtriggers$add": {
+		"adv_soviet": "friend.fighter_aircraft.inspired.ins"
+	}
+    },
+	
+	{
+	"id": "friend.engineers.ins",
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.engineers.wellstocked.ins"
+		}
+	},
+	
+	{
+	"id": "friend.infantry.ins",
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.infantry.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.tanks.ins",
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.tanks.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.artillery.ins",
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.artillery.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.bombers.ins",
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.bombers.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.fighter_aircraft",
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.fighter_aircraft.inspired"
+		}
+	},
+	
+	{
+	"id": "friend.fighter_aircraft.inspired",
+	"$derives" : ["friend.fighter_aircraft"],
+	"label": "Ally Fighter Aircraft (Inspired)",
+	"icon": "friend.fighter_aircraft",
+	"aspects": {
+	    "edge": 18
+	},
+	"xtriggers$add": {
+		"adv_soviet": "friend.fighter_aircraft.inspired.ins",
+		}
+    },
+	
+	{
+	"id": "friend.fighter_aircraft.ins",
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.fighter_aircraft.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.fighter_aircraft.inspired.ins",
+	"$derives" : ["friend.fighter_aircraft.ins"],
+	"label": "Ally Fighter Aircraft (Inspired)",
+	"aspects": {
+	    "edge": 20
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.fighter_aircraft.inspired.ins"
+		},
+	"decayTo": "friend.fighter_aircraft.inspired",
+    },
+	
+	{
+	"id": "friend.militia.ins",
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"concealidentity" : "friend.militia.hidden.ins"
+		}
+	},
+	
+	{
+	"id": "friend.sniper.ins",
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"concealidentity" : "friend.militia.hidden.ins"
+		}
+	}
+	
+	
+]
+}

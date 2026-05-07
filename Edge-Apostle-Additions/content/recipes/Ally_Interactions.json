@@ -145,7 +145,7 @@
 	"grandReqs": {
 	    "provisions": 1,
 		"wounded" : 1,
-	    "([friend.medics] || [friend.medics.supplied] || [friendmedics])": 1,
+	    "([friend.medics] || [medic.stocked] || [friendmedics])": 1,
 		"[~/extant:allyattackmarker]=3": -1
 	},
 	"effects" : {
@@ -280,10 +280,11 @@
 	
     {
 	"id": "faster.heal.wound",
+	"$priority" : 1,
 	"$extends" : ["heal.wound"],
 	"requirements": {
 	    "provisions": 1,
-	    "friend.medics.supplied": 1,
+	    "medic.stocked": 1,
 	    "damage.body": 1,
 	    "debilitation": -1
 	},
