@@ -1,0 +1,638 @@
+{
+"recipes": [
+    {
+	"id": "lake.monster.cycle",
+	"actionid": "lake.monster",
+	"label": "The Monsters Bide Time",
+	"startdescription": "Our enemies are here in force, but none have yet made a move against us. The hours tick away. Soon.",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "lake.monster.pickaction.router",
+		"chance": "40 + [~/visible:strife.tracker] * 3"
+	    },
+	    {
+		"id": "lake.monster.cycle"
+	    }
+	]
+    },
+
+    {
+	"id": "lake.monster.pickaction.router",
+	"label": "The Monsters Act!",
+	"startdescription": "",
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"linked": [
+	    {
+		"id": "lake.monster.pickaction.high"
+	    },
+	    {
+		"id": "lake.monster.pickaction.medium"
+	    },
+	    {
+		"id": "lake.monster.pickaction.low"
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.pickaction.high",
+	"label": "The Monsters Act!",
+	"startdescription": "The alarm cries out - our adversary mobilises!",
+	"extantreqs": {
+	    "strife.tracker": 5
+	},
+	"deckeffects": {
+	    "decisions.lake.monster.high": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "lake.monster.enemy.executeaction.targetenemy.pre",
+		"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+	    },
+	    {
+		"id": "lake.monster.executeaction"
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.pickaction.medium",
+	"label": "The Monsters act!",
+	"startdescription": "The alarm cries out - our adversary mobilises!",
+	"extantreqs": {
+	    "strife.tracker": 3
+	},
+	"deckeffects": {
+	    "decisions.lake.monster.medium": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "lake.monster.enemy.executeaction.targetenemy.pre",
+		"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+	    },
+	    {
+		"id": "lake.monster.executeaction"
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.pickaction.low",
+	"label": "The Monsters Act!",
+	"startdescription": "The alarm cries out - our adversary mobilises!",
+	"deckeffects": {
+	    "decisions.lake.monster.low": 1
+	},
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "lake.monster.enemy.executeaction.targetenemy.pre",
+		"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+	    },
+	    {
+		"id": "lake.monster.executeaction"
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.executeaction",
+	"label": "The Monsters Act!",
+	"startdescription": "The alarm cries out - our adversary mobilises!",
+	"linked": [
+	    {
+		"id": "lake.monster.clear"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "lake.monster.doubleattack.1.startup",
+		"additional": true
+	    },
+	    {
+		"id": "lake.monster.doubleattack.2.startup",
+		"additional": true
+	    },
+	    {
+		"id": "lake.monster.singleattack.startup",
+		"additional": true
+	    },
+	    {
+		"id": "lake.monster.hide.startup",
+		"additional": true
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.clear",
+	"label": "The lake.monsters Acts!",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "lake.monster.cycle"
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.doubleattack.1.startup",
+	"actionid": "enemyaction.double.1",
+	"label": "A Pincer Attack!",
+	"startdescription": "Two of our adversaries have decided to strike at the same time - strategy, or sheer ill luck? Either way, we can expect a nasty skirmish ahead.",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Lake Monster",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1,
+		    "foe.exilenightmare": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.coordinated.getsecond.pre"
+	    },
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "foe.commander.extraenemy",
+		"additional": true
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.doubleattack.2.startup",
+	"actionid": "enemyaction.double.2",
+	"label": "A Pincer Attack!",
+	"startdescription": "Two of our adversaries have decided to strike at the same time - strategy, or sheer ill luck? Either way, we can expect a nasty skirmish ahead.",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Monster",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1,
+		    "foe.exilenightmare": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.coordinated.getsecond.pre"
+	    },
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "foe.commander.extraenemy",
+		"additional": true
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.singleattack.startup",
+	"actionid": "enemyaction.single",
+	"label": "A Hostile Offensive!",
+	"startdescription": "One of our enemies seeks to strike at us -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"aspects": {
+	    "takeadditional": 1
+	},
+	"requirements": {
+	    "decision.enemy.singleattack": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "lake.monsters",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1,
+		    "marinette.marker": 1,
+		    "foe.exilenightmare": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "foe.coordinated.getsecond.pre"
+	    },
+	    {
+		"id": "revealenemyidentity"
+	    },
+	    {
+		"id": "defend.opportunity"
+	    },
+	    {
+		"id": "nonefound"
+	    }
+	],
+	"warmup": 10,
+	"alt": [
+	    {
+		"id": "foe.commander.extraenemy",
+		"additional": true
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.hide.startup",
+	"actionid": "enemyaction.hide",
+	"label": "Scrambling Positions",
+	"startdescription": "An adversary withdraws to shroud themselves.",
+	"aspects": {
+	    "concealidentity": 1
+	},
+	"requirements": {
+	    "decision.enemy.hide": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "lake.monsters",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.hidden": 1,
+		    "foe.rankofficer": 1,
+		    "foe.unsubtle": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1,
+		    "marinette.marker": 1,
+		    "foe.exilenightmare": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10
+    },
+
+	{
+	"id": "lake.monster.enemy.executeaction.targetenemy.pre",
+	"label": "The lake.monsters Acts!",
+	"startdescription": "The alarm cries out - our adversary mobilises!",
+	"tablereqs": {
+	    "neutral_monster": 1
+	},
+	"grandReqs": {
+		"[~/extant:soviet] >= 1 || [~/extant:german] >= 1": 1
+	},
+	"effects": {
+	    "decision": -99
+	},
+	"linked": [
+	    {
+		"id": "lake.monster.enemy.executeaction.targetenemy"
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.enemy.executeaction.targetenemy",
+	"label": "The Monsters Act!",
+	"startdescription": "The alarm cries out - our adversary mobilises!",
+	"tablereqs": {
+	    "neutral_monster": 1
+	},
+	"deckeffects": {
+	    "decisions.enemy.targetsoviets.low": 1
+	},
+	"linked": [
+	    {
+		"id": "lake.monster.enemy.executeaction.targetenemy.continue"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "lake.monster.enemy.executeaction.targetenemy.high"
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.enemy.executeaction.targetenemy.high",
+	"label": "The Monsters Act!",
+	"startdescription": "The alarm cries out - our adversary mobilises!",
+	"tablereqs": {
+	    "neutral_monster": 1
+	},
+	"extantreqs": {
+	    "strife.tracker": 4
+	},
+	"deckeffects": {
+	    "decisions.enemy.targetsoviets.high": 1
+	},
+	"linked": [
+	    {
+		"id": "lake.monster.enemy.executeaction.targetenemy.continue"
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.enemy.executeaction.targetenemy.continue",
+	"label": "The lake.monsters Acts!",
+	"startdescription": "The alarm cries out - our adversary mobilises!",
+	"alt": [
+	    {
+		"id": "enemy.targetenemy.startup.lake.monster",
+		"additional": true
+	    },
+	    {
+		"id": "lake.monster.enemy.doubleattack.1.startup.againstenemy",
+		"additional": true
+	    },
+	    {
+		"id": "lake.monster.enemy.doubleattack.2.startup.againstenemy",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "lake.monster.clear"
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.enemy.targetenemy.startup.lake.monster",
+	"actionid": "enemyaction.single",
+	"label": "A Hostile Offensive!",
+	"startdescription": "A Monster makes an advance on Helling's Forces-",
+	"description": "The field is quiet. The beasts slumber.",
+	"requirements": {
+	    "decision.enemy.singleattack": 1,
+	    "decision.enemy.doubleattack": -1
+	},
+	"slots": [
+	    {
+		"id": "needsgerman",
+		"label": "lake.monsters",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"forbidden": {
+		    "foe.officer": 1,
+		    "friend": 1,
+		    "soviet": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "lake.monster.enemy.targetenemy"
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.enemy.targetenemy",
+	"label": "A Hostile Offensive!",
+	"startdescription": "The monsters follow the scent of blood and flesh, and attack their enemy -",
+	"requirements": {
+	    "foe": 1
+	},
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Target",
+		"required": {
+		    "german": 1,
+			"soviet": 1
+		},
+		"forbidden": {
+			"foe.rankofficer": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "lake.monster.enemy.targetenemy.0"
+	    },
+	    {
+		"id": "lake.monster.enemy.nonefound"
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.enemy.targetenemy.0",
+	"label": "The Monsters Prevail!",
+	"linked": [
+	    {
+		"id": "lake.monster.enemy.targetenemy.victory",
+		"chance": "50 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 - [foe.rankofficer] * 200"
+	    },
+	    {
+		"id": "lake.monster.enemy.targetenemy.defeat"
+	    }
+	]
+    },
+	
+    {
+	"id": "lake.monster.enemy.targetenemy.victory",
+	"label": "The Monsters Prevail!",
+	"startdescription": "In the distance, I see Germans run for their lives. The beasts feast well, tonight.",
+	"requirements": {
+	},
+	"aspects": {
+	    "killmortal": 1
+	},
+	"linked": [
+		{
+			"id": "lake.monster.enemy.targetenemy.victory.self_destruction"
+		},
+		{
+			"id": "lake.monster.enemy.targetenemy.victory.growth"
+		}
+	]
+    },
+	
+    {
+	"id": "lake.monster.enemy.targetenemy.victory.growth",
+	"label": "Abhorrence, Blossoming",
+	"startdescription": "The touch of the Crowned Growth promises not death, but life. One learns quickly to fear that promise.",
+	"requirements": {
+	    "foe.growth": 1
+	},
+	"effects": {
+		"foe.growth": 1,
+		"remnant": -99
+	}
+    },
+	
+    {
+	"id": "lake.monster.enemy.targetenemy.victory.self_destruction",
+	"label": "The Monsters Prevail!",
+	"startdescription": "In the distance, I see Germans run for their lives. The beasts feast well, tonight.",
+	"requirements": {
+	    "self_destruction": 1
+	},
+	"aspects": {
+	    "killfoe": 1
+	}
+    },
+	
+    {
+	"id": "lake.monster.enemy.targetenemy.defeat",
+	"label": "The Monsters Retreat!",
+	"startdescription": "The monsters flee from the guns of the Germans. They starve, tonight."
+    },
+	
+    {
+	"id": "lake.monster.enemy.doubleattack.1.startup.againstenemy",
+	"actionid": "enemyaction.double.1",
+	"label": "A Pincer Attack!",
+	"startdescription": "The enemy has devised a double-fronted attack against its adversaries -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"tablereqs": {
+	    "german": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Lake Monster",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "lake.monster.enemy.targetenemy"
+	    }
+	],
+	"warmup": 10
+    },
+	
+    {
+	"id": "lake.monster.enemy.doubleattack.2.startup.againstenemy",
+	"actionid": "enemyaction.double.2",
+	"label": "A Pincer Attack!",
+	"startdescription": "The enemy has devised a double-fronted attack against its adversaries -",
+	"effects": {
+	    "decision.enemy.attack": 1
+	},
+	"requirements": {
+	    "decision.enemy.doubleattack": 1
+	},
+	"tablereqs": {
+	    "german": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "lake.monsters",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.rankofficer": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "lake.monster.enemy.targetenemy"
+	    }
+	],
+	"warmup": 10
+    }
+]
+}

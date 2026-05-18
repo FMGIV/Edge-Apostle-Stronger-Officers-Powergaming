@@ -1,0 +1,448 @@
+{
+"recipes": [
+	
+    {
+	"id": "corrivality.cycle.foe", 
+	"$depends": [ "3713855248" ],
+    "inductions$append": [
+		{
+		"id" : "foe.umiri.coming.lake",
+		"chance": "50 + [~/visible:strife.tracker]*3"
+		}
+	]
+	},
+	
+	{
+	"id": "enemy.cycle", 
+	"$depends": [ "3713855248" ],
+	"extantreqs$add" : {
+		"lake.here" : -1
+		}
+	},
+	
+	{
+	"id": "enemy.cycle.checker", 
+	"$depends": [ "3713855248" ],
+	"extantreqs$add" : {
+		"lake.here" : -1
+		}
+	},
+	
+    {
+	"id": "communicate.nimiane",
+	"haltverb$add" : {"umiri.lake.scout" : 5}
+	},
+	
+	{
+	"id" : "foe.umiri.coming.lake",
+    "label": "Enemy Officer on the Way",
+    "startdescription": "We've been followed. Someone else wants, needs the sword as we do. That battle-hardened officer is on her way...",
+    "actionId": "foecoming",
+    "warmup": 30,
+	"extantreqs": {
+	    "lake.here": 1,
+		"foe.umiri.mark" : -1
+	},
+	"effects" : {
+		"foe.officer" : 1
+	},
+    "movements": {
+        "~/tabletop": {
+			"filter": "foe.officer"
+		}
+    },
+     "linked": [
+			{
+     "id": "foe.umiri.comin*"
+			}
+    ],
+	"inductions" : [
+		{
+			"id" : "foe.umiri.lake.search.cycle"
+		}
+		]
+	},
+	
+	{
+	"id": "travelling.cycle.haltverbs",
+	"haltverb$add" : {"umiri.lake.scout" : 5, "lake.monster.cycle" : 5}
+	},
+	
+	{
+	"id": "travelling.cycle.purge",
+	"haltverb$add" : {"umiri.lake.scout" : 5, "lake.monster.cycle" : 5}
+	},
+	
+	{
+	"id": "travelling.cycle.complete.haltverbs",
+	"haltverb$add" : {"umiri.lake.scout" : 5, "lake.monster.cycle" : 5}
+	},
+	
+	{
+	"id": "travelling.cycle.complete.purge",
+	"haltverb$add" : {"umiri.lake.scout" : 5, "lake.monster.cycle" : 5}
+	},
+	
+	{
+	"id" : "foe.umiri.lake.search.cycle",
+    "label": "Enemy Officer Searching...",
+    "startdescription": "I've heard the song of the doves, and so has she. She looks for the sword as I do...",
+    "actionId": "umiri.lake.scout",
+    "warmup": 30,
+	"effects" : {
+		"readiness.token" : 1
+	},
+     "linked": [
+		{
+		 "id": "foe.umiri.lake.attempt.get.sword.pre"
+		},
+		
+		{
+		 "id": "foe.umiri.lake.search.cycle.attemptfindclue",
+		 "chance": "50 - [~/visible:corrivality.exile] * 25 + [~/visible:corrivality.foe] * 25"
+		},
+		
+		{
+		 "id": "foe.umiri.lake.search.cycle"
+		}
+    ]
+	},
+	
+	{
+	"id" : "foe.umiri.lake.search.cycle.attemptfindclue",
+    "label": "Clue Found!",
+    "startdescription": "She's one step closer to the sword. Better hurry my efforts.",
+    "warmup": 30,
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"effects" : {
+		"readiness.token" : -99,
+		"flock.clue.umiri" : 1
+	},
+     "linked": [
+		{
+		 "id": "foe.umiri.lake.search.cycle"
+		}
+    ]
+	},
+	
+	{
+	"id" : "foe.umiri.lake.attempt.get.sword.pre",
+    "label": "Enemy Officer going after the sword!",
+    "startdescription": "She's found a path to the ragged sword. Now she pursues it...",
+    "warmup": 30,
+	"requirements": {
+	    "flock.clue.umiri": 7
+	},
+	"effects" : {
+		"readiness.token" : -99,
+		"flock.clue.umiri" : -7
+	},
+     "linked": [
+		{
+		 "id": "foe.umiri.lake.attempt.get.sword.take.enemies"
+		}
+    ]
+	},
+	
+	{
+	"id": "foe.umiri.lake.attempt.get.sword.take.enemies",
+	"label": "Enemy Pursuing The Sword!",
+	"startdescription": "The enemy gathers it's strength...",
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "german": 1
+		},
+		"greedy": true
+	    },
+		
+	    {
+		"id": "needsenemy2",
+		"label": "Enemy",
+		"required": {
+		    "german": 1
+		},
+		"greedy": true
+	    },
+		
+	    {
+		"id": "needsenemy3",
+		"label": "Enemy",
+		"required": {
+		    "german": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+		"id": "foe.umiri.lake.attempt.get.sword.take.monsters"
+	    },
+
+	    {
+		"id": "foe.umiri.lake.attempt.failure"
+	    }
+	],
+	 "furthermore": [
+      {
+         "aspects": {
+            "revealidentity": 1
+         }
+      }
+	],
+	"warmup": 15
+    },
+	
+	{
+	"id": "foe.umiri.lake.attempt.get.sword.take.monsters",
+	"label": "Enemy Pursuing The Sword!",
+	"startdescription": "The Monsters Gather...",
+	"requirements": {
+	    "german": 3
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"greedy": true
+	    },
+		
+	    {
+		"id": "needsenemy2",
+		"label": "Enemy",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"greedy": true
+	    },
+		
+	    {
+		"id": "needsenemy3",
+		"label": "Enemy",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+		"id": "foe.umiri.lake.attempt.get.sword.germans.vs.monsters"
+	    },
+
+	    {
+		"id": "foe.umiri.lake.attempt.failure"
+	    }
+	],
+	 "furthermore": [
+      {
+         "aspects": {
+            "revealidentity": 1
+         }
+      }
+	],
+	"warmup": 15
+    },
+	
+	{
+	"id" : "foe.umiri.lake.attempt.get.sword.germans.vs.monsters",
+    "label": "Enemy Officer going after the sword!",
+	"comments": "might add or remove ||| [german] * ||| to chance down there",
+    "startdescription": "She's making a move for the sword!",
+    "warmup": 30,
+     "linked": [
+		{
+		 "id": "foe.umiri.lake.attempt.get.sword.success",
+		 "chance" : "( [german] * ( ([needsedge] / 2) + [needsforge] + [needsmoth] + [needswinter] + [needsforgemoth] + [needsedgelantern] + [needsedgewinter] + [needsedgeforge])) - ([neutral_monster] * ([needsknock] + [needsedgeknock] + [needsedgeheart] + [needsgrail] + [needsedgegrail] + [needsheart] + [needslantern]))"
+		},
+		
+		{
+		 "id": "foe.umiri.lake.attempt.failure"
+		}
+    ]
+	},
+	
+        {
+            "id": "foe.umiri.lake.attempt.failure",
+            "label": "The Enemy Officer has Failed",
+            "startdescription": "The Empire's blade has failed. Leaderless, they retreat in disarray. She is left to choke on the bitter fruit of defeat alone. She will return—with a stronger army and a thirst for revenge. But for now, at least, she will not trouble us.",
+            "warmup": 30,
+            "actionid": "sideofficer",
+            "effects": {
+                "foe.officerdetail": -1,
+                "progression": -3
+            },
+            "aspects": {
+                "killgerman": 1
+            },
+            "haltverb": {
+                "foecoming": 99,
+                "foeactionumiri": 99,
+            },
+            "alt": [
+                {
+                "id": "routenemies.detect",
+                "additional": true
+                },
+                {
+                    "id": "foeumiriofficer.side.finish"
+                }
+            ]
+        },
+	
+        {
+            "id": "foe.umiri.lake.attempt.failure",
+            "label": "The Enemy Officer has Failed",
+            "startdescription": "The Empire's blade has failed. Leaderless, they retreat in disarray. She is left to choke on the bitter fruit of defeat alone. She will return—with a stronger army and a thirst for revenge. But for now, at least, she will not trouble us.",
+            "warmup": 30,
+            "actionid": "sideofficer",
+            "effects": {
+                "foe.officerdetail": -1,
+                "progression": -3
+            },
+            "aspects": {
+                "killgerman": 1
+            },
+            "haltverb": {
+                "foecoming": 99,
+                "foeactionumiri": 99,
+            },
+            "alt": [
+                {
+                "id": "weakenenemies.detect",
+                "additional": true
+                },
+                {
+                    "id": "foeumiriofficer.side.finish"
+                }
+            ]
+        },
+	
+    {
+	"id": "foe.umiri.lake.attempt.get.sword.success",
+	"label": "Enemy Objective Complete",
+	"startdescription": "We were after something here, but the enemy got to it first. This opportunity is gone, now.",
+	"aspects": {
+	    "makeadditional": 1
+	},
+	"effects": {
+	    "ebrehel.umiri": 1
+	},
+	"haltverb": {
+	    "side": 99,
+	    "side.2": 99,
+	    "side.3": 99
+	},
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "enemy.withdraw.leaving.detect.lake"
+	    },
+
+	    {
+		"id": "enemy.remove.main.objective"
+	    }
+	]
+    },
+	
+	{
+	"id": "enemy.withdraw.leaving.detect.lake",
+	"$extends" : ["enemy.withdraw.leaving.detect"],
+	"extantreqs": {
+	},
+	"requirements" : {
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "german": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "uqbrood": 1,
+		    "soviet": 1,
+			"foe.hidden" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "enemy.withdraw.leaving.success.lake"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.withdraw.leaving.success.lake",
+	"$extends" : ["enemy.withdraw.leaving.success"],
+	"linked": [
+	    {
+		"id": "enemy.withdraw.leaving.detect.lake"
+	    }
+	]
+    },
+	
+	{
+	"id": "foe.umiri.get.ebrehel",
+	"actionid" : "finalbattle",
+	"label": "The Scar-Sword",
+	"startdescription": "With Von Helling dead, I finally have the sword I need to make a Name for myself.",
+	"description": "With Von Helling dead, I finally have the sword I need to make a Name for myself.",
+	"extantreqs" : {
+		"ebrehel.umiri" : 1
+	},
+	"effects" : {
+		"ebrehel" : 1
+	},
+	"purge" : {
+		"ebrehel.umiri" : 1
+	}
+	},
+    
+	{
+    "id": "makecamillakillumiri.dead",
+    "inductions$append": [
+		{
+		"id" : "foe.umiri.get.ebrehel"
+		}
+	]
+	},
+    
+	{
+    "id": "foeumiriofficer.side.finish",
+    "inductions$append": [
+		{
+		"id" : "foe.umiri.get.ebrehel"
+		}
+	]
+	},
+	
+    {
+	"id": "too.late.lake",
+	"actionid": "operate",
+	"label": "Too Late",
+	"$priority" : 1,
+	"startdescription": "That german officer got to the sword before I have. Now the only way I'm getting the sword is off her corpse.",
+	"grandreqs": {
+		"([flock.clue] || [side.ebrehel])": 1,
+	},
+	"extantreqs": {
+	    "ebrehel.umiri": 1
+	},
+	"craftable": true,
+	"warmup" : 1
+    }
+	
+]
+}
