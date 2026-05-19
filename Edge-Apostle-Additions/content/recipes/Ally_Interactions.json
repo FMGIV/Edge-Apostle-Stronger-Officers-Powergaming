@@ -694,7 +694,57 @@
 	},
 	"warmup": 30,
 	"craftable": true
-    }
+    },
+	
+	{  
+	"id": "command.ally.location.pre",
+	"$priority" : 1,
+	"actionid": "mobilize",  
+	"label": "Command Allies to Seize a location",  
+	"startdescription": "There is a location here I want. I can send these men to seize it.",
+	"requirements": {  
+	    "friend": 1,
+		"location" : 1,
+		"edge" : 1
+	},
+	"grandReqs": { 
+	    "[~/extant:allyattackmarker]=3": -1 
+	},  
+    "extantreqs": {  
+        "contemnant.story": -1   
+    },
+	"effects" : {
+	"allyattackmarker" : 1
+	},
+	"inductions": [  
+		{
+		"id": "command.ally.location",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+		}
+	    }
+	],  
+	"craftable": true  
+	},
+	
+	{  
+	"id": "command.ally.location",
+	"actionid": "allyattack",  
+	"label": "Command Allies to Seize a location",  
+	"startdescription": "There is a location here I want. I can send these men to seize it.",
+	"linked": [  
+	
+		{
+		"id": "operate.church.edge"
+	    },
+		
+		{
+		"id": "operate.farm.edge"
+	    }
+		
+	] 
+	}
 	
 ]
 }
