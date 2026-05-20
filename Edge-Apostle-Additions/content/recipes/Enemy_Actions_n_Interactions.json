@@ -51,7 +51,7 @@
 	    {
 		"id": "nonefound"
 	    }
-	],
+	]
 	},
 	
     {
@@ -1512,6 +1512,42 @@
 	"haltverb" : {
 		"enemyaction" : 1
 	}
+	},
+	
+	{
+	"id": "enemy.corpse.respawner",
+	"actionid": "respawnenemycorpse",
+	"label": "Enemy Killed!",
+	"startdescription": "An Enemy has died!",
+	"description": "An Enemy has died!",
+	"warmup": 1,
+	"effects": {
+        "foe.corpses" : -1
+    },
+	"grandReqs": {
+		"([foe.emplaced] || [foe.equipped])": 1,
+	},
+	"slots": [
+	    {
+		"id": "deadenemy",
+		"label": "Dead Enemy",
+		"required": {
+			"foe.emplaced" : 1,
+			"foe.equipped" : 1
+		},
+		"essential": {
+		    "foe.corpses": 1
+		},
+		"greedy": true
+	    }
+	],
+	"furthermore": [
+      {
+         "effects": {
+            "foe.corpses" : 1
+         }
+      }
+	]
 	}
 	
 	
