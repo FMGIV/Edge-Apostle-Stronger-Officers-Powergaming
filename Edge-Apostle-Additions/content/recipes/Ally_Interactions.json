@@ -744,7 +744,68 @@
 	    }
 		
 	] 
-	}
+	},
+	
+	{
+	"id": "command.ally.action.godbuilders.pre",
+	"actionid": "communicate",
+	"$priority" : 2,
+	"label": "Command Godbuilders",
+	"startdescription": "I have glorious fires to be stoking. Get to it.",
+	"grandReqs": {
+	    "remnant": 1,
+	    "([friend.godbuilder] || [friend.godbuilder.inspired] || [friend.godbuilder.inspired.ins])": 1,
+		"[~/extant:allyattackmarker]=3": -1,
+		"boosted" : -1
+	},
+	"effects" : {
+	"allyattackmarker" : 1
+	},
+	"inductions": [  
+		{
+		"id" : "command.ally.action.godbuilders",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+			}
+		}
+	],  
+	"craftable": true  
+	},
+	
+	{  
+	"id": "command.ally.action.godbuilders",
+	"actionid": "ally.engineer.action",  
+	"label": "Command Godbuilders",
+	"startdescription": "I have glorious fires to be stoking. Get to it.",
+	"linked": [  
+		{
+		"id": "ally.action.godbuilder"
+	    }
+	] 
+	},
+	
+    {
+	"id": "ally.action.godbuilder",
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "Stoke a Glorious Fire",
+	"startdescription": "Assigning corpses to this unit will increase their effectiveness.",
+	"description": "The Fires of Glory burn gloriously.",
+	"grandReqs": {
+	    "remnant": 1,
+	    "([friend.godbuilder] || [friend.godbuilder.inspired] || [friend.godbuilder.inspired.ins])": 1,
+		"boosted" : -1
+	},
+	"aspects": {
+		"godbuildertakecorpse" : 1
+	},
+	"effects": {
+		"remnant" : -1
+	},
+	"warmup": 30,
+	"craftable": true
+    }
 	
 ]
 }

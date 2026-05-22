@@ -53,6 +53,7 @@
 	"xtriggers": {
 		"adv_soviet": "friend.sniper.hidden.ins"
 	},
+	"lifetime": 180,
 	"icon": "friend.sniper.hidden",
 	"decayTo": "friend.sniper.hidden",
     },
@@ -94,6 +95,7 @@
 	"xtriggers": {
 		"adv_soviet": "friend.militia.hidden.ins"
 	},
+	"lifetime": 180,
 	"icon": "friend.militia.hidden",
 	"decayTo": "friend.militia.hidden",
     },
@@ -279,6 +281,7 @@
 	"xtriggers$add": {
 		"adv_soviet": "friend.infantry.inspired.ins"
 		},
+	"lifetime": 180,
 	"decayTo": "friend.infantry.inspired",
     },
 	
@@ -327,6 +330,7 @@
 	"xtriggers$add": {
 		"adv_soviet": "friend.tanks.inspired.ins"
 		},
+	"lifetime": 180,
 	"decayTo": "friend.tanks.inspired",
     },
 	
@@ -437,6 +441,7 @@
 	    "knock": 10,
 		"well.stocked" : 1
 	},
+	"lifetime": 180,
 	"decayTo": "friend.engineers.wellstocked",
 	"xtriggers$add": {
 		"adv_soviet": "friend.engineers.wellstocked.ins"
@@ -486,6 +491,7 @@
 	"xtriggers$add": {
 		"adv_soviet": "friend.bombers.inspired.ins"
 		},
+	"lifetime": 180,
 	"decayTo": "friend.bombers.inspired",
     },
 	
@@ -532,6 +538,7 @@
 	"xtriggers$add": {
 		"adv_soviet": "friend.artillery.inspired.ins"
 		},
+	"lifetime": 180,
 	"decayTo": "friend.artillery.inspired",
     },
 	
@@ -953,7 +960,189 @@
 		}
 	}
 	]
+	},
+	
+    {
+	"id": "friend.godbuilder",
+	"label": "Bogostroiteli Troop (Prototype)",
+	"icon": "friend.godbuilder",
+	"description": "A cadre of commissars-ithast - 'god-builders' - leads this infantry detachment, stoking glorious fires in the weapons and flesh of their men.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 4,
+	    "edge": 4,
+		"knock" : 4,
+		"lantern" : 4,
+		"forge" : 4
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.godbuilder.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.infantry.wounded",
+		"giveallyprovisions" : "friend.godbuilder.inspired",
+		"godbuildertakecorpse" : "friend.godbuilder.boosted",
+	    "refresh": "friend.godbuilder",
+	    "refreshally": "friend.godbuilder",
+		"adv_soviet": "friend.godbuilder.ins",
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"actionid": "communicate",
+		"label": "Intent",
+		"required": {
+		    "warzone": 1,
+		    "remnant": 1
+		}
+	    }
+	]
+    },
+	
+    {
+	"id": "friend.godbuilder.exhausted",
+	"label": "Bogostroiteli Troop (Prototype - Exhausted)",
+	"description": "A cadre of commissars-ithast - 'god-builders' - leads this infantry detachment, stoking glorious fires in the weapons and flesh of their men.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 4,
+	    "exhausted": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.godbuilder.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.godbuilder.exhausted",
+	    "refresh": "friend.godbuilder",
+	    "refreshally": "friend.godbuilder"
+	},
+	"lifetime": 120,
+	"decayTo": "friend.godbuilder",
+	"icon": "friend.godbuilder",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.godbuilder.wounded",
+	"label": "Bogostroiteli Troop (Prototype - Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 4,
+	    "wounded": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.godbuilder"
 	}
+	},
+	
+	{
+	"id": "friend.godbuilder.boosted",
+	"$derives" : ["friend.godbuilder"],
+	"label": "Bogostroiteli Troop (Prototype - Boosted)",
+	"aspects": {
+		"friend.inspired" : 1,
+	    "edge": 8,
+		"knock" : 8,
+		"lantern" : 8,
+		"forge" : 8,
+		"boosted" : 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.boosted.inspired.ins",
+		"giveallyprovisions" : "friend.godbuilder.boosted.inspired"
+		}
+    },
+	
+	{
+	"id": "friend.godbuilder.boosted.ins",
+	"$derives" : ["friend.godbuilder.boosted"],
+	"label": "Bogostroiteli Troop (Prototype - Boosted)",
+	"aspects": {
+	    "edge": 10,
+		"knock" : 10,
+		"lantern" : 10,
+		"forge" : 10,
+		"boosted" : 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.boosted.inspired.ins",
+		"giveallyprovisions" : "friend.godbuilder.boosted.inspired",
+		},
+	"lifetime": 180,
+	"decayTo": "friend.godbuilder.boosted",
+    },
+	
+	{
+	"id": "friend.godbuilder.inspired",
+	"$derives" : ["friend.godbuilder"],
+	"label": "Bogostroiteli Troop (Prototype - Inspired)",
+	"aspects": {
+	    "edge": 6,
+		"knock" : 6,
+		"lantern" : 6,
+		"forge" : 6,
+		"friend.inspired" : 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.inspired.ins",
+		"godbuildertakecorpse" : "friend.godbuilder.boosted.inspired"
+		}
+    },
+	
+	{
+	"id": "friend.godbuilder.boosted.ins",
+	"$derives" : ["friend.godbuilder.boosted"],
+	"label": "Bogostroiteli Troop (Prototype - Boosted)",
+	"aspects": {
+	    "edge": 10,
+		"knock" : 10,
+		"lantern" : 10,
+		"forge" : 10,
+		"boosted" : 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.boosted.ins",
+		"giveallyprovisions" : "friend.godbuilder.boosted.inspired.ins",
+		},
+	"lifetime": 180,
+	"decayTo": "friend.godbuilder.boosted",
+    },
+	
+	{
+	"id": "friend.godbuilder.boosted.inspired",
+	"$derives" : ["friend.godbuilder.boosted"],
+	"label": "Bogostroiteli Troop (Prototype - Inspired)",
+	"aspects": {
+	    "edge": 10,
+		"knock" : 10,
+		"lantern" : 10,
+		"forge" : 10
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.boosted.inspired.ins"
+		}
+    },
+	
+	{
+	"id": "friend.godbuilder.boosted.inspired.ins",
+	"$derives" : ["friend.godbuilder.boosted.ins"],
+	"label": "Bogostroiteli Troop (Prototype - Inspired)",
+	"aspects": {
+	    "edge": 12,
+		"knock" : 12,
+		"lantern" : 12,
+		"forge" : 12,
+		"friend.inspired" : 1
+	},
+	"decayTo": "friend.godbuilder.boosted.inspired",
+    }
 	
 ]
 }
