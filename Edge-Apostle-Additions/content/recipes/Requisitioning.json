@@ -266,6 +266,41 @@
     },
 	
     {
+	"id": "requisitioning.startup.godbuilders",
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "Requsition Experimental Units",
+	"startdescription": "Send word over wire and wave. If I have need of something experimental, this is the way to ask for it.",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"resolution" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 6,
+	"side.cutoff": -1,
+	"requisitioning": -1,
+	"obdurant.story": 1 
+	},  
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.godbuilders" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.godbuilders": 1
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
 	"id": "requisitioning.router",
 	"actionid": "resupply",
 	"label": "Awaiting Requisitions...",
@@ -437,6 +472,23 @@
 	"effects": {
 		"requisitioning.heavyunits" : -1,
 		"requisitioning" : -1,
+		"readiness.token": -99
+	},  
+	"warmup": 30
+    },
+	
+    {
+	"id": "requisitioning.success.godbuilders",
+	"label": "Arrived!",
+	"startdescription": "These units are untested and new. The fires of war will temper them.",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.godbuilders" : 1
+	},
+	"effects": {
+		"requisitioning.snipers" : -1,
+		"requisitioning" : -1,
+		"friend.godbuilder" : 2,
 		"readiness.token": -99
 	},  
 	"warmup": 30

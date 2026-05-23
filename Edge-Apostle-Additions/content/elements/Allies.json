@@ -980,12 +980,15 @@
 	    "fatiguing": "friend.godbuilder.exhausted",
 	    "killmortal": "friend.corpses",
 	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.infantry.wounded",
+	    "makecasualty": "friend.godbuilder.wounded",
 		"giveallyprovisions" : "friend.godbuilder.inspired",
 		"godbuildertakecorpse" : "friend.godbuilder.boosted",
 	    "refresh": "friend.godbuilder",
 	    "refreshally": "friend.godbuilder",
 		"adv_soviet": "friend.godbuilder.ins",
+	    "becaptive": "foe.manhunters",
+	    "makeafraid": "friend.godbuilder.afraid",
+	    "makeweaken": "friend.godbuilder.weaken"
 	},
 	"slots": [
 	    {
@@ -994,7 +997,8 @@
 		"label": "Intent",
 		"required": {
 		    "warzone": 1,
-		    "remnant": 1
+		    "remnant": 1,
+			"provisions" : 1
 		}
 	    }
 	]
@@ -1014,9 +1018,12 @@
 	    "fatiguing": "friend.godbuilder.exhausted",
 	    "killmortal": "friend.corpses",
 	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.godbuilder.exhausted",
+	    "makecasualty": "friend.godbuilder.wounded",
 	    "refresh": "friend.godbuilder",
-	    "refreshally": "friend.godbuilder"
+	    "refreshally": "friend.godbuilder",
+	    "becaptive": "foe.manhunters",
+	    "makeafraid": "friend.godbuilder.afraid.exhausted",
+	    "makeweaken": "friend.godbuilder.afraid.exhausted"
 	},
 	"lifetime": 120,
 	"decayTo": "friend.godbuilder",
@@ -1041,6 +1048,25 @@
 	    "restorehealth": "friend.godbuilder"
 	}
 	},
+	
+	{
+	"id": "friend.godbuilder.ins",
+	"$derives" : ["friend.godbuilder"],
+	"aspects": {
+		"friend.inspired" : 1,
+	    "edge": 6,
+		"knock" : 6,
+		"lantern" : 6,
+		"forge" : 6,
+		"boosted" : 1
+	},
+	"xtriggers": {
+		"giveallyprovisions" : "friend.godbuilder.boosted.inspired",
+		"godbuildertakecorpse" : "friend.godbuilder.boosted.ins"
+		},
+	"lifetime": 180,
+	"decayTo": "friend.godbuilder",
+    },
 	
 	{
 	"id": "friend.godbuilder.boosted",
@@ -1142,7 +1168,90 @@
 		"friend.inspired" : 1
 	},
 	"decayTo": "friend.godbuilder.boosted.inspired",
-    }
+    },
+	
+    {
+	"id": "friend.godbuilder.weaken",
+	"$derives": ["friend.godbuilder"],
+	"aspects": {
+	    "edge": 3,
+		"knock" : 3,
+		"lantern" : 3,
+		"forge" : 3,
+	    "weakened": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.godbuilder",
+	"xtriggers": {
+	    "fatiguing": "friend.godbuilder.weaken.exhausted",
+	    "makecasualty": "friend.godbuilder.afraid.wounded",
+	    "deweaken": "friend.godbuilder",
+	    "makeweaken": "friend.godbuilder.afraid"
+	}
+    },
+	
+    {
+	"id": "friend.godbuilder.afraid",
+	"$derives": ["friend.godbuilder"],
+	"aspects": {
+	    "edge": 2,
+		"knock" : 2,
+		"lantern" : 2,
+		"forge" : 2,
+	    "friend.weakened": 1
+	},
+	"lifetime": 300,
+	"decayTo": "friend.godbuilder.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.godbuilder.afraid.exhausted",
+	    "makecasualty": "friend.godbuilder.afraid.wounded",
+	    "refresh": "friend.godbuilder.weaken",
+	    "refreshally": "friend.godbuilder.weaken",
+	    "deweaken": "friend.godbuilder.weaken",
+	    "makeafraid": "friend.godbuilder.afraid",
+	    "makeweaken": "friend.godbuilder.afraid"
+	}
+    },
+	
+    {
+	"id" : "friend.godbuilder.weaken.exhausted",
+	"$derives": ["friend.godbuilder.exhausted"],
+	"xtriggers": {
+	    "fatiguing": "friend.godbuilder.weaken.exhausted",
+	    "makecasualty": "friend.godbuilder.afraid.wounded",
+	    "refresh": "friend.godbuilder",
+	    "refreshally": "friend.godbuilder"
+	},
+	"lifetime": 120,
+	"decayTo": "friend.godbuilder.weaken"
+    },
+	
+    {
+	"id" : "friend.godbuilder.afraid.exhausted",
+	"$derives": ["friend.godbuilder.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.godbuilder.afraid.exhausted",
+	    "makecasualty": "friend.godbuilder.afraid.wounded",
+	    "refresh": "friend.godbuilder",
+	    "refreshally": "friend.godbuilder"
+	},
+	"lifetime": 120,
+	"decayTo": "friend.godbuilder.weaken"
+    },
+	
+    {
+	"id": "friend.godbuilder.afraid.wounded",
+	"$derives": ["friend.godbuilder.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "restorehealth": "friend.godbuilder.afraid"
+	}
+	}
 	
 ]
 }
