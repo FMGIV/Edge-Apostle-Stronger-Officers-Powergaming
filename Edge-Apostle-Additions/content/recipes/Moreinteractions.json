@@ -1592,6 +1592,92 @@
 	    "draws": 1,
 	    "resetonexhaustion": true
 	}
+    },
+	
+	{  
+    "id": "bloodlust.betray.ally",  
+    "actionid": "operate",
+    "label": "Betray an Ally",  
+    "startdescription": "If my enemies are too strong to vent my bloodlust on, my men will have to sate my bloodlust for now.",  
+    "description": "Betrayal is a core tenet of the lionsmith. <i>c'est la vie.</i>",  
+    "requirements": {  
+        "battlehunger": 1,
+		"friend" : 1,
+		"foe" : -1,
+		"main" : -1,
+		"side" : -1
+		},  
+    "aspects": {  
+        "killfriend": 1,
+		"killmortal" : 1
+		},
+	"mutations": [
+	    {
+		"filter": "battlehunger",
+		"mutate": "battlehunger",
+		"level": -1,
+		"additive": true
+	    }
+	],
+	"warmup": 15,
+	"craftable": true,
+	"linked": [
+	    {
+		"id": "clear.bloodlust.betrayal"
+	    }
+	],
+	"inductions": [
+	    {
+		"id": "startup.desertion.proterant",
+		"chance": "50 - [~/visible:corrivality.exile] * 25 + [~/visible:corrivality.foe] * 25"
+	    }
+	] 
+	},
+	
+    {
+	"id": "startup.desertion.proterant",
+	"actionid": "desertion",
+	"label": "An Ally turns their back on me!",
+	"startdescription": "My actions are too heinous this time. In the morning, our camp is a little emptier - our latest barbarity must have convinced some they'd be better off alone than wading through the carnage with me.",
+	"description": "They did not have the stomach for what we do - but I did. What should I make of that?",
+	"effects": {
+	    "friend": -1
+	},
+	"tablereqs": {
+	    "friend": 1
+	},
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Ally",
+		"required": {
+		    "friend": 1,
+		    "hired": 1
+		},
+		"forbidden": {
+		    "vicious": 1,
+		    "otherworldly": 1,
+		    "edgelong": 1,
+		    "friend.named": 1,
+		    "prisoner": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 15
+    },
+	
+    {
+	"id": "clear.bloodlust.betrayal",
+    "label": "Betray an Ally",  
+	"startdescription": "",
+	"requirements": {
+	    "bloodlust": 1,
+	    "battlehunger": -1
+	},
+	"effects": {
+	    "bloodlust": -99
+	}
     }
 	
 	
