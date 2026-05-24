@@ -1594,12 +1594,24 @@
 	}
     },
 	
+	{
+	"id": "hint.betrayal",
+	"actionid": "operate",
+	"label": "Betray an Ally?",
+	"startdescription": "If I am too weak to vent my bloodlust on my enemies, my allies will have to do.",
+	"requirements": {
+	    "friend.sniper": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
 	{  
     "id": "bloodlust.betray.ally",  
     "actionid": "operate",
     "label": "Betray an Ally",  
     "startdescription": "If my enemies are too strong to vent my bloodlust on, my men will have to sate my bloodlust for now.",  
-    "description": "Betrayal is a core tenet of the lionsmith. <i>c'est la vie.</i>",  
+    "description": "Without betrayal, there would be no war.",  
     "requirements": {  
         "battlehunger": 1,
 		"friend" : 1,
@@ -1637,9 +1649,9 @@
     {
 	"id": "startup.desertion.proterant",
 	"actionid": "desertion",
-	"label": "An Ally turns their back on me!",
-	"startdescription": "My actions are too heinous this time. In the morning, our camp is a little emptier - our latest barbarity must have convinced some they'd be better off alone than wading through the carnage with me.",
-	"description": "They did not have the stomach for what we do - but I did. What should I make of that?",
+	"label": "Betrayal!",
+	"startdescription": "If I can betray my allies, they can betray me too. In the morning, our camp is a little emptier - my latest betrayal must have convinced this one they'd be better off away from me.",
+	"description": "<i>C'est la Guerre</i>.",
 	"effects": {
 	    "friend": -1
 	},
@@ -1679,6 +1691,68 @@
 	"effects": {
 	    "bloodlust": -99
 	}
+    },
+	
+	{  
+    "id": "bloodlust.betray.wilhelm",  
+    "actionid": "operate",
+    "label": "Betray an Ally?",
+	"$priority" : 1,
+    "startdescription": "This might not be the best idea.",  
+    "description": "So be it.",  
+    "requirements": {  
+        "battlehunger": 1,
+		"friend.wilhelm" : 1,
+		"foe" : -1,
+		"main" : -1,
+		"side" : -1
+		},  
+    "effects": {  
+        "bloodlust": -1,
+		"friend.wilhelm" : -1,
+		"foe.wilhelm" : 1
+		},
+	"warmup": 15,
+	"craftable": true,
+	"inductions": [
+	    {
+		"id": "intro.bossfight.wilhelm",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+			}
+	    }
+	]
+	},
+	
+	{  
+    "id": "betray.sergei",  
+    "actionid": "communicate",
+    "label": "Homo Homini Lupus",
+    "startdescription": "This might not be a good idea.",  
+    "description": "So be it.",  
+    "requirements": {  
+        "op.sergei.comeforsword": 1,
+		"edge" : 1
+		},  
+    "effects": {  
+        "plotitem.kazimirshashka": -1,
+		"op.sergei.comeforsword" : -1,
+		"weapon.kazimir" : 1
+		},
+	"warmup": 15,
+	"craftable": true,
+	"inductions": [
+	    {
+		"id": "betray.sergei.cont"
+	]
+	},
+	
+    {
+	"id": "betray.sergei.cont",
+	"$extends" : ["find.ironeater"],
+	"label": "To Deny the Old Wolf",
+	"startdescription": "<i>I told you to be kind. So be it.</i>",
     }
 	
 	
