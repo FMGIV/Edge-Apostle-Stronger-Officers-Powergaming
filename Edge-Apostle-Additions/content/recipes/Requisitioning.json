@@ -302,7 +302,7 @@
 	
     {
 	"id": "requisitioning.router",
-	"actionid": "resupply",
+	"actionid": "requisitions.verb",
 	"label": "Awaiting Requisitions...",
 	"startdescription": "Time does what it usually does, and passes. I can only hope that what I requested is en route.",
 	"effects": {
@@ -312,8 +312,9 @@
 	"linked": [
 	    {
 		"id": "requisitioning.success*",
-		"chance": 50
+		"chance": "40 + [readiness.token] * 5 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
 	    },
+		
 	    {
 		"id": "requisitioning.router"
 	    }
