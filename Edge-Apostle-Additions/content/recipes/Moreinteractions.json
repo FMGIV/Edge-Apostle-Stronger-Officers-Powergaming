@@ -1753,7 +1753,52 @@
 	"$extends" : ["find.ironeater"],
 	"label": "To Deny the Old Wolf",
 	"startdescription": "<i>I told you to be kind. So be it.</i>",
-    }
+    },
+	
+	{
+	"id": "hint.contemnant.weapon.remove.trauma.hope",
+	"actionid": "abandon",
+	"$priority" : 1,
+	"label": "Pain's Relief?",
+	"startdescription": "I won't resort to this, not yet. I can still overcome my despair on my own.",
+	"requirements": {
+	    "contemnant.weapon": 1
+	},
+	"extantreqs" : { "contemnant.memento" : 1},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{  
+    "id": "remove.trauma.contemnant.weapon.hopelessness",  
+    "actionid": "abandon",
+    "label": "Distraction",  
+    "startdescription":  "If my mind is overwhelmed by mounting despair, I can resort to 'distracting' it with pain. The sort of pain only I can inflict on myself... [This will wound you.]",  
+    "description": "It <i>hurts</i>. It hurts so much that my mind forgets the thoughts of surrender it had.",  
+    "requirements": {  
+        "trauma": 1,
+		"contemnant.weapon" : 1
+		},  
+    "aspects": {  
+        "fatiguing": 1
+		},
+	"extantreqs" : { "hopelessness" : 1},
+    "effects": {  
+        "trauma": -1,
+		"wound.generic" : 1
+		},
+	"warmup": 15,
+	"craftable": true
+	},
+	
+	{  
+    "id": "remove.trauma.contemnant.weapon.antithesis",
+	"$extends" : ["remove.trauma.contemnant.weapon.hopelessness"],
+    "label": "<color=red>Solace<color=#005500>",  
+    "startdescription": "<color=red>Even after everything I went through, there are still parts of me that scream out to surrender and give up. I will cut out parts of me that hope otherwise and rid myself of this weakness.<color=#005500>",  
+    "description": "<color=red>Regret is weakness.<color=#005500>",  
+	"extantreqs" : { "antithesis" : 1}
+	}
 	
 	
 ]
