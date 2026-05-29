@@ -353,15 +353,6 @@
     },
 	
 	{
-    "id": "encounteradditional",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
-			}
-		}
-    },
-	
-	{
 	"id": "travelling.cycle.haltverbs",
 	"haltverb$add" : {"sendinglettercompanion" : 5, "lake.monster" : 5, "enemy.offensive.preparation" : 5, "enemy.defensive.preparation" : 5, "allyattack": 5, "ally.scouts.action" : 5, "ally.engineer.action" : 5, "ally.medics.action" : 5, "sergei_enemy_verb" : 2, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
 	"purge$add" : {"enemy.infrastructure" : 99, "andnowwhat" : 99, "active.hindrance" : 99, "enemy.defensive.preparation" : 99, "enemy.offensive.preparation" : 99}
@@ -766,7 +757,13 @@
 	
 	{
 	"id": "attackenemy.ap.overwhelm",
+	"requirements$add": {"foe.hulldown" : -1},
 	"grandreqs": { "[ap]>[foe.armoured]": 1 }
+	},
+	
+	{
+	"id": "attackenemy.ap",
+	"requirements$add": {"foe.hulldown" : -1}
 	},
 	
 	{
@@ -1859,6 +1856,11 @@
 	"id": "encounteradditional",
 	"linked$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"}
+		},
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
+			}
 		}
 	},
 	
