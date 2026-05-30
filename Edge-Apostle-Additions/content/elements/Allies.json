@@ -1252,7 +1252,46 @@
 	"xtriggers": {
 	    "restorehealth": "friend.godbuilder.afraid"
 	}
+	},
+	
+    {
+	"id": "friend.veteran",
+	"label": "Veteran",
+	"icon": "friend.conscript",
+	"description": "The war goes on, and so does the duty of these soldiers.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+	    "edge": 8,
+	    "winter": 8,
+		"lantern" : 4
+	},
+	"xtriggers": {
+	    "killfriend": "mem.grief",
+	    "makecasualty": "friend.veteran.wounded",
+	    "refresh": "friend.conscript"
 	}
+    },
+	
+    {
+	"id": "friend.veteran.wounded",
+	"label": "Veteran (Wounded)",
+	"icon": "friend.conscript",
+	"description": "[Use a Winter Adept to Heal this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "decaying": 1,
+		"exhausted" : 1
+	},
+	"xtriggers": {
+	    "killfriend": "mem.grief",
+	    "makecasualty": "mem.grief",
+	    "restorehealth": "friend.veteran"
+		},
+	"lifetime": 400,
+	"decayTo": "mem.grief"
+    }
 	
 ]
 }

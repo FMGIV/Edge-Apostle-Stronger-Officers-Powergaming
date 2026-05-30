@@ -971,6 +971,25 @@
 	},
 	
 	{  
+    "id": "convert.to.veteran",  
+    "actionid": "abandon",
+	"$priority" : 1,
+    "label": "Promote Conscripts?",  
+    "startdescription": "My word is command inviolate. And by my word, these men will fight more.",  
+    "description": "I have need of these men. They will fight as long as the war keeps going.",  
+    "requirements": {  
+        "skill.refreshally": 1,
+		"friend.conscript" : 1
+		},  
+    "aspects": {  
+        "fatiguing": 1,
+		"promotiontoveteran" : 1
+		},
+	"warmup": 15,
+	"craftable": true
+	},
+	
+	{  
     "id": "convert.hindrance.sharpestear",  
     "actionid": "abandon",
 	"$priority" : 1,
@@ -1798,7 +1817,25 @@
     "startdescription": "<color=red>Even after everything I went through, there are still parts of me that scream out to surrender and give up. I will cut out parts of me that hope otherwise and rid myself of this weakness.<color=#005500>",  
     "description": "<color=red>Regret is weakness.<color=#005500>",  
 	"extantreqs" : { "antithesis" : 1}
-	}
+	},
+	
+    {
+	"id": "healveteran.adeptwinter",
+	"actionid": "operate",
+	"label": "Call upon the Elegiast to halt the decay of a Veteran",
+	"startdescription": "The guard I have posted watches my prisoner carefully as they raise a hammer above the Veteran. The room chills a shade colder.",
+	"description": "The Veteran rises to its feet. The decay has stopped, and it will fight on longer. It's duty isn't over yet.",
+	"requirements": {
+	    "friend.adeptwinter": 1,
+	    "decaying": 1
+	},
+	"aspects": {
+	    "restorehealth": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    }
 	
 	
 ]

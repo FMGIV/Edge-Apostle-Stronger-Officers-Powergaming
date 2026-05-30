@@ -1612,38 +1612,38 @@
 	
     {
 	"id": "skill.refreshally",
-	"description": "No man will be permitted to shirk. No backwards step will be taken. My word is command inviolate, and all those who are soldiers will obey it. [You can use this to instantly refresh all exhausted, non-mechanized Allies on the board. You can also use this card to convert some hindrances to useful things.]",
+	"description": "No man will be permitted to shirk. No backwards step will be taken. My word is command inviolate, and all those who are soldiers will obey it. [You can use this to instantly refresh all exhausted, non-mechanized Allies on the board. You can use this card to convert Conscripts to Veterans. You can also use this card to convert some hindrances to useful things.]",
 	"slots$append" : [
 		{
-		"id": "hindrance1",
+		"id": "thing1",
 		"actionid": "abandon",
-		"label": "Hindrance",
-		"description": "Something in my way.",
+		"label": "intent",
 		"required": {
 		    "hindrance": 1,
-		    "activehindrance": 1
+		    "activehindrance": 1,
+			"friend.conscript" : 1
 			}
 		},
 		
 		{
-		"id": "hindrance2",
+		"id": "thing2",
 		"actionid": "abandon",
-		"label": "Hindrance",
-		"description": "Something in my way.",
+		"label": "intent",
 		"required": {
 		    "hindrance": 1,
-		    "activehindrance": 1
+		    "activehindrance": 1,
+			"friend.conscript" : 1
 			}
 		},
 		
 		{
-		"id": "hindrance3",
+		"id": "thing3",
 		"actionid": "abandon",
-		"label": "Hindrance",
-		"description": "Something in my way.",
+		"label": "intent",
 		"required": {
 		    "hindrance": 1,
-		    "activehindrance": 1
+		    "activehindrance": 1,
+			"friend.conscript" : 1
 			}
 		}
 	],
@@ -2515,7 +2515,23 @@
             }
         }
 		]
+	},
+	
+	{
+	"id": "friend.conscript",
+	"xtriggers$add": {
+		"promotiontoveteran": "friend.veteran"
 	}
+	},
+	
+	{
+	"id": "friend.adeptwinter",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"required$add" : { "decaying" : 1}
+			}
+	}
+	},
 	
 	
 ]
