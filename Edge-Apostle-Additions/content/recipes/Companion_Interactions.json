@@ -990,7 +990,9 @@
     "requirements": {  
         "friend.yuri": 1,
 		"friend" : 2,
-		"exhausted": 1
+		"yuri.inspired" : -1,
+		"exhausted": 1,
+		"weapon" : -1
     },  
     "aspects" : {
 		"refresh": 1,
@@ -999,6 +1001,37 @@
 	},
     "warmup": 30,  
     "craftable": true,
+	},
+	
+	{  
+    "id": "refreshally.yuri.upgraded",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "Rally a Comrade: Yuri",  
+    "startdescription": "Yuri readies his revolver with glee in his eyes.\n\n'They're shirking their duty, my friend. Let me talk to them.'",  
+	"description": "'<i>For the Motherland!</i>'",
+    "requirements": {  
+        "friend.yuri": 1,
+		"friend" : 2,
+		"exhausted": 1,
+		"yuri.inspired" : 1,
+		"weapon" : -1
+		
+    },  
+    "aspects" : {
+		"refresh": 1,
+		"deweaken" : 1,
+		"inspireexhaust" : 1
+	},
+    "warmup": 30,  
+    "craftable": true,
+   "furthermore": [
+      {
+         "aspects": {
+            "halftired": 1
+         }
+      }
+	]
 	},
 	
 	{  
@@ -1470,6 +1503,31 @@
         "resetonexhaustion": true  
     },  
     "warmup": 30
+	},
+	
+	{  
+    "id": "upgradeally.yuri",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "Motivational Struggles",  
+    "startdescription": "Yuri has been complaining how his usual way of 'motivating' our soldiers is no longer as effective. I am sure giving his sidearm an upgrade would help remedy this issue.",  
+	"description": "Yuri salutes me in earnest as I gift him the revolver, his stern gaze hides deep excitment he is feeling. 'Thank you comrade, this shall ensure our soldiers are more scared of taking a step back than of the enemy in front of them.'",
+    "requirements": {  
+        "friend.yuri": 1,
+		"weapon.revolver.mark" : 1
+    },  
+    "effects" : {
+		"weapon.revolver.mark": -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "yuri.inspired",
+		"level": 1
+	    }
+	],
+    "warmup": 15,  
+    "craftable": true
 	}
 
 ]
