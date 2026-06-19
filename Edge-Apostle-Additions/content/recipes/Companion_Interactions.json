@@ -1079,6 +1079,26 @@
 	},
 	
 	{  
+    "id": "repair.nikolai",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Repair Vehicle: Nikolai",  
+    "startdescription": "I gesture at the broken machinery. Nikolai nods. 'Da.'",  
+    "description": "Our machinery returns to functionality and Nikolai leaves in silence.",  
+    "requirements": {  
+        "friend.nikolai": 1,
+		"damaged" : 1,
+		"companion.inspired": 1
+    },
+	"aspects" : {
+		"fatiguing": 1,
+		"restorehealth" : 1
+	},
+    "warmup": 30,  
+    "craftable": true
+	},
+	
+	{  
     "id": "healyou.konstantin",  
     "actionid": "communicate",
 	"$priority" : 1,
@@ -1633,7 +1653,7 @@
 	"$priority" : 2,
     "label": "A Sample for a Doctor",  
     "startdescription": "Konstantin still grumbles under his nose about him not being allowed to experiment on our soldiers. Perhaps if I give him something to satiate his scientifical craving then he will focus more on healing our soldiers.",  
-	"description": "Konstantin looks at the sample I gave him with palpable surprise and curiosity. '<i>Digitium regius...</i> I thought all samples were incinerated long ago...'. The doctor immediately left for his study in medical tent afterwards.",
+	"description": "Konstantin looks at the sample I gave him with palpable surprise and curiosity. '<i>Digitium regius...</i> I thought all samples were incinerated long ago...'. The doctor immediately left for his study in medical tent afterwards. [Healing allies with konstantin will buff them after healing.]",
     "requirements": {  
         "friend.konstantin": 1,
 		"tool.winter" : 1
@@ -1645,6 +1665,31 @@
 	    {
 		"filter": "friend",
 		"mutate": "konstantin.inspired",
+		"level": 1
+	    }
+	],
+    "warmup": 15,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "upgradeally.nikolai",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "A Tool for a Craftsman",  
+    "startdescription": "Nikolai is well versed with arts of the forge but he is lacking tools neccesary to perform them. He might find better use for those nails than I would..",  
+	"description": "Nikolai takes the nails and returns to work without saying anything, but next day our contingent find one of our vechiles working as if it was rid of all its issues. Nikolai is looking at the rejuvanated vehicle away from the others and nods. [Nikolai can repair damaged vehicles now.]",
+    "requirements": {  
+        "friend.nikolai": 1,
+		"tool.forge" : 1
+    },  
+    "effects" : {
+		"tool.forge" : -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "companion.inspired",
 		"level": 1
 	    }
 	],
