@@ -1126,7 +1126,12 @@
 		"fatiguing" : 1,
 		"capture" : 1
 	},
-	"warmup": 15
+	"warmup": 15,
+	"inductions": [  
+		{
+		"id" : "enemy.barracks.lost"
+		}
+	]
     },
 	
 	{
@@ -1142,7 +1147,75 @@
 		"fatiguing" : 1,
 		"destroy" : 1
 	},
-	"warmup": 15
+	"warmup": 15,
+	"inductions": [  
+		{
+		"id" : "enemy.barracks.lost"
+		}
+	]
+    },
+	
+    {
+	"id": "enemy.barracks.lost",
+	"actionid": "scandal",
+	"label": "Enemy Barracks Lost!",
+	"startdescription": "The Germans do so pride themselves on their efficiency. Now that they've lost this barracks, some efficiency has been compromised.\n\n[Other Enemies at the Current Warzone will have their thresholds lowered.]",
+	"grandReqs" : {
+		"([loc.barracks] || [loc.barracks.destroyed])": 1,
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1,
+			"german" : 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "weakened": 1,
+		    "uqbrood": 1,
+		    "soviet": 1
+		},
+		"greedy": true
+	    },
+		
+		{
+		"id": "needsenemy2",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1,
+			"german" : 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "weakened": 1,
+		    "uqbrood": 1,
+		    "soviet": 1
+		},
+		"greedy": true
+	    },
+		
+		{
+		"id": "needsenemy3",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1,
+			"german" : 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "weakened": 1,
+		    "uqbrood": 1,
+		    "soviet": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"aspects": {
+	    "weaken": 1
+	}
     },
 	
 	{
