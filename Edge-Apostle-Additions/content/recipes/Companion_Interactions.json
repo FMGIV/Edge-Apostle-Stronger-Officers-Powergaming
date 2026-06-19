@@ -545,6 +545,7 @@
     "requirements": {  
         "friend.tibor": 1,
 		"wounded" : 1,
+		"companion.inspired" : -1
     },
 	"aspects" : {
 		"fatiguing": 1,
@@ -552,6 +553,33 @@
 	},
     "warmup": 30,  
     "craftable": true
+	},
+	
+	{  
+    "id": "healally.tibor.upgraded",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Heal Wounded: Tibor - Upgraded",  
+    "startdescription": "Tibor gets to work on healing our wounded with some matter of zeal. He wants to make sure we will all get to survive this hell and live to tell about all of it.",  
+    "description": "And done. Back in the fight.",  
+    "requirements": {  
+        "friend.tibor": 1,
+		"wounded" : 1,
+		"companion.inspired" : 1
+    },
+	"aspects" : {
+		"fatiguing": 1,
+		"restorehealth" : 1
+	},
+    "warmup": 15,  
+    "craftable": true,
+   "furthermore": [
+      {
+         "aspects": {
+            "halftired": 1
+         }
+      }
+	]
 	},
 	
 	{  
@@ -563,7 +591,8 @@
     "description": "I grimace as Tibor finishes stiching my wound. Back towards an ending.",  
     "requirements": {  
         "friend.tibor": 1,
-		"damage.body" : 1
+		"damage.body" : 1,
+		"companion.inspired" : -1
     },
 	"aspects" : {
 		"fatiguing": 1
@@ -573,6 +602,35 @@
 	},
     "warmup": 30,  
     "craftable": true
+	},
+	
+	{  
+    "id": "healyou.tibor.upgraded",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Heal Me: Tibor - Upgraded",  
+    "startdescription": "The good doctor still has his healing techniques. It'll do, for me.",  
+    "description": "I grimace as Tibor finishes stiching my wound. Back towards an ending.",  
+    "requirements": {  
+        "friend.tibor": 1,
+		"damage.body" : 1,
+		"companion.inspired" : 1
+    },
+	"aspects" : {
+		"fatiguing": 1
+	},
+	"effects" : {
+		"damage.body": -1
+	},
+    "warmup": 15,  
+    "craftable": true,
+   "furthermore": [
+      {
+         "aspects": {
+            "halftired": 1
+         }
+      }
+	]
 	},
 	
 	{  
@@ -1100,7 +1158,7 @@
 		"fatiguing": 1,
 		"restorehealth" : 1
 	},
-    "warmup": 15,
+    "warmup": 30,
     "furthermore": [
       {
          "aspects": {
@@ -1808,6 +1866,41 @@
 	    {
 		"filter": "friend",
 		"mutate": "lantern",
+		"level": 3
+	    }
+	],
+    "warmup": 15,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "upgradeally.tibor",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "Healing Techniques for a Doctor",  
+    "startdescription": "Back in Sobibor, Tibor told me once about his old friend with whom he used to write books with, Janning was his name. Tibor's friend is now dead and this journal is everything left of them. Tibor deserves it more than I do.",  
+	"description": "When Tibor checks the pages of the journal, his face radiates melancholy and regrets. 'He was the only one who didn't cared about my ethnicity, you know ?' Tibor remarks as he closes the journal. 'It's only right I make sure this journal survives this hell, to show the world what could had been if we all worked together instead against one another...'",
+    "requirements": {  
+        "friend.tibor": 1,
+		"tool.heart.contemnant" : 1
+    },
+	"extantreqs": {
+	    "hopelessness": -1,
+		"antithesis": -1
+	},
+    "effects" : {
+		"tool.heart.contemnant" : -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "companion.inspired",
+		"level": 1
+	    },
+		
+	    {
+		"filter": "friend",
+		"mutate": "heart",
 		"level": 3
 	    }
 	],
