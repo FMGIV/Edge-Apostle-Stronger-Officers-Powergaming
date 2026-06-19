@@ -1135,6 +1135,11 @@
 	    },
 		
 		{
+		"id": "weakenenemy.iosef.success.upgraded",
+		"chance": "50+[moth]*5 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+	    },
+		
+		{
 		"id": "weakenenemy.iosef.failure"
 	    }
 	]
@@ -1143,11 +1148,51 @@
 	{  
     "id": "weakenenemy.iosef.success",  
     "label": "Scope out the enemy: Iosef. Success!",  
-    "description": "Iosef comes back, shivering but unharmed with information on our enemy.\n\n'Please don't send me out like that again.'",  
+    "description": "Iosef comes back, shivering but unharmed with information on our enemy.\n\n'Please don't send me out like that again.'",
+	"requirements": {
+	    "companion.inspired": -1
+	},
     "aspects" : {
 		"revealidentity": 1,
 		"weaken": 1,
 		"fatiguing" : 1
+	}
+	},
+	
+	{  
+    "id": "weakenenemy.iosef.success.upgraded",  
+    "label": "Intel and Supplies",  
+    "description": "Iosef comes back, shivering but unharmed with information on our enemy and portion of their supplies. 'If I am risking my life for it, I might aswell take something of actual value while im at it.'",  
+    "requirements": {
+	    "companion.inspired": 1
+	},
+	"aspects" : {
+		"revealidentity": 1,
+		"weaken": 1,
+		"fatiguing" : 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe",
+		"mutate": "looted",
+		"level": 1
+	    }
+	],  
+	"internaldeck": {
+	    "spec": [
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares",
+		"provisions",
+		"provisions",
+		"supplies.smokegrenade",
+		"supplies.smokegrenade"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
 	}
 	},
 	
@@ -1511,7 +1556,7 @@
 	"$priority" : 2,
     "label": "Motivational Struggles",  
     "startdescription": "Yuri has been complaining how his usual way of 'motivating' our soldiers is no longer as effective. I am sure giving his sidearm an upgrade would help remedy this issue.",  
-	"description": "Yuri salutes me in earnest as I gift him the revolver, his stern gaze hides deep excitment he is feeling. 'Thank you comrade, this shall ensure our soldiers are more scared of taking a step back than of the enemy in front of them.'",
+	"description": "Yuri salutes me in earnest as I gift him the revolver, his stern gaze hides deep excitment he is feeling. 'Thank you comrade, this shall ensure our soldiers are more scared of taking a step back than of the enemy in front of them.' [Yuri's cooldown from motivating an ally has been halved.]",
     "requirements": {  
         "friend.yuri": 1,
 		"weapon.revolver.mark" : 1
@@ -1523,6 +1568,31 @@
 	    {
 		"filter": "friend",
 		"mutate": "yuri.inspired",
+		"level": 1
+	    }
+	],
+    "warmup": 15,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "upgradeally.iosef",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "An Eye for a Friend",  
+    "startdescription": "To say Iosef would preffer to be anywhere else but in this war would be an understandment. Still, by giving him something of real value I might convince him to put at least some effort into his actions.",  
+	"description": "Iosef glances at the pearl and then back at me as if he was suspecting this to be a trap. Eventually he slowly takes it and carefully packages the pearl into his backpocket before allowing himself a reluctant smile. 'Good to see I can still count on our friendship... Tovarish.' [Iosef will steal supplies from enemies when he scopes them out.]",
+    "requirements": {  
+        "friend.iosef": 1,
+		"tool.heart" : 1
+    },  
+    "effects" : {
+		"tool.heart": -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "companion.inspired",
 		"level": 1
 	    }
 	],
