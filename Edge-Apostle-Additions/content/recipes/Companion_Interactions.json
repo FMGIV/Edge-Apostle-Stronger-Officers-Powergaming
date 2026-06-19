@@ -1044,6 +1044,7 @@
     "requirements": {  
         "friend.konstantin": 1,
 		"wounded" : 1,
+		"konstantin.inspired": -1
     },
 	"aspects" : {
 		"fatiguing": 1,
@@ -1051,6 +1052,30 @@
 	},
     "warmup": 30,  
     "craftable": true
+	},
+	
+	{  
+    "id": "healally.konstantin.upgraded",
+	"$extends" : ["healally.konstantin"],
+    "label": "Heal and 'Motivate' Wounded: Konstantin",  
+    "description": "Something changed in Konstantin's latest patient, they fight more fiercely than before and listen to orders with no hesistation. Konstantin refuses to answer what he has done with them, citting 'Doctor-Patient Confidentiality'.",  
+    "requirements": {  
+        "friend.konstantin": 1,
+		"wounded" : 1,
+		"konstantin.inspired": 1
+    },
+	"aspects" : {
+		"fatiguing": 1,
+		"restorehealth" : 1
+	},
+    "warmup": 15,
+    "furthermore": [
+      {
+         "aspects": {
+            "giveallyprovisions": 1
+         }
+      }
+	]
 	},
 	
 	{  
@@ -1162,7 +1187,7 @@
 	{  
     "id": "weakenenemy.iosef.success.upgraded",  
     "label": "Intel and Supplies",  
-    "description": "Iosef comes back, shivering but unharmed with information on our enemy and portion of their supplies. 'If I am risking my life for it, I might aswell take something of actual value while im at it.'",  
+    "description": "Iosef comes back, shivering but unharmed with information on our enemy and portion of their supplies. 'If I'm risking my life for it, I might aswell take something of actual value while im at it.'",  
     "requirements": {
 	    "companion.inspired": 1,
 		"german" : 1,
@@ -1595,6 +1620,31 @@
 	    {
 		"filter": "friend",
 		"mutate": "companion.inspired",
+		"level": 1
+	    }
+	],
+    "warmup": 15,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "upgradeally.konstantin",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "A Sample for a Doctor",  
+    "startdescription": "Konstantin still grumbles under his nose about him not being allowed to experiment on our soldiers. Perhaps if I give him something to satiate his scientifical craving then he will focus more on healing our soldiers.",  
+	"description": "Konstantin looks at the sample I gave him with palpable surprise and curiosity. '<i>Digitium regius...</i> I thought all samples were incinerated long ago...'. The doctor immediately left for his study in medical tent afterwards.",
+    "requirements": {  
+        "friend.konstantin": 1,
+		"tool.winter" : 1
+    },  
+    "effects" : {
+		"tool.winter": -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "konstantin.inspired",
 		"level": 1
 	    }
 	],
