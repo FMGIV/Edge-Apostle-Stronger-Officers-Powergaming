@@ -719,8 +719,40 @@
         ],  
         "draws": 2,  
         "resetonexhaustion": true  
-    }, 
+    },
+	"linked": [
+	    {
+		"id": "daria.kill.enemy",
+		"chance": "25+[edge]*5 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+	    }
+	]
 	},
+	
+    {
+	"id": "daria.kill.enemy",
+	"label": "Daria Sends her Regards!",
+	"startdescription": "While out scavenging, Daria used her new favorite toy to quickly dispose one of our enemies. Handy.",
+	"requirements": {
+	    "companion.inspired": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+		   "foe.officer": 1,
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 10,
+	"aspects": {
+	    "killfoe": 1
+	}
+    },
 	
 	{  
     "id": "scavenge.warzone.daria.failure",  
@@ -1601,7 +1633,7 @@
     "id": "upgradeally.yuri",  
     "actionid": "communicate",
 	"$priority" : 2,
-    "label": "Motivational Struggles",  
+    "label": "A Sidearm for a Commissar",  
     "startdescription": "Yuri has been complaining how his usual way of 'motivating' our soldiers is no longer as effective. I am sure giving his sidearm an upgrade would help remedy this issue.",  
 	"description": "Yuri salutes me in earnest as I gift him the revolver, his stern gaze hides deep excitment he is feeling. 'Thank you comrade, this shall ensure our soldiers are more scared of taking a step back than of the enemy in front of them.' [Yuri's cooldown from motivating an ally has been halved.]",
     "requirements": {  
@@ -1677,7 +1709,7 @@
     "actionid": "communicate",
 	"$priority" : 2,
     "label": "A Tool for a Craftsman",  
-    "startdescription": "Nikolai is well versed with arts of the forge but he is lacking tools neccesary to perform them. He might find better use for those nails than I would..",  
+    "startdescription": "Nikolai is well versed with arts of the forge but he is lacking tools neccesary to perform them. He might find better use for those nails than I would.",  
 	"description": "Nikolai takes the nails and returns to work without saying anything, but next day our contingent find one of our vechiles working as if it was rid of all its issues. Nikolai is looking at the rejuvanated vehicle away from the others and nods. [Nikolai can repair damaged vehicles now.]",
     "requirements": {  
         "friend.nikolai": 1,
@@ -1685,6 +1717,31 @@
     },
     "effects" : {
 		"tool.forge" : -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "companion.inspired",
+		"level": 1
+	    }
+	],
+    "warmup": 15,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "upgradeally.daria",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "A Gun for a Partisan",  
+    "startdescription": "Daria is used to taking Potshots from the Fascisti, doesn't mean she likes that in the slightest. I might give her a way to defend herself with adequate weapon.",  
+	"description": "Daria's eyes gleams when I hand her the rifle that once belonged to my friend. 'A gift for poor me ? Why, thank you Captain.' I am sure they would be happy to hear who recieved their former weapon. [Daria has a chance to kill enemies while scavenging warzones.]",
+    "requirements": {  
+        "friend.daria": 1,
+		"weapon.rifle.mark" : 1
+    },
+    "effects" : {
+		"weapon.rifle.mark" : -1
 	},
 	"mutations": [
 	    {
