@@ -510,6 +510,10 @@
 	    },
 		
 		{
+		"id": "weakenenemy.vanja.failure.upgraded"
+	    },
+		
+		{
 		"id": "weakenenemy.vanja.failure"
 	    }
 	]
@@ -522,6 +526,18 @@
     "aspects" : {
 		"revealidentity": 1,
 		"weaken": 1,
+		"fatiguing" : 1
+	}
+	},
+	
+	{  
+    "id": "weakenenemy.vanja.failure.upgraded",  
+    "label": "Scope out the enemy: Vanja. Failure!",  
+    "description": "Vanja comes back, crying but miracously not wounded.",  
+    "requirements": {  
+		"companion.inspired" : 1
+    },  
+    "aspects" : {
 		"fatiguing" : 1
 	}
 	},
@@ -1901,6 +1917,41 @@
 	    {
 		"filter": "friend",
 		"mutate": "heart",
+		"level": 3
+	    }
+	],
+    "warmup": 15,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "upgradeally.vanja",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "A Flower for a Child",  
+    "startdescription": "Back in his home, Vanja and his parents used to have many visits to the meadows nearby where they all searched for most beautiful flowers out in the wild. I am not sure whenever Vanja will be comforted or distraught by my gesture. I hope the former.",  
+	"description": "Vanja looks at the flower and initialy stays completely silent, only after entire minute of contemplation does he starts speaking. 'T-Thank you M-Mister... I-I wish they were s-still here... S-So I could show them how N-Nice Mister is....' the boy says as tears slowly fall down onto the ground before Vanja slowly wipes them away. 'M-Maybe... M-Maybe after all of t-this is over... W-We will go back and f-find them t-to place this flower on their g-grave...' [Vanja will no longer be wounded on failed scope out attempts.]",
+    "requirements": {  
+        "friend.vanja": 1,
+		"tool.forge.contemnant" : 1
+    },
+	"extantreqs": {
+	    "hopelessness": -1,
+		"antithesis": -1
+	},
+    "effects" : {
+		"tool.forge.contemnant" : -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "companion.inspired",
+		"level": 1
+	    },
+		
+	    {
+		"filter": "friend",
+		"mutate": "forge",
 		"level": 3
 	    }
 	],
