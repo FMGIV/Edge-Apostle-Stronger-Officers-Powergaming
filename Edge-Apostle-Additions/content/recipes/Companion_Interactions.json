@@ -719,12 +719,41 @@
 	"linked": [
 	    {
 		"id": "purge.walther.success",
-		"chance": "50+[lantern]*5"
+		"chance": "50 + [lantern]*5"
 	    },
 		
 		{
 		"id": "purge.walther.failure"
 	    }
+	]
+	},
+	
+	{  
+    "id": "purge.walther.upgraded",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "Scour Impurity: Walter",  
+    "startdescription": "Walter still remembers his time as a solar clergyman and carries experience neccesary to expirate any obstacle on our path.",  
+	"description": "Dawn breaks, and Walther is there. He raises his hands towards the sky. A force moves through the air. There is a light. I find my path clearer.",   
+    "requirements": {  
+        "friend.walther": 1,
+		"hindrance": 1,
+		"companion.inspired" : 1
+    },
+	"aspects" : {
+		"fatiguing" : 1
+	},
+	"effects" : {
+		"hindrance" : -1
+	},
+    "warmup": 15,  
+    "craftable": true,
+   "furthermore": [
+      {
+         "aspects": {
+            "halftired": 1
+         }
+      }
 	]
 	},
 	
@@ -1953,6 +1982,47 @@
 		"filter": "friend",
 		"mutate": "forge",
 		"level": 3
+	    }
+	],
+    "warmup": 15,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "upgradeally.walther",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "A Cleansing from a Clergyman",  
+    "startdescription": "Walter is past his prime, the beatings he endured made sure of that. Still, I think he is the only person cappable of banishing this <i>thing</i>. I hope I am not making a mistake doing it.",  
+	"description": "Walter is obviously shocked at first when I show him with what I came with to him but calms down when I explain to him we need somebody to banish this monstrosity. It takes the priest entire day to banish it, but next morning all traces of the visitor are gone from this world. When I see Walter again, he is tired but smilling in spite of pain he endured. 'There are many dark moments in our lives like this one, but all of them will pass on into memories. I will always remember that, I hope you do too.' [Walther will no longer fail when cleansing hindrances, and does it faster.]",
+    "requirements": {  
+        "friend.walther": 1,
+		"tool.winter.contemnant" : 1
+    },
+	"extantreqs": {
+	    "hopelessness": -1,
+		"antithesis": -1
+	},
+    "effects" : {
+		"tool.winter.contemnant" : -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "companion.inspired",
+		"level": 1
+	    },
+		
+	    {
+		"filter": "friend",
+		"mutate": "lantern",
+		"level": 1
+	    },
+		
+	    {
+		"filter": "friend",
+		"mutate": "knock",
+		"level": 1
 	    }
 	],
     "warmup": 15,  
