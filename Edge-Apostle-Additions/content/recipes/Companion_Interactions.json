@@ -658,6 +658,35 @@
     "id": "healyou.tibor.upgraded",  
     "actionid": "communicate",
 	"$priority" : 1,
+    "label": "Heal Me: Tibor",  
+    "startdescription": "The good doctor healing techniques have improved. This should go faster.",  
+    "description": "I grimace as Tibor finishes stiching my wound. Back towards an ending.",  
+    "requirements": {  
+        "friend.tibor": 1,
+		"damage.body" : 1,
+		"companion.inspired" : 1
+    },
+	"aspects" : {
+		"fatiguing": 1
+	},
+	"effects" : {
+		"damage.body": -1
+	},
+    "warmup": 15,  
+    "craftable": true,
+   "furthermore": [
+      {
+         "aspects": {
+            "halftired": 1
+         }
+      }
+	]
+	},
+	
+	{  
+    "id": "healyou.tibor.upgraded",  
+    "actionid": "communicate",
+	"$priority" : 1,
     "label": "Heal Me: Tibor - Upgraded",  
     "startdescription": "The good doctor still has his healing techniques. It'll do, for me.",  
     "description": "I grimace as Tibor finishes stiching my wound. Back towards an ending.",  
@@ -992,7 +1021,8 @@
     "description": "'Just don't ask where the meat came from.'",  
     "requirements": {  
         "friend.lorenzo": 1,
-		"remnant": 1
+		"remnant": 1,
+		"companion.inspired" : -1
     },  
     "aspects" : {
 		"fatiguing": 1
@@ -1000,6 +1030,36 @@
     "effects": {
 	    "remnant": -1,
 	    "provisions": 2,
+	},
+    "warmup": 30,  
+    "craftable": true,
+   "furthermore": [
+      {
+         "aspects": {
+            "halftired": 1
+         }
+      }
+	]
+	},
+	
+	{  
+    "id": "cook.monstercorpse.lorenzo.upgraded",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "Cook a monstrous corpse: Lorenzo - Upgraded",  
+    "startdescription": "Loreno now has more meat than ever before, that means more food for all of us.",  
+    "description": "'Just don't ask where the meat came from.'",  
+    "requirements": {  
+        "friend.lorenzo": 1,
+		"remnant": 1,
+		"companion.inspired" : 1
+    },  
+    "aspects" : {
+		"fatiguing": 1
+	},
+    "effects": {
+	    "remnant": -1,
+	    "provisions": 4,
 	},
     "warmup": 30,  
     "craftable": true,
@@ -2057,6 +2117,37 @@
 		"filter": "friend",
 		"mutate": "knock",
 		"level": 1
+	    }
+	],
+    "warmup": 15,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "upgradeally.lorenzo",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "A Pair of Gloves for a Chef",  
+    "startdescription": "Lorenzo, while thankful for it, has difficulties properly preparing the cadavers we supply him with. There's ought to be something that should make his work easier.",  
+	"description": "Lorenzo wastes no time and immieidatelly puts the gloves on and thrusts his hands into the piece of meat he was preparing and effortlessly ripps out the bone hidden deep in it. 'This is good, great even! Nothing will go to waste in my kitchen anymore !'. Lorenzo is too absorbed with cooking to properly thank me.",
+    "requirements": {  
+        "friend.lorenzo": 1,
+		"tool.grail.proterant" : 1
+    },
+    "effects" : {
+		"tool.grail.proterant" : -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "companion.inspired",
+		"level": 1
+	    },
+		
+	    {
+		"filter": "friend",
+		"mutate": "grail",
+		"level": 3
 	    }
 	],
     "warmup": 15,  
