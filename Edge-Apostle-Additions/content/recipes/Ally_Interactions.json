@@ -111,7 +111,8 @@
     },
 	
     {
-	"id": "Ally.Talk.Unafraid",
+	"id": "Ally.Talk.Unafraid", 
+	"$depends": [ "3713855248" ],
 	"actionid": "communicate",
 	"$priority" : 1,
 	"label": "Motivate Ally",
@@ -124,6 +125,78 @@
 	    "friend.weakened": 1,
 		"memento" : 1
 	},
+	"warmup": 30,
+	"craftable": true
+    },
+	
+    {
+	"id": "Ally.Talk.Unafraid", 
+	"$incompatible": [ "3713855248" ],
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "Motivate Ally",
+	"startdescription": "My ally has been shaken by some harrowing experince. With some time, I can motivate them back to normal effectiveness.",
+	"description": "And done. Back in the fight.",
+	"requirements": {
+	    "friend.weakened": 1,
+		"memento" : 1
+	},
+    "mutations": [
+                {
+                    "filter": "edge",
+                    "mutate": "edge",
+                    "level": 2,
+                    "additive": true
+                },
+                {
+                    "filter": "forge",
+                    "mutate": "forge",
+                    "level": 2,
+                    "additive": true
+                },
+                {
+                    "filter": "lantern",
+                    "mutate": "lantern",
+                    "level": 2,
+                    "additive": true
+                },
+                {
+                    "filter": "moth",
+                    "mutate": "moth",
+                    "level": 2,
+                    "additive": true
+                },
+                {
+                    "filter": "heart",
+                    "mutate": "heart",
+                    "level": 2,
+                    "additive": true
+                },
+                {
+                    "filter": "grail",
+                    "mutate": "grail",
+                    "level": 2,
+                    "additive": true
+                },
+                {
+                    "filter": "winter",
+                    "mutate": "winter",
+                    "level": 2,
+                    "additive": true
+                },
+                {
+                    "filter": "knock",
+                    "mutate": "knock",
+                    "level": 2,
+                    "additive": true
+                },
+                {
+                    "filter": "friend",
+                    "mutate": "friend.weakened",
+                    "level": 0,
+                    "additive": false
+                }
+    ],
 	"warmup": 30,
 	"craftable": true
     },
