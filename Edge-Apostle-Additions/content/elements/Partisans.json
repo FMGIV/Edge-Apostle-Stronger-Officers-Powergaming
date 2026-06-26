@@ -1,0 +1,876 @@
+{
+"elements": [
+	
+    {
+	"id": "friend.partisan.infiltrator",
+	"label": "Partisan Infiltrators",
+	"description": "The Eyes and Ears of <i>La Resistenza</i>.",
+	"aspects": {
+	    "friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
+	    "moth": 4,
+	    "lantern": 4,
+	    "heart": 3
+	},
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1,
+			"warzone" : 1,
+			"supplies.smokegrenade" : 1,
+			"foe.corpses" : 1
+		}
+	},
+	
+	{
+		"id": "scoutin",
+		"actionid": "recon",
+		"label": "Scouting",
+		"required": {
+			"warzone.current" : 1,
+			"foe" : 1
+		}
+	},
+	
+	{
+		"id": "provisions",
+		"actionid": "recon",
+		"label": "provisions",
+		"required": {
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.infiltrator.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.partisan.infiltrator.wounded",
+		"concealidentity" : "friend.partisan.infiltrator.hidden",
+		"refresh" : "friend.partisan.infiltrator",
+		"refreshally" : "friend.partisan.infiltrator",
+		"provisionrefresh": "friend.partisan.infiltrator",
+		"makeafraid": "friend.partisan.infiltrator.afraid",
+	    "restorehealth": "friend.partisan.infiltrator",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"decayTo": "friend.partisan.infiltrator",
+	"icon": "friend.partisan.infiltrator"
+    },
+	
+    {
+	"id": "friend.partisan.infiltrator.exhausted",
+	"label": "Partisan Infiltrators (Exhausted)",
+	"$derives" : ["friend.partisan.infiltrator"],
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "moth",
+	    "lantern",
+	    "heart"],
+	"xtriggers": {
+		"makeafraid": "friend.partisan.infiltrator.afraid.exhausted",
+	    "bestronger": "friend.partisan.infiltrator"
+	},
+	"lifetime": 30,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.partisan.infiltrator.wounded",
+	"$derives" : ["friend.partisan.infiltrator"],
+	"label": "Partisan Infiltrators (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+		"wounded" : 1
+	},
+	"aspects$remove" : [
+	    "moth",
+	    "lantern",
+	    "heart"],
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.infiltrator.wounded",
+	    "makecasualty": "friend.corpses",
+		"makeafraid": "friend.partisan.infiltrator.afraid.wounded",
+	    "restorehealth": "friend.partisan.infiltrator"
+	}
+    },
+	
+    {
+	"id": "friend.partisan.infiltrator.afraid",
+	"label": "Partisan Infiltrators",
+	"$extends" : ["friend.partisan.infiltrator"],
+	"aspects": {
+	    "friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
+		"friend.weakened" : 1,
+	    "moth": 2,
+	    "lantern": 2,
+	    "heart": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.infiltrator.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.partisan.infiltrator.afraid.wounded",
+		"refresh" : "friend.partisan.infiltrator",
+		"refreshally" : "friend.partisan.infiltrator",
+		"provisionrefresh": "friend.partisan.infiltrator.afraid",
+		"makeafraid": "friend.partisan.infiltrator.afraid",
+	    "restorehealth": "friend.partisan.infiltrator.afraid",
+	    "bestronger": "friend.partisan.infiltrator"
+	},
+	"lifetime": 150
+    },
+	
+    {
+	"id": "friend.partisan.infiltrator.afraid.exhausted",
+	"label": "Partisan Infiltrators (Exhausted)",
+	"$derives" : ["friend.partisan.infiltrator.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.infiltrator.afraid.exhausted",
+	    "makecasualty": "friend.partisan.infiltrator.afraid.wounded",
+		"provisionrefresh": "friend.partisan.infiltrator.afraid",
+		"makeafraid": "friend.partisan.infiltrator.afraid.exhausted",
+	    "restorehealth": "friend.partisan.infiltrator.afraid",
+	    "bestronger": "friend.partisan.infiltrator"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.partisan.infiltrator.afraid",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.partisan.infiltrator.afraid.wounded",
+	"label": "Partisan Infiltrators (Wounded)",
+	"$derives" : ["friend.partisan.infiltrator.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.infiltrator.afraid.wounded",
+		"makeafraid": "friend.partisan.infiltrator.afraid.wounded",
+	    "restorehealth": "friend.partisan.infiltrator.afraid"
+	},
+    },
+	
+    {
+	"id": "friend.partisan.infiltrator.hidden",
+	"label": "Partisan Infiltrators (Hidden)",
+	"$derives" : ["friend.partisan.infiltrator"],
+	"aspects": {
+	    "friend.hidden": 1,
+	    "moth": 8,
+	    "lantern": 8,
+	    "heart": 6
+	}
+    },
+	
+	{
+	"id": "friend.partisan.sapper",
+	"label": "Partisan Sappers",
+	"description": "The Saboteurs of <i>La Resistenza</i>. [This unit cannot be used to heal monsters.]",
+	"aspects": {
+	    "friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
+	    "heart": 4,
+	    "knock": 4,
+	    "forge": 4
+	},
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1,
+			"warzone" : 1,
+			"supplies.smokegrenade" : 1,
+			"foe.corpses" : 1
+		}
+	},
+	
+	{
+		"id": "damaged",
+		"actionid": "operate",
+		"label": "Damaged",
+		"required": {
+			"damaged" : 1
+		}
+	},
+	
+	{
+		"id": "provisions",
+		"actionid": "operate",
+		"label": "Provisions",
+		"required": {
+			"provisions" : 1
+		}
+	},
+	
+	{
+		"id": "provisions2",
+		"actionid": "operate",
+		"label": "Provisions",
+		"required": {
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.sapper.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.partisan.sapper.wounded",
+		"concealidentity" : "friend.partisan.sapper.hidden",
+		"refresh" : "friend.partisan.sapper",
+		"refreshally" : "friend.partisan.sapper",
+		"provisionrefresh": "friend.partisan.sapper",
+		"makeafraid": "friend.partisan.sapper.afraid",
+	    "restorehealth": "friend.partisan.sapper",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "knock",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"decayTo": "friend.partisan.sapper",
+	"icon": "friend.partisan.sapper"
+    },
+	
+    {
+	"id": "friend.partisan.sapper.exhausted",
+	"label": "Partisan Sappers (Exhausted)",
+	"$derives" : ["friend.partisan.sapper"],
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "heart",
+	    "knock",
+	    "forge"],
+	"xtriggers": {
+		"makeafraid": "friend.partisan.sapper.afraid.exhausted",
+	    "bestronger": "friend.partisan.sapper"
+	},
+	"lifetime": 45,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.partisan.sapper.wounded",
+	"$derives" : ["friend.partisan.sapper"],
+	"label": "Partisan Sappers (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+		"wounded" : 1
+	},
+	"aspects$remove" : [
+	    "heart",
+	    "forge",
+	    "knock"],
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.sapper.wounded",
+	    "makecasualty": "friend.corpses",
+		"makeafraid": "friend.partisan.sapper.afraid.wounded",
+	    "restorehealth": "friend.partisan.sapper"
+	}
+    },
+	
+    {
+	"id": "friend.partisan.sapper.afraid",
+	"label": "Partisan Sappers",
+	"$extends" : ["friend.partisan.sapper"],
+	"aspects": {
+	    "friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
+		"friend.weakened" : 1,
+	    "forge": 4,
+	    "heart": 2,
+	    "knock": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.sapper.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.partisan.sapper.afraid.wounded",
+		"refresh" : "friend.partisan.sapper",
+		"refreshally" : "friend.partisan.sapper",
+		"provisionrefresh": "friend.partisan.sapper.afraid",
+		"makeafraid": "friend.partisan.sapper.afraid",
+	    "restorehealth": "friend.partisan.sapper.afraid",
+	    "bestronger": "friend.partisan.sapper"
+	},
+	"lifetime": 150
+    },
+	
+    {
+	"id": "friend.partisan.sapper.afraid.exhausted",
+	"label": "Partisan Sappers (Exhausted)",
+	"$derives" : ["friend.partisan.sapper.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.sapper.afraid.exhausted",
+	    "makecasualty": "friend.partisan.sapper.afraid.wounded",
+		"provisionrefresh": "friend.partisan.sapper.afraid",
+		"makeafraid": "friend.partisan.sapper.afraid.exhausted",
+	    "restorehealth": "friend.partisan.sapper.afraid",
+	    "bestronger": "friend.partisan.sapper"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.partisan.sapper.afraid",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.partisan.sapper.afraid.wounded",
+	"label": "Partisan Sappers (Wounded)",
+	"$derives" : ["friend.partisan.sapper.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.sapper.afraid.wounded",
+		"makeafraid": "friend.partisan.sapper.afraid.wounded",
+	    "restorehealth": "friend.partisan.sapper.afraid"
+	}
+    },
+	
+    {
+	"id": "friend.partisan.sapper.hidden",
+	"label": "Partisan Sappers (Hidden)",
+	"$derives" : ["friend.sapper.infiltrator"],
+	"aspects": {
+	    "friend.hidden": 1,
+	    "forge": 8,
+	    "knock": 8,
+	    "heart": 8
+	}
+    },
+	
+	{
+	"id": "friend.partisan.sniper",
+	"label": "Partisan Sniper",
+	"description": "Solitary, patient, motivated. And accurate.",
+	"aspects": {
+	    "friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
+	    "winter": 4,
+	    "edge": 4,
+	    "heart": 4
+	},
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1,
+			"warzone" : 1,
+			"supplies.smokegrenade" : 1,
+			"foe.corpses" : 1
+		}
+	}
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.sniper.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.partisan.sniper.wounded",
+		"concealidentity" : "friend.partisan.sniper.hidden",
+		"refresh" : "friend.partisan.sniper",
+		"refreshally" : "friend.partisan.sniper",
+		"provisionrefresh": "friend.partisan.sniper",
+		"makeafraid": "friend.partisan.sniper.afraid",
+	    "restorehealth": "friend.partisan.sniper",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "moth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"decayTo": "friend.partisan.sniper",
+	"icon": "foe.vivienne"
+    },
+	
+    {
+	"id": "friend.partisan.sniper.exhausted",
+	"label": "Partisan Sniper (Exhausted)",
+	"$derives" : ["friend.partisan.sniper"],
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "edge",
+	    "winter",
+	    "heart"],
+	"xtriggers": {
+		"makeafraid": "friend.partisan.sniper.afraid.exhausted",
+	    "bestronger": "friend.partisan.sniper"
+	},
+	"lifetime": 30,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.partisan.sniper.wounded",
+	"$derives" : ["friend.partisan.sniper"],
+	"label": "Partisan Sniper (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+		"wounded" : 1
+	},
+	"aspects$remove" : [
+	    "edge",
+	    "winter",
+	    "heart"],
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.sniper.wounded",
+	    "makecasualty": "friend.corpses",
+		"makeafraid": "friend.partisan.sniper.afraid.wounded",
+	    "restorehealth": "friend.partisan.sniper"
+	}
+    },
+	
+    {
+	"id": "friend.partisan.sniper.afraid",
+	"label": "Partisan Sniper",
+	"$extends" : ["friend.partisan.sniper"],
+	"aspects": {
+	    "friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
+		"friend.weakened" : 1,
+	    "heart": 2,
+	    "edge": 2,
+	    "winter": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.sniper.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.partisan.sniper.afraid.wounded",
+		"refresh" : "friend.partisan.sniper",
+		"refreshally" : "friend.partisan.sniper",
+		"provisionrefresh": "friend.partisan.sniper.afraid",
+		"makeafraid": "friend.partisan.sniper.afraid",
+	    "restorehealth": "friend.partisan.sniper.afraid",
+	    "bestronger": "friend.partisan.sniper"
+	},
+	"lifetime": 150
+    },
+	
+    {
+	"id": "friend.partisan.sniper.afraid.exhausted",
+	"label": "Partisan Sniper (Exhausted)",
+	"$derives" : ["friend.partisan.sniper.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.sniper.afraid.exhausted",
+	    "makecasualty": "friend.partisan.sniper.afraid.wounded",
+		"provisionrefresh": "friend.partisan.sniper.afraid",
+		"makeafraid": "friend.partisan.sniper.afraid.exhausted",
+	    "restorehealth": "friend.partisan.sniper.afraid",
+	    "bestronger": "friend.partisan.sniper"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.partisan.sniper.afraid",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.partisan.sniper.afraid.wounded",
+	"label": "Partisan Infiltrators (Wounded)",
+	"$derives" : ["friend.partisan.sniper.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.sniper.afraid.wounded",
+		"makeafraid": "friend.partisan.sniper.afraid.wounded",
+	    "restorehealth": "friend.partisan.sniper.afraid"
+	}
+    },
+	
+    {
+	"id": "friend.partisan.sniper.hidden",
+	"label": "Partisan Sniper (Hidden)",
+	"$derives" : ["friend.partisan.sniper"],
+	"aspects": {
+	    "friend.hidden": 1,
+	    "winter": 8,
+	    "edge": 8,
+	    "heart": 8
+	}
+    },
+	
+	{
+	"id": "friend.partisan.physician",
+	"label": "Partisan Physicians",
+	"description": "The Medics and Surgeons of <i>La Resistenza</i>.",
+	"aspects": {
+	    "friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
+	    "heart": 4,
+	    "grail": 4
+	},
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1,
+			"warzone" : 1,
+			"supplies.smokegrenade" : 1,
+			"foe.corpses" : 1
+		}
+	},
+	
+	{
+		"id": "wounded",
+		"actionid": "operate",
+		"label": "Wounded",
+		"required": {
+			"wounded" : 1
+		},
+		"forbidden": {
+		   "friend.monster": 1
+		}
+	},
+	
+	{
+		"id": "provisions",
+		"actionid": "operate",
+		"label": "Provisions",
+		"required": {
+			"provisions" : 1
+		},
+		"consumes": true
+	}
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.physician.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.partisan.physician.wounded",
+		"concealidentity" : "friend.partisan.physician.hidden",
+		"refresh" : "friend.partisan.physician",
+		"refreshally" : "friend.partisan.physician",
+		"provisionrefresh": "friend.partisan.physician",
+		"makeafraid": "friend.partisan.physician.afraid",
+	    "restorehealth": "friend.partisan.physician",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "grail",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"decayTo": "friend.partisan.physician",
+	"icon": "friend.partisan.physician"
+    },
+	
+    {
+	"id": "friend.partisan.physician.exhausted",
+	"label": "Partisan Physicians (Exhausted)",
+	"$derives" : ["friend.partisan.physician"],
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "heart",
+	    "grail"],
+	"xtriggers": {
+		"makeafraid": "friend.partisan.physician.afraid.exhausted",
+	    "bestronger": "friend.partisan.physician",
+	    "restorehealth": "friend.partisan.physician.exhausted",
+	},
+	"lifetime": 45,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.partisan.physician.wounded",
+	"$derives" : ["friend.partisan.physician"],
+	"label": "Partisan Physicians (Wounded)",
+	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
+	"aspects": {
+		"wounded" : 1
+	},
+	"aspects$remove" : [
+	    "grail",
+	    "heart"],
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.physician.wounded",
+	    "makecasualty": "friend.corpses",
+		"makeafraid": "friend.partisan.physician.afraid.wounded",
+	    "restorehealth": "friend.partisan.physician"
+	}
+    },
+	
+    {
+	"id": "friend.partisan.physician.afraid",
+	"label": "Partisan Physicians",
+	"$extends" : ["friend.partisan.physician"],
+	"aspects": {
+	    "friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
+		"friend.weakened" : 1,
+	    "grail": 2,
+	    "heart": 2
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.physician.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.partisan.physician.afraid.wounded",
+		"refresh" : "friend.partisan.physician",
+		"refreshally" : "friend.partisan.physician",
+		"provisionrefresh": "friend.partisan.physician.afraid",
+		"makeafraid": "friend.partisan.physician.afraid",
+	    "restorehealth": "friend.partisan.physician.afraid",
+	    "bestronger": "friend.partisan.physician"
+	},
+	"lifetime": 150
+    },
+	
+    {
+	"id": "friend.partisan.physician.afraid.exhausted",
+	"label": "Partisan Physicians (Exhausted)",
+	"$derives" : ["friend.partisan.physician.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.physician.afraid.exhausted",
+	    "makecasualty": "friend.partisan.physician.afraid.wounded",
+		"provisionrefresh": "friend.partisan.physician.afraid",
+		"makeafraid": "friend.partisan.physician.afraid.exhausted",
+	    "restorehealth": "friend.partisan.physician.afraid",
+	    "bestronger": "friend.partisan.physician",
+	    "restorehealth": "friend.partisan.physician.afraid.exhausted"
+	},
+	"lifetime": 60,
+	"decayTo": "friend.partisan.physician.afraid",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.partisan.physician.afraid.wounded",
+	"label": "Partisan Physicians (Wounded)",
+	"$derives" : ["friend.partisan.physician.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.partisan.physician.afraid.wounded",
+		"makeafraid": "friend.partisan.physician.afraid.wounded",
+	    "restorehealth": "friend.partisan.physician.afraid"
+	},
+    },
+	
+    {
+	"id": "friend.partisan.physician.hidden",
+	"label": "Partisan Physicians (Hidden)",
+	"$derives" : ["friend.partisan.physician"],
+	"aspects": {
+	    "friend.hidden": 1,
+	    "heart": 8,
+	    "grail": 8
+	}
+    }
+	
+]
+}

@@ -1718,7 +1718,7 @@
 	},
 	"aspects": {
 	    "recall": 1
-	},
+	}
     },
 	
 	{  
@@ -2140,7 +2140,7 @@
 	"$priority" : 2,
     "label": "A Pair of Gloves for a Chef",  
     "startdescription": "Lorenzo, while thankful for it, has difficulties properly preparing the cadavers we supply him with. There's ought to be something that should make his work easier.",  
-	"description": "Lorenzo wastes no time and immieidatelly puts the gloves on and thrusts his hands into the piece of meat he was preparing and effortlessly ripps out the bone hidden deep in it. 'This is good, great even! Nothing will go to waste in my kitchen anymore !'. Lorenzo is too absorbed with cooking to properly thank me.",
+	"description": "Lorenzo wastes no time and immediately puts the gloves on and thrusts his hands into the piece of meat he was preparing and effortlessly ripps out the bone hidden deep in it. 'This is good, great even! Nothing will go to waste in my kitchen anymore !'. Lorenzo is too absorbed with cooking to properly thank me. [Lorenzo gets more provision from monster corpses.]",
     "requirements": {  
         "friend.lorenzo": 1,
 		"tool.grail.proterant" : 1
@@ -2164,6 +2164,54 @@
 	],
     "warmup": 15,  
     "craftable": true
+	},
+	
+	{  
+    "id": "upgradeally.fiorenza",  
+    "actionid": "communicate",
+	"$priority" : 2,
+    "label": "A Doll for a Maiden",  
+    "startdescription": "Fiorenza is yet to get anything that would make her truly happy. Perhaps I will be the first one to give her something to be happy about.",  
+	"description": "Fiorenza raises the little idol high above and smiles widely, it seems my gift was exatly what she wished to recieve. ;Grazie my friend! From all the gifts I recieved, yours was the first one to show you really know me!' We share a quick hug afterwards. [When used, Fiorenza has a chance to recruit an ally.]",
+    "requirements": {  
+        "friend.fiorenza": 1,
+		"tool.heart.proterant" : 1
+    },
+    "effects" : {
+		"tool.heart.proterant" : -1
+	},
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "fiorenza.inspired",
+		"level": 1
+	    },
+		
+	    {
+		"filter": "friend",
+		"mutate": "heart",
+		"level": 3,
+        "additive": true
+	    }
+	],
+    "warmup": 15,  
+    "craftable": true
+	},
+	
+	{  
+    "id": "fiorenza.allure",  
+    "actionid": "amicable_verb",
+    "label": "Allured by the Beauty",  
+    "startdescription": "When Fiorenza returns to our camp she is not alone. 'They really wanted to spend more time with me and well... I couldn't say no, could I?' she explains. Either way, we now have one more pair of hands on board.",  
+    "description": "When Fiorenza returns to our camp she is not alone. 'They really wanted to spend more time with me and well... I couldn't say no, could I?' she explains. Either way, we now have one more pair of hands on board.",
+	"requirements": {  
+        "friend.fiorenza.exhausted": 1,
+		"fiorenza.inspired" : 1
+    },
+	"deckeffects" : {
+		"partisan.allies" : 1
+	},
+    "warmup": 30
 	}
 
 ]

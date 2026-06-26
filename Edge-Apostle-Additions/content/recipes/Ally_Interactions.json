@@ -274,7 +274,7 @@
 		
 		
 		{
-		"id": "healcasualty.medics*"
+		"id": "healcasualty*"
 	    }
 	] 
 	},
@@ -323,6 +323,30 @@
 	    },
 		
 		{
+		"id": "recon.partisan"
+	    },
+		
+		{
+		"id": "recon*"
+	    }
+		
+	] 
+	},
+	
+	{  
+	"id": "recon.partisan",
+	"actionid": "ally.scouts.action",  
+	"label": "Command Scouts",
+	"startdescription": "I have something for my scouts to uncover. Find it.",  
+    "aspects" : {
+		"fatiguing" : 1
+	},
+	"grandReqs" : {
+		"partisan": 1
+	},
+	"linked": [  
+		
+		{
 		"id": "recon*"
 	    }
 		
@@ -336,7 +360,7 @@
 	"startdescription": "I have an enemy I need intelligence on, and these are the men to get it.",
 	"grandReqs": {
 	    "provisions": 1,
-	    "([friend.scouts] || [friendscouts])": 1,
+	    "([friend.scouts] || [friendscouts] || [partisan])": 1,
 		"[foe] || [foe.hidden]" : 1,
 		"[~/extant:allyattackmarker]=3": -1 
 	},
@@ -361,7 +385,7 @@
 	"$priority" : 1,
     "label": "Scope out the enemy: Scouts",  
 	"startdescription": "I have an enemy I need intelligence on, and these are the men to get it.",
-    "description": "The scouts return, with information on my enemy.",  
+    "description": "My men return, with information on my enemy.",  
     "aspects" : {
 		"revealidentity": 1,
 		"weaken": 1,
@@ -370,7 +394,7 @@
 	"grandReqs" : {
 		"([foe] || [foe.hidden])": 1,
 		"provisions": 1,
-	    "([friend.scouts] || [friendscouts])": 1,
+	    "([friend.scouts] || [friendscouts] || [partisan])": 1,
 		"weakened" : -1
 	},
     "warmup": 30
@@ -396,7 +420,7 @@
 	"label": "Command Scouts",
 	"startdescription": "I have a Warzone I need intelligence on, and these are the men to get it.",
 	"grandReqs": {
-	    "([friend.scouts] || [friendscouts])": 1,
+	    "([friend.scouts] || [friendscouts] || [partisan])": 1,
 		"warzone.current" : 1,
 		"[~/extant:allyattackmarker]=3": -1 
 	},
@@ -631,7 +655,8 @@
 	},
 	"grandReqs": {
 	    "([op] || [supplies.smokegrenade])": 1,
-		"([friend.militia] || [friend.sniper] || [friend.militia.ins] || [friend.sniper.ins])": 1,
+		"([friend.militia] || [friend.sniper] || [friend.militia.ins] || [friend.sniper.ins] || [partisan])": 1,
+		"friend.weakened" : -1,
 		"[~/extant:allyattackmarker]=3": -1 
 	},
 	"effects" : {
@@ -885,6 +910,157 @@
 	},
 	"warmup": 30,
 	"craftable": true
+    },
+	
+    {
+	"id": "loot.corpse.partisan.pre",
+	"actionid": "communicate",
+	"label": "Command Partisan to Loot Corpse",
+	"$priority" : 1,
+	"startdescription": "Check their packs and pockets; their stiff and clutching hands.\n\n[This can produce useful supplies. Sometimes you won't find anything.]",
+	"description": "Here's what we have to show.",
+	"grandReqs": {
+		"partisan": 1,
+	    "remnant": 1,
+	    "looted": -1,
+	    "foe.corpse.unnatural": -1
+	},
+	"effects" : {
+	"allyattackmarker" : 1
+	},
+	"inductions": [  
+		{
+		"id" : "loot.corpse.partisan",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+			}
+		}
+	],  
+	"craftable": true  
+    },
+	
+    {
+	"id": "loot.corpse.partisan",
+	"actionid": "lootin",
+	"label": "Search the dead for anything useful",
+	"startdescription": "Check their packs and pockets; their stiff and clutching hands.\n\n[This can produce useful supplies. Sometimes you won't find anything.]",
+	"description": "Here's what we have to show.",
+	"grandReqs": {
+		"partisan": 1,
+	    "remnant": 1,
+	    "looted": -1,
+	    "foe.corpse.unnatural": -1
+	},
+	"mutations": [
+	    {
+		"filter": "remnant",
+		"mutate": "looted",
+		"level": 1
+	    }
+	],
+	"craftable": true,
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"husk",
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares",
+		"supplies.smokegrenade",
+		"supplies.smokegrenade"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	}
+    },
+	
+	{
+	"id": "command.ally.action.sappers.pre",
+	"$extends" : ["command.ally.action.engineers.pre"],
+	"label": "Command Sappers",
+	"startdescription": "I have something to fix or build for the sappers to do. Get to it.",
+	"grandReqs": {
+	    "provisions": 2,
+	    "([friend.partisan.sapper] || [friend.partisan.sapper.afraid] || [friend.partisan.sapper.hidden])": 1,
+		"[~/extant:allyattackmarker]=3": -1,
+		"main": -1,
+		"side" : -1,
+		"foe": -1
+	}
+	},
+	
+    {
+	"id": "repairdamaged.sapper",
+	"$extends" : ["repairdamaged.engineers"],
+	"requirements": {},
+	"grandReqs": {
+	    "provisions": 2,
+	    "([friend.partisan.sapper] || [friend.partisan.sapper.afraid] || [friend.partisan.sapper.hidden])": 1,
+	    "damaged": 1,
+	    "provisions": 2
+	},
+	"warmup": 45
+    },
+	
+    {
+	"id": "repairinfrastructure.sapper",
+	"$extends" : ["repairinfrastructure"],
+	"requirements": {},
+	"grandReqs": {
+	    "provisions": 2,
+	    "([friend.partisan.sapper] || [friend.partisan.sapper.afraid] || [friend.partisan.sapper.hidden])": 1,
+	    "infrastructure.destroyed": 1
+	},
+	"warmup": 90
+    },
+	
+    {
+	"id": "buildbarracks.sapper",
+	"$extends" : ["buildbarracks"],
+	"requirements": {},
+	"grandReqs": {
+	    "provisions": 2,
+	    "([friend.partisan.sapper] || [friend.partisan.sapper.afraid] || [friend.partisan.sapper.hidden])": 1
+	},
+	"effects": {
+	    "partisan": -99,
+	    "loc.barracks": 1
+	},
+	"warmup": 90
+    },
+	
+	{
+	"id": "command.ally.action.physicians.pre",
+	"$extends" : ["command.ally.action.medics.pre"],
+	"label": "Command Physicians",
+	"startdescription": "I have someone or something for the physicians to heal. Patch em up.",
+	"grandReqs": {
+	    "provisions": 1,
+		"wounded" : 1,
+	    "([friend.partisan.physician] || [friend.partisan.physician.hidden] || [friend.partisan.physician.afraid])": 1,
+		"[~/extant:allyattackmarker]=3": -1
+		}
+	},
+	
+    {
+	"id": "healcasualty.physicians",
+	"$extends" : ["healcasualty.medics"],
+	"requirements": {},
+	"grandReqs": {
+	    "provisions": 1,
+		"wounded" : 1,
+	    "([friend.partisan.physician] || [friend.partisan.physician.hidden] || [friend.partisan.physician.afraid])": 1
+	}
     }
 	
 ]
