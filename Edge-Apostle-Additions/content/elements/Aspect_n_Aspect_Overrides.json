@@ -108,7 +108,7 @@
 	"label" : "Priest",
 	"description": "'Men of God and men of war have strange affinities.'\n\n- Cormac McCarthy, <i>Blood Meridian</i>",
 	"isAspect": true,
-	"icon": "scholarly"
+	"icon": "library"
     },
 	
 	{
@@ -309,7 +309,8 @@
 	"id": "hope.blocker",
 	"label" : "Hopeful",
 	"description": "The world has done many wrongs to me, but like a chain, hope for it still clings to me. [Having Hope will lock out some interactions until you abandon it.]",
-	"isAspect": true
+	"isAspect": true,
+	"icon": "secret"
     },
 	
 	{
@@ -330,7 +331,8 @@
 	"id": "friend.inspired",
 	"label" : "Morale Boosted",
 	"description": "This unit will fight harder for me. [Aspects increased. This will dissapear when this unit gets used.]",
-	"isAspect": true
+	"isAspect": true,
+	"icon": "experience.exile.ally"
     },
 	
     {
@@ -411,7 +413,7 @@
 	
 	{
 	"id": "companion.inspired",
-	"icon": "companion.inspired",
+	"icon": "enlightenmentmarks",
 	"label" : "Motivated",
 	"description": "My companion is putting more effort into this war, now.",
 	"isAspect": true
@@ -449,7 +451,39 @@
 	"label": "Partisan",
 	"description": "What this one lacks in training makes up for in spirit. [No force size and can loot corpses. However, you cannot boost these units with provisions like normal troops and certain interactions are unavailable.]",
 	"isaspect": true,
-	"icon": "partisan"
+	"icon": "venerates.lionsmith"
+    },
+	
+    {
+	"id": "reputation.good",
+	"label": "Reputation - Good",
+	"description": "The local populace respect and support me for my efforts in assisting them and liberating <i>Italia</i>. [This positively affects recruitment chances and how tolerant the local population is of your 'Wartime Measures']",
+	"isaspect": true,
+	"icon": "besotment"
+    },
+	
+    {
+	"id": "reputation.bad",
+	"label": "Reputation - Bad",
+	"description": "The local populace despise and resent me for my wartime actions. [This will make recruitment harder, and the locals wont be as tolerant of 'Wartime Measures']",
+	"isaspect": true,
+	"icon": "resentment"
+    },
+	
+    {
+	"id": "recruited.here.already",
+	"label": "Recruited Already",
+	"description": "I've already gotten what volunteers I can from here. I'd better look elsewhere for more volunteers.",
+	"isaspect": true,
+	"icon": "exhausted"
+    },
+	
+    {
+	"id": "warzone.abused",
+	"induces$listedit": 
+	{
+		"0$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"  }
+	}
     }
 	
 ]

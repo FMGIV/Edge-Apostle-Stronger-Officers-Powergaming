@@ -557,6 +557,43 @@
 	"label": "Field Hospital (Staffed - Exhausted)",
 	"lifetime": 150,
 	"decayTo": "loc.hospital.staffed"
+	},
+	
+	{  
+	"id": "proterant.reputation", 
+	"label": "Reputation",  
+	"description": "A measure of my reputation among the local population. Whether they love me or hate me depends on what I do. [You can recruit partisans with this card.]",  
+	"aspects": {  
+		"reputation.good": 3  
+	},  
+	"slots": [  
+		{  
+			"id": "Location",   
+			"label": "Location",
+			"actionid": "communicate",  
+			"required": {  
+				"warzone.current": 1,
+				"location" : 1
+			}  
+		}
+	],
+	"unique": true,
+	"xtriggers": {
+	    "badrepgain": [
+		{
+		    "id": "reputation.bad",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+		"goodrepgain": [
+		{
+		    "id": "reputation.good",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
 	}
 	
 	

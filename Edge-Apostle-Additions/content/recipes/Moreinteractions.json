@@ -1787,6 +1787,11 @@
 		"id": "startup.desertion.proterant",
 		"chance": "50 - [~/visible:corrivality.exile] * 25 + [~/visible:corrivality.foe] * 25"
 	    }
+	],
+	"inductions": [
+	    {
+		"id": "bad.reputation.router"
+	    }
 	] 
 	},
 	
@@ -1794,21 +1799,20 @@
 	"id": "startup.desertion.proterant",
 	"actionid": "desertion",
 	"label": "Betrayal!",
-	"startdescription": "If I can betray my allies, they can betray me too. In the morning, our camp is a little emptier - my latest betrayal must have convinced this one they'd be better off away from me.",
+	"startdescription": "For one reason or another, an ally has turned their back on me. In the morning, our camp is a little emptier - my latest action must have convinced this one they'd be better off away from me.",
 	"description": "<i>C'est la Guerre</i>.",
 	"effects": {
-	    "friend": -1
+	    "partisan": -1
 	},
 	"tablereqs": {
-	    "friend": 1
+	    "partisan": 1
 	},
 	"slots": [
 	    {
 		"id": "needsfriend",
 		"label": "Ally",
 		"required": {
-		    "friend": 1,
-		    "hired": 1
+		    "partisan": 1
 		},
 		"forbidden": {
 		    "vicious": 1,
@@ -2037,6 +2041,274 @@
     }, 
 	"hintonly": true,
 	"craftable": false
+    },
+	
+    {
+	"id": "hint.proterant.recruiting",
+	"actionid": "communicate",
+    "label": "The Guerilla War",  
+    "startdescription": "We have backing from the Allies, but aren't a proper army. We'll have to make do with other methods. [You can't call for allies directly this way, but can recruit them through other methods.]",  
+	"requirements": {
+	    "friend": 1
+	},  
+    "extantreqs": {  
+        "proterant.story": 1   
+    }, 
+	"hintonly": true,
+	"craftable": false
+    },
+	
+    {
+	"id": "opx.conclude.assistlocals.3.proterant",
+	"label": "A Relief Effort, Complete",
+	"startdescription": "The townspeople offer what recompense they can for our services: some food and some drink, shelter, local knowledge - even the odd volunteer. Useful.",
+	"requirements": {
+	    "end.assistlocals": 1,
+	    "progression": 3
+	},
+	"deckeffects": {
+	    "proterant.assistlocals.deck": 4
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"linked" : [
+		{
+			"id": "assistlocals.weakenenemy",
+			"chance": "60 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [~/visible:reputation.good] * 3 - [~/visible:reputation.bad] * 5"
+		}
+		],
+	"inductions": [
+	    {
+		"id": "good.reputation.router",
+		"chance": "60 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+	    }
+	]
+    },
+	
+    {
+	"id": "opx.conclude.assistlocals.2.proterant",
+	"label": "A Relief Effort, Complete",
+	"startdescription": "The townspeople offer what recompense they can for our services: some food and some drink, shelter, local knowledge - even the odd volunteer. Useful.",
+	"requirements": {
+	    "end.assistlocals": 1,
+	    "progression": 2
+	},
+	"deckeffects": {
+	    "proterant.assistlocals.deck": 3
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"linked" : [
+		{
+			"id": "assistlocals.weakenenemy",
+			"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [~/visible:reputation.good] * 3 - [~/visible:reputation.bad] * 5"
+		}
+		],
+	"inductions": [
+	    {
+		"id": "good.reputation.router",
+		"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+	    }
+	]
+    },
+	
+    {
+	"id": "opx.conclude.assistlocals.1.proterant",
+	"label": "A Relief Effort, Complete",
+	"startdescription": "The townspeople offer what recompense they can for our services: some food and some drink, shelter, local knowledge - even the odd volunteer. Useful.",
+	"requirements": {
+	    "end.assistlocals": 1
+	},
+	"deckeffects": {
+	    "proterant.assistlocals.deck": 2
+	},
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"linked$append" : [
+		{
+			"id": "assistlocals.weakenenemy",
+			"chance": "20 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [~/visible:reputation.good] * 3 - [~/visible:reputation.bad] * 5"
+		}
+		],
+	"inductions": [
+	    {
+		"id": "good.reputation.router",
+		"chance": "20 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+	    }
+	]
+    },
+	
+    {
+	"id": "hint.proterant.recruiting.reputation",
+	"actionid": "communicate",
+    "label": "Recruit a Partisan?",  
+    "startdescription": "We have backing from the Allies, but aren't a proper army. We'll have to make do with other methods. [You can't call for allies directly this way, but can recruit them through other methods.]",  
+	"requirements": {
+	    "proterant.reputation": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{  
+    "id": "proterant.recruit.partisan.pre",  
+    "actionid": "communicate",
+	"$priority" : 1,
+    "label": "Recruit A Partisan",  
+    "startdescription": "Here is place I can recruit partisans from. I won't liberate <i>Italia</i> alone after all. [This can fail, producing nothing.]",   
+	"grandReqs" : {
+		"([warzone.current] || [location])": 1,
+		"proterant.reputation": 1,
+		"recruited.here.already": -1
+		},    
+    "warmup": 30,  
+    "craftable": true,
+	"linked" : [
+		{
+			"id": "proterant.recruit.partisans.success",
+			"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [~/visible:reputation.good] * 2 - [~/visible:reputation.bad] * 5"
+		},
+		
+		{
+			"id": "proterant.recruit.partisans.failure"
+		}
+		]  
+	},
+	
+	{
+    "id": "proterant.recruit.partisans.success",  
+    "label": "Recruit A Partisan - Success!",  
+    "description": "I shake hands with my recruits. More partisans for the liberation.",
+	"deckeffects": {
+	    "partisan.allies": 1
+	},
+	"mutations": [
+	    {
+		"filter": "location",
+		"mutate": "recruited.here.already",
+		"level": 1
+	    },
+	    {
+		"filter": "warzone.current",
+		"mutate": "recruited.here.already",
+		"level": 1
+	    }
+	]
+	},
+	
+	{
+    "id": "proterant.recruit.partisans.failure",  
+    "label": "Recruit A Partisan - Failure!",  
+    "description": "No one willing to join the liberation here. I'll have to look elsewhere for volunteers.",
+	"mutations": [
+	    {
+		"filter": "location",
+		"mutate": "recruited.here.already",
+		"level": 1
+	    },
+	    {
+		"filter": "warzone.current",
+		"mutate": "recruited.here.already",
+		"level": 1
+	    }
+	]
+	},
+	
+    {
+	"id": "bad.reputation.router",
+	"actionid": "bad.rep.verb",
+	"label": "Infamy!",
+	"startdescription": "Something I've done has angered the locals! Word of this is spreading...",
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"slots": [
+	    {
+		"id": "reputation",
+		"label": "Reputation",
+		"required": {
+		    "proterant.reputation": 1
+		},
+		"greedy": true
+	    }
+	],
+	"alt": [
+	    {
+		"id": "bad.reputation.increase"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "bad.reputation.router"
+	    }
+	],
+	"warmup": 5
+    },
+	
+	{
+    "id": "bad.reputation.increase",  
+    "label": "Infamy!",  
+    "description": "Are they wrong to despise me, in light of what i've done to them?",
+	"grandReqs" : {
+		"proterant.reputation": 1
+		}, 
+	"aspects": {
+	    "badrepgain": 1
+	}
+	},
+	
+    {
+	"id": "good.reputation.router",
+	"actionid": "good.rep.verb",
+	"label": "Honor!",
+	"startdescription": "The will of the people is a powerful thing. Their support is the lifeline of any resistance movement.",
+	"extantreqs": {
+	    "proterant.story": 1
+	},
+	"slots": [
+	    {
+		"id": "reputation",
+		"label": "Reputation",
+		"required": {
+		    "proterant.reputation": 1
+		},
+		"greedy": true
+	    }
+	],
+	"alt": [
+	    {
+		"id": "good.reputation.increase"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "good.reputation.router"
+	    }
+	],
+	"warmup": 5
+    },
+	
+	{
+    "id": "good.reputation.increase",  
+    "label": "Honor!",  
+    "description": "And so the masses through a little more weight behind me.",
+	"grandReqs" : {
+		"proterant.reputation": 1
+		}, 
+	"aspects": {
+	    "goodrepgain": 1
+	}
+	},
+	
+    {
+	"id": "good.reputation.router.from.killed.german",
+	"$extends" : ["good.reputation.router"],
+	"requirements": {
+	    "german": 1
+	}
     }
 	
 	
