@@ -1,0 +1,253 @@
+{
+"elements": [
+{
+    "id": "repairing",
+    "label": "Repairing",
+    "description": "This object is being repaired to restore it to its original state.",
+    "isAspect": true
+},
+{
+    "id": "german.damaged",
+    "label": "Damaged",
+    "description": "This object is severely damaged.",
+    "isAspect": true
+},
+{
+    "id": "umiri",
+    "label": "umiri",
+    "isAspect": true,
+    "isHidden": true
+},
+{
+    "id": "anno",
+    "label": "anno",
+    "isAspect": true,
+    "isHidden": true
+},
+{
+    "id": "uqgalika",
+    "label": "uqgalika",
+    "isAspect": true,
+    "isHidden": true
+},
+    
+{
+    "id": "friend.galika",
+    "label": "Galika",
+    "description": "A scorching variant of the Labhite, its brass body gleams brilliantly under the scorching sun. Scalding heat surges within it—this means it leaves scorch marks as it walks, this means its wings beat with greater ferocity, this means its searing breath is quite lethal.",
+    "aspects": {
+        "friend": 1,
+        "otherworldly": 1,
+        "forcesize": 4,
+        "edge": 12,
+        "forge": 8,
+        "friend.aerial": 1,
+        "friend.monster": 1,
+        "fromtomori": 1,
+        "friend.temp": 1
+    },
+    "uniquenessgroup": "uqgalika",
+    "xtriggers": {
+        "fatiguing": "friend.galika.exhausted",
+        "killmortal": "mem.regret",
+        "killfriend": "friend.galika.wounded",
+        "makecasualty": "friend.galika.wounded",
+        "rebellion": "friend.galika.wounded",
+        "killtomorimoster": "mem.regret"
+    }
+},
+{
+    "id": "friend.galika.exhausted",
+    "label": "Galika (Resting)",
+    "description": "A scorching variant of the Labhite, its brass body gleams brilliantly under the scorching sun. Scalding heat surges within it—this means it leaves scorch marks as it walks, this means its wings beat with greater ferocity, this means its searing breath is quite lethal.",
+    "aspects": {
+        "friend": 1,
+        "otherworldly": 1,
+        "forcesize": 4,
+        "exhausted": 1,
+        "friend.monster": 1,
+        "fromtomori": 1,
+        "friend.temp": 1
+    },
+    "uniquenessgroup": "uqgalika",
+    "xtriggers": {
+        "fatiguing": "friend.galika.exhausted",
+        "killmortal": "friend.galika.wounded",
+        "killfriend": "friend.galika.wounded",
+        "makecasualty": "friend.galika.wounded",
+        "refresh": "friend.galika",
+        "killtomorimoster": "mem.regret"
+    },
+    "lifetime": 90,
+    "decayTo": "friend.galika",
+    "icon": "friend.galika",
+    "resaturate": true
+},
+{
+    "id": "friend.galika.wounded",
+    "label": "Galika (Wounded)",
+    "description": "Even a brass body can crack. This wounded beast crouches in a corner, its low whimpers filled with pain and unwillingness.\n[This ally will retreat immediately, but will return healthy the next time it is summoned.]",
+    "aspects": {
+        "fromtomori": 1
+    },
+    "uniquenessgroup": "uqgalika",
+    "xtriggers": {
+        "killtomorimoster": "mem.regret"
+    }
+},
+{
+    "id": "killtomorimoster",
+    "label": "Specifically Kills Galika",
+    "description": "The name галька (pebble) is a bit peculiar for a monster, but Tamara likes this nickname.",
+    "isAspect": true,
+    "isHidden": true
+},
+{
+    "id": "fromtomori",
+    "label": "<i>Tamara</i>'s Monster",
+    "description": "The name галька (pebble) is a bit peculiar for a monster, but Tamara likes this nickname.",
+    "isAspect": true
+},
+{
+    "id": "friend.temp",
+    "label": "Temporary Ally",
+    "description": "Being away from its master seems to make it restless.\n[It will not stay long]",
+    "isAspect": true,
+    "icon": "hired"
+},
+
+{
+    "id": "friend.tomori",
+    "label": "Tamara Ivanovich Zoyayeva",
+    "description": "Once registered as a casualty, yet miraculously returned from the battlefield. By no means as young as she appears, nor as delicate. She is determined to return to her old trade, at least for now.",
+    "aspects": {
+        "friend": 1,
+        "local": 1
+    },
+    "xtriggers": {
+        "fatiguing": "call.tomori"
+    }
+},
+{
+    "id": "call.tomori",
+    "label": "Resplendent Plume",
+    "description": "The feather of the Labhite fears no fire. When the Labhite soars into the air, its outspread wings glow with radiant heat. Through special treatment, its plumage can become a medium to summon the Labhite.\n[Summon a temporary ally]",
+    "aspects": {
+        "call": 1,
+        "cancalltomori": 1
+    },
+    "icon": "call.tomori",
+    "xtriggers": {
+        "fatiguing": "call.tomori.exhausted"
+    }
+},
+{
+    "id": "call.tomori.exhausted",
+    "$extends": ["call.tomori"],
+    "label": "Resplendent Plume (Exhausted)",
+    "description": "The feather of the Labhite fears no fire. When the Labhite soars into the air, its outspread wings glow with radiant heat. Through special treatment, its plumage can become a medium to summon the Labhite.",
+    "aspects": {
+    },
+    "decayTo": "call.tomori",
+    "resaturate": true,
+    "lifetime": 1000,
+    "xtriggers": {
+        "refresh": "call.tomori",
+        "fatiguing": "call.tomori.exhausted"
+    }
+},
+{
+    "id": "cancalltomori",
+    "label": "Token",
+    "description": "\"To Galina: That child has a flighty temperament, not suitable for frequent summons...\"",
+    "isAspect": true,
+    "icon": "follower_honoured",
+    "comments": "This card can be used to call Little Light for support."
+},{
+	"id": "loc.shrine.colonel.vilna",
+	"description": "Atop the bell tower, a steel archangel pierces a coiled serpent beneath its feet. Michael—patron angel of soldiers and cops, my guardian angel. I'm sure someone has this as a middle name. Below, Red Army surgeons have turned this church into a field hospital. But the surgeons do not use morphine for anesthesia, and soldiers who complete treatment here usually leave with fewer body parts than when they arrived."
+},
+{
+	"id": "loc.shrine.colonel.kyiv",
+	"description": "The statue of the Grand Duke on the hill has been shattered by shelling. The cross-staff in his hand has lost its finial, leaving only a jagged tip; only half his face remains untouched by flying shrapnel and gunfire. But soldiers still come every night to lay offerings at the foot of his monument: alcohol, captured weapons, hands and ears of German soldiers. For a moment, I thought I saw <i>her</i> head, but the vision was fleeting."
+},
+{
+	"id": "loc.shrine.colonel.stalingrad",
+	"description": "An abandoned granary is used by a secret cult to commemorate a strange hero: the one-armed Englishman who, for the Russian White Army, swept through an entire city alone in a single tank. Perhaps he is now a Named One. Perhaps he is merely dead. But those who revere the Colonel remember him.\nA one-armed German, driving a tank, chasing me with a dart in a foreign land. For a moment, I didn't know whether to laugh or cry."
+},
+{
+	"id": "loc.shrine.colonel.wasteland_b.2",
+	"description": "In a silent forest where the wind itself stands still, a chessboard is carved into a vast flat rock. Bone chess pieces are set upon it. Whoever was playing this game, they never finished it. Our game is still ongoing; I have imagined countless times how it will end, how we will end.\nIt was never a game."
+},
+{
+	"id": "letter.umiri",
+	"label": "Letter from my Arch Enemy",
+	"description": "I just received intelligence from the department—the unit designation was blotted out by ink. But I know it's you; I recognise your command style—even after all these years apart.\nSo you really came.\nI thought you'd stay in Moscow as an instructor, or be stuffed into some freezing cell by the NKVD to rot. But you chose the stupidest path possible: standing right in front of my gun barrel.\n—I won't ask why. We worship the same Hour; people like us don't need reasons.\nNow you're opposite me. Not just my troops, but my air force—those are my prized students—and hundreds of thousands of people waiting to tear each other apart. I'll roll right over you, just like any enemy in my way. But before that…\n\nGalina, don't die at someone else's hand. If you die, die by my bullet.\nI'll be watching you; I have the means to penetrate your leaky intelligence apparatus.\n\nP.S. I'll know what you eat for dinner every night. Eat well, don't starve.\n—Ilse von Hailing",
+	"aspects": {
+		"call": 1
+	},
+	"xtriggers": {
+		"fatiguing": "letter.umiri.exhausted"
+	}
+},
+{
+	"id": "letter.umiri.exhausted",
+	"label": "Letter from my Arch Enemy (Read)",
+	"description": "I just received intelligence from the department—the unit designation was blotted out by ink. But I know it's you; I recognise your command style—even after all these years apart.\nSo you really came.\nI thought you'd stay in Moscow as an instructor, or be stuffed into some freezing cell by the NKVD to rot. But you chose the stupidest path possible: standing right in front of my gun barrel.\n—I won't ask why. We worship the same Hour; people like us don't need reasons.\nNow you're opposite me. Not just my troops, but my air force—those are my prized students—and hundreds of thousands of people waiting to tear each other apart. I'll roll right over you, just like any enemy in my way. But before that…\n\nGalina, don't die at someone else's hand. If you die, die by my bullet.\nI'll be watching you; I have the means to penetrate your leaky intelligence apparatus.\n\nP.S. I'll know what you eat for dinner every night. Eat well, don't starve.\n—Ilse von Hailing\n[You may now use this item to summon <i>Hailing</i>]",
+	"aspects": {
+		"call": 1
+	},
+	"slots": [
+		{
+			"id": "needsengineers",
+			"label": "Weapon",
+			"required": {
+				"weapon": 1
+			},
+			"forbidden": {
+				"damage.body": 1,
+				"uq.weapon.notwork": 1,
+				"exhausted": 1
+			}
+		}
+	],
+	"icon": "letter.umiri"
+},
+{
+	"id": "call",
+	"label": "Communication",
+	"description": "You may use this to contact someone… or something. [You may place items with this aspect into <i>Communication</i>]",
+	"isAspect": true
+},
+{
+	"id": "umiriattack.1",
+	"label": "Hailing's Means of Attack",
+	"description": "1",
+	"aspects": {
+		"needsedgewinter": 12
+	},
+	"lifetime": 1,
+	"isHidden": true
+},
+{
+	"id": "umiriattack.2",
+	"label": "Hailing's Means of Attack",
+	"description": "2",
+	"aspects": {
+		"needsedgeheart": 8
+	},
+	"lifetime": 1,
+	"isHidden": true
+},
+{
+	"id": "umiriattack.3",
+	"label": "Hailing's Means of Attack",
+	"description": "3",
+	"aspects": {
+		"needsedgelantern": 8
+	},
+	"lifetime": 1,
+	"isHidden": true
+}
+    ]
+}

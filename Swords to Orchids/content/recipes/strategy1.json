@@ -1,0 +1,1187 @@
+{
+    "recipes": [
+        {
+            "id": "foe.umiri.attack.tactics1.first",
+            "label": "Enemy Launches Combined Tactical Offensive",
+            "startdescription": "Heavy tank tracks rumble across the trench lines, and a large-scale coordinated assault is underway.",
+            "actionId": "foetactics1",
+            "requirements": {
+                "strategy.tactics1": 1
+            },
+            "extantreqs": {
+                "strategy_trigger": -2,
+                "foe.cutoff": -8
+            },
+            "playAudioTrack": "bgm.foetactics1.mp3",
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1",
+            "label": "Enemy Launches Combined Tactical Offensive",
+            "startdescription": "Heavy tank tracks rumble across the trench lines, and a large-scale coordinated assault is underway.",
+            "actionId": "foetactics1",
+            "warmup": 10,
+            "extantreqs": {
+                "foe.cutoff": -8
+            },
+            "requirements": {
+                "strategy.tactics1": 1
+            },
+            "aspects": {
+                "revealidentity": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Units",
+                    "required": {
+                        "foetanks": 1,
+                        "foefighter": 1,
+                        "foeartillery": 1
+                    },
+                    "forbidden": {
+                        "remnant": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "alt": [
+                {
+                    "id": "foe.umiri.attack.tactics1.tanks"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1.art"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1.fight"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1.tanks",
+            "label": "Enemy Launches Combined Tactical Offensive",
+            "startdescription": "Heavy tank tracks rumble across the trench lines, and a large-scale coordinated assault is underway.",
+            "actionId": "foetactics1",
+            "warmup": 10,
+            "requirements": {
+                "foetanks": 1
+            },
+            "effects": {
+                "turn.tanks": 1
+            },
+            "aspects": {
+                "revealidentity": 1
+            },
+            "furthermore": [
+                {
+                    "target": "~/tabletop!foeactionumiri[situationstorage]+",
+                    "effects": {
+                        "foe.cutoff": 2
+                    }
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_begin",
+                    "chance": 100
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_begin",
+            "label": "Enemy Armored Column Advances",
+            "startdescription": "Mud-caked combat boots follow the roar of tank engines, closing in on our defensive lines.",
+            "warmup": 10,
+            "requirements": {
+                "foe": 1
+            },
+            "aspects": {
+                "revealidentity": 1
+            },
+            "internaldeck": {
+                "spec": [
+                    "umiriattackme",
+                    "umiriattackme",
+                    "umiriattackme",
+                    "umiriattackfriend",
+                    "umiriattackfriend"
+                ],
+                "draws": 1,
+                "defaultcard": "umiriattackme",
+                "resetonexhaustion": true
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Infantry",
+                    "required": {
+                        "foeinfantry": 1,
+                        "foekommando": 1,
+                        "foemanhunters": 1,
+                        "foechasseur": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foetanks",
+                    "mutate": "foe.armoured",
+                    "level": 1,
+                    "additive": true
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "strategy.tactics1.had",
+                    "level": 0,
+                    "additive": true
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0,
+                    "additive": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_again",
+                    "chance": 40
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_prep_friend"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_prep"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_again",
+            "label": "Enemy Armored Column Advances",
+            "startdescription": "Mud-caked combat boots follow the roar of tank engines, closing in on our defensive lines.",
+            "warmup": 10,
+            "aspects": {
+                "revealidentity": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Infantry",
+                    "required": {
+                        "foeinfantry": 1,
+                        "foekommando": 1,
+                        "foemanhunters": 1,
+                        "foechasseur": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0,
+                    "additive": true
+                },
+                {
+                    "filter": "strategy.tactics1.had",
+                    "mutate": "needsedge",
+                    "level": 0,
+                    "additive": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_prep_friend"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_prep"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_prep",
+            "label": "Prepare Defensive Countermeasures",
+            "startdescription": "German forces are massing for a full-scale assault on our frontlines.\n\n[Resources invested in preparation will not be consumed. This enemy multi-pronged offensive cannot be fully blocked by static defenses or long-range support units.]",
+            "warmup": 30,
+            "slots": [
+                {
+                    "id": "defend",
+                    "label": "Defensive Assets",
+                    "required": {
+                        "moth": 1,
+                        "lantern": 1,
+                        "forge": 1,
+                        "edge": 1,
+                        "winter": 1,
+                        "heart": 1,
+                        "grail": 1,
+                        "knock": 1
+                    },
+                    "forbidden": {
+                        "exhausted": 1,
+                        "wounded": 1,
+                        "damaged": 1,
+                        "faction.anno": 1
+                    }
+                }
+            ],
+            "alt": [],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_attack0"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_edge",
+            "label": "Detect Enemy Movement Route",
+            "startdescription": "We have pinpointed enemy troop positions; our pre-calibrated artillery will be their answer.",
+            "warmup": 10,
+            "requirements": {
+                "edge": "needsedge"
+            },
+            "aspects": {
+                "dissolution": 1,
+                "fatiguing": 1
+            },
+            "mutations": [
+                {
+                    "filter": "foetanks",
+                    "mutate": "foe.armoured",
+                    "level": -1,
+                    "additive": true
+                },
+                {
+                    "filter": "strategy.tactics1.had",
+                    "mutate": "strategy.tactics1.had",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0,
+                    "additive": true
+                }
+            ],
+            "alt": [
+                {
+                    "id": "produce.strife",
+                    "additional": true,
+                    "chance": 65
+                },
+                {
+                    "id": "produce.strife.contemnant",
+                    "additional": true,
+                    "chance": 50
+                },
+                {
+                    "id": "producecasualty",
+                    "additional": true,
+                    "chance": 30,
+                    "expulsion": {
+                        "limit": 1,
+                        "filter": {
+                            "friend": 1
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_forge",
+            "label": "Detect Enemy Movement Route",
+            "startdescription": "Tank tracks snap and engines stall, the German offensive grinds to a halt.",
+            "warmup": 10,
+            "requirements": {
+                "forge": "needsforge"
+            },
+            "aspects": {
+                "dissolution": 1,
+                "fatiguing": 1
+            },
+            "alt": [
+                {
+                    "id": "produce.strife",
+                    "additional": true,
+                    "chance": 65
+                },
+                {
+                    "id": "produce.strife.contemnant",
+                    "additional": true,
+                    "chance": 50
+                },
+                {
+                    "id": "producecasualty",
+                    "additional": true,
+                    "chance": 30,
+                    "expulsion": {
+                        "limit": 1,
+                        "filter": {
+                            "friend": 1
+                        }
+                    }
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foetanks",
+                    "mutate": "foe.armoured",
+                    "level": -1,
+                    "additive": true
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0,
+                    "additive": true
+                },
+                {
+                    "filter": "strategy.tactics1.had",
+                    "mutate": "strategy.tactics1.had",
+                    "level": 0
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_attack0",
+            "label": "Enemy Troops Advance En Masse",
+            "startdescription": "Roaring iron behemoths march at the vanguard, followed by a grey tide surging behind them.",
+            "description": "Roaring iron behemoths march at the vanguard, followed by a grey tide surging behind them.",
+            "mutations": [
+                {
+                    "filter": "foetanks",
+                    "mutate": "needsedge",
+                    "level": 0,
+                    "additive": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_attack.fight"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_attack"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_attack",
+            "label": "Enemy Troops Advance En Masse",
+            "startdescription": "Roaring iron behemoths march at the vanguard, followed by a grey tide surging behind them.",
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_attack.foe3"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_attack.foe2"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_attack.foe2",
+            "label": "Enemy Troops Advance En Masse",
+            "startdescription": "Roaring iron behemoths march at the vanguard, followed by a grey tide surging behind them.",
+            "requirements": {
+                "foe": 2
+            },
+            "warmup": 10,
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_pre"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_attack.foe2"
+                }
+            ],
+            "alt": [
+                {
+                    "id": "doubleattack.1.startup.ex",
+                    "expulsion": {
+                        "filter": {
+                            "foeinfantry": 1,
+                            "foekommando": 1,
+                            "foemanhunters": 1,
+                            "foechasseur": 1
+                        },
+                        "limit": 2
+                    },
+                    "additional": true
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_attack.foe3",
+            "label": "Enemy Troops Advance En Masse",
+            "startdescription": "Roaring iron behemoths march at the vanguard, followed by a grey tide surging behind them.",
+            "requirements": {
+                "foe": 3
+            },
+            "warmup": 10,
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_pre"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_attack.foe3"
+                }
+            ],
+            "alt": [
+                {
+                    "id": "doubleattack.1.startup.ex",
+                    "expulsion": {
+                        "filter": {
+                            "foeinfantry": 1,
+                            "foekommando": 1,
+                            "foemanhunters": 1,
+                            "foechasseur": 1
+                        },
+                        "limit": 1
+                    },
+                    "additional": true
+                },
+                {
+                    "id": "doubleattack.2.startup.ex",
+                    "expulsion": {
+                        "filter": {
+                            "foeinfantry": 1,
+                            "foekommando": 1,
+                            "foemanhunters": 1,
+                            "foechasseur": 1
+                        },
+                        "limit": 1
+                    },
+                    "additional": true
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_pre",
+            "label": "Enemy Troops Advance En Masse",
+            "startdescription": "Roaring iron behemoths march at the vanguard, followed by a grey tide surging behind them.",
+            "requirements": {
+                "foe": -2
+            },
+            "aspects": {
+                "makeadditional": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_fight_friend"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_fight"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_art_friend"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_art"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks_friend"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_attack.foe3"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_tanks",
+            "label": "Mechanized Enemy Offensive",
+            "startdescription": "Steel vehicles spearhead the assault, infantry sweeps behind in orderly formation.\n\n[Triggering this tactic consumes and removes one secondary objective and exhausts all active objective markers on the map.]",
+            "actionId": "foetactics1",
+            "warmup": 30,
+            "requirements": {
+                "foe": -2
+            },
+            "slots": [
+                {
+                    "id": "defend",
+                    "label": "Defensive Assets",
+                    "required": {
+                        "moth": 1,
+                        "lantern": 1,
+                        "forge": 1,
+                        "edge": 1,
+                        "winter": 1,
+                        "heart": 1,
+                        "grail": 1,
+                        "knock": 1
+                    },
+                    "forbidden": {
+                        "exhausted": 1,
+                        "wounded": 1,
+                        "damaged": 1,
+                        "faction.anno": 1
+                    }
+                }
+            ],
+            "alt": [
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks_deflect"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks_aerial"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks_ap"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks_edge"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks_forge"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks_forgemoth"
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks_attack"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_tanks_deflect",
+            "label": "Successful Defensive Counterattack",
+            "startdescription": "Hold your ground and stand firm against the assault.",
+            "warmup": 10,
+            "requirements": {
+                "skill.deflect": 1
+            },
+            "alt": [
+                {
+                    "id": "produce.strife",
+                    "additional": true,
+                    "chance": 65
+                },
+                {
+                    "id": "produce.strife.contemnant",
+                    "additional": true,
+                    "chance": 50
+                },
+                {
+                    "id": "producecasualty",
+                    "additional": true,
+                    "chance": 30,
+                    "expulsion": {
+                        "limit": 1,
+                        "filter": {
+                            "friend": 1
+                        }
+                    }
+                }
+            ],
+            "aspects": {
+                "dissolution": 1,
+                "fatiguing": 1,
+                "takeadditional": 1
+            },
+            "mutations": [
+                {
+                    "filter": "foetanks",
+                    "mutate": "foe.armoured",
+                    "level": -1,
+                    "additive": true
+                },
+                {
+                    "filter": "strategy.tactics1.had",
+                    "mutate": "strategy.tactics1.had",
+                    "level": 0
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks_deflect_ex"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_tanks_deflect_ex",
+            "label": "Successful Defensive Counterattack",
+            "startdescription": "Hold your ground and stand firm against the assault.",
+            "aspects": {
+                "fatiguing_double": 1
+            },
+            "alt": [
+                {
+                    "id": "produce.insight",
+                    "additional": true,
+                    "chance": 30
+                },
+                {
+                    "id": "producetimeover",
+                    "chance": 100,
+                    "expulsion": {
+                        "limit": 1,
+                        "filter": {
+                            "skill.deflect": 1,
+                            "skill.deflect.exhausted": 1,
+                            "skill.deflect.exhausted_double": 1,
+                            "friend.cross": 1,
+                            "friend.cross.exhausted": 1,
+                            "friend.cross.exhausted_double": 1,
+                            "friend.sergei": 1,
+                            "friend.sergei.exhausted": 1,
+                            "friend.sergei.exhausted_double": 1
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_tanks_edge",
+            "label": "Successful Defensive Counterattack",
+            "startdescription": "Hold your ground and stand firm against the assault.",
+            "warmup": 10,
+            "requirements": {
+                "edge": "needsedge",
+                "needsedge": 1
+            },
+            "alt": [
+                {
+                    "id": "produce.insight",
+                    "additional": true,
+                    "chance": 30
+                },
+                {
+                    "id": "produce.strife",
+                    "additional": true,
+                    "chance": 65
+                },
+                {
+                    "id": "produce.strife.contemnant",
+                    "additional": true,
+                    "chance": 50
+                },
+                {
+                    "id": "producecasualty",
+                    "additional": true,
+                    "chance": 30,
+                    "expulsion": {
+                        "limit": 1,
+                        "filter": {
+                            "friend": 1
+                        }
+                    }
+                }
+            ],
+            "aspects": {
+                "dissolution": 1,
+                "fatiguing": 1,
+                "takeadditional": 1
+            },
+            "mutations": [
+                {
+                    "filter": "foetanks",
+                    "mutate": "foe.armoured",
+                    "level": -1,
+                    "additive": true
+                },
+                {
+                    "filter": "strategy.tactics1.had",
+                    "mutate": "strategy.tactics1.had",
+                    "level": 0
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_tanks_forge",
+            "label": "Successful Defensive Counterattack",
+            "startdescription": "Hold your ground and stand firm against the assault.",
+            "warmup": 10,
+            "requirements": {
+                "forge": "needsforge",
+                "needsforge": 1
+            },
+            "aspects": {
+                "dissolution": 1,
+                "fatiguing": 1,
+                "takeadditional": 1
+            },
+            "alt": [
+                {
+                    "id": "produce.insight",
+                    "additional": true,
+                    "chance": 30
+                },
+                {
+                    "id": "produce.strife",
+                    "additional": true,
+                    "chance": 65
+                },
+                {
+                    "id": "produce.strife.contemnant",
+                    "additional": true,
+                    "chance": 50
+                },
+                {
+                    "id": "producecasualty",
+                    "additional": true,
+                    "chance": 30,
+                    "expulsion": {
+                        "limit": 1,
+                        "filter": {
+                            "friend": 1
+                        }
+                    }
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foetanks",
+                    "mutate": "foe.armoured",
+                    "level": -1,
+                    "additive": true
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0,
+                    "additive": true
+                },
+                {
+                    "filter": "strategy.tactics1.had",
+                    "mutate": "strategy.tactics1.had",
+                    "level": 0
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_tanks_aerial",
+            "$extends": ["foe.umiri.attack.tactics1_tanks_forge"],
+            "requirements": {
+                "ap": "foe.armoured",
+                "foe.armoured": 1
+            }
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_tanks_ap",
+            "$extends": ["foe.umiri.attack.tactics1_tanks_forge"],
+            "requirements": {
+                "friend.aerial": "foe.aerial",
+                "foe.aerial": 1
+            }
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_tanks_forgemoth",
+            "$extends": ["foe.umiri.attack.tactics1_tanks_forge"],
+            "requirements": {
+                "forge": "needsforgemoth",
+                "moth": "needsforgemoth",
+                "needsforgemoth": 1
+            }
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_tanks_attack",
+            "label": "Defense Line Breached",
+            "startdescription": "Our defensive positions are overrun, supplies scattered across the battlefield. Carefully built fortifications collapse in an instant.",
+            "slots": [
+                {
+                    "id": "needssupplies",
+                    "label": "Supply Stockpiles",
+                    "required": {
+                        "supplies": 1,
+                        "weapon": 1
+                    },
+                    "forbidden": {
+                        "remnant": 1,
+                        "debilitation": 1,
+                        "contemnant.weapon": 1,
+                        "friend.immortal.blocker": 1,
+                        "hasebrehel": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "effects": {
+                "tactics1.victory": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks_attack",
+                    "chance": 50
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks_attack_end"
+                }
+            ],
+            "warmup": 10
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_tanks_attack_end",
+            "label": "Defense Line Breached",
+            "startdescription": "Our defensive positions are overrun, supplies scattered across the battlefield. Carefully built fortifications collapse in an instant.",
+            "effects": {
+                "supplies": -99,
+                "weapon": -99
+            },
+            "aspects": {
+                "takeadditional": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_tanks_attack_main"
+                }
+            ],
+            "alt": [
+                {
+                    "id": "produce.wounds",
+                    "additional": true,
+                    "chance": 50
+                },
+                {
+                    "id": "produce.strife",
+                    "additional": true,
+                    "chance": 65
+                },
+                {
+                    "id": "produce.trauma",
+                    "additional": true,
+                    "chance": 40
+                },
+                {
+                    "id": "produce.strife.contemnant",
+                    "additional": true,
+                    "chance": 50
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_tanks_attack_main",
+            "label": "Enemy Occupies Our Positions",
+            "startdescription": "German forces raise their flag atop our captured strongpoints, our core objectives are compromised.",
+            "warmup": 10,
+            "xpans": {
+                "stop_goal": 1
+            },
+            "aspects": {
+                "dissolution": 1,
+                "makecasualty": 1,
+                "fatiguing": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe1",
+                    "label": "Blocked Objectives",
+                    "required": {
+                        "side.rescueallies": 1,
+                        "side.weaponscache": 1,
+                        "side.adeptgrail": 1,
+                        "side.adeptlantern": 1,
+                        "side.adeptwinter": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "effects": {
+                "side.rescueallies": -99,
+                "side.weaponscache": -99,
+                "side.adeptgrail": -99,
+                "side.adeptlantern": -99,
+                "side.adeptwinter": -99
+            },
+            "mutations": [
+                {
+                    "filter": "foetanks",
+                    "mutate": "foe.armoured",
+                    "level": -1,
+                    "additive": true
+                },
+                {
+                    "filter": "strategy.tactics1.had",
+                    "mutate": "strategy.tactics1.had",
+                    "level": 0
+                }
+            ],
+            "completeverb": {
+                "pinceroffensive": 1
+            }
+        },
+        {
+            "id": "doubleattack.1.startup.ex",
+            "$extends": ["doubleattack.1.startup"],
+            "label": "Infantry-Armored Pincer Assault",
+            "startdescription": "Enemy troops are converging from multiple directions.",
+            "extantreqs": {},
+            "requirements": {
+                "foe": 2
+            },
+            "effects$add": {
+                "decision.enemy.doubleattack": 1
+            },
+            "slots": [],
+            "mutations": [
+                {
+                    "filter": "strategy.tactics1.had",
+                    "mutate": "strategy.tactics1.had",
+                    "level": 0
+                }
+            ],
+            "linked$prepend": [
+                {
+                    "id": "foe.tactics1.art.wait"
+                }
+            ]
+        },
+        {
+            "id": "doubleattack.2.startup.ex",
+            "$extends": ["doubleattack.2.startup"],
+            "label": "Infantry-Armored Pincer Assault",
+            "startdescription": "Enemy troops are converging from multiple directions.",
+            "extantreqs": {},
+            "requirements": {
+                "foe": 2
+            },
+            "effects$add": {
+                "decision.enemy.doubleattack": 1
+            },
+            "slots": [],
+            "mutations": [
+                {
+                    "filter": "strategy.tactics1.had",
+                    "mutate": "strategy.tactics1.had",
+                    "level": 0
+                }
+            ],
+            "linked$prepend": [
+                {
+                    "id": "foe.tactics1.art.wait"
+                }
+            ]
+        },
+        {
+            "id": "foe.tactics1.art.wait",
+            "label": "Two-Pronged Pincer Attack",
+            "startdescription": "Two enemy formations launch coordinated strikes simultaneously — whether planned strategy or blind luck, a brutal clash awaits us.",
+            "effects": {
+                "turn.wait": 1
+            },
+            "extantreqs": {
+                "turn.artillery": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.tactics1.art.attack"
+                },
+                {
+                    "id": "foe.tactics1.art.wait"
+                },
+                {
+                    "id": "foe.tactics1.art.continue"
+                }
+            ],
+            "warmup": 15
+        },
+        {
+            "id": "foe.tactics1.art.continue",
+            "label": "Two-Pronged Pincer Attack",
+            "startdescription": "Two enemy formations launch coordinated strikes simultaneously — whether planned strategy or blind luck, a brutal clash awaits us.",
+            "aspects": {
+                "makeadditional": 1
+            },
+            "warmup": 5
+        },
+        {
+            "id": "foe.tactics1.art.attack",
+            "label": "Two-Pronged Pincer Attack",
+            "startdescription": "Two enemy formations launch coordinated strikes simultaneously — whether planned strategy or blind luck, a brutal clash awaits us.",
+            "extantreqs": {
+                "tactics1.victory": 1
+            },
+            "effects": {
+                "turn.wait": -99
+            },
+            "linked": [
+                {
+                    "id": "foe.coordinated.foesniper.pre"
+                },
+                {
+                    "id": "foe.coordinated.foechasseur.pre"
+                },
+                {
+                    "id": "foe.coordinated.foemanhunters.pre"
+                },
+                {
+                    "id": "foe.coordinated.getsecond.pre"
+                },
+                {
+                    "id": "revealenemyidentity"
+                },
+                {
+                    "id": "defend.opportunity.ingluviate"
+                },
+                {
+                    "id": "defend.opportunity"
+                },
+                {
+                    "id": "nonefound"
+                }
+            ],
+            "warmup": 10
+        },
+        {
+            "id": "doubleattack.1.startup",
+            "extantreqs": {
+                "strategy.tactics1": -1
+            }
+        },
+        {
+            "id": "doubleattack.2.startup",
+            "extantreqs": {
+                "strategy.tactics1": -1
+            }
+        },
+        {
+            "id": "foe.umiri.attack.tactics1.art",
+            "label": "Enemy Launches Combined Tactical Offensive",
+            "startdescription": "Heavy tank tracks rumble across the trench lines, and a large-scale coordinated assault is underway.",
+            "actionId": "foetactics1",
+            "warmup": 10,
+            "requirements": {
+                "foeartillery": 1
+            },
+            "effects": {
+                "turn.artillery": 1
+            },
+            "aspects": {
+                "revealidentity": 1
+            },
+            "furthermore": [
+                {
+                    "target": "~/tabletop!foeactionumiri[situationstorage]+",
+                    "effects": {
+                        "foe.cutoff": 2
+                    }
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_begin"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_art",
+            "$extends": ["foe.umiri.attack.tactics1_tanks"],
+            "label": "Mechanized Enemy Offensive",
+            "startdescription": "Steel vehicles spearhead the assault, infantry sweeps behind in orderly formation.\n\n[Triggering this tactic consumes and removes one secondary objective and exhausts all active objective markers on the map.]",
+            "requirements": {
+                "foe": -2,
+                "foeartillery": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_art_attack"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_art_attack",
+            "$extends": ["foe.umiri.attack.tactics1_tanks_attack"],
+            "label": "Defense Line Breached",
+            "startdescription": "Our defensive positions are overrun, supplies scattered across the battlefield. Carefully built fortifications collapse in an instant."
+        },
+        {
+            "id": "foe.umiri.attack.tactics1.fight",
+            "label": "Enemy Launches Combined Tactical Offensive",
+            "startdescription": "Heavy tank tracks rumble across the trench lines, and a large-scale coordinated assault is underway.",
+            "actionId": "foetactics1",
+            "warmup": 10,
+            "requirements": {
+                "foefighter": 1
+            },
+            "effects": {
+                "turn.fight": 1
+            },
+            "aspects": {
+                "revealidentity": 1
+            },
+            "furthermore": [
+                {
+                    "target": "~/tabletop!foeactionumiri[situationstorage]+",
+                    "effects": {
+                        "foe.cutoff": 2
+                    }
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_begin"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_attack.fight",
+            "label": "Enemy Troops Advance En Masse",
+            "startdescription": "Roaring iron behemoths march at the vanguard, followed by a grey tide surging behind them.",
+            "requirements": {
+                "foefighter": 1
+            },
+            "aspects": {
+                "adv_german": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_attack.foe3"
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1_attack.foe2"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_fight",
+            "$extends": ["foe.umiri.attack.tactics1_tanks"],
+            "label": "Mechanized Enemy Offensive",
+            "startdescription": "Steel vehicles spearhead the assault, infantry sweeps behind in orderly formation.\n\n[Triggering this tactic consumes and removes one secondary objective and exhausts all active objective markers on the map.]",
+            "requirements": {
+                "foe": -2,
+                "foefighter": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.tactics1_fight_attack"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.tactics1_fight_attack",
+            "$extends": ["foe.umiri.attack.tactics1_tanks_attack"],
+            "label": "Defense Line Breached",
+            "startdescription": "Our defensive positions are overrun, supplies scattered across the battlefield. Carefully built fortifications collapse in an instant."
+        },
+        {
+            "id": "produce.wounds.defiance_dead",
+            "actionId": "wounds_defiance",
+            "label": "Mortals As Kindling",
+            "startdescription": "-",
+            "extantreqs": {
+                "foe.umiri.mark": 1,
+                "obdurant.story": 1
+            },
+            "maxexecutions": 1,
+            "requirements": {
+                "foe.officerdetail": 1
+            },
+            "effects": {
+                "defiance.f": 1
+            },
+            "linked": [
+                {
+                    "id": "produce.adddefiance"
+                }
+            ]
+        }
+    ]
+}

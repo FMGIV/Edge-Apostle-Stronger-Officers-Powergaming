@@ -1,0 +1,1648 @@
+{
+  "recipes": [
+    {
+      "id": "umirifight.start",
+      "actionId": "communicate",
+      "label": "Launch an attack on <i>Helling</i>",
+      "startdescription": "I've endured countless hardships for this very moment…",
+      "description": "Let's duel!",
+      "requirements": {
+        "foe.umiri.mark": 1,
+        "local": 1
+      },
+      "warmup": 5,
+      "alt": [
+        {
+          "id": "umirifight.circle",
+          "expulsion": {
+            "filter": {
+              "local": 1
+            },
+            "limit": 1
+          },
+          "additional": true
+        },
+        {
+          "id": "umirifight.coming",
+          "additional": true
+        }
+      ],
+      "craftable": true
+    },
+    {
+      "id": "umirifight.coming",
+      "actionId": "call.foe",
+      "label": "Enemy Reinforcements Are Coming",
+      "startdescription": "The enemy has received the news. They are now continuously reinforcing the command post from afar. We need to move quickly.\n\n[When the countdown ends, the mission to raid the command post or the ongoing duel with <i>Helling</i> will be forcibly terminated]",
+      "effects": {
+        "countdownpincer": 5
+      },
+      "extantreqs": {
+        "stalingrad.here": -1
+      },
+      "warmup": 10,
+      "linked": [
+        {
+          "id": "umirifight.coming.circle"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.coming.circle",
+      "label": "Enemy Reinforcements Are Coming",
+      "startdescription": "The enemy has received the news. They are now continuously reinforcing the command post from afar. We need to move quickly.\n\n[When the countdown ends, the mission to raid the command post or the ongoing duel with <i>Helling</i> will be forcibly terminated]",
+      "requirements": {
+        "countdownpincer": 1
+      },
+      "effects": {
+        "countdownpincer": -1,
+        "defiance.e": -99
+      },
+      "warmup": 60,
+      "linked": [
+        {
+          "id": "umirifight.coming.circle"
+        },
+        {
+          "id": "umirifight.coming.end"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.coming.end",
+      "label": "Enemy Reinforcements Have Arrived!",
+      "startdescription": "[When the countdown ends, the mission to raid the command post or the ongoing duel with <i>Helling</i> will be forcibly terminated]",
+      "effects": {
+        "umirifight.coming.mark": 1
+      },
+      "linked": [
+        {
+          "id": "umirifight.coming.end.circle"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.coming.end.circle",
+      "$extends": ["umirifight.coming.end"],
+      "effects": {},
+      "warmup": 60,
+      "linked": [
+        {
+          "id": "umirifight.coming.end.circle"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.circle.stop",
+      "label": "Duel Terminated!",
+      "startdescription": "'Retreat!' Hearing the commotion outside, we both tacitly stopped fighting. 'We will meet again.'\n\n[When enemy reinforcements arrive, the duel with <i>Helling</i> will be terminated]",
+      "extantreqs": {
+        "umirifight.coming.mark": 1
+      },
+      "deleteverb": {
+        "call.foe": 99
+      },
+      "aspects": {
+        "concealidentity": 1
+      }
+    },
+    {
+      "id": "umirifight.defend.higher.defiance",
+      "actionId": "wounds_defiance",
+      "label": "Taunt Your arch enemy",
+      "startdescription": "\"Prove you are a real soldier to me, unless you only come for some romantic Ritterdrama.\"",
+      "requirements": {
+        "obdurant.story.umiri": 1
+      },
+      "effects": {
+        "defiance.e": 1
+      },
+      "maxexecutions": 1,
+      "alt": [
+        {
+          "id": "produce.adddefiance",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "obdurant.story.umiri": 1,
+              "defiance.aspect": 1
+            },
+            "limit": 99
+          }
+        },
+        {
+          "id": "produce.wounds",
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle.higher"
+        },
+        {
+          "id": "umirifight.circle"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.circle",
+      "actionId": "umirifight",
+      "label": "My arch enemy is gathering strength.",
+      "startdescription": "Cunning flickers in the arch enemy's eye sockets; I can almost see the muscles under her uniform tensing, a powerful attack is forming.",
+      "warmup": 5,
+      "effects": {
+        "umirifight": 1,
+        "defiance.e": -99
+      },
+      "alt": [
+        {
+          "id": "umirifight.circle.stop"
+        },
+        {
+          "id": "umirifight.circle.higher"
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.doubleattack.startup",
+          "chance": 20
+        },
+        {
+          "id": "umirifight.attack",
+          "chance": 40
+        },
+        {
+          "id": "umirifight.circle"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.doubleattack.startup",
+      "label": "The arch enemy charges toward me.",
+      "startdescription": "\"We all have something to prove.\"\n\n[This is a massive heavy attack; it can be blocked with mundane weapons.]",
+      "warmup": 15,
+      "linked": [
+        {
+          "id": "umirifight.doubleattack"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.doubleattack",
+      "label": "The arch enemy charges toward me.",
+      "startdescription": "\"We all have something to prove.\"\n\n[This is a massive heavy attack; it can be blocked with mundane weapons.]",
+      "warmup": 15,
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Defend",
+          "required": {
+            "lore": 1,
+            "weapon": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1
+          }
+        },
+        {
+          "id": "needsgerman2",
+          "label": "Defend",
+          "required": {
+            "lore": 1,
+            "weapon": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1
+          }
+        },
+        {
+          "id": "needsgerman3",
+          "label": "Defend",
+          "required": {
+            "lore": 1,
+            "weapon": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "umirifight.doubledefend.skill.deflect"
+        },
+        {
+          "id": "umirifight.doubledefend"
+        },
+        {
+          "id": "umirifight.defend.higher.defiance"
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.on"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.doubledefend.skill.deflect",
+      "label": "I've fended off the arch enemy's attack.",
+      "startdescription": "She came at me like a viper, and I aimed at her vitals.",
+      "requirements": {
+        "skill.deflect": 1
+      },
+      "aspects": {
+        "fatiguing_double": 1
+      },
+      "alt": [
+        {
+          "id": "umirifight.exhausted",
+          "expulsion": {
+            "filter": {
+              "weapon": 1,
+              "lore": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.doubledefend",
+      "label": "I've fended off the arch enemy's attack.",
+      "startdescription": "Steel meets steel, sparks scatter.",
+      "grandReqs": {
+        "[weapon] + [lore]": 3
+      },
+      "alt": [
+        {
+          "id": "umirifight.exhausted",
+          "expulsion": {
+            "filter": {
+              "weapon": 1,
+              "lore": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack",
+      "label": "The arch enemy charges toward me.",
+      "startdescription": "\"The air freezes, the smell of steel and gunpowder hangs between us. In that poised stance, what do I see?\"\n\n[This is a direct strike to the vitals; use sacred weapons to defend.]",
+      "warmup": 15,
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Defend",
+          "required": {
+            "lore": 1,
+            "weapon": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "uq.weapon.notwork": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "umirifight.defend.skill.deflect.first"
+        },
+        {
+          "id": "umirifight.defend.skill.deflect"
+        },
+        {
+          "id": "umirifight.defend.skill.raisedead"
+        },
+        {
+          "id": "umirifight.defend.skill.refreshally"
+        },
+        {
+          "id": "umirifight.defend"
+        },
+        {
+          "id": "umirifight.defend.notwork"
+        },
+        {
+          "id": "umirifight.defend.higher.defiance"
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.on"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.defend.skill.deflect.first",
+      "label": "Show my nemesis my skill.",
+      "startdescription": "We both serve the same Lord of Strife; I will greet my arch enemy in our way.[This will block the attack and give this card a token.]",
+      "requirements": {
+        "skill.deflect": 1
+      },
+      "maxexecutions": 1,
+      "alt": [
+        {
+          "id": "umirifight.skill.exhausted",
+          "expulsion": {
+            "filter": {
+              "lore": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.defend.skill.deflect",
+      "label": "I've fended off the arch enemy's attack.",
+      "startdescription": "She came at me like a viper, and I aimed at her vitals.",
+      "requirements": {
+        "skill.deflect": 1
+      },
+      "alt": [
+        {
+          "id": "umirifight.exhausted",
+          "expulsion": {
+            "filter": {
+              "weapon": 1,
+              "lore": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.defend.skill.raisedead",
+      "$extends": ["umirifight.defend.skill.deflect.first"],
+      "label": "Show my nemesis my skill.",
+      "startdescription": "We both serve the same Lord of Strife; I will greet my arch enemy in our way.[This will block the attack and give this card a token.]",
+      "requirements": {
+        "skill.raisedead": 1
+      }
+    },
+    {
+      "id": "umirifight.defend.skill.refreshally",
+      "$extends": ["umirifight.defend.skill.deflect.first"],
+      "label": "Show my nemesis my skill.",
+      "startdescription": "We both serve the same Lord of Strife; I will greet my arch enemy in our way.[This will block the attack and give this card a token.]",
+      "requirements": {
+        "skill.refreshally": 1
+      }
+    },
+    {
+      "id": "umirifight.defend.notwork",
+      "label": "Use a mundane weapon to defend yourself?",
+      "startdescription": "I saw her hit by bullets and remain unscathed, but I have no other choice now.\n\n[This may result in a failed defense.]",
+      "requirements": {
+        "edge": 1,
+        "uq.weapon.notwork": 1
+      },
+      "alt": [
+        {
+          "id": "produce.wounds",
+          "chance": 30,
+          "additional": true
+        },
+        {
+          "id": "umirifight.exhausted",
+          "expulsion": {
+            "filter": {
+              "weapon": 1,
+              "lore": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.defend",
+      "label": "I've fended off the arch enemy's attack.",
+      "startdescription": "She came at me like a viper, and I aimed at her vitals.",
+      "requirements": {
+        "edge": 1
+      },
+      "alt": [
+        {
+          "id": "umirifight.exhausted",
+          "expulsion": {
+            "filter": {
+              "weapon": 1,
+              "lore": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.skill.exhausted",
+      "label": "Exhausted",
+      "actionId": "spit.moth",
+      "startdescription": "We gasp for breath, our distance from each other fluctuating.",
+      "aspects": {
+        "fatiguing": 1
+      },
+      "mutations": [
+        {
+          "filter": "lore",
+          "mutate": "consecration.promise",
+          "level": 1
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "umirifight.exhausted",
+      "label": "Exhausted",
+      "actionId": "spit.moth",
+      "startdescription": "We gasp for breath, our distance from each other fluctuating.",
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      },
+      "warmup": 5
+    },
+    {
+      "id": "umirifight.on",
+      "label": "a streak of blood",
+      "startdescription": "Blood flows down from my body.",
+      "warmup": 10,
+      "alt": [
+        {
+          "id": "produce.wounds",
+          "additional": true
+        },
+        {
+          "id": "umirifight.exhausted",
+          "expulsion": {
+            "filter": {
+              "weapon": 1,
+              "lore": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.lore",
+      "actionId": "operate",
+      "label": "Use an Edge technique to attack my Foe",
+      "startdescription": "The battlefield is full of injustices, but at this moment, we are more equal than ever.",
+      "extantreqs": {
+        "umirifight": 1
+      },
+      "requirements": {
+        "lore": 1,
+        "edge": 1,
+        "exhausted": -1
+      },
+      "warmup": 30,
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Weapon",
+          "required": {
+            "weapon": 1,
+            "opening.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "uq.weapon.notwork": 1,
+            "insight.sergei": 1,
+            "skill.deflect": 1,
+            "skill.raisedead": 1,
+            "skill.refreshally": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "umirifight.attack.revolver"
+        },
+        {
+          "id": "umirifight.attack.wormnail"
+        },
+        {
+          "id": "umirifight.attack.talon"
+        },
+        {
+          "id": "umirifight.attack.opening"
+        },
+        {
+          "id": "umirifight.attack.hit"
+        }
+      ],
+      "craftable": true,
+      "linked": [
+        {
+          "id": "umirifight.attack.rare.tryv",
+          "chance": 60
+        },
+        {
+          "id": "umirifight.attack.tryf"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.revolver",
+      "label": "Use a weapon that your nemesis has mastered against her?",
+      "startdescription": "She knows what I will do—should I play along?[Your nemesis has mastered this weapon. You can try to attack with it, but it may be permanently damaged, and more likely than not, it will fail to harm your nemesis.]",
+      "requirements": {
+        "uq.weapon.revolver": 1
+      },
+      "extantreqs": {
+        "foe.wound.eye": 1
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      },
+      "linked": [
+        {
+          "id": "umirifight.attack.broken.eye",
+          "chance": 30
+        },
+        {
+          "id": "umirifight.attack.nothing",
+          "chance": 60
+        },
+        {
+          "id": "umirifight.attack.rare.tryv"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.wormnail",
+      "$extends": ["umirifight.attack.revolver"],
+      "requirements": {
+        "weapon.wormnail": 1
+      }
+    },
+    {
+      "id": "umirifight.attack.talon",
+      "$extends": ["umirifight.attack.revolver"],
+      "requirements": {
+        "weapon.talon": 1
+      },
+      "extantreqs": {
+        "foe.wound.hand": 1
+      },
+      "linked": [
+        {
+          "id": "umirifight.attack.broken.hand",
+          "chance": 30
+        },
+        {
+          "id": "umirifight.attack.nothing",
+          "chance": 60
+        },
+        {
+          "id": "umirifight.attack.rare.tryv"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.broken.eye",
+      "label": "Your weapon has been destroyed.",
+      "startdescription": "She overwhelmed me with a greater power; humiliation came before the pain.",
+      "xpans": {
+        "umirieye_exhausted": 1
+      },
+      "warmup": 15,
+      "effects": {
+        "weapon": -99
+      }
+    },
+    {
+      "id": "umirifight.attack.broken.hand",
+      "label": "Your weapon has been destroyed.",
+      "startdescription": "She overwhelmed me with a greater power; humiliation came before the pain.",
+      "xpans": {
+        "umirihand_exhausted": 1
+      },
+      "effects": {
+        "weapon": -99
+      }
+    },
+    {
+      "id": "umirifight.attack.nothing",
+      "label": "She gracefully evaded your attack.",
+      "startdescription": "My arch enemy moves through gunfire and blades; the attack missed. I must adjust my stance and center of gravity immediately."
+    },
+    {
+      "id": "umirifight.attack.weapon",
+      "actionId": "operate",
+      "label": "Use a weapon to attack my Foe",
+      "startdescription": "Her trajectory is laid out before me; if I judge correctly, a well-placed weapon strike can make her bleed.",
+      "extantreqs": {
+        "umirifight": 1
+      },
+      "requirements": {
+        "weapon": 1,
+        "uq.weapon.revolver": -1,
+        "weapon.wormnail": -1,
+        "weapon.talon": -1,
+        "exhausted": -1
+      },
+      "warmup": 30,
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Lore",
+          "required": {
+            "lore": 1,
+            "opening.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "insight.sergei": 1,
+            "skill.deflect": 1,
+            "skill.raisedead": 1,
+            "skill.refreshally": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "umirifight.attack.opening"
+        },
+        {
+          "id": "umirifight.attack.hit"
+        }
+      ],
+      "craftable": true,
+      "linked": [
+        {
+          "id": "umirifight.attack.rare.tryv",
+          "chance": 60
+        },
+        {
+          "id": "umirifight.attack.tryf"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.weapon.revolver",
+      "$extends": ["umirifight.attack.weapon"],
+      "actionId": "operate",
+      "label": "Use a weapon that your nemesis has mastered against her?",
+      "startdescription": "She knows what I will do—should I play along?[Your nemesis has mastered this weapon. You can try to attack with it, but it may be permanently damaged, and more likely than not, it will fail to harm your nemesis.]",
+      "requirements": {
+        "weapon": 1,
+        "uq.weapon.revolver": 1
+      },
+      "alt": [],
+      "linked": [
+        {
+          "id": "umirifight.attack.broken.eye",
+          "chance": 30
+        },
+        {
+          "id": "umirifight.attack.nothing",
+          "chance": 60
+        },
+        {
+          "id": "umirifight.attack.rare.tryv"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.weapon.wormnail",
+      "$extends": ["umirifight.attack.weapon.revolver"],
+      "requirements": {
+        "weapon": 1,
+        "weapon.wormnail": 1
+      }
+    },
+    {
+      "id": "umirifight.attack.weapon.talon",
+      "$extends": ["umirifight.attack.weapon.revolver"],
+      "requirements": {
+        "weapon": 1,
+        "weapon.talon": 1
+      },
+      "linked": [
+        {
+          "id": "umirifight.attack.broken.hand",
+          "chance": 30
+        },
+        {
+          "id": "umirifight.attack.nothing",
+          "chance": 60
+        },
+        {
+          "id": "umirifight.attack.rare.tryv"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.hit",
+      "actionId": "operate",
+      "label": "Steel and Science",
+      "startdescription": "By my will, she shall yield to this blow.",
+      "requirements": {
+        "weapon": 1,
+        "lore": 1
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      },
+      "linked": [
+        {
+          "id": "umirifight.attack.rare.tryv"
+        },
+        {
+          "id": "umirifight.attack.tryv"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.tryv",
+      "actionId": "operate",
+      "label": "I've wounded her!",
+      "startdescription": "The weapon is like an extension of the limb—first cloth, then skin, flesh, and bone are torn apart in succession; blood flows from the arch enemy's wound.",
+      "warmup": 10,
+      "requirements": {
+        "uq.weapon.notwork": 1
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      },
+      "effects": {
+        "opening.umiri": 1
+      }
+    },
+    {
+      "id": "umirifight.attack.rare.tryv",
+      "$extends": ["umirifight.attack.tryv"],
+      "label": "I've wounded her!",
+      "startdescription": "The weapon is like an extension of the limb—first cloth, then skin, flesh, and bone are torn apart in succession; blood flows from the arch enemy's wound.",
+      "requirements": {
+        "uq.weapon.notwork": -1
+      }
+    },
+    {
+      "id": "umirifight.attack.tryf",
+      "actionId": "operate",
+      "label": "She's avoided my attack - ",
+      "startdescription": "She walks in blades and gunfire; violence falls silent in her presence.",
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "umirifight.attack.opening",
+      "actionId": "operate",
+      "label": "Attack her opening.",
+      "startdescription": "My arch enemy is bleeding; this is an opportunity.[This will inflict a wound on her. If you inflict the same wound twice, it will become a disability.]",
+      "description": "Dark stains spread at the wound; her pace is slowed, but still nimble.",
+      "requirements": {
+        "edge": 1,
+        "opening.umiri": 1
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      },
+      "effects": {
+        "opening.umiri": -99
+      },
+      "linked": [
+        {
+          "id": "umirifight.attack.opening.v",
+          "chance": 60
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.opening.v",
+      "actionId": "operate",
+      "label": "She's wounded!",
+      "startdescription": "Breathing becomes heavier, balance harder to maintain; I can almost hear the ringing in her ears.[This will inflict a wound on her. If you inflict the same wound twice, it will become a disability.]",
+      "alt": [
+        {
+          "id": "produce.wounds.umiri",
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "umirifight.circle.higher",
+      "label": "<i>Ilsa</i> Officer Is Charging Up",
+      "startdescription": "-",
+      "warmup": 5,
+      "extantreqs": {
+        "foedebilitation": 3
+      },
+      "effects": {
+        "umirifight": 1,
+        "defiance.e": -99
+      },
+      "alt": [
+        {
+          "id": "umirifight.circle.stop"
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.attack.higher",
+          "chance": 40
+        },
+        {
+          "id": "umirifight.circle.higher"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.higher",
+      "label": "The arch enemy charges toward me.",
+      "startdescription": "\"The air freezes, the smell of steel and gunpowder hangs between us. In that poised stance, what do I see?\"\n\n[This is a direct strike to the vitals; use sacred weapons to defend.]",
+      "warmup": 1,
+      "internaldeck": {
+        "spec": [
+          "umiriattack.1",
+          "umiriattack.1",
+          "umiriattack.2",
+          "umiriattack.2",
+          "umiriattack.3",
+          "umiriattack.3"
+        ],
+        "draws": 1,
+        "defaultcard": "umiriattack.1",
+        "resetonexhaustion": true
+      },
+      "linked": [
+        {
+          "id": "umirifight.attack.higher.1"
+        },
+        {
+          "id": "umirifight.attack.higher.2"
+        },
+        {
+          "id": "umirifight.attack.higher.3"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.higher.1",
+      "label": "She Launches an Attack!",
+      "startdescription": "She threw that damned dart! I must block it quickly!",
+      "warmup": 15,
+      "requirements": {
+        "umiriattack.1": 1
+      },
+      "effects": {
+        "umiriattack.1": -99,
+        "umiriattack.2": -99,
+        "umiriattack.3": -99
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Defense",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "faction.anno": 1,
+            "friend": 1,
+            "infrastructure": 1,
+            "friend.weakened": 1
+          }
+        },
+        {
+          "id": "defend1",
+          "label": "Defense",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "faction.anno": 1,
+            "friend": 1,
+            "infrastructure": 1,
+            "friend.weakened": 1
+          }
+        },
+        {
+          "id": "defend2",
+          "label": "Defense",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "faction.anno": 1,
+            "friend": 1,
+            "infrastructure": 1,
+            "friend.weakened": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "umirifight.defend.higher.deflect"
+        },
+        {
+          "id": "umirifight.defend.higher.needsedgewinter"
+        },
+        {
+          "id": "umirifight.defend.higher.defiance"
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.attack.wound"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.higher.2",
+      "label": "She Launches an Attack!",
+      "startdescription": "A white mist comes with the force of her fist; even worms might wither from it.",
+      "warmup": 15,
+      "requirements": {
+        "umiriattack.2": 1
+      },
+      "effects": {
+        "umiriattack.1": -99,
+        "umiriattack.2": -99,
+        "umiriattack.3": -99
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Defense",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "faction.anno": 1,
+            "friend": 1,
+            "infrastructure": 1,
+            "friend.weakened": 1
+          }
+        },
+        {
+          "id": "defend1",
+          "label": "Defense",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "faction.anno": 1,
+            "friend": 1,
+            "infrastructure": 1,
+            "friend.weakened": 1
+          }
+        },
+        {
+          "id": "defend2",
+          "label": "Defense",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "faction.anno": 1,
+            "friend": 1,
+            "infrastructure": 1,
+            "friend.weakened": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "umirifight.defend.higher.deflect"
+        },
+        {
+          "id": "umirifight.defend.higher.needslanternheart"
+        },
+        {
+          "id": "umirifight.defend.higher.defiance"
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.attack.wound"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.higher.3",
+      "label": "She Launches an Attack!",
+      "startdescription": "I never wanted to admit it, but Ilsa von Helling's swordsmanship has always been better than mine. I must grit my teeth and wait for an opening, or risk a counterattack.",
+      "warmup": 15,
+      "requirements": {
+        "umiriattack.3": 1
+      },
+      "effects": {
+        "umiriattack.1": -99,
+        "umiriattack.2": -99,
+        "umiriattack.3": -99
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Defense",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "faction.anno": 1,
+            "friend": 1,
+            "infrastructure": 1,
+            "friend.weakened": 1
+          }
+        },
+        {
+          "id": "defend1",
+          "label": "Defense",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "faction.anno": 1,
+            "friend": 1,
+            "infrastructure": 1,
+            "friend.weakened": 1
+          }
+        },
+        {
+          "id": "defend2",
+          "label": "Defense",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1,
+            "obdurant.story.umiri": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "faction.anno": 1,
+            "friend": 1,
+            "infrastructure": 1,
+            "friend.weakened": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "umirifight.defend.higher.deflect"
+        },
+        {
+          "id": "umirifight.defend.higher.needsedgelantern"
+        },
+        {
+          "id": "umirifight.defend.higher.defiance"
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.attack.wound"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.defend.higher.deflect",
+      "label": "My Defense Is Inviolate",
+      "startdescription": "Von Helling is an exceptional warrior, but so am I.",
+      "requirements": {
+        "skill.deflect": 1
+      },
+      "effects": {
+        "umiriattack.1": -99,
+        "umiriattack.2": -99,
+        "umiriattack.3": -99
+      },
+      "alt": [
+        {
+          "id": "umirifight.exhausted",
+          "expulsion": {
+            "filter": {
+              "moth": 1,
+              "lantern": 1,
+              "forge": 1,
+              "edge": 1,
+              "winter": 1,
+              "heart": 1,
+              "grail": 1,
+              "knock": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle.higher"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.defend.higher.needsedgewinter",
+      "label": "Repel Her Attack",
+      "startdescription": "Von Helling is an exceptional warrior, but so am I.",
+      "requirements": {
+        "edge": 12,
+        "winter": 12
+      },
+      "effects": {
+        "umiriattack.1": -99,
+        "umiriattack.2": -99,
+        "umiriattack.3": -99
+      },
+      "alt": [
+        {
+          "id": "umirifight.exhausted",
+          "expulsion": {
+            "filter": {
+              "moth": 1,
+              "lantern": 1,
+              "forge": 1,
+              "edge": 1,
+              "winter": 1,
+              "heart": 1,
+              "grail": 1,
+              "knock": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle.higher"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.defend.higher.needslanternheart",
+      "label": "Repel Her Attack",
+      "startdescription": "Von Helling is an exceptional warrior, but so am I.",
+      "requirements": {
+        "heart": 8,
+        "edge": 8
+      },
+      "effects": {
+        "umiriattack.1": -99,
+        "umiriattack.2": -99,
+        "umiriattack.3": -99
+      },
+      "alt": [
+        {
+          "id": "umirifight.exhausted",
+          "expulsion": {
+            "filter": {
+              "moth": 1,
+              "lantern": 1,
+              "forge": 1,
+              "edge": 1,
+              "winter": 1,
+              "heart": 1,
+              "grail": 1,
+              "knock": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle.higher"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.defend.higher.needsedgelantern",
+      "label": "Repel Her Attack",
+      "startdescription": "Von Helling is an exceptional warrior, but so am I.",
+      "requirements": {
+        "edge": 8,
+        "lantern": 8
+      },
+      "effects": {
+        "umiriattack.1": -99,
+        "umiriattack.2": -99,
+        "umiriattack.3": -99
+      },
+      "alt": [
+        {
+          "id": "umirifight.exhausted",
+          "expulsion": {
+            "filter": {
+              "moth": 1,
+              "lantern": 1,
+              "forge": 1,
+              "edge": 1,
+              "winter": 1,
+              "heart": 1,
+              "grail": 1,
+              "knock": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle.higher"
+        }
+      ]
+    },
+    {
+      "id": "umirifight.attack.wound",
+      "label": "A Heavy Blow!",
+      "startdescription": "\"Learn more, watch more, practice more.\"",
+      "alt": [
+        {
+          "id": "produce.wounds",
+          "additional": true
+        },
+        {
+          "id": "umirifight.exhausted",
+          "expulsion": {
+            "filter": {
+              "moth": 1,
+              "lantern": 1,
+              "forge": 1,
+              "edge": 1,
+              "winter": 1,
+              "heart": 1,
+              "grail": 1,
+              "knock": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "umirifight.circle.higher"
+        }
+      ]
+    },
+    {
+      "id": "produce.wounds.umiri",
+      "actionid": "umiri_scar",
+      "label": "Her is wounded!",
+      "startdescription": "\"This body is mortal after all…\"",
+      "warmup": 10,
+      "alt": [
+        {
+          "id": "skilldeflect_exhausted"
+        }
+      ],
+      "linked": [
+        {
+          "id": "givewound.eye.umiri"
+        },
+        {
+          "id": "givewound.eye.umiri.de"
+        },
+        {
+          "id": "givewound.hand.umiri"
+        },
+        {
+          "id": "givewound.hand.umiri.de"
+        },
+        {
+          "id": "givewound.leg.umiri"
+        },
+        {
+          "id": "givewound.leg.umiri.de"
+        },
+        {
+          "id": "givewound.ear.umiri"
+        },
+        {
+          "id": "givewound.ear.umiri.de"
+        },
+        {
+          "id": "givewound.fifth.umiri"
+        }
+      ]
+    },
+    {
+      "id": "skilldeflect_exhausted",
+      "label": "Inviolate Defense!",
+      "startdescription": "\"We learned from the same master. There's no way to break each other's moves.\"\n\n[When a usable <i>Inviolate Defense</i> is on the field, this will negate one fatal attack for Umiri]",
+      "extantreqs": {
+        "foe.skill.deflect": 1
+      },
+      "xpans": {
+        "skilldeflect_exhausted": 99
+      }
+    },
+    {
+      "id": "givewound.eye.umiri",
+      "label": "Her is wounded!",
+      "startdescription": "\"This body is mortal after all…\"",
+      "extantreqs": {
+        "wound.eye.umiri": -1,
+        "foede.eye": -1
+      },
+      "effects": {
+        "wound.eye.umiri": 1
+      }
+    },
+    {
+      "id": "givewound.hand.umiri",
+      "label": "Her is wounded!",
+      "startdescription": "\"This body is mortal after all…\"",
+      "extantreqs": {
+        "wound.hand.umiri": -1,
+        "foede.hand": -1
+      },
+      "effects": {
+        "wound.hand.umiri": 1
+      }
+    },
+    {
+      "id": "givewound.leg.umiri",
+      "label": "Her is wounded!",
+      "startdescription": "\"This body is mortal after all…\"",
+      "extantreqs": {
+        "wound.leg.umiri": -1,
+        "foede.leg": -1
+      },
+      "effects": {
+        "wound.leg.umiri": 1
+      }
+    },
+    {
+      "id": "givewound.ear.umiri",
+      "label": "Her is wounded!",
+      "startdescription": "\"This body is mortal after all…\"",
+      "extantreqs": {
+        "wound.ear.umiri": -1,
+        "foede.ear": -1
+      },
+      "effects": {
+        "wound.ear.umiri": 1
+      }
+    },
+    {
+      "id": "givewound.eye.umiri.de",
+      "label": "Her is wounded!",
+      "startdescription": "\"This body is mortal after all…\"",
+      "extantreqs": {
+        "wound.eye.umiri": 1,
+        "foede.eye": -1
+      },
+      "slots": [
+        {
+          "id": "needsenemy",
+          "label": "Wound",
+          "required": {
+            "wound.eye.umiri": 1
+          },
+          "greedy": true
+        }
+      ],
+      "aspects": {
+        "foe.malign": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "givewound.hand.umiri.de",
+      "label": "Her is wounded!",
+      "startdescription": "\"This body is mortal after all…\"",
+      "extantreqs": {
+        "wound.hand.umiri": 1,
+        "foede.hand": -1
+      },
+      "slots": [
+        {
+          "id": "needsenemy",
+          "label": "Wound",
+          "required": {
+            "wound.hand.umiri": 1
+          },
+          "greedy": true
+        }
+      ],
+      "aspects": {
+        "foe.malign": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "givewound.leg.umiri.de",
+      "label": "Her is wounded!",
+      "startdescription": "\"This body is mortal after all…\"",
+      "extantreqs": {
+        "wound.leg.umiri": 1,
+        "foede.leg": -1
+      },
+      "slots": [
+        {
+          "id": "needsenemy",
+          "label": "Wound",
+          "required": {
+            "wound.leg.umiri": 1
+          },
+          "greedy": true
+        }
+      ],
+      "aspects": {
+        "foe.malign": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "givewound.ear.umiri.de",
+      "label": "Her is wounded!",
+      "startdescription": "\"This body is mortal after all…\"",
+      "extantreqs": {
+        "wound.ear.umiri": 1,
+        "foede.ear": -1
+      },
+      "slots": [
+        {
+          "id": "needsenemy",
+          "label": "Wound",
+          "required": {
+            "wound.ear.umiri": 1
+          },
+          "greedy": true
+        }
+      ],
+      "aspects": {
+        "foe.malign": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "givewound.fifth.umiri",
+      "label": "Her is wounded!",
+      "startdescription": "\"This body is mortal after all…\"",
+      "extantreqs": {},
+      "internaldeck": {
+        "spec": [
+          "wound.eye.umiri",
+          "wound.ear.umiri",
+          "wound.hand.umiri",
+          "wound.leg.umiri"
+        ],
+        "draws": 1,
+        "resetonexhaustion": true,
+        "defaultcard": "wound.eye.umiri"
+      }
+    }
+  ]
+}

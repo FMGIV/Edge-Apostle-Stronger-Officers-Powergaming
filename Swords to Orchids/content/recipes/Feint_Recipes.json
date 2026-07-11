@@ -1,0 +1,244 @@
+{
+  "recipes": [
+    {
+      "id": "attackenemy.failure",
+      "aspects$add": {
+        "refreshonlyclockwork": 1
+      },
+      "requirements": {
+        "fake.enemy": -1
+      }
+    },
+    {
+      "id": "producecasualty",
+      "requirements$add": {
+        "fake.enemy": -1
+      }
+    },
+    {
+      "id": "detectadditional",
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "fake.enemy": 1,
+            "uqjerome": 1,
+            "uqlionel": 1,
+            "clockwork": 1,
+            "allnaval": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "detectadditional.afraid",
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "fake.enemy": 1,
+            "uqjerome": 1,
+            "uqlionel": 1,
+            "clockwork": 1,
+            "allnaval": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "detectadditional.side",
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "fake.enemy": 1,
+            "uqjerome": 1,
+            "uqlionel": 1,
+            "clockwork": 1,
+            "allnaval": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "detectadditional.side.afraid",
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "fake.enemy": 1,
+            "uqjerome": 1,
+            "uqlionel": 1,
+            "clockwork": 1,
+            "allnaval": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "enemy.clear",
+      "requirements": {
+        "fake.enemy.stopverb": -1
+      }
+    },
+    {
+      "id": "attack.nodefense.failedfeint",
+      "label": "A Failed Feint",
+      "startdescription": "The enemy sought to draw us out, but found nothing.",
+      "description": "And so we remain vigilant.",
+      "warmup": 10,
+      "requirements": {
+        "fake.enemy": 1
+      },
+      "effects": {
+        "fake.enemy": -1
+      }
+    },
+    {
+      "id": "defend.successfulfeint",
+      "label": "A Successful Feint!",
+      "startdescription": "I've fallen for the enemy's trap. They are moving to capitalise on my exposed opening—",
+      "warmup": 10,
+      "requirements": {
+        "fake.enemy": 1
+      },
+      "effects": {
+        "fake.enemy": -1,
+        "readiness.token": 2,
+        "fake.enemy.stopverb": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "enemy.pickaction.router"
+        }
+      ]
+    },
+    {
+      "id": "fake.enemy.killed",
+      "label": "A Victory?",
+      "startdescription": "The 'Enemy' lies broken at our feet. All we killed was a dummy. This has been a waste of time and resources.",
+      "description": "The 'Enemy' lies broken at our feet. All we killed was a dummy. This has been a waste of time and resources.",
+      "requirements": {
+        "fake.enemy": 1
+      },
+      "aspects": {
+        "killfoe": 1,
+        "fatiguing": 1,
+        "dissolution": 1
+      },
+      "alt": [
+        {
+          "id": "fake.enemy.killed.counterattack",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 99
+          },
+          "chance": 30
+        }
+      ]
+    },
+    {
+      "id": "fake.enemy.killed.counterattack",
+      "label": "A Trap!",
+      "actionId": "spit.trap",
+      "startdescription": "My main force is now trapped on an island of smoke and death. If I deem them still useful, I can only continue to pour in reinforcements to rescue them.",
+      "requirements": {
+        "fake.enemy": 1
+      },
+      "warmup": 10,
+      "aspects": {
+        "fatiguing": 1
+      },
+      "effects": {
+        "decision.enemy.singleattack": 1
+      },
+      "linked": [
+        {
+          "id": "singleattack.startup"
+        }
+      ]
+    },
+    {
+      "id": "defend.skill.deflect",
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+    {
+      "id": "defend.friend.immortal",
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+    {
+      "id": "defend.ap",
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+    {
+      "id": "defend.edge",
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+    {
+      "id": "defend.winter",
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+    {
+      "id": "defend.moth",
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+    {
+      "id": "defend.forgemoth",
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+    {
+      "id": "defend.edgelantern",
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+    {
+      "id": "defend.edgewinter",
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+    {
+      "id": "defend.edgeforge",
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    }
+  ]
+}

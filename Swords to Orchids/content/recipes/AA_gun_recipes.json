@@ -1,0 +1,415 @@
+{
+"recipes": [
+	
+    {
+	"id": "aa.gun.aim.elsewhere",
+	"actionid" : "operate",
+	"label": "AA Gun: Change Orientation",
+	"startdescription": "The steel mount grinds harshly through mud and smoke, the dark muzzle turning toward another direction.",
+	"description": "Done.",
+	"grandReqs": {
+	    "([loc.antiairgun] || [loc.antiairgun.horizontal])": 1,
+		"[provisions] == 1": 1,
+		"foe": -1,
+		"main": -1,
+		"side": -1,
+        "foe.umiri.mark": -1,
+        "umiri.mark": -1,
+        "mastery.edge": -1
+		},
+	"aspects" : { "aimelsewhere"  : 1 },
+	"craftable": true,
+	"warmup" : 30
+	},
+	
+	{
+	"id": "aa.gun.damaged",
+	"actionid": "explorevault_casualty",
+	"label": "Damaged Anti-Air Gun!",
+	"startdescription": "The rigors of war have taken a toll on this gun emplacement. The tongues of flame that tore the sky have suddenly been extinguished. It needs repairs to be functional again.",
+	"description": "The rigors of war have taken a toll on this gun emplacement. The tongues of flame that tore the sky have suddenly been extinguished. It needs repairs to be functional again.",
+	"grandReqs": {
+	    "([loc.antiairgun.horizontal.exhausted] || [loc.antiairgun.horizontal])": 1
+		},
+	"aspects" : { "destroy"  : 1 },
+	"warmup" : 10
+	},
+
+    {
+	"id": "weaken.foefighter.aagun",
+	"actionid": "operate",
+	"$priority" : 1,
+	"label": "Fire a foe with an AA gun [Medium]",
+	"startdescription": "Fire foe with AA gun\n\n[This requires at least 6 <sprite name=lantern>, 6 <sprite name=winter>, and 18 <sprite name=edge>. The more provisions you put in, the higher the success rate of the mission. If your target has already been weakened, then the success rate of this mission is 100%. This will likely cause the anti-air gun to be damaged.]",
+	"description" : "Foe weakened.",
+	"requirements" : {
+		"foe.fighter_aircraft" : 1,
+		"loc.antiairgun" : 1,
+		"lantern" : 6,
+		"winter" : 6,
+		"edge" : 18
+	},
+	"grandReqs": {
+		"[provisions] == 1": 1
+	},
+	"aspects" : {
+		"fatiguing" : 1,
+		"dissolution" : 1,
+		"weaken" : 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"alt": [
+		{
+			"id": "killed.weakenenemy.aagun"
+		},
+		{
+			"id": "killed.enemy.aagun",
+			"chance": 60
+		}
+	],
+	"inductions" : [
+		{
+			"id" : "aa.gun.damaged",
+			"chance" : 75,
+			"expulsion": {
+		    "filter": {
+			"infrastructure" : 1
+		    },
+		    "limit": 1
+			}
+		}
+		]
+	},
+    {
+	"id": "weaken.foefighter.aagun.2",
+	"$extends": ["weaken.foefighter.aagun"],
+	"label": "Fire a foe with an AA gun [Med-High]",
+	"startdescription": "Fire foe with AA gun\n\n[This requires at least 6 <sprite name=lantern>, 6 <sprite name=winter>, and 18 <sprite name=edge>. The more provisions you put in, the higher the success rate of the mission. If your target has already been weakened, then the success rate of this mission is 100%. This will likely cause the anti-air gun to be damaged.]",
+	"description" : "Foe weakened.",
+	"requirements" : {
+		"foe.fighter_aircraft" : 1,
+		"loc.antiairgun" : 1,
+		"lantern" : 6,
+		"winter" : 6,
+		"edge" : 18
+	},
+	"grandReqs": {
+		"[provisions] == 2": 1
+	},
+	"alt": [
+		{
+			"id": "killed.weakenenemy.aagun"
+		},
+		{
+			"id": "killed.enemy.aagun",
+			"chance": 75
+		}
+	]
+	},
+    {
+	"id": "weaken.foefighter.aagun.3",
+	"$extends": ["weaken.foefighter.aagun"],
+	"label": "Fire a foe with an AA gun [High]",
+	"startdescription": "Fire foe with AA gun\n\n[This requires at least 6 <sprite name=lantern>, 6 <sprite name=winter>, and 18 <sprite name=edge>. The more provisions you put in, the higher the success rate of the mission. If your target has already been weakened, then the success rate of this mission is 100%. This will likely cause the anti-air gun to be damaged.]",
+	"description" : "Foe weakened.",
+	"requirements" : {
+		"foe.fighter_aircraft" : 1,
+		"loc.antiairgun" : 1,
+		"lantern" : 6,
+		"winter" : 6,
+		"edge" : 18
+	},
+	"grandReqs": {
+		"[provisions] == 3": 1
+	},
+	"alt": [
+		{
+			"id": "killed.weakenenemy.aagun"
+		},
+		{
+			"id": "killed.enemy.aagun",
+			"chance": 90
+		}
+	]
+	},
+
+
+
+    {
+	"id": "weaken.enemy.aagun",
+	"actionid": "operate",
+	"$priority" : 1,
+	"label": "Fire on the enemy with an AA gun [Medium]",
+	"startdescription": "No ranging shots, no calibration—we can only seal that path with steel and bullets.\n[The more provisions you put in, the higher the success rate of the mission. If your target has already been weakened, then the success rate of this mission is 100%. This will likely cause the anti-air gun to be damaged.]",
+	"description" : "Hot shell casings tumble into the mud. We cannot even see if we hit the mark, but all has fallen silent—at least for now, we are safe.",
+	"requirements" : {
+		"foe" : 1,
+		"german" : 1,
+		"foe.monster" : -1,
+		"loc.antiairgun.horizontal" : 1
+	},
+	"grandReqs": {
+		"[provisions] == 1": 1
+	},
+	"aspects" : {
+		"fatiguing" : 1,
+		"dissolution" : 1,
+		"weaken" : 1
+	},
+	"craftable": true,
+	"warmup": 60,
+	"alt": [
+		{
+			"id": "killed.weakenenemy.aagun"
+		},
+		{
+			"id": "killed.enemy.aagun",
+			"chance": 60
+		}
+	],
+	"inductions" : [
+		{
+			"id" : "aa.gun.damaged",
+			"chance" : 75,
+			"expulsion": {
+		    "filter": {
+			"infrastructure" : 1
+		    },
+		    "limit": 1
+			}
+		}
+		]
+	},
+    {
+	"id": "weaken.enemymonster.aagun",
+	"$extends": ["weaken.enemy.aagun"],
+	"label": "Fire on a monster with an AA gun [Medium]",
+	"startdescription": "No ranging shots, no calibration—we can only hope that bullets and flames will tear apart those terrible constructs.\n[The more provisions you put in, the higher the success rate of the mission. If your target has already been weakened, then the success rate of this mission is 100%. This will likely cause the anti-air gun to be damaged.]",
+	"description" : "Hot shell casings tumble into the mud. We cannot even see if we hit the mark, but all has fallen silent—at least for now, we are safe.",
+	"requirements" : {
+		"german" : -1,
+		"foe.monster" : 1,
+		"loc.antiairgun.horizontal" : 1
+	},
+	"alt": [
+		{
+			"id": "killed.weakenenemy.aagun"
+		},
+		{
+			"id": "killed.enemy.aagun",
+			"chance": 40
+		}
+	]
+	},
+    {
+	"id": "weaken.enemy.aagun.2",
+	"$extends": ["weaken.enemy.aagun"],
+	"label": "Fire on the enemy with an AA gun [Med-High]",
+	"startdescription": "We have locked onto the enemy's direction of advance. We have prepared a generous gift on their path.\n[The more provisions you put in, the higher the success rate of the mission. If your target has already been weakened, then the success rate of this mission is 100%. This will likely cause the anti-air gun to be damaged.]",
+	"description" : "Flesh and steel explode together. They are fleeing in panic—.",
+	"requirements" : {
+		"foe" : 1,
+		"german" : 1,
+		"foe.monster" : -1,
+		"loc.antiairgun.horizontal" : 1
+	},
+	"grandReqs": {
+		"[provisions] == 2": 1
+	},
+	"alt": [
+		{
+			"id": "killed.weakenenemy.aagun"
+		},
+		{
+			"id": "killed.enemy.aagun",
+			"chance": 75
+		}
+	]
+	},
+    {
+	"id": "weaken.enemymonster.aagun.2",
+	"$extends": ["weaken.enemy.aagun"],
+	"label": "Fire on a monster with an AA gun [Med-High]",
+	"startdescription": "We have locked onto their tracks. We have prepared a generous gift for them.\n[The more provisions you put in, the higher the success rate of the mission. If your target has already been weakened, then the success rate of this mission is 100%. This will likely cause the anti-air gun to be damaged.]",
+	"description" : "Flesh and steel explode together. They are fleeing in panic—.",
+	"requirements" : {
+		"german" : -1,
+		"foe.monster" : 1,
+		"loc.antiairgun.horizontal" : 1
+	},
+	"grandReqs": {
+		"[provisions] == 2": 1
+	},
+	"alt": [
+		{
+			"id": "killed.weakenenemy.aagun"
+		},
+		{
+			"id": "killed.enemy.aagun",
+			"chance": 60
+		}
+	]
+	},
+    {
+	"id": "weaken.enemy.aagun.3",
+	"$extends": ["weaken.enemy.aagun"],
+	"label": "Fire on the enemy with an AA gun [High]",
+	"startdescription": "We are well prepared. We will deliver a slaughter.\n[The more provisions you put in, the higher the success rate of the mission. If your target has already been weakened, then the success rate of this mission is 100%. This will likely cause the anti-air gun to be damaged.]",
+	"description" : "Shrapnel and shockwave intertwine into an impassable wall of fire. Scream, flee!",
+	"requirements" : {
+		"foe" : 1,
+		"german" : 1,
+		"foe.monster" : -1,
+		"loc.antiairgun.horizontal" : 1
+	},
+	"grandReqs": {
+		"[provisions] == 3": 1
+	},
+	"alt": [
+		{
+			"id": "killed.weakenenemy.aagun"
+		},
+		{
+			"id": "killed.enemy.aagun",
+			"chance": 90
+		}
+	]
+	},
+    {
+	"id": "weaken.enemymonster.aagun.3",
+	"$extends": ["weaken.enemy.aagun"],
+	"label": "Fire on a monster with an AA gun [High]",
+	"startdescription": "We are well prepared. We will deliver a slaughter.\n[The more provisions you put in, the higher the success rate of the mission. If your target has already been weakened, then the success rate of this mission is 100%. This will likely cause the anti-air gun to be damaged.]",
+	"description" : "Shrapnel and shockwave intertwine into an impassable wall of fire. Scream, flee!",
+	"requirements" : {
+		"german" : -1,
+		"foe.monster" : 1,
+		"loc.antiairgun.horizontal" : 1
+	},
+	"grandReqs": {
+		"[provisions] == 3": 1
+	},
+	"alt": [
+		{
+			"id": "killed.weakenenemy.aagun"
+		},
+		{
+			"id": "killed.enemy.aagun",
+			"chance": 75
+		}
+	]
+	},
+
+    {
+	"id": "killed.enemy.aagun",
+	"actionid": "operate",
+	"$priority" : 1,
+	"label": "Enemy destroyed",
+	"startdescription": "The target area has been completely covered by firepower. The enemy has been reduced to dust, the threat has been eliminated.",
+	"aspects" : {
+		"killfoe" : 1,
+		"fatiguing" : 1,
+		"dissolution" : 1
+	},
+	"alt": [
+		{
+			"id": "killed.enemy.aagun.achievement"
+		}
+	],
+	"inductions" : [
+		{
+			"id" : "aa.gun.damaged",
+			"chance" : 75,
+			"expulsion": {
+		    "filter": {
+			"infrastructure" : 1
+		    },
+		    "limit": 1
+			}
+		}
+		]
+	},
+    {
+	"id": "killed.weakenenemy.aagun",
+	"$extends": ["killed.enemy.aagun"],
+	"label": "Enemy destroyed",
+	"startdescription": "The target area has been completely covered by firepower. The enemy has been reduced to dust, the threat has been eliminated.",
+	"aspects" : {
+		"killfoe" : 1,
+		"fatiguing" : 1,
+		"dissolution" : 1
+	},
+	"requirements": {
+		"weakened": 1
+	}
+	},
+    {
+	"id": "killed.enemy.aagun.achievement",
+	"label": "Enemy destroyed",
+	"startdescription": "The target area has been completely covered by firepower. The enemy has been reduced to dust, the threat has been eliminated.",
+	"aspects" : {
+		"killfoe" : 1,
+		"fatiguing" : 1,
+		"dissolution" : 1
+	},
+	"achievements": [
+		"achievement.anti_aircraft"
+	],
+	"requirements": {
+		"foefighter": 1
+	}
+	},
+	
+    {
+	"id": "defend.aagun",
+	"$extends" : ["defend.aerial"],
+	"requirements": {
+	    "foe.aerial": 1,
+	    "anti_air_friendly": 1
+		}
+    },
+	
+    {
+	"id": "killed.foefighter.aagun.hit",
+	"actionid": "operate",
+	"$priority" : 1,
+	"label": "Enemy destroyed?",
+	"startdescription": "Fire Enemy fighter aircraft with AA gun\n\n[This requires at least 6 <sprite name=lantern>, 6 <sprite name=winter>, and 18 <sprite name=edge>. The more provisions you put in, the higher the success rate of the mission.",
+	"requirements" : {
+		"loc.antiairgun" : 1
+	},
+	"craftable": false,
+	"hintonly": true
+	},
+    {
+	"id": "killed.enemy.aagun.hit",
+	"actionid": "operate",
+	"$priority" : 1,
+	"label": "Enemy destroyed?",
+	"startdescription": "Fire on enemy with an AA gun\n\n[The more provisions you put in, the higher the success rate of the mission. If your target has already been weakened, then the success rate of this mission is 100%. This will likely cause the anti-air gun to be damaged.]",
+	"requirements" : {
+		"foe" : 1,
+		"german" : 1,
+		"foe.monster" : -1,
+		"loc.antiairgun.horizontal" : 1
+	},
+	"craftable": false,
+	"hintonly": true
+	},
+    {
+	"id": "killed.enemymonster.aagun.hit",
+	"actionid": "operate",
+	"$priority" : 1,
+	"label": "Enemy destroyed?",
+	"startdescription": "Fire on a monster with an AA gun\n\n[The more provisions you put in, the higher the success rate of the mission. If your target has already been weakened, then the success rate of this mission is 100%. This will likely cause the anti-air gun to be damaged.]",
+	"requirements" : {
+		"german" : -1,
+		"foe.monster" : 1,
+		"loc.antiairgun.horizontal" : 1
+	},
+	"craftable": false,
+	"hintonly": true
+	}
+]
+}

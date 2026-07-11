@@ -1,0 +1,382 @@
+{
+    "recipes": [
+    {
+	"id": "nya.beatback.washing.startup",
+	"actionId": "communicate",
+	"label": "Purge the army",
+	"startdescription": "You are certain there are spies infiltrated among your men. For the final victory, it is better to kill a thousand by mistake than to let one go!\n\n[This will cause three of your comrades to die at random, but will immediately reduce the infiltration value by 3 points.]",
+	"requirements": {
+		"weapon": 1
+	},
+	"extantreqs": {
+		"nya.infiltration": 8
+	},
+	"alt": [
+		{
+			"id": "nya.beatback.washing",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"weapon": 1
+				},
+				"limit": 1
+			}
+		}
+	],
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "nya.beatback.washing",
+	"actionId": "washing",
+	"label": "Purge the army",
+	"startdescription": "Mutterings, unrest, unkind stares pierce your back... someone is stirring trouble in your ranks!\n\n[This will cause three of your comrades to die at random, but will immediately reduce the infiltration value by 3 points.]",
+	"linked": [
+		{
+			"id": "nya.beatback.washing"
+		},
+		{
+			"id": "nya.beatback.washing.end"
+		}
+	],
+	"alt": [
+		{
+			"id": "nya.beatback.washing.achievement"
+		}
+	],
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Ally",
+		"required": {
+		    "friend": 1
+		},
+		"greedy": true
+	    }
+	],
+	"aspects": {
+		"killmortal": 1
+	},
+	"requirements": {
+		"enemyforces": -3
+	},
+	"effects": {
+		"enemyforces": 1
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!nya[situationstorage]+",
+			"aspects": {
+				"de_inf": 1
+			}
+		}
+	],
+	"warmup": 60
+    },
+    {
+	"id": "nya.beatback.washing.achievement",
+	"$extends": ["nya.beatback.washing"],
+	"requirements": {
+		"named_friend": 1
+	},
+	"achievements": [
+		"achievement.the_great_purge"
+	],
+	"alt": []
+    },
+    {
+	"id": "nya.beatback.washing.end",
+	"label": "Purge the army",
+	"startdescription": "No dissenting voices within the army. Good.",
+	"aspects": {
+		"fatiguing": 1
+	}
+    },
+
+	
+    {
+	"id": "nya.beatback.localpower.startup",
+	"actionId": "communicate",
+	"label": "Ask the local forces for help",
+	"startdescription": "Local civilian inspection squads exist. Perhaps we can make use of their abilities, hoping they are not insatiable.\n\n[This will immediately reduce the infiltration value, but local forces may sometimes demand more; failure to satisfy may result in increased cipher or resistance levels.]",
+	"requirements": {
+		"provisions": 1
+	},
+	"extantreqs": {
+		"nya.infiltration": 8
+	},
+	"alt": [
+		{
+			"id": "nya.beatback.localpower",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"provisions": 1
+				},
+				"limit": 1
+			}
+		}
+	],
+	"craftable": true,
+	"warmup": 10
+    },
+    {
+	"id": "nya.beatback.localpower",
+	"actionId": "localpower",
+	"label": "Ask the local forces for help",
+	"startdescription": "Local civilian inspection squads exist. Perhaps we can make use of their abilities, hoping they are not insatiable.\n\n[This will immediately reduce the infiltration value, but local forces may sometimes demand more; failure to satisfy may result in increased cipher or resistance levels.]",
+	"alt": [
+		{
+			"id": "nya.beatback.localpower.more.startup",
+			"chance": 65
+		}
+	],
+	"linked": [
+		{
+			"id": "nya.beatback.localpower"
+		},
+		{
+			"id": "nya.beatback.localpower.end"
+		}
+	],
+	"aspects": {
+		"killmortal": 1
+	},
+	"requirements": {
+		"enemyforces": -3
+	},
+	"effects": {
+		"enemyforces": 1,
+		"notmoreprovisions": -99
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!nya[situationstorage]+",
+			"aspects": {
+				"de_inf": 1
+			}
+		}
+	],
+	"warmup": 60
+    },
+    {
+	"id": "nya.beatback.localpower.more.startup",
+	"label": "Ask the local forces for help",
+	"startdescription": "Local civilian inspection squads exist. Perhaps we can make use of their abilities, hoping they are not insatiable.\n\n[This will immediately reduce the infiltration value, but local forces may sometimes demand more; failure to satisfy may result in increased cipher or resistance levels.]",
+	"requirements": {
+		"notmoreprovisions": -1
+	},
+	"aspects": {
+		"fatiguing": 1
+	},
+	"linked": [
+		{
+			"id": "nya.beatback.localpower.more"
+		}
+	]
+    },
+    {
+	"id": "nya.beatback.localpower.more",
+	"label": "Ask the local forces for help",
+	"startdescription": "\"We need more and better equipment to continue this work.\"\n\n[This will immediately reduce the infiltration value, but local forces may sometimes demand more; failure to satisfy may result in increased cipher or resistance levels.]",
+	"linked": [
+		{
+			"id": "nya.beatback.localpower.more.dis",
+			"chance": 50
+		},
+		{
+			"id": "nya.beatback.localpower.more.dec"
+		}
+	],
+	"effects": {
+		"notmoreprovisions": 1
+	},
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "More",
+		"required": {
+		    "provisions": 1
+		}
+	    },
+	    {
+		"id": "needsfriend2",
+		"label": "More",
+		"required": {
+		    "provisions": 1
+		}
+	    },
+	    {
+		"id": "needsfriend3",
+		"label": "More",
+		"required": {
+		    "provisions": 1
+		}
+	    }
+	],
+	"alt": [
+		{
+			"id": "nya.beatback.localpower.done.3"
+		},
+		{
+			"id": "nya.beatback.localpower.done.2"
+		},
+		{
+			"id": "nya.beatback.localpower.done"
+		}
+	],
+	"warmup": 30
+    },
+    {
+	"id": "nya.beatback.localpower.done",
+	"label": "Ask the local forces for help",
+	"startdescription": "[The locals are likely to demand again.]",
+	"requirements": {
+		"provisions": 1
+	},
+	"effects": {
+		"notmoreprovisions": 1
+	},
+	"alt": [
+		{
+			"id": "nya.beatback.localpower.more",
+			"chance": 70
+		}
+	],
+	"linked": [
+		{
+			"id": "nya.beatback.localpower"
+		}
+	]
+    },
+    {
+	"id": "nya.beatback.localpower.done.2",
+	"$extends": ["nya.beatback.localpower.done"],
+	"label": "Ask the local forces for help",
+	"startdescription": "[The locals are moderately likely to demand again.]",
+	"requirements": {
+		"provisions": 2
+	},
+	"alt": [
+		{
+			"id": "nya.beatback.localpower.more",
+			"chance": 50
+		}
+	],
+	"linked": [
+		{
+			"id": "nya.beatback.localpower"
+		}
+	]
+    },
+    {
+	"id": "nya.beatback.localpower.done.3",
+	"$extends": ["nya.beatback.localpower.done"],
+	"label": "Ask the local forces for help",
+	"startdescription": "[The locals will not demand again.]",
+	"requirements": {
+		"provisions": 3
+	},
+	"linked": [
+		{
+			"id": "nya.beatback.localpower"
+		}
+	]
+    },
+    {
+	"id": "nya.beatback.localpower.more.dis",
+	"label": "Ask the local forces for help",
+	"startdescription": "Local civilian inspection squads exist. Perhaps we can make use of their abilities, hoping they are not insatiable.\n\n[This will immediately reduce the infiltration value, but local forces may sometimes demand more; failure to satisfy may result in increased cipher or resistance levels.]",
+	"linked": [
+		{
+			"id": "nya.beatback.localpower"
+		}
+	],
+	"furthermore": [
+		{
+			"target": "~/tabletop!nya[situationstorage]+",
+			"aspects": {
+				"add_dis": 1
+			}
+		}
+	],
+	"warmup": 30
+    },
+    {
+	"id": "nya.beatback.localpower.more.dec",
+	"label": "Ask the local forces for help",
+	"startdescription": "Local civilian inspection squads exist. Perhaps we can make use of their abilities, hoping they are not insatiable.\n\n[This will immediately reduce the infiltration value, but local forces may sometimes demand more; failure to satisfy may result in increased cipher or resistance levels.]",
+	"linked": [
+		{
+			"id": "nya.beatback.localpower"
+		}
+	],
+	"furthermore": [
+		{
+			"target": "~/tabletop!nya[situationstorage]+",
+			"aspects": {
+				"add_dec": 1
+			}
+		}
+	],
+	"warmup": 30
+    },
+    {
+	"id": "nya.beatback.localpower.end",
+	"label": "Ask the local forces for help",
+	"startdescription": "I hope I never have to deal with them again.",
+	"aspects": {
+		"fatiguing": 1,
+		"dissolution": 1
+	}
+    },
+	{
+		"id": "nya.beatback.washing.hint",
+		"actionId": "communicate",
+		"label": "Purge the Army?",
+		"startdescription": "A last resort against counter-infiltration. I hope I never have to use it.\n\n[When the infiltration value reaches 8, you can use this method to reduce it, but everything comes at a cost]",
+		"requirements": {
+			"weapon": 1
+		},
+		"extantreqs": {
+			"nya.infiltration": 1
+		},
+		"hintonly": true
+	},
+	{
+		"id": "nya.beatback.localpower.hint",
+		"actionId": "communicate",
+		"label": "Ask Local Forces for Help?",
+		"startdescription": "A last resort against counter-infiltration. I hope I never have to use it.\n\n[When the infiltration value reaches 8, you can use this method to reduce it, but everything comes at a cost]",
+		"requirements": {
+			"provisions": 1
+		},
+		"extantreqs": {
+			"nya.infiltration": 1
+		},
+		"hintonly": true
+	},
+
+    {
+	"id": "produce.weakness",
+	"actionId": "spit.knock",
+	"label": "Discover an enemy intelligence gathering point",
+	"startdescription": "Our spies bring secret intelligence; this might be an opportunity worth exploiting.",
+	"internaldeck": {
+		"spec": [
+			"side.dis",
+			"side.dis",
+			"side.dec",
+			"side.dec",
+			"side.inf",
+			"side.inf",
+			"side.inf"
+		],
+		"draws": 1,
+		"defaultcard": "side.inf",
+		"resetonexhaustion": true
+	},
+	"warmup": 10
+    }
+    ]
+}

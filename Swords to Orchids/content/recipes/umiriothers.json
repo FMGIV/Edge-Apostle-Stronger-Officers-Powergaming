@@ -1,0 +1,367 @@
+{
+    "recipes": [
+  {
+    "id": "weakenenemy.tool.startup",
+    "actionid": "abandon",
+    "label": "Use the Chiliarch's Eye to Weaken an Enemy",
+    "startdescription": "My Arch-Enemy once used it to see the enemy's weaknesses; I shall do likewise.",
+    "requirements": {
+      "tool.monocle": 1,
+      "debilitation.eye.colonel": 1,
+      "german": 1
+    },
+    "aspects": {
+      "fatiguing": 1,
+      "weaken": 1
+    },
+    "warmup": 15,
+    "craftable": true
+  },
+  {
+    "id": "call.tomori.supplies.startup",
+    "actionid": "communicate",
+    "label": "Call Tomori",
+    "startdescription": "Place the feather in the fire and roast it until it glows with an unusual sheen; then Galika will come at your call.",
+    "requirements": {
+      "cancalltomori": 1
+    },
+    "aspects": {
+      "fatiguing": 1
+    },
+    "alt": [
+      {
+        "id": "call.tomori.supplies",
+        "additional": true
+      }
+    ],
+    "warmup": 10,
+    "craftable": true
+  },
+  {
+    "id": "call.tomori.supplies",
+    "actionid": "call.friend",
+    "label": "Extraordinary Assistance",
+    "startdescription": "I once again walked to the edge of the camp, when suddenly a huge shadow fell from the sky. Instincts honed on the battlefield made me roll sideways to dodge. With a loud crash, some massive creature descended from above, and the blast wave nearly knocked me off my feet.",
+    "description": "I quickly gripped my weapon, ready for a brutal fight, but then the familiar figure that appeared before me made me breathe a sigh of relief. It approached me somewhat affectionately, and I carefully avoided it, lest I be burned by the intense heat emanating from its body.",
+    "effects": {
+      "friend.galika": 1
+    },
+    "alt": [
+      {
+        "id": "call.tomori.timeover",
+        "additional": true
+      }
+    ],
+    "warmup": 30,
+    "craftable": true
+  },
+  {
+    "id": "call.tomori.timeover",
+    "actionid": "orange",
+    "label": "Heaven-sent Aid",
+    "startdescription": "The roar arrived before the silhouette. Carrying a pure desire for conflict, it joyfully plunged into that bloody revelry.",
+    "effects": {
+      "readiness.token": 1
+    },
+    "linked": [
+      {
+        "id": "call.tomori.timeover.wounded"
+      },
+      {
+        "id": "call.tomori.timeover.end",
+        "chance": 20
+      },
+      {
+        "id": "call.tomori.timeover"
+      }
+    ],
+    "warmup": 60
+  },
+  {
+    "id": "call.tomori.timeover.wounded",
+    "label": "Leaving Without a Word",
+    "startdescription": "Tomori has lost interest in this battlefield; it rose into the air, beat its wings, and vanished into the thick clouds.",
+    "extantreqs": {
+      "friend.galika.wounded": 1
+    },
+    "effects": {
+      "readiness.token": 3
+    },
+    "linked": [
+      {
+        "id": "call.tomori.timeover.end"
+      }
+    ]
+  },
+  {
+    "id": "call.tomori.timeover.end",
+    "label": "Leaving Without a Word",
+    "startdescription": "Tomori has lost interest in this battlefield; it rose into the air, beat its wings, and vanished into the thick clouds.",
+    "requirements": {
+      "readiness.token": 3
+    },
+    "linked": [
+      {
+        "id": "call.tomori.timeover.end"
+      }
+    ],
+    "alt": [
+      {
+        "id": "call.tomori.timeover.goover"
+      }
+    ],
+    "slots": [
+      {
+        "id": "needsgerman1",
+        "label": "Leave",
+        "required": {
+          "fromtomori": 1
+        },
+        "greedy": true
+      }
+    ],
+    "warmup": 10
+  },
+  {
+    "id": "call.tomori.timeover.goover",
+    "label": "Leaving Without a Word",
+    "startdescription": "Tomori has lost interest in this battlefield; it rose into the air, beat its wings, and vanished into the thick clouds.",
+    "aspects": {
+      "killtomorimoster": 1
+    },
+    "requirements": {
+      "fromtomori": 1
+    }
+  },
+
+  
+
+{
+    "id": "obdurant.setup.c",
+    "alt$prepend": [
+        {
+            "id": "obdurant.setup.o",
+            "additional": true
+        }
+    ]
+},
+
+  {
+    "id": "obdurant.setup.o",
+    "actionid": "call.friend",
+    "label": "Another Friend?",
+    "startdescription": "An old acquaintance of mine is about to throw herself into the tide of war, just as I am. She is to be transferred to distant Leningrad. If I move quickly, I can still make it in time to say goodbye to her.",
+    "description": "During my time at the Officer School, I met Tamara, who was then an instructor. We had several conversations—about war, death, and the paths to victory—and her words benefited me greatly.",
+    "effects": {
+      "friend.tomori": 1
+    },
+    "warmup": 30
+  },
+  {
+    "id": "obdurant.setup.t",
+    "actionid": "communicate",
+    "label": "Words from a Friend",
+    "startdescription": "\"Galina, I am going to the Northern Front, and we probably will not see each other for a long time. You already carry the scent of snow and gunpowder—it seems you have finally found someone suitable to guide you. Our paths are not the same; that is why I did not agree to be your mentor back then. Now you have found the path that suits you—the one that diverges from mine. It is a pity, yet I am sincerely happy for you. Conflict is spreading, intertwining, and combining in the air, like a storm brewing in the clouds. The drawn blades will eventually meet on some battlefield... Go, be careful, but do not show fear.\" She said many things to me, some of which were obscure. I did not fully grasp all her words, but I could feel genuine care in them. \"Wait patiently for the right moment, make decisive choices, and use your mind wisely. Most importantly, press forward—and survive.\"\n\nShe embraced me, and as the train slowly pulled away, I could still feel the lingering warmth.",
+    "description": "A gift from someone who holds great expectations for me.",
+    "requirements": {
+      "friend.tomori": 1
+    },
+    "aspects": {
+      "fatiguing": 1
+    },
+    "warmup": 30,
+    "craftable": true
+  },
+
+    {
+	"id": "visit.shrinecolonel.getskill",
+	"alt$prepend": [
+		{
+			"id": "visit.shrinecolonel.letter_umiri",
+			"additional": true
+		}
+	]
+    },
+    {
+	"id": "visit.shrinecolonel.getweapon",
+	"alt$prepend": [
+		{
+			"id": "visit.shrinecolonel.letter_umiri",
+			"additional": true
+		}
+	]
+    },
+    {
+	"id": "visit.shrinecolonel.lore",
+	"alt$prepend": [
+		{
+			"id": "visit.shrinecolonel.letter_umiri",
+			"additional": true
+		}
+	]
+    },
+    {
+	"id": "visit.shrinecolonel.debilitation",
+	"alt": [
+		{
+			"id": "visit.shrinecolonel.letter_umiri",
+			"additional": true
+		}
+	]
+    },
+    {
+	"id": "visit.shrinecolonel.contemplation",
+	"requirements$add": {
+		"obdurant.story.umiri": -1
+	},
+	"alt$prepend": [
+		{
+			"id": "visit.shrinecolonel.letter_umiri",
+			"additional": true
+		}
+	]
+    },
+    {
+	"id": "visit.shrinecolonel.contemplation.success",
+	"alt": [
+		{
+			"id": "visit.shrinecolonel.letter_umiri",
+			"additional": true
+		}
+	]
+    },{
+    "id": "visit.shrinecolonel.defiance",
+    "actionid": "mobilize",
+    "label": "Seek Advice at the Shrine of the Iron God",
+    "startdescription": "If the essence of a plan eludes me, I can visit the shrine to seek the truth. The Named of the Colonel might offer me advice on how to join their ranks — provided I bring a suitable offering.",
+    "description": "The shrine is silent. No Named one notices me.",
+    "requirements": {
+        "shrinecolonel": 1,
+        "obdurant.story.umiri": 1,
+        "promise": -1
+    },
+    "slots": [
+        {
+            "id": "needsoffering",
+            "label": "Offering",
+            "required": {
+                "foe.corpses": 1,
+                "foe.corpse.unnatural": 1
+            }
+        }
+    ],
+    "alt": [
+        {
+            "id": "visit.shrinecolonel.defiance.success"
+        }
+    ],
+    "warmup": 60,
+    "craftable": true
+},
+{
+    "id": "visit.shrinecolonel.defiance.success",
+    "actionid": "mobilize",
+    "label": "Iron Revelation",
+    "startdescription": "I can hear the pained gasps of the Named 'Traitor' Kaniskha, punished by the Chiliarch for betraying his beloved, eternally preaching the doctrine of loyalty and the contest of wills. 'Killer of men,' he says in a mournful voice. 'Please listen. This is love and war that shall never fade.'",
+    "description": "War demands sacrifice, and it demands your eternal struggle. You will meet your destined enemy. Remember, she is a follower of the Colonel, yet she is also mortal. You must prove that you are her equal — as cunning and ruthless on the battlefield. Learn her methods, defeat her, so that you may be recognized by the great power of conflict. The fire of strife must burn fiercely. When all is ready, the final moment will come. You and your destined enemy must reach that end — the point from which you cannot retreat. This ritual will end in death, and that death may drive you to fight forever, inseparable, for all eternity.",
+    "requirements": {
+        "remnant": 1
+    },
+    "aspects": {
+        "ascend": 1
+    },
+    "effects": {
+        "shrinecolonel": -99,
+        "remnant": -99
+    }
+},
+{
+    "id": "visit.shrinecolonel.letter_umiri",
+    "actionid": "call.umiri",
+    "label": "Depart on Pilgrimage",
+    "startdescription": "At some unknown time, something slipped a letter into my hand. The envelope was sealed with red wax bearing a pretentious crest, signed 'I.v.H.'",
+    "maxexecutions": 1,
+    "effects": {
+        "letter.umiri": 1
+    },
+    "warmup": 10
+},
+
+
+{
+    "id": "letter.umiri.start",
+    "actionId": "communicate",
+    "label": "Read 'Letter from the arch enemy'",
+    "previewDescription": "Some words are not on paper, not in the air, yet they are crystal clear, like the angel on the tower and her face.",
+    "startdescription": "Hungary, 1911. She saved my life with a Mosin and a Molotov cocktail. Back then she was a warrant officer, swearing like a butcher but shooting like an angel. She said it with a ridiculous, sad smile. Vienna, 1913. My entire squad was wiped out; only I crawled out, all the way to Brest, 1939.\nThat night you slipped into my room. We drank port wine and spoke of old secrets that shouldn't have been told. Then... then you kissed me. Damn it, you kissed me. Von Helling, you frivolous bastard.",
+    "description": "I didn't say a word. I didn't say a single word. My adjutant looked at me with concern, but I said nothing.",
+    "requirements": {
+        "letter.umiri": 1
+    },
+    "aspects": {
+        "fatiguing": 1
+    },
+    "warmup": 30,
+    "craftable": true
+},
+{
+    "id": "letter.umiri",
+    "actionId": "communicate",
+    "label": "Inform the arch enemy of Your Location",
+    "previewDescription": "“The situation is already this bad; how much worse could it get?”",
+    "startdescription": "Transmitting over the radio...",
+    "description": "“She's on her way. I can feel it, no reason why.”",
+    "requirements": {
+        "letter.umiri.exhausted": 1,
+        "weapon": -1
+    },
+    "grandReqs": {
+        "([~/extant:foe.officer] + [~/extant:foe.umiri.pre]) == 0": 1
+    },
+    "extantreqs": {
+        "foe.umiri.mark": -1,
+        "foe.umiri.dead": -1,
+        "umiri.blocker": -1,
+        "wasteland": -1,
+        "lake.here": -1
+    },
+    "effects": {
+        "foe.umiri.pre": 1
+    },
+    "alt": [
+        {
+            "id": "foe.umiri.coming.call",
+            "additional": true
+        }
+    ],
+    "linked": [
+        {
+            "id": "foeumiricoming.defiance"
+        }
+    ],
+    "warmup": 10,
+    "craftable": true
+},
+{
+    "id": "foeumiricoming.defiance",
+    "label": "Inform the arch enemy of Your Location",
+    "description": "“She's on her way. I can feel it, no reason why.”",
+    "maxexecutions": 1,
+    "effects": {
+        "defiance.d": 1
+    },
+    "alt": [
+        {
+            "id": "produce.adddefiance",
+            "additional": true,
+            "expulsion": {
+                "filter": {
+                    "defiance.aspect": 1
+                },
+                "limit": 1
+            }
+        }
+    ]
+}
+    ]
+}

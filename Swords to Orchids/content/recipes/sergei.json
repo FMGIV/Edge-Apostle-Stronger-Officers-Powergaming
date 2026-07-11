@@ -1,0 +1,1014 @@
+{
+    "recipes": [
+        {
+            "id": "edgelong.sergei.attack.allies",
+            "extantreqs": {
+                "wound.sergei.foranno": -1
+            },
+            "slots": [
+                {
+                    "id": "needsallies",
+                    "label": "Target",
+                    "required": {
+                        "friend": 1,
+                        "foe": 1
+                    },
+                    "forbidden": {
+                        "foe.bombers.refuel": 1,
+                        "foe.uneat": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked$prepend": [
+                {
+                    "id": "sergei_attack.anno_haveto_valkyrie"
+                },
+                {
+                    "id": "sergei_attack.anno_haveto"
+                },
+                {
+                    "id": "sergei_attack.anno_passive",
+                    "chance": 40
+                },
+                {
+                    "id": "sergei_attack.umiri_haveto"
+                },
+                {
+                    "id": "sergei_attack.umiri_passive"
+                }
+            ]
+        },
+        
+        {
+            "id": "sergei_attack.anno_passive",
+            "label": "Clash of Immortals",
+            "startdescription": "Instead of evading, the officer... meets the attack head-on?!",
+            "warmup": 30,
+            "extantreqs": {
+                "anno.mark": 1,
+                "wound.sergei.foranno": -1,
+                "valkyrie.mark": 1,
+                "foe.sergei": 1
+            },
+            "requirements": {
+                "faction.anno": 1,
+                "anno.mark": -1,
+                "valkyrie.mark": -1
+            },
+            "effects": {
+				"anno_sergei": 1
+			},
+            "aspects": {
+                "follower_scar_edge": 1,
+                "fatiguing": 1
+            },
+			"playAudioTrack": "bgm.umiri_sergei.mp3",
+            "slots": [
+                {
+                "id": "needsallies",
+                "label": "Target",
+                "required": {
+                    "valkyrie.mark": 1,
+					"anno.mark": 1
+                },
+                "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "sergei_attack.anno"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.anno_haveto_valkyrie",
+            "label": "Clash of Immortals",
+            "startdescription": "Instead of evading, the officer... meets the attack head-on?!",
+            "warmup": 30,
+            "extantreqs": {
+                "anno.mark": 1,
+                "wound.sergei.foranno": -1,
+                "foe.sergei": 1
+            },
+            "requirements": {
+                "valkyrie.mark": 1
+            },
+            "effects": {
+				"anno_sergei": 1
+			},
+            "aspects": {
+                "follower_scar_edge": 1
+            },
+			"playAudioTrack": "bgm.umiri_sergei.mp3",
+            "linked": [
+                {
+                    "id": "sergei_attack.anno"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.anno_haveto",
+            "label": "Clash of Immortals",
+            "startdescription": "Instead of evading, the officer... meets the attack head-on?!",
+            "warmup": 30,
+            "extantreqs": {
+                "anno.mark": 1,
+                "wound.sergei.foranno": -1,
+                "foe.sergei": 1
+            },
+            "requirements": {
+                "anno.mark": 1
+            },
+            "effects": {
+				"anno_sergei": 1
+			},
+            "aspects": {
+                "follower_scar_edge": 1
+            },
+			"playAudioTrack": "bgm.umiri_sergei.mp3",
+            "linked": [
+                {
+                    "id": "sergei_attack.anno"
+                }
+            ]
+        },
+
+        {
+            "id": "edgelong.cycle",
+            "linked$prepend": [
+                {
+                    "id": "sergei_attack.umiri_ive",
+                    "chance": 50
+                },
+                {
+                    "id": "sergei_attack.umiri_passive"
+                }
+            ],
+            "effects$add": {
+                "umiri_sergei": -99
+            }
+        },
+        {
+            "id": "sergei_attack.umiri_passive",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "It seems her task force has run headlong into a terrible crisis...",
+            "warmup": 30,
+            "extantreqs": {
+                "wound.sergei.forumiri": -1,
+                "wound.sergei.forumiri_end": -1
+            },
+            "tablereqs": {
+                "foe.umiri.mark": 1,
+                "foeinfantry": 4,
+                "foetanks": 3,
+                "foeartillery": 2
+            },
+            "requirements": {
+                "foe.officerdetail": 1,
+                "foe.umiri.mark": -1,
+                "otherworldly": -1,
+                "foe.sergei": 1
+            },
+            "aspects": {
+                "follower_scar_edge": 1
+            },
+            "playAudioTrack": "bgm.umiri_sergei.mp3",
+            "slots": [
+                {
+                    "id": "needsallies",
+                    "label": "Target",
+                    "required": {
+                        "foe.umiri.mark": 1
+                    },
+                    "forbidden": {
+                        "foe.bombers.refuel": 1,
+                        "foe.uneat": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri"
+                },
+                {
+                    "id": "edgelong.cycle"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri_haveto",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "It appears the Blade of Eternity has found an opponent worthy of his strength...",
+            "warmup": 30,
+            "extantreqs": {
+                "wound.sergei.forumiri": -1,
+                "wound.sergei.forumiri_end": -1
+            },
+            "tablereqs": {
+                "foe.umiri.mark": 1
+            },
+            "requirements": {
+                "foe.umiri.mark": 1,
+                "foe.sergei": 1
+            },
+            "aspects": {
+                "follower_scar_edge": 1
+            },
+            "playAudioTrack": "bgm.umiri_sergei.mp3",
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri"
+                },
+                {
+                    "id": "edgelong.cycle"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri_ive",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "German firepower surges ever fiercer along the frontlines — yet it is not aimed at you, but that immortal warrior...",
+            "warmup": 30,
+            "extantreqs": {
+                "wound.sergei.forumiri": -1,
+                "wound.sergei.forumiri_end": -1
+            },
+            "tablereqs": {
+                "foe.umiri.mark": 1,
+                "foeinfantry": 4,
+                "foetanks": 3,
+                "foeartillery": 2
+            },
+            "requirements": {
+                "foe.sergei": 1
+            },
+            "aspects": {
+                "follower_scar_edge": 1
+            },
+            "playAudioTrack": "bgm.umiri_sergei.mp3",
+            "slots": [
+                {
+                    "id": "needsallies",
+                    "label": "Target",
+                    "required": {
+                        "foe.umiri.mark": 1
+                    },
+                    "forbidden": {
+                        "foe.bombers.refuel": 1,
+                        "foe.uneat": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri"
+                },
+                {
+                    "id": "edgelong.cycle"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "What plans do the Germans hold? A last stand, or a hasty retreat?",
+            "warmup": 30,
+            "requirements": {
+                "foe": 1,
+                "foe.umiri.mark": 1
+            },
+            "effects": {
+                "umiri_sergei": 1
+            },
+            "aspects": {
+                "follower_scar_edge": 1
+            },
+            "alt": [
+                {
+                    "id": "produce.makeafraid",
+                    "additional": true,
+                    "chance": 30
+                },
+                {
+                    "id": "expel.insight",
+                    "additional": true,
+                    "expulsion": {
+                        "limit": 99,
+                        "filter": {
+                            "lore": 1
+                        }
+                    }
+                },
+                {
+                    "id": "expel.skill.deflect",
+                    "additional": true,
+                    "expulsion": {
+                        "limit": 99,
+                        "filter": {
+                            "skill.deflect": 1,
+                            "skill.deflect.exhausted": 1
+                        }
+                    }
+                },
+                {
+                    "id": "expel.immortalfriend",
+                    "additional": true,
+                    "expulsion": {
+                        "limit": 99,
+                        "filter": {
+                            "friend.immortal": 1
+                        }
+                    }
+                }
+            ],
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri.opening"
+                },
+                {
+                    "id": "sergei_attack.umiri.bombers",
+                    "chance": 30
+                },
+                {
+                    "id": "sergei_attack.umiri.artillery",
+                    "chance": 30
+                },
+                {
+                    "id": "sergei_attack.umiri.tanks",
+                    "chance": 40
+                },
+                {
+                    "id": "sergei_attack.umiri.other"
+                },
+                {
+                    "id": "sergei_attack.umiri.tanks"
+                },
+                {
+                    "id": "sergei_attack.umiri.artillery"
+                },
+                {
+                    "id": "sergei_attack.umiri.bombers"
+                },
+                {
+                    "id": "sergei_attack.umiri.fail"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.fail",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "She has failed. Her troops scatter in panic before the Blade of Eternity.",
+            "warmup": 30,
+            "linked": [
+                {
+                    "id": "edgelong.cycle"
+                }
+            ],
+            "alt": [
+                {
+                    "id": "umirifight.withdraw.obdurant",
+                    "additional": true,
+                    "expulsion": {
+                        "filter": {
+                            "strife.tracker": 1,
+                            "foe.umiri.mark": 1
+                        },
+                        "limit": 99
+                    }
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.opening",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "The Iron Eater’s head runs red with blood; he howls in rage. The Empire’s blade Ilse seizes the opening without hesitation...",
+            "warmup": 10,
+            "requirements": {
+                "foe.progression": 3
+            },
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri.fight"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.fight",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "...The Germans commit their reserves, striving to settle everything in one single assault.",
+            "warmup": 30,
+            "aspects": {
+                "revealidentity": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy",
+                    "required": {
+                        "german": 1
+                    },
+                    "forbidden": {
+                        "foe.bombers.refuel": 1,
+                        "foe.rankofficer": 1
+                    },
+                    "greedy": true
+                },
+                {
+                    "id": "needsfoe1",
+                    "label": "Enemy",
+                    "required": {
+                        "german": 1
+                    },
+                    "forbidden": {
+                        "foe.bombers.refuel": 1,
+                        "foe.rankofficer": 1
+                    },
+                    "greedy": true
+                },
+                {
+                    "id": "needsfoe2",
+                    "label": "Enemy",
+                    "required": {
+                        "german": 1
+                    },
+                    "forbidden": {
+                        "foe.bombers.refuel": 1,
+                        "foe.rankofficer": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri.fight0"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.fight0",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "Smoke still hangs thick over the battlefield...",
+            "aspects": {
+                "revealidentity": 1
+            },
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri.success"
+                },
+                {
+                    "id": "sergei_attack.umiri.setback"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.setback",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "The Iron Eater tears their battle lines apart. Carefully laid barriers are shredded, blood and dust spray wildly across the field. Death kisses this ground...",
+            "warmup": 10,
+            "effects": {
+                "foe.progression": -2,
+                "remnant": -99
+            },
+            "aspects": {
+                "revealidentity": 1,
+                "killfoe": 1
+            },
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri"
+                }
+            ],
+            "alt": [
+                {
+                    "id": "expel.insight",
+                    "additional": true,
+                    "expulsion": {
+                        "limit": 99,
+                        "filter": {
+                            "lore": 1
+                        }
+                    }
+                },
+                {
+                    "id": "expel.skill.deflect",
+                    "additional": true,
+                    "expulsion": {
+                        "limit": 99,
+                        "filter": {
+                            "skill.deflect": 1,
+                            "skill.deflect.exhausted": 1
+                        }
+                    }
+                },
+                {
+                    "id": "expel.dead",
+                    "additional": true,
+                    "expulsion": {
+                        "limit": 99,
+                        "filter": {
+                            "remnant": 1,
+                            "moth": 1,
+                            "lantern": 1,
+                            "forge": 1,
+                            "edge": 1,
+                            "winter": 1,
+                            "heart": 1,
+                            "grail": 1,
+                            "knock": 1
+                        }
+                    }
+                },
+                {
+                    "id": "expel.immortalfriend",
+                    "additional": true,
+                    "expulsion": {
+                        "limit": 99,
+                        "filter": {
+                            "friend.immortal": 1
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.success",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "The Iron Eater, Blade of Eternity, has fallen from his steed. Blood stains the earth beneath him — soil that has buried countless souls. He struggles in desperation and flees into the distance, with the Germans hot on his trail. One great trouble may have been lifted from us.",
+            "warmup": 10,
+            "grandReqs": {
+                "([needsedge] + [needsedgeforge] + [needswinter]) >= 25": 1
+            },
+            "effects": {
+                "wound.sergei.forumiri": 1,
+                "foe.progression": -99,
+                "umiri_sergei": -99,
+                "remnant": -99
+            },
+            "aspects": {
+                "revealidentity": 1,
+                "killfoe": 1
+            },
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri.rest"
+                }
+            ],
+            "achievements": [
+                "ending.sergei_umiri"
+            ],
+            "inductions": [
+                {
+                    "id": "sergei_attack.umiri.out",
+                    "expulsion": {
+                        "filter": {
+                            "foe.umiri.mark": 1,
+                            "foe.corpses": 1,
+                            "wound.sergei.forumiri": 1
+                        },
+                        "limit": 99
+                    }
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.rest",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "The Iron Eater retreats from the battlefield, head bowed and wound covered, riding hard... I doubt we shall see him again for a long time.\n\n[After the countdown elapses, the Iron Eater will return to the field.]",
+            "warmup": 45,
+            "furthermore": [
+                {
+                    "target": "~/tabletop",
+                    "mutations": [
+                        {
+                            "filter": "wound.sergei.forumiri",
+                            "mutate": "edge",
+                            "level": 1,
+                            "additive": true,
+                            "VFX": "CardBurn"
+                        }
+                    ]
+                }
+            ],
+            "linked": [
+                {
+                    "id": "edgelong.cycle"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.out",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "Artillery fire falls silent, smoke billows everywhere. Shrapnel has torn half the Iron Eater’s ear away. He leans against rock, gasping bloodied breaths. She stares at him — the man they said could not be slain. He asks nothing of where to flee, his gaze growing distant, breath shallow. As she turns to leave, she hears the scratch of a match being struck.",
+            "warmup": 10,
+            "actionId": "umiriout",
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe.uneat",
+                    "level": 1,
+                    "additive": true
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.bombers",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "A bone-chilling shriek echoes across the wasteland; death descends from the skies.",
+            "warmup": 10,
+            "tablereqs": {
+                "foebombers": 1
+            },
+            "aspects": {
+                "revealidentity": 1,
+                "killfoe": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy",
+                    "required": {
+                        "foebombers": 1
+                    },
+                    "forbidden": {
+                        "otherworldly": 1,
+                        "foe.bombers.refuel": 1,
+                        "foe.rankofficer": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri.bombers0",
+                    "chance": 90
+                },
+                {
+                    "id": "sergei_attack.umiri.bombers1"
+                }
+            ],
+            "alt": [
+                {
+                    "id": "produce.strife",
+                    "additional": true,
+                    "chance": 70
+                },
+                {
+                    "id": "produce.strife.contemnant",
+                    "additional": true,
+                    "chance": 50
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.bombers0",
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "The Iron Eater’s warhorse rears and whinnies. His rifle is useless against aircraft, and he is forced back temporarily.",
+            "warmup": 10,
+            "effects": {
+                "foe.progression": 1,
+                "remnant": -99
+            },
+            "aspects": {
+                "revealidentity": 1,
+                "killfoe": 1,
+                "remnant": -99
+            },
+            "alt": [
+                {
+                    "id": "expel.insight",
+                    "additional": true,
+                    "expulsion": {
+                        "limit": 99,
+                        "filter": {
+                            "lore": 1
+                        }
+                    }
+                },
+                {
+                    "id": "expel.skill.deflect",
+                    "additional": true,
+                    "expulsion": {
+                        "limit": 99,
+                        "filter": {
+                            "skill.deflect": 1,
+                            "skill.deflect.exhausted": 1
+                        }
+                    }
+                },
+                {
+                    "id": "expel.dead",
+                    "additional": true,
+                    "expulsion": {
+                        "limit": 99,
+                        "filter": {
+                            "remnant": 1,
+                            "moth": 1,
+                            "lantern": 1,
+                            "forge": 1,
+                            "edge": 1,
+                            "winter": 1,
+                            "heart": 1,
+                            "grail": 1,
+                            "knock": 1
+                        }
+                    }
+                },
+                {
+                    "id": "expel.immortalfriend",
+                    "additional": true,
+                    "expulsion": {
+                        "limit": 99,
+                        "filter": {
+                            "friend.immortal": 1
+                        }
+                    }
+                }
+            ],
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.bombers1",
+            "$extends": ["sergei_attack.umiri.bombers0"],
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "The thunder of hooves drowns bomber roars; he sends death soaring into the high heavens.",
+            "effects": {
+                "remnant": -99
+            }
+        },
+        {
+            "id": "sergei_attack.umiri.artillery",
+            "$extends": ["sergei_attack.umiri.bombers"],
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "Shells tear open the firmament, the earth awakens in the most brutal fashion imaginable.",
+            "warmup": 10,
+            "tablereqs": {
+                "foeartillery": 1
+            },
+            "aspects": {
+                "revealidentity": 1,
+                "killfoe": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy",
+                    "required": {
+                        "foeartillery": 1
+                    },
+                    "forbidden": {
+                        "otherworldly": 1,
+                        "foe.bombers.refuel": 1,
+                        "foe.rankofficer": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri.artillery0",
+                    "chance": 90
+                },
+                {
+                    "id": "sergei_attack.umiri.artillery1"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.artillery0",
+            "$extends": ["sergei_attack.umiri.bombers0"],
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "German artillery’s terrifying firepower incinerates his followers, and the Iron Eater’s offensive dissipates."
+        },
+        {
+            "id": "sergei_attack.umiri.artillery1",
+            "$extends": ["sergei_attack.umiri.bombers0"],
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "The Iron Eater lets loose a bone-chilling laugh, his warhorse charging through the artillery barrage as flames blaze all around.",
+            "effects": {
+                "remnant": -99
+            }
+        },
+        {
+            "id": "sergei_attack.umiri.tanks",
+            "$extends": ["sergei_attack.umiri.bombers"],
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "Treads grind through trenches, the Empire’s sharpest spearheads all aimed straight at this immortal warrior.",
+            "tablereqs": {
+                "foetanks": 1
+            },
+            "effects": {},
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy",
+                    "required": {
+                        "foetanks": 1
+                    },
+                    "forbidden": {
+                        "otherworldly": 1,
+                        "foe.bombers.refuel": 1,
+                        "foe.rankofficer": 1
+                    },
+                    "greedy": true
+                },
+                {
+                    "id": "needsfoe2",
+                    "label": "Enemy",
+                    "required": {
+                        "foetanks": 1
+                    },
+                    "forbidden": {
+                        "otherworldly": 1,
+                        "foe.bombers.refuel": 1,
+                        "foe.rankofficer": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri.tanks0",
+                    "chance": 70
+                },
+                {
+                    "id": "sergei_attack.umiri.tanks1"
+                }
+            ],
+            "alt": [
+                {
+                    "id": "produce.strife",
+                    "additional": true,
+                    "chance": 70
+                },
+                {
+                    "id": "produce.strife.contemnant",
+                    "additional": true,
+                    "chance": 50
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.tanks0",
+            "$extends": ["sergei_attack.umiri.bombers0"],
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "Armored vehicles bury his laughter and madness alike, his phantom troops vanishing like smoke."
+        },
+        {
+            "id": "sergei_attack.umiri.tanks1",
+            "$extends": ["sergei_attack.umiri.bombers0"],
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "Utterly useless. The Blade of Eternity pierces the German assault, tanks left burning in his wake.",
+            "effects": {
+                "remnant": -99
+            }
+        },
+        {
+            "id": "sergei_attack.umiri.other",
+            "$extends": ["sergei_attack.umiri.bombers"],
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "Another wave marches out of the trenches, advancing calmly toward death — and a victory where barely one in ten might survive.",
+            "tablereqs": {
+                "german": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy",
+                    "required": {
+                        "foeinfantry": 1,
+                        "foekommando": 1,
+                        "foemanhunters": 1,
+                        "foechasseur": 1,
+                        "foesniper": 1
+                    },
+                    "forbidden": {
+                        "otherworldly": 1,
+                        "foe.bombers.refuel": 1,
+                        "foe.rankofficer": 1,
+                        "edgelong": 1
+                    },
+                    "greedy": true
+                },
+                {
+                    "id": "needsfoe2",
+                    "label": "Enemy",
+                    "required": {
+                        "foeinfantry": 1,
+                        "foekommando": 1,
+                        "foemanhunters": 1,
+                        "foechasseur": 1,
+                        "foesniper": 1
+                    },
+                    "forbidden": {
+                        "otherworldly": 1,
+                        "foe.bombers.refuel": 1,
+                        "foe.rankofficer": 1,
+                        "edgelong": 1
+                    },
+                    "greedy": true
+                },
+                {
+                    "id": "needsfoe3",
+                    "label": "Enemy",
+                    "required": {
+                        "foeinfantry": 1,
+                        "foekommando": 1,
+                        "foemanhunters": 1,
+                        "foechasseur": 1,
+                        "foesniper": 1
+                    },
+                    "forbidden": {
+                        "otherworldly": 1,
+                        "foe.bombers.refuel": 1,
+                        "foe.rankofficer": 1,
+                        "edgelong": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "sergei_attack.umiri.other0",
+                    "chance": 50
+                },
+                {
+                    "id": "sergei_attack.umiri.other1"
+                },
+                {
+                    "id": "sergei_attack.umiri"
+                }
+            ]
+        },
+        {
+            "id": "sergei_attack.umiri.other0",
+            "$extends": ["sergei_attack.umiri.bombers0"],
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "An ocean of serviceable weapons — this is the true path to victory."
+        },
+        {
+            "id": "sergei_attack.umiri.other1",
+            "$extends": ["sergei_attack.umiri.bombers"],
+            "label": "Unexpected Shift in the Campaign",
+            "startdescription": "German troops fall in waves, their corpses forming new trenches upon the field.",
+            "effects": {
+                "remnant": -99
+            }
+        },
+        {
+            "id": "expel.dead",
+            "mutations": [
+                {
+                    "filter": "remnant",
+                    "mutate": "foe.officerdetail",
+                    "level": 0
+                }
+            ]
+        },
+        {
+            "id": "communicate.camilla",
+            "alt$prepend": [
+                {
+                    "id": "communicate.camilla.umiri"
+                }
+            ]
+        },
+        {
+            "id": "communicate.camilla.umiri",
+            "label": "Speak with the Continental Foe About Your Arch-Rival?",
+            "startdescription": "\"You mean that young upstart who’s made quite a name for herself?\" The Continental Foe has clearly heard of her. \"You wish to enlist my aid to defeat her?\"",
+            "description": "The Continental Foe lets out a dark chuckle: No trouble at all. My bitter rival has lately grown quite fascinated with this countrywoman of his... it seems his enthusiasm may get the better of him. As his elder and true arch-rival, I have every reason to test her strength alongside him.",
+            "requirements": {
+                "obdurant.story.umiri": 1
+            },
+            "mutations": [
+                {
+                    "filter": "friend.camilla",
+                    "mutate": "edge",
+                    "level": 24
+                },
+                {
+                    "filter": "friend.camilla",
+                    "mutate": "winter",
+                    "level": 12
+                },
+                {
+                    "filter": "friend.camilla",
+                    "mutate": "lantern",
+                    "level": 12
+                },
+                {
+                    "filter": "friend.camilla",
+                    "mutate": "associate",
+                    "level": 1
+                }
+            ]
+        }
+    ]
+}

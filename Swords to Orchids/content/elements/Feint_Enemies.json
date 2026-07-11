@@ -1,0 +1,361 @@
+{
+"elements": [
+
+    {
+	"id": "fake.enemy",
+	"label": "Fake Enemy",
+	"isAspect": true,
+	"isHidden" : true
+    },
+	
+	{
+	"id": "fake.enemy.stopverb",
+	"label": "Feint Terminated",
+	"lifetime" : 1,
+	"isHidden" : true
+    },
+	
+    {
+	"id": "foe.infantry.fake",
+	"$extends" : ["foe.infantry"],
+	"icon" : "foe.infantry",
+	"aspects$add": {
+		"fake.enemy" : 1,
+		"foe.forcesize": 3
+	},
+	"xtriggers": {
+	    "refresh": "foe.infantry.fake",
+	    "killgerman": "husk",
+	    "killfoe": "husk",
+	    "killmortal": "husk",
+		"weaken": "husk",
+	    "concealidentity": "foe.infantry.hidden.fake",
+	    "revealidentity": "foe.infantry.fake",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.infantry.hidden.fake",
+	"$extends" : ["foe.infantry.fake"],
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemies are those whom we have not anticipate. Always.",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1,
+		"fake.enemy" : 1,
+		"foe.forcesize": 3
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "foe.kommando.fake",
+	"$extends" : ["foe.kommando"],
+	"icon" : "foe.kommando",
+	"aspects$add": {
+		"fake.enemy" : 1,
+		"foe.forcesize": 2
+	},
+	"xtriggers": {
+	    "refresh": "foe.kommando.fake",
+	    "killgerman": "husk",
+	    "killfoe": "husk",
+	    "killmortal": "husk",
+		"weaken": "husk",
+	    "concealidentity": "foe.kommando.hidden.fake",
+	    "revealidentity": "foe.kommando.fake",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.kommando.hidden.fake",
+	"$extends" : ["foe.kommando.fake"],
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemies are those whom we have not anticipate. Always.",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1,
+		"fake.enemy" : 1,
+		"foe.forcesize": 3
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "foe.sniper.fake",
+	"$extends" : ["foe.sniper"],
+	"icon" : "foe.sniper",
+	"aspects$add": {
+		"fake.enemy" : 1,
+		"foe.forcesize": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.sniper.fake",
+	    "killgerman": "husk",
+	    "killfoe": "husk",
+	    "killmortal": "husk",
+		"weaken": "husk",
+	    "concealidentity": "foe.sniper.hidden.fake",
+	    "revealidentity": "foe.sniper.fake",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.sniper.hidden.fake",
+	"$extends" : ["foe.sniper.fake"],
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemies are those whom we have not anticipate. Always.",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1,
+		"fake.enemy" : 1,
+		"foe.forcesize": 3
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "foe.tanks.fake",
+	"$extends" : ["foe.tanks"],
+	"icon" : "foe.tanks",
+	"aspects$add": {
+		"fake.enemy" : 1,
+		"mechanized_forces": 1,
+		"foe.forcesize": 6
+	},
+	"xtriggers": {
+	    "refresh": "foe.tanks.fake",
+	    "killgerman": "husk",
+	    "killfoe": "husk",
+	    "killmortal": "husk",
+		"weaken": "husk",
+	    "concealidentity": "foe.tanks.hidden.fake",
+	    "revealidentity": "foe.tanks.fake",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.tanks.hidden.fake",
+	"$extends" : ["foe.tanks.fake"],
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemies are those whom we have not anticipate. Always.",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1,
+		"fake.enemy" : 1,
+		"mechanized_forces": 1,
+		"foe.forcesize": 6
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "foe.artillery.fake",
+	"$extends" : ["foe.artillery"],
+	"icon" : "foe.artillery",
+	"aspects$add": {
+		"fake.enemy" : 1,
+		"mechanized_forces": 1,
+		"foe.forcesize": 10
+	},
+	"xtriggers": {
+	    "refresh": "foe.artillery.fake",
+	    "killgerman": "husk",
+	    "killfoe": "husk",
+	    "killmortal": "husk",
+		"weaken": "husk",
+	    "concealidentity": "foe.artillery.hidden.fake",
+	    "revealidentity": "foe.artillery.fake",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.artillery.hidden.fake",
+	"$extends" : ["foe.artillery.fake"],
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemies are those whom we have not anticipate. Always.",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1,
+		"fake.enemy" : 1,
+		"mechanized_forces": 1,
+		"foe.forcesize": 6
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "foe.manhunters.fake",
+	"$extends" : ["foe.manhunters"],
+	"icon" : "foe.manhunters",
+	"aspects$add": {
+		"fake.enemy" : 1,
+		"foe.forcesize": 3
+	},
+	"xtriggers": {
+	    "refresh": "foe.manhunters.fake",
+	    "killgerman": "husk",
+	    "killfoe": "husk",
+	    "killmortal": "husk",
+		"weaken": "husk",
+	    "concealidentity": "foe.manhunters.hidden.fake",
+	    "revealidentity": "foe.manhunters.fake",
+	    "takeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.manhunters.hidden.fake",
+	"$extends" : ["foe.manhunters.fake"],
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemies are those whom we have not anticipate. Always.",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1,
+		"fake.enemy" : 1,
+		"foe.forcesize": 3
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    }
+	
+]
+}

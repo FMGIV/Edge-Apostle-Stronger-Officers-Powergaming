@@ -1,0 +1,916 @@
+{
+"elements": [
+    {
+	"id": "foe.bombers.startup",
+	"label": "foe.bombers.startup",
+	"description": "-",
+	"lifetime": 1,
+	"isHidden": true,
+	"comments": "此卡用来标记敌方执行轰炸任务"
+    },
+    {
+	"id": "friend.bombers.startup",
+	"label": "friend.bombers.startup",
+	"description": "-",
+	"lifetime": 1,
+	"isHidden": true,
+	"comments": "此卡用来标记友方执行轰炸任务"
+    },
+    {
+	"id": "foe.damaged",
+	"label": "Supply Lines Severed",
+	"description": "The enemy's lifeline has been cut. Steel lacks fuel, and cannons lack thunder.",
+	"aspects": {
+		"foe.cutoff": 3
+	},
+	"unique": true,
+	"lifetime": 180,
+	"comments": "此卡用来标记敌方补给被切断"
+    },
+    {
+	"id": "foe.cutoff",
+	"label": "Supply Shortage",
+	"description": "The German offensive is growing sluggish and dry. It seems hunger will break them before bullets do.",
+	"lifetime": 1,
+	"isAspect": true,
+	"comments": "此卡用来标记敌方补给短缺"
+    },
+    {
+	"id": "anti_air",
+	"label": "Anti-aircraft Gun",
+	"description": "This structure has anti-air capabilities.",
+	"isAspect": true,
+	"isHidden": false
+    },
+    {
+	"id": "decaytoair",
+	"label": "decaytoair",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来清空飞机弹夹，对德军飞机生效; 友军请使用 fatiguing"
+    },
+    {
+	"id": "makecasualty_air",
+	"label": "makecasualty_air",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来使飞机进入修复状态，对所有飞机生效（除了友军轰炸机）"
+    },
+    {
+	"id": "concealair",
+	"label": "concealair",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来一次性隐匿飞机"
+    },
+    {
+	"id": "soviet_airsupremacy_self",
+	"label": "We Hold the Skies",
+	"description": "The German wings are no more. The blue of the sky proclaims our victory.\n[Ally has won an air superiority engagement. Accumulate three victories to gain air superiority in this region.]",
+	"lifetime": 1,
+	"aspects": {
+		"airsupremacy.on": 1
+	},
+	"isAspect": false,
+	"isHidden": false,
+	"comments": "此卡用来判断阶段性空优"
+    },
+    {
+	"id": "german_airsupremacy",
+	"label": "Enemy Holds the Skies",
+	"description": "The sky is in enemy hands. Every breath may invite a diving tongue of flame...\n[Enemy has won an air superiority engagement. Accumulate three victories to gain air superiority in this region.]",
+	"lifetime": 1,
+	"aspects": {
+		"airsupremacy.on": 1
+	},
+	"isAspect": false,
+	"isHidden": false,
+	"comments": "此卡用来判断阶段性空优"
+    },
+    {
+	"id": "call.air",
+	"label": "Call Air Support",
+	"description": "My superiors have noted my achievements. As proof, the Soviet Air Force will come to support us and once again roar at the Germans.\n[With this card you can call local air support. Only available when your air power is inferior to the enemy's. You may use this ability three more times.]",
+	"icon": "call.air",
+	"aspects": {
+		"call": 1,
+		"uses.remaining": 3,
+		"cancallair": 1
+	},
+	"slots": [
+	    {
+		"id": "provisions3",
+		"label": "Ally",
+		"actionId": "communicate",
+		"required": {
+		    "friend": 1
+		},
+		"forbidden": {
+			"exhausted": 1,
+			"damaged": 1,
+			"infrastructure": 1
+		}
+	    }
+	],
+	"xtriggers": {
+		"fatiguing": "call.air.1"
+	},
+	"comments": "你可凭借此卡呼叫在当地的空中支援"
+    },
+    {
+	"id": "call.air.1",
+	"$extends": ["call.air"],
+	"description": "My superiors have noted my achievements. As proof, the Soviet Air Force will come to support us and once again roar at the Germans.\n[With this card you can call local air support. Only available when your air power is inferior to the enemy's. You may use this ability two more times.]",
+	"aspects": {
+		"call": 1,
+		"uses.remaining": 2,
+		"cancallair": 1
+	},
+	"xtriggers": {
+		"fatiguing": "call.air.2"
+	}
+    },
+    {
+	"id": "call.air.2",
+	"$extends": ["call.air"],
+	"description": "My superiors have noted my achievements. As proof, the Soviet Air Force will come to support us and once again roar at the Germans.\n[With this card you can call local air support. Only available when your air power is inferior to the enemy's. You may use this ability one more times.]",
+	"aspects": {
+		"call": 1,
+		"uses.remaining": 1,
+		"cancallair": 1
+	},
+	"xtriggers": {
+		"fatiguing": "husk"
+	}
+    },
+    {
+	"id": "cancallair",
+	"label": "cancallair",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "次卡牌可呼叫空中支援"
+    },
+    {
+	"id": "fightering.mark",
+	"label": "fightering",
+	"lifetime": 1,
+	"isHidden": true,
+	"comments": "此性相用来标记已经发生了一场空战"
+    },
+    {
+	"id": "mumo",
+	"label": "mumo",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此性相用来标记军官已经前来"
+    },
+    {
+	"id": "mutsumi.coming",
+	"label": "Air Force Officer Incoming...",
+	"description": "A new challenge...",
+	"lifetime": 180,
+	"aspects": {
+		"mumo": 1
+	},
+	"decayTo": "mu.unknow",
+	"comments": "此性相用来标记这是一个敌军军官"
+    },
+    {
+	"id": "turn_mu",
+	"label": "mutsumi",
+	"lifetime": 1,
+	"verbicon": "spit.mu",
+	"isHidden": true,
+	"comments": "此性相用来改变行动模样"
+    },
+    {
+	"id": "mu.unknow",
+	"label": "A Cautious and Chill Air Force Officer",
+	"description": "I saw her record in Great Britain in the newspapers. Now she's been transferred to the Eastern Front. Her tactics are full of chaos and temptation, and I will respond with resilience and patience.\n[This officer excels at defense, is immune to weather effects, and tends to use reconnaissance tactics.]",
+	"lifetime": 600,
+	"aspects": {
+		"mumo": 1,
+		"mutsumi.mark": 1
+	},
+	"decayTo": "mo.unknow",
+	"comments": "此性相用来标记这是一个敌军军官"
+    },
+    {
+	"id": "mo.unknow",
+	"label": "An Eccentric Air Force Officer",
+	"description": "The sky is her canvas, and the squadron is her brush. She paints childlike lines of 'meaningless' shapes, gradually eroding our air power.\n[This officer is better at offense, but will cause supply shortages for the enemy. She tends to use bombing tactics.]",
+	"lifetime": 450,
+	"aspects": {
+		"mumo": 1,
+		"mortis.mark": 1
+	},
+	"decayTo": "mu.unknow",
+	"comments": "此性相用来标记这是一个敌军军官"
+    },
+    {
+	"id": "mutsumi.mark",
+	"label": "mutsumi",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此性相用来标记这是一个敌军军官"
+    },
+    {
+	"id": "mortis.mark",
+	"label": "mortis",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此性相用来标记这是一个敌军军官"
+    },
+    {
+	"id": "german.provisions",
+	"label": "german.provisions",
+	"lifetime": 1,
+	"isHidden": true,
+	"comments": "此性相用来标记德军补给充足"
+    },
+    {
+	"id": "soviet.provisions",
+	"label": "soviet.provisions",
+	"lifetime": 1,
+	"isHidden": true,
+	"comments": "此性相用来标记苏军补给充足"
+    },
+    {
+	"id": "airsupremacy.on",
+	"label": "airsupremacy.on",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此性相用来标记这是一个制空权"
+    },
+    {
+	"id": "foefighterhidden",
+	"label": "foefighterhidden",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此性相用来标记这是一个隐匿敌机"
+    },
+    {
+	"id": "adv_german",
+	"label": "adv_german",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来转换场上卡牌是否空优"
+    },
+    {
+	"id": "adv_soviet",
+	"label": "adv_soviet",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来转换场上卡牌是否空优"
+    },
+    {
+	"id": "adv_anno",
+	"label": "adv_anno",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来转换场上卡牌是否空优"
+    },
+    {
+	"id": "adv_italian",
+	"label": "adv_italian",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来转换场上卡牌是否空优"
+    },
+	{
+		"id": "ins_german",
+		"label": "Enemy: Intelligence Advantage",
+		"description": "Our operations can no longer hide from the enemy's sight.\n[When the enemy has an intelligence advantage, it increases their thresholds and makes them more flexible, coordinated, or aggressive. This is usually gained through 'Reconnaissance Airspace' or 'Decrypt the Code'.",
+		"isAspect": true,
+		"comments": "This card marks air superiority"
+	},
+	{
+		"id": "ins_soviet",
+		"label": "Ally: Intelligence Advantage",
+		"description": "The enemy's operations can no longer hide from our sight.\n[When allies have an intelligence advantage, it increases their aspects, removes any weakening and fear, and if the intelligence advantage is greater than the enemy's, it disables the enemy's 'Resilient'. This is usually gained through 'Reconnaissance Airspace'.",
+		"isAspect": true,
+		"comments": "This card marks air superiority"
+	},
+	{
+		"id": "ins_anno",
+		"label": "Ally: Intelligence Advantage",
+		"description": "[When allies have an intelligence advantage, it increases their aspects, removes any weakening and fear, and if the intelligence advantage is greater than the enemy's, it disables the enemy's 'Resilient'. This is usually gained through 'Reconnaissance Airspace'.",
+		"isAspect": true,
+		"comments": "This card marks air superiority"
+	},
+	{
+		"id": "ins_italian",
+		"label": "Ally: Intelligence Advantage",
+		"description": "[When allies have an intelligence advantage, it increases their aspects, removes any weakening and fear, and if the intelligence advantage is greater than the enemy's, it disables the enemy's 'Resilient'. This is usually gained through 'Reconnaissance Airspace'.",
+		"isAspect": true,
+		"comments": "This card marks air superiority"
+	},
+
+    {
+	"id": "german_airsupremacy_up",
+	"label": "Soviet_airsupremacy",
+	"lifetime": 1,
+	"aspects": {
+	},
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来提升飞机的性相"
+    },
+    {
+	"id": "soviet_airsupremacy_up",
+	"label": "Soviet_airsupremacy",
+	"lifetime": 1,
+	"aspects": {
+	},
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来提升飞机的性相"
+    },
+    {
+	"id": "soviet_airsupremacy_mark",
+	"label": "Soviet_airsupremacy",
+	"lifetime": 1,
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来判断飞机"
+    },
+    {
+	"id": "german_airsupremacy_mark",
+	"label": "German_airsupremacy",
+	"lifetime": 1,
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来判断飞机"
+    },
+    {
+	"id": "foe_airsupremacy",
+	"label": "foe_airsupremacy",
+	"lifetime": 1,
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来判断敌军拥有空优"
+    },
+    {
+	"id": "soviet_have_airsupremacy",
+	"label": "Soviet_airsupremacy",
+	"lifetime": 1,
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来判断苏军拥有空优"
+    },
+    {
+	"id": "turn_soviet_neutral",
+	"label": "turn_soviet_neutral",
+	"verbicon": "soviet_neutral_airsupremacy",
+	"lifetime": 1,
+	"aspects": {
+		"soviet_have_airsupremacy": 1
+	},
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来转换行动图案"
+    },
+    {
+	"id": "turn_soviet_aggro",
+	"label": "turn_soviet_aggro",
+	"verbicon": "soviet_aggro_airsupremacy",
+	"lifetime": 1,
+	"aspects": {
+		"soviet_have_airsupremacy": 1,
+		"foe_airsupremacy": 1
+	},
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来转换行动图案"
+    },
+    {
+	"id": "turn_german",
+	"label": "turn_german",
+	"verbicon": "german_airsupremacy",
+	"lifetime": 1,
+	"aspects": {
+		"foe_airsupremacy": 1
+	},
+	"isAspect": false,
+	"isHidden": true,
+	"comments": "此卡用来转换行动图案"
+    },
+    {
+	"id": "turn_valkyrie",
+	"label": "turn_valkyrie",
+	"verbicon": "valkyrie_airsupremacy",
+	"lifetime": 1,
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来转换行动图案"
+    },
+    {
+	"id": "adv_none",
+	"label": "adv_none",
+	"lifetime": 1,
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来转换场上卡牌是否空优"
+    },
+    {
+	"id": "ins_soviet_neutral",
+	"label": "Soviet: Intelligence Advantage",
+	"isAspect": true,
+	"comments": "此卡用来标记空中优势"
+    },
+    {
+	"id": "ins_soviet_aggro",
+	"label": "Soviet: Intelligence Advantage",
+	"isAspect": true,
+	"comments": "此卡用来标记空中优势"
+    },
+	
+    {
+	"id": "friend.fighter_aircraft.repairing",
+	"label": "Ally Fighter Aircraft (Repairing)",
+	"description": "Factories run day and night; fighters are urgently repaired and rushed to the frontlines.",
+	"lifetime": 300,
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses"
+	},
+	"decayTo": "friend.fighter_aircraft.weaken",
+	"resaturate": true
+    },
+    {
+	"id": "friend.fighter_aircraft",
+	"label": "Ally Fighter Aircraft",
+	"description": "They are the screaming eagles, driving death from our skies. [You may use a fighter to initiate an air battle against the enemy.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 8,
+	    "friend.aerial": 2,
+	    "edge": 10,
+	    "lantern": 6,
+		"friendfighter": 1,
+		"mechanized_forces.friend": 1
+	},
+	"slots": [
+	    {
+		"id": "needsfriend",
+		"label": "Friend",
+		"actionId": "operate",
+		"required": {
+		    "friendfighter": 1
+		},
+		"forbidden": {
+			"friend.weakened": 1
+		}
+	    },
+	    {
+		"id": "needsfriend2",
+		"label": "Friend",
+		"actionId": "operate",
+		"required": {
+		    "friendfighter": 1
+		},
+		"forbidden": {
+			"friend.weakened": 1
+		}
+	    },
+		
+	    {
+		"id": "provisions",
+		"label": "Provisions",
+		"actionId": "operate",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+		
+	    {
+		"id": "provisions2",
+		"label": "Provisions",
+		"actionId": "operate",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+
+	    {
+		"id": "provisions3",
+		"label": "Provisions",
+		"actionId": "operate",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.fighter_aircraft.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.fighter_aircraft.damaged",
+	    "makeweaken": "friend.fighter_aircraft.weaken",
+	    "makeafraid": "friend.fighter_aircraft.afraid",
+	    "adv_soviet": "friend.fighter_aircraft.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.fighter_aircraft.weaken",
+	"$extends": ["friend.fighter_aircraft"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 8,
+	    "friend.aerial": 2,
+	    "edge": 8,
+	    "lantern": 4,
+	    "weakened": 1,
+		"friendfighter": 1,
+		"mechanized_forces.friend": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.fighter_aircraft",
+	"icon": "friend.fighter_aircraft",
+	"xtriggers": {
+	    "fatiguing": "friend.fighter_aircraft.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.fighter_aircraft.afraid.damaged",
+	    "deweaken": "friend.fighter_aircraft",
+	    "makeweaken": "friend.fighter_aircraft.afraid",
+	    "makeafraid": "friend.fighter_aircraft.afraid",
+	    "adv_soviet": "friend.fighter_aircraft.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.fighter_aircraft.afraid",
+	"$extends": ["friend.fighter_aircraft"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 8,
+	    "friend.aerial": 1,
+	    "edge": 6,
+	    "lantern": 4,
+	    "friend.weakened": 1,
+		"friendfighter": 1,
+		"mechanized_forces.friend": 1
+	},
+	"lifetime": 300,
+	"decayTo": "friend.fighter_aircraft.weaken",
+	"icon": "friend.fighter_aircraft",
+	"xtriggers": {
+	    "fatiguing": "friend.fighter_aircraft.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.fighter_aircraft.afraid.damaged",
+	    "deweaken": "friend.fighter_aircraft",
+	    "makeweaken": "friend.fighter_aircraft.afraid",
+	    "makeafraid": "friend.fighter_aircraft.afraid",
+	    "adv_soviet": "friend.fighter_aircraft.ins",
+	    "becaptive": "foe.fighter_aircraft",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.fighter_aircraft.ins",
+	"$extends": ["friend.fighter_aircraft"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 8,
+	    "friend.aerial": 3,
+	    "edge": 16,
+	    "lantern": 8,
+	    "ins_soviet": 1,
+		"friendfighter": 1,
+		"mechanized_forces.friend": 1
+	},
+	"icon": "friend.fighter_aircraft",
+	"lifetime": 180,
+	"decayTo": "friend.fighter_aircraft",
+	"xtriggers": {
+	    "fatiguing": "friend.fighter_aircraft.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.fighter_aircraft.damaged",
+	    "adv_soviet": "friend.fighter_aircraft.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+	
+    {
+	"id": "friend.fighter_aircraft.exhausted",
+	"label": "Ally Fighter Aircraft (Exhausted)",
+	"description": "The thunder subsides; fighters refuel and rearm, while hunters steady their breath.",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 8,
+	    "exhausted": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.fighter_aircraft.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.fighter_aircraft.damaged",
+	    "makeweaken": "friend.fighter_aircraft.weaken.exhausted",
+	    "makeafraid": "friend.fighter_aircraft.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	},
+	"lifetime": 60,
+	"decayTo": "friend.fighter_aircraft",
+	"icon": "friend.fighter_aircraft",
+	"resaturate": true
+    },
+    {
+	"id": "friend.fighter_aircraft.weaken.exhausted",
+	"$extends": ["friend.fighter_aircraft.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.fighter_aircraft.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.fighter_aircraft.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.fighter_aircraft.afraid.damaged",
+	    "deweaken": "friend.fighter_aircraft.exhausted",
+	    "makeweaken": "friend.fighter_aircraft.afraid.exhausted",
+	    "makeafraid": "friend.fighter_aircraft.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.fighter_aircraft.afraid.exhausted",
+	"$extends": ["friend.fighter_aircraft.exhausted"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"decayTo": "friend.fighter_aircraft.afraid",
+	"xtriggers": {
+	    "fatiguing": "friend.fighter_aircraft.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.fighter_aircraft.afraid.damaged",
+	    "deweaken": "friend.fighter_aircraft.weaken.exhausted",
+	    "makeweaken": "friend.fighter_aircraft.afraid.exhausted",
+	    "makeafraid": "friend.fighter_aircraft.afraid.exhausted",
+	    "becaptive": "foe.fighter_aircraft",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+	
+    {
+	"id": "friend.fighter_aircraft.damaged",
+	"label": "Ally Fighter Aircraft (Damaged)",
+	"description": "[Use Engineers to initiate repairs for this Ally.]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 8,
+	    "damaged": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.fighter_aircraft",
+	    "makeafraid": "friend.fighter_aircraft.afraid.damaged",
+	    "makeweaken": "friend.fighter_aircraft.afraid.damaged",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.fighter_aircraft.afraid.damaged",
+	"$extends": ["friend.fighter_aircraft.damaged"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"icon": "friend.fighter_aircraft.damaged",
+	"xtriggers": {
+	    "makeafraid": "friend.fighter_aircraft.afraid.damaged",
+	    "makeweaken": "friend.fighter_aircraft.afraid.damaged",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.fighter_aircraft.afraid",
+	    "becaptive": "foe.fighter_aircraft",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    }
+    ]
+}

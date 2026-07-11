@@ -1,0 +1,1250 @@
+{
+"recipes": [
+    {
+        "id": "objective.enemy.weakened",
+        "actionId": "spit.weakened",
+        "label": "Enemy Forces Weakened",
+        "startdescription": "They have retreated from our objective, barely clinging to life.",
+        "mutations": [
+            {
+                "filter": "foe",
+                "mutate": "hindrance",
+                "level": 0
+            }
+        ],
+        "aspects": {
+            "takeadditional": 1
+        },
+        "linked": [
+            {
+                "id": "objective.hindrance.weakened.startup"
+            },
+            {
+                "id": "objective.enemy.weakened.startup"
+            }
+        ]
+    },
+    {
+        "id": "objective.enemy.weakened.startup",
+        "label": "Enemy Forces Weakened",
+        "startdescription": "They have retreated from our objective, barely clinging to life.",
+        "warmup": 10,
+        "effects": {
+            "hindrance": -99
+        },
+        "aspects": {
+            "weaken": 1
+        },
+        "alt": [
+            {
+                "id": "objective.enemy.killed"
+            }
+        ]
+    },
+    {
+        "id": "objective.hindrance.weakened.startup",
+        "$extends": ["objective.enemy.weakened.startup"],
+        "label": "Hindrance Cleared",
+        "startdescription": "Even the forces of nature cannot stop us.",
+        "requirements": {
+            "hindrance": 1
+        }
+    },
+    {
+        "id": "objective.enemy.killed",
+        "actionId": "spit.weakened",
+        "label": "Enemy Slain",
+        "startdescription": "They can no longer retreat from the objective. We will slay everything that obstructs our march.",
+        "warmup": 10,
+        "requirements": {
+            "weakened": 1
+        },
+        "aspects": {
+            "killfoe": 1
+        },
+        "mutations": [
+            {
+                "filter": "foe.officerdetail",
+                "mutate": "foe.officerdetail",
+                "level": -1
+            },
+            {
+                "filter": "foe.guardjerome",
+                "mutate": "foe.guardjerome",
+                "level": -1
+            },
+            {
+                "filter": "battlehunger",
+                "mutate": "battlehunger",
+                "level": -1,
+                "additive": true
+            },
+            {
+                "filter": "foe.ingluviate.protect",
+                "mutate": "foe.ingluviate.protect",
+                "level": 0
+            }
+        ]
+    },
+
+    {
+	"id": "detectadditional",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : {
+			"foe.fighter_aircraft.environment" : 1,
+			"foe.fighter_aircraft.environment.hidden" : 1 ,
+			"allnaval": 1
+			}
+			}
+		}
+    },
+    {
+	"id": "detectadditional.side",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : {
+			"foe.fighter_aircraft.environment" : 1,
+			"foe.fighter_aircraft.environment.hidden" : 1 ,
+			"allnaval": 1
+			}
+			}
+		}
+    },
+    {
+	"id": "encounteradditional",
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "A Response?",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+		"forbidden" : { "infrastructure" : 1, "faction.anno": 1}
+	    }
+	],
+	"alt$append": [
+	    {
+		"id": "respondadditional.edgegrailwinter"
+	    },
+	    {
+		"id": "respondadditional.edgegrailmoth"
+	    }
+	]
+    },
+    {
+	"id": "encounteradditional.lucky",
+	"effects": {
+	},
+	"alt": [
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.aerial",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.ap",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.edge",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.winter",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.heart",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.grail",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.moth",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.lantern",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.forge",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.knock",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.forgemoth",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.edgelantern",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.edgewinter",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.edgeforge",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.knocklantern",
+	"effects": {
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.forgeheart",
+	"label": "Our Hearts Burn",
+	"startdescription": "Fire alights in the lungs; purpose seizes the soul. Ours is the will to go on.",
+	"requirements": {
+	    "needsforgeheart": 1,
+	    "forge": "needsforgeheart",
+	    "heart": "needsforgeheart"
+	},
+	"effects": {
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.winterlantern",
+	"label": "Light Resolves, Silence Settles",
+	"startdescription": "Cutting clarity and cold dispassion. We won't be denied, not here.",
+	"requirements": {
+	    "needswinterlantern": 1,
+	    "winter": "needswinterlantern",
+	    "lantern": "needswinterlantern"
+	},
+	"effects": {
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.edgeknock",
+	"label": "The Edge Opens",
+	"startdescription": "The Chilliarch knew of blood and its exits. And with our weapons, we will shape an exit as he did.",
+	"requirements": {
+	    "needsedgeknock": 1,
+	    "edge": "needsedgeknock",
+	    "knock": "needsedgeknock"
+	},
+	"effects": {
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.edgeheart",
+	"label": "Joyous Destruction",
+	"startdescription": "The Thunderskin was flayed; the Thunderskin was destroyed. We move now to destroy our enemy in the manner he was.",
+	"requirements": {
+	    "needsedgeheart": 1,
+	    "edge": "needsedgeheart",
+	    "heart": "needsedgeheart"
+	},
+	"effects": {
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.edgegrail",
+	"label": "A Feast, a Fight",
+	"startdescription": "We tear and we rip. Teeth. Blood. Thirst. Flesh.",
+	"requirements": {
+	    "needsedgegrail": 1,
+	    "edge": "needsedgegrail",
+	    "grail": "needsedgegrail"
+	},
+	"effects": {
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.winterheart",
+	"label": "The Peace of an End",
+	"startdescription": "With the warmth and solemnity of last rites being read, we move to conclude our rival.",
+	"requirements": {
+	    "needswinterheart": 1,
+	    "winter": "needswinterheart",
+	    "heart": "needswinterheart"
+	},
+	"effects": {
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.lanternheart",
+	"label": "Not Yet Defeated",
+	"startdescription": "With enough spirit, I can shield myself from their beckoning whispers; with enough light, I can turn aside their grasping hands.",
+	"requirements": {
+	    "needslanternheart": 1,
+	    "lantern": "needslanternheart",
+	    "heart": "needslanternheart"
+	},
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.edgegrailwinter",
+	"label": "Not Yet Defeated",
+	"startdescription": "Force, pain, termination. A brutal suppression.",
+	"requirements": {
+	    "needsedgegrailwinter": 1,
+	    "edge": "needsedgegrailwinter"
+	},
+	"grandreqs": { 
+	    "[grail] - {[needsedgegrailwinter] / 2}": 0,
+	    "[winter] - {[needsedgegrailwinter] / 2}": 0
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+    {
+	"id": "respondadditional.edgegrailmoth",
+	"label": "Not Yet Defeated",
+	"startdescription": "Force, pain, betrayal. A brutal suppression.",
+	"requirements": {
+	    "needsedgegrailmoth": 1,
+	    "edge": "needsedgegrailmoth"
+	},
+	"grandreqs": {
+	    "[grail] - {[needsedgegrailmoth] / 2}": 0,
+	    "[moth] - {[needsedgegrailmoth] / 2}": 0
+	},
+	"linked": [
+	    {
+		"id": "makethirdobstacle"
+	    },
+	    {
+		"id": "makesecondobstacle"
+	    },
+	    {
+		"id": "makefirstobstacle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "producecasualty",
+		"additional": true,
+		"chance": 30,
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"friend": 1
+		    }
+		}
+	    },
+		{
+			"id": "objective.enemy.weakened",
+			"additional": true,
+			"expulsion": {
+				"filter": {
+					"foe": 1,
+					"hindrance": 1
+				},
+				"limit": 99
+			}
+		}
+	]
+    },
+	
+    {
+	"id": "encounternative.lucky",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.special",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+	
+    {
+	"id": "respondnative.aerial",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.ap",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.edge",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.winter",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.heart",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.grail",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.moth",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.lantern",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.forge",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.knock",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.forgemoth",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.edgelantern",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.edgewinter",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.edgeforge",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.knocklantern",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.forgeheart",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.winterlantern",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.edgeknock",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.edgeheart",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.edgegrail",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.winterheart",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    },
+    {
+	"id": "respondnative.lanternheart",
+	"mutations": [
+		{
+			"filter": "foe.guardian",
+			"mutate": "foe.guardian",
+			"level": 0
+		}
+	]
+    }
+]
+}

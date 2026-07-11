@@ -1,0 +1,1295 @@
+{
+    "recipes": [
+        {
+            "id": "foe.umiri.attack.defense.first",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "actionId": "foedefense",
+            "requirements": {
+                "strategy.defense": 1
+            },
+            "extantreqs": {
+                "strategy_trigger": -1
+            },
+            "playAudioTrack": "bgm.foedefense.mp3",
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "Enemy troops seek to solidify their frontline positions.",
+            "actionId": "foedefense",
+            "warmup": 10,
+            "requirements": {
+                "strategy.defense": 1
+            },
+            "alt": [
+                {
+                    "id": "reinforcements.startup.defense",
+                    "additional": true,
+                    "chance": 40
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense2"
+                },
+                {
+                    "id": "foe.umiri.attack.defense0",
+                    "chance": 50
+                },
+                {
+                    "id": "foe.umiri.attack.defense1"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense2",
+            "label": "Enemy Officers Deploy Tactical Arts",
+            "startdescription": "The pain traveled through my nerves, a burning sensation swelling behind my eyes. I stayed strangely composed, awaiting the conflict that was already closing in.\n\n[All enemy forces will enter the <i>\"Unknown\"</i> state.]",
+            "warmup": 15,
+            "tablereqs": {
+                "foe.skill.refreshally": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense2.more"
+                }
+            ],
+            "furthermore": [
+                {
+                    "target": "~/exterior",
+                    "aspects": {
+                        "concealidentity": 99
+                    }
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense2.more",
+            "label": "Enemy Officers Deploy Tactical Arts",
+            "startdescription": "The pain traveled through my nerves, a burning sensation swelling behind my eyes. I stayed strangely composed, awaiting the conflict that was already closing in撤.\n\n[Non-mechanized enemy units will enter a concealed state.]",
+            "xpans": {
+                "skillrefreshally_exhausted": 99
+            }
+        },
+        {
+            "id": "foe.umiri.attack.defense1",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "Frontline enemy units are being redeployed...",
+            "warmup": 10,
+            "aspects": {
+                "concealidentity": 1
+            },
+            "tablereqs": {
+                "foeinfantry": 1
+            },
+            "slots": [
+                {
+                    "id": "foe.deploy",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "foeinfantry": 1
+                    },
+                    "forbidden": {
+                        "foe.hidden": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense1.sniper",
+                    "chance": 30
+                },
+                {
+                    "id": "foe.umiri.attack.defense1.manhunters",
+                    "chance": 50
+                },
+                {
+                    "id": "foe.umiri.attack.defense1.kommando"
+                },
+                {
+                    "id": "foe.umiri.attack.defense1.all"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense1.all",
+            "$extends": ["foe.umiri.attack.defense1"],
+            "slots": [
+                {
+                    "id": "foe.deploy",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "foeinfantry": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense1.sniper",
+                    "chance": 30
+                },
+                {
+                    "id": "foe.umiri.attack.defense1.manhunters",
+                    "chance": 50
+                },
+                {
+                    "id": "foe.umiri.attack.defense1.kommando"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense1.sniper",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "...It appears the enemy has dispatched specialized elite troops.",
+            "aspects": {
+                "defence.sniper": 1
+            },
+            "requirements": {
+                "foe": 1
+            },
+            "warmup": 15
+        },
+        {
+            "id": "foe.umiri.attack.defense1.manhunters",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "...It appears the enemy has dispatched specialized elite troops.",
+            "aspects": {
+                "defence.manhunters": 1
+            },
+            "requirements": {
+                "foe": 1
+            },
+            "warmup": 15
+        },
+        {
+            "id": "foe.umiri.attack.defense1.kommando",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "...It appears the enemy has dispatched specialized elite troops.",
+            "aspects": {
+                "defence.kommando": 1
+            },
+            "requirements": {
+                "foe": 1
+            },
+            "warmup": 15
+        },
+        {
+            "id": "foe.umiri.attack.defense0",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "Enemy forces are fortifying their frontline positions.",
+            "extantreqs": {
+                "allresolution": 3
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense0.elusive",
+                    "chance": 30
+                },
+                {
+                    "id": "foe.umiri.attack.defense0.resilient",
+                    "chance": 50
+                },
+                {
+                    "id": "foe.umiri.attack.defense0.braced"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense0.elusive",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "Even on the battlefield, she acts as an instructor; the troops under her command are swift and resilient.",
+            "description": "Even on the battlefield, she acts as an instructor; the troops under her command are swift and resilient.",
+            "warmup": 25,
+            "aspects": {
+                "concealidentity": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "german": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "foe.elusive": 1,
+                        "foe.hidden": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe.elusive",
+                    "level": 1
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense0.elusive.all.startup"
+                },
+                {
+                    "id": "foe.umiri.attack.defense0.elusive",
+                    "chance": 40
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense0.elusive.all.startup",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "requirements": {
+                "foe": -1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense0.elusive.all"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense0.elusive.all",
+            "$extends": ["foe.umiri.attack.defense0.elusive"],
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "german": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "foe.elusive": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense0.elusive.all",
+                    "chance": 40
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense0.braced",
+            "$extends": ["foe.umiri.attack.defense0.elusive"],
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "Even on the battlefield, she acts as an instructor; the troops under her command are swift and resilient.",
+            "description": "Even on the battlefield, she acts as an instructor; the troops under her command are swift and resilient.",
+            "extantreqs": {
+                "mechanized_forces": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "mechanized_forces": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "foe.braced": 1,
+                        "foe.hidden": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe.braced",
+                    "level": 1
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense0.braced.all.startup"
+                },
+                {
+                    "id": "foe.umiri.attack.defense0.braced",
+                    "chance": 40
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense0.braced.all.startup",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "requirements": {
+                "foe": -1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense0.braced.all"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense0.braced.all",
+            "$extends": ["foe.umiri.attack.defense0.elusive"],
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "Even on the battlefield, she acts as an instructor; the troops under her command are swift and resilient.",
+            "description": "Even on the battlefield, she acts as an instructor; the troops under her command are swift and resilient.",
+            "extantreqs": {
+                "mechanized_forces": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "mechanized_forces": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "foe.braced": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe.braced",
+                    "level": 1
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense0.braced.all",
+                    "chance": 40
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense0.resilient",
+            "$extends": ["foe.umiri.attack.defense0.elusive"],
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "Even on the battlefield, she acts as an instructor; the troops under her command are swift and resilient.",
+            "description": "Even on the battlefield, she acts as an instructor; the troops under her command are swift and resilient.",
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "german": 1
+                    },
+                    "forbidden": {
+                        "mechanized_forces": 1,
+                        "foe.umiri.mark": 1,
+                        "foe.resilient": 1,
+                        "foe.hidden": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe.resilient",
+                    "level": 1
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense0.resilient.all.startup"
+                },
+                {
+                    "id": "foe.umiri.attack.defense0.resilient",
+                    "chance": 40
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense0.resilient.all.startup",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "requirements": {
+                "foe": -1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense0.resilient.all"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense0.resilient.all",
+            "$extends": ["foe.umiri.attack.defense0.elusive"],
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "Even on the battlefield, she acts as an instructor; the troops under her command are swift and resilient.",
+            "description": "Even on the battlefield, she acts as an instructor; the troops under her command are swift and resilient.",
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "german": 1
+                    },
+                    "forbidden": {
+                        "mechanized_forces": 1,
+                        "foe.umiri.mark": 1,
+                        "foe.resilient": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe.resilient",
+                    "level": 1
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense0.resilient.all",
+                    "chance": 40
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally.first",
+            "label": "Enemy Troops Reorganizing",
+            "startdescription": "We have intercepted German communications; they are gathering and reorganizing their formations.",
+            "description": "We have intercepted German communications; they are gathering and reorganizing their formations.",
+            "actionId": "foerally",
+            "requirements": {
+                "strategy.rally": 1
+            },
+            "extantreqs": {
+                "strategy_trigger": -1
+            },
+            "playAudioTrack": "bgm.foerally.mp3",
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally",
+            "label": "Enemy Troops Reorganizing",
+            "startdescription": "We have intercepted German communications; they are gathering and reorganizing their formations.",
+            "description": "We have intercepted German communications; they are gathering and reorganizing their formations.",
+            "actionId": "foerally",
+            "warmup": 10,
+            "requirements": {
+                "strategy.rally": 1
+            },
+            "alt": [
+                {
+                    "id": "reinforcements.startup.rally",
+                    "additional": true,
+                    "chance": 60
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_a0",
+                    "chance": 50
+                },
+                {
+                    "id": "foe.umiri.attack.rally_f"
+                },
+                {
+                    "id": "foe.umiri.attack.rally_d",
+                    "chance": 50
+                },
+                {
+                    "id": "foe.umiri.attack.rally_a"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_d",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "Even on the battlefield, she serves as an instructor, commanding troops that stand firm and strike lethally.",
+            "description": "Even on the battlefield, she serves as an instructor, commanding troops that stand firm and strike lethally.",
+            "actionId": "foedefense",
+            "extantreqs": {
+                "allresolution": 3
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_d1",
+                    "chance": 30
+                },
+                {
+                    "id": "foe.umiri.attack.rally_d2",
+                    "chance": 30
+                },
+                {
+                    "id": "foe.umiri.attack.rally_d3",
+                    "chance": 50
+                },
+                {
+                    "id": "foe.umiri.attack.rally_d4"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_d1",
+            "label": "Enemy Adjusting Defensive Strategy",
+            "startdescription": "Even on the battlefield, she serves as an instructor, commanding troops that stand firm and strike lethally.",
+            "description": "Even on the battlefield, she serves as an instructor, commanding troops that stand firm and strike lethally.",
+            "extantreqs": {
+                "foechasseur": 1
+            },
+            "requirements": {
+                "enemyforces": -3
+            },
+            "effects": {
+                "enemyforces": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "foechasseur": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "foe.retaliatory.chasseur": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "warmup": 15,
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe.retaliatory.chasseur",
+                    "level": 1
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "weakened",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needswinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsmoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforgemoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgeforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgewinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgelantern",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "foe.aerial",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "foe.escorted",
+                    "level": 0
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_d1",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_d2",
+            "$extends": ["foe.umiri.attack.rally_d1"],
+            "extantreqs": {},
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "foeinfantry": 1,
+                        "foekommando": 1,
+                        "foemanhunters": 1,
+                        "foesniper": 1,
+                        "foechasseur": 1
+                    },
+                    "essential": {
+                        "weakened": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "foe.coordinated": 1,
+                        "foe.coordinated.foemanhunters": 1,
+                        "foe.coordinated.foesniper": 1,
+                        "foe.coordinated.foechasseur": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foeinfantry",
+                    "mutate": "foe.coordinated",
+                    "level": 1
+                },
+                {
+                    "filter": "foekommando",
+                    "mutate": "foe.coordinated",
+                    "level": 1
+                },
+                {
+                    "filter": "foemanhunters",
+                    "mutate": "foe.coordinated.foemanhunters",
+                    "level": 1
+                },
+                {
+                    "filter": "foesniper",
+                    "mutate": "foe.coordinated.foesniper",
+                    "level": 1
+                },
+                {
+                    "filter": "foechasseur",
+                    "mutate": "foe.coordinated.foechasseur",
+                    "level": 1
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "weakened",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needswinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsmoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforgemoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgeforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgewinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgelantern",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "foe.aerial",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "foe.escorted",
+                    "level": 0
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_d2.all.startup"
+                },
+                {
+                    "id": "foe.umiri.attack.rally_d2",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_d2.all.startup",
+            "label": "Enemy Troops Reorganizing",
+            "requirements": {
+                "foe": -1
+            },
+            "effects": {
+                "enemyforces": -1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_d2.all"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_d2.all",
+            "$extends": ["foe.umiri.attack.rally_d2"],
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "foeinfantry": 1,
+                        "foekommando": 1,
+                        "foemanhunters": 1,
+                        "foesniper": 1,
+                        "foechasseur": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "foe.coordinated": 1,
+                        "foe.coordinated.foemanhunters": 1,
+                        "foe.coordinated.foesniper": 1,
+                        "foe.coordinated.foechasseur": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_d2.all",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_d3",
+            "$extends": ["foe.umiri.attack.rally_d1"],
+            "extantreqs": {},
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "german": 1
+                    },
+                    "essential": {
+                        "weakened": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "foe.commander": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe.commander",
+                    "level": 1
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "weakened",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needswinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsmoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforgemoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgeforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgewinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgelantern",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "foe.aerial",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "foe.escorted",
+                    "level": 0
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_d3.all.startup"
+                },
+                {
+                    "id": "foe.umiri.attack.rally_d3",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_d3.all.startup",
+            "label": "Enemy Troops Reorganizing",
+            "requirements": {
+                "foe": -1
+            },
+            "effects": {
+                "enemyforces": -1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_d3.all"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_d3.all",
+            "$extends": ["foe.umiri.attack.rally_d3"],
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "german": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "foe.commander": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_d3.all",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_d4",
+            "$extends": ["foe.umiri.attack.rally_d1"],
+            "extantreqs": {
+                "mechanized_forces": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "mechanized_forces": 1
+                    },
+                    "essential": {
+                        "weakened": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "foe.lethal": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "mechanized_forces",
+                    "mutate": "foe.lethal",
+                    "level": 1
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "weakened",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needswinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsmoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforgemoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgeforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgewinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgelantern",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "foe.aerial",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "foe.escorted",
+                    "level": 0
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_d4",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_d4.all.startup",
+            "label": "Enemy Troops Reorganizing",
+            "requirements": {
+                "foe": -1
+            },
+            "effects": {
+                "enemyforces": -1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_d4.all"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_d4.all",
+            "$extends": ["foe.umiri.attack.rally_d4"],
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "mechanized_forces": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "foe.lethal": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_d4.all",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_a0",
+            "label": "Enemy Troops Reorganizing",
+            "startdescription": "We have intercepted German communications; they are gathering and reorganizing their formations.",
+            "description": "We have intercepted German communications; they are gathering and reorganizing their formations.",
+            "extantreqs": {
+                "foe.officerdetail": -4
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_a"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_a",
+            "label": "Enemy Troops Reorganizing",
+            "startdescription": "We have intercepted German communications; they are gathering and reorganizing their formations.",
+            "description": "Gunfire echoes from the trenches. It seems Ilse's private forces have swelled in number again, keeping German military police occupied.",
+            "warmup": 15,
+            "effects": {
+                "enemyforces": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "german": 1
+                    },
+                    "essential": {
+                        "weakened": 1
+                    },
+                    "forbidden": {
+                        "foe.officerdetail": 1,
+                        "foe.umiri.mark": 1,
+                        "foeartillery": 1,
+                        "foebombers": 1,
+                        "foefighter": 1,
+                        "foefighterhidden": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe.officerdetail",
+                    "level": 1
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "weakened",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needswinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsmoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforgemoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgeforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgewinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgelantern",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "foe.aerial",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "foe.escorted",
+                    "level": 0
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_a1.all.startup"
+                },
+                {
+                    "id": "foe.umiri.attack.rally_a1",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_a1.all.startup",
+            "label": "Enemy Troops Reorganizing",
+            "requirements": {
+                "foe": -1
+            },
+            "effects": {
+                "enemyforces": -1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_a1.all"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_a1",
+            "$extends": ["foe.umiri.attack.rally_a"],
+            "requirements": {
+                "enemyforces": -3
+            },
+            "tablereqs": {
+                "foe.officerdetail": -7
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_a1.all.startup"
+                },
+                {
+                    "id": "foe.umiri.attack.rally_a1",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_a1.all",
+            "$extends": ["foe.umiri.attack.rally_a1"],
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "german": 1
+                    },
+                    "forbidden": {
+                        "foe.officerdetail": 1,
+                        "foe.umiri.mark": 1,
+                        "foeartillery": 1,
+                        "foebombers": 1,
+                        "foefighter": 1,
+                        "foefighterhidden": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "warmup": 15,
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_a1.all",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_f",
+            "label": "Enemy Officers Deploy Tactical Arts",
+            "startdescription": "Cold winds sweep the field; the living tremble, and the dead rise again.\n\n[Enemy corpses on the battlefield will be reborn as Manhunters.]",
+            "description": "Cold winds sweep the field; the living tremble, and the dead rise again.\n\n[Enemy corpses on the battlefield will be reborn as Manhunters.]",
+            "warmup": 15,
+            "extantreqs": {
+                "foe.skill.raisedead": 1
+            },
+            "tablereqs": {
+                "foe.corpses": 1
+            },
+            "xpans": {
+                "skillraisedead_exhausted": 99,
+                "umiri_promotiontodisciple": 99
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_f.furthermore"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_f.furthermore",
+            "label": "Enemy Officers Deploy Tactical Arts",
+            "startdescription": "Cold winds sweep the field; the living tremble, and the dead rise again.\n\n[Enemy corpses on the battlefield will be reborn as Manhunters.]",
+            "description": "Cold winds sweep the field; the living tremble, and the dead rise again.\n\n[Enemy corpses on the battlefield will be reborn as Manhunters.]",
+            "warmup": 1,
+            "furthermore": [
+                {
+                    "target": "~/tabletop",
+                    "mutations": [
+                        {
+                            "filter": "foechasseur",
+                            "mutate": "weakened",
+                            "level": 0
+                        },
+                        {
+                            "filter": "foechasseur",
+                            "mutate": "needsedgewinter",
+                            "level": 0
+                        },
+                        {
+                            "filter": "foechasseur",
+                            "mutate": "needsedgelantern",
+                            "level": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

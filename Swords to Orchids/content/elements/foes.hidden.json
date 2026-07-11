@@ -1,0 +1,1007 @@
+{
+"elements": [
+    {
+	"id": "op.environment",
+	"label": "Environment",
+	"description": "Environment",
+    "isAspect": true,
+    "isHidden": true
+    },
+    {
+	"id": "op.snows",
+	"aspects$add": {
+        "op.environment": 1
+	}
+    },
+    {
+	"id": "op.storms",
+	"aspects$add": {
+        "op.environment": 1
+	}
+    },
+    {
+	"id": "op.fog",
+	"aspects$add": {
+        "op.environment": 1
+	}
+    },
+    {
+	"id": "environmenthidden",
+	"label": "environmenthidden",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡牌用来判定不利环境"
+    },
+    {
+	"id": "enemyhidden",
+	"label": "Enemy hidden",
+	"description": "Breath pressed into the earth, blade hidden in the ruins. Patience is the Colonel's way to defeat the enemy.\n[This enemy's attack threshold will be significantly increased once.]",
+	"isAspect": true
+    },
+    {
+	"id": "enemyhidden.mark",
+	"label": "Enemy hidden",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡牌用来检测敌军隐匿"
+    },
+    {
+	"id": "enemyintoenvironment",
+	"label": "Enemy hidden",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡牌用来升级敌军隐匿"
+    },
+    {
+	"id": "enemyintoenvironmentair",
+	"label": "Enemy hidden",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡牌用来升级敌军战斗机隐匿"
+    },
+
+    {
+	"id": "foe.fighter_aircraft.environment",
+	"label": "Enemy Fighter Squadron",
+	"description": "First the hum of the rotors, then the constantly shriek of the dive, and then the roar of newly ignited flames.\n\n[When the air base is destroyed, this aircraft will be destroyed as well. This enemy will not take the initiative to attack or interfere with missions.]",
+	"inherits": "foe.template",
+	"aspects": {
+	    "mortal": 1,
+	    "foe.aerial": 4,
+		"foe_points": 6,
+	    "german": 1,
+		"german_airsupremacy_mark": 4,
+		"mechanized_forces": 1,
+		"foe.forcesize": 8,
+		"foefighterhidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.fighter_aircraft.environment",
+	    "refreshair": "foe.fighter_aircraft.environment",
+	    "concealair": "foe.fighter_aircraft",
+	    "decaytoair": "foe.fighter_aircraft.refuel",
+	    "enemyintoenvironmentair": "foe.fighter_aircraft.environment.hidden",
+	    "makecasualty_air": "foe.fighter_aircraft.repairing",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.fighter_aircraft.environment.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -20
+		},
+		{
+		    "id": "fighter_aircraft_toearth",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 20
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foeweaken",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "foe.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ]
+	},
+	"decayTo": "foe.fighter_aircraft.refuel"
+    },
+	
+    {
+	"id": "foe.fighter_aircraft.environment.hidden",
+	"label": "Unknown Enemy",
+	"description": "The most dangerous enemies are those whom we have not anticipate. Always.",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "german": 1,
+		"foe_points": 6,
+		"german_airsupremacy_mark": 4,
+		"mechanized_forces": 1,
+		"foe.forcesize": 6,
+		"foefighterhidden": 1
+	},
+	"decayTo": "foe.fighter_aircraft.refuel",
+	"xtriggers": {
+	    "refresh": "foe.fighter_aircraft.environment.hidden",
+	    "refreshair": "foe.fighter_aircraft.environment.hidden",
+	    "concealair": "foe.fighter_aircraft",
+	    "decaytoair": "foe.fighter_aircraft.refuel",
+	    "makecasualty_air": "foe.fighter_aircraft.repairing",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.fighter_aircraft.environment",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foeweaken",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "foe.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -8
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+
+    {
+	"id": "foe.infantry.environment",
+	"$extends" : ["foe.infantry"],
+	"aspects": {
+	    "mortal": 1,
+	    "needsedge": 12,
+		"foe_points": 3,
+		"enemyhidden": 1,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+		"foeinfantry": 1,
+		"foe.forcesize": 3
+	},
+	"xtriggers": {
+	    "defence.manhunters": "foe.manhunters.environment",
+	    "defence.kommando": "foe.kommando.environment",
+	    "defence.sniper": "foe.sniper.environment",
+	    "refresh": "foe.infantry.environment",
+	    "adv_german": "foe.infantry.environment.ins",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.infantry.environment.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.infantry",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foeweaken",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.infantry.environment.hidden",
+	"$extends" : ["foe.infantry.hidden"],
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 3,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+		"foeinfantry": 1,
+		"foe.forcesize": 3
+	},
+	"xtriggers": {
+	    "defence.manhunters": "foe.manhunters.environment.hidden",
+	    "defence.kommando": "foe.kommando.environment.hidden",
+	    "defence.sniper": "foe.sniper.environment.hidden",
+	    "refresh": "foe.infantry.environment.hidden",
+	    "adv_german": "foe.infantry.environment.hidden.ins",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.infantry.environment",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foeweaken",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.kommando.environment",
+	"$extends" : ["foe.kommando"],
+	"aspects": {
+	    "mortal": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedge": 12,
+		"foe_points": 3,
+		"defence_up": 1,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+		"foekommando": 1,
+		"foe.forcesize": 2
+	},
+	"xtriggers": {
+		"handtoattack_foekommando": "foe.kommando.hand",
+	    "refresh": "foe.kommando.environment",
+	    "adv_german": "foe.kommando.environment.ins",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.kommando.environment.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.kommando",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foeweaken",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.kommando.environment.hidden",
+	"$extends" : ["foe.kommando.hidden"],
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 3,
+		"defence_up": 1,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+		"foekommando": 1,
+		"foe.forcesize": 3
+	},
+	"xtriggers": {
+		"handtoattack_foekommando": "foe.kommando.hand",
+	    "refresh": "foe.kommando.environment.hidden",
+	    "adv_german": "foe.kommando.environment.hidden.ins",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.kommando.environment",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foeweaken",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.sniper.environment",
+	"$extends" : ["foe.sniper"],
+	"aspects": {
+	    "mortal": 1,
+	    "needswinter": 12,
+	    "needsmoth": 12,
+		"foe_points": 3,
+		"attack_up": 1,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+		"foesniper": 1,
+		"foe.forcesize": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.sniper.environment",
+	    "adv_german": "foe.sniper.environment.ins",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "concealidentity": "foe.sniper.environment.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.sniper",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foeweaken",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.sniper.environment.hidden",
+	"$extends" : ["foe.sniper.hidden"],
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 3,
+		"attack_up": 1,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+		"foesniper": 1,
+		"foe.forcesize": 3
+	},
+	"xtriggers": {
+	    "refresh": "foe.sniper.environment.hidden",
+	    "adv_german": "foe.sniper.environment.hidden.ins",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.sniper.environment",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foeweaken",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.manhunters.environment",
+	"$extends" : ["foe.manhunters"],
+	"aspects": {
+	    "mortal": 1,
+	    "needsedgelantern": 12,
+	    "needsedgewinter": 12,
+	    "needsedgeforge": 12,
+		"foe_points": 4,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+		"foemanhunters": 1,
+		"foe.forcesize": 3
+	},
+	"xtriggers": {
+	    "refresh": "foe.manhunters.environment",
+	    "adv_german": "foe.manhunters.environment.ins",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "enemyintoenvironment": "foe.manhunters.environment.hidden",
+	    "concealidentity": "foe.manhunters.environment.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foeweaken",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.manhunters.environment.hidden",
+	"$extends" : ["foe.manhunters.hidden"],
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 4,
+		"enemyhidden.mark": 1,
+	    "german": 1,
+		"foemanhunters": 1,
+		"foe.forcesize": 3
+	},
+	"xtriggers": {
+	    "refresh": "foe.manhunters.environment.hidden",
+	    "adv_german": "foe.manhunters.environment.hidden.ins",
+	    "killgerman": "foe.corpses",
+	    "killfoe": "foe.corpses",
+	    "killmortal": "foe.corpses",
+	    "revealidentity": "foe.manhunters.environment",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foeweaken",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "needsedgeforge",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.chasseur.environment",
+	"$extends" : ["foe.chasseur"],
+	"aspects": {
+	    "otherworldly": 1,
+	    "foe.resilient": 1,
+	    "foe.elusive": 1,
+	    "needsedgewinter": 12,
+	    "needsedgelantern": 12,
+		"foe_points": 4,
+		"neutral_monster": 1,
+		"enemyhidden.mark": 1,
+		"german": 1,
+		"foechasseur": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.chasseur.environment",
+	    "adv_german": "foe.chasseur.environment.ins",
+	    "killgerman": "foe.chasseur.reviving",
+	    "killfoe": "foe.chasseur.reviving",
+	    "concealidentity": "foe.chasseur.environment.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "foe.chasseur",
+		    "morpheffect": "transform"
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foeweaken",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "foe.chasseur.environment.hidden",
+	"$extends" : ["foe.chasseur.hidden"],
+	"aspects": {
+	    "foe.hidden": 1,
+		"foe_points": 4,
+		"neutral_monster": 1,
+		"enemyhidden.mark": 1,
+		"german": 1,
+		"foechasseur": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.chasseur.environment.hidden",
+	    "adv_german": "foe.chasseur.environment.hidden.ins",
+	    "killgerman": "foe.chasseur.reviving",
+	    "killfoe": "foe.chasseur.reviving",
+	    "revealidentity": "foe.chasseur.environment",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "foeweaken",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "spam_up": [
+		{
+		    "id": "foe_points",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgelantern",
+		    "morpheffect": "mutate",
+		    "level": 0
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 0
+		}
+	    ]
+	}
+    }
+	
+	
+]
+}

@@ -1,0 +1,669 @@
+{
+    "recipes": [
+    {
+	"id": "recon.cityinrebellion.scouts",
+    "$extends": ["recon.cityinflames.scouts"],
+	"requirements": {
+	    "friend": 1,
+	    "shrine.wolf.lionsmith": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"op.fire",
+		"op.fire",
+		"op.ruins",
+		"op.ruins",
+		"foe.insurgent",
+		"foe.insurgent",
+		"hindrance.lionsmith"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": []
+    },
+    {
+	"id": "recon.cityinrebellion",
+    "$extends": ["recon.cityinflames"],
+    "requirements": {
+	    "friend": -1,
+	    "shrine.wolf.lionsmith": 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"op.fire",
+		"op.fire",
+		"op.ruins",
+		"op.ruins",
+		"foe.insurgent",
+		"foe.insurgent",
+		"hindrance.lionsmith"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": []
+    },
+
+        {
+            "id": "operate.farm.edge.contemnant",
+            "alt$append": [
+                {
+                    "id": "spit.hostilelocals.disorgan",
+                    "additional": true
+                }
+            ]
+        },
+        {
+            "id": "operate.farm.grail.contemnant",
+            "alt$append": [
+                {
+                    "id": "spit.hostilelocals.disorgan",
+                    "additional": true
+                }
+            ]
+        },
+        {
+            "id": "operate.church.edge",
+            "alt$append": [
+                {
+                    "id": "spit.hostilelocals.disorgan",
+                    "additional": true
+                }
+            ]
+        },
+        {
+            "id": "operate.farm.edge",
+            "alt$append": [
+                {
+                    "id": "spit.hostilelocals.disorgan",
+                    "additional": true
+                }
+            ]
+        },
+        {
+            "id": "operate.farm.grail",
+            "alt$append": [
+                {
+                    "id": "spit.hostilelocals.disorgan",
+                    "additional": true
+                }
+            ]
+        },
+        {
+            "id": "spit.hostilelocals.disorgan",
+            "$extends": ["spit.hostilelocals"],
+            "extantreqs": {
+                "nya.infamy": 3
+            }
+        },
+        {
+            "id": "recon.scouts.shrine",
+            "label": "Reconnaissance",
+            "startdescription": "Survey the battlefield. Where can we seize an opening? Where lie our enemies?",
+            "description": "We have made a discovery.\n\n[The enemy has occupied the shrine before you. You must breach their defensive line to conduct worship rituals.]",
+            "requirements": {
+                "shrinecolonel": 1,
+                "consecration.used": 1
+            },
+            "aspects": {
+                "umiri_occupy": 1
+            }
+        },
+    {
+	"id": "recon.scouts.delocal",
+	"label": "Reconnaissance",
+	"startdescription": "Trust has vanished entirely.\n\n[When the intelligence network's sabotage strength hits 7, all churches and farms will turn hostile toward you.]",
+            "requirements": {
+		"influence_local": 1
+	},
+	"extantreqs": {
+		"nya.disorgan": 7
+	},
+	"mutations": [
+		{
+			"filter": "influence_local",
+			"mutate": "warzone.abused",
+			"level": 1
+		}
+	]
+    },
+    {
+	"id": "recon.scouts.deside",
+	"label": "Reconnaissance",
+	"startdescription": "Nothing can be found here.\n\n[When the intelligence network's infiltration strength hits 7, you will be unable to uncover side missions.]",
+            "requirements": {
+		"influence_side": 1
+	},
+	"extantreqs": {
+		"nya.infiltration": 7
+	},
+	"effects": {
+		"op": -99,
+		"side": -99
+	}
+    },
+        {
+            "id": "recon.bialystok.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.vilna.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.minsk.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.vitebsk.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.orsha.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.smolensk.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.vyazma.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.rzhev.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.bryansk.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.kyiv.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.kursk.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.livny.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.voronezh.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.kharkov.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.uman.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.odessa.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.perekop.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.izyum.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.stalingrad.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.wasteland.a.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.wasteland.b.scouts",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.bialystok",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.vilna",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.minsk",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.vitebsk",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.orsha",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.smolensk",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.vyazma",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.rzhev",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.bryansk",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.kyiv",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.kursk",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.livny",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.voronezh",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.kharkov",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.uman",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.odessa",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.perekop",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.izyum",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                }
+            ]
+        },
+        {
+            "id": "recon.stalingrad",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.wasteland.a",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        },
+        {
+            "id": "recon.wasteland.b",
+            "linked": [
+                {
+                    "id": "recon.scouts.delocal"
+                },
+                {
+                    "id": "recon.scouts.deside"
+                },
+                {
+                    "id": "recon.scouts.shrine"
+                }
+            ]
+        }
+    ]
+}

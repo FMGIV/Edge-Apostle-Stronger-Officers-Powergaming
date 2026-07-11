@@ -1,0 +1,3381 @@
+{
+  "recipes": [
+    {
+      "id": "nya.startup",
+      "actionId": "nya",
+      "label": "The enemy's intelligence agency is growing.",
+      "startdescription": "They are planning their next move...",
+      "requirements": {
+        "nyanya": 1
+      },
+      "extantreqs": {
+        "blocker_nya": -1
+      },
+      "alt": [
+        {
+          "id": "nya.produce.blocker"
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.produce.strategy"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.produce.blocker",
+      "label": "…",
+      "startdescription": "Our intelligence department has not been hindered for a long time. It seems the other side is having some minor trouble.",
+      "extantreqs": {
+        "obdurant.story": 1,
+        "kyiv.here": 1,
+        "wasteland": -1,
+        "lake.here": -1,
+        "blocker_nya": -1,
+        "foe.resolution": -3
+      },
+      "effects": {
+        "nya.retired": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "nya.startup.time",
+      "actionId": "nya",
+      "label": "The enemy's intelligence agency is growing.",
+      "startdescription": "They are planning their next move...",
+      "extantreqs": {
+        "obdurant.story": 1,
+        "wasteland.ironeater.here": -1,
+        "wasteland": -1,
+        "lake.here": -1,
+        "blocker_nya": -1
+      },
+      "effects": {
+        "nya.purple.unknown": 1
+      },
+      "linked": [
+        {
+          "id": "nya.produce.strategy"
+        }
+      ],
+      "alt": [
+        {
+          "id": "nya.produce.blocker"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.produce.strategy",
+      "label": "The enemy's intelligence agency is growing.",
+      "startdescription": "They are planning their next move...",
+      "internaldeck": {
+        "spec": [
+          "nya.strategy.inf.concealed",
+          "nya.strategy.dis.concealed",
+          "nya.strategy.dec.concealed",
+          "nya.strategy.downtime.concealed",
+          "nya.strategy.inf.concealed",
+          "nya.strategy.dis.concealed",
+          "nya.strategy.dec.concealed",
+          "nya.strategy.downtime.concealed",
+          "nya.strategy.inf.concealed"
+        ],
+        "draws": 1,
+        "defaultcard": "nya.strategy.inf.concealed",
+        "resetonexhaustion": true
+      },
+      "linked": [
+        {
+          "id": "nya.circle.high"
+        },
+        {
+          "id": "nya.circle"
+        }
+      ]
+    },
+    {
+      "id": "nya.circle",
+      "label": "The enemy's intelligence agency is growing.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "slots": [
+        {
+          "id": "needsally",
+          "label": "Spy",
+          "required": {
+            "friend": 1
+          },
+          "forbidden": {
+            "remnant": 1,
+            "exhausted": 1,
+            "damaged": 1,
+            "wounded": 1,
+            "friend.weakened": 1,
+            "mechanized_forces.friend": 1
+          }
+        }
+      ],
+      "tablereqs": {
+        "lake.here": -1,
+        "craterfield.here": -1,
+        "wasteland.ironeater.here": -1,
+        "wasteland": -1
+      },
+      "effects": {
+        "nya.strategy.prep": 1,
+        "long.lesson": -99,
+        "op": -99
+      },
+      "alt": [
+        {
+          "id": "nya.toomuch"
+        },
+        {
+          "id": "nya.toomuch2"
+        },
+        {
+          "id": "nya.befoundout",
+          "challenges": {
+            "lantern": "base",
+            "knock": "base"
+          }
+        },
+        {
+          "id": "nya.attack.inf.delayed",
+          "challenges": {
+            "edge": "base",
+            "heart": "base"
+          }
+        },
+        {
+          "id": "nya.attack.dis.delayed",
+          "challenges": {
+            "winter": "base",
+            "grail": "base"
+          }
+        },
+        {
+          "id": "nya.attack.dec.delayed",
+          "challenges": {
+            "forge": "base",
+            "moth": "base"
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.circle.still"
+        },
+        {
+          "id": "nya.circle.max"
+        },
+        {
+          "id": "nya.circle.silent"
+        },
+        {
+          "id": "nya.circle.pause"
+        },
+        {
+          "id": "nya.out.3",
+          "chance": 10
+        },
+        {
+          "id": "nya.out.2",
+          "chance": 20
+        },
+        {
+          "id": "nya.out.1",
+          "chance": 30
+        },
+        {
+          "id": "nya.firstone"
+        },
+        {
+          "id": "nya.attack.inf.quickly",
+          "chance": 40
+        },
+        {
+          "id": "nya.attack.dis.quickly",
+          "chance": 40
+        },
+        {
+          "id": "nya.attack.dec.quickly",
+          "chance": 40
+        },
+        {
+          "id": "nya.attack.downtime.quickly",
+          "chance": 40
+        },
+        {
+          "id": "nya.attack.inf"
+        },
+        {
+          "id": "nya.attack.dis"
+        },
+        {
+          "id": "nya.attack.dec"
+        },
+        {
+          "id": "nya.attack.downtime"
+        },
+        {
+          "id": "nya.circle.high"
+        },
+        {
+          "id": "nya.circle"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.firstone",
+      "label": "The enemy's intelligence agency is growing.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "friend": 1,
+        "firstone": -1
+      },
+      "mutations": [
+        {
+          "filter": "friend",
+          "mutate": "firstone",
+          "level": 1
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.circle.still"
+        },
+        {
+          "id": "nya.circle.max"
+        },
+        {
+          "id": "nya.circle.silent"
+        },
+        {
+          "id": "nya.circle.pause"
+        },
+        {
+          "id": "nya.attack.inf.quickly",
+          "chance": 50
+        },
+        {
+          "id": "nya.attack.dis.quickly",
+          "chance": 50
+        },
+        {
+          "id": "nya.attack.dec.quickly",
+          "chance": 50
+        },
+        {
+          "id": "nya.attack.downtime.quickly",
+          "chance": 50
+        },
+        {
+          "id": "nya.attack.inf"
+        },
+        {
+          "id": "nya.attack.dis"
+        },
+        {
+          "id": "nya.attack.dec"
+        },
+        {
+          "id": "nya.attack.downtime"
+        },
+        {
+          "id": "nya.circle.high"
+        },
+        {
+          "id": "nya.circle"
+        }
+      ]
+    },
+    {
+      "id": "nya.firstone.high",
+      "$extends": ["nya.firstone"]
+    },
+    {
+      "id": "nya.circle.high",
+      "$extends": ["nya.circle"],
+      "label": "The enemy's intelligence agency is growing.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "grandReqs": {
+        "[~/extant:allresolution] >= 10": 1
+      },
+      "alt": [
+        {
+          "id": "nya.toomuch"
+        },
+        {
+          "id": "nya.toomuch2"
+        },
+        {
+          "id": "nya.befoundout",
+          "challenges": {
+            "lantern": "advanced",
+            "knock": "advanced"
+          }
+        },
+        {
+          "id": "nya.attack.inf.delayed",
+          "challenges": {
+            "edge": "advanced",
+            "heart": "advanced"
+          }
+        },
+        {
+          "id": "nya.attack.dis.delayed",
+          "challenges": {
+            "winter": "advanced",
+            "grail": "advanced"
+          }
+        },
+        {
+          "id": "nya.attack.dec.delayed",
+          "challenges": {
+            "forge": "advanced",
+            "moth": "advanced"
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.circle.still"
+        },
+        {
+          "id": "nya.circle.max"
+        },
+        {
+          "id": "nya.circle.silent"
+        },
+        {
+          "id": "nya.circle.pause"
+        },
+        {
+          "id": "nya.out.3",
+          "chance": 30
+        },
+        {
+          "id": "nya.out.2",
+          "chance": 40
+        },
+        {
+          "id": "nya.out.1",
+          "chance": 50
+        },
+        {
+          "id": "nya.firstone.high"
+        },
+        {
+          "id": "nya.attack.inf.quickly",
+          "chance": 70
+        },
+        {
+          "id": "nya.attack.dis.quickly",
+          "chance": 70
+        },
+        {
+          "id": "nya.attack.dec.quickly",
+          "chance": 70
+        },
+        {
+          "id": "nya.attack.downtime.quickly",
+          "chance": 70
+        },
+        {
+          "id": "nya.attack.inf"
+        },
+        {
+          "id": "nya.attack.dis"
+        },
+        {
+          "id": "nya.attack.dec"
+        },
+        {
+          "id": "nya.attack.downtime"
+        },
+        {
+          "id": "nya.circle.high"
+        }
+      ],
+      "warmup": 15
+    },
+    {
+      "id": "nya.attack.inf.delayed",
+      "label": "The enemy's plan has been delayed!",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.inf": 1,
+        "nya.strategy.prep.delayed": -1
+      },
+      "effects": {
+        "nya.strategy.prep.delayed": 1
+      },
+      "linked": [
+        {
+          "id": "nya.delayed"
+        }
+      ]
+    },
+    {
+      "id": "nya.attack.dis.delayed",
+      "label": "The enemy's plan has been delayed!",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.dis": 1,
+        "nya.strategy.prep.delayed": -1
+      },
+      "effects": {
+        "nya.strategy.prep.delayed": 1
+      },
+      "linked": [
+        {
+          "id": "nya.delayed"
+        }
+      ]
+    },
+    {
+      "id": "nya.attack.dec.delayed",
+      "label": "The enemy's plan has been delayed!",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.dec": 1,
+        "nya.strategy.prep.delayed": -1
+      },
+      "effects": {
+        "nya.strategy.prep.delayed": 1
+      },
+      "linked": [
+        {
+          "id": "nya.delayed"
+        }
+      ]
+    },
+    {
+      "id": "nya.delayed",
+      "label": "The enemy's plan has been delayed!",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "warmup": 30,
+      "aspects": {
+        "reveal.strategy": 1
+      },
+      "alt": [
+        {
+          "id": "nya.weakness",
+          "additional": true
+        },
+        {
+          "id": "produce.weakness",
+          "chance": 30,
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.circle"
+        }
+      ]
+    },
+    {
+      "id": "nya.growup.inf",
+      "label": "The enemy knows more about us.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "long.lesson": -1
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Upgrade",
+          "required": {
+            "nya.bigger.inf": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.inf.op"
+        },
+        {
+          "id": "nya.growup"
+        }
+      ],
+      "signalimportantloop": true,
+      "warmup": 10
+    },
+    {
+      "id": "nya.growup.inf.op",
+      "label": "Attempt to disrupt their operation",
+      "startdescription": "Perhaps they have a weakness I can exploit...\n\n[You can try using Opportunity: <i>Animals</i>]",
+      "extantreqs": {
+        "weakness.nya": 1
+      },
+      "requirements": {
+        "nya.bigger.inf": 1
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Opportunity",
+          "required": {
+            "op": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.wolves.op"
+        },
+        {
+          "id": "nya.growup.dove.op"
+        },
+        {
+          "id": "nya.growup.cats.op"
+        },
+        {
+          "id": "nya.growup"
+        }
+      ],
+      "warmup": 15
+    },
+    {
+      "id": "nya.growup.dis",
+      "label": "The enemy knows more about us.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "long.lesson": -1
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Upgrade",
+          "required": {
+            "nya.bigger.dis": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.dis.op"
+        },
+        {
+          "id": "nya.growup"
+        }
+      ],
+      "signalimportantloop": true,
+      "warmup": 10
+    },
+    {
+      "id": "nya.growup.dis.op",
+      "label": "Attempt to disrupt their operation",
+      "startdescription": "Perhaps they have a weakness I can exploit...\n\n[You can try using Opportunity: <i>Locations</i>]",
+      "extantreqs": {
+        "weakness.nya": 1
+      },
+      "requirements": {
+        "nya.bigger.dis": 1
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Opportunity",
+          "required": {
+            "op": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.heights.op"
+        },
+        {
+          "id": "nya.growup.ruins.op"
+        },
+        {
+          "id": "nya.growup.sewers.op"
+        },
+        {
+          "id": "nya.growup"
+        }
+      ],
+      "warmup": 15
+    },
+    {
+      "id": "nya.growup.dec",
+      "label": "The enemy knows more about us.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "long.lesson": -1
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Upgrade",
+          "required": {
+            "nya.bigger.dec": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.dec.op"
+        },
+        {
+          "id": "nya.growup"
+        }
+      ],
+      "signalimportantloop": true,
+      "warmup": 10
+    },
+    {
+      "id": "nya.growup.dec.op",
+      "label": "Attempt to disrupt their operation",
+      "startdescription": "Perhaps they have a weakness I can exploit...\n\n[You can try using Opportunity: <i>Hour-Shadows</i>]",
+      "extantreqs": {
+        "weakness.nya": 1
+      },
+      "requirements": {
+        "nya.bigger.dec": 1
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Opportunity",
+          "required": {
+            "op": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.velvet.op"
+        },
+        {
+          "id": "nya.growup.madrugad.op"
+        },
+        {
+          "id": "nya.growup.beachcomber.op"
+        },
+        {
+          "id": "nya.growup"
+        }
+      ],
+      "warmup": 15
+    },
+    {
+      "id": "nya.growup.downtime",
+      "label": "The enemy knows more about us.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "long.lesson": -1
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Upgrade",
+          "required": {
+            "long.lesson": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.inf.op"
+        },
+        {
+          "id": "nya.growup.dis.op"
+        },
+        {
+          "id": "nya.growup.dec.op"
+        },
+        {
+          "id": "nya.growup"
+        }
+      ],
+      "signalimportantloop": true,
+      "warmup": 10
+    },
+    {
+      "id": "nya.growup.wolves.op",
+      "label": "The enemy's plan has been disrupted!",
+      "startdescription": "Countered Successfully!\n\n[This intelligence network will not grow this turn.]",
+      "extantreqs": {
+        "uq.nya.weakness.wolves": 1
+      },
+      "requirements": {
+        "op.wolves": 1
+      },
+      "effects": {
+        "long.lesson": -99,
+        "op": -99
+      },
+      "purge": {
+        "nya.weakness.wolves.hidden": 1
+      },
+      "alt": [
+        {
+          "id": "produce.weakness",
+          "additional": true,
+          "chance": 30
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.produce.strategy"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.growup.dove.op",
+      "label": "The enemy's plan has been disrupted!",
+      "startdescription": "Countered Successfully!\n\n[This intelligence network will not grow this turn.]",
+      "extantreqs": {
+        "uq.nya.weakness.dove": 1
+      },
+      "requirements": {
+        "op.dove": 1
+      },
+      "effects": {
+        "long.lesson": -99,
+        "op": -99
+      },
+      "purge": {
+        "nya.weakness.dove.hidden": 1
+      },
+      "alt": [
+        {
+          "id": "produce.weakness",
+          "additional": true,
+          "chance": 30
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.produce.strategy"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.growup.cats.op",
+      "label": "The enemy's plan has been disrupted!",
+      "startdescription": "Countered Successfully!\n\n[This intelligence network will not grow this turn.]",
+      "extantreqs": {
+        "uq.nya.weakness.cats": 1
+      },
+      "requirements": {
+        "op.cat": 1
+      },
+      "effects": {
+        "long.lesson": -99,
+        "op": -99
+      },
+      "purge": {
+        "nya.weakness.cats.hidden": 1
+      },
+      "alt": [
+        {
+          "id": "produce.weakness",
+          "additional": true,
+          "chance": 30
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.produce.strategy"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.growup.heights.op",
+      "label": "The enemy's plan has been disrupted!",
+      "startdescription": "Countered Successfully!\n\n[This intelligence network will not grow this turn.]",
+      "extantreqs": {
+        "uq.nya.weakness.heights": 1
+      },
+      "requirements": {
+        "op.highplace": 1
+      },
+      "effects": {
+        "long.lesson": -99,
+        "op": -99
+      },
+      "purge": {
+        "nya.weakness.heights.hidden": 1
+      },
+      "alt": [
+        {
+          "id": "produce.weakness",
+          "additional": true,
+          "chance": 30
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.produce.strategy"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.growup.ruins.op",
+      "label": "The enemy's plan has been disrupted!",
+      "startdescription": "Countered Successfully!\n\n[This intelligence network will not grow this turn.]",
+      "extantreqs": {
+        "uq.nya.weakness.ruins": 1
+      },
+      "requirements": {
+        "op.ruins": 1
+      },
+      "effects": {
+        "long.lesson": -99,
+        "op": -99
+      },
+      "purge": {
+        "nya.weakness.ruins.hidden": 1
+      },
+      "alt": [
+        {
+          "id": "produce.weakness",
+          "additional": true,
+          "chance": 30
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.produce.strategy"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.growup.sewers.op",
+      "label": "The enemy's plan has been disrupted!",
+      "startdescription": "Countered Successfully!\n\n[This intelligence network will not grow this turn.]",
+      "extantreqs": {
+        "uq.nya.weakness.sewers": 1
+      },
+      "requirements": {
+        "op.sewers": 1
+      },
+      "effects": {
+        "long.lesson": -99,
+        "op": -99
+      },
+      "purge": {
+        "nya.weakness.sewers.hidden": 1
+      },
+      "alt": [
+        {
+          "id": "produce.weakness",
+          "additional": true,
+          "chance": 30
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.produce.strategy"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.growup.velvet.op",
+      "label": "The enemy's plan has been disrupted!",
+      "startdescription": "Countered Successfully!\n\n[This intelligence network will not grow this turn.]",
+      "extantreqs": {
+        "uq.nya.weakness.velvet": 1
+      },
+      "requirements": {
+        "op.velvet": 1
+      },
+      "effects": {
+        "long.lesson": -99,
+        "op": -99
+      },
+      "purge": {
+        "nya.weakness.velvet.hidden": 1
+      },
+      "alt": [
+        {
+          "id": "produce.weakness",
+          "additional": true,
+          "chance": 30
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.produce.strategy"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.growup.madrugad.op",
+      "label": "The enemy's plan has been disrupted!",
+      "startdescription": "Countered Successfully!\n\n[This intelligence network will not grow this turn.]",
+      "extantreqs": {
+        "uq.nya.weakness.madrugad": 1
+      },
+      "requirements": {
+        "op.madrugad": 1
+      },
+      "effects": {
+        "long.lesson": -99,
+        "op": -99
+      },
+      "purge": {
+        "nya.weakness.madrugad.hidden": 1
+      },
+      "alt": [
+        {
+          "id": "produce.weakness",
+          "additional": true,
+          "chance": 30
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.produce.strategy"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.growup.beachcomber.op",
+      "label": "The enemy's plan has been disrupted!",
+      "startdescription": "Countered Successfully!\n\n[This intelligence network will not grow this turn.]",
+      "extantreqs": {
+        "uq.nya.weakness.beachcomber": 1
+      },
+      "requirements": {
+        "op.beachcomber": 1
+      },
+      "effects": {
+        "long.lesson": -99,
+        "op": -99
+      },
+      "purge": {
+        "nya.weakness.beachcomber.hidden": 1
+      },
+      "alt": [
+        {
+          "id": "produce.weakness",
+          "additional": true,
+          "chance": 30
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.produce.strategy"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.growup",
+      "label": "The enemy knows more about us.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "mutations": [
+        {
+          "filter": "nyanya",
+          "mutate": "nya.infiltration",
+          "level": "nya.bigger.inf",
+          "additive": true
+        },
+        {
+          "filter": "nyanya",
+          "mutate": "nya.disorgan",
+          "level": "nya.bigger.dis",
+          "additive": true
+        },
+        {
+          "filter": "nyanya",
+          "mutate": "nya.decryptcode",
+          "level": "nya.bigger.dec",
+          "additive": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.delete.inf"
+        },
+        {
+          "id": "nya.growup.delete.dis"
+        },
+        {
+          "id": "nya.growup.delete.dec"
+        },
+        {
+          "id": "nya.growup.delete"
+        }
+      ],
+      "warmup": 5
+    },
+    {
+      "id": "nya.growup.delete.inf",
+      "label": "The enemy knows more about us.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "nya.infiltration": 10
+      },
+      "mutations": [
+        {
+          "filter": "nyanya",
+          "mutate": "nya.infiltration",
+          "level": 0
+        },
+        {
+          "filter": "nyanya",
+          "mutate": "nya.infiltration",
+          "level": "10 - [nya.infiltration]",
+          "additive": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.delete.dis"
+        },
+        {
+          "id": "nya.growup.delete.dec"
+        },
+        {
+          "id": "nya.growup.delete"
+        }
+      ]
+    },
+    {
+      "id": "nya.growup.delete.dis",
+      "label": "The enemy knows more about us.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "nya.disorgan": 10
+      },
+      "mutations": [
+        {
+          "filter": "nyanya",
+          "mutate": "nya.disorgan",
+          "level": 0
+        },
+        {
+          "filter": "nyanya",
+          "mutate": "nya.disorgan",
+          "level": "10 - [nya.disorgan]",
+          "additive": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.delete.dec"
+        },
+        {
+          "id": "nya.growup.delete"
+        }
+      ]
+    },
+    {
+      "id": "nya.growup.delete.dec",
+      "label": "The enemy knows more about us.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "nya.decryptcode": 10
+      },
+      "mutations": [
+        {
+          "filter": "nyanya",
+          "mutate": "nya.decryptcode",
+          "level": 0
+        },
+        {
+          "filter": "nyanya",
+          "mutate": "nya.decryptcode",
+          "level": "10 - [nya.decryptcode]",
+          "additive": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.delete"
+        }
+      ]
+    },
+    {
+      "id": "nya.growup.delete",
+      "label": "The enemy knows more about us.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "effects": {
+        "long.lesson": -99,
+        "op": -99
+      },
+      "linked": [
+        {
+          "id": "nya.produce.strategy"
+        }
+      ]
+    },
+    {
+      "id": "nya.attack.inf",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.inf": 1,
+        "nya.strategy.prep": 4
+      },
+      "aspects": {
+        "reveal.strategy": 1
+      },
+      "effects": {
+        "nya.strategy.prep": -99,
+        "nya.strategy.prep.delayed": -99
+      },
+      "alt": [
+        {
+          "id": "nya.triggers.inf",
+          "expulsion": {
+            "filter": {
+              "intention.inf": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        },
+        {
+          "id": "nya.back",
+          "expulsion": {
+            "filter": {
+              "firstone": 1
+            },
+            "limit": 1
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.inf"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.attack.dis",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.dis": 1,
+        "nya.strategy.prep": 4
+      },
+      "aspects": {
+        "reveal.strategy": 1
+      },
+      "effects": {
+        "nya.strategy.prep": -99,
+        "nya.strategy.prep.delayed": -99
+      },
+      "alt": [
+        {
+          "id": "nya.triggers.dis",
+          "expulsion": {
+            "filter": {
+              "intention.dis": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        },
+        {
+          "id": "nya.back",
+          "expulsion": {
+            "filter": {
+              "firstone": 1
+            },
+            "limit": 1
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.dis"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.attack.dec",
+      "label": "The enemy has launched a decryption operation.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.dec": 1,
+        "nya.strategy.prep": 4
+      },
+      "aspects": {
+        "reveal.strategy": 1
+      },
+      "effects": {
+        "nya.strategy.prep": -99,
+        "nya.strategy.prep.delayed": -99
+      },
+      "alt": [
+        {
+          "id": "nya.triggers.dec",
+          "expulsion": {
+            "filter": {
+              "intention.dec": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        },
+        {
+          "id": "nya.back",
+          "expulsion": {
+            "filter": {
+              "firstone": 1
+            },
+            "limit": 1
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.dec"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.attack.downtime",
+      "label": "The enemy has not made its next move yet.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.downtime": 1,
+        "nya.strategy.prep": 4
+      },
+      "aspects": {
+        "reveal.strategy": 1
+      },
+      "effects": {
+        "nya.strategy.prep": -99,
+        "nya.strategy.prep.delayed": -99
+      },
+      "alt": [
+        {
+          "id": "nya.triggers.downtime",
+          "expulsion": {
+            "filter": {
+              "intention.downtime": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        },
+        {
+          "id": "nya.back",
+          "expulsion": {
+            "filter": {
+              "firstone": 1
+            },
+            "limit": 1
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.growup.downtime"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.attack.inf.quickly",
+      "$extends": ["nya.attack.inf"],
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.inf": 1,
+        "nya.strategy.prep": 3
+      }
+    },
+    {
+      "id": "nya.attack.dis.quickly",
+      "$extends": ["nya.attack.dis"],
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.dis": 1,
+        "nya.strategy.prep": 3
+      }
+    },
+    {
+      "id": "nya.attack.dec.quickly",
+      "$extends": ["nya.attack.dec"],
+      "label": "The enemy has launched a decryption operation.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.dec": 1,
+        "nya.strategy.prep": 3
+      }
+    },
+    {
+      "id": "nya.attack.downtime.quickly",
+      "$extends": ["nya.attack.downtime"],
+      "label": "The enemy has not made its next move yet.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.downtime": 1,
+        "nya.strategy.prep": 3
+      }
+    },
+    {
+      "id": "nya.triggers.inf",
+      "actionId": "nya.inf",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "What is their next plan?\n\n[This will cause the intelligence network to grow and execute a special operation.]",
+      "effects": {
+        "nya.bigger.inf": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.inf.movement"
+        }
+      ],
+      "warmup": 5
+    },
+    {
+      "id": "nya.triggers.inf.movement",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "What is their next plan?\n\n[This will cause the intelligence network to grow and execute a special operation.]",
+      "movements": {
+        "~/tabletop": {
+          "filter": "long.lesson"
+        }
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.inf.8",
+          "chance": 60
+        },
+        {
+          "id": "nya.triggers.inf.7",
+          "chance": 60
+        },
+        {
+          "id": "nya.triggers.inf.6",
+          "chance": 50
+        },
+        {
+          "id": "nya.triggers.inf.5",
+          "chance": 70
+        },
+        {
+          "id": "nya.triggers.inf.4",
+          "chance": 50
+        },
+        {
+          "id": "nya.triggers.inf.3",
+          "chance": 70
+        },
+        {
+          "id": "nya.triggers.inf.2",
+          "chance": 50
+        },
+        {
+          "id": "nya.triggers.inf.1"
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.inf.1",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "'Report! No useful intelligence has been detected.'\n\n[This will randomly consume one charge.]",
+      "requirements": {
+        "enemyforces": -3
+      },
+      "extantreqs": {
+        "nya.infiltration": 1
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Opportunities",
+          "required": {
+            "influence_temp": 1
+          },
+          "greedy": true,
+          "consumes": true
+        }
+      ],
+      "effects": {
+        "op": -99,
+        "enemyforces": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.inf.1",
+          "chance": 50
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.inf.2",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "Someone has tampered with our route map!\n\n[This generates a random Complication.]",
+      "requirements": {
+        "enemyforces": -3
+      },
+      "extantreqs": {
+        "nya.infiltration": 1
+      },
+      "effects": {
+        "enemyforces": 1
+      },
+      "deckeffects": {
+        "hindrances.light": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.inf.2.heavy",
+          "chance": 30
+        },
+        {
+          "id": "nya.triggers.inf.2",
+          "chance": 50
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.inf.2.heavy",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "Someone has tampered with our route map!\n\n[This generates a random Complication.]",
+      "requirements": {
+        "enemyforces": -3
+      },
+      "deckeffects": {
+        "hindrances.heavy.obdurant": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.inf.3",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "\"Sir! The enemy has massed large troop formations along the front lines.\"\n\n[This spawns additional Enemies.]",
+      "requirements": {
+        "enemyforces": -3
+      },
+      "extantreqs": {
+        "nya.infiltration": 3
+      },
+      "aspects": {
+        "concealidentity": 1
+      },
+      "effects": {
+        "enemyforces": 1
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Foe",
+          "required": {
+            "german": 1
+          },
+          "forbidden": {
+            "foe.umiri.mark": 1
+          },
+          "greedy": true
+        }
+      ],
+      "deckeffects": {
+        "decoyenemies.hidden": 2
+      },
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.inf.4",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "\"Enemy ambush ahead! Take cover!\"\n\n[This adds an extra Complication to the mission.]",
+      "requirements": {
+        "enemyforces": -3
+      },
+      "extantreqs": {
+        "nya.infiltration": 3
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Mission",
+          "required": {
+            "main": 1,
+            "side": 1
+          },
+          "forbidden": {
+            "foe.guardian": 1
+          },
+          "greedy": true
+        }
+      ],
+      "effects": {
+        "enemyforces": 1
+      },
+      "mutations": [
+        {
+          "filter": "main",
+          "mutate": "foe.guardian",
+          "level": 1
+        },
+        {
+          "filter": "side",
+          "mutate": "foe.guardian",
+          "level": 1
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.inf.4",
+          "chance": 59
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.inf.5",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "They’ve moved!",
+      "extantreqs": {
+        "nya.infiltration": 5
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.inf.5.dec",
+          "chance": 50
+        },
+        {
+          "id": "nya.triggers.inf.5.dis"
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.inf.5.dec",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "\"Enemy forces have intercepted Communication Line Five! Shut it down immediately!\"\n\n[This raises your Decryption Level.]",
+      "requirements": {
+        "enemyforces": -3
+      },
+      "effects": {
+        "enemyforces": 1
+      },
+      "furthermore": [
+        {
+          "target": "~/tabletop!nya[situationstorage]+",
+          "aspects": {
+            "add_dec": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.inf.5.dec",
+          "chance": 50
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.inf.5.dis",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "\"Local resistance cells have made contact with enemy forces!\"\n\n[This increases your Resistance Level.]",
+      "requirements": {
+        "enemyforces": -3
+      },
+      "effects": {
+        "enemyforces": 1
+      },
+      "furthermore": [
+        {
+          "target": "~/tabletop!nya[situationstorage]+",
+          "aspects": {
+            "add_dis": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.inf.5.dis",
+          "chance": 50
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.inf.6",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "\"Team Two has lost contact! Repeat, Team Two is out of communication!\"\n\n[This removes repeatable Secondary Objectives.]",
+      "requirements": {
+        "enemyforces": -3
+      },
+      "grandReqs": {
+        "[~/extant:nya.infiltration] == 5 || [~/extant:nya.infiltration] == 6": 1
+      },
+      "extantreqs": {
+        "nya.infiltration": 5
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Side",
+          "required": {
+            "side.rescueallies": 1,
+            "side.weaponscache": 1,
+            "side.adeptgrail": 1,
+            "side.adeptlantern": 1,
+            "side.adeptwinter": 1,
+            "side.rescuepartisans": 1
+          },
+          "greedy": true,
+          "consumes": true
+        }
+      ],
+      "effects": {
+        "enemyforces": 1,
+        "side": -99
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.inf.6",
+          "chance": 50
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.inf.7",
+      "actionId": "nya.inf",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "800 grams of rye bread, a small portion of meat, and a modest ration of alcohol.\n\n[If no defensive measures are taken, you will suffer one point of mental trauma.]",
+      "extantreqs": {
+        "nya.infiltration": 7
+      },
+      "effects": {
+        "nya.poison": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.inf.7.defend"
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.inf.7.defend",
+      "actionId": "nya.inf",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "800 grams of rye bread, a small portion of meat, and a modest ration of alcohol.\n\n[If no defensive measures are taken, you will suffer one point of mental trauma.]",
+      "slots": [
+        {
+          "id": "needssomething",
+          "label": "Defend",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "weapon": 1,
+            "exhausted": 1,
+            "supplies": 1,
+            "contemplation": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "nya.triggers.inf.7.heart"
+        },
+        {
+          "id": "nya.triggers.inf.7.lantern"
+        }
+      ],
+      "effects": {
+        "trauma": 1
+      },
+      "warmup": 30
+    },
+    {
+      "id": "nya.triggers.inf.7.heart",
+      "actionId": "nya.inf",
+      "label": "Resist with Heart",
+      "startdescription": "Curses lifted, immune to all poisons.",
+      "requirements": {
+        "heart": 6
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      }
+    },
+    {
+      "id": "nya.triggers.inf.7.lantern",
+      "actionId": "nya.inf",
+      "label": "Perceive with Lantern",
+      "startdescription": "I broke off the poisoned portion and tossed it into the mud.",
+      "requirements": {
+        "lantern": 6
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      }
+    },
+    {
+      "id": "nya.triggers.inf.8",
+      "actionId": "nya.inf",
+      "label": "Enemy Infiltration Operation Launched",
+      "startdescription": "Killer!",
+      "extantreqs": {
+        "nya.infiltration": 9
+      },
+      "effects": {
+        "nya.killer": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.inf.8.ally",
+          "chance": 50
+        },
+        {
+          "id": "nya.triggers.inf.8.self"
+        }
+      ],
+      "warmup": 5
+    },
+    {
+      "id": "nya.triggers.inf.8.ally",
+      "actionId": "nya.inf",
+      "label": "Enemy Infiltration Operation Launched",
+      "startdescription": "Agents have infiltrated our leadership... [Failure to take defensive measures will wound allies or inflict injuries upon yourself]",
+      "description": "By the time we arrived, he was barely clinging to life.",
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Ally",
+          "required": {
+            "named_friend": 1
+          },
+          "greedy": true
+        }
+      ],
+      "aspects": {
+        "makecasualty": 1
+      },
+      "alt": [
+        {
+          "id": "nya.triggers.inf.8.ally.safe.edge"
+        },
+        {
+          "id": "nya.triggers.inf.8.ally.safe.heart"
+        },
+        {
+          "id": "nya.triggers.inf.8.ally.safe.moth"
+        },
+        {
+          "id": "nya.triggers.inf.8.ally.safe.winter"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.triggers.inf.8.ally.safe.edge",
+      "actionId": "nya.inf",
+      "label": "Survived",
+      "startdescription": "My ally fought the assassin hand-to-hand; the assassin could not prevail and eventually jumped out the window to escape.",
+      "requirements": {
+        "edge": 8
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      }
+    },
+    {
+      "id": "nya.triggers.inf.8.ally.safe.heart",
+      "actionId": "nya.inf",
+      "label": "Survived",
+      "startdescription": "My ally resisted with sheer willpower; the assassin could not land a single wound on them.",
+      "requirements": {
+        "heart": 8
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      }
+    },
+    {
+      "id": "nya.triggers.inf.8.ally.safe.moth",
+      "actionId": "nya.inf",
+      "label": "Survived",
+      "startdescription": "My ally concealed herself with Moth...",
+      "requirements": {
+        "moth": 8
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      }
+    },
+    {
+      "id": "nya.triggers.inf.8.ally.safe.winter",
+      "actionId": "nya.inf",
+      "label": "Survived",
+      "startdescription": "My ally answered with Winter, and the assassin answered with Winter, until we arrived and captured him.",
+      "requirements": {
+        "winter": 8
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      }
+    },
+    {
+      "id": "nya.triggers.inf.8.self",
+      "actionId": "nya.inf",
+      "label": "Assassin!",
+      "startdescription": "Agents have infiltrated our leadership... [If no defensive measures are taken, you will receive a Wound.]",
+      "slots": [
+        {
+          "id": "needssomething",
+          "label": "Defend",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "exhausted": 1,
+            "contemplation": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "nya.triggers.inf.8.self.deflect"
+        },
+        {
+          "id": "nya.triggers.inf.8.self.edge"
+        },
+        {
+          "id": "nya.triggers.inf.8.self.moth"
+        },
+        {
+          "id": "nya.triggers.inf.8.self.winter"
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.inf.8.self.wound"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.triggers.inf.8.self.deflect",
+      "actionId": "nya.inf",
+      "label": "My Defenses Are Unbreachable",
+      "startdescription": "The core of my soul aligns with the core of my flesh. My scars serve as armor. I shall take no injuries.",
+      "requirements": {
+        "skill.deflect": 1
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      }
+    },
+    {
+      "id": "nya.triggers.inf.8.self.edge",
+      "actionId": "nya.inf",
+      "label": "Survived",
+      "startdescription": "Fought back with Edge.",
+      "requirements": {
+        "edge": 8
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      }
+    },
+    {
+      "id": "nya.triggers.inf.8.self.moth",
+      "actionId": "nya.inf",
+      "label": "Survived",
+      "startdescription": "Concealed with Moth.",
+      "requirements": {
+        "moth": 8
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      }
+    },
+    {
+      "id": "nya.triggers.inf.8.self.winter",
+      "actionId": "nya.inf",
+      "label": "Survived",
+      "startdescription": "Silenced with Winter.",
+      "requirements": {
+        "winter": 8
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "dissolution": 1
+      }
+    },
+    {
+      "id": "nya.triggers.inf.8.self.wound",
+      "actionId": "nya.inf",
+      "label": "Assassin!",
+      "startdescription": "Wounded!",
+      "alt": [
+        {
+          "id": "produce.wounds",
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.dec",
+      "actionId": "nya.dec",
+      "label": "The enemy has launched a decryption operation.",
+      "startdescription": "What is their next plan?\n\n[This will cause the intelligence network to grow and execute a special operation.]",
+      "effects": {
+        "nya.bigger.dec": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.dec.movement"
+        }
+      ],
+      "warmup": 5
+    },
+    {
+      "id": "nya.triggers.dec.movement",
+      "label": "The enemy has launched a decryption operation.",
+      "startdescription": "What is their next plan?\n\n[This will cause the intelligence network to grow and execute a special operation.]",
+      "movements": {
+        "~/tabletop": {
+          "filter": "long.lesson"
+        }
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.dec.5"
+        },
+        {
+          "id": "nya.triggers.dec.4",
+          "chance": 50
+        },
+        {
+          "id": "nya.triggers.dec.3",
+          "chance": 50
+        },
+        {
+          "id": "nya.triggers.dec.2",
+          "chance": 70
+        },
+        {
+          "id": "nya.triggers.dec.1"
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.dec.1",
+      "label": "The enemy has launched a decryption operation.",
+      "startdescription": "The enemy has discerned our upcoming troop movements.\n\n[This grants some enemy units the Insight status.]",
+      "requirements": {
+        "enemyforces": -3
+      },
+      "extantreqs": {
+        "nya.decryptcode": 1
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Enemy",
+          "required": {
+            "german": 1
+          },
+          "forbidden": {
+            "foe.umiri.mark": 1,
+            "foe.analysis": 1
+          },
+          "greedy": true
+        }
+      ],
+      "mutations": [
+        {
+          "filter": "foe",
+          "mutate": "foe.analysis",
+          "level": 1
+        }
+      ],
+      "effects": {
+        "enemyforces": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.dec.1",
+          "chance": 50
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.dec.2",
+      "label": "The enemy has launched a decryption operation.",
+      "startdescription": "The enemy has learned our troop formation layouts and positions.\n\n[This grants some enemy units an Intelligence Advantage.]",
+      "requirements": {
+        "enemyforces": -3
+      },
+      "extantreqs": {
+        "nya.decryptcode": 3
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Enemy",
+          "required": {
+            "german": 1
+          },
+          "forbidden": {
+            "foe.umiri.mark": 1,
+            "ins_german": 1
+          },
+          "greedy": true
+        }
+      ],
+      "aspects": {
+        "adv_german": 1
+      },
+      "effects": {
+        "enemyforces": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.dec.2",
+          "chance": 50
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.dec.3",
+      "label": "The enemy has launched a decryption operation.",
+      "startdescription": "The enemy is decoding our military encrypted codes...\n\n[This raises your Decryption Level.]",
+      "extantreqs": {
+        "nya.decryptcode": 5
+      },
+      "alt": [
+        {
+          "id": "nya.triggers.dec.ins",
+          "chance": 30
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.decryptcode"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.dec.4",
+      "label": "The enemy has launched a decryption operation.",
+      "startdescription": "The enemy is decoding our military encrypted codes...\n\n[This raises your Decryption Level.]",
+      "extantreqs": {
+        "nya.decryptcode": 7
+      },
+      "alt": [
+        {
+          "id": "nya.triggers.dec.ins",
+          "chance": 50
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.decryptcode"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.dec.5",
+      "label": "The enemy has launched a decryption operation.",
+      "startdescription": "The enemy is decoding our military encrypted codes...\n\n[This raises your Decryption Level.]",
+      "extantreqs": {
+        "nya.decryptcode": 10
+      },
+      "alt": [
+        {
+          "id": "nya.triggers.dec.ins"
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.decryptcode"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.decryptcode",
+      "label": "The enemy has launched a decryption operation.",
+      "startdescription": "The enemy is decoding our military encrypted codes...\n\n[This raises your Decryption Level.]",
+      "furthermore": [
+        {
+          "target": "~/tabletop!nya[situationstorage]+",
+          "aspects": {
+            "add_dec": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.dec.ins",
+      "label": "The enemy has launched a decryption operation.",
+      "startdescription": "The enemy is deciphering our encryption codes...\n\n[This raises your Decryption Level.]",
+      "alt": [
+        {
+          "id": "enemy.ins.startup",
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "enemy.ins.startup",
+      "actionId": "enemyinscycle",
+      "label": "Intelligence leaked!",
+      "startdescription": "The enemy has deciphered our codes!\n\n[All enemy units gain an intelligence advantage bonus. This will reduce the 'Decryption' level by 1 each time. When the level drops below 5, the enemy will no longer receive the bonus.]",
+      "furthermore": [
+        {
+          "target": "~/tabletop!nya[situationstorage]+",
+          "aspects": {
+            "de_dec": 1
+          }
+        }
+      ],
+      "xpans": {
+        "adv_german": 1
+      },
+      "linked": [
+        {
+          "id": "enemy.ins.cycle"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "enemy.ins.cycle",
+      "actionId": "enemyinscycle",
+      "label": "Intelligence leaked!",
+      "startdescription": "The enemy has deciphered our codes!\n\n[All enemy units gain an intelligence advantage bonus. This will reduce the 'Decryption' level by 1 each time. When the level drops below 5, the enemy will no longer receive the bonus.]",
+      "extantreqs": {
+        "nya.decryptcode": 5
+      },
+      "xpans": {
+        "adv_german": 1
+      },
+      "linked": [
+        {
+          "id": "enemy.ins.cycle.furthermore"
+        }
+      ],
+      "warmup": 60
+    },
+    {
+      "id": "enemy.ins.cycle.furthermore",
+      "actionId": "enemyinscycle",
+      "label": "Intelligence leaked!",
+      "startdescription": "The enemy has deciphered our codes!\n\n[All enemy units gain an intelligence advantage bonus. This will reduce the 'Decryption' level by 1 each time. When the level drops below 5, the enemy will no longer receive the bonus.]",
+      "extantreqs": {
+        "nya.decryptcode": 5
+      },
+      "furthermore": [
+        {
+          "target": "~/tabletop!nya[situationstorage]+",
+          "aspects": {
+            "de_dec": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "enemy.ins.cycle"
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.dis",
+      "actionId": "nya.dis",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "What is their next plan?\n\n[This will cause the intelligence network to grow and execute a special operation.]",
+      "effects": {
+        "nya.bigger.dis": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.dis.movement"
+        }
+      ],
+      "warmup": 5
+    },
+    {
+      "id": "nya.triggers.dis.movement",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "What is their next plan?\n\n[This will cause the intelligence network to grow and execute a special operation.]",
+      "movements": {
+        "~/tabletop": {
+          "filter": "long.lesson"
+        }
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.dis.8"
+        },
+        {
+          "id": "nya.triggers.dis.7",
+          "chance": 50
+        },
+        {
+          "id": "nya.triggers.dis.6",
+          "chance": 70
+        },
+        {
+          "id": "nya.triggers.dis.5",
+          "chance": 70
+        },
+        {
+          "id": "nya.triggers.dis.4",
+          "chance": 50
+        },
+        {
+          "id": "nya.triggers.dis.3",
+          "chance": 70
+        },
+        {
+          "id": "nya.triggers.dis.2",
+          "chance": 50
+        },
+        {
+          "id": "nya.triggers.dis.1"
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.dis.1",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "Protests have broken out across the local area.\n\n[The region will become unavailable for exploration.]",
+      "extantreqs": {
+        "nya.disorgan": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "Location",
+          "required": {
+            "warzone.current": 1
+          },
+          "greedy": true
+        }
+      ],
+      "warmup": 45
+    },
+    {
+      "id": "nya.triggers.dis.2",
+      "$extends": ["spit.nospace.penalty"],
+      "label": "Enemy Resistance Operation Initiated",
+      "startdescription": "Minor local conflicts have erupted.\n\n[This depletes your troops.]",
+      "description": "Minor local conflicts have erupted.\n\n[This depletes your troops.]",
+      "extantreqs": {
+        "nya.disorgan": 1
+      },
+      "grandReqs": {},
+      "warmup": 10
+    },
+    {
+      "id": "nya.triggers.dis.3",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "Harass the local garrison troops\n\n[This weakens your forces.]",
+      "extantreqs": {
+        "nya.disorgan": 3
+      },
+      "tablereqs": {
+        "friend": 1
+      },
+      "slots": [
+        {
+          "id": "needsfriend",
+          "label": "Ally",
+          "required": {
+            "friend": 1
+          },
+          "forbidden": {
+            "friend.weakened": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.dis.3",
+          "chance": 40
+        },
+        {
+          "id": "nya.triggers.dis.3.weaken"
+        }
+      ],
+      "warmup": 15
+    },
+    {
+      "id": "nya.triggers.dis.3.weaken",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "Harass the local garrison troops\n\n[This weakens your forces.]",
+      "aspects": {
+        "makeweaken": 1
+      }
+    },
+    {
+      "id": "nya.triggers.dis.4",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "Large-scale conflicts have broken out locally.\n\n[This instills fear in your troops.]",
+      "tablereqs": {
+        "friend": 1
+      },
+      "extantreqs": {
+        "nya.disorgan": 3
+      },
+      "slots": [
+        {
+          "id": "needsfriend",
+          "label": "Ally",
+          "required": {
+            "friend": 1
+          },
+          "forbidden": {
+            "friend.weakened": 1
+          },
+          "greedy": true
+        }
+      ],
+      "aspects": {
+        "makeafraid": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.dis.4",
+          "chance": 40
+        }
+      ],
+      "warmup": 15
+    },
+    {
+      "id": "nya.triggers.dis.5",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "The resistance has launched sabotage operations.\n\n[This randomly destroys local buildings.]",
+      "tablereqs": {
+        "infrastructure": 1
+      },
+      "extantreqs": {
+        "nya.disorgan": 5
+      },
+      "aspects": {
+        "destroy": 1
+      },
+      "slots": [
+        {
+          "id": "needsinfrastructure",
+          "label": "Infrastructure",
+          "required": {
+            "infrastructure": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.dis.5",
+          "chance": 25
+        }
+      ],
+      "warmup": 15
+    },
+    {
+      "id": "nya.triggers.dis.6",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "Riots and protests have erupted locally.\n\n[This effect lasts for three turns. Failing to meet their demands will wound your troops.]",
+      "tablereqs": {
+        "friend": 1
+      },
+      "extantreqs": {
+        "nya.disorgan": 7
+      },
+      "slots": [
+        {
+          "id": "needsfriend",
+          "label": "Ally",
+          "required": {
+            "friend": 1
+          },
+          "greedy": true
+        }
+      ],
+      "effects": {
+        "nya.anger": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.dis.6.defend"
+        }
+      ],
+      "warmup": 15
+    },
+    {
+      "id": "nya.triggers.dis.6.defend",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "Riots and protests have erupted locally.\n\n[This effect lasts for three turns. Failing to meet their demands will wound your troops.]",
+      "slots": [
+        {
+          "id": "needssomething",
+          "label": "Defend",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "contemplation": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "nya.triggers.dis.heart"
+        },
+        {
+          "id": "nya.triggers.dis.grail"
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.dis.6.end"
+        },
+        {
+          "id": "nya.triggers.dis.6"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.triggers.dis.6.end",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "We shed blood at the hands of our own countrymen.",
+      "requirements": {
+        "nya.anger": 3
+      },
+      "aspects": {
+        "makecasualty": 1
+      }
+    },
+    {
+      "id": "nya.triggers.dis.heart",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "Concede to the local populace.",
+      "requirements": {
+        "heart": "needsheart"
+      },
+      "aspects": {
+        "fatiguing": 1
+      }
+    },
+    {
+      "id": "nya.triggers.dis.grail",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "Concede to the local populace.",
+      "requirements": {
+        "grail": "needsgrail"
+      },
+      "aspects": {
+        "fatiguing": 1
+      }
+    },
+    {
+      "id": "nya.triggers.dis.7",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "Troop mutiny!\n\n[If your Infamy stacks up to three, this effect applies to all fear-stricken allied units.]",
+      "tablereqs": {
+        "friend.weakened": 1
+      },
+      "extantreqs": {
+        "nya.disorgan": 9
+      },
+      "aspects": {
+        "becaptive": 1
+      },
+      "slots": [
+        {
+          "id": "needsinfrastructure",
+          "label": "Mutiny!",
+          "required": {
+            "friend.weakened": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.dis.7.all"
+        },
+        {
+          "id": "nya.triggers.dis.7",
+          "chance": 25
+        }
+      ],
+      "warmup": 15
+    },
+    {
+      "id": "nya.triggers.dis.7.all",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "Troop mutiny!\n\n[If your Infamy stacks up to three, this effect applies to all fear-stricken allied units.]",
+      "tablereqs": {
+        "friend.weakened": 1
+      },
+      "extantreqs": {
+        "local.infamy": 3
+      },
+      "xpans": {
+        "becaptive": 99
+      }
+    },
+    {
+      "id": "nya.triggers.dis.8",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "An uprising!\n\n[When resistance reaches 10, the local populace will form an insurgent army to oppose our rule. The Colonel will not be pleased with your actions...]",
+      "xpans": {
+        "friendmilitia": 99,
+        "friend.militia.exhausted": 99,
+        "friend.militia.weaken.exhausted": 99,
+        "friend.militia.wounded": 99,
+        "friend.militia.weaken.wounded": 99
+      },
+      "extantreqs": {
+        "nya.disorgan": 10,
+        "shrine.wolf.lionsmith": -1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "Location",
+          "required": {
+            "warzone.current": 1
+          },
+          "greedy": true
+        }
+      ],
+      "alt": [
+        {
+          "id": "nya.triggers.dis.8.end"
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.dis.8"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.triggers.dis.8.end",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "An uprising!\n\n[When resistance reaches 10, the local populace will form an insurgent army to oppose our rule. The Colonel will not be pleased with your actions...]",
+      "xpans": {
+        "friendmilitia": 99,
+        "friend.militia.exhausted": 99,
+        "friend.militia.weaken.exhausted": 99,
+        "friend.militia.wounded": 99,
+        "friend.militia.weaken.wounded": 99
+      },
+      "requirements": {
+        "warzone.current": 1
+      },
+      "achievements": [
+          "achievement.revolt_erupts"
+      ],
+      "effects": {
+        "foe.insurgent": 1,
+        "foe.insurgent.hidden": 2,
+        "hindrance.colonel": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.dis.8.pinceroffensive"
+        },
+        {
+          "id": "nya.triggers.dis.8.a"
+        },
+        {
+          "id": "nya.triggers.dis.8.b"
+        }
+      ],
+      "deckeffects": {
+        "foe.insurgent.decks": 3
+      }
+    },
+    {
+      "id": "nya.triggers.dis.8.pinceroffensive.pre",
+      "label": "The enemy has launched a resistance operation.",
+      "requirements": {
+        "besieged": 1
+      },
+      "effects": {
+        "enemyforces": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.dis.8.a"
+        },
+        {
+          "id": "nya.triggers.dis.8.b"
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.dis.8.a",
+      "label": "The enemy has launched a resistance operation.",
+      "requirements": {
+        "sector.a": 1
+      },
+      "effects": {
+        "warzone.current": -1,
+        "shrine.wolf.lionsmith": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.dis.8.aa"
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.dis.8.aa",
+      "label": "The enemy has launched a resistance operation.",
+      "mutations": [
+        {
+          "filter": "shrine.wolf.lionsmith",
+          "mutate": "sector.a",
+          "level": 1
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.dis.8.pinceroffensive"
+        },
+        {
+          "id": "nya.triggers.dis.8.abused"
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.dis.8.b",
+      "label": "The enemy has launched a resistance operation.",
+      "requirements": {
+        "sector.b": 1
+      },
+      "effects": {
+        "warzone.current": -1,
+        "shrine.wolf.lionsmith": 1
+      },
+      "linked": [
+        {
+          "id": "nya.triggers.dis.8.bb"
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.dis.8.bb",
+      "label": "The enemy has launched a resistance operation.",
+      "mutations": [
+        {
+          "filter": "shrine.wolf.lionsmith",
+          "mutate": "sector.b",
+          "level": 1
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.dis.8.pinceroffensive"
+        },
+        {
+          "id": "nya.triggers.dis.8.abused"
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.dis.8.pinceroffensive",
+      "label": "The enemy has launched a resistance operation.",
+      "requirements": {
+        "enemyforces": 1
+      },
+      "mutations": [
+        {
+          "filter": "shrine.wolf.lionsmith",
+          "mutate": "besieged",
+          "level": 1
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.triggers.dis.8.abused"
+        }
+      ]
+    },
+    {
+      "id": "nya.triggers.dis.8.abused",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "Now, only a 'city of fire' remains here.",
+      "mutations": [
+        {
+          "filter": "shrine.wolf.lionsmith",
+          "mutate": "warzone.abused",
+          "level": 1,
+          "additive": true
+        }
+      ]
+    },
+
+    {
+      "id": "nya.triggers.downtime",
+      "actionId": "nya.downtime",
+      "label": "The enemy has not yet taken action.",
+      "startdescription": "The enemy is plotting their next move.\n\n[This randomly grows their intelligence network.]",
+      "linked": [
+        {
+          "id": "nya.triggers.downtime.out",
+          "chance": 60
+        },
+        {
+          "id": "nya.triggers.downtime.out.high"
+        }
+      ],
+      "warmup": 5
+    },
+    {
+      "id": "nya.triggers.downtime.out",
+      "label": "The enemy has not yet taken action.",
+      "startdescription": "The enemy is plotting their next move.\n\n[This randomly grows their intelligence network.]",
+      "extantreqs": {
+        "allresolution": 3
+      },
+      "internaldeck": {
+        "spec": [
+          "nya.bigger.inf",
+          "nya.bigger.dec",
+          "nya.bigger.dis",
+          "nya.bigger.inf",
+          "nya.bigger.dec",
+          "nya.bigger.dis",
+          "nya.bigger.inf",
+          "nya.bigger.dec",
+          "nya.bigger.dis"
+        ],
+        "draws": 1,
+        "defaultcard": "nya.bigger.inf",
+        "resetonexhaustion": true
+      }
+    },
+    {
+      "id": "nya.triggers.downtime.out.high",
+      "$extends": ["nya.triggers.downtime.out"],
+      "extantreqs": {
+        "allresolution": 5
+      }
+    },
+    {
+      "id": "nya.weakness",
+      "label": "Weakness!",
+      "startdescription": "My spies have discovered some weaknesses that may be exploitable?",
+      "actionId": "nya.weakness",
+      "extantreqs": {
+        "weakness.nya": -1
+      },
+      "deckeffects": {
+        "nya.weakness.1": 1,
+        "nya.weakness.2": 1,
+        "nya.weakness.3": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "nya.befoundout",
+      "label": "Discovered!",
+      "startdescription": "We have uncovered their next plan.",
+      "requirements": {
+        "strategy.revealed": -1
+      },
+      "effects": {
+        "nya.strategy.prep": 1
+      },
+      "aspects": {
+        "reveal.strategy": 1
+      },
+      "linked": [
+        {
+          "id": "nya.befoundout.t"
+        }
+      ]
+    },
+    {
+      "id": "nya.befoundout.t",
+      "label": "Discovered!",
+      "startdescription": "We have uncovered their next plan.",
+      "warmup": 10,
+      "linked": [
+        {
+          "id": "nya.circle.still"
+        },
+        {
+          "id": "nya.circle.max"
+        },
+        {
+          "id": "nya.circle.silent"
+        },
+        {
+          "id": "nya.circle.pause"
+        },
+        {
+          "id": "nya.attack.inf"
+        },
+        {
+          "id": "nya.attack.dis"
+        },
+        {
+          "id": "nya.attack.dec"
+        },
+        {
+          "id": "nya.attack.downtime"
+        },
+        {
+          "id": "nya.circle.high"
+        },
+        {
+          "id": "nya.circle"
+        }
+      ]
+    },
+    {
+      "id": "nya.back",
+      "label": "Return",
+      "actionId": "nya.back",
+      "startdescription": "Returned safely.",
+      "requirements": {
+        "friend": 1
+      },
+      "mutations": [
+        {
+          "filter": "firstone",
+          "mutate": "firstone",
+          "level": 0
+        }
+      ],
+      "warmup": 10,
+      "aspects": {
+        "fatiguing": 1
+      }
+    },
+    {
+      "id": "nya.toomuch",
+      "label": "The enemy has found your spy!",
+      "startdescription": "Too many people spoil the broth.\n\n[You need to limit the number and scale of spies deployed.]",
+      "requirements": {
+        "friend": 3
+      },
+      "effects": {
+        "nya.strategy.prep": 1
+      },
+      "mutations": [
+        {
+          "filter": "firstone",
+          "mutate": "firstone",
+          "level": 0
+        }
+      ],
+      "alt": [
+        {
+          "id": "nya.friendout",
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.circle.still"
+        },
+        {
+          "id": "nya.circle.max"
+        },
+        {
+          "id": "nya.circle.silent"
+        },
+        {
+          "id": "nya.circle.pause"
+        },
+        {
+          "id": "nya.attack.inf"
+        },
+        {
+          "id": "nya.attack.dis"
+        },
+        {
+          "id": "nya.attack.dec"
+        },
+        {
+          "id": "nya.attack.downtime"
+        },
+        {
+          "id": "nya.circle.high"
+        },
+        {
+          "id": "nya.circle"
+        }
+      ]
+    },
+    {
+      "id": "nya.toomuch2",
+      "label": "The enemy has found your spy!",
+      "startdescription": "Too many people spoil the broth.\n\n[You need to limit the number and scale of spies deployed.]",
+      "requirements": {
+        "forcesize": 7
+      },
+      "effects": {
+        "nya.strategy.prep": 1
+      },
+      "mutations": [
+        {
+          "filter": "firstone",
+          "mutate": "firstone",
+          "level": 0
+        }
+      ],
+      "alt": [
+        {
+          "id": "nya.friendout",
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 99
+          },
+          "additional": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "nya.circle.still"
+        },
+        {
+          "id": "nya.circle.max"
+        },
+        {
+          "id": "nya.circle.silent"
+        },
+        {
+          "id": "nya.circle.pause"
+        },
+        {
+          "id": "nya.attack.inf"
+        },
+        {
+          "id": "nya.attack.dis"
+        },
+        {
+          "id": "nya.attack.dec"
+        },
+        {
+          "id": "nya.attack.downtime"
+        },
+        {
+          "id": "nya.circle.high"
+        },
+        {
+          "id": "nya.circle"
+        }
+      ]
+    },
+    {
+      "id": "nya.friendout",
+      "label": "The enemy has found your spy!",
+      "startdescription": "Too many people spoil the broth.\n\n[You need to limit the number and scale of spies deployed.]",
+      "actionId": "spit.purple",
+      "aspects": {
+        "fatiguing": 1
+      },
+      "mutations": [
+        {
+          "filter": "experience.exile.ally",
+          "mutate": "experience.exile.ally",
+          "level": -1,
+          "additive": true
+        },
+        {
+          "filter": "firstone",
+          "mutate": "firstone",
+          "level": 0
+        }
+      ],
+      "warmup": 10,
+      "alt": [
+        {
+          "id": "nya.friendout.hurt",
+          "chance": 30
+        }
+      ]
+    },
+    {
+      "id": "nya.friendout.hurt",
+      "label": "The enemy has found your spy!",
+      "startdescription": "Your spy has been wounded.\n\n[You need to limit the number and scale of spies deployed.]",
+      "aspects": {
+        "makecasualty": 1
+      },
+      "mutations": [
+        {
+          "filter": "experience.exile.ally",
+          "mutate": "experience.exile.ally",
+          "level": -1,
+          "additive": true
+        },
+        {
+          "filter": "firstone",
+          "mutate": "firstone",
+          "level": 0
+        }
+      ]
+    },
+    {
+      "id": "nya.out.3",
+      "label": "The enemy has found your spy!",
+      "startdescription": "[When infiltration is greater than 3, your agents may sometimes need to go into hiding; when greater than 5, they may return wounded; when greater than 8, they may be killed outright.]",
+      "extantreqs": {
+        "nya.infiltration": 8
+      },
+      "requirements": {
+        "friend": 1
+      },
+      "warmup": 10,
+      "linked": [
+        {
+          "id": "nya.circle.still"
+        },
+        {
+          "id": "nya.circle.still"
+        },
+        {
+          "id": "nya.circle.max"
+        },
+        {
+          "id": "nya.circle.silent"
+        },
+        {
+          "id": "nya.circle.pause"
+        },
+        {
+          "id": "nya.circle.high"
+        },
+        {
+          "id": "nya.circle"
+        }
+      ],
+      "alt": [
+        {
+          "id": "nya.out.dead",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "nya.out.2",
+      "label": "The enemy has found your spy!",
+      "startdescription": "[When infiltration is greater than 3, your agents may sometimes need to go into hiding; when greater than 5, they may return wounded; when greater than 8, they may be killed outright.]",
+      "extantreqs": {
+        "nya.infiltration": 5
+      },
+      "requirements": {
+        "friend": 1
+      },
+      "warmup": 10,
+      "linked": [
+        {
+          "id": "nya.circle.still"
+        },
+        {
+          "id": "nya.circle.max"
+        },
+        {
+          "id": "nya.circle.silent"
+        },
+        {
+          "id": "nya.circle.pause"
+        },
+        {
+          "id": "nya.circle.high"
+        },
+        {
+          "id": "nya.circle"
+        }
+      ],
+      "alt": [
+        {
+          "id": "nya.out.hurt",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "nya.out.1",
+      "label": "The enemy has found your spy!",
+      "startdescription": "[When infiltration is greater than 3, your agents may sometimes need to go into hiding; when greater than 5, they may return wounded; when greater than 8, they may be killed outright.]",
+      "extantreqs": {
+        "nya.infiltration": 3
+      },
+      "requirements": {
+        "friend": 1
+      },
+      "warmup": 10,
+      "linked": [
+        {
+          "id": "nya.circle.still"
+        },
+        {
+          "id": "nya.circle.max"
+        },
+        {
+          "id": "nya.circle.silent"
+        },
+        {
+          "id": "nya.circle.pause"
+        },
+        {
+          "id": "nya.circle.high"
+        },
+        {
+          "id": "nya.circle"
+        }
+      ],
+      "alt": [
+        {
+          "id": "nya.out.hide",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "nya.circle.still",
+      "label": "Nya",
+      "extantreqs": {
+        "allresolution": 12
+      },
+      "maxexecutions": 1,
+      "achievements": [
+        "achievement.nya_umiri"
+      ],
+      "linked": [
+        {
+          "id": "nya.circle.high"
+        },
+        {
+          "id": "nya.circle"
+        }
+      ]
+    },
+    {
+      "id": "nya.circle.max",
+      "label": "Nya",
+      "requirements": {
+        "nya.infiltration": 10,
+        "nya.decryptcode": 10,
+        "nya.disorgan": 10
+      },
+      "maxexecutions": 1,
+      "achievements": [
+        "achievement.intelligence_max"
+      ],
+      "linked": [
+        {
+          "id": "nya.circle.high"
+        },
+        {
+          "id": "nya.circle"
+        }
+      ]
+    },
+    {
+      "id": "nya.out.dead",
+      "actionId": "nya.out",
+      "label": "Died for the cause.",
+      "startdescription": "You never heard from him again.\n\n[When infiltration is greater than 3, your agents may sometimes need to go into hiding; when greater than 5, they may return wounded; when greater than 8, they may be killed outright.]",
+      "warmup": 10,
+      "requirements": {
+        "friend": 1
+      },
+      "mutations": [
+        {
+          "filter": "firstone",
+          "mutate": "firstone",
+          "level": 0
+        }
+      ],
+      "effects": {
+        "friend": -1,
+        "mem.regret": 1
+      }
+    },
+    {
+      "id": "nya.out.hurt",
+      "actionId": "nya.out",
+      "label": "Wounded.",
+      "startdescription": "He was targeted and severely wounded.\n\n[When infiltration is greater than 3, your agents may sometimes need to go into hiding; when greater than 5, they may return wounded; when greater than 8, they may be killed outright.]",
+      "warmup": 10,
+      "requirements": {
+        "friend": 1
+      },
+      "mutations": [
+        {
+          "filter": "firstone",
+          "mutate": "firstone",
+          "level": 0
+        }
+      ],
+      "aspects": {
+        "makecasualty": 1
+      }
+    },
+    {
+      "id": "nya.out.hide",
+      "actionId": "nya.out",
+      "label": "Go into hiding.",
+      "startdescription": "The enemy's agents have begun to notice our movements; he needs to lie low for a while.\n\n[When infiltration is greater than 3, your agents may sometimes need to go into hiding; when greater than 5, they may return wounded; when greater than 8, they may be killed outright.]",
+      "warmup": 10,
+      "requirements": {
+        "friend": 1
+      },
+      "mutations": [
+        {
+          "filter": "firstone",
+          "mutate": "firstone",
+          "level": 0
+        }
+      ],
+      "aspects": {
+        "fatiguing": 1
+      }
+    },
+    {
+      "id": "nya.circle.pause",
+      "label": "Abort!",
+      "startdescription": "The last spy in this region has been found by us. The enemy has no foothold here anymore.",
+      "requirements": {
+        "nya.infiltration": -1
+      },
+      "extantreqs": {
+        "blocker_nya": -1
+      },
+      "effects": {
+        "nya.clue": 1,
+        "nya.local": 1
+      },
+      "warmup": 30
+    },
+    {
+      "id": "nya.circle.silent",
+      "label": "Abort!",
+      "startdescription": "The last spy in this region has been found by us. The enemy has no foothold here anymore.",
+      "extantreqs": {
+        "blocker_nya": 1
+      },
+      "warmup": 30
+    },
+    {
+      "id": "operate.clue",
+      "actionid": "operate",
+      "label": "Attempt to Investigate the Enemy Intelligence Network",
+      "startdescription": "'The longer the operation, the clearer the trail.'\n\n[Gain an opportunity to eradicate the enemy intelligence agency]",
+      "requirements": {
+        "nya.clue": 5
+      },
+      "effects": {
+        "side.nya": 1,
+        "nya.clue": -5
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "operate.clue.hint",
+      "actionid": "operate",
+      "label": "Attempt to Investigate the Enemy Intelligence Network?",
+      "startdescription": "'The longer the operation, the clearer the trail.'\n\n[Gain an opportunity to eradicate the enemy intelligence agency]",
+      "requirements": {
+        "nya.clue": 1
+      },
+      "hintonly": true
+    }
+  ]
+}

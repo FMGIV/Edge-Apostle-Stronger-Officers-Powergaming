@@ -1,0 +1,244 @@
+{
+"elements": [
+	{
+	"id": "anti_air_friendly",
+	"label": "Anti-air",
+	"description": "This structure has anti-air capabilities.",
+	"isAspect": true
+    },
+	{
+	"id": "aimelsewhere",
+	"label": "让防空炮转向",
+	"isAspect": true,
+	"isHidden": true
+    },
+	
+    {
+	"id": "loc.antiairgun",
+	"label": "Anti-Air Gun [Aimed Up]",
+	"description": "A battery of anti-air guns, for returning to dust those things that do not belong to the sky.\n[You can use provisions to switch the target of the position.]",
+	"aspects": {
+	    "infrastructure": 1,
+		"anti_air_friendly" : 1,
+		"edge" : 1
+	},
+	"xtriggers": {
+	    "fatiguing": "loc.antiairgun.exhausted",
+	    "destroy": "loc.antiairgun.destroyed",
+		"aimelsewhere" : "loc.antiairgun.horizontal"
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"actionId": "operate",
+		"required": {
+		    "foe.fighter_aircraft": 1
+		}
+	    },
+		
+	    {
+		"id": "needsenemy1",
+		"label": "Aim",
+		"actionId": "operate",
+		"required": {
+		    "lantern": 1
+		},
+		"forbidden": {
+			"exhausted": 1,
+		    "infrastructure": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "friend.weakened": 1
+		}
+	    },
+		
+	    {
+		"id": "needsenemy2",
+		"label": "Patience",
+		"actionId": "operate",
+		"required": {
+		    "winter": 1
+		},
+		"forbidden": {
+			"exhausted": 1,
+		    "infrastructure": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "friend.weakened": 1
+		}
+	    },
+		
+	    {
+		"id": "needsenemy3",
+		"label": "Strength",
+		"actionId": "operate",
+		"required": {
+		    "edge": 1
+		},
+		"forbidden": {
+			"exhausted": 1,
+		    "infrastructure": 1,
+		    "wounded": 1,
+		    "damaged": 1,
+		    "friend.weakened": 1
+		}
+	    },
+		
+	    {
+		"id": "provisions",
+		"label": "Provisions",
+		"actionId": "operate",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+		
+	    {
+		"id": "provisions2",
+		"label": "More Provisions",
+		"actionId": "operate",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+
+	    {
+		"id": "provisions3",
+		"label": "More Provisions",
+		"actionId": "operate",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+	
+    {
+	"id": "loc.antiairgun.horizontal",
+	"$extends" : ["loc.antiairgun"],
+	"label": "Anti-Air Gun [Aimed Horizontally]",
+	"description": "A battery of anti-air guns, for returning to dust those things that defy our will.\n[You can use provisions to switch the target of the position.]",
+	"aspects": {
+	    "infrastructure": 1,
+		"ap" : 2,
+		"edge" : 24,
+		"knock" : 8
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"actionId": "operate",
+		"required": {
+		    "foe": 1
+		},
+		"forbidden": {
+			"foe.rankofficer": 1,
+			"foe.umiri.mark": 1,
+			"mumo": 1
+		}
+	    },
+		
+	    {
+		"id": "provisions",
+		"label": "Provisions",
+		"actionId": "operate",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+		
+	    {
+		"id": "provisions2",
+		"label": "More Provisions",
+		"actionId": "operate",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+
+	    {
+		"id": "provisions3",
+		"label": "More Provisions",
+		"actionId": "operate",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "loc.antiairgun.horizontal.exhausted",
+	    "destroy": "loc.antiairgun.destroyed",
+		"aimelsewhere" : "loc.antiairgun"
+	}
+    },
+	
+    {
+	"id": "loc.antiairgun.exhausted",
+	"$extends" : ["loc.hospital.exhausted"],
+	"label": "Anti-Air Gun (Exhausted)",
+	"description": "A battery of anti-air guns, for returning to dust those things that defy our will.",
+	"xtriggers": {
+	    "destroy": "loc.antiairgun.destroyed"
+	},
+	"lifetime": 180,
+	"decayTo": "loc.antiairgun",
+	"icon": "loc.antiairgun"
+	},
+	
+    {
+	"id": "loc.antiairgun.horizontal.exhausted",
+	"$extends" : ["loc.antiairgun.exhausted"],
+	"lifetime": 450,
+	"decayTo": "loc.antiairgun.horizontal",
+	"icon": "loc.antiairgun.horizontal"
+	},
+	
+    {
+	"id": "loc.antiairgun.destroyed",
+	"$extends" : ["loc.commtower.destroyed"],
+	"label": "Anti-Air Gun (Destroyed)",
+	"description": "Once they were hunters of the sky, now they are just twisted steel.\n[You can use engineers and provisions to restore this position.]",
+	"slots": [
+	    {
+		"id": "needsengineers",
+		"label": "Manpower",
+		"required": {
+		    "friendengineers": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "restore": "loc.antiairgun"
+		}
+	}
+	
+	
+]
+}

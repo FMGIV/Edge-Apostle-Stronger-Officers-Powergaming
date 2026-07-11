@@ -1,0 +1,1120 @@
+{
+"elements": [
+    {
+	"id": "reveal.strategy",
+	"label": "使策略被揭露",
+    "isAspect": true,
+	"isHidden": true
+    },
+    {
+	"id": "blocker_nya",
+	"label": "blocker_nya",
+    "isAspect": true,
+	"isHidden": true
+    },
+{
+    "id": "nya.evidencelevel",
+    "label": "Intelligence Clue",
+    "description": "Intelligence Clue",
+    "isAspect": true,
+    "icon": "evidencelevel"
+},
+{
+    "id": "nya.retired",
+    "label": "Enemy Intelligence Network (Retired)",
+    "description": "Perhaps because the front line has been pushed too far, or perhaps the evil seeds they planted have taken effect; the enemy no longer values intelligence.\n[The enemy intelligence agency will never bother you again]",
+    "aspects": {
+        "blocker_nya": 1
+    }
+},
+    {
+        "id": "nya.blocker",
+        "label": "Enemy Intelligence Network (Silent)",
+        "description": "We have finally uprooted this 'filth' from the military, but that does not mean we can let our guard down. They are ready to make a comeback at any time.\n[While this card is present, enemy intelligence agencies will no longer appear]",
+        "resaturate": true,
+        "aspects": {
+            "blocker_nya": 1
+        },
+        "lifetime": 3000
+    },
+    {
+        "id": "nya.local",
+        "label": "Enemy Intelligence Network (Destroyed)",
+        "description": "We have finally uprooted this 'filth' from the military, but that does not mean we can let our guard down. They are ready to make a comeback at any time.\n[While this card is present, enemy intelligence agencies will not appear locally]",
+        "aspects": {
+            "blocker_nya": 1,
+            "local": 1
+        }
+    },
+    {
+        "id": "nya.clue",
+        "label": "Intelligence Clue",
+        "description": "They took or destroyed almost all the documents when they withdrew, but there are always some things they cannot take away.\n[When you have seven clues, you can attempt to eradicate the enemy intelligence agency]",
+        "aspects": {
+            "nya.evidencelevel": 1
+        },
+        "slots": [
+	    {
+		"id": "clue2",
+		"label": "More Clue",
+		"actionId": "operate",
+		"required": {
+		    "nya.clue": 1
+		}
+	    },
+	    {
+		"id": "clue3",
+		"label": "More Clue",
+		"actionId": "operate",
+		"required": {
+		    "nya.clue": 1
+		}
+	    },
+	    {
+		"id": "clue4",
+		"label": "More Clue",
+		"actionId": "operate",
+		"required": {
+		    "nya.clue": 1
+		}
+	    },
+	    {
+		"id": "clue5",
+		"label": "More Clue",
+		"actionId": "operate",
+		"required": {
+		    "nya.clue": 1
+		}
+	    }
+	    ]
+    },
+    {
+        "id": "side.nya",
+        "label": "Secondary Objective: Eradicate Intelligence Organization",
+        "description": "Find a rat nest, should burn it now. [This will free you from the interference of the intelligence agency for a period of time]",
+        "inherits": "side.template",
+        "xtriggers": {
+            "careeradvancement": [
+                {
+                    "id": "nya.blocker"
+                }
+            ],
+            "opx.progress0": [
+                {
+                    "id": "hindrance.unknownlocation",
+                    "morpheffect": "spawn"
+                }
+            ],
+            "opx.progress1": [
+                {
+                    "id": "foe.manhunters.ins",
+                    "morpheffect": "spawn"
+                }
+            ],
+            "opx.progress2": [
+                {
+                    "id": "hindrance.redgrail",
+                    "morpheffect": "spawn"
+                }
+            ]
+        },
+        "lifetime": 180
+    },
+    {
+        "id": "hindrance.redgrail",
+        "label": "Jealousy of the Red Grail",
+        "description": "Desire breeds, flesh grows. I can feel something squirming under my skin, an unceasing itch.",
+        "aspects": {
+            "hindrance": 1,
+            "needsgrail": 16,
+            "needsgrailmoth": 8
+        },
+        "lifetime": 300
+    },
+    {
+	"id": "needsgrailmoth",
+	"label": "Threshold: Grail and Moth",
+	"description": "If I wanted to deal with this threat using Grail and Moth, I would need this much of both - but perhaps there are other strategies to consider.",
+	"isAspect": true
+    },
+    {
+	"id": "dec.complete",
+	"label": "dec",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "dis.complete",
+	"label": "dis",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "inf.complete",
+	"label": "inf",
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "side.dec",
+	"label": "Secondary Objective: Steal the cipher",
+	"description": "Our spies have brought back detailed information on the cipher storage location and the enemy's radio station. It is time to regain the initiative in intelligence.\n[Completing this mission will reduce the enemy's decryption progress by 1-3 points and provide a small intelligence advantage]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "dec.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.secretdoor",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.nocturnal",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "side.dis",
+	"label": "Secondary Objective: Suppress the resistance",
+	"description": "Every informant will have their throat seized, every whisper will be drowned out by gunfire.\n[Completing this mission will reduce the enemy's resistance progress by 1-3 points and provide a small amount of provisions]",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "dis.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.crags",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.insurgent.environment",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.lionsmith",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+    {
+	"id": "side.inf",
+	"label": "Secondary Objective: Counter-infiltration",
+	"description": "Our spies have brought back detailed information on infiltration zones and enemy agent identities. Use spies against spies, reverse the tracking.\n[Completing this mission will reduce the enemy's infiltration progress by 1-3 points and provide 'Opportunities' or 'Secondary Objectives']",
+	"inherits": "side.template",
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "inf.complete"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.door",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.kommando",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "hindrance.dionysian",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	},
+	"lifetime": 300
+    },
+
+    {
+	"id": "nya.infamy",
+    "$extends": ["reputation.infamy"],
+    "label": "Infamy",  
+    "description": "We told them it was all for the final victory, but saying that too often grows tiresome; now they trust more in the bread in their own hands. [When infamy accumulates to three, local dissent will be triggered inevitably.]"
+    },
+    {
+	"id": "warzone.abused",
+    "induces$append": [
+	    {
+		"id": "spit.hostilelocals.disorgan"
+	    }
+	]
+    },
+        {
+            "id": "nya.anger",
+            "label": "Conflict Level",
+            "description": "The unreasonable demands of the local populace.\n[When this card reaches three stacks, it will injure all friendly forces in the operation.]",
+            "aspects": {
+                "needsheart": 5,
+                "needsgrail": 5
+            },
+            "icon": "resentment",
+            "isHidden": true,
+            "lifetime": 1,
+			"comments": "敌意阈值"
+        },
+        {
+            "id": "nya.killer",
+            "label": "killer",
+            "aspects": {
+                "needsedge": 8,
+                "needsmoth": 8,
+                "needswinter": 8,
+                "needsheart": 8
+            },
+            "isHidden": true,
+            "lifetime": 1,
+			"comments": "刺杀阈值"
+        },
+        {
+            "id": "nya.poison",
+            "label": "poison",
+            "aspects": {
+                "needsheart": 6,
+                "needslantern": 6
+            },
+            "isHidden": true,
+            "lifetime": 1,
+			"comments": "毒药阈值"
+        },
+        {
+            "id": "foe.analysis",
+            "label": "Insight",
+            "description": "The enemy has now obtained intelligence on our movements, allowing them to coordinate more flexibly.\n[Enemy units with this aspect cannot be attacked using overwhelming tactics.]",
+            "isAspect": true,
+			"comments": "洞察性相"
+        },
+        {
+            "id": "foe.guardian",
+            "label": "Guardian",
+            "description": "The enemy now knows our next mission objective, and they will not sit idly by.\n[This task must overcome an extra random challenge upon initiation.]",
+            "isAspect": true,
+            "icon": "guardian",
+			"comments": "守卫性相"
+        },
+        {
+            "id": "firstone",
+            "label": "Vanguard",
+            "description": "[This is the first spy you sent, and they will return first as well]",
+            "isAspect": true,
+            "icon": "autographed",
+			"comments": "第一人性相"
+        },
+        {
+            "id": "notmoreprovisions",
+            "label": "notmoreprovisions",
+            "isAspect": true,
+            "isHidden": true,
+			"comments": "这是为了让当地人好好做事的"
+        },
+        {
+            "id": "de_dis",
+            "label": "de_dis",
+            "isAspect": true,
+            "isHidden": true,
+			"comments": "这是为了减少抵抗的"
+        },
+        {
+            "id": "de_dec",
+            "label": "de_dec",
+            "isAspect": true,
+            "isHidden": true,
+			"comments": "这是为了减少密码的"
+        },
+        {
+            "id": "de_inf",
+            "label": "de_inf",
+            "isAspect": true,
+            "isHidden": true,
+			"comments": "这是为了减少渗透的"
+        },
+        {
+            "id": "add_dec",
+            "label": "add_dec",
+            "isAspect": true,
+            "isHidden": true,
+			"comments": "这是为了增加密码的"
+        },
+        {
+            "id": "add_dis",
+            "label": "add_dis",
+            "isAspect": true,
+            "isHidden": true,
+			"comments": "这是为了增加抵抗的"
+        },
+
+        {
+            "id": "nya.purple.unknown",
+            "label": "Enemy Gestapo?",
+            "description": "The enemy's intelligence agency laid a dragnet in this region before the war even began. Once their eyes are on you, death is only a matter of time.",
+            "aspects": {
+                "nyanya": 1
+            },
+			"lifetime": 1,
+            "xtriggers": {
+                "revealidentity": "nya.purple.know",
+                "de_inf": [
+                {
+                    "id": "nya.infiltration",
+                    "morpheffect": "mutate",
+                    "level": -1
+                }
+                ],
+                "de_dis": [
+                {
+                    "id": "nya.disorgan",
+                    "morpheffect": "mutate",
+                    "level": -1
+                }
+                ],
+                "de_dec": [
+                {
+                    "id": "nya.decryptcode",
+                    "morpheffect": "mutate",
+                    "level": -1
+                }
+                ],
+                "add_dec": [
+                {
+                    "id": "nya.decryptcode",
+                    "morpheffect": "mutate",
+                    "level": 1
+                }
+                ],
+                "add_dis": [
+                {
+                    "id": "nya.disorgan",
+                    "morpheffect": "mutate",
+                    "level": 1
+                }
+                ]
+            },
+            "icon": "nya.purple.known",
+			"comments": "喵梦老大"
+        },
+        {
+            "id": "nya.purple.know",
+            "$extends": ["nya.purple.unknown"],
+            "label": "Enemy Gestapo",
+            "description": "The enemy's intelligence agency laid a dragnet in this region before the war even began. Once their eyes are on you, death is only a matter of time.",
+            "aspects": {
+                "nyanya": 1
+            },
+			"lifetime": 1,
+            "icon": "nya.purple.know",
+			"comments": "喵梦"
+        },
+        {
+            "id": "nyanya",
+            "label": "The Enemy",
+            "isAspect": true,
+            "isHidden": true,
+			"comments": "这是喵梦主卡"
+        },
+        
+        {
+            "id": "nya.purple.unknown.bialystok",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 8,
+                "nya.decryptcode": 6,
+                "nya.disorgan": 6
+            }
+        },
+        {
+            "id": "nya.purple.unknown.vilna",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 8,
+                "nya.decryptcode": 7,
+                "nya.disorgan": 5
+            }
+        },
+        {
+            "id": "nya.purple.unknown.minsk",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 7,
+                "nya.decryptcode": 6,
+                "nya.disorgan": 5
+            }
+        },
+        {
+            "id": "nya.purple.unknown.vitebsk",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 7,
+                "nya.decryptcode": 5,
+                "nya.disorgan": 7
+            }
+        },
+        {
+            "id": "nya.purple.unknown.orsha",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 6,
+                "nya.decryptcode": 5,
+                "nya.disorgan": 5
+            }
+        },
+        {
+            "id": "nya.purple.unknown.bryansk",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 6,
+                "nya.decryptcode": 6,
+                "nya.disorgan": 4
+            }
+        },
+        {
+            "id": "nya.purple.unknown.vyazma",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 6,
+                "nya.decryptcode": 4,
+                "nya.disorgan": 6
+            }
+        },
+        {
+            "id": "nya.purple.unknown.rzhev",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 6,
+                "nya.decryptcode": 5,
+                "nya.disorgan": 4
+            }
+        },
+        {
+            "id": "nya.purple.unknown.smolensk",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 5,
+                "nya.decryptcode": 4,
+                "nya.disorgan": 4
+            }
+        },
+        {
+            "id": "nya.purple.unknown.kyiv",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 5,
+                "nya.decryptcode": 3,
+                "nya.disorgan": 4
+            }
+        },
+        {
+            "id": "nya.purple.unknown.kharkov",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 5,
+                "nya.decryptcode": 3,
+                "nya.disorgan": 3
+            }
+        },
+        {
+            "id": "nya.purple.unknown.kursk",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 5,
+                "nya.decryptcode": 4,
+                "nya.disorgan": 2
+            }
+        },
+        {
+            "id": "nya.purple.unknown.izyum",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 4,
+                "nya.decryptcode": 2,
+                "nya.disorgan": 2
+            }
+        },
+        {
+            "id": "nya.purple.unknown.uman",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 4,
+                "nya.decryptcode": 3,
+                "nya.disorgan": 2
+            }
+        },
+        {
+            "id": "nya.purple.unknown.odessa",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 4,
+                "nya.decryptcode": 2,
+                "nya.disorgan": 3
+            }
+        },
+        {
+            "id": "nya.purple.unknown.perekop",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 4,
+                "nya.decryptcode": 3,
+                "nya.disorgan": 3
+            }
+        },
+        {
+            "id": "nya.purple.unknown.voronezh",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 3,
+                "nya.decryptcode": 1,
+                "nya.disorgan": 2
+            }
+        },
+        {
+            "id": "nya.purple.unknown.livny",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 3,
+                "nya.decryptcode": 2,
+                "nya.disorgan": 1
+            }
+        },
+        {
+            "id": "nya.purple.unknown.stalingrad",
+            "$extends": ["nya.purple.unknown"],
+            "aspects$add": {
+                "nya.infiltration": 3,
+                "nya.decryptcode": 1,
+                "nya.disorgan": 1
+            }
+        },
+
+        {
+            "id": "nya.infiltration",
+            "label": "Infiltration Level",
+            "description": "First a farmer, then a soldier, then an officer at headquarters, and finally my personal guard.\n[As the level increases, enemy actions become increasingly threatening. Maximum level is 10, which can directly attack you and your allies. If infiltration reaches zero, the local intelligence agency will be destroyed. When infiltration is high, you can use special means in 'Communicate' to reduce it.]",
+            "isAspect": true,
+			"icon": "price.connection",
+			"comments": "渗透计划等级"
+        },
+        {
+            "id": "nya.decryptcode",
+            "label": "Decryption Level",
+            "description": "War is ninety percent intelligence. — <i>Napoleon Bonaparte</i>\n[As the level increases, enemy actions become increasingly threatening. Maximum level is 10, which grants the enemy an intelligence advantage bonus.]",
+            "isAspect": true,
+			"icon": "openedlockscar",
+			"comments": "破译密码等级"
+        },
+        {
+            "id": "nya.disorgan",
+            "label": "Resistance Level",
+            "description": "There are quite a few Ukrainians, Belarusians, Russians—all the dregs of the old Russian Empire who see the German invasion as a 'liberation.' Local resistance sentiment grows by the day...\n[As the level increases, enemy actions become increasingly threatening. Maximum level is 10, which will trigger a local rebellion organized by the populace.]",
+            "isAspect": true,
+			"comments": "破坏行动等级"
+        },
+		
+		{
+			"id": "intention.inf",
+			"label": "Enemy Intention",
+			"description": "The enemy's secret police and spies prowl the rear like hyenas.",
+			"isAspect": true,
+			"isHidden": true
+		},
+		{
+			"id": "intention.dis",
+			"label": "Enemy Intention",
+			"description": "The enemy's secret police and spies prowl the rear like hyenas.",
+			"isAspect": true,
+			"isHidden": true
+		},
+		{
+			"id": "intention.dec",
+			"label": "Enemy Intention",
+			"description": "The enemy's secret police and spies prowl the rear like hyenas.",
+			"isAspect": true,
+			"isHidden": true
+		},
+		{
+			"id": "intention.downtime",
+			"label": "Enemy Intention",
+			"description": "The enemy's secret police and spies prowl the rear like hyenas.",
+			"isAspect": true,
+			"isHidden": true
+		},
+		
+        {
+            "id": "nya.strategy.prep",
+            "label": "Preparations Ongoing",
+            "description": "The enemy is preparing another course of action.\n[The enemy needs three layers of preparations to launch another action.]",
+            "lifetime": 1,
+			"noStack": true
+        },
+        {
+            "id": "nya.strategy.prep.delayed",
+            "label": "Preparations Thwarted!",
+            "description": "Our spy has sabotaged a link in the enemy's preparations.\n[The enemy has lost one layer of preparations due to your sabotage.]",
+            "lifetime": 1
+        },
+        {
+            "id": "nya.strategy.inf.concealed",
+            "label": "The Enemy Intelligence Agency's Plan",
+            "description": "The enemy is planning their next move against us. If we send a spy, we might be able to discover some of their intentions.",
+            "aspects": {
+                "intention.inf": 1
+            },
+            "xtriggers": {
+                "reveal.strategy": "nya.strategy.inf.revealed"
+            },
+            "lifetime": 1,
+            "icon": "nya.strategy.unknown"
+        },
+        {
+            "id": "nya.strategy.dis.concealed",
+            "label": "The Enemy Intelligence Agency's Plan",
+            "description": "The enemy is planning their next move against us. If we send a spy, we might be able to discover some of their intentions.",
+            "aspects": {
+                "intention.dis": 1
+            },
+            "xtriggers": {
+                "reveal.strategy": "nya.strategy.dis.revealed"
+            },
+            "lifetime": 1,
+            "icon": "nya.strategy.unknown"
+        },
+        {
+            "id": "nya.strategy.dec.concealed",
+            "label": "The Enemy Intelligence Agency's Plan",
+            "description": "The enemy is planning their next move against us. If we send a spy, we might be able to discover some of their intentions.",
+            "aspects": {
+                "intention.dec": 1
+            },
+            "xtriggers": {
+                "reveal.strategy": "nya.strategy.dec.revealed"
+            },
+            "lifetime": 1,
+            "icon": "nya.strategy.unknown"
+        },
+        {
+            "id": "nya.strategy.downtime.concealed",
+            "label": "The Enemy Intelligence Agency's Plan",
+            "description": "The enemy is planning their next move against us. If we send a spy, we might be able to discover some of their intentions.",
+            "aspects": {
+                "intention.downtime": 1
+            },
+            "xtriggers": {
+                "reveal.strategy": "nya.strategy.downtime.revealed"
+            },
+            "lifetime": 1,
+            "icon": "nya.strategy.unknown"
+        },
+        {
+            "id": "nya.strategy.inf.revealed",
+            "label": "Enemy Plan Revealed: Infiltration",
+            "description": "Our enemy intends to expand their intelligence network this time.\n[You need to use <sprite name=edge> and <sprite name=heart> to sabotage this plan.]",
+            "aspects": {
+                "intention.inf": 1,
+                "strategy.revealed": 1
+            },
+            "xtriggers": {
+                "reveal.strategy": "nya.strategy.inf.revealed"
+            },
+            "lifetime": 1
+        },
+        {
+            "id": "nya.strategy.dis.revealed",
+            "label": "Enemy Plan Revealed: Resistance",
+            "description": "Our enemy intends to fund local resistance forces this time.\n[You need to use <sprite name=winter> and <sprite name=grail> to sabotage this plan.]",
+            "aspects": {
+                "intention.dis": 1,
+                "strategy.revealed": 1
+            },
+            "xtriggers": {
+                "reveal.strategy": "nya.strategy.dis.revealed"
+            },
+            "lifetime": 1
+        },
+        {
+            "id": "nya.strategy.dec.revealed",
+            "label": "Enemy Plan Revealed: Decryption",
+            "description": "Our enemy will focus on decrypting our intelligence this time.\n[You need to use <sprite name=forge> and <sprite name=moth> to sabotage this plan.]",
+            "aspects": {
+                "intention.dec": 1,
+                "strategy.revealed": 1
+            },
+            "xtriggers": {
+                "reveal.strategy": "nya.strategy.dec.revealed"
+            },
+            "lifetime": 1
+        },
+        {
+            "id": "nya.strategy.downtime.revealed",
+            "label": "Enemy Plan Revealed: Respite",
+            "description": "Our enemy will not take action against us this time. They will rest... and perhaps in resting, they will grow stronger.",
+            "aspects": {
+                "intention.downtime": 1,
+                "strategy.revealed": 1
+            },
+            "xtriggers": {
+                "reveal.strategy": "nya.strategy.downtime.revealed"
+            },
+            "lifetime": 1
+        },
+        {
+            "id": "nya.bigger.inf",
+            "label": "Infiltration Upgrade",
+            "aspects": {
+                "long.lesson": 1
+            },
+			"lifetime": 300,
+            "description": "Our enemy is taking us more seriously and investing more resources.\n[The enemy intelligence agency's infiltration level will increase]"
+        },
+        {
+            "id": "nya.bigger.dec",
+            "label": "Decryption Upgrade",
+            "aspects": {
+                "long.lesson": 1
+            },
+			"lifetime": 300,
+            "description": "Our enemy is taking us more seriously and investing more resources.\n[The enemy intelligence agency's decryption level will increase]"
+        },
+        {
+            "id": "nya.bigger.dis",
+            "label": "Resistance Upgrade",
+            "aspects": {
+                "long.lesson": 1
+            },
+			"lifetime": 300,
+            "description": "Our enemy is taking us more seriously and investing more resources.\n[The enemy intelligence agency's resistance level will increase]"
+        },
+
+        {
+            "id": "weakness.nya.unknown",
+            "label": "Enemy Intelligence Agency Weakness: Unknown",
+            "description": "We need more intelligence to find their weakness.\n[By placing the corresponding 'Opportunity' when the intelligence agency grows, you can identify the agency's weakness. Each region's intelligence agency has a different weakness. Placing the corresponding 'Opportunity' can stop the local agency's growth and may provide a 'Secondary Objective' to undermine their infiltration efforts.]",
+            "isAspect": true
+        },
+        {
+            "id": "weakness.nya.knowed",
+            "label": "Enemy Intelligence Agency Weakness: Known",
+            "description": "We have identified their weakness.\n[Each region's intelligence agency has a different weakness. Placing the corresponding 'Opportunity' can stop the local agency's growth and may provide a 'Secondary Objective' to undermine their infiltration efforts.]",
+            "isAspect": true
+        },
+        {
+            "id": "weakness.nya",
+            "label": "Enemy Intelligence Agency Weakness",
+            "description": "We have identified their weakness.\n[Each region's intelligence agency has a different weakness. Placing the corresponding 'Opportunity' can stop the local agency's growth and may provide a 'Secondary Objective' to undermine their infiltration efforts.]",
+            "isAspect": true,
+            "isHidden": true
+        },
+        {
+            "id": "uq.nya.weakness.heights",
+            "label": "Weakness: Heights",
+            "description": "High places are safe from ground-level observation, but not from snipers and traps.",
+            "isAspect": true,
+            "isHidden": true
+        },
+        {
+            "id": "uq.nya.weakness.ruins",
+            "label": "Weakness: Ruins",
+            "description": "Tall buildings are like forests, ruins like bushes—yet no matter where, the hound can still catch the hare.",
+            "isAspect": true,
+            "isHidden": true
+        },
+        {
+            "id": "uq.nya.weakness.sewers",
+            "label": "Weakness: Sewers",
+            "description": "They hide in the sewers like rats. Fortunately, we have plenty of  rat traps.",
+            "isAspect": true,
+            "isHidden": true
+        },
+        {
+            "id": "uq.nya.weakness.dove",
+            "label": "Weakness: Dove",
+            "description": "The white dove—symbol of peace, image of the The Elegist, a sharp and mad little bird—makes our enemies tremble.",
+            "isAspect": true,
+            "isHidden": true
+        },
+        {
+            "id": "uq.nya.weakness.cats",
+            "label": "Weakness: Cats",
+            "description": "Cats—furry little killers, the Lionsmith's smallest creation, carriers of ten thousand allergens—stop our enemies in their tracks.",
+            "isAspect":true, 
+            "isHidden": true
+        },
+        {
+            "id": "uq.nya.weakness.wolves",
+            "label": "Weakness: Wolves",
+            "description": "Wolves—deadly hunting packs, image of the god of destruction, metaphor for despair and death—are what our enemies absolutely refuse to approach.",
+            "isAspect": true,
+            "isHidden": true
+        },
+        {
+            "id": "uq.nya.weakness.velvet",
+            "label": "Weakness: Velvet",
+            "description": "Velvet buries secrets deep. The enemy dares not touch her black hem.",
+            "isAspect": true,
+            "isHidden": true
+        },
+        {
+            "id": "uq.nya.weakness.madrugad",
+            "label": "Weakness: Madrugad",
+            "description": "The Madrugad brings balance. The enemy fears her cold dawn.",
+            "isAspect": true,
+            "isHidden": true
+        },
+        {
+            "id": "uq.nya.weakness.beachcomber",
+            "label": "Weakness: Beachcomber",
+            "description": "The Beachcomber knows lost things. The enemy fears their secrets being stolen.",
+            "isAspect": true,
+            "isHidden": true
+        },
+		
+        {
+            "id": "nya.weakness.heights",
+            "label": "Weakness: Heights",
+            "description": "High places are safe from ground-level observation, but not from snipers and traps.",
+            "uniquenessgroup": "uq.nya.weakness.heights",
+            "aspects": {
+                "weakness.nya.knowed": 1,
+                "weakness.nya": 1
+            }
+        },
+        {
+            "id": "nya.weakness.ruins",
+            "label": "Weakness: Ruins",
+            "description": "Tall buildings are like forests, ruins like bushes—yet no matter where, the hound can still catch the hare.",
+            "uniquenessgroup": "uq.nya.weakness.ruins",
+            "aspects": {
+                "weakness.nya.knowed": 1,
+                "weakness.nya": 1
+            }
+        },
+        {
+            "id": "nya.weakness.sewers",
+            "label": "Weakness: Sewers",
+            "description": "They hide in the sewers like rats. Fortunately, we have plenty of rat traps.",
+            "uniquenessgroup": "uq.nya.weakness.sewers",
+            "aspects": {
+                "weakness.nya.knowed": 1,
+                "weakness.nya": 1
+            }
+        },
+        {
+            "id": "nya.weakness.dove",
+            "label": "Weakness: Dove",
+            "description": "The white dove—symbol of peace, image of the The Elegist, a sharp and mad little bird—makes our enemies tremble.",
+            "uniquenessgroup": "uq.nya.weakness.dove",
+            "aspects": {
+                "weakness.nya.knowed": 1,
+                "weakness.nya": 1
+            }
+        },
+        {
+            "id": "nya.weakness.cats",
+            "label": "Weakness: Cats",
+            "description": "Cats—furry little killers, the Lionsmith's smallest creation, carriers of ten thousand allergens—stop our enemies in their tracks.",
+            "uniquenessgroup": "uq.nya.weakness.cats",
+            "aspects": {
+                "weakness.nya.knowed": 1,
+                "weakness.nya": 1
+            }
+        },
+        {
+            "id": "nya.weakness.wolves",
+            "label": "Weakness: Wolves",
+            "description": "Wolves—deadly hunting packs, image of the god of destruction, metaphor for despair and death—are what our enemies absolutely refuse to approach.",
+            "uniquenessgroup": "uq.nya.weakness.wolves",
+            "aspects": {
+                "weakness.nya.knowed": 1,
+                "weakness.nya": 1
+            }
+        },
+        {
+            "id": "nya.weakness.velvet",
+            "label": "Weakness: Velvet",
+            "description": "Velvet buries secrets deep. The enemy dares not touch her black hem.",
+            "uniquenessgroup": "uq.nya.weakness.velvet",
+            "aspects": {
+                "weakness.nya.knowed": 1,
+                "weakness.nya": 1
+            }
+        },
+        {
+            "id": "nya.weakness.madrugad",
+            "label": "Weakness: Madrugad",
+            "description": "The Madrugad brings balance. The enemy fears the cold dawn.",
+            "uniquenessgroup": "uq.nya.weakness.madrugad",
+            "aspects": {
+                "weakness.nya.knowed": 1,
+                "weakness.nya": 1
+            }
+        },
+        {
+            "id": "nya.weakness.beachcomber",
+            "label": "Weakness: Beachcomber",
+            "description": "The Beachcomber knows lost things. The enemy fears their secrets being stolen.",
+            "uniquenessgroup": "uq.nya.weakness.beachcomber",
+            "aspects": {
+                "weakness.nya.knowed": 1,
+                "weakness.nya": 1
+            }
+        },
+        {
+            "id": "nya.weakness.heights.hidden",
+            "label": "Unknown Weakness",
+            "description": "This is our chance—it will give us the advantage and disrupt the enemy's plans.",
+            "uniquenessgroup": "uq.nya.weakness.heights",
+            "decayTo": "nya.weakness.heights",
+            "aspects": {
+                "weakness.nya.unknown": 1,
+                "weakness.nya": 1
+            },
+            "xtriggers": {
+                "epiphany": "nya.weakness.heights"
+            },
+            "icon": "nya.weakness.unknown"
+        },
+        {
+            "id": "nya.weakness.ruins.hidden",
+            "label": "Unknown Weakness",
+            "description": "This is our chance—it will give us the advantage and disrupt the enemy's plans.",
+            "uniquenessgroup": "uq.nya.weakness.ruins",
+            "decayTo": "nya.weakness.ruins",
+            "aspects": {
+                "weakness.nya.unknown": 1,
+                "weakness.nya": 1
+            },
+            "xtriggers": {
+                "epiphany": "nya.weakness.ruins"
+            },
+            "icon": "nya.weakness.unknown"
+        },
+        {
+            "id": "nya.weakness.sewers.hidden",
+            "label": "Unknown Weakness",
+            "description": "This is our chance—it will give us the advantage and disrupt the enemy's plans.",
+            "uniquenessgroup": "uq.nya.weakness.sewers",
+            "decayTo": "nya.weakness.sewers",
+            "aspects": {
+                "weakness.nya.unknown": 1,
+                "weakness.nya": 1
+            },
+            "xtriggers": {
+                "epiphany": "nya.weakness.sewers"
+            },
+            "icon": "nya.weakness.unknown"
+        },
+        {
+            "id": "nya.weakness.dove.hidden",
+            "label": "Unknown Weakness",
+            "description": "This is our chance—it will give us the advantage and disrupt the enemy's plans.",
+            "uniquenessgroup": "uq.nya.weakness.dove",
+            "decayTo": "nya.weakness.dove",
+            "aspects": {
+                "weakness.nya.unknown": 1,
+                "weakness.nya": 1
+            },
+            "xtriggers": {
+                "epiphany": "nya.weakness.dove"
+            },
+            "icon": "nya.weakness.unknown"
+        },
+        {
+            "id": "nya.weakness.cats.hidden",
+            "label": "Unknown Weakness",
+            "description": "This is our chance—it will give us the advantage and disrupt the enemy's plans.",
+            "uniquenessgroup": "uq.nya.weakness.cats",
+            "decayTo": "nya.weakness.cats",
+            "aspects": {
+                "weakness.nya.unknown": 1,
+                "weakness.nya": 1
+            },
+            "xtriggers": {
+                "epiphany": "nya.weakness.cats"
+            },
+            "icon": "nya.weakness.unknown"
+        },
+        {
+            "id": "nya.weakness.wolves.hidden",
+            "label": "Unknown Weakness",
+            "description": "This is our chance—it will give us the advantage and disrupt the enemy's plans.",
+            "uniquenessgroup": "uq.nya.weakness.wolves",
+            "decayTo": "nya.weakness.wolves",
+            "aspects": {
+                "weakness.nya.unknown": 1,
+                "weakness.nya": 1
+            },
+            "xtriggers": {
+                "epiphany": "nya.weakness.wolves"
+            },
+            "icon": "nya.weakness.unknown"
+        },
+        {
+            "id": "nya.weakness.velvet.hidden",
+            "label": "Unknown Weakness",
+            "description": "This is our chance—it will give us the advantage and disrupt the enemy's plans.",
+            "uniquenessgroup": "uq.nya.weakness.velvet",
+            "aspects": {
+                "weakness.nya.unknown": 1,
+                "weakness.nya": 1
+            },
+            "decayTo": "nya.weakness.velvet",
+            "xtriggers": {
+                "epiphany": "nya.weakness.velvet"
+            },
+            "icon": "nya.weakness.unknown"
+        },
+        {
+            "id": "nya.weakness.madrugad.hidden",
+            "label": "Unknown Weakness",
+            "description": "This is our chance—it will give us the advantage and disrupt the enemy's plans.",
+            "uniquenessgroup": "uq.nya.weakness.madrugad",
+            "decayTo": "nya.weakness.madrugad",
+            "aspects": {
+                "weakness.nya.unknown": 1,
+                "weakness.nya": 1
+            },
+            "xtriggers": {
+                "epiphany": "nya.weakness.madrugad"
+            },
+            "icon": "nya.weakness.unknown"
+        },
+        {
+            "id": "nya.weakness.beachcomber.hidden",
+            "label": "Unknown Weakness",
+            "description": "This is our chance—it will give us the advantage and disrupt the enemy's plans.",
+            "uniquenessgroup": "uq.nya.weakness.beachcomber",
+            "decayTo": "nya.weakness.beachcomber",
+            "aspects": {
+                "weakness.nya.unknown": 1,
+                "weakness.nya": 1
+            },
+            "xtriggers": {
+                "epiphany": "nya.weakness.beachcomber"
+            },
+            "icon": "nya.weakness.unknown"
+        }
+    ]
+}

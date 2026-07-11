@@ -1,0 +1,677 @@
+{
+    "recipes": [
+        {
+            "id": "produce.twotwoseven",
+            "actionid": "spit.heart",
+            "label": "Order No. 227",
+            "startdescription": "New orders issued from Moscow. Not a single step back shall we retreat!",
+            "requirements": {
+                "long.execution": 1
+            },
+            "warmup": 10
+        },
+        {
+            "id": "refresh.breakthroughsuccessful",
+            "actionid": "operate",
+            "label": "Widen Breakthrough Route",
+            "startdescription": "Widen the escape passage to evacuate more troops.\n[This refreshes the duration of successful breakout state.]",
+            "extantreqs": {
+                "breakthroughsuccessful": 1
+            },
+            "requirements": {
+                "op.pinceroffensive": 1
+            },
+            "slots": [
+                {
+                    "id": "needsinfrastructure",
+                    "label": "Breakthrough Success",
+                    "required": {
+                        "breakthroughsuccessful": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "aspects": {
+                "refresh": 1
+            },
+            "effects": {
+                "op.pinceroffensive": -99
+            },
+            "craftable": true,
+            "warmup": 5
+        },
+        {
+            "id": "produce.makeafraid.needsprovisions",
+            "actionid": "afraidally",
+            "label": "Panic Among Troops",
+            "startdescription": "Morale crumbles. Encirclement or overwhelming enemy numbers may trigger low troop spirit.",
+            "requirements": {
+                "readiness.token": 1
+            },
+            "slots": [
+                {
+                    "id": "needsinfrastructure",
+                    "label": "Supplies",
+                    "required": {
+                        "provisions": 1
+                    },
+                    "consumes": true
+                }
+            ],
+            "alt": [
+                {
+                    "id": "produce.makeafraid.none.umiri"
+                },
+                {
+                    "id": "produce.makeafraid.none"
+                }
+            ],
+            "linked": [
+                {
+                    "id": "produce.makeafraid"
+                }
+            ],
+            "warmup": 30
+        },
+        {
+            "id": "produce.makeafraid.none.umiri",
+            "label": "Tales of Fallen Officers",
+            "startdescription": "This morale boost will only last temporarily.",
+            "extantreqs": {
+                "uses.umiri": 1
+            },
+            "furthermore": [
+                {
+                    "target": "~/tabletop",
+                    "mutations": [
+                        {
+                            "filter": "foe.umiri.dead",
+                            "mutate": "uses.umiri",
+                            "level": -1,
+                            "additive": true,
+                            "VFX": "CardBurn"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "produce.makeafraid.none",
+            "label": "Calm the Troops",
+            "startdescription": "This is the greatest comfort I can offer them.",
+            "requirements": {
+                "provisions": 1
+            }
+        },
+        {
+            "id": "produce.makeafraid",
+            "actionid": "afraidally",
+            "label": "Panic Among Troops",
+            "startdescription": "Morale crumbles. Encirclement or overwhelming enemy numbers may trigger low troop spirit.",
+            "extantreqs": {
+                "enemyforces": -2,
+                "obdurant.story": 1
+            },
+            "slots": [
+                {
+                    "id": "needsinfrastructure",
+                    "label": "Friendly Troops",
+                    "required": {
+                        "friend": 1
+                    },
+                    "forbidden": {
+                        "named_friend": 1,
+                        "friend.weakened": 1,
+                        "friend.conscript": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "aspects": {
+                "makeafraid": 1
+            },
+            "effects": {
+                "enemyforces": 1
+            },
+            "alt": [
+                {
+                    "id": "produce.makeafraid.none.umiri"
+                }
+            ],
+            "linked": [
+                {
+                    "id": "produce.makeafraid",
+                    "chance": 50
+                },
+                {
+                    "id": "produce.makeafraid.exhausted",
+                    "chance": 30
+                }
+            ],
+            "warmup": 10
+        },
+        {
+            "id": "produce.makeafraid.exhausted",
+            "label": "Panic Among Troops",
+            "startdescription": "Morale crumbles. Encirclement or overwhelming enemy numbers may trigger low troop spirit.",
+            "aspects": {
+                "fatiguing": 1
+            },
+            "mutations": [
+                {
+                    "filter": "experience.exile.ally",
+                    "mutate": "experience.exile.ally",
+                    "level": -1,
+                    "additive": true
+                }
+            ]
+        },
+        {
+            "id": "produce.weaken.time",
+            "actionid": "friendweaken",
+            "label": "Troop Unrest",
+            "startdescription": "Morale crumbles. Encirclement or overwhelming enemy numbers may trigger low troop spirit.",
+            "extantreqs": {
+                "foe.forcesize": "forcesize",
+                "obdurant.story": 1
+            },
+            "slots": [
+                {
+                    "id": "needsinfrastructure",
+                    "label": "Friendly Troops",
+                    "required": {
+                        "friend": 1
+                    },
+                    "forbidden": {
+                        "named_friend": 1,
+                        "friend.weakened": 1,
+                        "friend.conscript": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "aspects": {
+                "makeweaken": 1
+            },
+            "effects": {
+                "enemyforces": 1
+            },
+            "alt": [
+                {
+                    "id": "produce.makeafraid.none.umiri"
+                }
+            ],
+            "linked": [
+                {
+                    "id": "produce.weaken.exhausted",
+                    "chance": 10
+                }
+            ],
+            "warmup": 10
+        },
+        {
+            "id": "produce.weaken.exhausted",
+            "$extends": ["produce.makeafraid.exhausted"],
+            "label": "Troop Unrest",
+            "startdescription": "Morale crumbles. Encirclement or overwhelming enemy numbers may trigger low troop spirit."
+        },
+        {
+            "id": "produce.weaken.time.more",
+            "$extends": ["produce.weaken.time"],
+            "grandReqs": {
+                "[~/extant:foe.forcesize] >= ([~/extant:forcesize] * 2)": 1
+            },
+            "extantreqs": {}
+        },
+        {
+            "id": "produce.makeafraid.time",
+            "$extends": ["produce.makeafraid"],
+            "actionid": "afraidally",
+            "label": "Panic Among Troops",
+            "startdescription": "Morale crumbles. Encirclement or overwhelming enemy numbers may trigger low troop spirit.",
+            "grandReqs": {
+                "[~/extant:foe.forcesize] >= ([~/extant:forcesize] * 3)": 1
+            },
+            "extantreqs": {}
+        },
+        {
+            "id": "friend.escapes",
+            "actionid": "friendescape",
+            "label": "Troop Desertion",
+            "startdescription": "Troops secretly conspire to flee. You may overlook the incident or execute deserters as a warning, though it may backfire at times.",
+            "extantreqs": {
+                "execution": -1,
+                "obdurant.story": 1
+            },
+            "slots": [
+                {
+                    "id": "needsinfrastructure",
+                    "label": "Deserters",
+                    "required": {
+                        "friend.weakened": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "friend.escapes.weapon"
+                }
+            ],
+            "warmup": 10
+        },
+        {
+            "id": "friend.escapes.weapon",
+            "label": "Troop Desertion",
+            "startdescription": "Troops secretly conspire to flee. You may overlook the incident or execute deserters as a warning, though it may backfire at times.",
+            "requirements": {
+                "friend": 1
+            },
+            "slots": [
+                {
+                    "id": "needsinfrastructure",
+                    "label": "Execution Weapon",
+                    "required": {
+                        "weapon": 1
+                    },
+                    "forbidden": {
+                        "exhausted": 1
+                    }
+                }
+            ],
+            "alt": [
+                {
+                    "id": "friend.escapes.execution.failure",
+                    "chance": 30
+                },
+                {
+                    "id": "friend.escapes.execution"
+                }
+            ],
+            "effects": {
+                "friend.weakened": -99
+            },
+            "warmup": 20
+        },
+        {
+            "id": "friend.escapes.execution",
+            "label": "Execute Deserters",
+            "startdescription": "Fear is a subtle blade. Used properly, it stops dissent, yet resentment will build over time.\n[Instantly execute the soldier and block desertion temporarily, though this measure may fail with unintended consequences.]",
+            "requirements": {
+                "weapon": 1
+            },
+            "aspects": {
+                "killmortal": 1,
+                "fatiguing": 1
+            },
+            "effects": {
+                "temp.execution": 1
+            },
+            "alt": [
+                {
+                    "id": "friend.escapes.execution.mechanized"
+                }
+            ]
+        },
+        {
+            "id": "friend.escapes.execution.mechanized",
+            "$extends": ["friend.escapes.execution"],
+            "requirements": {
+                "mechanized_forces.friend": 1
+            },
+            "aspects": {
+                "makecasualty": 1
+            },
+            "linked": [
+                {
+                    "id": "friend.escapes.execution.mechanized.fatiguing"
+                }
+            ],
+            "alt": []
+        },
+        {
+            "id": "friend.escapes.execution.mechanized.fatiguing",
+            "$extends": ["friend.escapes.execution"],
+            "requirements": {},
+            "aspects": {
+                "fatiguing": 1
+            },
+            "effects": {},
+            "alt": []
+        },
+        {
+            "id": "friend.escapes.execution.failure",
+            "label": "Execute Deserters",
+            "startdescription": "Fear is a subtle blade. Used properly, it stops dissent, yet resentment will build over time.\n[Instantly execute the soldier and block desertion temporarily, though this measure may fail with unintended consequences.]",
+            "aspects": {
+                "killmortal": 1,
+                "fatiguing": 1
+            },
+            "extantreqs": {
+                "nya.infamy": 3
+            },
+            "requirements": {
+                "weapon": 1
+            },
+            "linked": [
+                {
+                    "id": "friend.escapes.execution.defection",
+                    "chance": 40
+                },
+                {
+                    "id": "friend.escapes.execution.another"
+                }
+            ]
+        },
+        {
+            "id": "friend.escapes.execution.defection",
+            "label": "Mass Defection",
+            "startdescription": "Troops resent harsh discipline and defect overnight.",
+            "aspects": {
+                "becaptive": 1
+            },
+            "warmup": 10,
+            "slots": [
+                {
+                    "id": "needsinfrastructure",
+                    "label": "Deserters",
+                    "required": {
+                        "friend.weakened": 1
+                    },
+                    "greedy": true
+                }
+            ]
+        },
+        {
+            "id": "friend.escapes.execution.another",
+            "label": "Troop Flight",
+            "startdescription": "Troops resent harsh discipline and flee overnight.",
+            "effects": {
+                "friend.weakened": -99
+            },
+            "warmup": 10,
+            "slots": [
+                {
+                    "id": "needsinfrastructure",
+                    "label": "Deserters",
+                    "required": {
+                        "friend.weakened": 1
+                    },
+                    "greedy": true
+                }
+            ]
+        },
+        {
+            "id": "produce.pinceroffensive",
+            "actionid": "spit.pinceroffensive",
+            "label": "Seek Breakthrough Intel",
+            "startdescription": "Where lies the flaw in their defense? We need more intelligence to find a way out.",
+            "effects": {
+                "op.pinceroffensive": 1
+            },
+            "extantreqs": {
+                "besieged": 1
+            },
+            "requirements": {
+                "neutral_monster": -1
+            },
+            "warmup": 10
+        },
+        {
+            "id": "produce.pinceroffensive.more",
+            "$extends": ["produce.pinceroffensive"],
+            "requirements": {
+                "neutral_monster": -1,
+                "tactics1.overwhelming": 1
+            }
+        },
+        {
+            "id": "pinceroffensive.pre",
+            "actionid": "pinceroffensive",
+            "label": "Enemy Encirclement Tightens",
+            "startdescription": "The city will fall soon unless we complete all tasks and escape before their ring closes.\n[When the countdown hits zero, full encirclement activates.]",
+            "requirements": {
+                "countdownpincer": 6
+            },
+            "effects": {
+                "countdownpincer": -1
+            },
+            "warmup": 60,
+            "linked": [
+                {
+                    "id": "pinceroffensive.pre"
+                },
+                {
+                    "id": "pinceroffensive.signalimportantloop"
+                }
+            ]
+        },
+        {
+            "id": "pinceroffensive.signalimportantloop",
+            "label": "Enemy Encirclement Tightens",
+            "signalimportantloop": true,
+            "linked": [
+                {
+                    "id": "pinceroffensive.closer"
+                }
+            ]
+        },
+        {
+            "id": "pinceroffensive.closer",
+            "label": "Enemy Encirclement Tightens",
+            "startdescription": "The city will fall soon unless we complete all tasks and escape before their ring closes.\n[When the countdown hits zero, full encirclement activates.]",
+            "signalMusic": "bgm.closer.mp3",
+	        "signalEndingFlavour": "Melancholy",
+            "linked": [
+                {
+                    "id": "pinceroffensive.mutate"
+                }
+            ],
+            "warmup": 300
+        },
+        {
+            "id": "pinceroffensive.mutate",
+            "actionid": "pinceroffensive",
+            "label": "Enemy Encirclement Tightens",
+            "startdescription": "The fortress crumbles — we must cut through enemy lines or die as soldiers.\n[When the countdown hits zero, full encirclement activates.]",
+            "requirements": {
+                "warzone.current": -1
+            },
+            "effects": {
+                "countdownpincer": -99
+            },
+            "slots": [
+                {
+                    "id": "needsinfrastructure",
+                    "label": "Active Warzone",
+                    "required": {
+                        "warzone.current": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "warzone.current",
+                    "mutate": "besieged",
+                    "level": 1
+                }
+            ],
+            "warmup": 5,
+            "linked": [
+                {
+                    "id": "pinceroffensive.mutate"
+                },
+                {
+                    "id": "pinceroffensive.move"
+                }
+            ]
+        },
+        {
+            "id": "pinceroffensive.move",
+            "actionid": "pinceroffensive",
+            "label": "Enemy Encirclement Tightens",
+            "startdescription": "The fortress crumbles — we must cut through enemy lines or die as soldiers.",
+            "movements": {
+                "~/tabletop": {
+                    "filter": "warzone.current"
+                }
+            },
+            "effects": {
+                "pinceroffensivetrigger": 1,
+                "long.blocker": 1,
+                "side.cutoff": 1
+            },
+            "linked": [
+                {
+                    "id": "pinceroffensive.circle"
+                }
+            ]
+        },
+        {
+            "id": "pinceroffensive.circle",
+            "actionid": "pinceroffensive",
+            "label": "Enemy Encirclement Tightened",
+            "startdescription": "Fight our way through enemy lines, or perish with honor.\n[Defeat enemy units to earn Breakthrough Opportunities.]",
+            "warmup": 60,
+            "effects": {
+                "readiness.token": 1
+            },
+            "alt": [
+                {
+                    "id": "pinceroffensive.cutoff",
+                    "chance": 70,
+                    "additional": true,
+                    "expulsion": {
+                        "filter": {
+                            "readiness.token": 1
+                        },
+                        "limit": 1
+                    }
+                },
+                {
+                    "id": "produce.makeafraid.needsprovisions",
+                    "additional": true,
+                    "chance": 30,
+                    "expulsion": {
+                        "filter": {
+                            "readiness.token": 1
+                        },
+                        "limit": 1
+                    }
+                },
+                {
+                    "id": "pinceroffensive.attack.straight",
+                    "additional": true,
+                    "chance": 60,
+                    "expulsion": {
+                        "filter": {
+                            "readiness.token": 1
+                        },
+                        "limit": 1
+                    }
+                },
+                {
+                    "id": "pinceroffensive.attack.left",
+                    "additional": true,
+                    "chance": 40,
+                    "expulsion": {
+                        "filter": {
+                            "readiness.token": 1
+                        },
+                        "limit": 1
+                    }
+                },
+                {
+                    "id": "pinceroffensive.attack.right",
+                    "additional": true,
+                    "chance": 40,
+                    "expulsion": {
+                        "filter": {
+                            "readiness.token": 1
+                        },
+                        "limit": 1
+                    }
+                }
+            ],
+            "purge": {
+                "influence_temp": 3
+            },
+            "linked": [
+                {
+                    "id": "pinceroffensive.circle"
+                }
+            ]
+        },
+        {
+            "id": "pinceroffensive.cutoff",
+            "actionid": "pinceroffensivecutoff",
+            "label": "Enemy Reinforcements Flood In",
+            "startdescription": "Supply lines are fully severed. Their reinforcements march ever closer to our headquarters.\n[Once encircled, long-lived units vanish, exploration time extends, seasonal supplies & allied calls are locked; enemy forces will keep growing without a breakout.]",
+            "grandReqs": {
+                "[~/extant:foe.forcesize] <= ([~/extant:forcesize] * 2)": 1
+            },
+            "requirements": {
+                "readiness.token": 1
+            },
+            "deckeffects": {
+                "foeforumiri.tanks": 2,
+                "foeforumiri.infantry": 2,
+                "foeforumiri.bombers": 1
+            },
+            "warmup": 10
+        },
+        {
+            "id": "pinceroffensive.attack.straight",
+            "$extends": ["singleattack.startup"],
+            "requirements": {
+                "readiness.token": 1
+            },
+            "actionid": "pinceroffensiveattack.straight"
+        },
+        {
+            "id": "pinceroffensive.attack.left",
+            "$extends": ["singleattack.startup"],
+            "requirements": {
+                "readiness.token": 1
+            },
+            "actionid": "pinceroffensiveattack.left"
+        },
+        {
+            "id": "pinceroffensive.attack.right",
+            "$extends": ["singleattack.startup"],
+            "requirements": {
+                "readiness.token": 1
+            },
+            "actionid": "pinceroffensiveattack.right"
+        },
+        {
+            "id": "operate.pinceroffensive",
+            "actionid": "operate",
+            "label": "Attempt to Break Encirclement",
+            "startdescription": "No defense is flawless. A crack exists in their perimeter — we must strike fast before they seal it shut.",
+            "requirements": {
+                "op.pinceroffensive": 5
+            },
+            "effects": {
+                "main.pinceroffensive": 1,
+                "op.pinceroffensive": -5
+            },
+            "craftable": true,
+            "warmup": 30
+        },
+        {
+            "id": "operate.pinceroffensive.hint",
+            "actionid": "operate",
+            "label": "Attempt to Break Encirclement?",
+            "startdescription": "We lack intelligence and a solid plan; rushing out equals suicide. Extract intel from captured enemy troops.",
+            "requirements": {
+                "op.pinceroffensive": 1
+            },
+            "extantreqs": {
+                "breakthroughsuccessful": -1
+            },
+            "hintonly": true
+        }
+    ]
+}

@@ -1,0 +1,1281 @@
+{
+  "recipes": [
+    {
+      "id": "foe.umiri.toairsupply",
+      "label": "An air force officer is approaching.",
+      "startdescription": "My greatest enemy is not adept at commanding air forces, so she has summoned her student, or so the intercepted telegrams say.",
+      "extantreqs": {
+        "mumo": -1,
+        "foefighter": -3,
+        "allresolution": 5
+      },
+      "effects": {
+        "turn_mu": 1,
+        "foe.fighter_aircraft": 1
+      },
+      "internaldeck": {
+        "spec": [
+          "foe.fighter_aircraft.hidden",
+          "foe.fighter_aircraft.hidden",
+          "husk",
+          "husk"
+        ],
+        "defaultcard": "husk",
+        "draws": 3,
+        "resetonexhaustion": true
+      },
+      "linked": [
+        {
+          "id": "foe.umiri.tomutsumi",
+          "chance": 60
+        },
+        {
+          "id": "foe.umiri.tomutsumi"
+        }
+      ]
+    },
+    {
+      "id": "foe.umiri.tomutsumi",
+      "label": "An air force officer is approaching.",
+      "startdescription": "My greatest enemy is not adept at commanding air forces, so she has summoned her student, or so the intercepted telegrams say.",
+      "extantreqs": {
+        "mumo": -1,
+        "allresolution": 5
+      },
+      "warmup": 60,
+      "effects": {
+        "mu.unknow": 1
+      }
+    },
+    {
+      "id": "foe.umiri.tomortis",
+      "label": "An air force officer is approaching.",
+      "startdescription": "My greatest enemy is not adept at commanding air forces, so she has summoned her student, or so the intercepted telegrams say.",
+      "extantreqs": {
+        "mumo": -1
+      },
+      "warmup": 60,
+      "effects": {
+        "mo.unknow": 1
+      }
+    },
+    {
+      "id": "friend.airsupremacy.cycle.startup",
+      "actionId": "airsupremacy.friend",
+      "label": "Our forces are dominating the skies!",
+      "startdescription": "The initiative on the battlefield has returned to our hands.\n\n[Place fighters or bombers to launch reconnaissance or bombing missions. If no friendly units are placed, there is a chance to reduce air superiority by one point, to a minimum of one.]",
+      "warmup": 10,
+      "playAudioTrack": "soviet_airsupremacy.mp3",
+      "linked": [
+        {
+          "id": "friend.airsupremacy.cycle"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.cycle",
+      "actionId": "airsupremacy.friend",
+      "label": "Our forces are dominating the skies!",
+      "startdescription": "The initiative on the battlefield has returned to our hands.\n\n[Place fighters or bombers to launch reconnaissance or bombing missions. If no friendly units are placed, there is a chance to reduce air superiority by one point, to a minimum of one.]",
+      "warmup": 60,
+      "requirements": {
+        "soviet_airsupremacy_self": 1
+      },
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "mission?",
+          "required": {
+            "friendfighter": 1,
+            "friendbombers": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "damaged": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "friend.airsupremacy.fighter.startup"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.startup"
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.delete",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.cycle"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.delete",
+      "label": "Our forces are dominating the skies!",
+      "startdescription": "The initiative on the battlefield has returned to our hands.\n\n[Place fighters or bombers to launch reconnaissance or bombing missions. If no friendly units are placed, there is a chance to reduce air superiority by one point, to a minimum of one.]",
+      "requirements": {
+        "soviet_airsupremacy_self": 1
+      },
+      "effects": {
+        "airsupremacy.on": -1
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.cycle"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fighter.startup",
+      "label": "Execute a reconnaissance mission?",
+      "startdescription": "[The mission will not be intercepted. Upon success, it grants an intelligence bonus to all friendly forces. Only one such mission can be active at a time.]",
+      "requirements": {
+        "friendfighter": 1
+      },
+      "effects": {
+        "airsupremacy.on": -1
+      },
+      "alt": [
+        {
+          "id": "friend.airsupremacy.fighter",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.cycle"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.bombers.startup",
+      "label": "Execute a bombing mission?",
+      "startdescription": "[The mission may be intercepted. Upon success, it weakens the enemy and cuts off their supplies. Up to three such missions can be active simultaneously.]",
+      "requirements": {
+        "friendbombers": 1
+      },
+      "effects": {
+        "airsupremacy.on": -1
+      },
+      "alt": [
+        {
+          "id": "friend.airsupremacy.bombers",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 1
+          }
+        },
+        {
+          "id": "friend.airsupremacy.bombers.2",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 1
+          }
+        },
+        {
+          "id": "friend.airsupremacy.bombers.3",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.cycle"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fighter",
+      "actionId": "fighter.friend",
+      "label": "Our reconnaissance aircraft are dispatched.",
+      "startdescription": "Probe the enemy's deployment.\n\n[Upon completion, all friendly forces on the field gain 'Intelligence Advantage'.]",
+      "aspects": {
+        "revealidentity": 1
+      },
+      "warmup": 10,
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fighter.recon"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fighter.recon",
+      "actionId": "fighter.friend",
+      "label": "Our reconnaissance aircraft are dispatched.",
+      "startdescription": "Probe the enemy's deployment.\n\n[Upon completion, all friendly forces on the field gain 'Intelligence Advantage'.]",
+      "warmup": 45,
+      "aspects": {
+        "fatiguing": 1
+      },
+      "xpans": {
+        "adv_soviet": 99
+      }
+    },
+    {
+      "id": "friend.airsupremacy.bombers",
+      "actionId": "bombers.friend",
+      "label": "Our bombers are dispatched.",
+      "startdescription": "We must deal a heavy blow to the enemy's logistics and industrial areas!\n\n[This action will destroy enemy morale and supply lines; the enemy may attempt to intercept. If we accumulate 5 'Air Power', the mission is guaranteed to succeed.]",
+      "warmup": 10,
+      "effects": {
+        "friend.bombers.startup": 1
+      },
+      "grandReqs": {
+        "[~/extant:friend.bombers.startup]": 0
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.bombers.escort"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.intercept.ff"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.intercept.f"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.intercept.b"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.cutoff.weaken"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.bombers.2",
+      "actionId": "bombers.friend.2",
+      "label": "Our bombers are dispatched.",
+      "startdescription": "We must deal a heavy blow to the enemy's logistics and industrial areas!\n\n[This action will destroy enemy morale and supply lines; the enemy may attempt to intercept. If we accumulate 5 'Air Power', the mission is guaranteed to succeed.]",
+      "warmup": 10,
+      "effects": {
+        "friend.bombers.startup": 1
+      },
+      "grandReqs": {
+        "[~/extant:friend.bombers.startup]": 1
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.bombers.escort"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.intercept.ff"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.intercept.f"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.intercept.b"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.cutoff.weaken"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.bombers.3",
+      "actionId": "bombers.friend.3",
+      "label": "Our bombers are dispatched.",
+      "startdescription": "We must deal a heavy blow to the enemy's logistics and industrial areas!\n\n[This action will destroy enemy morale and supply lines; the enemy may attempt to intercept. If we accumulate 5 'Air Power', the mission is guaranteed to succeed.]",
+      "warmup": 10,
+      "effects": {
+        "friend.bombers.startup": 1
+      },
+      "grandReqs": {
+        "[~/extant:friend.bombers.startup]": 2
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.bombers.escort"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.intercept.ff"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.intercept.f"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.intercept.b"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.cutoff.weaken"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.bombers.escort",
+      "actionId": "bombers.friend",
+      "label": "Dispatch fighter escort?",
+      "startdescription": "Sending fighters for escort is a safe and wise move.\n\n[This action will destroy enemy morale and supply lines; the enemy may attempt to intercept. If we accumulate 5 'Air Power', the mission is guaranteed to succeed.]",
+      "extantreqs": {
+        "friendfighter": 1
+      },
+      "warmup": 20,
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Enemy",
+          "required": {
+            "friendfighter": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.bombers.intercept.ff"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.intercept.f"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.intercept.b"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.cutoff.weaken"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.bombers.intercept.ff",
+      "label": "The enemy is attempting to intercept.",
+      "startdescription": "The enemy is trying to stop our bombing plan.\n\n[This action will destroy enemy morale and supply lines; the enemy may attempt to intercept. If we accumulate 5 'Air Power', the mission is guaranteed to succeed.]",
+      "extantreqs": {
+        "foefighterhidden": 1
+      },
+      "aspects": {
+        "revealidentity": 1
+      },
+      "warmup": 10,
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "intercept",
+          "required": {
+            "foefighterhidden": 1
+          },
+          "forbidden": {
+            "weaken": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.bombers.intercept"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.bombers.intercept.f",
+      "label": "The enemy is attempting to intercept.",
+      "startdescription": "The enemy is trying to stop our bombing plan.\n\n[This action will destroy enemy morale and supply lines; the enemy may attempt to intercept. If we accumulate 5 'Air Power', the mission is guaranteed to succeed.]",
+      "extantreqs": {
+        "foefighter": 1
+      },
+      "aspects": {
+        "revealidentity": 1
+      },
+      "warmup": 10,
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "intercept",
+          "required": {
+            "foefighter": 1
+          },
+          "forbidden": {
+            "weaken": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.bombers.intercept"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.bombers.intercept.b",
+      "label": "The enemy is attempting to intercept.",
+      "startdescription": "The enemy is trying to stop our bombing plan.\n\n[This action will destroy enemy morale and supply lines; the enemy may attempt to intercept. If we accumulate 5 'Air Power', the mission is guaranteed to succeed.]",
+      "extantreqs": {
+        "foebombers": 1
+      },
+      "aspects": {
+        "revealidentity": 1
+      },
+      "warmup": 10,
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "intercept",
+          "required": {
+            "foebombers": 1
+          },
+          "forbidden": {
+            "weaken": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.bombers.intercept"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.bombers.intercept",
+      "label": "The enemy is attempting to intercept.",
+      "startdescription": "The enemy is trying to stop our bombing plan.\n\n[This action will destroy enemy morale and supply lines; the enemy may attempt to intercept. If we accumulate 5 'Air Power', the mission is guaranteed to succeed.]",
+      "linked": [
+        {
+          "id": "friend.airsupremacy.bombers.five"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.aerial",
+          "chance": "{([foe.aerial] + 1) / ([friend.aerial] + 2)} * 100"
+        },
+        {
+          "id": "friend.airsupremacy.bombers.cutoff.weaken"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.bombers.five",
+      "label": "German bombers are in action.",
+      "startdescription": "-",
+      "requirements": {
+        "friend.aerial": 5
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.bombers.cutoff.weaken"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.bombers.aerial",
+      "label": "Mission Failed.",
+      "startdescription": "Our bombers failed to penetrate deep into enemy territory.",
+      "requirements": {
+        "foe.aerial": 1
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "decaytoair": 1
+      },
+      "warmup": 5
+    },
+    {
+      "id": "friend.airsupremacy.bombers.cutoff.weaken",
+      "label": "Strike the troops!",
+      "startdescription": "Let them taste some ammunition and explosions!",
+      "warmup": 10,
+      "requirements": {
+        "enemyforces": -5
+      },
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Enemy",
+          "required": {
+            "german": 1
+          },
+          "forbidden": {
+            "weakened": 1,
+            "tomori.mark": 1,
+            "foe.umiri.mark": 1,
+            "mutsumi.mark": 1,
+            "mortis.mark": 1
+          },
+          "greedy": true
+        }
+      ],
+      "effects": {
+        "enemyforces": 1
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.bombers.cutoff.weaken",
+          "chance": 65
+        },
+        {
+          "id": "friend.airsupremacy.bombers.cutoff.end"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.bombers.cutoff.end",
+      "label": "Withdraw.",
+      "startdescription": "The enemy's strength is greatly diminished.",
+      "aspects": {
+        "weaken": 1,
+        "fatiguing": 1
+      },
+      "warmup": 15,
+      "effects": {
+        "foe.damaged": 1
+      },
+      "alt": [
+        {
+          "id": "produce.strife",
+          "additional": true,
+          "chance": 30
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.operate.1",
+      "actionId": "operate",
+      "label": "Our forces launch aerial combat!",
+      "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
+      "extantreqs": {
+        "fightering.mark": -1
+      },
+      "grandReqs": {
+        "([friendfighter] == 1) && ([provisions] == 1)": 1
+      },
+      "requirements": {
+        "foe.umiri.mark": -1,
+        "umiri.mark": -1,
+        "foe": -1,
+        "main": -1,
+        "side": -1,
+        "mastery.edge": -1
+      },
+      "effects": {
+        "soviet.provisions": 1
+      },
+      "craftable": true,
+      "alt": [
+        {
+          "id": "friend.airsupremacy.fight",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friendfighter": 1,
+              "soviet.provisions": 1
+            },
+            "limit": 99
+          }
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.operate.2",
+      "actionId": "operate",
+      "label": "Our forces launch aerial combat!",
+      "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
+      "extantreqs": {
+        "fightering.mark": -1
+      },
+      "grandReqs": {
+        "[friendfighter] == 2 && [provisions] == 2": 1
+      },
+      "requirements": {
+        "foe.umiri.mark": -1,
+        "umiri.mark": -1,
+        "foe": -1,
+        "main": -1,
+        "side": -1,
+        "mastery.edge": -1
+      },
+      "effects": {
+        "soviet.provisions": 1
+      },
+      "craftable": true,
+      "alt": [
+        {
+          "id": "friend.airsupremacy.fight",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friendfighter": 1,
+              "soviet.provisions": 1
+            },
+            "limit": 99
+          }
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.operate.3",
+      "actionId": "operate",
+      "label": "Our forces launch aerial combat!",
+      "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
+      "extantreqs": {
+        "fightering.mark": -1
+      },
+      "requirements": {
+        "foe.umiri.mark": -1,
+        "umiri.mark": -1,
+        "foe": -1,
+        "main": -1,
+        "side": -1,
+        "mastery.edge": -1
+      },
+      "grandReqs": {
+        "[friendfighter] == 3 && [provisions] == 3": 1
+      },
+      "effects": {
+        "soviet.provisions": 1
+      },
+      "craftable": true,
+      "alt": [
+        {
+          "id": "friend.airsupremacy.fight",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friendfighter": 1,
+              "soviet.provisions": 1
+            },
+            "limit": 99
+          }
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.german.none.mu",
+      "label": "Our forces launch aerial combat!",
+      "extantreqs": {
+        "mutsumi.mark": 1
+      },
+      "requirements": {
+        "foe.aerial": "friend.aerial"
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.german.none"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.german.none.mo",
+      "label": "Our forces launch aerial combat!",
+      "extantreqs": {
+        "mortis.mark": 1
+      },
+      "requirements": {
+        "foe.aerial": "friend.aerial"
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.german.none"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.german.none",
+      "label": "Our forces launch aerial combat!",
+      "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
+      "warmup": 10,
+      "effects": {
+        "foe.cutoff": -1,
+        "german.provisions": 1
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.both"
+        },
+        {
+          "id": "airsupremacy.nonewin"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight",
+      "actionId": "fighter.friend",
+      "label": "Our forces launch aerial combat!",
+      "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
+      "effects": {
+        "fightering.mark": 1
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.german.none.mu"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.none.mo",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.environment",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.ff"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.f"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.b"
+        },
+        {
+          "id": "friend.airsupremacy.fight.both"
+        },
+        {
+          "id": "airsupremacy.nonewin"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.german.environment",
+      "label": "Enemy hindered!",
+      "startdescription": "Even the most experienced pilots fear storms and lightning.\n\n[Sometimes favorable weather conditions can prevent the enemy from committing more resources to the air battle, and vice versa.]",
+      "warmup": 10,
+      "tablereqs": {
+        "op.environment": 1
+      },
+      "extantreqs": {
+        "mutsumi.mark": -1
+      },
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Environment",
+          "required": {
+            "op.environment": 1
+          },
+          "greedy": true,
+          "consumes": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.both"
+        },
+        {
+          "id": "airsupremacy.nonewin"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.german.ff",
+      "label": "Our forces launch aerial combat!",
+      "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
+      "warmup": 10,
+      "extantreqs": {
+        "foefighterhidden": 1
+      },
+      "aspects": {
+        "revealidentity": 1
+      },
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Enemy",
+          "required": {
+            "foefighterhidden": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.both"
+        },
+        {
+          "id": "airsupremacy.nonewin"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.german.f",
+      "label": "Our forces launch aerial combat!",
+      "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
+      "warmup": 10,
+      "extantreqs": {
+        "foefighter": 1
+      },
+      "aspects": {
+        "revealidentity": 1
+      },
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Enemy",
+          "required": {
+            "foefighter": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.both"
+        },
+        {
+          "id": "airsupremacy.nonewin"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.german.b",
+      "label": "Our forces launch aerial combat!",
+      "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
+      "warmup": 10,
+      "extantreqs": {
+        "foebombers": 1
+      },
+      "aspects": {
+        "revealidentity": 1
+      },
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Enemy",
+          "required": {
+            "foebombers": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.both"
+        },
+        {
+          "id": "airsupremacy.nonewin"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.soviet.environment",
+      "label": "Our forces hindered!",
+      "startdescription": "Even the most experienced pilots fear storms and lightning.\n\n[Sometimes favorable weather conditions can prevent the enemy from committing more resources to the air battle, and vice versa.]",
+      "warmup": 15,
+      "tablereqs": {
+        "environmenthidden": 1
+      },
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Environment",
+          "required": {
+            "environmenthidden": 1
+          },
+          "greedy": true,
+          "consumes": true
+        }
+      ],
+      "alt": [
+        {
+          "id": "friend.airsupremacy.fight.soviet.none"
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.german.none.mu"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.none.mo",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.environment",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.ff"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.f"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.b"
+        },
+        {
+          "id": "friend.airsupremacy.fight.both"
+        },
+        {
+          "id": "airsupremacy.nonewin"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.soviet",
+      "label": "Our forces launch aerial combat!",
+      "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
+      "warmup": 15,
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Attack",
+          "required": {
+            "friendfighter": 1,
+            "provisions": 1
+          },
+          "forbidden": {
+            "friend.weakened": 1,
+            "exhausted": 1,
+            "damaged": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "friend.airsupremacy.fight.soviet.none"
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.german.none.mu"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.none.mo",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.environment",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.ff"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.f"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.b"
+        },
+        {
+          "id": "friend.airsupremacy.fight.both"
+        },
+        {
+          "id": "airsupremacy.nonewin"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.soviet.none",
+      "label": "Provide Supplies",
+      "startdescription": "Beyond strong tactics and brave troops, a sustained supply of provisions is even more important.\n\n[This ensures your aircraft will not run out of supplies during this round of aerial combat.]",
+      "warmup": 15,
+      "requirements": {
+        "provisions": 1
+      },
+      "effects": {
+        "provisions": -1,
+        "soviet.provisions": 1
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.german.none.mu"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.none.mo",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.environment",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.ff"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.f"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.b"
+        },
+        {
+          "id": "friend.airsupremacy.fight.both"
+        },
+        {
+          "id": "airsupremacy.nonewin"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.both",
+      "label": "Our forces launch aerial combat!",
+      "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
+      "warmup": 15,
+      "grandReqs": {
+        "[foe] >= 1 || [friend] >= 1": 1
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.germanwin"
+        },
+        {
+          "id": "friend.airsupremacy.fight.sovietwin"
+        }
+      ]
+    },
+    {
+      "id": "friend.airsupremacy.fight.sovietwin",
+      "label": "We have achieved a partial victory.",
+      "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
+      "effects": {
+        "soviet_airsupremacy_self": 1
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.soviet.environment",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.sovietwin.end"
+        },
+        {
+          "id": "friend.airsupremacy.fight.soviet"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.none.mu"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.none.mo",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.environment",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.ff"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.f"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.b"
+        },
+        {
+          "id": "friend.airsupremacy.fight.both"
+        },
+        {
+          "id": "airsupremacy.nonewin"
+        }
+      ],
+      "alt": [
+        {
+          "id": "foe.airsupremacy.makecasualty",
+          "chance": 15,
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "foe": 1
+            },
+            "limit": 1
+          }
+        },
+        {
+          "id": "friend.airsupremacy.makecasualty",
+          "chance": 30,
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 1
+          }
+        },
+        {
+          "id": "foe.airsupremacy.exhausted",
+          "chance": 30,
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "foe": 1
+            },
+            "limit": 1
+          }
+        },
+        {
+          "id": "friend.airsupremacy.exhausted",
+          "chance": 45,
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 1
+          }
+        }
+      ],
+      "warmup": 5
+    },
+    {
+      "id": "friend.airsupremacy.fight.sovietwin.end",
+      "label": "We have achieved complete victory!",
+      "startdescription": "The sky belongs to us!",
+      "extantreqs": {
+        "soviet_airsupremacy_self": 3
+      },
+      "aspects": {
+        "decaytoair": 1,
+        "fatiguing": 1
+      },
+      "haltverb": {
+        "airsupremacy.foe": 99
+      },
+      "achievements": [
+        "achievement.win_air_battle"
+      ],
+      "alt": [
+        {
+          "id": "friend.airsupremacy.cycle.startup",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "soviet_airsupremacy_self": 1
+            },
+            "limit": 3
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.sovietwin.call"
+        }
+      ],
+      "warmup": 15
+    },
+    {
+      "id": "friend.airsupremacy.fight.sovietwin.call",
+      "label": "We have achieved complete victory!",
+      "startdescription": "A testament to victory.\n\n[Now you can attempt to call for allied air support.]",
+      "maxexecutions": 1,
+      "effects": {
+        "call.air": 1
+      },
+      "warmup": 5
+    },
+    {
+      "id": "friend.airsupremacy.fight.germanwin",
+      "label": "The enemy has achieved a partial victory.",
+      "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
+      "grandReqs": {
+        "[friend.aerial] <= [foe.aerial]": 1
+      },
+      "effects": {
+        "german_airsupremacy": 1
+      },
+      "linked": [
+        {
+          "id": "friend.airsupremacy.fight.soviet.environment",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.germanwin.end"
+        },
+        {
+          "id": "friend.airsupremacy.fight.soviet"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.none.mu"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.none.mo",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.environment",
+          "chance": 30
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.ff"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.f"
+        },
+        {
+          "id": "friend.airsupremacy.fight.german.b"
+        },
+        {
+          "id": "friend.airsupremacy.fight.both"
+        },
+        {
+          "id": "airsupremacy.nonewin"
+        }
+      ],
+      "alt": [
+        {
+          "id": "foe.airsupremacy.makecasualty",
+          "chance": 15,
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "foe": 1
+            },
+            "limit": 1
+          }
+        },
+        {
+          "id": "friend.airsupremacy.makecasualty",
+          "chance": 30,
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 1
+          }
+        },
+        {
+          "id": "foe.airsupremacy.exhausted",
+          "chance": 30,
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "foe": 1
+            },
+            "limit": 1
+          }
+        },
+        {
+          "id": "friend.airsupremacy.exhausted",
+          "chance": 45,
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 1
+          }
+        }
+      ],
+      "warmup": 5
+    },
+    {
+      "id": "friend.airsupremacy.fight.germanwin.end",
+      "label": "The enemy has achieved complete victory!",
+      "startdescription": "We can only temporarily retreat to avoid sustained losses.",
+      "extantreqs": {
+        "german_airsupremacy": 3
+      },
+      "aspects": {
+        "decaytoair": 1,
+        "fatiguing": 1
+      },
+      "warmup": 15
+    }
+  ]
+}

@@ -1,0 +1,2095 @@
+{
+  "recipes": [
+
+    {
+	"id": "travelling.cycle",
+  "linked$prepend": [
+    {
+      "id": "travelling.achievement.high"
+    },
+    {
+      "id": "travelling.achievement.low"
+    },
+    {
+      "id": "travelling.achievement.fly"
+    }
+  ]
+    },
+    {
+	"id": "travelling.achievement.high",
+  "tablereqs": {
+    "friendtanks": 10,
+    "friendartillery": 10
+  },
+  "maxexecutions": 1,
+	"achievements": [
+		"achievement.army_high"
+	],
+  "linked": [
+    {
+      "id": "travelling.cycle"
+    }
+  ]
+    },
+    {
+	"id": "travelling.achievement.low",
+  "tablereqs": {
+    "friend": -1,
+    "allresolution": -5
+  },
+  "maxexecutions": 1,
+	"achievements": [
+		"achievement.army_low"
+	],
+  "linked": [
+    {
+      "id": "travelling.cycle"
+    }
+  ]
+    },
+    {
+	"id": "travelling.achievement.fly",
+  "tablereqs": {
+    "friendbombers": 5,
+    "friendfighter": 5
+  },
+  "maxexecutions": 1,
+	"achievements": [
+		"achievement.army_fly"
+	],
+  "linked": [
+    {
+      "id": "travelling.cycle"
+    }
+  ]
+    },
+
+    {
+	"id": "newwarzone.rebellion.sectora",
+  "$extends": ["newwarzone.inflames.sectorb"],
+  "requirements": {
+	    "shrine.wolf.lionsmith": 1,
+	    "sector.a": 1
+	},
+	"deckeffects": {
+	    "warzones.sector.a": 1
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.a"
+	    }
+	]
+    },
+    {
+	"id": "newwarzone.rebellion.sectorb",
+  "$extends": ["newwarzone.inflames.sectorb"],
+  "requirements": {
+	    "shrine.wolf.lionsmith": 1,
+	    "sector.b": 1
+	},
+	"deckeffects": {
+	    "warzones.sector.b": 1
+	},
+	"linked": [
+	    {
+		"id": "newwarzone.distantdraw.b"
+	    }
+	]
+    },
+
+    {
+      "id": "opx.conclude.shakedown.3",
+      "purge$add": {
+        "friendmilitia": 99,
+        "friend.militia.exhausted": 99,
+        "friend.militia.weaken.exhausted": 99,
+        "friend.militia.wounded": 99,
+        "friend.militia.weaken.wounded": 99
+      }
+    },
+    {
+      "id": "opx.conclude.shakedown.2",
+      "purge$add": {
+        "friendmilitia": 99,
+        "friend.militia.exhausted": 99,
+        "friend.militia.weaken.exhausted": 99,
+        "friend.militia.wounded": 99,
+        "friend.militia.weaken.wounded": 99
+      }
+    },
+    {
+      "id": "opx.conclude.shakedown.1",
+      "purge$add": {
+        "friendmilitia": 99,
+        "friend.militia.exhausted": 99,
+        "friend.militia.weaken.exhausted": 99,
+        "friend.militia.wounded": 99,
+        "friend.militia.weaken.wounded": 99
+      }
+    },
+    {
+      "id": "operate.endinginitiate",
+      "linked": [
+        {
+          "id": "ascendname.colonel"
+        },
+        {
+          "id": "obdurant.umiri.high"
+        },
+        {
+          "id": "obdurant.umiri.med"
+        },
+        {
+          "id": "obdurant.umiri.low"
+        },
+        {
+          "id": "obdurant.ending.high"
+        },
+        {
+          "id": "obdurant.ending.med"
+        },
+        {
+          "id": "obdurant.ending.low"
+        }
+      ]
+    },
+    {
+      "id": "obdurant.umiri.high",
+      "label": "Stalingrad, 1943",
+      "description": "\"What is the meaning of all this? Why does it happen? What force compels people to burn houses and slaughter their fellow men? What are the causes of these events? What power drives men to do such things? When humanity encounters the monuments and legends of the past, it asks itself these unconscious, naive, and most legitimate questions.\"\n\n<i>—War and Peace</i>",
+      "extantreqs": {
+        "resolution": 14,
+        "foe.defiance": 7
+      },
+      "warmup": 30,
+      "ending": "killumiri.high"
+    },
+    {
+      "id": "obdurant.umiri.med",
+      "label": "Stalingrad, 1943",
+      "description": "\"There were moments in the past when, out of fear of death and in defiance of the flesh, you dreamed of love in a contemplative way. And now, in this world-wide feast of death, from this fierce flame of desire that lights up the cold-rainy night sky, will that kind of love ever rise again?\"\n\n<i>—The Magic Mountain</i>",
+      "extantreqs": {
+        "resolution": 7,
+        "foe.defiance": 7
+      },
+      "warmup": 30,
+      "ending": "killumiri.medium"
+    },
+    {
+      "id": "obdurant.umiri.low",
+      "label": "Stalingrad, 1943",
+      "description": "She killed one man, and then spent her entire life killing more. The Colonel did not need her loyalty, and the Fatherland did not need her service. She was merely a blade that, once drawn from its sheath, could never be returned.",
+      "extantreqs": {
+        "foe.defiance": 7
+      },
+      "warmup": 30,
+      "ending": "killumiri.low"
+    },
+    {
+      "id": "attackenemy.aerial.overwhelm",
+      "$priority": 3,
+      "achievements": [
+        "achievement.overwhelming_airstrike"
+      ]
+    },
+    {
+      "id": "abandon.ally",
+      "requirements$add": {
+        "friend.tomori": -1,
+        "faction.anno": -1
+      }
+    },
+    {
+      "id": "producecasualty.tactics2",
+      "$extends": ["producecasualty"],
+      "requirements": {
+        "provisions": -1,
+        "friend": 1,
+        "nonlethal": -1
+      }
+    },
+    {
+      "id": "contemplation.facechallenge",
+      "slots": [
+        {
+          "id": "needssomething",
+          "label": "Will",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "weapon": 1,
+            "supplies": 1,
+            "contemplation": 1,
+            "infrastructure": 1
+          }
+        },
+        {
+          "id": "needssomething2",
+          "label": "Resolution",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "weapon": 1,
+            "supplies": 1,
+            "contemplation": 1,
+            "infrastructure": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "wolfdream.pre",
+      "slots": [
+        {
+          "id": "needssomething",
+          "label": "Will",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "weapon": 1,
+            "supplies": 1,
+            "contemplation": 1,
+            "infrastructure": 1
+          }
+        },
+        {
+          "id": "needssomething2",
+          "label": "Resolution",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "weapon": 1,
+            "supplies": 1,
+            "contemplation": 1,
+            "infrastructure": 1
+          }
+        },
+        {
+          "id": "needssomething3",
+          "label": "Concentration",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "weapon": 1,
+            "supplies": 1,
+            "contemplation": 1,
+            "infrastructure": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "wolfdream.facechallenge",
+      "slots": [
+        {
+          "id": "needssomething",
+          "label": "Will",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "weapon": 1,
+            "supplies": 1,
+            "contemplation": 1,
+            "infrastructure": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "reinforcements.startup.rally",
+      "$extends": ["reinforcements.startup"],
+      "grandreqs": {
+        "[~/extant:foe.forcesize] < [~/extant:forcesize]": 1,
+        "([foe.resolution] * 20 + [allresolution] * 10 + 50) >= ([foe.forcesize])": 1
+      },
+      "requirements": {}
+    },
+    {
+      "id": "reinforcements.startup.defense",
+      "$extends": ["reinforcements.startup.rally"],
+      "grandReqs": {
+        "([foe.resolution] * 20 + [allresolution] * 10 + 50) >= ([foe.forcesize])": 1
+      }
+    },
+    {
+      "id": "travelling.officerpresent",
+      "slots": [
+        {
+          "id": "needsfoe",
+          "label": "Enemy",
+          "required": {
+            "foe": 1
+          },
+          "forbidden": {
+            "otherworldly": 1,
+            "mechanized_forces": 1,
+            "neutral_monster": 1,
+            "foe.bombers": 1,
+            "foe.bombers.hidden": 1,
+            "foe.artillery": 1,
+            "foe.artillery.hidden": 1,
+            "foe.tanks": 1,
+            "foe.tanks.hidden": 1,
+            "allnaval": 1
+          },
+          "greedy": true
+        }
+      ]
+    },
+    {
+      "id": "travelling.officerpresent.secondfoe",
+      "slots": [
+        {
+          "id": "needsfoe",
+          "label": "Enemy",
+          "required": {
+            "foe": 1
+          },
+          "forbidden": {
+            "otherworldly": 1,
+            "mechanized_forces": 1,
+            "neutral_monster": 1,
+            "foe.bombers": 1,
+            "foe.bombers.hidden": 1,
+            "foe.artillery": 1,
+            "foe.artillery.hidden": 1,
+            "foe.tanks": 1,
+            "foe.tanks.hidden": 1,
+            "allnaval": 1
+          },
+          "greedy": true
+        }
+      ]
+    },
+    {
+      "id": "abandon.skill.refreshexhausted",
+      "linked": [
+        {
+          "id": "abandon.skill.refreshexhausted.deweaken"
+        }
+      ]
+    },
+    {
+      "id": "abandon.skill.refreshexhausted.deweaken",
+      "label": "Command fatigued allies to rally and rise again",
+      "startdescription": "If there is even the slightest spark of fighting spirit in these men, I will fan it into a great and furious flame. If there is not, they will be compelled to fight regardless. I will not be disobeyed.",
+      "description": "'Forward. Only forward.'",
+      "xpans": {
+        "deweaken": 1
+      }
+    },
+    {
+      "id": "ob.success",
+      "linked$prepend": [
+        {
+          "id": "ob.success.breakout"
+        },
+        {
+          "id": "ob.success.nya"
+        },
+        {
+          "id": "ob.success.inf"
+        },
+        {
+          "id": "ob.success.dec"
+        },
+        {
+          "id": "ob.success.dis"
+        }
+      ]
+    },
+    {
+      "id": "ob.success.breakout",
+      "label": "A Victory!",
+      "startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+      "description": "And so we are victorious.",
+      "requirements": {
+        "breakthroughsuccessful": 1
+      },
+      "achievements": [
+        "achievement.breakout"
+      ]
+    },
+    {
+      "id": "ob.success.nya",
+      "label": "A Victory!",
+      "startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+      "description": "And so we are victorious.",
+      "requirements": {
+        "nya.blocker": 1
+      },
+      "achievements": [
+        "achievement.destroy_intelligence_agency"
+      ],
+      "haltverb": {
+        "nya": 99,
+        "nya.*": 99
+      }
+    },
+    {
+      "id": "ob.success.inf",
+      "label": "A Victory!",
+      "startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+      "description": "And so we are victorious.",
+      "requirements": {
+        "inf.complete": 1,
+        "enemyforces": -3
+      },
+      "effects": {
+        "enemyforces": 1
+      },
+      "internaldeck": {
+        "spec": [
+          "op.ruins",
+          "op.sewers",
+          "op.highplace",
+          "op.ruins",
+          "op.sewers",
+          "op.highplace",
+          "op.farm",
+          "side.weaponscache",
+          "side.rescueallies"
+        ],
+        "draws": 1,
+        "resetonexhaustion": true
+      },
+      "furthermore": [
+        {
+          "target": "~/tabletop!nya[situationstorage]+",
+          "aspects": {
+            "de_inf": 1
+          }
+        }
+      ],
+      "warmup": 5,
+      "linked": [
+        {
+          "id": "ob.success.inf",
+          "chance": 60
+        }
+      ]
+    },
+    {
+      "id": "ob.success.dec",
+      "label": "A Victory!",
+      "startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+      "description": "And so we are victorious.",
+      "requirements": {
+        "dec.complete": 1,
+        "enemyforces": -3
+      },
+      "effects": {
+        "enemyforces": 1
+      },
+      "aspects": {
+        "adv_soviet": 1
+      },
+      "slots": [
+        {
+          "id": "defend",
+          "label": "Ally",
+          "required": {
+            "friend": 1
+          },
+          "forbidden": {
+            "ins_soviet": 1,
+            "named_friend": 1,
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1
+          },
+          "greedy": true
+        }
+      ],
+      "furthermore": [
+        {
+          "target": "~/tabletop!nya[situationstorage]+",
+          "aspects": {
+            "de_dec": 1
+          }
+        }
+      ],
+      "warmup": 5,
+      "linked": [
+        {
+          "id": "ob.success.dec",
+          "chance": 60
+        }
+      ]
+    },
+    {
+      "id": "ob.success.dis",
+      "label": "A Victory!",
+      "startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+      "description": "And so we are victorious.",
+      "requirements": {
+        "dis.complete": 1,
+        "enemyforces": -3
+      },
+      "effects": {
+        "enemyforces": 1,
+        "provisions": 1
+      },
+      "furthermore": [
+        {
+          "target": "~/tabletop!nya[situationstorage]+",
+          "aspects": {
+            "de_dis": 1
+          }
+        }
+      ],
+      "warmup": 5,
+      "linked": [
+        {
+          "id": "ob.success.dis",
+          "chance": 60
+        }
+      ]
+    },
+    {
+      "id": "opx.conclude.assistlocals.3",
+      "alt": [
+        {
+          "id": "remove.infamy",
+          "chance": 60,
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "opx.conclude.assistlocals.2",
+      "alt": [
+        {
+          "id": "remove.infamy",
+          "chance": 40,
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "opx.conclude.assistlocals.1",
+      "alt": [
+        {
+          "id": "remove.infamy",
+          "chance": 20,
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "opx.conclude.shakedown.3",
+      "alt": [
+        {
+          "id": "produce.infamy",
+          "chance": 90,
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "opx.conclude.shakedown.2",
+      "alt": [
+        {
+          "id": "produce.infamy",
+          "chance": 60,
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "opx.conclude.shakedown.1",
+      "alt": [
+        {
+          "id": "produce.infamy",
+          "chance": 30,
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "operate.getdream.success",
+      "alt": [
+        {
+          "id": "produce.infamy",
+          "chance": 50,
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "produce.infamy",
+      "label": "Bad Reputation!",
+      "startdescription": "Some of the things we've done have gotten out, and it's spreading quickly across the entire region.",
+      "actionId": "lurk",
+      "effects": {
+        "nya.infamy": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "remove.infamy",
+      "label": "Good Reputation!",
+      "startdescription": "Some of the things we've done have gotten out, and it's spreading quickly across the entire region.",
+      "actionId": "rose",
+      "alt": [
+        {
+          "id": "remove.infamy.then"
+        }
+      ],
+      "furthermore": [
+        {
+          "target": "~/tabletop!nya[situationstorage]+",
+          "aspects": {
+            "de_dis": 1
+          }
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "remove.infamy.then",
+      "extantreqs": {
+        "nya.infamy": 1
+      },
+      "linked": [
+        {
+          "id": "remove.infamy.ex"
+        }
+      ]
+    },
+    {
+      "id": "remove.infamy.ex",
+      "label": "Good Reputation!",
+      "startdescription": "Some of the things we've done have gotten out, and it's spreading quickly across the entire region.",
+      "actionId": "rose",
+      "slots": [
+        {
+          "id": "infamy",
+          "label": "Infamy",
+          "required": {
+            "nya.infamy": 1
+          },
+          "greedy": true
+        }
+      ],
+      "effects": {
+        "nya.infamy": -99
+      },
+      "warmup": 10
+    },
+    {
+      "id": "healcasualty.medics.monster",
+      "requirements": {
+        "friendmedics": 1,
+        "provisions": 1,
+        "friend.monster": 1,
+        "wounded": 1
+      },
+      "slots": [
+        {
+          "id": "needsengineer",
+          "label": "An Engineer",
+          "required": {
+            "friendengineers": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "healcasualty.medics.monster.success",
+      "requirements": {
+        "friendengineers": 1
+      }
+    },
+    {
+      "id": "heal.wound.hint",
+      "extantreqs": {
+        "umirifight": -1
+      }
+    },
+    {
+      "id": "heal.wound",
+      "extantreqs": {
+        "umirifight": -1
+      },
+      "requirements": {
+        "provisions": 1,
+        "friendmedics": 1,
+        "damage.body": 1,
+        "debilitation": -1
+      }
+    },
+    {
+      "id": "healcasualty.medics",
+      "requirements": {
+        "friendmedics": 1,
+        "wounded": 1,
+        "provisions": 1
+      }
+    },
+    {
+      "id": "doubleattack.1.startup",
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "foe.fighter_aircraft.environment": 1,
+            "foe.fighter_aircraft.environment.hidden": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "doubleattack.2.startup",
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "foe.fighter_aircraft.environment": 1,
+            "foe.fighter_aircraft.environment.hidden": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "singleattack.startup",
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "foe.fighter_aircraft.environment": 1,
+            "foe.fighter_aircraft.environment.hidden": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "destroysupplies.startup",
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "foe.fighter_aircraft.environment": 1,
+            "foe.fighter_aircraft.environment.hidden": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "infrastructure.startup",
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "foe.fighter_aircraft.environment": 1,
+            "foe.fighter_aircraft.environment.hidden": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "visit.shrinewolf.getskill",
+      "extantreqs": {
+        "contemnant.story": 1
+      }
+    },
+    {
+      "id": "visit.shrinewolf.getweapon",
+      "extantreqs": {
+        "contemnant.story": 1
+      }
+    },
+    {
+      "id": "visit.shrinewolf.lore",
+      "extantreqs": {
+        "contemnant.story": 1
+      }
+    },
+    {
+      "id": "attackenemy.needsedgegrailmoth.overwhelm",
+      "actionid": "operate",
+      "label": "Stage an offensive using a multiple strategy",
+      "startdescription": "Blood, ending, and torment. Let's see them withstand this.",
+      "requirements": {
+        "foe": 1,
+        "provisions": 1,
+        "needsedgegrailmoth": 1,
+        "edge": "needsedgegrailmoth",
+        "foe.ingluviate.engorged": -1
+      },
+      "grandreqs": {
+        "[edge] - [needsedgegrailmoth]": 5,
+        "[grail] - {[needsedgegrailmoth] / 2}": 5,
+        "[moth] - {[needsedgegrailmoth] / 2}": 5
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+        {
+          "id": "attackenemy.success"
+        }
+      ]
+    },
+    {
+      "id": "attackenemy.needsedgegrailwinter.overwhelm",
+      "actionid": "operate",
+      "label": "Stage an offensive using a multiple strategy",
+      "startdescription": "Blood, ending, and torment. Let's see them withstand this.",
+      "requirements": {
+        "foe": 1,
+        "provisions": 1,
+        "needsedgegrailwinter": 1,
+        "edge": "needsedgegrailwinter",
+        "foe.ingluviate.engorged": -1
+      },
+      "grandreqs": {
+        "[edge] - [needsedgegrailwinter]": 5,
+        "[grail] - {[needsedgegrailwinter] / 2}": 5,
+        "[winter] - {[needsedgegrailwinter] / 2}": 5
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+        {
+          "id": "attackenemy.success"
+        }
+      ]
+    },
+    {
+      "id": "attackenemy.needsedgegrailwinter",
+      "actionid": "operate",
+      "label": "Stage an offensive using a multiple strategy",
+      "startdescription": "Words end. There is an appetite for pain here. I will sate it.",
+      "requirements": {
+        "foe": 1,
+        "provisions": 1,
+        "needsedgegrailwinter": 1,
+        "edge": "needsedgegrailwinter",
+        "foe.ingluviate.engorged": -1
+      },
+      "grandreqs": {
+        "[grail] - {[needsedgegrailwinter] / 2}": 0,
+        "[winter] - {[needsedgegrailwinter] / 2}": 0
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+        {
+          "id": "attackenemy.complicate",
+          "chance": 30
+        },
+        {
+          "id": "attackenemy.success"
+        }
+      ]
+    },
+    {
+      "id": "attackenemy.needsedgegrailmoth",
+      "actionid": "operate",
+      "label": "Stage an offensive using a multiple strategy",
+      "startdescription": "Words end. There is an appetite for pain here. I will sate it.",
+      "requirements": {
+        "foe": 1,
+        "provisions": 1,
+        "needsedgegrailmoth": 1,
+        "edge": "needsedgegrailmoth",
+        "foe.ingluviate.engorged": -1
+      },
+      "grandreqs": {
+        "[grail] - {[needsedgegrailmoth] / 2}": 0,
+        "[moth] - {[needsedgegrailmoth] / 2}": 0
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+        {
+          "id": "attackenemy.complicate",
+          "chance": 30
+        },
+        {
+          "id": "attackenemy.success"
+        }
+      ]
+    },
+    {
+      "id": "main.startup",
+      "linked$prepend": [
+        {
+          "id": "makefoeguardian"
+        }
+      ]
+    },
+    {
+      "id": "side.startup",
+      "linked$prepend": [
+        {
+          "id": "makefoeguardian"
+        }
+      ]
+    },
+    {
+      "id": "makefoeguardian",
+      "label": "On the Approach...",
+      "startdescription": "Our offensive begins in earnest, now. Steady on.",
+      "deckeffects": {
+        "enemies.guardian": 1
+      },
+      "requirements": {
+        "foe.guardian": 1
+      },
+      "warmup": 10,
+      "linked": [
+        {
+          "id": "makefoeguardian.makeadditional"
+        }
+      ]
+    },
+    {
+      "id": "makefoeguardian.makeadditional",
+      "aspects": {
+        "makeadditional": 1
+      },
+      "linked": [
+        {
+          "id": "encounternative"
+        }
+      ]
+    },
+    {
+      "id": "encounternative",
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden": {
+            "infrastructure": 1,
+            "faction.anno": 1
+          }
+        }
+      },
+      "alt$append": [
+        {
+          "id": "respondnative.grailmoth"
+        },
+        {
+          "id": "respondnative.edgegrailmoth"
+        },
+        {
+          "id": "respondnative.edgegrailwinter"
+        }
+      ]
+    },
+    {
+      "id": "respondnative.grailmoth",
+      "label": "“Fallen”, “Lost”",
+      "startdescription": "The flesh withers and loses its color from extreme thirst; the soul “goes astray” due to utter bewilderment…",
+      "requirements": {
+        "needsgrailmoth": 1,
+        "grail": "needsgrailmoth",
+        "moth": "needsgrailmoth"
+      },
+      "effects": {
+        "progression": 1,
+        "foe": -99,
+        "hindrance": -99
+      },
+      "linked": [
+        {
+          "id": "ob.success"
+        },
+        {
+          "id": "detectadditional.side.afraid",
+          "chance": 30
+        },
+        {
+          "id": "detectadditional.side",
+          "chance": 30
+        },
+        {
+          "id": "leadinto.thirdobstacle.side"
+        },
+        {
+          "id": "leadinto.secondobstacle.side"
+        },
+        {
+          "id": "leadinto.firstobstacle.side"
+        },
+        {
+          "id": "detectadditional.afraid"
+        },
+        {
+          "id": "detectadditional"
+        },
+        {
+          "id": "makethirdobstacle"
+        },
+        {
+          "id": "makesecondobstacle"
+        },
+        {
+          "id": "makefirstobstacle"
+        }
+      ],
+      "alt": [
+        {
+          "id": "producecasualty",
+          "additional": true,
+          "chance": 30,
+          "expulsion": {
+            "limit": 1,
+            "filter": {
+              "friend": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+	"id": "respondnative.edgegrailwinter",
+	"label": "Not Yet Defeated",
+	"startdescription": "Force, pain, termination. A brutal suppression.",
+	"requirements": {
+	    "needsedgegrailwinter": 1,
+	    "edge": "needsedgegrailwinter"
+	},
+	"grandreqs": { 
+	    "[grail] - {[needsedgegrailwinter] / 2}": 0,
+	    "[winter] - {[needsedgegrailwinter] / 2}": 0
+	},
+      "effects": {
+        "progression": 1,
+        "foe": -99,
+        "hindrance": -99
+      },
+      "linked": [
+        {
+          "id": "ob.success"
+        },
+        {
+          "id": "detectadditional.side.afraid",
+          "chance": 30
+        },
+        {
+          "id": "detectadditional.side",
+          "chance": 30
+        },
+        {
+          "id": "leadinto.thirdobstacle.side"
+        },
+        {
+          "id": "leadinto.secondobstacle.side"
+        },
+        {
+          "id": "leadinto.firstobstacle.side"
+        },
+        {
+          "id": "detectadditional.afraid"
+        },
+        {
+          "id": "detectadditional"
+        },
+        {
+          "id": "makethirdobstacle"
+        },
+        {
+          "id": "makesecondobstacle"
+        },
+        {
+          "id": "makefirstobstacle"
+        }
+      ],
+      "alt": [
+        {
+          "id": "producecasualty",
+          "additional": true,
+          "chance": 30,
+          "expulsion": {
+            "limit": 1,
+            "filter": {
+              "friend": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+	"id": "respondnative.edgegrailmoth",
+	"label": "Not Yet Defeated",
+	"startdescription": "Force, pain, betrayal. A brutal suppression.",
+	"requirements": {
+	    "needsedgegrailmoth": 1,
+	    "edge": "needsedgegrailmoth"
+	},
+	"grandreqs": {
+	    "[grail] - {[needsedgegrailmoth] / 2}": 0,
+	    "[moth] - {[needsedgegrailmoth] / 2}": 0
+	},
+      "effects": {
+        "progression": 1,
+        "foe": -99,
+        "hindrance": -99
+      },
+      "linked": [
+        {
+          "id": "ob.success"
+        },
+        {
+          "id": "detectadditional.side.afraid",
+          "chance": 30
+        },
+        {
+          "id": "detectadditional.side",
+          "chance": 30
+        },
+        {
+          "id": "leadinto.thirdobstacle.side"
+        },
+        {
+          "id": "leadinto.secondobstacle.side"
+        },
+        {
+          "id": "leadinto.firstobstacle.side"
+        },
+        {
+          "id": "detectadditional.afraid"
+        },
+        {
+          "id": "detectadditional"
+        },
+        {
+          "id": "makethirdobstacle"
+        },
+        {
+          "id": "makesecondobstacle"
+        },
+        {
+          "id": "makefirstobstacle"
+        }
+      ],
+      "alt": [
+        {
+          "id": "producecasualty",
+          "additional": true,
+          "chance": 30,
+          "expulsion": {
+            "limit": 1,
+            "filter": {
+              "friend": 1
+            }
+          }
+        }
+      ]
+	    },
+
+    {
+      "id": "attackenemy.edge",
+      "requirements$add": {
+        "foe.umiri.mark": -1,
+        "foe.rankofficer": -1,
+        "clockwork.mark": -1,
+        "infrastructure": -1,
+        "mastery.edge": -1
+      }
+    },
+    {
+      "id": "attackenemy.edge.overwhelm",
+      "requirements$add": {
+        "foe.umiri.mark": -1,
+        "foe.rankofficer": -1,
+        "clockwork.mark": -1,
+        "infrastructure": -1,
+        "foe.analysis": -1,
+        "mastery.edge": -1
+      }
+    },
+    {
+      "id": "attackenemy.knock",
+      "requirements$add": {
+        "infrastructure": -1
+      }
+    },
+    {
+      "id": "attackenemy.knock.overwhelm",
+      "requirements$add": {
+        "infrastructure": -1,
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.edgeknock",
+      "requirements$add": {
+        "infrastructure": -1
+      }
+    },
+    {
+      "id": "attackenemy.edgeknock.overwhelm",
+      "requirements$add": {
+        "infrastructure": -1,
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackingluviate.edgegrail.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.moth.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.lantern.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.forge.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.winter.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.heart.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.grail.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.aerial.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.ap.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.forgemoth.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.edgelantern.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.edgewinter.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.edgeforge.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.knocklantern.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.edgeheart.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.edgegrail.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.edgemoth.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.winterheart.overwhelm",
+      "requirements$add": {
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "attackenemy.edge.officer",
+      "requirements$add": {
+        "foe.rankofficer": 1,
+        "foe.umiri.mark": -1
+      }
+    },
+    {
+      "id": "attackenemy.edge.officer.overwhelm",
+      "requirements$add": {
+        "foe.rankofficer": 1,
+        "foe.umiri.mark": -1,
+        "foe.analysis": -1
+      }
+    },
+    {
+      "id": "foe.coordinated.getsecond",
+      "aspects": {
+        "revealidentity": 1
+      },
+      "slots": [
+        {
+          "id": "needscoordinated",
+          "label": "Enemy",
+          "required": {
+            "foe.coordinated": 1
+          },
+          "forbidden": {
+            "remnant": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "foe.coordinated.getsecond.post"
+        }
+      ]
+    },
+    {
+      "id": "foe.coordinated.getsecond.post",
+      "label": "A Coordinated Attack!",
+      "startdescription": "This Enemy joins its force with another -",
+      "aspects": {
+        "takeadditional": 1
+      },
+      "linked": [
+        {
+          "id": "defend.opportunity"
+        }
+      ],
+      "alt": [
+        {
+          "id": "foe.commander.extraenemy",
+          "additional": true,
+          "chance": 40
+        }
+      ]
+    },
+    {
+      "id": "singleattack.startup",
+      "linked$prepend": [
+        {
+          "id": "foe.coordinated.foesniper.pre"
+        },
+        {
+          "id": "foe.coordinated.foechasseur.pre"
+        },
+        {
+          "id": "foe.coordinated.foemanhunters.pre"
+        }
+      ]
+    },
+    {
+      "id": "destroysupplies.startup",
+      "linked$prepend": [
+        {
+          "id": "foe.coordinated.foesniper.pre"
+        },
+        {
+          "id": "foe.coordinated.foechasseur.pre"
+        },
+        {
+          "id": "foe.coordinated.foemanhunters.pre"
+        }
+      ]
+    },
+    {
+      "id": "doubleattack.1.startup",
+      "linked$prepend": [
+        {
+          "id": "foe.coordinated.foesniper.pre"
+        },
+        {
+          "id": "foe.coordinated.foechasseur.pre"
+        },
+        {
+          "id": "foe.coordinated.foemanhunters.pre"
+        }
+      ]
+    },
+    {
+      "id": "doubleattack.2.startup",
+      "linked$prepend": [
+        {
+          "id": "foe.coordinated.foesniper.pre"
+        },
+        {
+          "id": "foe.coordinated.foechasseur.pre"
+        },
+        {
+          "id": "foe.coordinated.foemanhunters.pre"
+        }
+      ]
+    },
+    {
+      "id": "foe.coordinated.foesniper.pre",
+      "$extends": ["foe.coordinated.getsecond.pre"],
+      "requirements": {
+        "foe.coordinated.foesniper": 1
+      },
+      "linked": [
+        {
+          "id": "foe.coordinated.foesniper"
+        }
+      ]
+    },
+    {
+      "id": "foe.coordinated.foesniper",
+      "$extends": ["foe.coordinated.getsecond"],
+      "slots": [
+        {
+          "id": "needscoordinated",
+          "label": "Enemy",
+          "required": {
+            "foe.coordinated.foesniper": 1
+          },
+          "forbidden": {
+            "remnant": 1
+          },
+          "greedy": true
+        }
+      ]
+    },
+    {
+      "id": "foe.coordinated.foechasseur.pre",
+      "$extends": ["foe.coordinated.getsecond.pre"],
+      "requirements": {
+        "foe.coordinated.foechasseur": 1
+      },
+      "linked": [
+        {
+          "id": "foe.coordinated.foechasseur"
+        }
+      ]
+    },
+    {
+      "id": "foe.coordinated.foechasseur",
+      "$extends": ["foe.coordinated.getsecond"],
+      "slots": [
+        {
+          "id": "needscoordinated",
+          "label": "Enemy",
+          "required": {
+            "foe.coordinated.foechasseur": 1
+          },
+          "forbidden": {
+            "remnant": 1
+          },
+          "greedy": true
+        }
+      ]
+    },
+    {
+      "id": "foe.coordinated.foemanhunters.pre",
+      "$extends": ["foe.coordinated.getsecond.pre"],
+      "requirements": {
+        "foe.coordinated.foemanhunters": 1
+      },
+      "linked": [
+        {
+          "id": "foe.coordinated.foemanhunters"
+        }
+      ]
+    },
+    {
+      "id": "foe.coordinated.foemanhunters",
+      "$extends": ["foe.coordinated.getsecond"],
+      "slots": [
+        {
+          "id": "needscoordinated",
+          "label": "Enemy",
+          "required": {
+            "foe.coordinated.foemanhunters": 1
+          },
+          "forbidden": {
+            "remnant": 1
+          },
+          "greedy": true
+        }
+      ]
+    },
+    {
+      "id": "use.renew.op",
+      "actionid": "operate",
+      "label": "Save",
+      "startdescription": "I will investigate more carefully. \n\n[This will extend the duration of the opportunity card for later use.]",
+      "description": "done.",
+      "requirements": {
+        "op": 1,
+        "influence_temp": 1,
+        "cannotrefresh": -1,
+        "main": -1,
+        "side": -1,
+        "foe": -1,
+        "friend": -1,
+        "provisions": -1
+      },
+      "aspects": {
+        "renewal.exile": 1
+      },
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "enemy.cycle",
+      "linked$prepend": [
+        {
+          "id": "enemy.cycle.slowmore"
+        },
+        {
+          "id": "enemy.cycle.slow"
+        }
+      ],
+      "alt$prepend": [
+        {
+          "id": "mu.foefighter.stratup",
+          "additional": true,
+          "chance": 15
+        },
+        {
+          "id": "mo.foefighter.stratup",
+          "additional": true,
+          "chance": 60
+        }
+      ]
+    },
+    {
+      "id": "enemy.cycle.slowmore",
+      "$extends": ["enemy.cycle"],
+      "extantreqs$add": {
+        "foe.cutoff": 5
+      },
+      "warmup": 60
+    },
+    {
+      "id": "enemy.cycle.slow",
+      "$extends": ["enemy.cycle"],
+      "extantreqs$add": {
+        "foe.cutoff": 3
+      },
+      "warmup": 45
+    },
+    {
+      "id": "travelslot.takefriends",
+      "alt$prepend": [
+        {
+          "id": "travelslot.pinceroffensive"
+        }
+      ]
+    },
+    {
+      "id": "travelslot.pinceroffensive",
+      "label": "The End……",
+      "startdescription": "-",
+      "extantreqs": {
+        "besieged": 1,
+        "breakthroughsuccessful": -1
+      },
+      "linked": [
+        {
+          "id": "travelslot.end"
+        }
+      ]
+    },
+    {
+	"id": "travelslot.end",
+	"mutations$prepend": [
+	    {
+		"filter": "firstone",
+		"mutate": "firstone",
+		"level": 0
+	    }
+	]
+    },
+    {
+      "id": "hide.startup",
+      "warmup": 0,
+      "linked": [
+        {
+          "id": "hide.startup.officer.mu"
+        },
+        {
+          "id": "hide.startup.officer"
+        },
+        {
+          "id": "hide.startup.general"
+        }
+      ]
+    },
+    {
+      "id": "hide.startup.general",
+      "actionid": "enemyaction.hide",
+      "label": "Scrambling Positions",
+      "startdescription": "An rival withdraws to shroud themselves.",
+      "aspects": {
+        "concealidentity": 1
+      },
+      "slots": [
+        {
+          "id": "needsenemy",
+          "label": "Enemy",
+          "required": {
+            "german": 1,
+            "foe.nightmare": 1,
+            "foe.huntingparty": 1,
+            "foe": 1
+          },
+          "forbidden": {
+            "remnant": 1,
+            "foe.hidden": 1,
+            "foe.rankofficer": 1,
+            "foe.unsubtle": 1,
+            "soviet": 1,
+            "detectivetemptation": 1,
+            "marinette.marker": 1,
+            "foe.exilenightmare": 1,
+            "tomori.mark": 1,
+            "umiri.mark": 1,
+            "allnaval": 1
+          },
+          "greedy": true
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "hide.startup.officer",
+      "actionid": "enemyaction.hide",
+      "label": "Scrambling Positions",
+      "startdescription": "An rival withdraws to shroud themselves.",
+      "slots": [
+        {
+          "id": "needsenemy",
+          "label": "Enemy",
+          "required": {
+            "environmenthidden": 1
+          },
+          "greedy": true
+        }
+      ],
+      "extantreqs": {
+        "foe.rankofficer": 1
+      },
+      "linked": [
+        {
+          "id": "hide.startup.officer.hidden"
+        },
+        {
+          "id": "hide.startup.general"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "hide.startup.officer.hidden",
+      "actionid": "enemyaction.hide",
+      "label": "Scrambling Positions",
+      "startdescription": "An rival withdraws to shroud themselves.",
+      "aspects": {
+        "enemyintoenvironment": 1
+      },
+      "requirements": {
+        "environmenthidden": 1
+      },
+      "slots": [
+        {
+          "id": "needsenemy",
+          "label": "Enemy",
+          "required": {
+            "foeinfantry": 1,
+            "foekommando": 1,
+            "foemanhunters": 1,
+            "foesniper": 1,
+            "foechasseur": 1
+          },
+          "forbidden": {
+            "remnant": 1,
+            "enemyhidden.mark": 1,
+            "foe.huntingparty": 1,
+            "mechanized_forces": 1,
+            "foe.rankofficer": 1,
+            "foe.hidden": 1,
+            "foe.unsubtle": 1,
+            "soviet": 1,
+            "detectivetemptation": 1,
+            "marinette.marker": 1,
+            "foe.exilenightmare": 1,
+            "tomori.mark": 1,
+            "umiri.mark": 1,
+            "allnaval": 1
+          },
+          "greedy": true
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "hide.startup.officer.mu",
+      "$extends": ["hide.startup.officer"],
+      "extantreqs": {
+        "mutsumi.mark": 1,
+        "foefighterhidden": -2,
+        "foefighter": 1
+      },
+      "linked": [
+        {
+          "id": "hide.startup.officer.hidden.mu"
+        },
+        {
+          "id": "hide.startup.general"
+        }
+      ]
+    },
+    {
+      "id": "hide.startup.officer.hidden.mu",
+      "$extends": ["hide.startup.officer.hidden"],
+      "aspects": {
+        "enemyintoenvironmentair": 1
+      },
+      "slots": [
+        {
+          "id": "needsenemy",
+          "label": "Enemy",
+          "required": {
+            "foefighter": 1
+          },
+          "forbidden": {
+            "foefighterhidden": 1,
+            "remnant": 1,
+            "enemyhidden.mark": 1,
+            "foe.huntingparty": 1,
+            "foe.rankofficer": 1,
+            "foe.hidden": 1,
+            "foe.unsubtle": 1,
+            "soviet": 1,
+            "detectivetemptation": 1,
+            "marinette.marker": 1,
+            "foe.exilenightmare": 1,
+            "tomori.mark": 1,
+            "mutsumi.mark": 1,
+            "mortis.mark": 1,
+            "umiri.mark": 1,
+            "allnaval": 1
+          },
+          "greedy": true
+        }
+      ]
+    },
+    {
+      "id": "travelling.cycle.complete.exit",
+      "alt$prepend": [
+        {
+          "id": "pinceroffensive.pre",
+          "additional": true,
+          "expulsion": {
+            "limit": 99,
+            "filter": {
+              "countdownpincer": 1
+            }
+          }
+        },
+        {
+          "id": "produce.twotwoseven",
+          "additional": true,
+          "expulsion": {
+            "limit": 99,
+            "filter": {
+              "long.execution": 1
+            }
+          }
+        },
+        {
+          "id": "nya.startup",
+          "additional": true,
+          "expulsion": {
+            "limit": 99,
+            "filter": {
+              "nyanya": 1
+            }
+          }
+        },
+        {
+          "id": "naval.cycle",
+          "additional": true
+        },
+        {
+          "id": "travelling.frienddestronger",
+          "additional": true,
+          "expulsion": {
+            "limit": 99,
+            "filter": {
+              "friend.stronger": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "travel.warzone.hint",
+      "extantreqs$add": {
+        "besieged": -1
+      }
+    },
+    {
+      "id": "travel.warzone.mainobjectiveincomplete.hint",
+      "extantreqs$add": {
+        "besieged": -1
+      }
+    },
+    {
+      "id": "travel.warzone.sector.a",
+      "extantreqs$add": {
+        "besieged": -1
+      }
+    },
+    {
+      "id": "travel.warzone.sector.b",
+      "extantreqs$add": {
+        "besieged": -1
+      }
+    },
+    {
+      "id": "travel.warzone.sector.a.besieged",
+      "actionid": "mobilize",
+      "label": "Prepare to depart",
+      "startdescription": "The war is waiting for us. Onwards.\n\n[When the breakout route vanishes, any remaining allied units on the board will no longer be absorbed, and you will enter the Ruined Country immediately.]\n\n[Departing will cut short all actions at the current location and leave behind all Enemies, Complications, Secondary Objectives, and Local Opportunities. Your travels will take you through the Ruined Country, which is the remote and dangerous waste that lies between your current location and your intended destination.]",
+      "requirements": {
+        "warzone": 1,
+        "provisions": 3,
+        "sector.a": 1
+      },
+      "extantreqs": {
+        "battlehunger": -1,
+        "obdurant.story": 1,
+        "besieged": 1,
+        "breakthroughsuccessful": 1
+      },
+      "effects": {
+        "wasteland.a": 1
+      },
+      "linked": [
+        {
+          "id": "travelslot.takefriends"
+        }
+      ],
+      "craftable": true,
+      "warmup": 10
+    },
+    {
+      "id": "travel.warzone.sector.b.besieged",
+      "actionid": "mobilize",
+      "label": "Prepare to depart",
+      "startdescription": "The war is waiting for us. Onwards.\n\n[When the breakout route vanishes, any remaining allied units on the board will no longer be absorbed, and you will enter the Ruined Country immediately.]\n\n[Departing will cut short all actions at the current location and leave behind all Enemies, Complications, Secondary Objectives, and Local Opportunities. Your travels will take you through the Ruined Country, which is the remote and dangerous waste that lies between your current location and your intended destination.]",
+      "requirements": {
+        "warzone": 1,
+        "provisions": 3,
+        "sector.b": 1
+      },
+      "extantreqs": {
+        "battlehunger": -1,
+        "obdurant.story": 1,
+        "besieged": 1,
+        "breakthroughsuccessful": 1
+      },
+      "effects": {
+        "wasteland.b": 1
+      },
+      "linked": [
+        {
+          "id": "travelslot.takefriends"
+        }
+      ],
+      "craftable": true,
+      "warmup": 10
+    },
+    {
+      "id": "travel.warzone.sector.a.besieged.hint",
+      "actionid": "mobilize",
+      "label": "The enemy has cut off our retreat.",
+      "startdescription": "[When the enemy surrounds this area, the Blade Immortal will no longer appear, opportunities will vanish at random, you will not be able to gain supplies through the seasons, nor can you call for allied reinforcements. You must find a way to break out; otherwise, the enemy forces here will continue to grow until they completely annihilate you.]",
+      "requirements": {
+        "warzone": 1,
+        "sector.a": 1
+      },
+      "extantreqs": {
+        "battlehunger": -1,
+        "obdurant.story": 1,
+        "besieged": 1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "travel.warzone.sector.b.besieged.hint",
+      "actionid": "mobilize",
+      "label": "The enemy has cut off our retreat.",
+      "startdescription": "[When the enemy surrounds this area, the Blade Immortal will no longer appear, opportunities will vanish at random, you will not be able to gain supplies through the seasons, nor can you call for allied reinforcements. You must find a way to break out; otherwise, the enemy forces here will continue to grow until they completely annihilate you.]",
+      "requirements": {
+        "warzone": 1,
+        "sector.b": 1
+      },
+      "extantreqs": {
+        "battlehunger": -1,
+        "obdurant.story": 1,
+        "besieged": 1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "getreinforcements.withcomms",
+      "extantreqs$add": {
+        "besieged": -1
+      },
+      "requirements$add": {
+        "call.air": -1,
+        "faction.anno": -1
+      }
+    },
+    {
+      "id": "getreinforcements.nocomms",
+      "extantreqs$add": {
+        "besieged": -1
+      },
+      "requirements$add": {
+        "call.air": -1,
+        "faction.anno": -1
+      }
+    },
+    {
+      "id": "getreinforcements.withcomms.besiegedhint",
+      "actionid": "communicate",
+      "label": "The enemy has cut off all our contact with the outside world.",
+      "startdescription": "It would be utterly foolish to wait for reinforcements inside the encirclement.",
+      "extantreqs": {
+        "loc.commtower": 1,
+        "lake.here": -1,
+        "besieged": 1
+      },
+      "requirements": {
+        "friend": 1,
+        "wounded": -1,
+        "damaged": -1,
+        "edgelong": -1,
+        "friend.monster": -1,
+        "exhausted": -1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "getreinforcements.nocomms.besiegedhint",
+      "actionid": "communicate",
+      "label": "The enemy has cut off all our contact with the outside world.",
+      "startdescription": "It would be utterly foolish to wait for reinforcements inside the encirclement.",
+      "extantreqs": {
+        "loc.commtower": -1,
+        "lake.here": -1,
+        "besieged": 1
+      },
+      "requirements": {
+        "friend": 1,
+        "wounded": -1,
+        "damaged": -1,
+        "edgelong": -1,
+        "friend.monster": -1,
+        "exhausted": -1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "hint.getreinforcements.noroom",
+      "requirements$add": {
+        "cancallair": -1
+      }
+    },
+    {
+      "id": "hint.getreinforcements.enough",
+      "actionid": "communicate",
+      "label": "Air power already sufficient?",
+      "startdescription": "We have no sufficient reason to continue calling for air support; the defenses here are already adequate, and other front lines are under strain.\n\n[When your air power is greater than or equal to the local enemy air power, you will be unable to call for air support.]",
+      "grandreqs": {
+        "[~/extant:friend.aerial] >= [~/extant:foe.aerial]": 1
+      },
+      "requirements": {
+        "cancallair": 1,
+        "exhausted": -1
+      },
+      "hintonly": true
+    }
+  ]
+}

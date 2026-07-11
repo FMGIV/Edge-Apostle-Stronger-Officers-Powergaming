@@ -1,0 +1,5537 @@
+{
+"elements": [
+    {
+	"id": "loc.hospital.destroyed",
+	"slots": [
+	    {
+		"id": "needsengineers",
+		"label": "Manpower",
+		"required": {
+		    "friendengineers": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "loc.commtower.destroyed",
+	"slots": [
+	    {
+		"id": "needsengineers",
+		"label": "Manpower",
+		"required": {
+		    "friendengineers": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+	"id": "loc.barracks.destroyed",
+	"slots": [
+	    {
+		"id": "needsengineers",
+		"label": "Manpower",
+		"required": {
+		    "friendengineers": 1
+		},
+		"forbidden": {
+		    "exhausted": 1
+		}
+	    },
+	    {
+		"id": "needsprovisions1",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "Supplies",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+	
+    {
+	"id": "friend.resilient",
+	"label": "Resilient",
+	"description": "Difficult to eliminate completely. [When this friendly unit is wounded, it does not die outright but instead enters a wounded state from which it can naturally recover.]",
+	"isAspect": true
+    },
+    {
+	"id": "friend.stronger",
+	"label": "Reinforced",
+	"description": "These soldiers have been reforged, possessing strength far exceeding others. [When a friendly unit gains this aspect, it clears any previously applied weakening effects and enhances its aspects. However, this aspect and its additional aspects will be lost upon departing the current region.]",
+	"isAspect": true
+    },
+    {
+	"id": "friend.lethal",
+	"label": "Lethal",
+	"description": "This one does not leave survivors. [This friendly unit will definitively eliminate any enemy that becomes its first target.]",
+	"isAspect": true
+    },
+    {
+	"id": "friendfighteranno",
+	"label": "盟军侦察机",
+	"description": "盟军侦察机",
+	"isAspect": true,
+	"isHidden": true
+    },
+    {
+	"id": "friendinfantryanno",
+	"label": "盟军步兵",
+	"description": "盟军步兵",
+	"isAspect": true,
+	"isHidden": true
+    },
+    {
+	"id": "friendbombersanno",
+	"label": "盟军轰炸机",
+	"description": "盟军轰炸机",
+	"isAspect": true,
+	"isHidden": true
+    },
+    {
+	"id": "friendtanksanno",
+	"label": "盟军坦克",
+	"description": "盟军坦克",
+	"isAspect": true,
+	"isHidden": true
+    },
+    {
+	"id": "friendartilleryanno",
+	"label": "盟军火炮",
+	"description": "盟军火炮",
+	"isAspect": true,
+	"isHidden": true
+    },
+    {
+	"id": "friendtanks",
+	"label": "友军坦克",
+	"description": "友军坦克",
+	"isAspect": true,
+	"isHidden": true
+    },
+    {
+	"id": "friendartillery",
+	"label": "友军火炮",
+	"description": "友军火炮",
+	"isAspect": true,
+	"isHidden": true
+    },
+
+    {
+	"id": "friend.infantryanno",
+	"label": "Allied Rifleman",
+	"description": "Not so different from my own men—just a bit more seasoned, and a bit better equipped.",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+		"friendinfantryanno": 1,
+	    "mortal": 1,
+	    "edge": 8,
+		"lantern": 4,
+		"forcesize": 3
+	},
+	"icon": "foe.riflemen",
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+
+
+    {
+	"id": "friend.fighter_aircraftanno.repairing",
+	"label": "Ally Fighter Aircraft (Repairing)",
+	"description": "-",
+	"lifetime": 300,
+	"aspects": {
+		"repairing": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+		"restorehealth": "friend.fighter_aircraftanno"
+	},
+	"decayTo": "friend.fighter_aircraftanno.weaken",
+	"resaturate": true
+    },
+    {
+	"id": "friend.fighter_aircraftanno",
+	"label": "Ally Fighter Aircraftanno",
+	"description": "-",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+		"friend.resilient": 1,
+	    "mortal": 1,
+	    "forcesize": 8,
+	    "friend.aerial": 2,
+	    "edge": 12,
+	    "lantern": 6,
+		"friendfighteranno": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.fighter_aircraftanno.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.fighter_aircraftanno.repairing",
+	    "makeweaken": "friend.fighter_aircraftanno.weaken",
+	    "makeafraid": "friend.fighter_aircraftanno.weaken",
+	    "adv_anno": "friend.fighter_aircraftanno.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.fighter_aircraftanno.weaken",
+	"$extends": ["friend.fighter_aircraftanno"],
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+		"friend.resilient": 1,
+	    "mortal": 1,
+	    "forcesize": 8,
+	    "friend.aerial": 2,
+	    "edge": 8,
+	    "lantern": 4,
+	    "weakened": 1,
+		"friendfighteranno": 1,
+		"mechanized_forces.friend": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.fighter_aircraftanno",
+	"icon": "friend.fighter_aircraftanno",
+	"xtriggers": {
+	    "fatiguing": "friend.fighter_aircraftanno.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.fighter_aircraftanno.repairing",
+	    "deweaken": "friend.fighter_aircraftanno",
+	    "makeweaken": "friend.fighter_aircraftanno.weaken",
+	    "makeafraid": "friend.fighter_aircraftanno.weaken",
+	    "adv_anno": "friend.fighter_aircraftanno.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.fighter_aircraftanno.ins",
+	"$extends": ["friend.fighter_aircraftanno"],
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+		"friend.resilient": 1,
+	    "mortal": 1,
+	    "forcesize": 8,
+	    "friend.aerial": 3,
+	    "edge": 16,
+	    "lantern": 8,
+	    "ins_anno": 1,
+		"friendfighteranno": 1,
+		"mechanized_forces.friend": 1
+	},
+	"icon": "friend.fighter_aircraftanno",
+	"lifetime": 180,
+	"decayTo": "friend.fighter_aircraftanno",
+	"xtriggers": {
+	    "fatiguing": "friend.fighter_aircraftanno.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.fighter_aircraftanno.repairing",
+	    "adv_anno": "friend.fighter_aircraftanno.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	}
+    },
+	
+    {
+	"id": "friend.fighter_aircraftanno.exhausted",
+	"label": "Ally Fighter Aircraftanno (Exhausted)",
+	"description": "-",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+	    "forcesize": 8,
+	    "exhausted": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.fighter_aircraftanno.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.fighter_aircraftanno.repairing",
+	    "makeweaken": "friend.fighter_aircraftanno.weaken.exhausted",
+	    "makeafraid": "friend.fighter_aircraftanno.weaken.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	},
+	"lifetime": 60,
+	"decayTo": "friend.fighter_aircraftanno",
+	"icon": "friend.fighter_aircraftanno",
+	"resaturate": true
+    },
+    {
+	"id": "friend.fighter_aircraftanno.weaken.exhausted",
+	"$extends": ["friend.fighter_aircraftanno.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.fighter_aircraftanno.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.fighter_aircraftanno.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.fighter_aircraftanno.repairing",
+	    "deweaken": "friend.fighter_aircraftanno.exhausted",
+	    "makeweaken": "friend.fighter_aircraftanno.weaken.exhausted",
+	    "makeafraid": "friend.fighter_aircraftanno.weaken.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	}
+    },
+
+	
+    {
+	"id": "friend.bombersanno",
+	"label": "Ally Bomber",
+	"description": "-",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "friend.aerial": 1,
+	    "edge": 12,
+		"friendbombersanno": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.bombersanno.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "makeweaken": "friend.bombersanno.weaken",
+	    "makeafraid": "friend.bombersanno.weaken",
+	    "adv_anno": "friend.bombersanno.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.bombersanno.weaken",
+	"$extends": ["friend.bombersanno"],
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "friend.aerial": 1,
+	    "edge": 8,
+		"friendbombersanno": 1,
+		"mechanized_forces.friend": 1,
+	    "weakened": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.bombersanno",
+	"icon": "friend.bombersanno",
+	"xtriggers": {
+	    "fatiguing": "friend.bombersanno.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "deweaken": "friend.bombersanno",
+	    "makeweaken": "friend.bombersanno.weaken",
+	    "makeafraid": "friend.bombersanno.weaken",
+	    "adv_anno": "friend.bombersanno.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.bombersanno.ins",
+	"$extends": ["friend.bombersanno"],
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "friend.aerial": 2,
+		"friendbombersanno": 1,
+	    "edge": 12,
+	    "forge": 4,
+	    "ins_anno": 1,
+		"mechanized_forces.friend": 1
+	},
+	"icon": "friend.bombersanno",
+	"lifetime": 180,
+	"decayTo": "friend.bombersanno",
+	"xtriggers": {
+	    "fatiguing": "friend.bombersanno.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "adv_anno": "friend.bombersanno.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	}
+    },
+
+	
+    {
+	"id": "friend.bombersanno.exhausted",
+	"label": "Ally bombersanno (Exhausted)",
+	"description": "-",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "exhausted": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.bombersanno.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "makeweaken": "friend.bombersanno.weaken.exhausted",
+	    "makeafraid": "friend.bombersanno.weaken.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	},
+	"lifetime": 60,
+	"decayTo": "friend.bombersanno",
+	"icon": "friend.bombersanno",
+	"resaturate": true
+    },
+    {
+	"id": "friend.bombersanno.weaken.exhausted",
+	"$extends": ["friend.bombersanno.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.bombersanno.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.bombersanno.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "deweaken": "friend.bombersanno.exhausted",
+	    "makeweaken": "friend.bombersanno.weaken.exhausted",
+	    "makeafraid": "friend.bombersanno.weaken.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	}
+    },
+	
+
+    {
+	"id": "friend.phlogisticant",
+	"label": "Allied Phlogiston-Wraith",
+	"description": "Released from its prison of glass and steel, this malignant spark now devours greedily all that it can touch. Such fierce burning cannot last long—but I do not think it cares.",
+	"aspects": {
+	    "friend": 1,
+	    "otherworldly": 1,
+		"faction.anno": 1,
+	    "lantern": 8,
+	    "forge": 8,
+	    "foe.explosive": 1
+	},
+	"icon": "foe.phlogisticant",
+	"xtriggers": {
+	    "killmortal": "friend.phlogisticant.dead",
+	    "killfriend": "friend.phlogisticant.dead",
+	    "makecasualty": "friend.phlogisticant.dead",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.phlogisticant.dead",
+	"label": "Allied Phlogiston-Wraith (Dead)",
+	"description": "Released from its prison of glass and steel, this malignant spark now devours greedily all that it can touch. Such fierce burning cannot last long—but I do not think it cares.",
+	"lifetime": 1,
+	"aspects": {
+		"remnant": 1
+	},
+	"isHidden": true,
+	"induces": [
+		{
+			"id": "produce.friend.explosion"
+		}
+	]
+    },
+
+    {
+	"id": "friend.tanksanno.repairing",
+	"label": "Allied Bipedal Walker (Damaged)",
+	"description": "[This friendly unit will repair itself over time.]",
+	"lifetime": 160,
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+		"friend.resilient": 1,
+	    "mortal": 1,
+		"otherworldly": 1,
+	    "damaged": 1,
+		"mechanized_forces.friend": 1,
+		"repairing": 1
+	},
+	"xtriggers": {
+	    "killmortal": "friend.tanksanno.dead",
+	    "killfriend": "friend.tanksanno.dead",
+		"restorehealth": "friend.tanksanno"
+	},
+	"decayTo": "friend.tanksanno.weaken",
+	"resaturate": true
+    },
+    {
+	"id": "friend.tanksanno",
+	"label": "Allied Bipedal Walker",
+	"description": "Menacing pipes deliver heat to the core. Sturdy metal binds the power within. They put a shell on a spirit loyal to the New King and call it a creation of technology. But their strength is indeed terrifying.",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+		"otherworldly": 1,
+		"friend.resilient": 1,
+	    "lantern": 8,
+	    "forge": 8,
+	    "edge": 14,
+	    "forcesize": 6,
+		"friendtanksanno": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.tanksanno.exhausted",
+	    "killmortal": "friend.tanksanno.dead",
+	    "killfriend": "friend.tanksanno.dead",
+	    "makecasualty": "friend.tanksanno.repairing",
+	    "makeweaken": "friend.tanksanno.weaken",
+	    "makeafraid": "friend.tanksanno.weaken",
+	    "adv_anno": "friend.tanksanno.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.tanksanno.weaken",
+	"$extends": ["friend.tanksanno"],
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+		"otherworldly": 1,
+		"friend.resilient": 1,
+	    "lantern": 6,
+	    "forge": 6,
+	    "edge": 10,
+	    "forcesize": 6,
+		"weakened": 1,
+		"friendtanksanno": 1,
+		"mechanized_forces.friend": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.tanksanno",
+	"icon": "friend.tanksanno",
+	"xtriggers": {
+	    "fatiguing": "friend.tanksanno.weaken.exhausted",
+	    "killmortal": "friend.tanksanno.dead",
+	    "killfriend": "friend.tanksanno.dead",
+	    "makecasualty": "friend.tanksanno.repairing",
+	    "deweaken": "friend.tanksanno",
+	    "makeweaken": "friend.tanksanno.weaken",
+	    "makeafraid": "friend.tanksanno.weaken",
+	    "adv_anno": "friend.tanksanno.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.tanksanno.ins",
+	"$extends": ["friend.tanksanno"],
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+		"otherworldly": 1,
+		"friend.resilient": 1,
+	    "lantern": 12,
+	    "forge": 12,
+	    "edge": 18,
+	    "forcesize": 6,
+		"friendtanksanno": 1,
+		"ins_anno": 1,
+		"mechanized_forces.friend": 1
+	},
+	"icon": "friend.tanksanno",
+	"lifetime": 180,
+	"decayTo": "friend.tanksanno",
+	"xtriggers": {
+	    "fatiguing": "friend.tanksanno.exhausted",
+	    "killmortal": "friend.tanksanno.dead",
+	    "killfriend": "friend.tanksanno.dead",
+	    "makecasualty": "friend.tanksanno.repairing",
+	    "adv_anno": "friend.tanksanno.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.tanksanno.exhausted",
+	"label": "Ally tanksanno (Exhausted)",
+	"description": "-",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "exhausted": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.tanksanno.exhausted",
+	    "killmortal": "friend.tanksanno.dead",
+	    "killfriend": "friend.tanksanno.dead",
+	    "makecasualty": "friend.tanksanno.repairing",
+	    "makeweaken": "friend.tanksanno.weaken.exhausted",
+	    "makeafraid": "friend.tanksanno.weaken.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"lifetime": 60,
+	"decayTo": "friend.tanksanno",
+	"icon": "friend.tanksanno",
+	"resaturate": true
+    },
+    {
+	"id": "friend.tanksanno.weaken.exhausted",
+	"$extends": ["friend.tanksanno.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.tanksanno.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.tanksanno.weaken.exhausted",
+	    "killmortal": "friend.tanksanno.dead",
+	    "killfriend": "friend.tanksanno.dead",
+	    "makecasualty": "friend.tanksanno.repairing",
+	    "deweaken": "friend.tanksanno.exhausted",
+	    "makeweaken": "friend.tanksanno.weaken.exhausted",
+	    "makeafraid": "friend.tanksanno.weaken.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+
+    {
+	"id": "friend.tanksanno.dead",
+	"label": "Allied Bipedal Walker (Destroyed)",
+	"description": "Menacing pipes deliver heat to the core. Sturdy metal binds the power within. They put a shell on a spirit loyal to the New King and call it a creation of technology. But their strength is indeed terrifying.",
+	"lifetime": 1,
+	"aspects": {
+		"remnant": 1
+	},
+	"isHidden": true,
+	"induces": [
+		{
+			"id": "startup.produce.friend.phlogisticant0"
+		}
+	]
+    },
+
+	
+    {
+	"id": "friend.artilleryanno",
+	"label": "Allied Engine of Lights",
+	"description": "It looks like some kind of artillery fixture, though parts of its construction seem too complicated for its own good: cylinders of glass, coils of steel, tubes trembling with fire. But what firepower! Where this machine hits the mark, earth becomes glass and flesh becomes light. The King's toys are impressive, if nothing else.",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+	    "edge": 20,
+		"lantern": 8,
+		"forge": 8,
+		"mechanized_forces.friend": 1,
+	    "forcesize": 10,
+		"friendartilleryanno": 1
+	},
+	"icon": "foe.engine",
+	"xtriggers": {
+	    "fatiguing": "friend.artilleryanno.exhausted",
+	    "killmortal": "friend.artilleryanno.dead",
+	    "killfriend": "friend.artilleryanno.dead",
+	    "makecasualty": "friend.artilleryanno.dead",
+	    "makeweaken": "friend.artilleryanno.weaken",
+	    "makeafraid": "friend.artilleryanno.weaken",
+	    "adv_anno": "friend.artilleryanno.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.artilleryanno.weaken",
+	"$extends": ["friend.artilleryanno"],
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+	    "edge": 16,
+		"lantern": 4,
+		"forge": 4,
+		"mechanized_forces.friend": 1,
+	    "forcesize": 10,
+		"friendartilleryanno": 1,
+	    "weakened": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.artilleryanno",
+	"icon": "foe.engine",
+	"xtriggers": {
+	    "fatiguing": "friend.artilleryanno.weaken.exhausted",
+	    "killmortal": "friend.artilleryanno.dead",
+	    "killfriend": "friend.artilleryanno.dead",
+	    "makecasualty": "friend.artilleryanno.dead",
+	    "deweaken": "friend.artilleryanno",
+	    "makeweaken": "friend.artilleryanno.weaken",
+	    "makeafraid": "friend.artilleryanno.weaken",
+	    "adv_anno": "friend.artilleryanno.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.artilleryanno.ins",
+	"$extends": ["friend.artilleryanno"],
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+	    "edge": 24,
+		"lantern": 12,
+		"forge": 12,
+		"mechanized_forces.friend": 1,
+	    "forcesize": 10,
+		"friendartilleryanno": 1,
+	    "ins_anno": 1
+	},
+	"icon": "foe.engine",
+	"lifetime": 180,
+	"decayTo": "friend.artilleryanno",
+	"xtriggers": {
+	    "fatiguing": "friend.artilleryanno.exhausted",
+	    "killmortal": "friend.artilleryanno.dead",
+	    "killfriend": "friend.artilleryanno.dead",
+	    "makecasualty": "friend.artilleryanno.dead",
+	    "adv_anno": "friend.artilleryanno.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+
+	
+    {
+	"id": "friend.artilleryanno.exhausted",
+	"label": "Ally artilleryanno (Exhausted)",
+	"description": "-",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "exhausted": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.artilleryanno.exhausted",
+	    "killmortal": "friend.artilleryanno.dead",
+	    "killfriend": "friend.artilleryanno.dead",
+	    "makecasualty": "friend.artilleryanno.dead",
+	    "makeweaken": "friend.artilleryanno.weaken.exhausted",
+	    "makeafraid": "friend.artilleryanno.weaken.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"lifetime": 60,
+	"decayTo": "friend.artilleryanno",
+	"icon": "foe.engine",
+	"resaturate": true
+    },
+    {
+	"id": "friend.artilleryanno.weaken.exhausted",
+	"$extends": ["friend.artilleryanno.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.artilleryanno.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.artilleryanno.weaken.exhausted",
+	    "killmortal": "friend.artilleryanno.dead",
+	    "killfriend": "friend.artilleryanno.dead",
+	    "makecasualty": "friend.artilleryanno.dead",
+	    "deweaken": "friend.artilleryanno.exhausted",
+	    "makeweaken": "friend.artilleryanno.weaken.exhausted",
+	    "makeafraid": "friend.artilleryanno.weaken.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+
+    {
+	"id": "friend.artilleryanno.dead",
+	"label": "Allied Engine of Lights (Dead)",
+	"description": "It looks like some kind of artillery fixture, though parts of its construction seem too complicated for its own good: cylinders of glass, coils of steel, tubes trembling with fire. But what firepower! Where this machine hits the mark, earth becomes glass and flesh becomes light. The King's toys are impressive, if nothing else.",
+	"lifetime": 1,
+	"aspects": {
+		"remnant": 1
+	},
+	"isHidden": true,
+	"induces": [
+		{
+			"id": "startup.produce.friend.phlogisticant"
+		}
+	]
+    },
+
+    {
+	"id": "friend.valkyrie3",
+	"label": "'Valkyrie' Bomber",
+	"description": "Soaring through the heavens like a Labhite, tearing the earth asunder like a saber-toothed beast, as indestructible as the spawn of Echidna. How does that ill-omened figure on the island manufacture such creations, and how does he command such terrible power?!",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+		"friend.lethal": 1,
+		"friend.aerial": 5,
+	    "edge": 20,
+		"uses.remaining": 3,
+		"valkyrie.mark": 1,
+		"valkyrie": 1,
+		"mechanized_forces.friend": 1
+	},
+	"icon": "friend.valkyrie",
+	"uniquenessgroup": "valkyrie",
+	"unique": true,
+	"xtriggers": {
+	    "fatiguing": "friend.valkyrie2.exhausted",
+	    "killmortal": "friend.valkyrie.repairing",
+	    "killfriend": "friend.valkyrie.repairing",
+	    "makecasualty": "friend.valkyrie.repairing"
+	}
+    },
+    {
+	"id": "friend.valkyrie2.exhausted",
+	"label": "'Valkyrie' Bomber (Exhausted)",
+	"description": "Soaring through the heavens like a Labhite, tearing the earth asunder like a saber-toothed beast, as indestructible as the spawn of Echidna. How does that ill-omened figure on the island manufacture such creations, and how does he command such terrible power?!",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+		"uses.remaining": 2,
+		"valkyrie": 1,
+		"mechanized_forces.friend": 1
+	},
+	"uniquenessgroup": "valkyrie",
+	"xtriggers": {
+	    "fatiguing": "friend.valkyrie2.exhausted",
+	    "killmortal": "friend.valkyrie.repairing",
+	    "killfriend": "friend.valkyrie.repairing",
+	    "makecasualty": "friend.valkyrie.repairing"
+	},
+	"lifetime": 180,
+	"decayTo": "friend.valkyrie2",
+	"icon": "friend.valkyrie",
+	"resaturate": true
+    },
+	
+	{
+	"id": "friend.valkyrie2",
+	"$extends" : ["friend.valkyrie3"],
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+		"friend.lethal": 1,
+		"friend.aerial": 3,
+	    "edge": 18,
+		"uses.remaining": 2,
+		"valkyrie.mark": 1,
+		"valkyrie": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.valkyrie1.exhausted",
+	    "killmortal": "friend.valkyrie.repairing",
+	    "killfriend": "friend.valkyrie.repairing",
+	    "makecasualty": "friend.valkyrie.repairing"
+	}
+    },
+	
+    {
+	"id": "friend.valkyrie1.exhausted",
+	"label": "'Valkyrie' Bomber (Exhausted)",
+	"description": "Soaring through the heavens like a Labhite, tearing the earth asunder like a saber-toothed beast, as indestructible as the spawn of Echidna. How does that ill-omened figure on the island manufacture such creations, and how does he command such terrible power?!",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+	    "exhausted": 1,
+		"uses.remaining": 1,
+		"valkyrie": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.valkyrie1.exhausted",
+	    "killmortal": "friend.valkyrie.repairing",
+	    "killfriend": "friend.valkyrie.repairing",
+	    "makecasualty": "friend.valkyrie.repairing"
+	},
+	"uniquenessgroup": "valkyrie",
+	"lifetime": 180,
+	"decayTo": "friend.valkyrie1",
+	"icon": "friend.valkyrie",
+	"resaturate": true
+    },
+	{
+	"id": "friend.valkyrie1",
+	"$extends" : ["friend.valkyrie3"],
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+		"friend.lethal": 1,
+		"friend.aerial": 2,
+	    "edge": 16,
+		"uses.remaining": 1,
+		"valkyrie.mark": 1,
+		"valkyrie": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.valkyrie.repairing",
+	    "killmortal": "friend.valkyrie.repairing",
+	    "killfriend": "friend.valkyrie.repairing",
+	    "makecasualty": "friend.valkyrie.repairing"
+	}
+    },
+    {
+	"id": "friend.valkyrie.repairing",
+	"label": "'Valkyrie' Bomber (In Maintenance)",
+	"description": "[This friendly unit will repair itself over time.]",
+	"aspects": {
+	    "friend": 1,
+		"faction.anno": 1,
+	    "mortal": 1,
+		"valkyrie": 1,
+	    "damaged": 1,
+		"mechanized_forces.friend": 1,
+		"repairing": 1
+	},
+	"uniquenessgroup": "valkyrie",
+	"lifetime": 540,
+	"decayTo": "friend.valkyrie3",
+	"xtriggers": {
+	    "restorehealth": "friend.valkyrie3"
+	}
+    },
+	
+
+
+    {
+	"id": "friendscouts",
+	"label": "friend.scouts",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "这是友军斥候"
+    },
+    {
+	"id": "friend.scouts",
+	"aspects$add": {
+		"friendscouts": 1
+	},
+	"xtriggers$add": {
+	    "makeweaken": "friend.scouts.weaken",
+	    "makeafraid": "friend.scouts.afraid",
+	    "adv_soviet": "friend.scouts.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.scouts.weaken",
+	"$extends": ["friend.scouts"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 3,
+	    "lantern": 3,
+	    "weakened": 1,
+		"friendscouts": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.scouts",
+	"icon": "friend.scouts",
+	"xtriggers": {
+	    "fatiguing": "friend.scouts.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.scouts.afraid.wounded",
+	    "refresh": "friend.scouts",
+	    "refreshally": "friend.scouts",
+	    "deweaken": "friend.scouts",
+	    "makeafraid": "friend.scouts.afraid",
+	    "makeweaken": "friend.scouts.afraid",
+	    "adv_soviet": "friend.scouts.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.scouts.afraid",
+	"$extends": ["friend.scouts"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 2,
+	    "lantern": 2,
+	    "friend.weakened": 1,
+		"friendscouts": 1
+	},
+	"lifetime": 300,
+	"decayTo": "friend.scouts.weaken",
+	"icon": "friend.scouts",
+	"xtriggers": {
+	    "fatiguing": "friend.scouts.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.scouts.afraid.wounded",
+	    "refresh": "friend.scouts.weaken",
+	    "refreshally": "friend.scouts.weaken",
+	    "deweaken": "friend.scouts",
+	    "makeafraid": "friend.scouts.afraid",
+	    "makeweaken": "friend.scouts.afraid",
+	    "adv_soviet": "friend.scouts.ins",
+	    "becaptive": "foe.kommando",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.scouts.ins",
+	"$extends": ["friend.scouts"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "moth": 5,
+	    "lantern": 5,
+	    "ins_soviet": 1,
+		"friendscouts": 1
+	},
+	"icon": "friend.scouts",
+	"lifetime": 180,
+	"decayTo": "friend.scouts",
+	"xtriggers": {
+	    "fatiguing": "friend.scouts.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.scouts.wounded",
+	    "adv_soviet": "friend.scouts.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.scouts.exhausted",
+	"xtriggers$add": {
+	    "makeweaken": "friend.scouts.weaken.exhausted",
+	    "makeafraid": "friend.scouts.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.scouts.weaken.exhausted",
+	"$extends": ["friend.scouts.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.scouts.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.scouts.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.scouts.afraid.wounded",
+	    "refresh": "friend.scouts",
+	    "refreshally": "friend.scouts",
+	    "deweaken": "friend.scouts.exhausted",
+	    "makeweaken": "friend.scouts.afraid.exhausted",
+	    "makeafraid": "friend.scouts.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.scouts.afraid.exhausted",
+	"$extends": ["friend.scouts.exhausted"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"decayTo": "friend.scouts.afraid",
+	"xtriggers": {
+	    "fatiguing": "friend.scouts.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.scouts.afraid.wounded",
+	    "refresh": "friend.scouts.weaken",
+	    "refreshally": "friend.scouts.weaken",
+	    "deweaken": "friend.scouts.weaken.exhausted",
+	    "makeafraid": "friend.scouts.afraid.exhausted",
+	    "makeweaken": "friend.scouts.afraid.exhausted",
+	    "becaptive": "foe.kommando",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.scouts.wounded",
+	"xtriggers$add": {
+	    "makeafraid": "friend.scouts.afraid.wounded",
+	    "makeweaken": "friend.scouts.afraid.wounded",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.scouts.afraid.wounded",
+	"$extends": ["friend.scouts.wounded"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"icon": "friend.scouts.wounded",
+	"xtriggers": {
+	    "makeafraid": "friend.scouts.afraid.wounded",
+	    "makeweaken": "friend.scouts.afraid.wounded",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.scouts.afraid",
+	    "becaptive": "foe.kommando",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friendinfantry",
+	"label": "friend.infantry",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "这是友军步兵连队"
+    },
+    {
+	"id": "friendmedics",
+	"label": "friend.medics",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "这是友军医师"
+    },
+    {
+	"id": "friendbombers",
+	"label": "friend.bombers",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "这是友军轰炸机"
+    },
+    {
+	"id": "friendfighter",
+	"label": "friend.fighter",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "这是友军战斗机"
+    },
+    {
+	"id": "friend.infantry",
+	"aspects$add": {
+		"friendinfantry": 1
+	},
+	"xtriggers$add": {
+	    "makeweaken": "friend.infantry.weaken",
+	    "makeafraid": "friend.infantry.afraid",
+	    "adv_soviet": "friend.infantry.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"slots$listedit": {
+	"1$dictedit" : { "forbidden" : { "faction.anno" : 1 }}
+		}
+    },
+    {
+	"id": "friend.infantry.weaken",
+	"$extends": ["friend.infantry"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "weakened": 1,
+	    "edge": 5,
+		"friendinfantry": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.infantry",
+	"icon": "friend.infantry",
+	"xtriggers": {
+	    "fatiguing": "friend.infantry.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.infantry.afraid.wounded",
+	    "refresh": "friend.infantry",
+	    "refreshally": "friend.infantry",
+	    "deweaken": "friend.infantry",
+	    "makeafraid": "friend.infantry.afraid",
+	    "makeweaken": "friend.infantry.afraid",
+	    "adv_soviet": "friend.infantry.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.infantry.afraid",
+	"$extends": ["friend.infantry"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "friend.weakened": 1,
+	    "edge": 4,
+		"friendinfantry": 1
+	},
+	"lifetime": 300,
+	"decayTo": "friend.infantry.weaken",
+	"icon": "friend.infantry",
+	"xtriggers": {
+	    "fatiguing": "friend.infantry.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.infantry.afraid.wounded",
+	    "refresh": "friend.infantry.weaken",
+	    "refreshally": "friend.infantry.weaken",
+	    "deweaken": "friend.infantry",
+	    "makeafraid": "friend.infantry.afraid",
+	    "makeweaken": "friend.infantry.afraid",
+	    "adv_soviet": "friend.infantry.ins",
+	    "becaptive": "foe.infantry",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.infantry.ins",
+	"$extends": ["friend.infantry"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "ins_soviet": 1,
+	    "edge": 8,
+		"friendinfantry": 1
+	},
+	"icon": "friend.infantry",
+	"lifetime": 180,
+	"decayTo": "friend.infantry",
+	"xtriggers": {
+	    "fatiguing": "friend.infantry.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.infantry.wounded",
+	    "adv_soviet": "friend.infantry.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.infantry.exhausted",
+	"xtriggers$add": {
+	    "makeweaken": "friend.infantry.weaken.exhausted",
+	    "makeafraid": "friend.infantry.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.infantry.weaken.exhausted",
+	"$extends": ["friend.infantry.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.infantry.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.infantry.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.infantry.afraid.wounded",
+	    "refresh": "friend.infantry",
+	    "refreshally": "friend.infantry",
+	    "deweaken": "friend.infantry.exhausted",
+	    "makeweaken": "friend.infantry.afraid.exhausted",
+	    "makeafraid": "friend.infantry.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.infantry.afraid.exhausted",
+	"$extends": ["friend.infantry.exhausted"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"decayTo": "friend.infantry.afraid",
+	"xtriggers": {
+	    "fatiguing": "friend.infantry.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.infantry.afraid.wounded",
+	    "refresh": "friend.infantry.weaken",
+	    "refreshally": "friend.infantry.weaken",
+	    "deweaken": "friend.infantry.weaken.exhausted",
+	    "makeafraid": "friend.infantry.afraid.exhausted",
+	    "makeweaken": "friend.infantry.afraid.exhausted",
+	    "becaptive": "foe.infantry",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.infantry.wounded",
+	"xtriggers$add": {
+	    "makeafraid": "friend.infantry.afraid.wounded",
+	    "makeweaken": "friend.infantry.afraid.wounded",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.infantry.afraid.wounded",
+	"$extends": ["friend.infantry.wounded"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"icon": "friend.infantry.wounded",
+	"xtriggers": {
+	    "makeafraid": "friend.infantry.afraid.wounded",
+	    "makeweaken": "friend.infantry.afraid.wounded",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.infantry.afraid",
+	    "becaptive": "foe.infantry",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.medics",
+	"aspects$add": {
+		"friendmedics": 1
+	},
+	"xtriggers$add": {
+	    "makeweaken": "friend.medics.weaken",
+	    "makeafraid": "friend.medics.afraid",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"slots$listedit": {
+	"0$dictedit" : { "forbidden$add" : { "faction.anno" : 1 }}
+		}
+    },
+    {
+	"id": "friend.medics.weaken",
+	"$extends": ["friend.medics"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "heart": 5,
+	    "grail": 5,
+	    "weakened": 1,
+		"friendmedics": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.medics",
+	"icon": "friend.medics",
+	"xtriggers": {
+	    "fatiguing": "friend.medics.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.medics.afraid.wounded",
+	    "refresh": "friend.medics",
+	    "refreshally": "friend.medics",
+	    "deweaken": "friend.medics",
+	    "makeafraid": "friend.medics.afraid",
+	    "makeweaken": "friend.medics.afraid",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.medics.afraid",
+	"$extends": ["friend.medics"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "heart": 4,
+	    "grail": 4,
+	    "friend.weakened": 1,
+		"friendmedics": 1
+	},
+	"lifetime": 300,
+	"decayTo": "friend.medics.weaken",
+	"icon": "friend.medics",
+	"xtriggers": {
+	    "fatiguing": "friend.medics.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.medics.afraid.wounded",
+	    "refresh": "friend.medics.weaken",
+	    "refreshally": "friend.medics.weaken",
+	    "deweaken": "friend.medics",
+	    "makeafraid": "friend.medics.afraid",
+	    "makeweaken": "friend.medics.afraid",
+		"becaptive": "husk",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.medics.exhausted",
+	"xtriggers$add": {
+	    "makeweaken": "friend.medics.weaken.exhausted",
+	    "makeafraid": "friend.medics.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.medics.weaken.exhausted",
+	"$extends": ["friend.medics.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.medics.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.medics.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.medics.afraid.wounded",
+	    "refresh": "friend.medics",
+	    "refreshally": "friend.medics",
+	    "deweaken": "friend.medics.exhausted",
+	    "makeweaken": "friend.medics.afraid.exhausted",
+	    "makeafraid": "friend.medics.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.medics.afraid.exhausted",
+	"$extends": ["friend.medics.exhausted"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"decayTo": "friend.medics.afraid",
+	"xtriggers": {
+	    "fatiguing": "friend.medics.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.medics.afraid.wounded",
+	    "refresh": "friend.medics.weaken",
+	    "refreshally": "friend.medics.weaken",
+	    "deweaken": "friend.medics.weaken.exhausted",
+	    "makeafraid": "friend.medics.afraid.exhausted",
+	    "makeweaken": "friend.medics.afraid.exhausted",
+	    "becaptive": "husk",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.medics.wounded",
+	"xtriggers$add": {
+	    "makeafraid": "friend.medics.afraid.wounded",
+	    "makeweaken": "friend.medics.afraid.wounded",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+		}
+    },
+    {
+	"id": "friend.medics.afraid.wounded",
+	"$extends": ["friend.medics.wounded"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"icon": "friend.medics.wounded",
+	"xtriggers": {
+	    "makeafraid": "friend.medics.afraid.wounded",
+	    "makeweaken": "friend.medics.afraid.wounded",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.medics.afraid",
+	    "becaptive": "husk",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friendengineers",
+	"label": "friend.engineers",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "这是友军工兵"
+    },
+    {
+	"id": "friend.engineers",
+	"aspects$add": {
+		"friendengineers": 1
+	},
+	"xtriggers$add": {
+	    "makeweaken": "friend.engineers.weaken",
+	    "makeafraid": "friend.engineers.afraid",
+	    "adv_soviet": "friend.engineers.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"slots$listedit": {
+	"0$dictedit" : { "forbidden$add" : { "faction.anno" : 1 }}
+		}
+    },
+    {
+	"id": "friend.engineers.weaken",
+	"$extends": ["friend.engineers"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "weakened": 1,
+	    "forge": 5,
+	    "knock": 5,
+		"friendengineers": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.engineers",
+	"icon": "friend.engineers",
+	"xtriggers": {
+	    "fatiguing": "friend.engineers.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.engineers.afraid.wounded",
+	    "refresh": "friend.engineers",
+	    "refreshally": "friend.engineers",
+	    "deweaken": "friend.engineers",
+	    "makeafraid": "friend.engineers.afraid",
+	    "makeweaken": "friend.engineers.afraid",
+	    "adv_soviet": "friend.engineers.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.engineers.afraid",
+	"$extends": ["friend.engineers"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+		"friend.weakened": 1,
+	    "forge": 4,
+	    "knock": 4,
+		"friendengineers": 1
+	},
+	"lifetime": 300,
+	"decayTo": "friend.engineers.weaken",
+	"icon": "friend.engineers",
+	"xtriggers": {
+	    "fatiguing": "friend.engineers.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.engineers.afraid.wounded",
+	    "refresh": "friend.engineers",
+	    "refreshally": "friend.engineers",
+	    "deweaken": "friend.engineers",
+	    "makeafraid": "friend.engineers.afraid",
+	    "makeweaken": "friend.engineers.afraid",
+	    "adv_soviet": "friend.engineers.ins",
+		"becaptive": "hindrance.fortifications",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.engineers.ins",
+	"$extends": ["friend.engineers"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 3,
+	    "forge": 8,
+	    "knock": 8,
+	    "ins_soviet": 1,
+		"friendengineers": 1
+	},
+	"icon": "friend.engineers",
+	"lifetime": 180,
+	"decayTo": "friend.engineers",
+	"xtriggers": {
+	    "fatiguing": "friend.engineers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.engineers.wounded",
+	    "adv_soviet": "friend.engineers.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.engineers.exhausted",
+	"xtriggers$add": {
+	    "makeweaken": "friend.engineers.weaken.exhausted",
+	    "makeafraid": "friend.engineers.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+		}
+    },
+    {
+	"id": "friend.engineers.weaken.exhausted",
+	"$extends": ["friend.engineers.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.engineers.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.engineers.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.engineers.afraid.wounded",
+	    "refresh": "friend.engineers",
+	    "refreshally": "friend.engineers",
+	    "deweaken": "friend.engineers.exhausted",
+	    "makeweaken": "friend.engineers.afraid.exhausted",
+	    "makeafraid": "friend.engineers.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.engineers.afraid.exhausted",
+	"$extends": ["friend.engineers.exhausted"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"decayTo": "friend.engineers.afraid",
+	"xtriggers": {
+	    "fatiguing": "friend.engineers.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.engineers.afraid.wounded",
+	    "refresh": "friend.engineers.weaken",
+	    "refreshally": "friend.engineers.weaken",
+	    "deweaken": "friend.engineers.weaken.exhausted",
+	    "makeafraid": "friend.engineers.afraid.exhausted",
+	    "makeweaken": "friend.engineers.afraid.exhausted",
+	    "becaptive": "hindrance.fortifications",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.engineers.wounded",
+	"xtriggers$add": {
+	    "makeafraid": "friend.engineers.afraid.wounded",
+	    "makeweaken": "friend.engineers.afraid.wounded",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.engineers.afraid.wounded",
+	"$extends": ["friend.engineers.wounded"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"icon": "friend.engineers.wounded",
+	"xtriggers": {
+	    "makeafraid": "friend.engineers.afraid.wounded",
+	    "makeweaken": "friend.engineers.afraid.wounded",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.engineers.afraid",
+	    "becaptive": "hindrance.fortifications",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.tanks",
+	"aspects$add": {
+		"friendtanks": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers$add": {
+	    "makeweaken": "friend.tanks.weaken",
+	    "makeafraid": "friend.tanks.afraid",
+	    "adv_soviet": "friend.tanks.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.tanks.weaken",
+	"$extends": ["friend.tanks"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "forge": 3,
+	    "edge": 10,
+	    "weakened": 1,
+		"friendtanks": 1,
+		"mechanized_forces.friend": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.tanks",
+	"icon": "friend.tanks",
+	"xtriggers": {
+	    "fatiguing": "friend.tanks.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.tanks.afraid.damaged",
+	    "deweaken": "friend.tanks",
+	    "makeweaken": "friend.tanks.afraid",
+	    "makeafraid": "friend.tanks.afraid",
+	    "adv_soviet": "friend.tanks.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.tanks.afraid",
+	"$extends": ["friend.tanks"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "forge": 2,
+	    "edge": 8,
+	    "friend.weakened": 1,
+		"friendtanks": 1,
+		"mechanized_forces.friend": 1
+	},
+	"lifetime": 300,
+	"decayTo": "friend.tanks.weaken",
+	"icon": "friend.tanks",
+	"xtriggers": {
+	    "fatiguing": "friend.tanks.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.tanks.afraid.damaged",
+	    "deweaken": "friend.tanks",
+	    "makeweaken": "friend.tanks.afraid",
+	    "makeafraid": "friend.tanks.afraid",
+	    "adv_soviet": "friend.tanks.ins",
+	    "becaptive": "foe.tanks",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.tanks.ins",
+	"$extends": ["friend.tanks"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "forge": 6,
+	    "edge": 14,
+	    "ins_soviet": 1,
+		"friendtanks": 1,
+		"mechanized_forces.friend": 1
+	},
+	"icon": "friend.tanks",
+	"lifetime": 180,
+	"decayTo": "friend.tanks",
+	"xtriggers": {
+	    "fatiguing": "friend.tanks.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.tanks.damaged",
+	    "adv_soviet": "friend.tanks.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.tanks.exhausted",
+	"aspects$add": {
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers$add": {
+	    "makeweaken": "friend.tanks.weaken.exhausted",
+	    "makeafraid": "friend.tanks.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.tanks.weaken.exhausted",
+	"$extends": ["friend.tanks.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.tanks.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.tanks.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.tanks.afraid.damaged",
+	    "deweaken": "friend.tanks.exhausted",
+	    "makeweaken": "friend.tanks.afraid.exhausted",
+	    "makeafraid": "friend.tanks.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.tanks.afraid.exhausted",
+	"$extends": ["friend.tanks.exhausted"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"decayTo": "friend.tanks.afraid",
+	"xtriggers": {
+	    "fatiguing": "friend.tanks.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.tanks.afraid.damaged",
+	    "deweaken": "friend.tanks.weaken.exhausted",
+	    "makeafraid": "friend.tanks.afraid.exhausted",
+	    "makeweaken": "friend.tanks.afraid.exhausted",
+	    "becaptive": "foe.tanks",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.tanks.damaged",
+	"aspects$add": {
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers$add": {
+	    "makeafraid": "friend.tanks.afraid.damaged",
+	    "makeweaken": "friend.tanks.afraid.damaged",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.tanks.afraid.damaged",
+	"$extends": ["friend.tanks.damaged"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"icon": "friend.tanks.damaged",
+	"xtriggers": {
+	    "makeafraid": "friend.tanks.afraid.damaged",
+	    "makeweaken": "friend.tanks.afraid.damaged",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.tanks.afraid",
+	    "becaptive": "foe.tanks",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.artillery",
+	"aspects$add": {
+		"friendartillery": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers$add": {
+	    "makeweaken": "friend.artillery.weaken",
+	    "makeafraid": "friend.artillery.afraid",
+	    "adv_soviet": "friend.artillery.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.artillery.weaken",
+	"$extends": ["friend.artillery"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 10,
+	    "edge": 16,
+	    "weakened": 1,
+		"friendartillery": 1,
+		"mechanized_forces.friend": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.artillery",
+	"icon": "friend.artillery",
+	"xtriggers": {
+	    "fatiguing": "friend.artillery.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.artillery.afraid.damaged",
+	    "deweaken": "friend.artillery",
+	    "makeweaken": "friend.artillery.afraid",
+	    "makeafraid": "friend.artillery.afraid",
+	    "adv_soviet": "friend.artillery.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.artillery.afraid",
+	"$extends": ["friend.artillery"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 10,
+	    "edge": 12,
+	    "friend.weakened": 1,
+		"friendartillery": 1,
+		"mechanized_forces.friend": 1
+	},
+	"lifetime": 300,
+	"decayTo": "friend.artillery.weaken",
+	"icon": "friend.artillery",
+	"xtriggers": {
+	    "fatiguing": "friend.artillery.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.artillery.afraid.damaged",
+	    "deweaken": "friend.artillery",
+	    "makeweaken": "friend.artillery.afraid",
+	    "makeafraid": "friend.artillery.afraid",
+	    "adv_soviet": "friend.artillery.ins",
+	    "becaptive": "foe.artillery",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.artillery.ins",
+	"$extends": ["friend.artillery"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 10,
+	    "edge": 20,
+	    "ins_soviet": 1,
+		"friendartillery": 1,
+		"mechanized_forces.friend": 1
+	},
+	"icon": "friend.artillery",
+	"lifetime": 180,
+	"decayTo": "friend.artillery",
+	"xtriggers": {
+	    "fatiguing": "friend.artillery.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.artillery.damaged",
+	    "adv_soviet": "friend.artillery.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.artillery.exhausted",
+	"aspects$add": {
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers$add": {
+	    "makeweaken": "friend.artillery.weaken.exhausted",
+	    "makeafraid": "friend.artillery.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.artillery.weaken.exhausted",
+	"$extends": ["friend.artillery.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.artillery.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.artillery.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.artillery.afraid.damaged",
+	    "deweaken": "friend.artillery.exhausted",
+	    "makeweaken": "friend.artillery.afraid.exhausted",
+	    "makeafraid": "friend.artillery.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.artillery.afraid.exhausted",
+	"$extends": ["friend.artillery.exhausted"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"decayTo": "friend.artillery.afraid",
+	"xtriggers": {
+	    "fatiguing": "friend.artillery.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.artillery.afraid.damaged",
+	    "deweaken": "friend.artillery.weaken.exhausted",
+	    "makeweaken": "friend.artillery.afraid.exhausted",
+	    "makeafraid": "friend.artillery.afraid.exhausted",
+	    "becaptive": "foe.artillery",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.artillery.damaged",
+	"aspects$add": {
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers$add": {
+	    "makeafraid": "friend.artillery.afraid.damaged",
+	    "makeweaken": "friend.artillery.afraid.damaged",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.artillery.afraid.damaged",
+	"$extends": ["friend.artillery.damaged"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"icon": "friend.artillery.damaged",
+	"xtriggers": {
+	    "makeafraid": "friend.artillery.afraid.damaged",
+	    "makeweaken": "friend.artillery.afraid.damaged",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.artillery.afraid",
+	    "becaptive": "foe.artillery",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	}
+    },
+	
+    {
+	"id": "friend.bombers",
+	"aspects$add": {
+		"friendbombers": 1,
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers$add": {
+	    "makeweaken": "friend.bombers.weaken",
+	    "makeafraid": "friend.bombers.afraid",
+	    "adv_soviet": "friend.bombers.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.bombers.weaken",
+	"$extends": ["friend.bombers"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "friend.aerial": 1,
+	    "edge": 10,
+	    "weakened": 1,
+		"friendbombers": 1,
+		"mechanized_forces.friend": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.bombers",
+	"icon": "friend.bombers",
+	"xtriggers": {
+	    "fatiguing": "friend.bombers.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.bombers.afraid.damaged",
+	    "deweaken": "friend.bombers",
+	    "makeweaken": "friend.bombers.afraid",
+	    "makeafraid": "friend.bombers.afraid",
+	    "adv_soviet": "friend.bombers.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.bombers.afraid",
+	"$extends": ["friend.bombers"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "edge": 8,
+	    "friend.weakened": 1,
+		"friendbombers": 1,
+		"mechanized_forces.friend": 1
+	},
+	"lifetime": 300,
+	"decayTo": "friend.bombers.weaken",
+	"icon": "friend.bombers",
+	"xtriggers": {
+	    "fatiguing": "friend.bombers.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.bombers.afraid.damaged",
+	    "deweaken": "friend.bombers",
+	    "makeweaken": "friend.bombers.afraid",
+	    "makeafraid": "friend.bombers.afraid",
+	    "adv_soviet": "friend.bombers.ins",
+	    "becaptive": "foe.bombers",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.bombers.ins",
+	"$extends": ["friend.bombers"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 6,
+	    "friend.aerial": 2,
+	    "edge": 16,
+	    "ins_soviet": 1,
+		"friendbombers": 1,
+		"mechanized_forces.friend": 1
+	},
+	"icon": "friend.bombers",
+	"lifetime": 180,
+	"decayTo": "friend.bombers",
+	"xtriggers": {
+	    "fatiguing": "friend.bombers.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.bombers.damaged",
+	    "adv_soviet": "friend.bombers.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+	
+    {
+	"id": "friend.bombers.exhausted",
+	"aspects$add": {
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers$add": {
+	    "makeweaken": "friend.bombers.weaken.exhausted",
+	    "makeafraid": "friend.bombers.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.bombers.weaken.exhausted",
+	"$extends": ["friend.bombers.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.bombers.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.bombers.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.bombers.afraid.damaged",
+	    "deweaken": "friend.bombers.exhausted",
+	    "makeweaken": "friend.bombers.afraid.exhausted",
+	    "makeafraid": "friend.bombers.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.bombers.afraid.exhausted",
+	"$extends": ["friend.bombers.exhausted"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"decayTo": "friend.bombers.afraid",
+	"xtriggers": {
+	    "fatiguing": "friend.bombers.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.bombers.afraid.damaged",
+	    "deweaken": "friend.bombers.weaken.exhausted",
+	    "makeweaken": "friend.bombers.afraid.exhausted",
+	    "makeafraid": "friend.bombers.afraid.exhausted",
+	    "becaptive": "foe.bombers",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+	
+    {
+	"id": "friend.bombers.damaged",
+	"aspects$add": {
+		"mechanized_forces.friend": 1
+	},
+	"xtriggers$add": {
+	    "makeafraid": "friend.bombers.afraid.damaged",
+	    "makeweaken": "friend.bombers.afraid.damaged",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.bombers.afraid.damaged",
+	"$extends": ["friend.bombers.damaged"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"icon": "friend.bombers.damaged",
+	"xtriggers": {
+	    "makeafraid": "friend.bombers.afraid.damaged",
+	    "makeweaken": "friend.bombers.afraid.damaged",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.bombers.afraid",
+	    "becaptive": "foe.bombers",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	}
+    },
+	
+    {
+	"id": "friendmilitia",
+	"label": "friend.militia",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "这是义勇军"
+    },
+    {
+	"id": "friend.militia",
+	"aspects$add": {
+		"friendmilitia": 1
+	},
+	"xtriggers$add": {
+	    "makeweaken": "friend.militia.weaken",
+	    "makeafraid": "friend.militia.weaken",
+	    "adv_soviet": "friend.militia.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	},
+	"slots$listedit": {
+	"1$dictedit" : { "forbidden" : { "faction.anno" : 1 }}
+		}
+    },
+    {
+	"id": "friend.militia.weaken",
+	"$extends": ["friend.militia"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "edge": 3,
+	    "heart": 3,
+	    "weakened": 1,
+		"friendmilitia": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.militia",
+	"icon": "friend.militia",
+	"xtriggers": {
+	    "fatiguing": "friend.militia.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.militia.weaken.wounded",
+	    "refresh": "friend.militia",
+	    "refreshally": "friend.militia",
+	    "deweaken": "friend.militia",
+	    "makeafraid": "friend.militia.weaken",
+	    "makeweaken": "friend.militia.weaken",
+	    "adv_soviet": "friend.militia.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.militia.ins",
+	"$extends": ["friend.militia"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 2,
+	    "edge": 4,
+	    "heart": 4,
+		"lantern": 4,
+	    "ins_soviet": 1,
+		"friendmilitia": 1
+	},
+	"icon": "friend.militia",
+	"lifetime": 180,
+	"decayTo": "friend.militia",
+	"xtriggers": {
+	    "fatiguing": "friend.militia.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.militia.wounded",
+	    "adv_soviet": "friend.militia.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	}
+    },
+	
+    {
+	"id": "friend.militia.exhausted",
+	"xtriggers$add": {
+	    "makeweaken": "friend.militia.weaken.exhausted",
+	    "makeafraid": "friend.militia.weaken.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.militia.weaken.exhausted",
+	"$extends": ["friend.militia.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.militia.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.militia.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.militia.weaken.wounded",
+	    "refresh": "friend.militia",
+	    "refreshally": "friend.militia",
+	    "deweaken": "friend.militia.exhausted",
+	    "makeweaken": "friend.militia.weaken.exhausted",
+	    "makeafraid": "friend.militia.weaken.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	}
+    },
+	
+    {
+	"id": "friend.militia.wounded",
+	"xtriggers$add": {
+	    "makeafraid": "friend.scouts.afraid.wounded",
+	    "makeweaken": "friend.scouts.afraid.wounded",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.militia.weaken.wounded",
+	"$extends": ["friend.militia.wounded"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"icon": "friend.militia.wounded",
+	"xtriggers": {
+	    "makeafraid": "friend.militia.weaken.wounded",
+	    "makeweaken": "friend.militia.weaken.wounded",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.militia.weaken",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	}
+    },
+	
+    {
+	"id": "friend.sniper",
+	"xtriggers$add": {
+	    "makeweaken": "friend.sniper.weaken",
+	    "makeafraid": "friend.sniper.afraid",
+	    "adv_soviet": "friend.sniper.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.sniper.weaken",
+	"$extends": ["friend.sniper"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 3,
+	    "winter": 3,
+	    "lantern": 3,
+	    "weakened": 1
+	},
+	"lifetime": 150,
+	"decayTo": "friend.sniper",
+	"icon": "friend.sniper",
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.sniper.afraid.wounded",
+	    "refresh": "friend.sniper",
+	    "refreshally": "friend.sniper",
+	    "deweaken": "friend.sniper",
+	    "makeafraid": "friend.sniper.afraid",
+	    "makeweaken": "friend.sniper.afraid",
+	    "adv_soviet": "friend.sniper.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.sniper.afraid",
+	"$extends": ["friend.sniper"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 2,
+	    "winter": 2,
+	    "lantern": 2,
+	    "friend.weakened": 1
+	},
+	"lifetime": 300,
+	"decayTo": "friend.sniper.weaken",
+	"icon": "friend.sniper",
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.sniper.afraid.wounded",
+	    "refresh": "friend.sniper",
+	    "refreshally": "friend.sniper",
+	    "deweaken": "friend.sniper",
+	    "makeafraid": "friend.sniper.afraid",
+	    "makeweaken": "friend.sniper.afraid",
+	    "adv_soviet": "friend.sniper.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.sniper.ins",
+	"$extends": ["friend.sniper"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 1,
+	    "edge": 10,
+	    "winter": 8,
+	    "lantern": 8,
+	    "ins_soviet": 1
+	},
+	"icon": "friend.sniper",
+	"lifetime": 180,
+	"decayTo": "friend.sniper",
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.sniper.wounded",
+	    "adv_soviet": "friend.sniper.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "friend.aerial",
+		    "morpheffect": "mutate",
+		    "level": -1
+		}
+		]
+	}
+    },
+	
+    {
+	"id": "friend.sniper.exhausted",
+	"xtriggers$add": {
+	    "makeweaken": "friend.infantry.weaken.exhausted",
+	    "makeafraid": "friend.infantry.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.sniper.weaken.exhausted",
+	"$extends": ["friend.sniper.exhausted"],
+	"aspects$add": {
+		"weakened": 1
+	},
+	"decayTo": "friend.sniper.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.weaken.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.sniper.afraid.wounded",
+	    "refresh": "friend.sniper",
+	    "refreshally": "friend.sniper",
+	    "deweaken": "friend.sniper.exhausted",
+	    "makeweaken": "friend.sniper.afraid.exhausted",
+	    "makeafraid": "friend.sniper.afraid.exhausted",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+    {
+	"id": "friend.sniper.afraid.exhausted",
+	"$extends": ["friend.sniper.exhausted"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"decayTo": "friend.sniper.afraid",
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.sniper.afraid.wounded",
+	    "refresh": "friend.sniper.weaken",
+	    "refreshally": "friend.sniper.weaken",
+	    "deweaken": "friend.sniper.weaken.exhausted",
+	    "makeweaken": "friend.sniper.afraid.exhausted",
+	    "makeafraid": "friend.sniper.afraid.exhausted",
+	    "becaptive": "foe.sniper",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+    {
+	"id": "friend.sniper.wounded",
+	"xtriggers$add": {
+	    "makeafraid": "friend.sniper.afraid.wounded",
+	    "makeweaken": "friend.sniper.afraid.wounded",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	}
+    },
+    {
+	"id": "friend.sniper.afraid.wounded",
+	"$extends": ["friend.sniper.wounded"],
+	"aspects$add": {
+		"friend.weakened": 1
+	},
+	"icon": "friend.sniper.wounded",
+	"xtriggers": {
+	    "makeafraid": "friend.sniper.afraid.wounded",
+	    "makeweaken": "friend.sniper.afraid.wounded",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.sniper.afraid",
+	    "becaptive": "foe.sniper",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "lantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "winter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	}
+    }
+	
+	
+]
+}

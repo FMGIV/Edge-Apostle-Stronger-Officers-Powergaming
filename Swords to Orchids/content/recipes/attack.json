@@ -1,0 +1,3464 @@
+{
+    "recipes": [
+    {
+	"id": "corrivality.cycle",
+    "alt": [
+        {
+            "id": "foe.umiri.coming4",
+            "chance": 30,
+            "additional": true
+        },
+        {
+            "id": "foe.umiri.coming3",
+            "chance": 20,
+            "additional": true
+        },
+        {
+            "id": "foe.umiri.coming2",
+            "chance": 15,
+            "additional": true
+        },
+        {
+            "id": "foe.umiri.coming2.withanno",
+            "chance": 30,
+            "additional": true
+        },
+        {
+            "id": "foe.umiri.coming.firstinroute",
+            "chance": 10,
+            "additional": true
+        },
+	    {
+            "id": "ss.coming.first",
+            "chance": 40,
+            "additional": true
+	    }
+    ]
+    },
+    {
+    "id": "corrivality.turnfoeadvantage",
+    "alt": [
+        {
+            "id": "foe.umiri.coming3",
+            "additional": true
+        },
+        {
+            "id": "foe.umiri.coming2",
+            "additional": true
+        },
+        {
+            "id": "foe.umiri.coming2.withanno",
+            "additional": true
+        },
+        {
+            "id": "foe.umiri.coming.firstinroute",
+            "additional": true
+        },
+	    {
+            "id": "ss.coming.first",
+            "additional": true
+	    }
+    ]
+    },
+    {
+	"id": "corrivality.cycle.foe",
+    "alt$prepend": [
+        {
+            "id": "foe.umiri.coming3",
+            "additional": true
+        },
+        {
+            "id": "foe.umiri.coming2",
+            "additional": true
+        },
+        {
+            "id": "foe.umiri.coming2.withanno",
+            "additional": true
+        },
+        {
+            "id": "foe.umiri.coming.firstinroute",
+            "additional": true
+        },
+	    {
+            "id": "ss.coming.first",
+            "additional": true
+	    }
+    ]
+    },
+        {
+            "id": "foe.umiri.coming.firstinroute",
+            "label": "Enemy Officer on the Way",
+            "actionId": "foecoming",
+            "extantreqs": {
+                "foe.umiri.mark": -1,
+                "foe.umiri.dead": -1,
+                "umiri.blocker": -1,
+                "obdurant.story": 1
+            },
+            "grandReqs": {
+                "([~/extant:foe.officer] || [~/extant:foe.umiri.pre]) >= 1": 1
+            },
+            "purge": {
+                "strife.incur": 99
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.coming.first"
+                },
+                {
+                    "id": "foe.umiri.coming4"
+                },
+                {
+                    "id": "foe.umiri.coming3"
+                },
+                {
+                    "id": "foe.umiri.coming2"
+                },
+                {
+                    "id": "foe.umiri.coming"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.coming.call",
+            "label": "Your Arch-Enemy is on the Way",
+            "startdescription": "\"You will eventually burn yourself,\" the reply was only a very brief statement. \"Fine, I'll grant your wish.\"",
+            "actionId": "foecoming",
+            "warmup": 60,
+            "extantreqs": {
+                "foe.umiri.mark": -1,
+                "foe.umiri.dead": -1,
+                "umiri.blocker": -1,
+                "obdurant.story": 1
+            },
+            "purge": {
+                "strife.incur": 99
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.coming.call_officer"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.coming.call_officer",
+            "label": "Your Arch-Enemy is on the Way",
+            "startdescription": "\"You will eventually burn yourself\" the reply was only a very brief statement. \"Fine, I'll grant your wish.\"",
+            "actionId": "foecoming",
+            "extantreqs": {
+                "foe.umiri.mark": -1,
+                "foe.umiri.dead": -1,
+                "umiri.blocker": -1,
+                "obdurant.story": 1
+            },
+            "purge": {
+                "strife.incur": 99
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.coming.first"
+                },
+                {
+                    "id": "foe.umiri.coming4"
+                },
+                {
+                    "id": "foe.umiri.coming3"
+                },
+                {
+                    "id": "foe.umiri.coming2"
+                },
+                {
+                    "id": "foe.umiri.coming"
+                },
+                {
+                    "id": "foe.umiri.coming2.withanno"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.coming.strife_incur",
+            "label": "Enemy Officer on the Way",
+            "startdescription": "The Germans have taken notice of us—their 'hardest thorn to pull.' That battle-hardened officer is on her way...",
+            "actionId": "foecoming",
+            "warmup": 10,
+            "extantreqs": {
+                "foe.umiri.mark": -1,
+                "foe.umiri.dead": -1,
+                "strife.incur": 1,
+                "umiri.blocker": -1
+            },
+            "grandReqs": {
+                "([~/extant:foe.officer] || [~/extant:foe.umiri.pre]) >= 1": 1
+            },
+            "purge": {
+                "strife.incur": 99
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.coming.first"
+                },
+                {
+                    "id": "foe.umiri.coming4"
+                },
+                {
+                    "id": "foe.umiri.coming3"
+                },
+                {
+                    "id": "foe.umiri.coming2"
+                },
+                {
+                    "id": "foe.umiri.coming"
+                },
+                {
+                    "id": "foe.umiri.coming2.withanno"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.coming.stalingrad",
+            "label": "Enemy Officer on the Way",
+            "startdescription": "We are cornered, with no retreat. This will be her last chance to face you in battle—and it seems she will eagerly accept.",
+            "actionId": "foecoming",
+            "extantreqs": {
+                "foe.umiri.mark": -1,
+                "foe.umiri.dead": -1,
+                "stalingrad.here": 1,
+                "umiri.blocker": -1,
+                "obdurant.story": 1
+            },
+            "purge": {
+                "strife.incur": 99
+            },
+			"playAudioTrack": "bgm.strife.mp3",
+            "linked": [
+                {
+                    "id": "foe.umiri.coming.stalingrad.b"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.coming.stalingrad.b",
+            "label": "Enemy Officer on the Way",
+            "startdescription": "We are cornered, with no retreat. This will be her last chance to face you in battle—and it seems she will eagerly accept.",
+            "actionId": "foecoming",
+            "warmup": 10,
+            "extantreqs": {
+                "foe.umiri.mark": -1,
+                "foe.umiri.dead": -1,
+                "stalingrad.here": 1,
+                "umiri.blocker": -1,
+                "obdurant.story": 1
+            },
+            "purge": {
+                "strife.incur": 99
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.coming4"
+                },
+                {
+                    "id": "foe.umiri.coming3"
+                },
+                {
+                    "id": "foe.umiri.coming2"
+                },
+                {
+                    "id": "foe.umiri.coming"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.coming.first",
+            "label": "Enemy Captain on the Way",
+            "startdescription": "New movements in the enemy ranks: troop rotations, fortifications being reinforced. It seems the Germans are pressing their advantage. We will have a new rival.",
+            "description": "New movements in the enemy ranks: troop rotations, fortifications being reinforced. It seems the Germans are pressing their advantage. We will have a new rival.",
+            "actionId": "foecoming",
+            "maxexecutions": 1,
+            "extantreqs": {
+                "foe.umiri.mark": -1,
+                "foe.umiri.dead": -1,
+                "umiri.blocker": -1,
+                "obdurant.story.umiri": -1,
+                "obdurant.story": 1
+            },
+            "purge": {
+                "strife.incur": 99
+            },
+            "grandReqs": {
+                "([~/extant:foe.officer] || [~/extant:foe.umiri.pre]) >= 1": 1
+            },
+            "effects": {
+                "obdurant.story.umiri": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.coming"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.coming",
+            "label": "Enemy Captain on the Way",
+            "startdescription": "New movements in the enemy ranks: troop rotations, fortifications being reinforced. It seems the Germans are pressing their advantage. We will have a new rival.",
+            "description": "New movements in the enemy ranks: troop rotations, fortifications being reinforced. It seems the Germans are pressing their advantage. We will have a new rival.",
+            "actionId": "foecoming",
+            "warmup": 10,
+            "extantreqs": {
+                "foe.umiri.mark": -1,
+                "foe.umiri.dead": -1,
+                "umiri.blocker": -1,
+                "obdurant.story": 1
+            },
+            "purge": {
+                "strife.incur": 99
+            },
+            "requirements": {
+                "foe.officer": -1,
+                "foe.umiri.pre": -1
+            },
+            "grandReqs": {
+                "([~/extant:foe.officer] || [~/extant:foe.umiri.pre]) >= 1": 1,
+                "[~/extant:allresolution] <= 3": 1
+            },
+            "internaldeck": {
+                "spec": [
+                    "foe.tanks.hidden",
+                    "foe.tanks.hidden",
+                    "husk",
+                    "husk"
+                ],
+                "draws": 1,
+                "resetonexhaustion": true
+            },
+            "effects": {
+                "foe.tanks": 1
+            },
+            "slots": [
+                {
+                    "id": "foe.deploy",
+                    "label": "Enemy Maneuvers",
+                    "required": {
+                        "foe.officer": 1,
+                        "foe.umiri.pre": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.coming4"
+                },
+                {
+                    "id": "foe.umiri.coming3"
+                },
+                {
+                    "id": "foe.umiri.coming2"
+                },
+                {
+                    "id": "foe.umiri.coming"
+                },
+                {
+                    "id": "foe.umiri.deploy"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.deploy",
+            "label": "Enemy Captain on the Way",
+            "startdescription": "The enemy has a new commander—and she has brought her escort unit. My heartbeat slows, growing heavy.",
+            "description": "The enemy has a new commander—and she has brought her escort unit. My heartbeat slows, growing heavy.",
+            "actionId": "foecoming",
+            "warmup": 10,
+            "grandReqs": {
+                "([foe.officer] || [foe.umiri.pre]) >= 1": 1
+            },
+            "effects": {
+                "foe.umiri": 1,
+                "foe.officer": -1,
+                "foe.umiri.pre": -1
+            },
+			"playAudioTrack": "bgm.foecoming.mp3",
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe.officerdetail",
+                    "level": 1
+                },
+                {
+                    "filter": "foe.rankofficer",
+                    "mutate": "foe.officerdetail",
+                    "level": -1
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.moreenemy"
+                },
+                {
+                    "id": "foe.umiri.edgelong"
+                },
+                {
+                    "id": "foe.umiri.edgelong2"
+                }
+            ],
+            "alt": [
+                {
+                    "id": "foe.umiri.circle.first",
+                    "additional": true
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.coming2",
+            "label": "Enemy Colonel on the Way",
+            "startdescription": "New movements in the enemy ranks: troop rotations, fortifications being reinforced. It seems the Germans are pressing their advantage. We will have a new rival.",
+            "description": "New movements in the enemy ranks: troop rotations, fortifications being reinforced. It seems the Germans are pressing their advantage. We will have a new rival.",
+            "$extends": ["foe.umiri.coming"],
+            "extantreqs": {
+                "foe.umiri.mark": -1,
+                "foe.umiri.dead": -1,
+                "umiri.blocker": -1,
+                "obdurant.story": 1
+            },
+            "internaldeck": {
+                "spec": [
+                    "foe.tanks.hidden",
+                    "foe.tanks.hidden",
+                    "husk",
+                    "husk"
+                ],
+                "draws": 3,
+                "resetonexhaustion": true
+            },
+            "grandReqs": {
+                "([~/extant:foe.officer] || [~/extant:foe.umiri.pre]) >= 1": 1,
+                "[~/extant:allresolution] >= 3 && [~/extant:allresolution] <= 5": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.coming4"
+                },
+                {
+                    "id": "foe.umiri.coming3"
+                },
+                {
+                    "id": "foe.umiri.coming2"
+                },
+                {
+                    "id": "foe.umiri.deploy2"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.deploy2",
+            "label": "Enemy Colonel on the Way",
+            "startdescription": "The enemy's new commander is heading to the front lines—and has brought a vast host with her. All the soldiers grow silent; the scent of steel comes on the cold wind.",
+            "description": "The enemy's new commander is heading to the front lines—and has brought a vast host with her. All the soldiers grow silent; the scent of steel comes on the cold wind.",
+            "$extends": ["foe.umiri.deploy"],
+            "effects": {
+                "foe.umiri.2": 1,
+                "foe.officer": -1,
+                "foe.umiri.pre": -1
+            }
+        },
+        {
+            "id": "foe.umiri.coming3",
+            "label": "Enemy General on the Way",
+            "startdescription": "New movements in the enemy ranks: troop rotations, fortifications being reinforced. It seems the Germans are pressing their advantage. We will have a new rival.",
+            "description": "New movements in the enemy ranks: troop rotations, fortifications being reinforced. It seems the Germans are pressing their advantage. We will have a new rival.",
+            "extantreqs": {
+                "foe.umiri.mark": -1,
+                "foe.umiri.dead": -1,
+                "umiri.blocker": -1,
+                "obdurant.story": 1
+            },
+            "$extends": ["foe.umiri.coming"],
+            "internaldeck": {
+                "spec": [
+                    "foe.tanks.hidden",
+                    "foe.tanks.hidden",
+                    "husk",
+                    "husk"
+                ],
+                "draws": 5,
+                "resetonexhaustion": true
+            },
+            "grandReqs": {
+                "([~/extant:foe.officer] || [~/extant:foe.umiri.pre]) >= 1": 1,
+                "[~/extant:allresolution] >= 6 && [~/extant:allresolution] <= 8": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.coming4"
+                },
+                {
+                    "id": "foe.umiri.coming3"
+                },
+                {
+                    "id": "foe.umiri.deploy3"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.deploy3",
+            "label": "Enemy General on the Way",
+            "startdescription": "The enemy's new commander walks with calamity. More steel and blood will be offered. Waters freeze, beasts hunt, and every soul trembles. I long to crush her.",
+            "description": "The enemy's new commander walks with calamity. More steel and blood will be offered. Waters freeze, beasts hunt, and every soul trembles. I long to crush her.",
+            "actionId": "foecoming",
+            "$extends": ["foe.umiri.deploy"],
+            "effects": {
+                "foe.umiri.3": 1,
+                "foe.officer": -1,
+                "foe.umiri.pre": -1
+            }
+        },
+        {
+            "id": "foe.umiri.coming4",
+            "label": "Enemy General on the Way",
+            "startdescription": "New movements in the enemy ranks: troop rotations, fortifications being reinforced. It seems the Germans are pressing their advantage. We will have a new rival.",
+            "description": "New movements in the enemy ranks: troop rotations, fortifications being reinforced. It seems the Germans are pressing their advantage. We will have a new rival.",
+            "extantreqs": {
+                "foe.umiri.mark": -1,
+                "foe.umiri.dead": -1,
+                "umiri.blocker": -1,
+                "obdurant.story": 1
+            },
+            "$extends": ["foe.umiri.coming"],
+            "internaldeck": {
+                "spec": [
+                    "foe.tanks.hidden",
+                    "foe.tanks.hidden",
+                    "husk",
+                    "husk"
+                ],
+                "draws": 7,
+                "resetonexhaustion": true
+            },
+            "grandReqs": {
+                "([~/extant:foe.officer] || [~/extant:foe.umiri.pre]) >= 1": 1,
+                "[~/extant:allresolution] >= 9": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.coming4"
+                },
+                {
+                    "id": "foe.umiri.deploy4"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.deploy4",
+            "label": "Enemy General on the Way",
+            "startdescription": "The enemy has a new commander—and she has brought her escort unit. It is said she is a promising young officer.",
+            "description": "The enemy has a new commander—and she has brought her escort unit. It is said she is a promising young officer.",
+            "actionId": "foecoming",
+            "$extends": ["foe.umiri.deploy"],
+            "effects": {
+                "foe.umiri.4": 1,
+                "foe.officer": -1,
+                "foe.umiri.pre": -1
+            }
+        },
+        {
+            "id": "foe.umiri.moreenemy",
+            "label": "Enemy Reinforcements Approaching",
+            "startdescription": "The battle here is already lost...",
+            "actionId": "foeactionumiri",
+            "linked": [
+                {
+                    "id": "foe.umiri.moreenemy.ex"
+                },
+                {
+                    "id": "foe.umiri.moreenemy.high"
+                },
+                {
+                    "id": "foe.umiri.moreenemy.medium"
+                },
+                {
+                    "id": "foe.umiri.moreenemy.primary"
+                },
+                {
+                    "id": "foe.umiri.moreenemy.medium.withanno"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.moreenemy.ex",
+            "label": "Enemy Reinforcements Approaching",
+            "startdescription": "Military trains run day and night; tank treads grind the frozen earth. The last reserve has been mobilized. The Germans are gambling everything.",
+            "description": "Military trains run day and night; tank treads grind the frozen earth. The last reserve has been mobilized. The Germans are gambling everything.",
+            "actionId": "foeactionumiri",
+            "grandReqs": {
+                "([~/extant:foe.officer] || [~/extant:foe.umiri.pre]) >= 1": 1,
+                "[~/extant:allresolution] <= 3": 1
+            },
+            "effects": {
+                "foe.bombers": 1,
+                "foe.tanks": 2,
+                "foe.tanks.hidden": 1,
+                "foe.infantry": 2,
+                "foe.infantry.hidden": 3,
+                "foe.manhunters": 1,
+                "foe.manhunters.hidden": 1,
+                "foe.artillery": 1,
+                "foe.artillery.hidden": 1,
+                "foe.kommando.hidden": 3
+            },
+            "deckeffects": {
+                "foeforumiri.bombers": 1,
+                "foeforumiri.tanks": 2,
+                "foeforumiri.infantry": 3,
+                "foeforumiri.manhunters": 1,
+                "foeforumiri.artillery": 1,
+                "foeforumiri.kommando": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.edgelong"
+                },
+                {
+                    "id": "foe.umiri.edgelong2"
+                }
+            ],
+            "warmup": 30
+        },
+        {
+            "id": "foe.umiri.moreenemy.high",
+            "label": "Enemy Reinforcements Approaching",
+            "startdescription": "Berlin believes the stalemate in Eastern Europe requires more troops and an outstanding commander to break—so I can probably guess who's coming.",
+            "description": "Berlin believes the stalemate in Eastern Europe requires more troops and an outstanding commander to break—so I can probably guess who's coming.",
+            "actionId": "foeactionumiri",
+            "extantreqs": {
+                "foe.umiri.3": 1
+            },
+            "effects": {
+                "foe.bombers": 1,
+                "foe.tanks": 1,
+                "foe.tanks.hidden": 2,
+                "foe.infantry": 1,
+                "foe.infantry.hidden": 3,
+                "foe.manhunters": 1,
+                "foe.manhunters.hidden": 1,
+                "foe.artillery": 1,
+                "foe.artillery.hidden": 2,
+                "foe.kommando.hidden": 2
+            },
+            "deckeffects": {
+                "foeforumiri.bombers": 1,
+                "foeforumiri.tanks": 2,
+                "foeforumiri.infantry": 2
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.edgelong"
+                },
+                {
+                    "id": "foe.umiri.edgelong2"
+                }
+            ],
+            "warmup": 30
+        },
+        {
+            "id": "foe.umiri.moreenemy.medium",
+            "label": "Enemy Reinforcements Approaching",
+            "startdescription": "The battle here is already lost. German high command is mobilizing forces to take this position.",
+            "description": "The battle here is already lost. German high command is mobilizing forces to take this position.",
+            "actionId": "foeactionumiri",
+            "grandReqs": {
+                "[~/extant:allresolution] >= 3 && [~/extant:allresolution] <= 5": 1
+            },
+            "effects": {
+                "foe.tanks": 1,
+                "foe.tanks.hidden": 1,
+                "foe.infantry": 1,
+                "foe.infantry.hidden": 2,
+                "foe.manhunters": 1,
+                "foe.manhunters.hidden": 1,
+                "foe.artillery": 1,
+                "foe.artillery.hidden": 1,
+                "foe.kommando.hidden": 1
+            },
+            "deckeffects": {
+                "foeforumiri.bombers": 1,
+                "foeforumiri.tanks": 2,
+                "foeforumiri.infantry": 2
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.edgelong"
+                },
+                {
+                    "id": "foe.umiri.edgelong2"
+                }
+            ],
+            "warmup": 30
+        },
+        {
+            "id": "foe.umiri.moreenemy.primary",
+            "label": "Enemy Reinforcements Approaching",
+            "startdescription": "The battle here is already lost. The Germans are sending a fresh unit to reverse their fortunes.",
+            "description": "The battle here is already lost. The Germans are sending a fresh unit to reverse their fortunes.",
+            "actionId": "foeactionumiri",
+            "grandReqs": {
+                "[~/extant:allresolution] <= 3": 1
+            },
+            "effects": {
+                "foe.tanks": 1,
+                "foe.infantry": 1,
+                "foe.infantry.hidden": 1,
+                "foe.artillery": 1,
+                "foe.kommando.hidden": 1
+            },
+            "deckeffects": {
+                "foeforumiri.bombers": 1,
+                "foeforumiri.tanks": 2,
+                "foeforumiri.infantry": 2
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.edgelong"
+                },
+                {
+                    "id": "foe.umiri.edgelong2"
+                }
+            ],
+            "warmup": 30
+        },
+        {
+            "id": "foe.umiri.edgelong",
+            "label": "The Edge Long's Shame",
+            "startdescription": "Your arch enemy has unhorsed Blade Edge Long.",
+            "description": "Your arch enemy has unhorsed Blade Edge Long.",
+            "actionId": "foeactionumiri",
+            "extantreqs": {
+                "wound.sergei.forumiri_end": 1,
+                "long.blocker": -1
+            },
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe.uneat",
+                    "level": 1
+                },
+                {
+                    "filter": "foe.umiri.mark",
+                    "mutate": "strife.tracker",
+                    "level": 1
+                }
+            ],
+            "furthermore": [
+            {
+                "target": "~/tabletop",
+                "mutations": [
+                    {
+                        "filter": "wound.sergei.forumiri_end",
+                        "mutate": "winter",
+                        "level": 1,
+                        "VFX": "CardBurn"
+                    },
+                    {
+                        "filter": "german",
+                        "mutate": "foe.uneat",
+                        "level": 1,
+                        "VFX": "CardBurn"
+                    }
+                ]
+            }
+            ]
+        },
+        {
+            "id": "foe.umiri.edgelong2",
+            "label": "The Lion-Rat Duel",
+            "startdescription": "My arch enemy has arrived once more. I hear she has undergone some ancient rite of Strife and emerged even stronger. Perhaps I should not have done what I did. Still, at least the Edge Long have decided to cease their interference with her—that works in my favor.",
+            "description": "My arch enemy has arrived once more. I hear she has undergone some ancient rite of Strife and emerged even stronger. Perhaps I should not have done what I did. Still, at least the Edge Long have decided to cease their interference with her—that works in my favor.",
+            "actionId": "foeactionumiri",
+            "extantreqs": {
+                "wound.camilla.forumiri": 1,
+                "long.blocker": -1
+            },
+            "mutations": [
+                {
+                    "filter": "foe.umiri.mark",
+                    "mutate": "strife.tracker",
+                    "level": 3
+                }
+            ],
+            "furthermore": [
+            {
+                "target": "~/tabletop",
+                "mutations": [
+                    {
+                        "filter": "wound.camilla.forumiri",
+                        "mutate": "edge",
+                        "level": 1,
+                        "additive": false,
+                        "VFX": "CardBurn"
+                    }
+                ]
+            }
+            ]
+        },
+
+        {
+            "id": "foe.umiri.circle.first",
+            "label": "Stalemate",
+            "startdescription": "The iron-grey sky hangs low. The battlefield is shrouded in deathly silence.",
+            "description": "The iron-grey sky hangs low. The battlefield is shrouded in deathly silence.",
+            "actionId": "foeactionumiri",
+            "extantreqs": {
+                "foe.umiri.mark": 1
+            },
+			"effects": {
+				"annocomingessential": 1
+			},
+            "linked": [
+                {
+                    "id": "foe.umiri.circle",
+                    "chance": 100
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.circle_sergei0",
+            "label": "Enemy Offensive Halted",
+            "startdescription": "The officer has piled all her chips onto the table. She has no attention to spare for our movements.",
+            "extantreqs": {
+                "umiri_sergei": 1
+            },
+            "effects": {
+                "circle_sergei": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.circle_sergei"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.circle_sergei",
+            "label": "Enemy Offensive Halted",
+            "startdescription": "The officer has piled all her chips onto the table. She has no attention to spare for our movements.",
+            "warmup": 30,
+            "extantreqs": {
+                "umiri_sergei": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.circle_sergei"
+                },
+                {
+                    "id": "foe.umiri.circle"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.umirifight0",
+            "label": "Enemy Offensive Halted",
+            "startdescription": "The officer has piled all her chips onto the table. She has no attention to spare for our movements.",
+            "extantreqs": {
+                "umirifight": 1
+            },
+            "effects": {
+                "circle_sergei": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.umirifight"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.umirifight",
+            "label": "Enemy Offensive Halted",
+            "startdescription": "The officer has piled all her chips onto the table. She has no attention to spare for our movements.",
+            "actionId": "foeactionumiri",
+            "warmup": 60,
+            "extantreqs": {
+                "umirifight": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.dying.pre"
+                },
+                {
+                    "id": "foe.umiri.umirifight"
+                },
+                {
+                    "id": "foe.umiri.circle"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.circle",
+            "label": "Stalemate",
+            "startdescription": "The iron-grey sky hangs low. The battlefield is shrouded in deathly silence.",
+            "description": "The iron-grey sky hangs low. The battlefield is shrouded in deathly silence.",
+            "actionId": "foeactionumiri",
+            "warmup": 60,
+            "effects": {
+                "strategy.defense": -99,
+                "strategy.rally": -99,
+                "strategy.tactics1": -99,
+                "strategy.tactics2": -99,
+                "strategy.tactics3": -99,
+                "strategy.tactics4": -99,
+                "circle_sergei": -99,
+                "foe.cutoff": -1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.dying.pre"
+                },
+
+                {
+                    "id": "foe.umiri.toairsupply",
+                    "chance": 40
+                },
+                {
+                    "id": "foe.umiri.umirifight0"
+                },
+                {
+                    "id": "foe.umiri.circle_sergei0"
+                },
+                {
+                    "id": "foe.umiri.circle_stun0"
+                },
+                {
+                    "id": "foe.umiri.circle_stop0"
+                },
+                {
+                    "id": "foe.umiri.circle.slowmore"
+                },
+                {
+                    "id": "foe.umiri.circle.slow"
+                },
+
+                {
+                    "id": "foe.umiri.attacka",
+                    "chance": 30
+                },
+                {
+                    "id": "foe.umiri.attack.col",
+					"chance": 100
+                },
+                {
+                    "id": "foe.umiri.attack.ltcol",
+					"chance": 90
+                },
+                {
+                    "id": "foe.umiri.attack.maj",
+					"chance": 80
+                },
+                {
+                    "id": "foe.umiri.attack.capt",
+					"chance": 70
+                },
+                {
+                    "id": "foe.umiri.circle"
+                }
+            ],
+            "alt": [
+                {
+                    "id": "foe.umiri.findconsecration",
+                    "chance": 40,
+                    "additional": true
+                },
+                {
+                    "id": "foe.umiri.eyetoweakened",
+                    "chance": 60,
+                    "additional": true
+                },
+                {
+                    "id": "foe.umiri.handtoattack",
+                    "chance": 60,
+                    "additional": true
+                },
+                {
+                    "id": "foe.umiri.legweakupcorpse",
+                    "chance": 60,
+                    "additional": true
+                },
+                {
+                    "id": "friend.anno.coming.forumiri.first0",
+                    "chance": 30,
+                    "additional": true
+                },
+                {
+                    "id": "friend.anno.coming.forumiri.first00",
+                    "chance": 100,
+                    "additional": true
+                }
+            ]
+        },
+        {
+        "id": "foe.umiri.circle.slowmore",
+        "$extends": ["foe.umiri.circle"],
+        "extantreqs": {
+            "foe.cutoff": 5
+        },
+        "achievements": [
+            "achievement.delaying_tactics"
+        ],
+        "warmup": 120
+        },
+        {
+        "id": "foe.umiri.circle.slow",
+        "$extends": ["foe.umiri.circle"],
+        "extantreqs": {
+            "foe.cutoff": 3
+        },
+        "warmup": 90
+        },
+        
+        {
+            "id": "foe.umiri.circle_stun0",
+            "label": "Enemy Offensive Halted",
+            "startdescription": "The officer has piled all her chips onto the table. She has no attention to spare for our movements.",
+            "actionId": "foeactionumiri",
+            "extantreqs": {
+                "strategy.stun": 1
+            },
+            "effects": {
+                "circle_sergei": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.circle_stun"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.circle_stun",
+            "label": "Enemy Offensive Halted",
+            "startdescription": "The officer has piled all her chips onto the table. She has no attention to spare for our movements.",
+            "actionId": "foeactionumiri",
+            "warmup": 30,
+            "extantreqs": {
+                "strategy.stun": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.circle_stun"
+                },
+                {
+                    "id": "foe.umiri.circle"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.circle_stop0",
+            "label": "Enemy Offensive Halted",
+            "startdescription": "Even as the enemy trembles at my roar, they will still be driven to the front by unyielding orders.",
+            "actionId": "foeactionumiri",
+            "extantreqs": {
+                "skill.intimidate.active": 1
+            },
+            "effects": {
+                "circle_sergei": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.circle_stop"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.circle_stop",
+			"$extends": ["foe.umiri.circle"],
+            "label": "Enemy Offensive Halted",
+            "startdescription": "Even as the enemy trembles at my roar, they will still be driven to the front by unyielding orders.",
+            "warmup": 90,
+            "extantreqs": {
+                "skill.intimidate.active": 1
+            },
+            "effects": {
+				"annocomingessential": -99
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.dying.pre"
+                },
+
+                {
+                    "id": "foe.umiri.toairsupply",
+                    "chance": 40
+                },
+                {
+                    "id": "foe.umiri.umirifight0"
+                },
+                {
+                    "id": "foe.umiri.circle_sergei0"
+                },
+                {
+                    "id": "foe.umiri.circle_stun0"
+                },
+                {
+                    "id": "foe.umiri.circle_stop0"
+                },
+                {
+                    "id": "foe.umiri.circle.slowmore"
+                },
+                {
+                    "id": "foe.umiri.circle.slow"
+                },
+
+                {
+                    "id": "foe.umiri.attacka",
+                    "chance": 30
+                },
+                {
+                    "id": "foe.umiri.attack.col",
+					"chance": 100
+                },
+                {
+                    "id": "foe.umiri.attack.ltcol",
+					"chance": 90
+                },
+                {
+                    "id": "foe.umiri.attack.maj",
+					"chance": 80
+                },
+                {
+                    "id": "foe.umiri.attack.capt",
+					"chance": 70
+                },
+                {
+                    "id": "foe.umiri.circle_stop"
+                },
+                {
+                    "id": "foe.umiri.circle"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.dying.pre",
+            "label": "Enemy Officer Surveying the Battlefield",
+            "startdescription": "Her eyes can perceive the paths hidden in shadow. She has already discerned our weaknesses.",
+            "extantreqs": {
+                "foe.umiri.mark": 1,
+                "foe.umiri.dead": -1,
+                "obdurant.story": 1,
+                "damage.umiri": 5
+            },
+            "grandReqs": {
+                "([~/extant:foe.defiance] <= 6) || ([~/extant:stalingrad.here] <= 0)": 1
+            },
+            "effects": {
+                "circle_sergei": 1
+            },
+			"linked": [
+				{
+					"id": "foe.umiri.dying"
+				}
+			]
+        },
+        {
+            "id": "foe.umiri.dying",
+            "label": "Enemy Officer Surveying the Battlefield",
+            "startdescription": "Her eyes can perceive the paths hidden in shadow. She has already discerned our weaknesses.",
+            "warmup": 60,
+            "effects": {
+                "circle_sergei": -1
+            },
+            "signalEndingFlavour": "Pale",
+			"linked": [
+				{
+					"id": "foe.umiri.dead.pre"
+				},
+				{
+					"id": "foe.umiri.circle"
+				}
+			]
+        },
+        {
+            "id": "foe.umiri.dead.pre",
+            "label": "Enemy Officer Surveying the Battlefield",
+            "startdescription": "Her eyes can perceive the paths hidden in shadow. She has already discerned our weaknesses.",
+            "extantreqs": {
+                "foe.umiri.mark": 1,
+                "foe.umiri.dead": -1,
+                "obdurant.story": 1,
+                "damage.umiri": 5
+            },
+            "grandReqs": {
+                "([~/extant:foe.defiance] <= 6) || ([~/extant:stalingrad.here] <= 0)": 1
+            },
+            "effects": {
+                "circle_sergei": 1
+            },
+            "haltverb": {
+                "umirifight": 99
+            },
+			"linked": [
+				{
+					"id": "foe.umiri.dead"
+				}
+			]
+        },
+        {
+            "id": "foe.umiri.dead",
+            "label": "Enemy Officer Surveying the Battlefield",
+            "startdescription": "Her eyes can perceive the paths hidden in shadow. She has already discerned our weaknesses.",
+            "warmup": 30,
+            "requirements": {
+                "foe.umiri.mark": -1,
+                "foe.umiri.dead": -1
+            },
+            "aspects": {
+                "killumiri": 1
+            },
+            "purge": {
+                "damage.umiri": 99,
+                "strife.incur": 99
+            },
+            "slots": [
+                {
+                "id": "needssupplies",
+                "label": "The Foe",
+                "required": {
+                    "foe.umiri.mark": 1
+                },
+                "greedy": true
+                }
+            ],
+            "achievements": [
+                "ending.umiri.dead"
+            ],
+			"linked": [
+				{
+					"id": "foe.umiri.dead"
+				}
+			]
+        },
+        {
+            "id": "foe.umiri.findconsecration",
+            "label": "Enemy Officer Surveying the Battlefield",
+            "startdescription": "Her eyes can perceive the paths hidden in shadow. She has already discerned our weaknesses.",
+            "actionId": "find.consecration",
+            "warmup": 60,
+            "extantreqs": {
+                "consecration.used": -1,
+                "shrine.colonel.marker": 1
+            },
+            "slots": [
+                {
+                "id": "needssupplies",
+                "label": "Location",
+                "required": {
+                    "warzone.current": 1
+                },
+                "essential": {
+                    "shrine.colonel.marker": 1
+                },
+                "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "warzone.current",
+                    "mutate": "consecration.used",
+                    "level": 1
+                }
+            ],
+			"linked": [
+				{
+					"id": "foe.umiri.findconsecration.0"
+				}
+			]
+        },
+        {
+            "id": "foe.umiri.findconsecration.0",
+            "label": "Enemy Officer Surveying the Battlefield",
+            "startdescription": "Her eyes can perceive the paths hidden in shadow. She has already discerned our weaknesses.",
+            "requirements": {
+                "warzone.current": 1
+            },
+            "movements": {
+                "~/tabletop": {
+                    "filter": "warzone.current"
+                }
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.findconsecration.eye"
+                },
+                {
+                    "id": "foe.umiri.findconsecration.hand"
+                },
+                {
+                    "id": "foe.umiri.findconsecration.leg"
+                },
+                {
+                    "id": "foe.umiri.findconsecration.ear"
+                },
+                {
+                    "id": "foe.umiri.findconsecration.skill"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.findconsecration.eye",
+            "label": "Enemy Officer Surveying the Battlefield",
+            "startdescription": "Her eyes can perceive the paths hidden in shadow. She has already discerned our weaknesses.",
+            "warmup": 30,
+            "extantreqs": {
+                "foedebilitation": -3,
+                "foede.eye": -1
+            },
+            "effects": {
+                "foe.wound.eye": 1
+            },
+            "purge": {
+                "wound.eye.umiri": 99,
+                "debilitation.eye.umiri": 99
+            }
+        },
+        {
+            "id": "foe.umiri.findconsecration.hand",
+            "label": "Enemy Officer Surveying the Battlefield",
+            "startdescription": "Her eyes can perceive the paths hidden in shadow. She has already discerned our weaknesses.",
+            "warmup": 30,
+            "extantreqs": {
+                "foedebilitation": -3,
+                "foede.hand": -1
+            },
+            "effects": {
+                "foe.wound.hand": 1
+            },
+            "purge": {
+                "wound.hand.umiri": 99,
+                "debilitation.hand.umiri": 99
+            }
+        },
+        {
+            "id": "foe.umiri.findconsecration.leg",
+            "label": "Enemy Officer Surveying the Battlefield",
+            "startdescription": "Her eyes can perceive the paths hidden in shadow. She has already discerned our weaknesses.",
+            "warmup": 30,
+            "extantreqs": {
+                "foedebilitation": -3,
+                "foede.leg": -1
+            },
+            "effects": {
+                "foe.wound.leg": 1
+            },
+            "purge": {
+                "wound.leg.umiri": 99,
+                "debilitation.leg.umiri": 99
+            }
+        },
+        {
+            "id": "foe.umiri.findconsecration.ear",
+            "label": "Enemy Officer Surveying the Battlefield",
+            "startdescription": "Her eyes can perceive the paths hidden in shadow. She has already discerned our weaknesses.",
+            "warmup": 30,
+            "extantreqs": {
+                "foedebilitation": -3,
+                "foede.ear": -1
+            },
+            "effects": {
+                "foe.wound.ear": 1
+            },
+            "purge": {
+                "wound.ear.umiri": 99,
+                "debilitation.ear.umiri": 99
+            }
+        },
+        {
+            "id": "foe.umiri.findconsecration.skill",
+            "label": "Enemy Officer Surveying the Battlefield",
+            "startdescription": "Her eyes can perceive the paths hidden in shadow. She has already discerned our weaknesses.",
+            "extantreqs": {
+                "foeskill": -3
+            },
+            "maxexecutions": 3,
+            "warmup": 30,
+            "deckeffects": {
+			    "skill_umiri": 1
+		    }
+        },
+        {
+            "id": "foe.umiri.eyetoweakened",
+            "label": "Enemy Officer Surveying the Battlefield",
+            "startdescription": "Her eyes can perceive the paths hidden in shadow. She has already discerned our weaknesses.",
+            "actionId": "eyetoweakened",
+            "warmup": 10,
+            "extantreqs": {
+                "foe.wound.eye": 1,
+                "foe.umiri.mark": 1,
+                "umiri.attacked": -1
+            },
+			"aspects": {
+				"makeafraid": 1
+			},
+            "xpans": {
+                "umirieye_exhausted": 1
+            },
+            "slots": [
+                {
+                "id": "needssupplies",
+                "label": "Ally",
+                "required": {
+                    "friend": 1
+                },
+                "forbidden": {
+                    "remnant": 1,
+                    "anno.mark": 1,
+	    			"friend.monster": 1,
+					"valkyrie": 1,
+                    "prisoner": 1
+                },
+                "greedy": true
+                }
+            ],
+			"linked": [
+				{
+					"id": "foe.umiri.eyetoweakened.named_friend"
+				},
+				{
+					"id": "foe.umiri.eyetoweakened.ex"
+				}
+			]
+        },
+        {
+            "id": "foe.umiri.eyetoweakened.named_friend",
+            "$extends": ["foe.umiri.eyetoweakened"],
+            "requirements": {
+                "named_friend": 1
+            },
+            "aspects": {
+                "fatiguing": 1
+            },
+            "mutations": [
+                {
+                "filter": "experience.exile.ally",
+                "mutate": "experience.exile.ally",
+                "level": -1,
+                "additive": true
+                }
+            ],
+            "linked": [
+                {
+					"id": "foe.umiri.eyetoweakened.ex"
+				}
+            ]
+        },
+        {
+            "id": "foe.umiri.handtoattack",
+            "label": "Enemy Officer Planning",
+            "startdescription": "She launched a surprise attack on us!",
+            "description": "She launched a surprise attack on us!",
+            "actionId": "handtoattack",
+            "warmup": 10,
+            "requirements": {
+                "foe.wound.hand.exhausted": -1
+            },
+            "slots": [
+                {
+                "id": "needssupplies",
+                "label": "Hand",
+                "required": {
+                    "foe.wound.hand": 1
+                },
+                "greedy": true
+                }
+            ],
+            "aspects": {
+                "umirihand_exhausted": 1
+            },
+			"effects": {
+	    		"decision.enemy.singleattack": 1
+			},		
+            "extantreqs": {
+                "foe.wound.hand": 1,
+                "foe.umiri.mark": 1,
+                "umiri.attacked": -1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.handtoattack"
+                },
+                {
+                    "id": "singleattack.handtoattack.startup"
+                }
+            ]
+        },{
+    "id": "foe.umiri.legweakupcorpse",
+    "label": "Enemy Officer Planning",
+    "startdescription": "She is trying to rouse her comrades once more...",
+    "description": "Now we must kill him all over again.",
+    "actionId": "legweakupcorpse",
+    "warmup": 10,
+    "slots": [
+        {
+            "id": "needssupplies",
+            "label": "Corpses",
+            "required": {
+                "foe.corpses": 1
+            },
+            "greedy": true
+        }
+    ],
+    "xpans": {
+        "umirileg_exhausted": 1
+    },
+    "aspects": {
+        "umiri_promotiontodisciple": 1
+    },
+    "tablereqs": {
+        "foe.corpses": 1
+    },
+    "extantreqs": {
+        "foe.wound.leg": 1,
+        "foe.umiri.mark": 1,
+        "umiri.attacked": -1,
+        "foe.wound.leg.exhausted": -1
+    }
+},
+    {
+	"id": "singleattack.handtoattack.startup",
+	"$extends": ["singleattack.startup"],
+	"aspects": {
+		"revealidentity": 1
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foeinfantry": 1,
+		    "foekommando": 1,
+		    "foemanhunters": 1,
+		    "foechasseur": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+			"id": "singleattack.handtoattack.foeinfantry"
+		},
+		{
+			"id": "singleattack.handtoattack.foekommando"
+		},
+		{
+			"id": "singleattack.handtoattack.foemanhunters"
+		},
+		{
+			"id": "singleattack.handtoattack.foechasseur"
+		},
+		{
+			"id": "nonefound"
+		}
+	]
+    },
+    {
+	"id": "singleattack.handtoattack.foeinfantry",
+	"requirements": {
+		"foeinfantry": 1
+	},
+	"aspects": {
+		"takeadditional": 1
+	},
+	"mutations": [
+		{
+			"filter": "umirihand_exhausted.straight",
+			"mutate": "needsedge",
+			"level": 4
+		}
+	],
+	"linked": [
+		{
+			"id": "defend.opportunity"
+		}
+	]
+    },
+    {
+	"id": "singleattack.handtoattack.foekommando",
+	"requirements": {
+		"foekommando": 1
+	},
+	"aspects": {
+		"handtoattack_foekommando": 1
+	},
+	"linked": [
+		{
+			"id": "defend.opportunity"
+		}
+	]
+    },
+    {
+	"id": "singleattack.handtoattack.foemanhunters",
+	"requirements": {
+		"foemanhunters": 1
+	},
+	"aspects": {
+		"takeadditional": 1
+	},
+	"mutations": [
+		{
+			"filter": "umirihand_exhausted.straight",
+			"mutate": "needsedgewinter",
+			"level": 2
+		},
+		{
+			"filter": "umirihand_exhausted.straight",
+			"mutate": "needsedgeforge",
+			"level": 2
+		},
+		{
+			"filter": "umirihand_exhausted.straight",
+			"mutate": "needsedgelantern",
+			"level": 2
+		}
+	],
+	"linked": [
+		{
+			"id": "defend.opportunity"
+		}
+	]
+    },
+    {
+	"id": "singleattack.handtoattack.foechasseur",
+	"requirements": {
+		"foechasseur": 1
+	},
+	"aspects": {
+		"takeadditional": 1
+	},
+	"mutations": [
+		{
+			"filter": "umirihand_exhausted.straight",
+			"mutate": "needsedgewinter",
+			"level": 2
+		},
+		{
+			"filter": "umirihand_exhausted.straight",
+			"mutate": "needsedgelantern",
+			"level": 2
+		}
+	],
+	"linked": [
+		{
+			"id": "defend.opportunity"
+		}
+	]
+    },
+    {
+	"id": "defend.opportunity",
+	"slots": [
+	    {
+		"id": "needsresponse",
+		"label": "Defense",
+		"required": {
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "knock": 1
+		},
+        "forbidden": {
+			"faction.anno": 1
+        }
+	    }
+	],
+    "linked$prepend": [
+	    {
+		"id": "attack.nodefense.failedfeint"
+	    }
+	],
+	"alt$prepend": [
+        {			
+            "id": "defend.aagun"
+        },
+	    {
+		"id": "defend.edge.maybe"
+	    },
+	    {
+		"id": "defend.forge.maybe"
+	    },
+	    {
+		"id": "defend.edgeforge.maybe"
+	    }
+	]
+    },
+    {
+	"id": "defend.edge.maybe",
+	"label": "Successful Counterattack!",
+	"startdescription": "Stand and fight?\n\n[The enemy has deployed anti-tank weapons. Defending with a tank guarantees damage to the tank, and the defense attempt may still fail.]",
+	"description": "The enemy is driven back, this time.",
+	"requirements": {
+	    "friend.tanks": 1,
+		"foe.wound.hand.exhausted": 1,
+	    "needsedge": 1,
+	    "edge": "needsedge"
+	},
+	"linked": [
+	    {
+		"id": "defend.edge",
+		"chance": 40
+	    },
+	    {
+		"id": "attack.nodefense"
+	    }
+	]
+    },
+    {
+	"id": "defend.forge.maybe",
+	"label": "Successful Counterattack!",
+	"startdescription": "Stand and fight?\n\n[The enemy has deployed anti-tank weapons. Defending with a tank guarantees damage to the tank, and the defense attempt may still fail.]",
+	"description": "The enemy is driven back, this time.",
+	"requirements": {
+	    "friend.tanks": 1,
+		"foe.wound.hand.exhausted": 1,
+	    "needsforge": 1,
+	    "forge": "needsforge"
+	},
+	"linked": [
+	    {
+		"id": "defend.forge",
+		"chance": 40
+	    },
+	    {
+		"id": "attack.nodefense"
+	    }
+	]
+    },
+    {
+	"id": "defend.edgeforge.maybe",
+	"label": "Successful Counterattack!",
+	"startdescription": "Stand and fight?\n\n[The enemy has deployed anti-tank weapons. Defending with a tank guarantees damage to the tank, and the defense attempt may still fail.]",
+	"description": "The enemy is driven back, this time.",
+	"requirements": {
+	    "friend.tanks": 1,
+		"foe.wound.hand.exhausted": 1,
+	    "needsedgeforge": 1,
+	    "edge": "needsedgeforge",
+	    "forge": "needsedgeforge"
+	},
+	"linked": [
+	    {
+		"id": "defend.edgeforge",
+		"chance": 40
+	    },
+	    {
+		"id": "attack.nodefense"
+	    }
+	]
+    },
+    {
+	"id": "defend.edge",
+	"linked$prepend": [
+	    {
+		"id": "defend.woundhand"
+	    }
+	]
+    },
+    {
+	"id": "defend.forge",
+	"linked$prepend": [
+	    {
+		"id": "defend.woundhand"
+	    }
+	]
+    },
+    {
+	"id": "defend.edgeforge",
+	"linked$prepend": [
+	    {
+		"id": "defend.woundhand"
+	    }
+	]
+    },
+    {
+	"id": "defend.woundhand",
+	"requirements": {
+	    "friend.tanks": 1,
+		"foe.wound.hand.exhausted": 1
+	},
+	"aspects": {
+		"makecasualty": 1
+	},
+	"linked": [
+	    {
+		"id": "foe.elusive.conceal"
+	    }
+	]
+    },
+        {
+            "id": "foe.umiri.attacka",
+            "label": "Enemy Officer Planning",
+            "startdescription": "She launched a surprise attack on us!",
+            "description": "She launched a surprise attack on us!",
+            "actionId": "foeactionumiri",
+            "extantreqs": {
+                "foe.officerdetail": -4,
+                "umiri.attacked": -1
+            },
+            "effects": {
+                "strategy.rally": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally.pre",
+            "label": "Enemy Officer Planning",
+            "startdescription": "She launched a surprise attack on us!",
+			"extantreqs": {
+				"foe.officerdetail": -4
+			},
+			"effects": {
+				"strategy.rally": 1
+			},
+            "linked": [
+                {
+                    "id": "foe.umiri.attack"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.weaken.pre",
+            "$extends": ["foe.umiri.attack.rally.pre"],
+            "extantreqs": {
+				"foeweaken": 5
+			}
+        },
+        {
+            "id": "foe.umiri.attack.defense.pre",
+            "$extends": ["foe.umiri.attack.rally.pre"],
+            "extantreqs": {
+				"foe.hidden": -5
+			},
+			"effects": {
+				"strategy.defense": 1
+			}
+        },
+        {
+            "id": "foe.umiri.attack.tactics2.pre",
+            "$extends": ["foe.umiri.attack.rally.pre"],
+            "extantreqs": {
+				"foetanks": 5
+			},
+			"effects": {
+				"strategy.tactics2": 1
+			}
+        },
+        {
+            "id": "foe.umiri.attack.tactics3.pre",
+            "$extends": ["foe.umiri.attack.rally.pre"],
+            "grandReqs": {
+                "[~/exterior:foebombers] >= 3 || [~/exterior:foeartillery] >= 3": 1
+            },
+			"effects": {
+				"strategy.tactics3": 1
+			}
+        },
+        {
+            "id": "foe.umiri.attack.tactics1.pre",
+            "$extends": ["foe.umiri.attack.rally.pre"],
+            "extantreqs": {
+				"mechanized_forces": 2,
+                "foe": 5
+			},
+			"effects": {
+				"strategy.tactics1": 1
+			}
+        },
+        {
+            "id": "foe.umiri.attack.capt",
+            "label": "Enemy Officer Planning",
+            "startdescription": "She launched a surprise attack on us!",
+			"extantreqs": {
+				"foe.capt": 1
+			},
+			"internaldeck": {
+                "spec": [
+                    "strategy.rally",
+                    "strategy.rally",
+                    "strategy.tactics1",
+                    "strategy.tactics1",
+                    "strategy.tactics1",
+                    "strategy.defense",
+                    "strategy.defense"
+                ],
+				"defaultcard": "strategy.rally",
+                "draws": 1,
+                "resetonexhaustion": true
+            },
+			"alt": [
+				{
+					"id": "foe.umiri.attack.weaken.pre",
+					"chance": 50
+				},
+				{
+					"id": "foe.umiri.attack.rally.pre",
+					"chance": 30
+				},
+				{
+					"id": "foe.umiri.attack.defense.pre",
+					"chance": 30
+				}
+			],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.maj",
+            "$extends": ["foe.umiri.attack.capt"],
+			"extantreqs": {
+				"foe.maj": 1
+			},
+			"internaldeck": {
+                "spec": [
+                    "strategy.rally",
+                    "strategy.rally",
+                    "strategy.tactics1",
+                    "strategy.tactics1",
+                    "strategy.tactics2",
+                    "strategy.defense",
+                    "strategy.defense"
+                ],
+				"defaultcard": "strategy.rally",
+                "draws": 1,
+                "resetonexhaustion": true
+            },
+			"alt$append": [
+				{
+					"id": "foe.umiri.attack.tactics1.pre",
+					"chance": 70
+				}
+			]
+        },
+        {
+            "id": "foe.umiri.attack.ltcol",
+            "$extends": ["foe.umiri.attack.capt"],
+			"extantreqs": {
+				"foe.ltcol": 1
+			},
+			"internaldeck": {
+                "spec": [
+                    "strategy.rally",
+                    "strategy.rally",
+                    "strategy.tactics1",
+                    "strategy.tactics2",
+                    "strategy.tactics3",
+                    "strategy.defense",
+                    "strategy.defense"
+                ],
+				"defaultcard": "strategy.rally",
+                "draws": 1,
+                "resetonexhaustion": true
+            },
+			"alt$append": [
+				{
+					"id": "foe.umiri.attack.tactics2.pre",
+					"chance": 70
+				}
+			]
+        },
+        {
+            "id": "foe.umiri.attack.col",
+            "$extends": ["foe.umiri.attack.capt"],
+			"extantreqs": {
+				"foe.col": 1
+			},
+			"internaldeck": {
+                "spec": [
+                    "strategy.rally",
+                    "strategy.rally",
+                    "strategy.rally",
+                    "strategy.tactics1",
+                    "strategy.tactics1",
+                    "strategy.tactics2",
+                    "strategy.tactics2",
+                    "strategy.tactics3",
+                    "strategy.tactics3",
+                    "strategy.defense",
+                    "strategy.defense",
+                    "strategy.defense"
+                ],
+				"defaultcard": "strategy.rally",
+                "draws": 1,
+                "resetonexhaustion": true
+            },
+			"alt$append": [
+				{
+					"id": "foe.umiri.attack.tactics3.pre",
+					"chance": 70
+				}
+			]
+        },
+        {
+            "id": "foe.umiri.attack.aux",
+            "label": "Enemy Officer Planning",
+            "startdescription": "She launched a surprise attack on us!",
+			"extantreqs": {
+				"strategy_trigger": 2
+			},
+            "requirements": {
+                "strategy_trigger": 1
+            },
+            "effects": {
+                "strategy_trigger": -1
+            },
+			"internaldeck": {
+                "spec": [
+                    "strategy.rally",
+                    "strategy.rally",
+                    "strategy.rally",
+                    "strategy.defense",
+                    "strategy.defense",
+                    "strategy.defense"
+                ],
+				"defaultcard": "strategy.rally",
+                "draws": 1,
+                "resetonexhaustion": true
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack",
+            "label": "Enemy Forces Beginning Large-Scale Concentration",
+            "startdescription": "From every road comes the low thrum of drums. Every frequency is thick with an irritating hum. A new wave of attacks is about to begin.",
+            "description": "From every road comes the low thrum of drums. Every frequency is thick with an irritating hum. A new wave of attacks is about to begin.",
+            "warmup": 10,
+            "linked": [
+                {
+                    "id": "foe.umiri.circle"
+                }
+            ],
+            "alt": [
+                {
+                    "id": "foe.umiri.attack.aux"
+                },
+                {
+                    "id": "foe.umiri.attack.defense.first",
+                    "expulsion": {
+                        "filter": {
+                            "strategy.defense": 1
+                        },
+                        "limit": 1
+                    },
+					"additional": true
+                },
+                {
+                    "id": "foe.umiri.attack.rally.first",
+                    "expulsion": {
+                        "filter": {
+                            "strategy.rally": 1
+                        },
+                        "limit": 1
+                    },
+					"additional": true
+                },
+                {
+                    "id": "foe.umiri.attack.defense",
+                    "expulsion": {
+                        "filter": {
+                            "strategy.defense": 1
+                        },
+                        "limit": 1
+                    },
+					"additional": true
+                },
+                {
+                    "id": "foe.umiri.attack.rally",
+                    "expulsion": {
+                        "filter": {
+                            "strategy.rally": 1
+                        },
+                        "limit": 1
+                    },
+					"additional": true
+                },
+                {
+                    "id": "foe.umiri.attack.tactics1.first",
+                    "expulsion": {
+                        "filter": {
+                            "strategy.tactics1": 1
+                        },
+                        "limit": 1
+                    },
+					"additional": true
+                },
+                {
+                    "id": "foe.umiri.attack.tactics2.first",
+                    "expulsion": {
+                        "filter": {
+                            "strategy.tactics2": 1
+                        },
+                        "limit": 1
+                    },
+					"additional": true
+                },
+                {
+                    "id": "foe.umiri.attack.tactics3.first",
+                    "expulsion": {
+                        "filter": {
+                            "strategy.tactics3": 1
+                        },
+                        "limit": 1
+                    },
+					"additional": true
+                }
+            ]
+        },
+        
+    {
+	"id": "time.cycle",
+	"linked$prepend": [
+	    {
+		"id": "pre.death_defiance"
+	    },
+	    {
+		"id": "pre.death_defiance_bad"
+	    },
+	    {
+		"id": "pre.death_umirifight"
+	    }
+	],
+	"alt$prepend": [
+	    {
+		"id": "produce.makeafraid.time",
+        "chance": 10,
+		"additional": true
+	    },
+	    {
+		"id": "produce.weaken.time",
+        "chance": 10,
+		"additional": true
+	    },
+	    {
+		"id": "produce.weaken.time.more",
+        "chance": 30,
+		"additional": true
+	    },
+	    {
+		"id": "friend.anno.coming.forumiri.rome",
+		"additional": true
+	    },
+	    {
+		"id": "foe.umiri.coming.strife_incur",
+		"additional": true
+	    },
+	    {
+		"id": "foe.umiri.coming.stalingrad",
+		"additional": true
+	    },
+	    {
+		"id": "foe.umiri.circle.first",
+		"additional": true
+	    },
+	    {
+		"id": "friend.anno.circle.first",
+		"additional": true
+	    },
+	    {
+		"id": "ss.circle.first",
+		"additional": true
+	    },
+	    {
+		"id": "foe.unknown.star",
+		"additional": true,
+		"chance": 40
+	    }
+	]
+    },
+        {
+        "id": "arrive.marinette",
+        "haltverb$add": {
+        "foecoming": 99,
+        "foedefense": 99,
+        "foerally": 99,
+        "foetactics1": 99,
+        "foetactics1.*": 99,
+        "foetactics2": 99,
+        "foetactics3": 99,
+        "foetactics4.straight": 99,
+        "foetactics4.left": 99,
+        "foetactics4.right": 99,
+        "eyetoweakened": 99,
+        "handtoattack": 99,
+        "sideofficer": 99,
+        "foeactionumiri": 99,
+        "annoaction": 99,
+        "enemyaction.withdraw": 99,
+        "annocoming": 99,
+        "friendpowerup": 99,
+        "friendstun": 99,
+        "friendairstrike": 99,
+        "friendvalkyrie": 99,
+        "frienddestronger": 99,
+        "foestun": 99,
+        "spit.grail": 99,
+        "umirifight": 99,
+        "umiri_scar": 99,
+        "pinceroffensivecutoff": 99,
+        "pinceroffensiveattack.*": 99,
+        "pinceroffensive": 99,
+        "airsupremacy": 99,
+	    "nya.*": 99,
+        "nya": 99,
+        "enemyinscycle": 99,
+        "bombers.*": 99,
+        "airsupremacy.*": 99,
+        "fighter.*": 99,
+        "friendescape": 99,
+        "call.*": 99,
+        "naval.*": 99,
+        "find.consecration": 99
+        }
+        },
+        {
+        "id": "arrive.marinette.whilehiding",
+        "haltverb$add": {
+        "foecoming": 99,
+        "foedefense": 99,
+        "foerally": 99,
+        "foetactics1": 99,
+        "foetactics1.*": 99,
+        "foetactics2": 99,
+        "foetactics3": 99,
+        "foetactics4.straight": 99,
+        "foetactics4.left": 99,
+        "foetactics4.right": 99,
+        "eyetoweakened": 99,
+        "handtoattack": 99,
+        "sideofficer": 99,
+        "foeactionumiri": 99,
+        "annoaction": 99,
+        "enemyaction.withdraw": 99,
+        "annocoming": 99,
+        "friendpowerup": 99,
+        "friendstun": 99,
+        "friendairstrike": 99,
+        "friendvalkyrie": 99,
+        "frienddestronger": 99,
+        "foestun": 99,
+        "spit.grail": 99,
+        "umirifight": 99,
+        "umiri_scar": 99,
+        "pinceroffensivecutoff": 99,
+        "pinceroffensiveattack.*": 99,
+        "pinceroffensive": 99,
+        "airsupremacy": 99,
+	    "nya.*": 99,
+        "nya": 99,
+        "enemyinscycle": 99,
+        "bombers.*": 99,
+        "airsupremacy.*": 99,
+        "fighter.*": 99,
+        "friendescape": 99,
+        "call.*": 99,
+        "naval.*": 99,
+        "find.consecration": 99
+        }
+        },
+    {
+	"id": "travel.sobibor.haltverbs",
+	"haltverb$add": {
+	    "foecoming": 99,
+	    "foedefense": 99,
+	    "foerally": 99,
+	    "foetactics1": 99,
+        "foetactics1.*": 99,
+	    "foetactics2": 99,
+	    "foetactics3": 99,
+		"foetactics4.straight": 99,
+		"foetactics4.left": 99,
+		"foetactics4.right": 99,
+        "eyetoweakened": 99,
+        "handtoattack": 99,
+	    "sideofficer": 99,
+        "foeactionumiri": 99,
+		"annoaction": 99,
+		"enemyaction.withdraw": 99,
+		"annocoming": 99,
+		"friendpowerup": 99,
+		"friendstun": 99,
+		"friendairstrike": 99,
+		"friendvalkyrie": 99,
+		"frienddestronger": 99,
+	    "star.hide": 99,
+	    "reinforcements.ss": 99,
+	    "action.ss": 99,
+	    "attack.clockwork": 99,
+	    "attack.ss": 99,
+	    "attack.ss.2": 99,
+	    "attack.ss.3": 99,
+	    "umirifight": 99,
+		"umiri_scar": 99,
+	    "pinceroffensivecutoff": 99,
+        "pinceroffensiveattack.*": 99,
+	    "pinceroffensive": 99,
+        "airsupremacy": 99,
+	    "nya.*": 99,
+        "nya": 99,
+        "enemyinscycle": 99,
+        "bombers.*": 99,
+        "airsupremacy.*": 99,
+        "fighter.*": 99,
+        "friendescape": 99,
+        "call.*": 99,
+        "naval.*": 99,
+        "find.consecration": 99
+	}
+    },
+    {
+	"id": "travel.sobibor.purge",
+	"deleteverb$add": {
+	    "foecoming": 99,
+	    "foedefense": 99,
+	    "foerally": 99,
+	    "foetactics1": 99,
+        "foetactics1.*": 99,
+	    "foetactics2": 99,
+	    "foetactics3": 99,
+		"foetactics4.straight": 99,
+		"foetactics4.left": 99,
+		"foetactics4.right": 99,
+        "eyetoweakened": 99,
+        "handtoattack": 99,
+	    "sideofficer": 99,
+        "foeactionumiri": 99,
+		"annoaction": 99,
+		"enemyaction.withdraw": 99,
+		"annocoming": 99,
+		"friendpowerup": 99,
+		"friendstun": 99,
+		"friendairstrike": 99,
+		"friendvalkyrie": 99,
+		"frienddestronger": 99,
+	    "star.hide": 99,
+	    "reinforcements.ss": 99,
+	    "action.ss": 99,
+	    "attack.clockwork": 99,
+	    "attack.ss": 99,
+	    "attack.ss.2": 99,
+	    "attack.ss.3": 99,
+	    "umirifight": 99,
+		"umiri_scar": 99,
+	    "pinceroffensivecutoff": 99,
+        "pinceroffensiveattack.*": 99,
+	    "pinceroffensive": 99,
+        "airsupremacy": 99,
+	    "nya.*": 99,
+        "nya": 99,
+        "enemyinscycle": 99,
+        "bombers.*": 99,
+        "airsupremacy.*": 99,
+        "fighter.*": 99,
+        "friendescape": 99,
+        "call.*": 99,
+        "naval.*": 99,
+        "find.consecration": 99
+	},
+	"purge$add": {
+        "breakthroughsuccessful": 99,
+        "op.pinceroffensive": 99,
+	    "foe.bombers.refuel": 99,
+	    "aggro.bombers.refuel": 99,
+	    "foe.fighter_aircraft.refuel": 99,
+	    "foe.fighter_aircraft.repairing": 99,
+	    "faction.anno": 99,
+		"enemy_fire": 99,
+	    "umiri.blocker.pre": 99,
+	    "umiri.blocker.0": 99,
+	    "umiri.blocker.1": 99,
+	    "umiri.blocker.2": 99,
+	    "weakness.nya": 99,
+	    "long.lesson": 99,
+	    "op": 99,
+	    "mumo": 99,
+        "warzone": 99
+	}
+    },
+    {
+	"id": "duel.countdown.success.stopverbs",
+	"haltverb$add": {
+	    "foecoming": 99,
+	    "foedefense": 99,
+	    "foerally": 99,
+	    "foetactics1": 99,
+        "foetactics1.*": 99,
+	    "foetactics2": 99,
+	    "foetactics3": 99,
+		"foetactics4.straight": 99,
+		"foetactics4.left": 99,
+		"foetactics4.right": 99,
+        "eyetoweakened": 99,
+        "handtoattack": 99,
+	    "sideofficer": 99,
+        "foeactionumiri": 99,
+		"annoaction": 99,
+		"enemyaction.withdraw": 99,
+		"annocoming": 99,
+		"friendpowerup": 99,
+		"friendstun": 99,
+		"friendairstrike": 99,
+		"friendvalkyrie": 99,
+		"frienddestronger": 99,
+	    "umirifight": 99,
+		"umiri_scar": 99,
+	    "pinceroffensivecutoff": 99,
+        "pinceroffensiveattack.*": 99,
+	    "pinceroffensive": 99,
+        "airsupremacy": 99,
+	    "nya.*": 99,
+        "nya": 99,
+        "enemyinscycle": 99,
+        "bombers.*": 99,
+        "airsupremacy.*": 99,
+        "fighter.*": 99,
+        "friendescape": 99,
+        "call.*": 99,
+        "naval.*": 99,
+        "find.consecration": 99
+	}
+    },
+    {
+	"id": "duel.countdown.success.stopverbs.proterant",
+	"haltverb$add": {
+	    "foecoming": 99,
+	    "foedefense": 99,
+	    "foerally": 99,
+	    "foetactics1": 99,
+        "foetactics1.*": 99,
+	    "foetactics2": 99,
+	    "foetactics3": 99,
+		"foetactics4.straight": 99,
+		"foetactics4.left": 99,
+		"foetactics4.right": 99,
+        "eyetoweakened": 99,
+        "handtoattack": 99,
+	    "sideofficer": 99,
+        "foeactionumiri": 99,
+		"annoaction": 99,
+		"enemyaction.withdraw": 99,
+		"annocoming": 99,
+		"friendpowerup": 99,
+		"friendstun": 99,
+		"friendairstrike": 99,
+		"friendvalkyrie": 99,
+		"frienddestronger": 99,
+	    "umirifight": 99,
+		"umiri_scar": 99,
+	    "pinceroffensivecutoff": 99,
+        "pinceroffensiveattack.*": 99,
+	    "pinceroffensive": 99,
+        "airsupremacy": 99,
+	    "nya.*": 99,
+        "nya": 99,
+        "enemyinscycle": 99,
+        "bombers.*": 99,
+        "airsupremacy.*": 99,
+        "fighter.*": 99,
+        "friendescape": 99,
+        "call.*": 99,
+	    "pinceroffensive.trigger": 99,
+        "naval.*": 99,
+        "find.consecration": 99
+	}
+    },
+    {
+	"id": "travelling.cycle.complete.haltverbs",
+    "xpans": {
+        "turnfoeresolution": 99
+    },
+	"haltverb$add": {
+	    "foecoming": 99,
+	    "foedefense": 99,
+	    "foerally": 99,
+	    "foetactics1": 99,
+        "foetactics1.*": 99,
+	    "foetactics2": 99,
+	    "foetactics3": 99,
+	    "sideofficer": 99,
+		"foetactics4.straight": 99,
+		"foetactics4.left": 99,
+		"foetactics4.right": 99,
+        "eyetoweakened": 99,
+        "handtoattack": 99,
+        "foeactionumiri": 99,
+		"annoaction": 99,
+		"enemyaction.withdraw": 99,
+		"annocoming": 99,
+		"friendpowerup": 99,
+		"friendstun": 99,
+		"friendairstrike": 99,
+		"friendvalkyrie": 99,
+		"frienddestronger": 99,
+	    "star.hide": 99,
+	    "action.ss": 99,
+	    "attack.clockwork": 99,
+	    "attack.ss": 99,
+	    "attack.ss.2": 99,
+	    "attack.ss.3": 99,
+	    "umirifight": 99,
+		"umiri_scar": 99,
+	    "pinceroffensivecutoff": 99,
+        "pinceroffensiveattack.*": 99,
+	    "pinceroffensive": 99,
+        "airsupremacy": 99,
+	    "nya.*": 99,
+        "nya": 99,
+        "enemyinscycle": 99,
+        "bombers.*": 99,
+        "airsupremacy.*": 99,
+        "fighter.*": 99,
+        "friendescape": 99,
+        "call.*": 99,
+        "naval.*": 99,
+        "find.consecration": 99
+	}
+    },
+    {
+	"id": "travelling.cycle.complete.purge",
+    "xpans": {
+        "turnfoeresolution": 99
+    },
+	"deleteverb$add": {
+	    "foecoming": 99,
+	    "foedefense": 99,
+	    "foerally": 99,
+	    "sideofficer": 99,
+        "foeactionumiri": 99,
+		"annoaction": 99,
+		"enemyaction.withdraw": 99,
+		"annocoming": 99,
+		"friendpowerup": 99,
+		"friendstun": 99,
+		"friendairstrike": 99,
+		"friendvalkyrie": 99,
+		"frienddestronger": 99,
+	    "star.hide": 99,
+	    "reinforcements.ss": 99,
+	    "action.ss": 99,
+	    "attack.clockwork": 99,
+	    "attack.ss": 99,
+	    "attack.ss.2": 99,
+	    "attack.ss.3": 99,
+	    "umirifight": 99,
+		"umiri_scar": 99,
+	    "pinceroffensivecutoff": 99,
+        "pinceroffensiveattack.*": 99,
+	    "pinceroffensive": 99,
+        "airsupremacy": 99,
+	    "nya.*": 99,
+        "nya": 99,
+        "enemyinscycle": 99,
+        "bombers.*": 99,
+        "airsupremacy.*": 99,
+        "fighter.*": 99,
+        "friendescape": 99,
+        "call.*": 99,
+        "naval.*": 99,
+        "find.consecration": 99
+	},
+	"purge$add": {
+	    "breakthroughsuccessful": 99,
+        "op.pinceroffensive": 99,
+	    "foe.bombers.refuel": 99,
+	    "aggro.bombers.refuel": 99,
+	    "foe.fighter_aircraft.refuel": 99,
+	    "foe.fighter_aircraft.repairing": 99,
+	    "faction.anno": 99,
+		"enemy_fire": 99,
+	    "umiri.blocker.pre": 99,
+	    "umiri.blocker.0": 99,
+	    "umiri.blocker.1": 99,
+	    "umiri.blocker.2": 99,
+	    "weakness.nya": 99,
+	    "long.lesson": 99,
+	    "op": 99,
+	    "mumo": 99,
+        "warzone": 99
+	}
+    },
+    {
+	"id": "travelling.cycle.haltverbs",
+    "xpans": {
+        "turnfoeresolution": 99
+    },
+	"haltverb$add": {
+	    "foecoming": 99,
+	    "foedefense": 99,
+	    "foerally": 99,
+	    "foetactics1": 99,
+        "foetactics1.*": 99,
+	    "foetactics2": 99,
+	    "foetactics3": 99,
+		"foetactics4.straight": 99,
+		"foetactics4.left": 99,
+		"foetactics4.right": 99,
+        "eyetoweakened": 99,
+        "handtoattack": 99,
+	    "sideofficer": 99,
+        "foeactionumiri": 99,
+		"annoaction": 99,
+		"enemyaction.withdraw": 99,
+		"annocoming": 99,
+		"friendpowerup": 99,
+		"friendstun": 99,
+		"friendairstrike": 99,
+		"friendvalkyrie": 99,
+		"frienddestronger": 99,
+	    "star.hide": 99,
+	    "reinforcements.ss": 99,
+	    "action.ss": 99,
+	    "attack.clockwork": 99,
+	    "attack.ss": 99,
+	    "attack.ss.2": 99,
+	    "attack.ss.3": 99,
+	    "umirifight": 99,
+		"umiri_scar": 99,
+	    "pinceroffensivecutoff": 99,
+        "pinceroffensiveattack.*": 99,
+	    "pinceroffensive": 99,
+        "airsupremacy": 99,
+	    "nya.*": 99,
+        "nya": 99,
+        "enemyinscycle": 99,
+        "bombers.*": 99,
+        "airsupremacy.*": 99,
+        "fighter.*": 99,
+        "friendescape": 99,
+        "call.*": 99,
+        "naval.*": 99,
+        "find.consecration": 99
+	}
+    },
+    {
+	"id": "travelling.cycle.purge",
+    "xpans": {
+        "turnfoeresolution": 99
+    },
+    "furthermore": [
+    {
+        "target": "~/tabletop",
+        "mutations": [
+            {
+            "filter": "firstone",
+            "mutate": "firstone",
+            "level": 0
+            }
+        ]
+    }
+    ],
+	"deleteverb$add": {
+	    "foecoming": 99,
+	    "foedefense": 99,
+	    "foerally": 99,
+	    "sideofficer": 99,
+        "foeactionumiri": 99,
+		"annoaction": 99,
+		"enemyaction.withdraw": 99,
+		"annocoming": 99,
+		"friendpowerup": 99,
+		"friendstun": 99,
+		"friendairstrike": 99,
+		"friendvalkyrie": 99,
+		"frienddestronger": 99,
+	    "star.hide": 99,
+	    "reinforcements.ss": 99,
+	    "action.ss": 99,
+	    "attack.clockwork": 99,
+	    "attack.ss": 99,
+	    "attack.ss.2": 99,
+	    "attack.ss.3": 99,
+	    "umirifight": 99,
+		"umiri_scar": 99,
+	    "pinceroffensivecutoff": 99,
+        "pinceroffensiveattack.*": 99,
+	    "pinceroffensive": 99,
+        "airsupremacy": 99,
+	    "nya.*": 99,
+        "nya": 99,
+        "enemyinscycle": 99,
+        "bombers.*": 99,
+        "airsupremacy.*": 99,
+        "fighter.*": 99,
+        "friendescape": 99,
+        "call.*": 99,
+        "naval.*": 99,
+        "find.consecration": 99
+	},
+	"purge$add": {
+	    "breakthroughsuccessful": 99,
+        "op.pinceroffensive": 99,
+	    "foe.bombers.refuel": 99,
+	    "aggro.bombers.refuel": 99,
+	    "foe.fighter_aircraft.refuel": 99,
+	    "foe.fighter_aircraft.repairing": 99,
+	    "faction.anno": 99,
+		"enemy_fire": 99,
+	    "reputation.infamy": 99,
+	    "mem.eva": 99,
+	    "mem.walther": 99,
+	    "mem.vanja": 99,
+	    "mem.tibor": 99,
+	    "foe.grame.inactive": 99,
+	    "foe.shade.inactive": 99,
+	    "niniame.reviving": 99,
+	    "weakness.nya": 99,
+	    "long.lesson": 99,
+	    "op": 99,
+	    "mumo": 99,
+        "warzone": 99
+	}
+    },
+    
+    {
+	"id": "operate.endinginitiate",
+	"extantreqs": {
+	    "obdurant.story": 1,
+        "foe.umiri.mark": -1
+	}
+    },
+    {
+	"id": "operate.endinginitiate.hint",
+	"actionid": "operate",
+	"label": "Enemy Officer Not Yet Eliminated",
+    "previewdescription": "The enemy is still putting up a desperate fight! \n\n[You must kill the enemy officer to complete this main objective.]",
+	"requirements": {
+	    "main": 3
+	},
+	"extantreqs": {
+	    "obdurant.story": 1
+	},
+    "hintonly": true
+    },
+    
+    {
+	"id": "detectadditional.success.foe",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 1,
+            "additive": true
+        }
+    ]
+    },
+    {
+	"id": "encounternative.makeadditional",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 1,
+            "additive": true
+        }
+    ]
+    },
+    
+    {
+	"id": "encounteradditional.failure.nightmare",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 0,
+            "additive": false
+        }
+    ]
+    },
+    {
+	"id": "encounteradditional.failure.nonlethal",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 0,
+            "additive": false
+        }
+    ]
+    },
+    {
+	"id": "encounteradditional.failure",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 0,
+            "additive": false
+        }
+    ]
+    },
+    {
+	"id": "encounteradditional.failure.growth",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 0,
+            "additive": false
+        }
+    ]
+    },
+    {
+	"id": "encounteradditional.failure.growthcontinue",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 0,
+            "additive": false
+        }
+    ]
+    },
+    {
+	"id": "encounteradditional.failure.makecasualty",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 0,
+            "additive": false
+        }
+    ]
+    },
+    {
+	"id": "encounteradditional.failure.killfriends",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 0,
+            "additive": false
+        }
+    ]
+    },
+    {
+	"id": "encounternative.failure.nonlethal",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 0,
+            "additive": false
+        }
+    ]
+    },
+    {
+	"id": "encounternative.failure",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 0,
+            "additive": false
+        }
+    ]
+    },
+    {
+	"id": "encounternative.failure.growth",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 0,
+            "additive": false
+        }
+    ]
+    },
+    {
+	"id": "encounternative.failure.makecasualty",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 0,
+            "additive": false
+        }
+    ]
+    },
+    {
+	"id": "encounternative.failure.killfriends",
+    "mutations": [
+        {
+            "filter": "foe",
+            "mutate": "hindrance",
+            "level": 0,
+            "additive": false
+        }
+    ]
+    },
+    
+    {
+	"id": "produce.strife",
+    "linked": [
+        {
+            "id": "produce.strife_incur",
+			"chance": 30
+        },
+        {
+            "id": "produce.strife_incur2",
+			"chance": 30
+        },
+        {
+            "id": "produce.strife_incur3",
+			"chance": 30
+        },
+        {
+            "id": "produce.strife_incur4",
+			"chance": 30
+        }
+    ]
+    },
+    {
+	"id": "produce.strife_incur",
+	"label": "Strife Summoned!",
+	"startdescription": "The enemy's assault falters. Your superiors praise your performance, but it has also drawn unwelcome eyes.",
+	"warmup": 10,
+    "maxexecutions": 1,
+    "extantreqs": {
+	    "strife.tracker": 3,
+        "strife.incur": -1,
+        "foe.umiri.dead": -1,
+        "foe.umiri.mark": -1,
+        "obdurant.story": 1
+    },
+	"effects": {
+	    "strife": -1,
+        "strife.incur": 1
+	}
+    },
+    {
+	"id": "produce.strife_incur2",
+	"$extends": ["produce.strife_incur"],
+    "maxexecutions": 3,
+    "extantreqs": {
+	    "strife.tracker": 6,
+        "strife.incur": -1,
+        "foe.umiri.dead": -1
+    }
+    },
+    {
+	"id": "produce.strife_incur3",
+	"$extends": ["produce.strife_incur"],
+    "maxexecutions": 5,
+    "extantreqs": {
+	    "strife.tracker": 9,
+        "strife.incur": -1,
+        "foe.umiri.dead": -1
+    }
+    },
+    {
+	"id": "produce.strife_incur4",
+	"$extends": ["produce.strife_incur"],
+    "extantreqs": {
+	    "strife.tracker": 12,
+        "strife.incur": -1,
+        "foe.umiri.dead": -1
+    }
+    },
+    
+    {
+	"id": "resupply.startup",
+	"extantreqs$add": {
+	    "side.cutoff.exhausted": -1
+	},
+    "linked$append": [
+        {
+            "id": "resupply.delete"
+        }
+    ]
+    },
+    {
+	"id": "resupply.givemodello",
+    "linked": [
+        {
+            "id": "resupply.delete"
+        }
+    ]
+    },
+    {
+	"id": "resupply.giverifle",
+    "linked": [
+        {
+            "id": "resupply.delete"
+        }
+    ]
+    },
+    {
+	"id": "resupply.delete",
+	"label": "Provisioning",
+	"startdescription": "Much fewer supplies arrived than expected. How strange.\n\n[When the infiltration intensity of the intelligence network reaches 5, the supplies you receive may be reduced.] of chocolate or two inside.\n\n[Resupply will continue to occur so long as you are not in the Ruined Country, or cut off by your Enemies.]",
+	"extantreqs": {
+		"nya.infiltration": 5
+	},
+	"effects": {
+	    "provisions": -2
+	},
+    "linked": [
+        {
+            "id": "resupply.delete.again",
+            "chance": 50
+        }
+    ]
+    },
+    {
+	"id": "resupply.delete.again",
+	"label": "Provisioning",
+	"startdescription": "Much fewer supplies arrived than expected. How strange.\n\n[When the infiltration intensity of the intelligence network reaches 5, the supplies you receive may be reduced.] of chocolate or two inside.\n\n[Resupply will continue to occur so long as you are not in the Ruined Country, or cut off by your Enemies.]",
+	"extantreqs": {
+		"nya.infiltration": 5
+	},
+	"effects": {
+	    "provisions": -1
+	}
+    },
+    {
+	"id": "resupply.startup.contemnant",
+	"extantreqs$add": {
+	    "side.cutoff.exhausted": -1
+	}
+    },
+    {
+	"id": "attackenemy.hidden",
+	"requirements$add": {
+	    "loc.antiairgun": -1,
+        "loc.antiairgun.horizontal": -1
+	},
+	"linked$prepend": [
+	    {
+		"id": "attackenemy.failure.necessary",
+		"chance": 100
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.failure.necessary",
+	"label": "Stage an attack against a hidden enemy?",
+	"startdescription": "Rushing headlong at an enemy we have no measure of is a sure strategy for disaster.\n\n[An attack against a Hidden Enemy will reveal its identity, but it will also usually result in casualties.]",
+	"grandReqs": {
+	    "[uqjerome] >= 1 || [uqlionel] >= 1 || [clockwork.mark] >= 1 || [tomori.mark] >= 1 || [foe.umiri.mark] >= 1": 1
+	},
+    "linked": [
+        {
+            "id": "attackenemy.failure"
+        }
+    ]
+    },
+
+    {
+	"id": "hint.militia",
+	"requirements": {
+        "friendmilitia": 1,
+        "foe.umiri.mark": -1,
+        "umiri.mark": -1,
+        "main": -1,
+        "side": -1,
+        "mastery.edge": -1
+	}
+    },
+    {
+	"id": "hint.scouts",
+	"requirements": {
+	    "friendscouts": 1,
+        "foe.umiri.mark": -1,
+        "umiri.mark": -1,
+        "main": -1,
+        "side": -1,
+        "mastery.edge": -1
+	}
+    },
+    {
+	"id": "hint.medics",
+	"requirements": {
+	    "friendmedics": 1,
+        "foe.umiri.mark": -1,
+        "umiri.mark": -1,
+        "main": -1,
+        "side": -1,
+        "mastery.edge": -1
+	}
+    },
+    {
+	"id": "hint.engineers",
+	"requirements": {
+	    "friendengineers": 1,
+        "foe.umiri.mark": -1,
+        "umiri.mark": -1,
+        "main": -1,
+        "side": -1,
+        "mastery.edge": -1
+	}
+    },
+    {
+	"id": "hint.infantry",
+	"requirements": {
+        "friendinfantry": 1,
+        "foe.umiri.mark": -1,
+        "umiri.mark": -1,
+        "main": -1,
+        "side": -1,
+        "mastery.edge": -1
+	}
+    },
+    {
+	"id": "hint.winteradept",
+	"requirements$add": {
+        "foe.umiri.mark": -1,
+        "umiri.mark": -1,
+        "main": -1,
+        "side": -1,
+        "mastery.edge": -1
+	}
+    },
+    {
+	"id": "hint.lanternadept",
+	"requirements$add": {
+        "foe.umiri.mark": -1,
+        "umiri.mark": -1,
+        "main": -1,
+        "side": -1,
+        "mastery.edge": -1
+	}
+    },
+    {
+	"id": "hint.grailadept",
+	"requirements$add": {
+        "foe.umiri.mark": -1,
+        "umiri.mark": -1,
+        "main": -1,
+        "side": -1,
+        "mastery.edge": -1
+	}
+    },
+    
+    {
+	"id": "dreams.startup",
+	"alt$prepend": [
+	    {
+		"id": "obdurant.defiancehints"
+	    },
+	    {
+		"id": "contemplation.complete.anno"
+	    }
+	]
+    },
+    {
+	"id": "obdurant.defiancehints",
+	"label": "Meditate on the Outcome of Opposing Blades",
+	"startdescription": "I will extinguish the candle before I sleep, and contemplate the outcome of opposing blades.",
+	"requirements": {
+	    "obdurant.story.umiri": 1
+	},
+	"linked": [
+	    {
+		"id": "obdurant.defiancehints.drawhint"
+	    }
+	]
+    },
+    {
+	"id": "obdurant.defiancehints.drawhint",
+	"label": "Meditate on the Outcome of Opposing Blades",
+	"internaldeck": {
+	    "spec": [
+		"draw.hintobdurant.defiance",
+		"draw.hintobdurant.dead",
+		"draw.hintobdurant.stalingrad",
+        "draw.hintobdurant.main"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "obdurant.hintdesc.defiance"
+	    },
+	    {
+		"id": "obdurant.hintdesc.dead"
+	    },
+	    {
+		"id": "obdurant.hintdesc.stalingradfight"
+	    },
+        {
+        "id": "obdurant.hintdesc.main"
+        },
+	    {
+		"id": "obdurant.clearagaina"
+	    }
+	]
+    },
+    {
+	"id": "obdurant.clearagaina",
+	"label": "Meditate on the Outcome of Opposing Blades",
+	"effects": {
+	    "decision": -99
+	},
+	"linked": [
+	    {
+		"id": "obdurant.defiancehints.drawhint"
+	    }
+	]
+    },
+    {
+	"id": "obdurant.hintdesc.defiance",
+	"label": "The Fire of Struggle...",
+	"startdescription": "If I wish to ignite the fire of struggle...",
+	"description": "If I wish to ignite the fire of struggle, I must carve scars in the presence of us both—whether they fall upon me or upon her. Or destroy her retinue; this will undoubtedly enrage your enemy, and her fury will fuel the flames of struggle, burning ever brighter.",
+	"requirements": {
+	    "draw.hintobdurant.defiance": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.hintdesc.dead",
+	"label": "Infinite Strife...",
+	"startdescription": "If I wish to complete the ritual at the destined place...",
+	"description": "If I wish to complete the ritual at the destined place, my enemy and I must wage a grand battle there—a battle that must end in death, regardless of whose death it is.",
+	"requirements": {
+	    "draw.hintobdurant.dead": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "obdurant.hintdesc.stalingradfight",
+	"label": "The Destined Place...",
+	"startdescription": "If I wish to reach the destined place...",
+	"description": "If I wish to reach the destined place, I must retreat, fend off the German pursuit, until there is no ground left to yield—until that great city, the industrial heart of the Union, Stalingrad.",
+	"requirements": {
+	    "draw.hintobdurant.stalingrad": 1
+	},
+	"warmup": 30
+    },
+    {
+	"id": "attackenemy.success",
+	"label": "A Victory!",
+	"startdescription": "The enemy lies broken at our feet, and before this war is over more enemies will follow. This is a good day; this is merely a drop in the ocean.",
+	"aspects": {},
+	"alt": [
+	    {
+		"id": "produce.wounds.defiance_dead",
+		"additional": true
+	    },
+	    {
+		"id": "resilient.survived",
+		"chance": 30
+	    },
+		{
+			"id": "fake.enemy.killed"
+		},
+		{
+			"id" : "aa.gun.damaged",
+            "additional": true,
+			"chance" : 50,
+			"expulsion": {
+		    "filter": {
+			"infrastructure" : 1
+		    },
+		    "limit": 1
+			}
+		}
+	],
+	"linked": [
+	    {
+		"id": "attackenemy.success.ex"
+	    }
+	]
+    },
+    {
+	"id": "attackenemy.success.ex",
+	"label": "A Victory!",
+	"startdescription": "The enemy lies broken at our feet, and before this war is over more enemies will follow. This is a good day; this is merely a drop in the ocean.",
+	"aspects": {
+	    "killfoe": 1,
+	    "fatiguing": 1
+	},
+	"mutations": [
+	    {
+		"filter": "foe.officerdetail",
+		"mutate": "foe.officerdetail",
+		"level": -1
+	    },
+	    {
+		"filter": "foe.guardjerome",
+		"mutate": "foe.guardjerome",
+		"level": -1
+	    },
+	    {
+		"filter": "karotechia.officerdetail",
+		"mutate": "karotechia.officerdetail",
+		"level": -1
+	    },
+	    {
+		"filter": "battlehunger",
+		"mutate": "battlehunger",
+		"level": -1,
+		"additive": true
+	    },
+	    {
+		"filter": "foe.ingluviate.protect",
+		"mutate": "foe.ingluviate.protect",
+		"level": 0
+	    }
+	],
+	"alt": [
+	    {
+		"id": "produce.pinceroffensive",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "clockwork.orderguard",
+	 	"additional": true,
+		"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"clockwork.mark": 1
+		    }
+		}
+	    },
+	    {
+		"id": "produce.escape",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "produce.escape.marinette",
+		"additional": true,
+		"chance": 100
+	    },
+	    {
+		"id": "produce.escape.bloodonhands",
+		"additional": true,
+		"chance": 100
+	    },
+	    {
+		"id": "braced.survived"
+	    },
+	    {
+		"id": "defeateddefiant.turnintofriend"
+	    },
+	    {
+		"id": "produce.monsterlesson",
+		"additional": true,
+		"chance": 70
+	    },
+	    {
+		"id": "produce.strife",
+		"additional": true,
+		"chance": 65
+	    },
+	    {
+		"id": "produce.strife.contemnant",
+		"additional": true,
+		"chance": 50
+	    },
+	    {
+		"id": "jerome.setupguard",
+		"additional": true,
+		"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"uqjerome": 1
+		    }
+		}
+	    },
+	    {
+		"id": "lionel.retaliate",
+		"additional": true
+	    },
+	    {
+		"id": "foechasseur.retaliate",
+		"additional": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "clockwork.slain"
+	    },
+	    {
+		"id": "used.shotgun.collateral",
+		"chance": 60
+	    },
+	    {
+		"id": "used.gaebolg.producewrake"
+	    },
+	    {
+		"id": "orcul.slain"
+	    },
+	    {
+		"id": "jerome.slain"
+	    },
+	    {
+		"id": "lionel.slain"
+	    },
+	    {
+		"id": "clear.bloodlust"
+	    },
+	    {
+		"id": "clear.broodscent"
+	    },
+	    {
+		"id": "startup.clear.malkin"
+	    }
+	]
+    },
+    {
+    "id": "foechasseur.retaliate",
+    "actionid": "spit.winter",
+    "label": "Even in Death, Still a Soldier",
+    "startdescription": "Damn it! This guy is using every last ounce of strength to strike back at us!",
+    "warmup": 15,
+    "requirements": {
+        "foe.retaliatory.chasseur": 1
+    },
+    "linked": [
+        {
+            "id": "givewound.drawagain"
+        }
+    ]
+},
+    {
+	"id": "resilient.survived",
+	"aspects$add": {
+        "refreshonlyclockwork": 1
+	},
+	"grandReqs": {
+	    "[ins_soviet] <= [ins_german]": 1
+	}
+    },
+    {
+	"id": "foe.elusive.conceal",
+	"label": "An Elusive rival",
+	"startdescription": "The battle is over, but amidst the thronging smoke and the forests of rubble, our rival has managed to disappear. Tricky.",
+	"requirements": {
+	    "foe.elusive": 1
+	},
+	"aspects": {
+	    "concealidentity": 1
+	},
+	"alt": [
+	    {
+		"id": "clockwork.orderguard.3",
+	 	"additional": true,
+		"expulsion": {
+		    "limit": 99,
+		    "filter": {
+			"clockwork.mark": 1
+		    }
+		}
+	    }
+	]
+    }
+    ]
+}

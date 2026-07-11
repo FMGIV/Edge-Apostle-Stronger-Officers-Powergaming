@@ -1,0 +1,115 @@
+{
+"elements": [
+    {
+	"id": "long.execution",
+	"label": "Order No. <i>227</i>",
+	"description": "'Not a step back!'\n[This can prevent soldiers from fleeing.]",
+	"aspects": {
+		"execution": 1
+	}
+	},
+    {
+	"id": "temp.execution",
+	"label": "Make an example.",
+	"description": "I executed a deserter in public without a word. Before his blood splashed on my boots, discipline was restored.\n[This can prevent soldiers from fleeing.]",
+	"aspects": {
+		"execution": 1
+	},
+	"lifetime": 300
+	},
+    {
+	"id": "execution",
+	"label": "Military Orders Are as Unshakable as a Mountain",
+	"description": "The power of steel and snow is revealed through my words; I have become their greatest fear.\n[This can prevent soldiers from fleeing.]",
+	"isAspect": true,
+	"isHidden": true
+	},
+    {
+	"id": "breakthroughsuccessful",
+	"label": "Breakthrough successful!",
+	"description": "The enemy's encirclement was torn apart at the last moment; the cage of fire and wire finally showed cracks.\n[While this card is present, your troops can march to the next war zone; when the card disappears, it will not absorb the remaining friendly troops in the encirclement. You can refresh the cooldown by using <i>'Breakout Route'</i> in <i>'Action'</i>.]",
+	"lifetime": 180,
+	"xtriggers": {
+		"refresh": "breakthroughsuccessful"
+	},
+	"unique": true,
+	"decayTo": "op.pinceroffensive",
+	"comments": "此卡用来表明可以撤离了"
+    },
+    {
+	"id": "besieged",
+	"label": "Besieged!",
+	"description": "Supplies are cut off, no way out. The city's borders have become the front line. We are nailed to this fortress of ruins.",
+	"isAspect": true,
+	"isHidden": false,
+	"comments": "此卡用来表明当地被包围"
+    },
+    {
+	"id": "main.pinceroffensive",
+	"label": "Main Objective: Breakout",
+	"description": "Holding out for reinforcements is a luxury; only attack can break out. We must advance—no matter how much blood is shed.\n[You cannot leave this war zone until this objective is completed.]",
+	"inherits": "main.template",
+	"lifetime": 150,
+	"xtriggers": {
+	    "careeradvancement": [
+		{
+		    "id": "breakthroughsuccessful"
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "hindrance.wolf",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.artillery.ins",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "op.pinceroffensive",
+	"label": "Breakout Route?",
+	"description": "Fate has not completely sealed off the way out; we still have a chance...\n[You can combine five <i>'Breakout Route'</i> cards to regain <i>'Main Objective: Breakout'</i>.]",
+	"aspects": {
+	    "op": 1
+	},
+	"lifetime": 300,
+	"slots": [
+	    {
+		"id": "needsescape1",
+		"required": {
+		    "op.pinceroffensive": 1
+		}
+	    },
+	    {
+		"id": "needsescape2",
+		"required": {
+		    "op.pinceroffensive": 1
+		}
+	    },
+	    {
+		"id": "needsescape3",
+		"required": {
+		    "op.pinceroffensive": 1
+		}
+	    },
+	    {
+		"id": "needsescape4",
+		"required": {
+		    "op.pinceroffensive": 1
+		}
+	    }
+	]
+    }
+]
+}
