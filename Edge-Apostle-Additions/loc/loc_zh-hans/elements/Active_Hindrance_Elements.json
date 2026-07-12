@@ -1,0 +1,144 @@
+{
+"elements": [
+	
+	{
+	"id": "hindrance.moonspace.active",
+	"icon" : "influence.meniscate",
+	"label": "新月者的轻蔑",
+	"description": "镜之女王已对我们心生厌恶。这很棘手。[此卡生效期间，你无法进行侦察。]",
+	"aspects": {
+	    "hindrance.active": 1
+	},
+	"xtriggers": {
+		"converthindrance": "op.thecolonel"
+	},
+	"lifetime": 90
+    },
+	
+	{
+	"id": "foe.worms",
+	"label": "敌对蠕虫",
+	"description": "从无处蠕动而来的东西，从世界之网的伤口中钻出。我不确定它们来自哪些死物，但我们应该把它们送回原处，而且要快点。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needslantern": 16,
+	    "needsheart": 16,
+		"needsmoth": 16,
+	    "foe.corrosive": 1,
+		"foe.lethal" : 1,
+	    "foe.monster": 1
+	},
+	"overlays": [
+    {
+      "image": "foe.worms",
+      "grayscale": true,
+      "color": "#000000"
+    }
+	],
+	"xtriggers": {
+	    "refresh": "foe.worms",
+	    "killfoe": "hindrance.worms",
+	    "concealidentity": "foe.worms.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	}
+    },
+	
+	
+    {
+	"id": "foe.worms.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1,
+	    "foe.monster": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.worms.hidden",
+	    "killfoe": "hindrance.worms",
+	    "revealidentity": "foe.worms",
+	   "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needslantern",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    }
+	
+]
+}

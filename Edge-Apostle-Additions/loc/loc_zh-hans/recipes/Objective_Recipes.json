@@ -1,0 +1,813 @@
+{
+"recipes": [
+
+	{
+	"id": "random.enemy.router",
+	"label": "Random Enemy Router",
+	"description": "Who do we have to kill now?",
+	"warmup": 0,
+	"linked": [
+	    {
+		"id": "pick.occult.enemy.obdurant",
+	    },
+		
+		{
+		"id": "pick.occult.enemy.proterant",
+	    },
+		
+		{
+		"id": "pick.occult.enemy.contemnant",
+	    },
+		
+	    {
+		"id": "pick.mundane.enemy",
+	    },
+
+	]
+	},
+	
+	{
+	"id": "random.hindrance.router",
+	"label": "Random Hindrance Router",
+	"description": "What's in our way now?",
+	"warmup": 0,
+	"linked": [
+	    {
+		"id": "pick.occult.hindrance.obdurant",
+	    },
+		
+		{
+		"id": "pick.occult.hindrance.proterant",
+	    },
+		
+		{
+		"id": "pick.occult.hindrance.contemnant",
+	    },
+		
+		{
+		"id": "pick.mundane.hindrance"
+	    },
+	]
+	},
+	
+	{
+	"id": "pick.mundane.enemy",
+	"label": "Mundane enemy spawner",
+	"startdescription": "spawn german",
+	"description": "spawn german",
+	"warmup": 0,
+	"deckeffects" : {
+		"enemies" : 1
+	}
+	},
+	
+	{
+	"id": "pick.mundane.hindrance",
+	"label": "Mundane hindrance spawner",
+	"startdescription": "spawn hindrance",
+	"description": "spawn hindrance",
+	"warmup": 0,
+	"deckeffects" : {
+		"hindrances.mundane" : 1
+	}
+	},
+	
+	{
+	"id": "pick.occult.enemy.obdurant",
+	"label": "Occult enemy spawner - obdurant",
+	"startdescription": "ouchies",
+	"description": "ouchies",
+	"extantreqs": {
+		"obdurant.story": 1,
+		"strife.tracker" : 4
+	},
+	"warmup": 0,
+	"deckeffects" : {
+		"enemies.occult.obdurant" : 1
+	}
+	},
+	
+	{
+	"id": "pick.occult.enemy.proterant",
+	"label": "Occult enemy spawner - proterant",
+	"startdescription": "ouchies",
+	"description": "ouchies",
+	"extantreqs": {
+		"proterant.story": 1,
+		"strife.tracker" : 4
+	},
+	"warmup": 0,
+	"deckeffects" : {
+		"enemies.occult.proterant" : 1
+	}
+	},
+	
+	{
+	"id": "pick.occult.enemy.contemnant",
+	"label": "Occult enemy spawner - contemnant",
+	"startdescription": "contemnant",
+	"description": "ouchies",
+	"extantreqs": {
+		"contemnant.story": 1,
+		"strife.tracker" : 4
+	},
+	"warmup": 0,
+	"deckeffects" : {
+		"enemies.occult.contemnant" : 1
+	}
+	},
+	
+	{
+	"id": "pick.occult.hindrance.obdurant",
+	"label": "Occult hindrance spawner - obdurant",
+	"startdescription": "ouchies",
+	"description": "ouchies",
+	"extantreqs": {
+		"obdurant.story": 1,
+		"strife.tracker" : 4
+	},
+	"warmup": 0,
+	"deckeffects" : {
+		"hindrances.heavy.obdurant" : 1
+	}
+	},
+	
+	{
+	"id": "pick.occult.hindrance.proterant",
+	"label": "Occult hindrance spawner - proterant",
+	"startdescription": "ouchies",
+	"description": "ouchies",
+	"extantreqs": {
+		"proterant.story": 1,
+		"strife.tracker" : 4
+	},
+	"warmup": 0,
+	"deckeffects" : {
+		"hindrances.heavy.proterant" : 1
+	}
+	},
+	
+	{
+	"id": "pick.occult.hindrance.contemnant",
+	"label": "Occult hindrance spawner - contemnant",
+	"startdescription": "ouchies",
+	"description": "ouchies",
+	"extantreqs": {
+		"contemnant.story": 1,
+		"strife.tracker" : 4
+	},
+	"warmup": 0,
+	"deckeffects" : {
+		"hindrances.heavy.contemnant" : 1
+	}
+	},
+	
+	{
+	"id": "ob.success.repossess",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "repossess.complete": 1
+	},
+	"effects" : {
+		"resolution" : 1
+	},
+	"internaldeck": {
+	    "spec": [
+		"supplies.apmunitions",
+		"supplies.apmunitions",
+		"supplies.explosives",
+		"supplies.explosives",
+		"supplies.flares",
+		"supplies.flares",
+		"supplies.smokegrenade",
+		"supplies.smokegrenade"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	}
+    },
+	
+	{
+	"id": "ob.success.eliminate",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "eliminate.complete": 1
+	},
+	"effects" : {
+		"resolution" : 1
+	},
+	"inductions": [
+	    {
+		"id": "weakenenemies.detect"
+	    }
+	],
+    },
+	
+	{
+	"id": "ob.success.eliminate.contemnant",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "eliminate.contemnant.complete": 1
+	},
+	"effects" : {
+		"retribution" : 1
+	},
+	"inductions": [
+	    {
+		"id": "weakenenemies.detect"
+	    },
+		
+		{
+		"id" : "produce.permanentinfamy*"
+		}
+	],
+    },
+	
+	{
+	"id": "ob.success.rout",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "rout.complete": 1
+	},
+	"inductions": [
+	    {
+		"id": "routenemies.detect"
+	    }
+	],
+	"linked": [
+		{
+		"id": "ob.success.capture.fromrout"
+	    }
+	],
+    },
+	
+    {
+	"id": "ob.success.capture.fromrout",
+	"label": "一座解放了的城市！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "ob.success.capture.warzonefound"
+	    },
+	    {
+		"id": "ob.success.capture.fromrout"
+	    }
+	]
+    },
+	
+	{
+	"id": "ob.success.rout.contemnant",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "rout.contemnant.complete": 1
+	},
+	"effects" : {
+		"retribution" : 1
+	},
+	"inductions": [
+	    {
+		"id": "routenemies.detect"
+	    },
+		
+		{
+		"id" : "produce.permanentinfamy*"
+		}
+	],
+    },
+	
+	{
+	"id": "routenemies.detect",
+	"actionid": "scandal",
+	"label": "敌军溃逃！",
+	"startdescription": "德军在此地已被彻底击溃。他们正仓皇逃往后方！",
+	"description": "德军在此地已被彻底击溃。他们正仓皇逃往后方！",
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌人",
+		"required": {
+		    "german": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "uqbrood": 1,
+		    "soviet": 1,
+			"hidden" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "routenemies.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "routenemies.conclude"
+	    }
+	]
+    },
+	
+    {
+	"id": "routenemies.success",
+	"label": "敌军溃逃！",
+	"startdescription": "德军在此地已被彻底击溃。他们正仓皇逃往后方！",
+	"description": "德军在此地已被彻底击溃。他们正仓皇逃往后方！",
+	"requirements": {
+	    "foe": 1
+	},
+	"effects" : {
+		"foe" : -1
+	},
+	"haltverb" : {
+		"foeactionumiri" : 99,
+		"eyetoweakened" : 99,
+		"foerally" : 99,
+		"foetactics2" : 99,
+		"foetactics3" : 99,
+		"foedefense" : 99,
+		"foerally" : 99,
+		"annoaction" : 99,
+		"reinforcements.king" : 99,
+		"friendvalkyrie" : 99,
+		"friendairstrike" : 99,
+		"friendpowerup" : 99,
+		"friendstun" : 99,
+	},
+	"inductions": [
+	    {
+		"id": "anno.pursuit.detect"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "routenemies.detect"
+	    }
+	]
+    },
+	
+    {
+	"id": "routenemies.conclude",
+	"label": "敌军溃逃！",
+	"startdescription": "德军在此地已被彻底击溃。他们正仓皇逃往后方！",
+	"description": "德军在此地已被彻底击溃。他们正仓皇逃往后方！",
+    },
+	
+	{
+	"id": "ob.success.sabotage",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "因此我们获得了胜利。",
+	"requirements": {
+	    "sabotage.complete": 1
+	},
+	"inductions": [
+	    {
+		"id": "sabotageinfrastructure.detect"
+	    }
+	],
+    },
+	
+	{
+	"id": "sabotageinfrastructure.detect",
+	"actionid": "scandal",
+	"label": "基础设施破坏成功！",
+	"startdescription": "炸得粉碎。属于我们的，绝不会落入他们手中。",
+	"description": "炸得粉碎。属于我们的，绝不会落入他们手中。",
+	"slots": [
+	    {
+		"id": "needsinfrastructure",
+		"label": "基础设施",
+		"required": {
+		    "infrastructure": 1,
+			"enemy.infrastructure" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "sabotageinfrastructure.success"
+	    },
+	
+	    {
+		"id": "sabotageinfrastructure.success.enemyinfra"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "sabotageinfrastructure.conclude"
+	    }
+	]
+    },
+	
+    {
+	"id": "sabotageinfrastructure.success",
+	"label": "基础设施破坏成功！",
+	"startdescription": "炸得粉碎。属于我们的，绝不会落入他们手中。",
+	"description": "炸得粉碎。属于我们的，绝不会落入他们手中。",
+	"requirements": {
+	    "infrastructure": 1
+	},
+	"aspects": {
+	    "destroy": 1
+	},
+	"linked": [
+	    {
+		"id": "sabotageinfrastructure.detect"
+	    }
+	]
+    },
+	
+    {
+	"id": "sabotageinfrastructure.success.enemyinfra",
+	"label": "基础设施破坏成功！",
+	"startdescription": "炸得粉碎。属于我们的，绝不会落入他们手中。",
+	"description": "炸得粉碎。属于我们的，绝不会落入他们手中。",
+	"requirements": {
+	    "enemy.infrastructure": 1
+	},
+	"aspects": {
+	    "destroy": 1
+	},
+	"linked": [
+	    {
+		"id": "sabotageinfrastructure.detect"
+	    }
+	]
+    },
+	
+    {
+	"id": "sabotageinfrastructure.conclude",
+	"label": "基础设施破坏成功！",
+	"startdescription": "炸得粉碎。属于我们的，绝不会落入他们手中。",
+	"description": "炸得粉碎。属于我们的，绝不会落入他们手中。",
+	"effects" : {
+		"resolution" : 1
+	}
+    },
+	
+    {
+	"id": "ob.success.capture",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"requirements": {
+	    "capture.complete": 1
+	},
+	"slots": [
+	    {
+		"id": "needswarzone",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"linked": [
+	    {
+		"id": "ob.success.capture.warzonefound"
+	    },
+	    {
+		"id": "ob.success.capture"
+	    }
+	]
+    },
+	
+    {
+	"id": "ob.success.capture.warzonefound",
+	"label": "胜利！",
+	"startdescription": "枪声沉寂。我们的敌人在风中消散。我谨慎地声明战斗已经结束。",
+	"description": "又一座城市获得了解放。加里波第一定会为此感到自豪。",
+	"effects" : {
+		"resolution" : 1
+	},
+	"requirements": {
+	    "warzone.current": 1
+	},
+	"xpans": { 
+	    "capture": 1 
+	},
+	"mutations": [
+	    {
+		"filter": "warzone.current",
+		"mutate": "warzone.enemy.controlled",
+		"level": -1
+	    }
+	]
+    },
+	
+	{
+	"id": "ob.success.withdraw",
+	"label": "撤离成功！",
+	"startdescription": "我已为盟友提供了足够的掩护。他们正在撤离。",
+	"description": "我已为盟友提供了足够的掩护。他们正在撤离。",
+	"requirements": {
+	    "withdraw.complete": 1
+	},
+	"linked": [
+	    {
+		"id": "withdraw.detect"
+	    }
+	],
+    },
+	
+	{
+	"id": "withdraw.detect",
+	"label": "撤离成功！",
+	"startdescription": "我已为盟友提供了足够的掩护。他们正在撤离。",
+	"description": "我已为盟友提供了足够的掩护。他们正在撤离。",
+	"slots": [
+	    {
+		"id": "needslocal",
+		"label": "Local Ally",
+		"required": {
+		    "local": 1
+		},
+		"forbidden": {
+		    "edgelong": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "withdraw.foundlocal"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "withdraw.conclude"
+	    }
+	]
+    },
+	
+    {
+	"id": "withdraw.foundlocal",
+	"label": "撤离成功！",
+	"startdescription": "我已为盟友提供了足够的掩护。他们正在撤离。",
+	"description": "我已为盟友提供了足够的掩护。他们正在撤离。",
+	"requirements": {
+	    "local": 1
+	},
+	"effects" : {
+		"local" : -1
+	},
+	"linked": [
+	    {
+		"id": "withdraw.detect"
+	    }
+	]
+    },
+	
+    {
+	"id": "withdraw.conclude",
+	"label": "撤离成功！",
+	"startdescription": "我已为盟友提供了足够的掩护。他们正在撤离。",
+	"description": "我已为盟友提供了足够的掩护。他们正在撤离。",
+	"effects" : {
+		"resolution" : 1
+	}
+    },
+	
+	{
+	"id": "berlin.first.complete",
+	"label": "敌军抵抗正在瓦解！",
+	"actionid": "main_dupe",
+	"description": "德国人、苏联人、<i>“无辜者”</i>，他们全都惊恐地逃离我。在我经过之处，只留下废墟与烈火，柏林的又一片区域从地球表面被抹去。等我行动完毕，他们就只能向我乞求宽恕了。",
+	"requirements": {
+	    "berlin.first.complete.marker": 1
+	},
+	"effects": {
+	    "main.berlin.east.complete": 1
+	},
+	"haltverb" : {
+		"enemyaction" : 1,
+		"sovietaction" : 1
+	}
+    },
+	
+	{
+	"id": "berlin.second.complete",
+	"label": "胜利！",
+	"actionid": "main_dupe",
+	"description": "德国人、苏联人、<i>“无辜者”</i>，他们全都惊恐地逃离我。在我经过之处，只留下废墟与烈火，柏林的又一片区域从地球表面被抹去。等我行动完毕，他们就只能向我乞求宽恕了。",
+	"requirements": {
+	    "berlin.second.complete.marker": 1
+	},
+	"effects": {
+	    "main.berlin.north.complete": 1
+	},
+	"haltverb" : {
+		"final.battle.german" : 1,
+		"final.battle.soviet" : 1
+	}
+    },
+	
+	{
+	"id": "berlin.third.complete",
+	"label": "胜利！",
+	"actionid": "main_dupe",
+	"description": "德国人、苏联人、<i>“无辜者”</i>，他们全都惊恐地逃离我。在我经过之处，只留下废墟与烈火，柏林的又一片区域从地球表面被抹去。等我行动完毕，他们就只能向我乞求宽恕了。",
+	"requirements": {
+	    "berlin.third.complete.marker": 1
+	},
+	"effects": {
+	    "main.berlin.central.complete": 1
+	},
+	"haltverb" : {
+		"final.battle.german" : 1,
+		"final.battle.soviet" : 1
+	}
+    },
+	
+	{
+	"id": "rome.first.complete",
+	"label": "敌军抵抗正在瓦解！",
+	"actionid": "main_dupe",
+	"description": "罗马是<i>我们的</i>城市，它不属于德国人。随着每一条街道被解放，我们离将入侵者赶出这座城市又近了一步。很快，自由意大利的旗帜将再次在永恒之城上空飘扬。",
+	"requirements": {
+	    "rome.first.complete.marker": 1
+	},
+	"effects": {
+	    "main.rome.west.complete": 1
+	},
+	"haltverb" : {
+		"enemyaction" : 1
+	}
+    },
+	
+	{
+	"id": "rome.second.complete",
+	"label": "胜利！",
+	"actionid": "main_dupe",
+	"description": "罗马是<i>我们的</i>城市，它不属于德国人。随着每一条街道被解放，我们离将入侵者赶出这座城市又近了一步。很快，自由意大利的旗帜将再次在永恒之城上空飘扬。",
+	"requirements": {
+	    "rome.second.complete.marker": 1
+	},
+	"effects": {
+	    "main.rome.central.complete": 1
+	},
+	"haltverb" : {
+		"final.battle.german" : 1
+	}
+    },
+	
+	{
+	"id": "rome.third.complete",
+	"label": "胜利！",
+	"actionid": "main_dupe",
+	"description": "罗马是<i>我们的</i>城市，它不属于德国人。随着每一条街道被解放，我们离将入侵者赶出这座城市又近了一步。很快，自由意大利的旗帜将再次在永恒之城上空飘扬。",
+	"requirements": {
+	    "rome.third.complete.marker": 1
+	},
+	"effects": {
+	    "main.rome.east.complete": 1
+	},
+	"haltverb" : {
+		"final.battle.german" : 1
+	}
+    },
+	
+	{
+	"id": "stalingrad.first.complete",
+	"label": "敌军抵抗正在瓦解！",
+	"actionid": "main_dupe",
+	"description": "斯大林格勒本应是德国最辉煌的胜利，然而我们每次都以同等力量迎击德国人的进攻，并将他们击退。再坚持一会儿，德国的战争机器就会彻底燃烧殆尽、分崩离析。",
+	"requirements": {
+	    "stalingrad.first.complete.marker": 1
+	},
+	"effects": {
+	    "main.stalingrad.north.complete": 1
+	},
+	"haltverb" : {
+		"enemyaction" : 1
+	}
+    },
+	
+	{
+	"id": "stalingrad.second.complete",
+	"label": "胜利！",
+	"actionid": "main_dupe",
+	"description": "斯大林格勒本应是德国最辉煌的胜利，然而我们每次都以同等力量迎击德国人的进攻，并将他们击退。再坚持一会儿，德国的战争机器就会彻底燃烧殆尽、分崩离析。",
+	"requirements": {
+	    "stalingrad.second.complete.marker": 1
+	},
+	"effects": {
+	    "main.stalingrad.west.complete": 1
+	},
+	"haltverb" : {
+		"final.battle.german" : 1
+	}
+    },
+	
+	{
+	"id": "stalingrad.third.complete",
+	"label": "胜利！",
+	"actionid": "main_dupe",
+	"description": "斯大林格勒本应是德国最辉煌的胜利，然而我们每次都以同等力量迎击德国人的进攻，并将他们击退。再坚持一会儿，德国的战争机器就会彻底燃烧殆尽、分崩离析。",
+	"requirements": {
+	    "stalingrad.third.complete.marker": 1
+	},
+	"effects": {
+	    "main.stalingrad.south.complete": 1
+	},
+	"haltverb" : {
+		"final.battle.german" : 1,
+		"final.battle.soviet" : 1
+	}
+    },
+	
+	{
+	"id": "anno.pursuit.detect",
+	"actionid": "annopursuit",
+	"label": "新国王的部队正在追击敌人！",
+	"startdescription": "德军正在撤退，新国王的部队正在追击他们！",
+	"description": "德军正在撤退，新国王的部队正在追击他们！",
+	"extantreqs" : {
+		"faction.anno" : 1
+	},
+	"slots": [
+	    {
+		"id": "needsannoforces",
+		"label": "新国王的军队",
+		"required": {
+		    "faction.anno": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "anno.pursuit.success"
+	    }
+	],
+	"linked": [
+	    {
+		"id": "anno.pursuit.conclude"
+	    }
+	]
+    },
+	
+    {
+	"id": "anno.pursuit.success",
+	"label": "新国王的部队正在追击敌人！",
+	"startdescription": "德军正在撤退，新国王的部队正在追击他们！",
+	"description": "德军正在撤退，新国王的部队正在追击他们！",
+	"requirements": {
+	    "faction.anno" : 1
+	},
+	"effects" : {
+		"faction.anno" : -1
+	},
+	"haltverb" : {
+		"annoaction" : 99,
+		"reinforcements.king" : 99,
+		"friendvalkyrie" : 99,
+		"friendairstrike" : 99,
+		"friendpowerup" : 99,
+		"friendstun" : 99,
+	},
+	"linked": [
+	    {
+		"id": "anno.pursuit.detect"
+	    }
+	]
+    },
+	
+    {
+	"id": "anno.pursuit.conclude",
+	"label": "新国王的部队正在追击敌人！",
+	"startdescription": "德军正在撤退，新国王的部队正在追击他们！",
+	"description": "德军正在撤退，新国王的部队正在追击他们！"
+    }
+	
+]
+}

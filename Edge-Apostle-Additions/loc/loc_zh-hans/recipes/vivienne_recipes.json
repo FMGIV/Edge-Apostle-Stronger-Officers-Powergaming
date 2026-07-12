@@ -1,0 +1,95 @@
+{
+"recipes": [
+	
+    {
+	"id": "spawn.vivienne",
+	"$extends" : ["hide.startup"],
+	"aspects": {},
+	"requirements": {},
+	"grandReqs" : {
+		"([foe.sniper.hidden] || [foesniper])": 1,
+		},
+	"extantreqs" : {
+		"vivienne.mark" : -1,
+		"obdurant.story" : 1
+		},
+	"effects" : {
+		"foe.sniper" : -1,
+		"foesniper" : -1,
+		"foe.vivienne.hidden" : 1
+		},
+	"linked": []
+	},
+	
+    {
+	"id": "make.vivienne.opening",
+	"actionid": "spit.winter",
+	"label": "开局？",
+	"startdescription": "这位狙击手很厉害。*非常*厉害。要揪出她可得费点劲——",
+	"description": "这位狙击手很厉害。*非常*厉害。要揪出她可得费点劲——",
+	"extantreqs" : {
+		"side.vivienne" : -1,
+		"vivienne.mark" : 1
+		},
+	"effects" : {
+		"side.vivienne" : 1
+		},
+	"warmup" : 15
+	},
+	
+    {
+	"id": "foe.vivienne.kill",
+	"$extends" : ["foe.lethal.kill"],
+	"requirements": {
+	    "vivienne.mark": 1,
+		"friend" : 1
+		}
+	},
+	
+    {
+	"id": "ob.success.vivienne",
+	"label": "薇薇安，被击倒",
+	"startdescription": "那个骚扰我们的狙击手暂时被赶走了。在剩下的战区里，她不会再构成威胁了。",
+	"description" : "希望我们别再遇到她了。",
+	"requirements": {
+	    "vivienne.side.complete": 1,
+		"vivienne.mark" : -1
+	},
+	"slots": [
+	    {
+		"id": "needsvivienne",
+		"label": "维维安",
+		"required": {
+		    "vivienne.mark": 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"linked": [
+		{
+		"id": "ob.success.vivienne.conclude"
+		},
+	
+	    {
+		"id": "ob.success.vivienne"
+	    }
+		]
+    },
+	
+    {
+	"id": "ob.success.vivienne.conclude",
+	"label": "薇薇安，被击倒",
+	"startdescription": "那个骚扰我们的狙击手暂时被赶走了。在剩下的战区里，她不会再构成威胁了。",
+	"description" : "希望我们别再遇到她了。",
+	"requirements": {
+		"vivienne.mark" : 1
+	},
+	"effects": {
+	    "vivienne.mark": -1,
+		"foe" : -1
+		}
+    }
+	
+]
+}

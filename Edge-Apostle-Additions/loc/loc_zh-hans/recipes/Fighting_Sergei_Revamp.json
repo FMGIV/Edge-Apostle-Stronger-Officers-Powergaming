@@ -1,0 +1,186 @@
+{
+"recipes": [
+
+    {
+	"id": "sergei.phase.one.enemies",
+	"label": "铁食者的猎犬",
+	"actionid": "enemyaction.reinforcements",
+	"startdescription": "当‘吞铁者’身负重伤时，他的痛苦在世间具象化——",
+	"grandReqs" : {
+		"([~/exterior:wound.sergei] + [~/exterior:wound.sergei.forumiri_end]) = 1" : 1
+	},
+	"effects": {
+	    "foe.wrake.sergei": 3,
+	    "foe.cold.sergei": 3,
+	    "foe.wolves.sergei": 3
+	},
+	"maxexecutions": 1,
+	"inductions": [
+	    {
+		"id": "sergei.enemies.cycle"
+	    }
+	]
+    },
+	
+	{
+	"id": "sergei.phase.two.enemies",
+	"label": "铁食者的猎犬",
+	"actionid": "enemyaction.reinforcements",
+	"startdescription": "当‘吞铁者’身负重伤时，他的痛苦在世间具象化——",
+	"grandReqs" : {
+		"([~/exterior:wound.sergei] + [~/exterior:wound.sergei.forumiri_end]) = 2" : 1
+	},
+	"effects": {
+	    "foe.splinter": 3,
+	    "foe.growth": 3,
+	    "foe.grame.sergei": 3
+	},
+	"maxexecutions": 1,
+	"inductions": [
+	    {
+		"id": "sergei.enemies.cycle"
+	    }
+	]
+    },
+	
+    {
+	"id": "sergei.enemies.cycle",
+	"actionid": "sergei_enemy_verb",
+	"label": "伺机而动",
+	"startdescription": "‘吞铁者’对我们找上门来很不高兴。他的随从们看起来也不太高兴。",
+	"warmup": 30,
+	"effects": {
+	    "readiness.token": 1
+	},
+	"linked": [
+	    {
+		"id": "sergei.enemies.pickaction.router",
+		"chance": "55+[~/visible:strife.tracker]*3"
+	    },
+	    {
+		"id": "sergei.enemies.cycle"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "sergei.enemies.reinforcements",
+		"additional": true,
+		"chance": 50
+	    }
+	]
+    },
+	
+    {
+	"id": "sergei.enemies.pickaction.router",
+	"label": "狼群出动了！",
+	"startdescription": "老狼的部队正在逼近——准备承受痛苦吧！",
+	"deckeffects": {
+	    "decisions.enemy.sergei": 1
+	},
+	"linked": [
+	    {
+		"id": "sergei.enemies.executeaction"
+	    }
+	]
+    },
+	
+    {
+	"id": "sergei.enemies.executeaction",
+	"label": "狼群出动了！",
+	"startdescription": "老狼的部队正在逼近——准备承受痛苦吧！",
+	"warmup": 10,
+	"linked": [
+	    {
+		"id": "sergei.enemies.clear"
+	    }
+	],
+	"alt": [
+	    {
+		"id": "singleattack.startup",
+		"additional": true
+	    },
+	    {
+		"id": "destroysupplies.startup",
+		"additional": true
+	    },
+	    {
+		"id": "hide.startup",
+		"additional": true
+	    },
+		{
+		"id": "doubleattack.1.startup",
+		"additional": true
+	    },
+	    {
+		"id": "doubleattack.2.startup",
+		"additional": true
+	    }
+	]
+    },
+	
+    {
+	"id": "sergei.enemies.clear",
+	"label": "狼群出动了！",
+	"effects": {
+	    "decision": -99,
+	    "readiness.token": -99
+	},
+	"linked": [
+	    {
+		"id": "sergei.enemies.cycle"
+	    }
+	]
+    },
+	
+    {
+	"id": "sergei.enemies.reinforcements",
+	"actionid": "enemyaction.reinforcements",
+	"label": "队伍在壮大",
+	"startdescription": "我们与‘铁食者’战斗的时间越长，就越有<i>各种生物</i>来追杀我们——",
+	"extantreqs": {
+	    "foe": -10
+	},
+	"grandReqs" : {
+		"([~/exterior:wound.sergei] + [~/exterior:wound.sergei.forumiri_end]) = 2" : 1
+	},
+	"warmup": 30,
+	"internaldeck": {
+	    "spec": [
+		"foe.splinter",
+		"foe.splinter",
+		"foe.wrake.sergei",
+		"foe.wrake.sergei",
+		"foe.cold.sergei",
+		"foe.cold.sergei",
+		"foe.grame.sergei",
+		"foe.grame.sergei",
+		"foe.growth",
+		"foe.growth"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
+	}
+    },
+	
+    {
+	"id": "communicate.defeated.sergei.contemnant",
+	"actionid": "communicate",
+	"label": "老狼的结局",
+	"startdescription": "我独自走入雪地，发现‘吞铁者’正躺在树下。他的马静静地等在附近。我走近时，他纹丝不动——但随后，他的声音从体内噼啪作响，苏醒过来。‘我多么希望能徒手将你的皮肉剥下来啊，’他低语道，‘但我太累了。实在太累了。’他的声音如同碎玻璃般刺耳。‘我本想帮你，’长者啐道，‘不过，现在这又有什么关系呢。过来。把这事了结了。",
+	"description": "我默默地了结了铁食者。至此，‘黑百’的最后一人、我的‘憎恨长老’以及一位同为狼族的同伴，就此终结。",
+	"requirements": {
+	    "defeated.sergei": 1
+	},
+	"extantreqs": {
+	    "contemnant.story": 1
+	},
+	"warmup": 30,
+	"craftable": true,
+	"effects": {
+	    "defeated.sergei": -99,
+	    "weapon.sergei": 1
+	}
+    }
+	
+]
+}

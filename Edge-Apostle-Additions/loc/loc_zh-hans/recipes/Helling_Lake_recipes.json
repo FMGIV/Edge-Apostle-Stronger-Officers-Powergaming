@@ -1,0 +1,448 @@
+{
+"recipes": [
+	
+    {
+	"id": "corrivality.cycle.foe", 
+	"$depends": [ "3713855248" ],
+    "inductions$append": [
+		{
+		"id" : "foe.umiri.coming.lake",
+		"chance": "50 + [~/visible:strife.tracker]*3"
+		}
+	]
+	},
+	
+	{
+	"id": "enemy.cycle", 
+	"$depends": [ "3713855248" ],
+	"extantreqs$add" : {
+		"lake.here" : -1
+		}
+	},
+	
+	{
+	"id": "enemy.cycle.checker", 
+	"$depends": [ "3713855248" ],
+	"extantreqs$add" : {
+		"lake.here" : -1
+		}
+	},
+	
+    {
+	"id": "communicate.nimiane",
+	"haltverb$add" : {"umiri.lake.scout" : 5}
+	},
+	
+	{
+	"id" : "foe.umiri.coming.lake",
+    "label": "敌方军官正在赶来",
+    "startdescription": "我们被跟踪了。还有人像我们一样想要、需要那把剑。那位久经沙场的军官正在赶来……",
+    "actionId": "foecoming",
+    "warmup": 30,
+	"extantreqs": {
+	    "lake.here": 1,
+		"foe.umiri.mark" : -1
+	},
+	"effects" : {
+		"foe.officer" : 1
+	},
+    "movements": {
+        "~/tabletop": {
+			"filter": "foe.officer"
+		}
+    },
+     "linked": [
+			{
+     "id": "foe.umiri.comin*"
+			}
+    ],
+	"inductions" : [
+		{
+			"id" : "foe.umiri.lake.search.cycle"
+		}
+		]
+	},
+	
+	{
+	"id": "travelling.cycle.haltverbs",
+	"haltverb$add" : {"umiri.lake.scout" : 5, "lake.monster.cycle" : 5}
+	},
+	
+	{
+	"id": "travelling.cycle.purge",
+	"haltverb$add" : {"umiri.lake.scout" : 5, "lake.monster.cycle" : 5}
+	},
+	
+	{
+	"id": "travelling.cycle.complete.haltverbs",
+	"haltverb$add" : {"umiri.lake.scout" : 5, "lake.monster.cycle" : 5}
+	},
+	
+	{
+	"id": "travelling.cycle.complete.purge",
+	"haltverb$add" : {"umiri.lake.scout" : 5, "lake.monster.cycle" : 5}
+	},
+	
+	{
+	"id" : "foe.umiri.lake.search.cycle",
+    "label": "正在搜寻敌军军官……",
+    "startdescription": "我听到了鸽子的啼鸣，她也听到了。她和我一样，都在寻找那把剑……",
+    "actionId": "umiri.lake.scout",
+    "warmup": 30,
+	"effects" : {
+		"readiness.token" : 1
+	},
+     "linked": [
+		{
+		 "id": "foe.umiri.lake.attempt.get.sword.pre"
+		},
+		
+		{
+		 "id": "foe.umiri.lake.search.cycle.attemptfindclue",
+		 "chance": "50 - [~/visible:corrivality.exile] * 25 + [~/visible:corrivality.foe] * 25"
+		},
+		
+		{
+		 "id": "foe.umiri.lake.search.cycle"
+		}
+    ]
+	},
+	
+	{
+	"id" : "foe.umiri.lake.search.cycle.attemptfindclue",
+    "label": "发现线索！",
+    "startdescription": "她离那把剑又近了一步。我得加把劲了。",
+    "warmup": 30,
+	"requirements": {
+	    "readiness.token": 2
+	},
+	"effects" : {
+		"readiness.token" : -99,
+		"flock.clue.umiri" : 1
+	},
+     "linked": [
+		{
+		 "id": "foe.umiri.lake.search.cycle"
+		}
+    ]
+	},
+	
+	{
+	"id" : "foe.umiri.lake.attempt.get.sword.pre",
+    "label": "敌方军官正追寻那把剑！",
+    "startdescription": "她找到了通往那把破剑的路径。现在，她正追寻着它……",
+    "warmup": 30,
+	"requirements": {
+	    "flock.clue.umiri": 7
+	},
+	"effects" : {
+		"readiness.token" : -99,
+		"flock.clue.umiri" : -7
+	},
+     "linked": [
+		{
+		 "id": "foe.umiri.lake.attempt.get.sword.take.enemies"
+		}
+    ]
+	},
+	
+	{
+	"id": "foe.umiri.lake.attempt.get.sword.take.enemies",
+	"label": "敌人正在追击那把剑！",
+	"startdescription": "敌人正在积聚力量……",
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌人",
+		"required": {
+		    "german": 1
+		},
+		"greedy": true
+	    },
+		
+	    {
+		"id": "needsenemy2",
+		"label": "敌人",
+		"required": {
+		    "german": 1
+		},
+		"greedy": true
+	    },
+		
+	    {
+		"id": "needsenemy3",
+		"label": "敌人",
+		"required": {
+		    "german": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+		"id": "foe.umiri.lake.attempt.get.sword.take.monsters"
+	    },
+
+	    {
+		"id": "foe.umiri.lake.attempt.failure"
+	    }
+	],
+	 "furthermore": [
+      {
+         "aspects": {
+            "revealidentity": 1
+         }
+      }
+	],
+	"warmup": 15
+    },
+	
+	{
+	"id": "foe.umiri.lake.attempt.get.sword.take.monsters",
+	"label": "敌人正在追击那把剑！",
+	"startdescription": "怪物们正在集结……",
+	"requirements": {
+	    "german": 3
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌人",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"greedy": true
+	    },
+		
+	    {
+		"id": "needsenemy2",
+		"label": "敌人",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"greedy": true
+	    },
+		
+	    {
+		"id": "needsenemy3",
+		"label": "敌人",
+		"required": {
+		    "neutral_monster": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+		"id": "foe.umiri.lake.attempt.get.sword.germans.vs.monsters"
+	    },
+
+	    {
+		"id": "foe.umiri.lake.attempt.failure"
+	    }
+	],
+	 "furthermore": [
+      {
+         "aspects": {
+            "revealidentity": 1
+         }
+      }
+	],
+	"warmup": 15
+    },
+	
+	{
+	"id" : "foe.umiri.lake.attempt.get.sword.germans.vs.monsters",
+    "label": "敌军军官正在追夺宝剑！",
+	"comments": "might add or remove ||| [german] * ||| to chance down there",
+    "startdescription": "她正伸手去拿那把剑！",
+    "warmup": 30,
+     "linked": [
+		{
+		 "id": "foe.umiri.lake.attempt.get.sword.success",
+		 "chance" : "( [german] * ( ([needsedge] / 2) + [needsforge] + [needsmoth] + [needswinter] + [needsforgemoth] + [needsedgelantern] + [needsedgewinter] + [needsedgeforge])) - ([neutral_monster] * ([needsknock] + [needsedgeknock] + [needsedgeheart] + [needsgrail] + [needsedgegrail] + [needsheart] + [needslantern]))"
+		},
+		
+		{
+		 "id": "foe.umiri.lake.attempt.failure"
+		}
+    ]
+	},
+	
+        {
+            "id": "foe.umiri.lake.attempt.failure",
+            "label": "敌方军官已败北",
+            "startdescription": "帝国的利刃已折。失去首领的他们正仓皇溃退。她只能独自吞下失败的苦果。她终将卷土重来——带着更强大的军队和复仇的渴望。但至少目前，她不会再来骚扰我们了。",
+            "warmup": 30,
+            "actionid": "sideofficer",
+            "effects": {
+                "foe.officerdetail": -1,
+                "progression": -3
+            },
+            "aspects": {
+                "killgerman": 1
+            },
+            "haltverb": {
+                "foecoming": 99,
+                "foeactionumiri": 99,
+            },
+            "alt": [
+                {
+                "id": "routenemies.detect",
+                "additional": true
+                },
+                {
+                    "id": "foeumiriofficer.side.finish"
+                }
+            ]
+        },
+	
+        {
+            "id": "foe.umiri.lake.attempt.failure",
+            "label": "敌方军官已败北",
+            "startdescription": "帝国的利刃已折。失去首领的他们正仓皇溃退。她只能独自吞下失败的苦果。她终将卷土重来——带着更强大的军队和复仇的渴望。但至少目前，她不会再来骚扰我们了。",
+            "warmup": 30,
+            "actionid": "sideofficer",
+            "effects": {
+                "foe.officerdetail": -1,
+                "progression": -3
+            },
+            "aspects": {
+                "killgerman": 1
+            },
+            "haltverb": {
+                "foecoming": 99,
+                "foeactionumiri": 99,
+            },
+            "alt": [
+                {
+                "id": "weakenenemies.detect",
+                "additional": true
+                },
+                {
+                    "id": "foeumiriofficer.side.finish"
+                }
+            ]
+        },
+	
+    {
+	"id": "foe.umiri.lake.attempt.get.sword.success",
+	"label": "敌方目标已完成",
+	"startdescription": "我们原本是来这里找某样东西的，但敌人抢先一步拿走了。现在，这个机会已经没了。",
+	"aspects": {
+	    "makeadditional": 1
+	},
+	"effects": {
+	    "ebrehel.umiri": 1
+	},
+	"haltverb": {
+	    "side": 99,
+	    "side.2": 99,
+	    "side.3": 99
+	},
+	"warmup": 15,
+	"linked": [
+	    {
+		"id": "enemy.withdraw.leaving.detect.lake"
+	    },
+
+	    {
+		"id": "enemy.remove.main.objective"
+	    }
+	]
+    },
+	
+	{
+	"id": "enemy.withdraw.leaving.detect.lake",
+	"$extends" : ["enemy.withdraw.leaving.detect"],
+	"extantreqs": {
+	},
+	"requirements" : {
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "敌人",
+		"required": {
+		    "german": 1
+		},
+		"forbidden": {
+		    "otherworldly": 1,
+		    "uqbrood": 1,
+		    "soviet": 1,
+			"foe.hidden" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"warmup": 5,
+	"alt": [
+	    {
+		"id": "enemy.withdraw.leaving.success.lake"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.withdraw.leaving.success.lake",
+	"$extends" : ["enemy.withdraw.leaving.success"],
+	"linked": [
+	    {
+		"id": "enemy.withdraw.leaving.detect.lake"
+	    }
+	]
+    },
+	
+	{
+	"id": "foe.umiri.get.ebrehel",
+	"actionid" : "finalbattle",
+	"label": "伤疤之剑",
+	"startdescription": "随着冯·海灵的死，我终于得到了那把能让我名扬天下的剑。",
+	"description": "随着冯·海灵的死，我终于得到了那把能让我名扬天下的剑。",
+	"extantreqs" : {
+		"ebrehel.umiri" : 1
+	},
+	"effects" : {
+		"ebrehel" : 1
+	},
+	"purge" : {
+		"ebrehel.umiri" : 1
+	}
+	},
+    
+	{
+    "id": "makecamillakillumiri.dead",
+    "inductions$append": [
+		{
+		"id" : "foe.umiri.get.ebrehel"
+		}
+	]
+	},
+    
+	{
+    "id": "foeumiriofficer.side.finish",
+    "inductions$append": [
+		{
+		"id" : "foe.umiri.get.ebrehel"
+		}
+	]
+	},
+	
+    {
+	"id": "too.late.lake",
+	"actionid": "operate",
+	"label": "Too Late",
+	"$priority" : 1,
+	"startdescription": "那个德国军官比我先拿到了那把剑。现在，我唯一能拿到那把剑的方式，就是从她的尸体上拿走。",
+	"grandreqs": {
+		"([flock.clue] || [side.ebrehel])": 1,
+	},
+	"extantreqs": {
+	    "ebrehel.umiri": 1
+	},
+	"craftable": true,
+	"warmup" : 1
+    }
+	
+]
+}

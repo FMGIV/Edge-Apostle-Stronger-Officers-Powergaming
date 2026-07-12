@@ -1,0 +1,543 @@
+{
+"recipes": [
+
+	{
+	"id": "hint.requisitioning",
+	"actionid": "communicate",
+	"label": "征用？",
+	"startdescription": "如果我已将足够多的事务处理完毕，我方战线的当局可能会认为有必要给予我更多援助。[随着决断值的提升（每次提升3点），你可以申请更多物资。在申请物资期间，你将无法从补给船队获得补给。每次只能申请一项物资。]",
+	"requirements": {
+	    "loc.commtower": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{
+	"id": "hint.cutoff",
+	"actionid": "communicate",
+	"label": "封锁！",
+	"$priority" : 1,
+	"startdescription": "由于补给被切断，除非我打破这道封锁，否则任何物资都无法送达我这里。[当敌军切断你的补给线时，你无法征调任何物资。]",
+	"requirements": {
+	    "loc.commtower": 1
+	},  
+    "extantreqs": {  
+        "side.cutoff": 1
+    },
+	"hintonly": true,
+	"craftable": false
+    },
+	
+    {
+	"id": "requisitioning.startup.provisions",
+	"actionid": "communicate",
+	"label": "补给申请",
+	"startdescription": "通过电报和无线电发出消息。如果我们需要更多补给，这就是申请的方式。",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"heart" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 3,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.provisions" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.provisions": 1
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.supplies",
+	"actionid": "communicate",
+	"label": "特殊物资采购申请",
+	"$priority" : 1,
+	"startdescription": "通过电报和电波传递消息。如果我们需要更多特殊物资，这就是请求的方式。",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"knock" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 3,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.supplies" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.supplies": 1
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.medics",
+	"actionid": "communicate",
+	"label": "医疗兵征召令",
+	"$priority" : 1,
+	"startdescription": "通过电报和手势传达消息。如果我们需要更多医疗兵，这就是请求的方式。",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"grail" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 6,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.medics" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.medics": 1,
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.engineers",
+	"actionid": "communicate",
+	"label": "采购工程师",
+	"startdescription": "通过电波和声波传递消息。如果我们需要更多工程师，这就是提出请求的方式。",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"forge" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 6,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.engineers" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.engineers": 1
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.heavyunits",
+	"actionid": "communicate",
+	"label": "重型单位调拨",
+	"startdescription": "通过电报和无线电发出请求。如果我们需要更多重型火力，这就是申请的方式。",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"edge" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 9,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.heavyunits" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.heavyunits": 1
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.scouts",
+	"actionid": "communicate",
+	"label": "侦察兵征召令",
+	"startdescription": "通过电报和手势传递消息。如果我们需要更多侦察兵，这就是请求的方式。",
+	"requirements" : {
+		"loc.commtower" : 1
+	},
+	"grandReqs" : {
+	"[moth] || [lantern]" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 6,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.scouts" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.scouts": 1,
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.snipers",
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "狙击手调配",
+	"startdescription": "通过电报和手势传达消息。如果需要更多狙击手，这就是请求的方式。",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"winter" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 6,
+	"side.cutoff": -1,
+	"requisitioning": -1
+	},
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.snipers" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.snipers": 1
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.startup.godbuilders",
+	"actionid": "communicate",
+	"$priority" : 1,
+	"label": "实验设备申请",
+	"startdescription": "通过电报和无线电波发送请求。如果我需要某种实验设备，这就是申请的方式。",
+	"requirements" : {
+		"loc.commtower" : 1,
+		"resolution" : 1
+	},
+	"extantreqs" : {
+	"resolution" : 6,
+	"side.cutoff": -1,
+	"requisitioning": -1,
+	"obdurant.story": 1 
+	},  
+	"effects": {
+		"requisitioning" : 1,
+		"requisitioning.godbuilders" : 1
+	},
+	"inductions": [
+	    {
+		"id": "requisitioning.router",
+		"expulsion": {
+           "filter": {
+               "requisitioning": 1,
+               "requisitioning.godbuilders": 1
+				},
+           "limit": 2
+			}
+	    }
+	],
+	"craftable": true
+    },
+	
+    {
+	"id": "requisitioning.router",
+	"actionid": "requisitions.verb",
+	"label": "等待申请……",
+	"startdescription": "时间照常流逝。我只能希望我申请的东西正在运送途中。",
+	"effects": {
+	    "readiness.token": 1
+	},
+	"warmup": 60,
+	"linked": [
+	    {
+		"id": "requisitioning.success*",
+		"chance": "40 + [readiness.token] * 5 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+	    },
+		
+	    {
+		"id": "requisitioning.router"
+	    }
+	]
+    },
+	
+    {
+	"id": "requisitioning.success.provisions",
+	"label": "已送达！",
+	"startdescription": "食物、饮品、药品、子弹。这些都是我们打赢这场战争所必需的。",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.provisions" : 1
+	},
+	"effects": {
+	    "provisions": 3,
+		"requisitioning.provisions": -1,
+		"requisitioning" : -1,
+		"readiness.token": -99
+	},
+	"internaldeck": {
+	    "spec": [
+		"provisions",
+		"provisions",
+		"provisions",
+		"husk",
+		"husk"
+	    ],
+	    "draws": 3,
+	    "resetonexhaustion": true
+	},
+	"linked": [
+	    {
+		"id": "resupply.givemodello"
+	    },
+	    {
+		"id": "resupply.giverifle"
+	    }
+	],
+	"warmup": 30
+    },
+	
+    {
+	"id": "requisitioning.success.supplies",
+	"label": "已送达！",
+	"startdescription": "针对特定情况的更多物资。很有用。",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.supplies" : 1
+	},
+	"effects": {
+		"requisitioning.supplies" : -1,
+		"requisitioning" : -1,
+		"readiness.token": -99
+	},  
+    "internaldeck": {  
+        "spec": [  
+            "supplies.explosives",  
+			"supplies.explosives",  
+            "supplies.flares",  
+			"supplies.flares",  
+            "supplies.apmunitions",
+		    "supplies.apmunitions",
+			"supplies.smokegrenade",
+			"supplies.smokegrenade",
+            "husk",  
+		    "husk",  
+            "nothing",
+		    "nothing"
+        ],  
+        "draws": 4,  
+        "resetonexhaustion": true  
+    },
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "proterant.converttolocal"
+	    }
+	]
+    },
+	
+    {
+	"id": "requisitioning.success.medics",
+	"label": "到了！",
+	"startdescription": "需要更多医护人员来救治伤员，可能还包括我自己。",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.medics" : 1
+	},
+	"effects": {
+		"requisitioning.medics" : -1,
+		"requisitioning" : -1,
+		"friend.medics" : 2,
+		"readiness.token": -99
+	},  
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "proterant.converttolocal"
+	    }
+	]
+    },
+	
+    {
+	"id": "requisitioning.success.scouts",
+	"label": "已到达！",
+	"startdescription": "‘知彼知己，百战不殆；知天知地，胜可全胜。’\n\n——孙子，《i>孙子兵法</i>》",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.scouts" : 1
+	},
+	"effects": {
+		"requisitioning.scouts" : -1,
+		"requisitioning" : -1,
+		"friend.scouts" : 2,
+		"readiness.token": -99
+	},  
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "proterant.converttolocal"
+	    }
+	]
+    },
+	
+    {
+	"id": "requisitioning.success.engineers",
+	"label": "到了！",
+	"startdescription": "多几位工程师，以防我需要搭建或维修东西。",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.engineers" : 1
+	},
+	"effects": {
+		"requisitioning.engineers" : -1,
+		"requisitioning" : -1,
+		"friend.engineers" : 2,
+		"readiness.token": -99
+	},  
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "proterant.converttolocal"
+	    }
+	]
+    },
+	
+    {
+	"id": "requisitioning.success.snipers",
+	"label": "已到达！",
+	"startdescription": "更多狙击手，适用于需要更高精度的场景。",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.snipers" : 1
+	},
+	"effects": {
+		"requisitioning.snipers" : -1,
+		"requisitioning" : -1,
+		"friend.sniper" : 2,
+		"readiness.token": -99
+	},  
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "proterant.converttolocal"
+	    }
+	]
+    },
+	
+    {
+	"id": "requisitioning.success.heavyunits",
+	"label": "已到达！",
+	"startdescription": "我需要一个更强大的战力倍增器。现在我有了。",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.heavyunits" : 1
+	},
+	"deckeffects": {
+		"allies.heavy" : 2
+	},
+	"effects": {
+		"requisitioning.heavyunits" : -1,
+		"requisitioning" : -1,
+		"readiness.token": -99
+	},  
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "proterant.converttolocal"
+	    }
+	]
+    },
+	
+    {
+	"id": "requisitioning.success.godbuilders",
+	"label": "已到达！",
+	"startdescription": "这些部队未经实战考验，尚属新兵。战火将淬炼他们。",
+	"requirements": {
+	    "readiness.token": 2,
+		"requisitioning.godbuilders" : 1
+	},
+	"effects": {
+		"requisitioning.godbuilders" : -1,
+		"requisitioning" : -1,
+		"friend.godbuilder" : 1,
+		"readiness.token": -99
+	},  
+	"warmup": 30
+	},
+	
+    {
+	"id": "proterant.converttolocal",  
+    "extantreqs": {  
+        "proterant.story": 1   
+    }, 
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "local",
+		"level": 1
+	    }
+	]
+    }
+	
+]
+}

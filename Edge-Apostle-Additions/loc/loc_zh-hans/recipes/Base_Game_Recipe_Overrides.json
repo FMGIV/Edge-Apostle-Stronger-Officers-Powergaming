@@ -1,0 +1,4184 @@
+{
+"recipes": [
+	{
+	"id": "operate.church.edge",
+	"actionid": "mobilize",
+	"effects$remove" : ["op"],
+	"effects$add" : {"location":-99}
+	},
+	
+	{
+	"id": "operate.church.heart",
+	"actionid": "mobilize",
+	"effects$remove" : ["op"],
+	"effects$add" : {"location":-99}
+	},
+	
+	{
+	"id": "operate.church.heart.contemnant",
+	"actionid": "mobilize",
+	"effects$remove" : ["op"],
+	"effects$add" : {"location":-99},
+	"extantreqs$add" : {
+		"hopelessness" : -1,
+		"antithesis" : -1
+		}
+	},
+	
+	{
+	"id": "operate.farm.edge",
+	"actionid": "mobilize",
+	"effects$remove" : ["op"],
+	"effects$add" : {"location":-99}
+	},
+	
+	{
+	"id": "operate.farm.edge.contemnant",
+	"actionid": "mobilize",
+	"effects$remove" : ["op"],
+	"effects$add" : {"location":-99}
+	},
+	
+	{
+	"id": "operate.farm.grail",
+	"actionid": "mobilize",
+	"effects$remove" : ["op"],
+	"effects$add" : {"location":-99}
+	},
+	
+	{
+	"id": "operate.farm.grail.contemnant",
+	"actionid": "mobilize",
+	"effects$remove" : ["op"],
+	"effects$add" : {"location":-99}
+	},
+	
+	{
+	"id": "opx.conclude.assistlocals.1",
+	"linked$append" : [
+		{
+			"id": "assistlocals.weakenenemy",
+			"chance": "20 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+		}
+		],
+	"alt$append" : [
+		{
+			"id": "opx.conclude.assistlocals.1.proterant"
+		}
+		]
+	},
+	
+	{
+	"id": "opx.conclude.assistlocals.1.contemnant",
+	"linked$append" : [
+		{
+			"id": "assistlocals.weakenenemy",
+			"chance" : 20
+		}
+		]
+	},
+	
+	{
+	"id": "opx.conclude.assistlocals.2",
+	"linked$append" : [
+		{
+			"id": "assistlocals.weakenenemy",
+			"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+		}
+		],
+	"alt$append" : [
+		{
+			"id": "opx.conclude.assistlocals.2.proterant"
+		}
+		]
+	},
+	
+	{
+	"id": "opx.conclude.assistlocals.2.contemnant",
+	"linked$append" : [
+		{
+			"id": "assistlocals.weakenenemy",
+			"chance" : 40
+		}
+		]
+	},
+	
+	{
+	"id": "opx.conclude.assistlocals.3",
+	"linked$append" : [
+		{
+			"id": "assistlocals.weakenenemy",
+			"chance": "60 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+		}
+		],
+	"alt$append" : [
+		{
+			"id": "opx.conclude.assistlocals.3.proterant"
+		}
+		]
+	},
+	
+	{
+	"id": "opx.conclude.assistlocals.3.contemnant",
+	"linked$append" : [
+		{
+			"id": "assistlocals.weakenenemy",
+			"chance" : 60
+		}
+		]
+	},
+	
+	{
+	"id": "visit.shrinewolf.dedicategrail",
+	"requirements$add": {"shrine.wolf" : 1}
+	},
+	
+	{
+	"id": "visit.shrinewolf.dedicateknock",
+	"requirements$add" : {"shrine.wolf" : 1}
+	},
+	
+	{
+	"id": "visit.shrinewolf.dedicatelantern",
+	"requirements$add" : {"shrine.wolf" : 1}
+	},
+	
+	{
+	"id": "cannibalize.corpse",
+	"requirements$add" : {"grail" : 5}
+	},
+	
+	{
+	"id": "operate.startup.assistlocals.gunman",
+	"requirements$add" : {"exhausted" : -1},
+	"extantreqs$add" : {
+		"hopelessness" : -1,
+		"antithesis" : -1
+		}
+	},
+	
+	{
+	"id": "operate.startup.assistlocals.gunman.hidden",
+	"requirements$add" : {"exhausted" : -1},
+	"extantreqs$add" : {
+		"hopelessness" : -1,
+		"antithesis" : -1
+		}
+	},
+	
+	{
+	"id": "recruit.refugees.heart",
+	"extantreqs$add" : {
+		"hopelessness" : -1,
+		"antithesis" : -1
+		}
+	},
+	
+	{
+	"id": "recruit.refugees.grail",
+	"extantreqs$add" : {
+		"hopelessness" : -1,
+		"antithesis" : -1
+		}
+	},
+	
+	{
+	"id": "recruit.deserters.winter",
+	"extantreqs$add" : {
+		"wound.glorious" : -1
+		}
+	},
+	
+	{
+	"id": "recruit.deserters.grail",
+	"extantreqs$add" : {
+		"wound.glorious" : -1
+		}
+	},
+	
+	{
+	"id": "communicate.givevicious.antithesis",
+	"label": "<color=red>向盟友揭示狼的真相<color=#005500>",
+	"startdescription": "<color=red>即便经历了这一切苦难，此人仍执着于克制与尊严的幻觉。我可以试着让他们摆脱这些幻觉——但这反而可能会摧毁他们。<color=#005500>\n\n[这可能会让你的盟友获得“凶残”特质，但也可能失败，导致他们发疯。插入“创伤”来提高成功几率。]",
+	"slots$append": [
+        {
+        "id": "traumadump",
+        "actionid": "communicate",
+        "label": "创伤",
+		"description": "部分崩坏的心理。",
+        "required": {
+          "trauma": 1
+        }
+        }
+	],
+	"linked$listedit": {"0$dictedit" : { "chance": "60+[Trauma]*30" }}
+	},
+	
+	{
+	"id": "communicate.givevicious.success.antithesis",
+	"label": "<color=red>向盟友揭示狼的真相<color=#005500>",
+	"startdescription": "<color=red>'当大火来临时，将有一场盛宴。当盛宴来临时，我会找到你。我向你保证。'<color=#005500>"
+	},
+	
+	{
+	"id": "communicate.givevicious.failure.antithesis",	
+	"label": "<color=red>向盟友揭示狼的真相<color=#005500>"
+	},
+	
+	{
+	"id": "operate.getvision",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"consumes": false
+			}
+		},
+	"effects": {
+	    "op.dove": -1,
+	    "lake.vision": 1
+	},
+	"alt$prepend": [
+	    {
+		"id": "operate.getvision.birdchatter"
+	    }
+	]
+	},
+	
+    {
+	"id": "operate.getvision.success",
+	"effects$remove" : ["heart"]
+    },
+	
+	{
+	"id": "contemnant.setup.d.choicemade",
+	"startdescription": "@#friend.vanja|'那个孩子反正只会拖你后腿。'#friend.tibor|'这位可怜的医生已经伤痕累累，再也帮不上你的忙了，不是吗？'#friend.eva|'让母亲与孩子们团聚。多么高尚啊。'#friend.walther|'这位神父为了别人已经牺牲了这么多，我想他也会很乐意献出自己的生命。'@"
+	},
+	
+	{
+   "id": "travelslot.friendfound",
+   "linked$prepend": [
+	    {
+		"id": "travelslot.takemoreimportantfriend"
+	    }
+	],
+	},
+	
+	{
+	"id": "cannibalize.corpse",	
+	"extantreqs$add" : {
+		"contemnant.memento" : -1
+		}
+	},
+	
+	{
+	"id": "loot.corpse",
+	"requirements$add" : {"friend.named" : -1}
+	},
+	
+	{
+    "id": "defend.opportunity",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1 }
+			}
+		},
+	"inductions$append" : [
+		{
+			"id" : "make.vivienne.opening"
+		}
+		]
+    },
+	
+	{
+	"id": "operate.startup.shakedown",
+	"requirements$add" : {"exhausted" : -1, "friend.away" : -1}
+	},
+	
+	{
+	"id": "operate.startup.shakedown.dregsoldier",
+	"requirements$add" : {"exhausted" : -1}
+	},
+	
+	{
+	"id": "operate.startup.shakedown.hidden",
+	"requirements$add" : {"exhausted" : -1}
+	},
+	
+	{
+	"id": "operate.startup.assistlocals",
+	"requirements$add" : {"exhausted" : -1, "friend.away" : -1}
+	},
+	
+	{
+	"id": "operate.startup.shakedown.militia",
+	"requirements$add" : {"exhausted" : -1, "friend.away" : -1, "friend.militia.hidden": -1}
+	},
+	
+	{
+	"id": "operate.startup.assistlocals.militia",
+	"requirements$add" : {"exhausted" : -1, "friend.away" : -1, "friend.militia.hidden": -1}
+	},
+	
+	{
+    "id": "assistlocals.prep",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1 }
+			}
+		}
+    },
+	
+	{
+    "id": "shakedown.prep",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
+			}
+		}
+    },
+	
+	{
+    "id": "operation.heart",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
+			}
+		}
+    },
+	
+	{
+    "id": "operation.edge",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
+			}
+		}
+    },
+	
+	{
+    "id": "opx.meetchallenge",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1 }
+			}
+		}
+    },
+	
+	{
+    "id": "encounternative",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
+			}
+		}
+    },
+	
+	{
+	"id": "travelling.cycle.haltverbs",
+	"haltverb$add" : {"sendinglettercompanion" : 5, "lake.monster" : 5, "enemy.offensive.preparation" : 5, "enemy.defensive.preparation" : 5, "allyattack": 5, "ally.scouts.action" : 5, "ally.engineer.action" : 5, "ally.medics.action" : 5, "sergei_enemy_verb" : 2, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
+	"purge$add" : {"enemy.infrastructure" : 99, "andnowwhat" : 99, "active.hindrance" : 99, "hindrance.active": 99, "enemy.defensive.preparation" : 99, "enemy.offensive.preparation" : 99}
+	},
+	
+	{
+	"id": "travelling.cycle.purge",
+	"haltverb$add" : {"sendinglettercompanion" : 5, "lake.monster" : 5, "enemy.offensive.preparation" : 5, "enemy.defensive.preparation" : 5, "allyattack": 5, "ally.scouts.action" : 5, "ally.engineer.action" : 5, "ally.medics.action" : 5, "sergei_enemy_verb" : 2, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
+	"purge$add" : {"enemy.infrastructure" : 99, "andnowwhat" : 99, "active.hindrance" : 99, "hindrance.active": 99, "enemy.defensive.preparation" : 99, "enemy.offensive.preparation" : 99}
+	},
+	
+	{
+	"id": "travelling.cycle.complete.haltverbs",
+	"haltverb$add" : {"sendinglettercompanion" : 5, "lake.monster" : 5, "enemy.offensive.preparation" : 5, "enemy.defensive.preparation" : 5, "allyattack": 5, "ally.scouts.action" : 5, "ally.engineer.action" : 5, "ally.medics.action" : 5, "sergei_enemy_verb" : 2, "active.hindrances" : 1,  "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
+	"purge$add" : {"enemy.infrastructure" : 99, "andnowwhat" : 99, "active.hindrance" : 99, "hindrance.active": 99, "enemy.defensive.preparation" : 99, "enemy.offensive.preparation" : 99}
+	},
+	
+	{
+	"id": "travelling.cycle.complete.purge",
+	"haltverb$add" : {"sendinglettercompanion" : 5, "lake.monster" : 5, "enemy.offensive.preparation" : 5, "enemy.defensive.preparation" : 5,  "allyattack": 5, "ally.scouts.action" : 5, "ally.engineer.action" : 5, "ally.medics.action" : 5, "sergei_enemy_verb" : 2, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
+	"purge$add" : {"enemy.infrastructure" : 99, "andnowwhat" : 99, "active.hindrance" : 99, "hindrance.active": 99, "enemy.defensive.preparation" : 99, "enemy.offensive.preparation" : 99}
+	},
+	
+	{
+	"id": "foe.lethal.kill",
+	"linked$append" : [
+		{
+			"id": "foe.corrosive.dissolve"
+		}
+		]
+	},
+	
+	{
+	"id": "infrastructure.nodefense",
+	"linked$append" : [
+		{
+			"id": "foe.corrosive.dissolve.building"
+		}
+		]
+	},
+	
+	{
+	"id": "ob.success",
+	"linked$append" : [
+		{
+			"id": "ob.success.withdraw"
+		},
+		
+		{
+			"id": "ob.success.eliminate"
+		},
+		
+		{
+			"id": "ob.success.eliminate.contemnant"
+		},
+		
+		{
+			"id": "ob.success.repossess"
+		},
+		
+		{
+			"id": "ob.success.sabotage"
+		},
+		
+		{
+			"id": "ob.success.capture"
+		},
+		
+		{
+			"id": "ob.success.rout"
+		},
+		
+		{
+			"id": "ob.success.rout.contemnant"
+		},
+		
+		{
+			"id": "berlin.first.complete"
+		},
+		
+		{
+			"id": "berlin.second.complete"
+		},
+		
+		{
+			"id": "berlin.third.complete"
+		},
+		
+		{
+			"id": "rome.first.complete"
+		},
+		
+		{
+			"id": "rome.second.complete"
+		},
+		
+		{
+			"id": "rome.third.complete"
+		},
+		
+		{
+			"id": "stalingrad.first.complete"
+		},
+		
+		{
+			"id": "stalingrad.second.complete"
+		},
+		
+		{
+			"id": "stalingrad.third.complete"
+		},
+		
+		{
+			"id": "ob.success.vivienne"
+		}
+		
+	],
+	"inductions$append" : [
+		{
+			"id" : "produce.permanentinfamy*"
+		},
+		
+		{
+			"id" : "good.reputation.router.from.main.obj"
+		}
+		]	
+	},
+	
+	{
+	"id": "enemy.executeaction",
+	"alt$append" : [
+		{
+			"id": "enemy.capture.infrastructure.startup",
+			"additional" : true
+		},
+		
+		{
+			"id": "enemy.defensive.preparation",
+			"additional" : true
+		},
+		
+		{
+			"id": "enemy.offensive.preparation.startup",
+			"additional" : true
+		}
+		]
+	},
+	
+	{
+	"id": "defend.opportunity",
+	"linked$append" : [
+		{
+			"id": "enemy.capture.infrastructure.nodefence"
+		}
+		]
+	},
+	
+	{
+	"id": "doubleattack.1.startup",
+	"linked$prepend" : [
+		{
+			"id": "foe.coordinated.getsecond.enemycomms.pre",
+			"chance": "25 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
+		}
+		]
+	},
+	
+	{
+	"id": "doubleattack.2.startup",
+	"linked$prepend" : [
+		{
+			"id": "foe.coordinated.getsecond.enemycomms.pre",
+			"chance": "25 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
+		}
+		]
+	},
+	
+	{
+	"id": "singleattack.startup",
+	"linked$prepend" : [
+		{
+			"id": "foe.coordinated.getsecond.enemycomms.pre",
+			"chance": "25 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
+		}
+		]
+	},
+	
+	{
+	"id": "attackenemy.success",
+	"alt$prepend" : [
+		{
+			"id": "enemy.fieldhospital.survived",
+			"chance": "25 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
+		},
+		
+		{
+			"id": "attackenemy.success.grame",
+			"chance": 50	
+		},
+		
+		{
+			"id": "attackenemy.success.devoured",
+			"chance": 50
+		},
+		
+		{
+			"id": "attackenemy.success.nightmare",
+			"chance": 50
+		},
+		
+		{
+			"id": "attackenemy.success.ostlingant",
+			"chance": "50 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+		},
+		
+		{
+			"id": "attackenemy.success.voice",
+			"chance": "50 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+		},
+		
+		{
+			"id": "attackenemy.success.reclaimer",
+			"chance": 50
+		},
+		
+		{
+			"id": "capture.enemy.infrastructure.success"
+		},
+		
+		{
+			"id": "destroy.enemy.infrastructure.success"
+		}
+	],
+	"inductions": [
+	    {
+		"id": "good.reputation.router.from.killed.german",
+		"chance": "30 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+	    }
+	]
+	},
+	
+	{
+	"id": "opx.gonext",
+	"linked$prepend" : [
+		{
+			"id": "enemy.controlled.warzone.interference.router",
+			"chance": "25 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
+		}
+		]
+	},
+	
+	{
+	"id": "foe.begin.hindrance.obdurant",
+	"inductions$append" : [
+		{
+			"id": "active.hindrance.verb.cycle"
+		}
+		]
+	},
+	
+	{
+	"id": "foe.begin.hindrance.proterant",
+	"inductions$append" : [
+		{
+			"id": "active.hindrance.verb.cycle"
+		}
+		]
+	},
+	
+	{
+	"id": "wolf.begin.hindrances",
+	"inductions$append" : [
+		{
+			"id": "active.hindrance.verb.cycle"
+		}
+		]
+	},
+	
+	{
+	"id": "wolf.begin.obliterate",
+	"inductions$append" : [
+		{
+			"id": "active.hindrance.verb.cycle"
+		}
+		]
+	},
+	
+	{
+	"id": "dreams.lionsmith.obdurant",
+	"inductions$append" : [
+		{
+			"id": "active.hindrance.verb.cycle"
+		}
+		]
+	},
+	
+	{
+	"id": "dreams.wolf.obdurant",
+	"inductions$append" : [
+		{
+			"id": "active.hindrance.verb.cycle"
+		}
+		]
+	},
+	
+	{
+	"id": "dreams.colonel.proterant",
+	"inductions$append" : [
+		{
+			"id": "active.hindrance.verb.cycle"
+		}
+		]
+	},
+	
+	{
+	"id": "dreams.wolf.proterant",
+	"inductions$append" : [
+		{
+			"id": "active.hindrance.verb.cycle"
+		}
+		]
+	},
+	
+	{
+	"id": "dreams.wolf.obdurant",
+	"inductions$append" : [
+		{
+			"id": "active.hindrance.verb.cycle"
+		}
+		]
+	},
+	
+	{
+	"id": "opx.conclude.shakedown.1",
+	"purge$add" : {"friend.militia.hidden": 99},
+	"inductions$append" : [
+		{
+			"id": "startup.desertion",
+			"chance" : 25
+		},
+		
+		{
+			"id": "produce.localinfamy",
+			"chance" : 25
+		},
+		]
+	},
+	
+	{
+	"id": "opx.conclude.shakedown.2",
+	"purge$add" : {"friend.militia.hidden": 99},
+	"inductions$append" : [
+		{
+			"id": "startup.desertion",
+			"chance" : 50
+		},
+		
+		{
+			"id": "produce.localinfamy",
+			"chance" : 50
+		},
+		]
+	},
+	
+	{
+	"id": "opx.conclude.shakedown.3",
+	"purge$add" : {"friend.militia.hidden": 99},
+	"inductions$append" : [
+		{
+			"id": "startup.desertion",
+			"chance" : 75
+		},
+		
+		{
+			"id": "produce.localinfamy",
+			"chance" : 75
+		},
+		]
+	},
+	
+	{
+	"id": "attackenemy.hint.contemnant",
+	"requirements$add": {"allyattackmarker" : -1, "capture.infrastructure.marker" : -1, "destroy.infrastructure.marker" : -1}
+	},
+	
+	{
+	"id": "attackenemy.hint",
+	"requirements$add": {"allyattackmarker" : -1, "capture.infrastructure.marker" : -1, "destroy.infrastructure.marker" : -1}
+	},
+	
+	{
+	"id": "attackenemy.hidden.hint",
+	"requirements$add": {"allyattackmarker" : -1, "capture.infrastructure.marker" : -1, "destroy.infrastructure.marker" : -1}
+	},
+	
+	{
+	"id": "attackenemy.complicate",
+	"linked$listedit": {"0$dictedit" : { "chance": "40+[allyattackmarker]*30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"  }}
+	},
+	
+	{
+	"id": "attackenemy.failure.makecasualty",
+	"alt$listedit": {"0$dictedit" : { "chance": "30+[allyattackmarker]*30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"  }}
+	},
+	
+	{
+	"id": "attackenemy.ap.overwhelm",
+	"requirements$add": {"foe.hulldown" : -1},
+	"grandreqs": { "[ap]>[foe.armoured]": 1 }
+	},
+	
+	{
+	"id": "attackenemy.ap",
+	"requirements$add": {"foe.hulldown" : -1}
+	},
+	
+	{
+	"id": "attackenemy.aerial.overwhelm",
+	"requirements$add": {"foe.escorted" : -1},
+	"grandreqs": { "[friend.aerial]>[foe.aerial]": 1 }
+	},
+	
+	{
+	"id": "attackenemy.aerial",
+	"requirements$add": {"foe.escorted" : -1}
+	},
+	
+	{
+	"id": "produce.wounds",
+	"requirements$add": {"allyattackmarker" : -1}
+	},
+	
+	{
+	"id": "produce.trauma",
+	"requirements$add": {"allyattackmarker" : -1}
+	},
+	
+	{
+	"id": "startup.desertion",
+	"extantreqs$add": {"contemnant.story" : 1}
+	},
+	
+	{
+	"id": "produce.localinfamy",
+	"extantreqs$add": {"contemnant.story" : 1}
+	},
+	
+	{
+	"id": "visit.shrinewolf.getskill",
+	"extantreqs$add": {"contemnant.memento" : -1}
+	},
+	
+	{
+    "id": "loot.corpse.scavenger",
+	"internaldeck$dictedit" : {
+    "spec$append": [
+		"supplies.smokegrenade",
+		"supplies.smokegrenade"
+        ]
+	}
+    },
+	
+	{
+    "id": "loot.corpse.scavenger.hidden",
+	"internaldeck$dictedit" : {
+    "spec$append": [
+		"supplies.smokegrenade",
+		"supplies.smokegrenade"
+        ]
+	}
+    },
+	
+	{
+    "id": "loot.corpse",
+	"internaldeck$dictedit" : {
+    "spec$append": [
+		"supplies.smokegrenade",
+		"supplies.smokegrenade"
+        ]
+	}
+    },
+	
+	{
+    "id": "ob.success.seize",
+	"internaldeck$dictedit" : {
+    "spec$append": [
+		"supplies.smokegrenade",
+		"supplies.smokegrenade"
+        ]
+	}
+    },
+	
+	{
+    "id": "ob.success.weaponscache",
+	"internaldeck$dictedit" : {
+    "spec$append": [
+		"supplies.smokegrenade",
+		"supplies.smokegrenade"
+        ]
+	}
+    },
+	
+	{
+    "id": "activate.skill.intimidate",
+	"purge$add" : {"hindrance" : 99, "hindrance.active" : 99}
+    },
+	
+	{
+	"id": "healcasualty.medics.monster",
+    "slots$listedit": { 
+		"0$dictedit" : { "required$add" : { "friend.engineers.wellstocked" : 1 } }
+	},
+	"alt$prepend": [
+	    {
+		"id": "healcasualty.medics.monster.success.faster"
+	    }
+	]
+	},
+	
+	{
+	"id": "heal.adeptgrail.wounded.monster",
+    "slots$listedit": { 
+		"0$dictedit" : { "required$add" : { "friend.engineers.wellstocked" : 1 } }
+	},
+	"alt$prepend": [
+	    {
+		"id": "heal.adeptgrail.wounded.monster.success.faster"
+	    }
+	]
+	},
+	
+	{
+    "id": "doubleattack.1.startup",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "foe.emplaced" : 1 }
+			}
+		}
+    },
+	
+	{
+    "id": "doubleattack.2.startup",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "foe.emplaced" : 1 }
+			}
+		}
+    },
+	
+	{
+    "id": "singleattack.startup",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "foe.emplaced" : 1 }
+			}
+		}
+    },
+	
+	{
+    "id": "destroysupplies.startup",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "foe.emplaced" : 1 }
+			}
+		}
+    },
+	
+	{
+    "id": "infrastructure.startup",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "foe.emplaced" : 1 }
+			}
+		}
+    },
+	
+	{
+	"id": "attackenemy.failure",
+	"linked$prepend" : [
+		{
+			"id": "attackenemy.failure.kommando.retaliatory"
+		}
+		],
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"3$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "resupply.contemnant.failure",
+	"inductions$append" : [
+		{
+			"id": "produce.localinfamy",
+			"chance" : 25
+		}
+		]
+	},
+	
+	{
+	"id": "resupply.contemnant.success",
+	"inductions$append" : [
+		{
+			"id": "produce.localinfamy",
+			"chance" : 50
+		}
+		]
+	},
+	
+	{
+	"id": "arrive.marinette",
+	"extantreqs$add" : {
+		"marinette.gone" : -1
+		}
+	},
+	
+	{
+	"id": "arrive.marinette.whilehiding",
+	"extantreqs$add" : {
+		"marinette.gone" : -1
+		}
+	},
+	
+	{
+	"id": "use.unmake.foe.marinette",
+	"effects$add" : {"marinette.opening":1}
+	},
+	
+	{
+    "id": "duelling.longattack.pre",
+	"internaldeck$dictedit" : {
+    "spec$append": [
+		"wilhelm.attack.d",
+		"wilhelm.attack.d",
+		"wilhelm.attack.e",
+		"wilhelm.attack.e"
+        ]
+	},
+	"linked$prepend" : [
+		{
+			"id": "duelling.longattack.feint",
+			"chance" : 25
+		}
+		]
+    },
+	
+	{
+    "id": "duelling.longattack",
+	"startdescription": "@#wilhelm.attack.a|“战争制造者”以骇人的速度逼近，他那双巨拳朝我疾射而来 -#wilhelm.attack.b|战争之主一脚重重跺地，震得大地震颤，当他看到我失去平衡时，便猛地扑了过来 -#wilhelm.attack.c|“战争制造者”发出了一声费力的嘶吼，举起手臂要击打我，我看见他手中握着火焰 -#wilhelm.attack.d|造战者双手合十，顿时涌出一股巨大的蒸汽。我看不见他在哪里，但能感觉到他正迅速逼近 -#wilhelm.attack.e|那个造战者朝我冲来，蒸汽从他双臂中喷涌而出，扑向我的双眼和感官 -@",
+	"linked" : [
+	
+		{
+		"id": "duelling.skill.deflect"
+	    },
+		
+	    {
+		"id": "duelling.respond.edge"
+	    },
+		
+	    {
+		"id": "duelling.respond.winter"
+	    },
+		
+	    {
+		"id": "duelling.respond.edgewinter"
+	    },
+		
+		{
+		"id": "duelling.respond.lantern"
+		},
+		
+		{
+		"id": "duelling.respond.edgelantern"
+		},
+		
+		{
+		"id": "duelling.wounded"
+	    },
+		
+		{
+		"id" : "edgelong.attack.you.nodefense"	
+		}
+		
+		],
+	"alt" : []
+    },
+	
+    {
+	"id": "duelling.respond.edge",
+	"warmup" : 5,
+	"aspects$add" : {"killfriend": 1},
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.wilhelm",
+		"chance" : 40
+	    }
+	],
+	},
+	
+    {
+	"id": "duelling.skill.deflect",
+	"warmup" : 5,
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.wilhelm",
+		"chance" : 40
+	    }
+	]
+	},
+	
+    {
+	"id": "duelling.respond.winter",
+	"warmup" : 5,
+	"aspects$add" : {"killfriend": 1},
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.wilhelm",
+		"chance" : 40
+	    }
+	]
+	},
+	
+    {
+	"id": "duelling.respond.edgewinter",
+	"warmup" : 5,
+	"aspects$add" : {"killfriend": 1},
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.wilhelm",
+		"chance" : 40
+	    }
+	]
+	},
+	
+	{
+    "id": "duelling.longattack.pre.proterant",
+	"internaldeck$dictedit" : {
+    "spec$append": [
+		"camilla.attack.d",
+		"camilla.attack.d",
+		"camilla.attack.e",
+		"camilla.attack.e"
+        ]
+	},
+	"linked$prepend" : [
+		{
+			"id": "duelling.longattack.feint.proterant",
+			"chance" : 25
+		}
+		]
+    },
+	
+	{
+    "id": "duelling.longattack.proterant",
+	"startdescription": "@#camilla.attack.a|“大陆号”号船上武器林立，而她却能以如此凶狠而高效的方式驾驭所有武器。一连串猛烈的攻击：刀刃、军刀、枪声…… -#camilla.attack.b|在“大陆”号左臂本应所在的位置，有一道几乎难以察觉、呈矛形的闪烁光芒。风声噼啪作响，低声嗡鸣。她发出了一声费力的嘶吼，猛地将手臂向前一挥，一道蕴含致命力量的无形长矛呼啸而出 -#camilla.attack.c|“大陆”将一根参差不齐的铁钉刺入她喉咙上的一道旧疤痕，当她张开嘴时，无情的寒冬便倾泻而出 -#camilla.attack.d|大陆用一种纯粹冰冷、诡异的声音命令我投降。我的血液瞬间凝固，而她正向我逼近 -#camilla.attack.e|寒冬从大陆中喷薄而出，向我扑来。我挡开了她最初的几击，但我的反应却越来越迟钝，动作也越来越慢 -@",
+	"linked" : [
+		
+	    {
+		"id": "duelling.respond.edge.proterant"
+	    },
+		
+	    {
+		"id": "duelling.respond.forge.proterant"
+	    },
+		
+	    {
+		"id": "duelling.respond.edgeforge.proterant"
+	    },
+		
+		{
+		"id": "duelling.respond.heart.proterant"
+		},
+		
+		{
+		"id": "duelling.respond.edgeheart.proterant"
+		},
+		
+		{
+		"id": "duelling.skill.deflect.proterant",
+		},
+		
+		{
+		"id": "duelling.wounded.proterant"
+	    },
+		
+		{
+		"id" : "edgelong.attack.you.nodefense"	
+		}
+		],
+	"alt" : []
+    },
+	
+    {
+	"id": "duelling.respond.edge.proterant",
+	"warmup" : 5,
+	"aspects$add" : {"killfriend": 1},
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.camilla",
+		"chance" : 40
+	    }
+	]
+	},
+	
+    {
+	"id": "duelling.respond.forge.proterant",
+	"warmup" : 5,
+	"aspects$add" : {"killfriend": 1},
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.camilla",
+		"chance" : 40
+	    }
+	]
+	},
+	
+    {
+	"id": "duelling.respond.edgeforge.proterant",
+	"warmup" : 5,
+	"aspects$add" : {"killfriend": 1},
+	"inductions$prepend": [
+	    {
+		"id": "produce.opening.camilla",
+		"chance" : 40
+	    }
+	]
+	},
+	
+    {
+	"id": "edgelong.spitout.wounds",
+	"inductions$append" : [
+		{
+			"id": "produce.trauma"
+		}
+		]
+	},
+	
+    {
+	"id": "edgelong.spitout.wounds.contemnant",
+	"inductions$append" : [
+		{
+			"id": "produce.trauma"
+		}
+		]
+	},
+	
+	{
+    "id": "exile.attacks",
+	"linked" : [
+	    {
+		"id": "exile.respond.friend.immortal"
+	    },
+	    {
+		"id": "exile.respond.edge"
+	    },
+	    {
+		"id": "exile.respond.grail"
+	    },
+	    {
+		"id": "exile.respond.edgegrail"
+	    },
+		{
+		"id": "exile.woundsyou"
+	    }
+		],
+	"alt" : []
+    },
+	
+    {
+	"id": "exile.respond.edge",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "exile.respond.grail",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "exile.respond.edgegrail",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "exile.friend.immortal",
+	"warmup" : 5
+	},
+	
+	{
+    "id": "exile.attacks.pre",
+	"linked$prepend" : [
+		{
+			"id": "exile.feint",
+			"chance" : 25
+		}
+		]
+    },
+	
+    {
+	"id": "foe.attacks",
+	"linked" : [
+		{
+		"id": "foe.respond.friend.immortal"
+	    },
+	    {
+		"id": "foe.respond.edge"
+	    },
+	    {
+		"id": "foe.respond.lantern"
+	    },
+	    {
+		"id": "foe.respond.edgelantern"
+	    },
+	    {
+		"id": "foe.woundsyou"
+	    }
+	],
+	"alt" : []
+	},
+	
+    {
+	"id": "foe.respond.friend.immortal",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "foe.respond.edge",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "foe.respond.lantern",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "foe.respond.edgelantern",
+	"warmup" : 5
+	},
+	
+	{
+    "id": "foe.attacks.pre",
+	"linked$prepend" : [
+		{
+			"id": "foe.feint",
+			"chance" : 25
+		}
+		]
+    },
+	
+	{
+    "id": "fightingsergei.longattack.pre",
+	"linked$prepend" : [
+		{
+			"id": "sergei.feint",
+			"chance" : 25
+		}
+		]
+    },
+	
+    {
+	"id": "fightingsergei.longattack",
+	"linked" : [
+	    {
+		"id": "fightingsergei.skill.deflect"
+	    },
+	    {
+		"id": "fightingsergei.respond.edge"
+	    },
+	    {
+		"id": "fightingsergei.respond.forge"
+	    },
+	    {
+		"id": "fightingsergei.respond.edgeforge"
+	    },
+	    {
+		"id": "fightingsergei.wounded"
+	    }
+	],
+	"alt" : []
+	},
+	
+    {
+	"id": "fightingsergei.skill.deflect",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "fightingsergei.respond.edge",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "fightingsergei.respond.forge",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "fightingsergei.respond.edgeforge",
+	"warmup" : 5
+	},
+	
+    {
+	"id": "fightingsergei.cycle",
+	"inductions$append" : [
+	
+		{
+			"id": "sergei.phase.one.enemies"
+		},
+		
+		{
+			"id": "sergei.phase.two.enemies"
+		}
+		
+		]
+	},
+	
+    {
+	"id": "duelling.wounded",
+	"requirements$add": {"duel.wilhelm" : 1}
+	},
+	
+    {
+	"id": "duelling.wounded.proterant",
+	"requirements$add": {"duel.camilla.proterant" : 1}
+	},
+	
+    {
+	"id": "duelling.cycle",
+	"grandreqs" : {"([foe.wilhelm] || [duel.wilhelm] || [wilhelm])": 1},
+	"inductions$append" : [
+		{
+			"id": "summon.camilla.musicstart"
+		}
+		]
+	},
+	
+    {
+	"id": "edgelong.cycle",
+	"requirements$add": {"long.bossfight.marker" : -1}
+	},
+	
+    {
+	"id": "duelling.cycle.proterant",
+	"grandreqs" : {"([foe.camilla] || [duel.camilla.proterant] || [camilla])": 1},
+	"inductions$append" : [
+		{
+			"id": "summon.wilhelm.musicstart"
+		}
+		]
+	},
+	
+    {
+	"id": "edgelong.attack.you.nodefense",
+	"effects$add" : {
+		"decision": -99
+	},
+	"linked$append" : [
+		{
+			"id": "duelling.cycle"
+		},
+		
+		{
+			"id": "duelling.cycle.proterant"
+		}
+		]
+	},
+	
+	{
+	"id": "operate.strike.edgelong.success.complete",
+	"extantreqs$add" : {
+		"duel.wilhelm" : 1
+		}
+	},
+	
+	{
+	"id": "operate.strike.edgelong.success.complete.proterant",
+	"extantreqs$add" : {
+		"duel.camilla.proterant" : 1
+		}
+	},
+	
+    {
+	"id": "produce.opening",
+	"grandreqs$add" : {
+		"([~/visible:duel.wilhelm] = 1) || ([~/visible:duel.camilla.proterant] = 1) || ([~/visible:foe.sergei] = 1)": 1
+		},
+	"grandreqs$add" : {
+		"long.bossfight.marker" : -1
+		}
+    },
+	
+    {
+	"id": "contemnant.usechallenge",
+	"grandreqs$add" : {
+		"([foe.exile] = 1) || ([foe.duffoure] = 1)": 1
+		}
+    },
+	
+    {
+	"id": "edgelong.attack.you",
+	"alt$prepend" : [
+		{
+			"id": "wilhelm.usechallenge"
+		},
+		
+		{
+			"id": "camilla.usechallenge"
+		}
+		]
+	},
+	
+    {
+	"id": "find.side.camilla",
+	"extantreqs$add" : {
+		"mark.victory" : -1,
+		"foe.wilhelm" : -1,
+		"lake.here" : -1,
+		"long.blocker": -1
+	}
+	},
+	
+    {
+	"id": "find.side.wilhelm",
+	"extantreqs$add" : {
+		"mark.victory" : -1,
+		"foe.camilla" : -1,
+		"craterfield.here": -1,
+		"long.blocker": -1
+	}
+	},
+	
+	{
+    "id": "recon.sobibor.lowtrauma",
+	"internaldeck$dictedit" : {
+    "spec$append": [
+		"op.time.night"
+        ]
+	}
+    },
+	
+	{
+    "id": "recon.sobibor.hightrauma",
+	"internaldeck$dictedit" : {
+    "spec$append": [
+		"op.time.night"
+        ]
+	}
+    },
+	
+	{
+    "id": "find.side.wilhelm",
+	"extantreqs$add" : {
+		"side.wilhelm" : -1
+	},
+	"maxexecutions" : 99
+    },
+	
+	{
+    "id": "find.side.camilla",
+	"extantreqs$add" : {
+		"side.camilla" : -1
+	},
+	"maxexecutions" : 99
+    },
+	
+    {
+	"id": "resupply.startup",
+	"extantreqs$add" : {
+		"requisitioning" : -1
+		}
+	},
+	
+	{
+    "id": "spit.nospace.penalty",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "otherworldly" : 1 }
+			}
+		}
+    },
+	
+    {
+	"id": "travel.warzone.sector.a",
+	"extantreqs$add" : {
+		"long.bossfight.marker" : -1
+		}
+	},
+	
+    {
+	"id": "travel.warzone.sector.a.proterant",
+	"extantreqs$add" : {
+		"long.bossfight.marker" : -1
+		}
+	},
+	
+    {
+	"id": "travel.warzone.sector.b",
+	"extantreqs$add" : {
+		"long.bossfight.marker" : -1
+		}
+	},
+	
+    {
+	"id": "travel.warzone.sector.b.proterant",
+	"extantreqs$add" : {
+		"long.bossfight.marker" : -1
+		}
+	},
+	
+    {
+	"id": "heartinduction",
+	"extantreqs$add" : {
+		"induction.halter" : 1
+		}
+	},
+	
+    {
+	"id": "lanterninduction",
+	"extantreqs$add" : {
+		"induction.halter" : 1
+		}
+	},
+	
+    {
+	"id": "grailinduction",
+	"extantreqs$add" : {
+		"induction.halter" : 1
+		}
+	},
+	
+	{
+    "id": "time.first.obdurant",
+	"internaldeck$dictedit" : {
+    "draws" : 2
+		}
+    },
+	
+	{
+    "id": "time.first.proterant",
+	"internaldeck$dictedit" : {
+    "draws" : 2
+		}
+    },
+	
+    {
+	"id": "long.arrival.camilla.router",
+	"effects$add" : {
+		"long.here.already": 1
+		}
+	},
+	
+    {
+	"id": "long.arrival.wilhelm.router",
+	"effects$add" : {
+		"long.here.already": 1
+		}
+	},
+	
+    {
+	"id": "long.arrival.sergei.router",
+	"effects$add" : {
+		"long.here.already": 1
+		}
+	},
+	
+    {
+	"id": "sergei.usedinsight",
+	"requirements$add" : {
+		"foe.sergei" : 1
+		}
+	},
+	
+    {
+	"id": "camilla.here",
+	"requirements$add" : {
+		"foe.sergei" : -1
+		}
+	},
+	
+    {
+	"id": "wilhelm.here",
+	"requirements$add" : {
+		"foe.sergei" : -1
+		}
+	},
+	
+    {
+	"id": "develophopelessness.allthree",
+	"tabletopimage": "table_wood.antithesis",
+	"tableleather": "tablecover.contemnant.antithesis",
+	"tablelegs": "table_edge.antithesis"
+	},
+	
+	{
+	"id": "enemy.cycle", 
+	"$incompatible": [ "3713855248" ],
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"2$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 +[~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		},
+	"linked$prepend" : [
+		{
+			"id": "enemy.cycle.afraid_create.retribution",
+			"chance" : "[~/extant:retribution]"
+		}
+		],
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "20 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"1$dictedit" : 	 { "chance": "20 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "enemy.cycle", 
+	"$depends": [ "3713855248" ],
+	"linked$listedit": { 
+		"3$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"4$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		},
+	"linked$prepend" : [
+		{
+			"id": "enemy.cycle.afraid_create.retribution",
+			"chance" : "[~/extant:retribution]"
+		}
+		],
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"1$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"2$dictedit" : 	 { "chance": "60 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"3$dictedit" : 	 { "chance": "20 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"4$dictedit" : 	 { "chance": "20 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+    {
+	"id": "visit.shrinewolf.gethopelessness",
+	"tableleather": "tablecover.contemnant_kopia",
+	},
+	
+	{
+	"id": "soviet.cycle",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "50+[~/visible:strife.tracker]*3" },
+		"4$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 + [~/visible:strife.tracker]*3" },
+		"5$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 + [~/visible:strife.tracker]*3" },
+		"6$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 + [~/visible:strife.tracker]*3" }
+		}
+	},
+	
+	{
+	"id": "king.cycle",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 +  [~/visible:strife.tracker]*3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "legion.cycle",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 +  [~/visible:strife.tracker]*3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "legion.pickaction.router",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		},
+	"requirements": {}
+	},
+	
+	{
+	"id": "king.pickaction.router",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		},
+	"requirements": {}
+	},
+	
+	{
+	"id": "soviet.pickaction.aggro.low",
+	"requirements": {}
+	},
+	
+	{
+	"id": "soviet.pickaction.aggro.high",
+	"requirements": {}
+	},
+	
+	{
+	"id": "soviet.act.neutral",
+	"requirements": {}
+	},
+	
+	{
+	"id": "enemy.pickaction.router",
+	"requirements": {},
+	"grandReqs": {
+		"[readiness.token] >= 2 || [~/extant:resolution] >= 7 || [~/extant:retribution] >= 7": 1
+		}
+	},
+	
+	{
+	"id": "buildbarracks",
+	"effects$add" : {"provisions":-2}
+	},
+	
+	{
+    "id": "exile.begin.banishtrauma",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"greedy": false
+			}
+		}
+    },
+	
+	{
+    "id": "exile.begin.banishhindrance",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"required$add" : { "hindrance.active" : 1 },
+			"greedy": false
+			}
+		},
+	"effects$add" : {
+		"hindrance.active" : -99
+		}
+    },
+	
+	{
+	"id": "corrivality.cycle", 
+	"$incompatible": [ "3713855248" ],
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "20+[~/visible:strife.tracker]*3" }
+		}
+	},
+	
+	{
+	"id": "corrivality.cycle", 
+	"$depends": [ "3713855248" ],
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "20+[~/visible:strife.tracker]*3" }
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"1$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"2$dictedit" : 	 { "chance": "25 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"3$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"4$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "corrivality.cycle.exile",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30+[~/visible:strife.tracker]*3" }
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "40+[~/visible:strife.tracker]*3" }
+		}
+	},
+	
+	{
+	"id": "corrivality.cycle.foe",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30+[~/visible:strife.tracker]*3" }
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "40+[~/visible:strife.tracker]*3" }
+		}
+	},
+	
+	{
+	"id": "wolfcycle.cycle",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "20+[~/visible:strife.tracker]*3" }
+		}
+	},
+	
+	{
+	"id": "wolfcycle.cycle.rage",
+	"linked$listedit": { 
+		"2$dictedit" : 	 { "chance": "30-[~/visible:strife.tracker]*3" }
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "35+[~/visible:strife.tracker]*3" }
+		}
+	},
+	
+	{
+	"id": "side.startup",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		}
+	},
+	
+	{
+	"id": "encounteradditional",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"}
+		},
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
+			}
+		}
+	},
+	
+	{
+	"id": "respondadditional.aerial",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.ap",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.edge",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.winter",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.heart",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.grail",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.moth",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.lantern",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.forge",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.knock",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.forgemoth",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.edgelantern",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.edgewinter",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.edgeforge",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.knocklantern",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.forgeheart",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.winterlantern",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.edgeknock",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.edgeheart",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.edgegrail",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.winterheart",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondadditional.lanternheart",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "encounteradditional.failure",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"3$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		}
+	},
+	
+	{
+	"id": "encounteradditional.failure.makecasualty",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		}
+	},
+	
+	{
+	"id": "encounternative",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"}
+		}
+	},
+	
+	{
+	"id": "encounternative.lucky",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		}
+	},
+	
+	{
+	"id": "respondnative.aerial",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.edgegrail",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.ap",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.edge",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.winter",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.heart",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.grail",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.moth",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.lantern",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.forge",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.knock",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.forgemoth",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.edgelantern",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.edgewinter",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.edgeforge",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.knocklantern",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.forgeheart",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.winterlantern",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.edgeknock",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.edgeheart",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.edgegrail",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.winterheart",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "respondnative.lanternheart",
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
+		},
+	"inductions$append" : [
+		 {
+		"id": "producefatiguing",
+		"chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"op": 1,
+			"supplies" : 1
+		    }
+		}
+	    }
+		]
+	},
+	
+	{
+	"id": "produce.foemonster.draw.obdurant",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "60 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "produce.foemonster.draw.proterant",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "60 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "lake.enemyattack.prep",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "60 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "reinforcements.pick",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "60 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.aerial",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.ap",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.edge",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.winter",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.heart",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.grail",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.moth",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.lantern",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.forge",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.knock",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.forgemoth",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.edgelantern",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.edgewinter",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.edgeforge",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.knocklantern",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.knocklantern",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.edgeknock",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.edgeheart",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.edgegrail",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.edgemoth",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.winterheart",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "defend.lanternheart",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "warder.stasis",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "70 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attack.nodefense",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attack.conclude",
+	"alt$listedit": { 
+		"1$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"4$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attack.conclude.growth.continue",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"3$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "destroysupplies.nodefense",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		},
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "hasebrehel" : 1 }
+			}
+		}
+	},
+	
+	{
+	"id": "destroysupplies.conclude",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "infrastructure.nodefense",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.hidden",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "70 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 + [vivienne.mark]*60" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.moth",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.lantern",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.forge",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edge.jerome",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edge.lionel",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edge",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edge.officer",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.winter",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.heart",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.grail",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.knock",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.aerial",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.forgemoth",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edgelantern.jerome",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edgelantern",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edgewinter",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edgeforge",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.knocklantern",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edgeknock.lionel",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edgeknock",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edgeheart",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edgegrail",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.edgemoth",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attackenemy.winterheart",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+    {
+	"id": "recon.wasteland.findfarm",
+	"extantreqs$add" : {
+		"contemnant.story" : 1
+		},
+	"grandreqs$add": {
+	    "([wasteland.b.contemnant] || [wasteland.a.contemnant])": 1,
+		}
+	},
+	
+	{
+	"id": "spit.getreinforcements.withcomms",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 + [husk] * 5 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "spit.getreinforcements.nocomms",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "20 + [readiness.token] * 5 + [husk] * 5 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{ 
+	"id": "getreinforcements.success", 
+	"$incompatible": [ "3713855248" ],
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "getreinforcements.success", 
+	"$depends": [ "3713855248" ],
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "15 + [~/visible:corrivality.exile] * 15 - [~/visible:corrivality.foe] * 15" },
+	"1$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{
+	"id": "operate.church.edge",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"  }
+		},
+	"inductions": [
+	    {
+		"id": "bad.reputation.router",
+		"chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"
+	    },
+		
+		{
+		"id": "startup.desertion.proterant",
+		"chance": "20 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"
+	    }
+	]
+	},
+	
+	{
+	"id": "operate.farm.edge",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"  }
+		},
+	"inductions": [
+	    {
+		"id": "bad.reputation.router",
+		"chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"
+	    },
+		
+		{
+		"id": "startup.desertion.proterant",
+		"chance": "20 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"
+	    }
+	]
+	},
+	
+	{
+	"id": "operate.farm.grail",
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"  }
+		},
+	"inductions": [
+	    {
+		"id": "bad.reputation.router",
+		"chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"
+	    },
+		
+		{
+		"id": "startup.desertion.proterant",
+		"chance": "20 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"
+	    }
+	]
+	},
+	
+	{
+	"id": "spit.nospace.penalty",
+	"linked$listedit": { 
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "spit.lefttoelements.penalty",
+	"linked$listedit": { 
+		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "visit.shrinelionsmith.getmaccabee",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "0" }
+		}
+	},
+	
+    {
+	"id": "hide.startup.general",
+	"linked$append" : [
+		{
+			"id": "spawn.vivienne",
+			"chance" : 2
+		}
+		]
+	},
+	
+	{
+	"id": "foe.elusive.conceal",
+	"linked$append" : [
+		{
+			"id" : "foe.vivienne.kill"
+		}
+		]
+	},
+	
+	{
+	"id": "constructions.b.craftlabhite.tiger",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "constructions.b.craftspathiurus",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "constructions.b.crafthesukhine",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "constructions.b.craftechidniform",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "constructions.b.craftskaptodon.spathiurus",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "constructions.b.craftskaptodon.hesukhine",
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+    {
+	"id": "attackenemy.hidden.useeye",
+	"requirements$add": {"weakened" : -1},
+	"actionid": "abandon",
+	"aspects": {
+	    "revealidentity": 1,
+		"weaken" : 1,
+	    "fatiguing": 1
+	}
+	},
+	
+    {
+	"id": "produce.flames",
+	"linked$append" : [
+		{
+			"id": "burn.down.building",
+			"chance": "30 + [~/visible:wolf.rage] * 20"
+		}
+		]
+	},
+	
+	{
+	"id": "communicate.defeated.sergei",
+	"extantreqs$add": {"obdurant.story" : 1}
+	},
+	
+	{
+	"id": "visit.shrinelionsmith.getmonsterlore",
+	"requirements$add": {"shrinelionsmith" : 1}
+	},
+	
+    {
+	"id": "upgrade.namedally",
+	"requirements$add": {"wounded" : -1}
+	},
+	
+	{
+	"id": "abandon.ally.contemnant",
+	"requirements$add": {"hired" : -1}
+	},
+	
+	{
+	"id": "proterant.setup.f",
+	"effects$remove" : ["friend.medics", "friend.scouts"],
+	"effects$add" : {"friend.partisan.physician":1, "friend.partisan.sniper" : 1, "friend.partisan.sapper" : 1, "friend.partisan.infiltrator" : 1, "proterant.reputation" : 1}
+	},
+	
+	{
+	"id": "hint.getreinforcements.noroom",
+	"extantreqs$add" : {
+		"proterant.story" : -1
+		}
+	},
+	
+	{
+	"id": "getreinforcements.withcomms",
+	"extantreqs$add" : {
+		"proterant.story" : -1
+		}
+	},
+	
+	{
+	"id": "getreinforcements.nocomms",
+	"extantreqs$add" : {
+		"proterant.story" : -1
+		}
+	},
+	
+	{ 
+	"id": "recon.bialystok.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.bialystok",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.vilna.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.vilna",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.minsk.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.minsk",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.vitebsk.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.vitebsk",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.orsha.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.orsha",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.smolensk.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.smolensk",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.vyazma.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.vyazma",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.rzhev.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.rzhev",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.bryansk.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.bryansk",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.kyiv.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.kyiv",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.kursk.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.kursk",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.livny.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.livny",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.voronezh.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.voronezh",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.kharkov.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.kharkov",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.uman.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.uman",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.odessa.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.odessa",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.perekop.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.perekop",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.izyum.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.izyum",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.stalingrad.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.stalingrad",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.wasteland.a.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.wasteland.a",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.wasteland.b.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.wasteland.b",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.lake.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.lake",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "scout.battlehunger.enemies.wasteland",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "scout.battlehunger.enemies.highstrife",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "scout.battlehunger.enemies.lowstrife",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.wasteland.a.italy.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.wasteland.a.italy",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.wasteland.b.italy.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.wasteland.b.italy",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.craterfield.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "70 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+	"1$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.craterfield",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "70 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+	"1$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.paestum.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.paestum",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.potenza.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.potenza",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.salerno.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.salerno",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.benevento.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.benevento",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.napoli.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.napoli",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.campobasso.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.campobasso",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.termoli.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.termoli",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.minturno.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.minturno",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.gaeta.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.gaeta",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.montecassino.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.montecassino",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.pontecorvo.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.pontecorvo",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.ortucchio.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.ortucchio",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.ortona.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.ortona",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.valmontone.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.valmontone",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.velletri.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.velletri",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.anzio.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.anzio",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.rome.scouts",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	},
+	
+	{ 
+	"id": "recon.rome",
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
+		} 
+	}
+
+]
+}

@@ -1,0 +1,1175 @@
+{
+"elements": [
+	{
+	"id": "friend.yuri",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.impassioned" : 1,
+		"friend.zealot" : 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+			"warzone" : 1,
+			"memento" : 1,
+			"exhausted" : 1,
+			"weapon" : 1
+		},
+		"forbidden": {
+			"lore" : 1,
+			"edgelong" : 1,
+			"otherworldly" : 1,
+			"friend.artillery.exhausted" : 1,
+			"friend.artillery.weaken.exhausted" : 1,
+			"friend.artillery.afraid.exhausted" : 1,
+			"friend.tanks.exhausted" : 1,
+			"friend.tanks.weaken.exhausted" : 1,
+			"friend.tanks.afraid.exhausted" : 1,
+			"friend.bombers.exhausted" : 1,
+			"friend.bombers.weaken.exhausted" : 1,
+			"friend.bombers.weaken.exhausted" : 1,
+			"friend.fighter_aircraft.exhausted" : 1,
+			"friend.fighter_aircraft.weaken.exhausted": 1
+			}
+		}
+	],
+	"xtriggers$add": {
+	    "inspireexhaust": [
+		{
+		    "id": "friend.yuri.exhausted"
+		},
+		
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+		"reassign": [
+		{
+		    "id": "friend.yuri.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.yuri.exhausted",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.impassioned" : 1,
+		"friend.zealot" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.yuri.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ],
+		
+		"halftired": {
+		  "morpheffect": "timeset",
+		  "level": 90000
+		}
+
+	}
+	},
+	
+	{
+	"id": "friend.yuri.wounded",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.impassioned" : 1,
+		"friend.zealot" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.yuri.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.yuri.away",
+	"label": "尤里·谢连科准尉 (客场)",
+	"description": "一位态度轻蔑的<i>政委</i>，一股狂热充斥着他的脑海。 [将这张卡牌放入你的“通讯”插槽，即可召回你的同伴。]",
+	"aspects": {
+	    "friend.away": 1
+	},
+	"icon" : "side.yuri",
+	"xtriggers" : {
+		"recall" : "friend.yuri"
+	},
+	"overlays": [
+    {
+      "image": "side.yuri",
+      "grayscale": true,
+      "color": "#000000"
+    }
+	],
+	"slots": [
+	{
+		"id": "needsfriend",
+		"actionid": "communicate",
+		"label": "朋友",
+		"required": {
+			"friend" : 1
+		},
+		"forbidden": {
+			"edgelong" : 1,
+			"otherworldly" : 1
+		}
+	}
+	]
+	},
+	
+	{
+	"id": "friend.iosef",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.scavenger" : 1,
+		"friend.observant" : 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+			"warzone" : 1,
+			"memento" : 1,
+			"foe.corpses" : 1,
+			"foe" : 1,
+			"tool" : 1
+		},
+	},
+	],
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.iosef.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.iosef.exhausted",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.scavenger" : 1,
+		"friend.observant" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.iosef.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.iosef.wounded",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.scavenger" : 1,
+		"friend.observant" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.iosef.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{  
+	"id": "friend.iosef.away",  
+	"label": "约瑟夫·沃洛金",  
+	"description": "一位瘦长，结实的<i>惩戒营</i>幸存者，曾被用光荣的兵役惩罚。 [将这张卡牌放入“沟通”槽中，即可召回你的伙伴。]",  
+	"aspects": {  
+	    "friend.away": 1  
+	},  
+	"icon" : "side.iosef",  
+	"xtriggers" : {  
+		"recall" : "friend.iosef"  
+	},  
+	"overlays": [  
+    {  
+      "image": "side.iosef",  
+      "grayscale": true,  
+      "color": "#000000"  
+    }  
+	],  
+	"slots": [  
+	{  
+		"id": "needsfriend",  
+		"actionid": "communicate",  
+		"label": "朋友",  
+		"required": {  
+			"friend" : 1  
+		},  
+		"forbidden": {  
+			"edgelong" : 1,  
+			"otherworldly" : 1  
+		}  
+	}  
+	]  
+	},
+	
+	{
+	"id": "friend.konstantin",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.healer" : 1,
+		"friend.unorthodox" : 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+			"warzone" : 1,
+			"memento" : 1,
+			"wounded" : 1,
+			"wound.eye" : 1,
+			"wound.hand" : 1,
+			"wound.leg" : 1,
+			"wound.ear" : 1,
+			"tool" : 1
+		},
+	},
+	],
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.konstantin.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.konstantin.exhausted",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.healer" : 1,
+		"friend.unorthodox" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.konstantin.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.konstantin.wounded",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.healer" : 1,
+		"friend.unorthodox" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.konstantin.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{  
+	"id": "friend.konstantin.away",  
+	"label": "康斯坦丁·伊斯梅洛夫医生 (客场)",  
+	"description": "一位战地外科医生，其品行存疑，但水平毋庸置疑。 [将这张卡牌放入“沟通”槽中，即可召回你的伙伴。]",  
+	"aspects": {  
+	    "friend.away": 1  
+	},  
+	"icon" : "side.konstantin",  
+	"xtriggers" : {  
+		"recall" : "friend.konstantin"  
+	},  
+	"overlays": [  
+    {  
+      "image": "side.konstantin",  
+      "grayscale": true,  
+      "color": "#000000"  
+    }  
+	],  
+	"slots": [  
+	{  
+		"id": "needsfriend",  
+		"actionid": "communicate",  
+		"label": "朋友",  
+		"required": {  
+			"friend" : 1  
+		},  
+		"forbidden": {  
+			"edgelong" : 1,  
+			"otherworldly" : 1  
+		}  
+	}  
+	]  
+	},  
+	
+	{
+	"id": "friend.nikolai",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.recycler" : 1,
+		"friend.morbid" : 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+			"warzone" : 1,
+			"memento" : 1,
+			"remnant" : 1,
+			"damaged": 1,
+			"tool" : 1
+		},
+	},
+	],
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.nikolai.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.nikolai.exhausted",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.recycler" : 1,
+		"friend.morbid" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.nikolai.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ],
+		
+		"halftired": {
+		  "morpheffect": "timeset",
+		  "level": 90000
+		}
+	}
+	},
+	
+	{
+	"id": "friend.nikolai.wounded",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.recycler" : 1,
+		"friend.morbid" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.nikolai.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{  
+	"id": "friend.nikolai.away",  
+	"label": "尼古拉·别利亚耶夫 (客场)",  
+	"description": "一位孤僻的，面无表情的炮兵，他严格地分配着说出的话语。 [将这张卡牌放入“沟通”槽中，即可召回你的伙伴。]",  
+	"aspects": {  
+	    "friend.away": 1  
+	},  
+	"icon" : "side.nikolai",  
+	"xtriggers" : {  
+		"recall" : "friend.nikolai"  
+	},  
+	"overlays": [  
+    {  
+      "image": "side.nikolai",  
+      "grayscale": true,  
+      "color": "#000000"  
+    }  
+	],  
+	"slots": [  
+	{  
+		"id": "needsfriend",  
+		"actionid": "communicate",  
+		"label": "朋友",  
+		"required": {  
+			"friend" : 1  
+		},  
+		"forbidden": {  
+			"edgelong" : 1,  
+			"otherworldly" : 1  
+		}  
+	}  
+	]  
+	},  
+	
+	{
+	"id": "friend.daria",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.enterprising" : 1,
+		"friend.scavenger" : 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+			"warzone" : 1,
+			"memento" : 1,
+			"warzone.current" : 1,
+			"foe.corpses" : 1,
+			"weapon" : 1
+		},
+	},
+	],
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.daria.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.daria.exhausted",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.enterprising" : 1,
+		"friend.scavenger" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.daria.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.daria.wounded",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.enterprising" : 1,
+		"friend.scavenger" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.daria.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{  
+	"id": "friend.daria.away",  
+	"label": "达莉亚·科尔西诺 (客场)",  
+	"description": "一位小有名气的游击队员，那些见过她战斗的人尊称她为“剃刀女士”。在这场战争之前，她或许是理发师，或许是囚犯，或许是杀人者，但她从未肯定任何猜测。 [将这张卡牌放入“沟通”槽中，即可召回你的伙伴。]",  
+	"aspects": {  
+	    "friend.away": 1  
+	},  
+	"icon" : "side.daria",  
+	"xtriggers" : {  
+		"recall" : "friend.daria"  
+	},  
+	"overlays": [  
+    {  
+      "image": "side.daria",  
+      "grayscale": true,  
+      "color": "#000000"  
+    }  
+	],  
+	"slots": [  
+	{  
+		"id": "needsfriend",  
+		"actionid": "communicate",  
+		"label": "朋友",  
+		"required": {  
+			"friend" : 1  
+		},  
+		"forbidden": {  
+			"edgelong" : 1,  
+			"otherworldly" : 1  
+		}  
+	}  
+	]  
+	},  
+	
+	{
+	"id": "friend.fiorenza",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.impassioned" : 1,
+		"friend.amicable" : 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+			"warzone" : 1,
+			"memento" : 1,
+			"exhausted" : 1,
+			"tool" : 1
+		},
+		"forbidden": {
+			"lore" : 1,
+			"weapon" : 1,
+			"edgelong" : 1,
+			"otherworldly" : 1,
+			"friend.artillery.exhausted" : 1,
+			"friend.artillery.weaken.exhausted" : 1,
+			"friend.artillery.afraid.exhausted" : 1,
+			"friend.tanks.exhausted" : 1,
+			"friend.tanks.weaken.exhausted" : 1,
+			"friend.tanks.afraid.exhausted" : 1,
+			"friend.bombers.exhausted" : 1,
+			"friend.bombers.weaken.exhausted" : 1,
+			"friend.bombers.weaken.exhausted" : 1,
+			"friend.fighter_aircraft.exhausted" : 1,
+			"friend.fighter_aircraft.weaken.exhausted": 1
+			}
+		}
+	],
+	"xtriggers$add": {
+	    "inspireexhaust": [
+		{
+		    "id": "friend.fiorenza.exhausted"
+		},
+		
+		{
+		    "id": "experience.exile.ally",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+		"reassign": [
+		{
+		    "id": "friend.fiorenza.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.fiorenza.exhausted",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.impassioned" : 1,
+		"friend.amicable" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.fiorenza.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	},
+	"induces": [
+	    {
+		"id": "fiorenza.allure",
+		"chance" : 20
+	    }
+	]
+	},
+	
+	{
+	"id": "friend.fiorenza.wounded",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.impassioned" : 1,
+		"friend.amicable" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.fiorenza.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{  
+	"id": "friend.fiorenza.away",  
+	"label": "菲奥伦扎·斯科桑蒂 (客场)",  
+	"description": "一位善良且富有活力的年轻女士，她将她的声音借给了四面楚歌的<i>抵抗运动</i>的战士们。她曾是学生，但现为士兵。 [将这张卡牌放入“沟通”槽中，即可召回你的伙伴。]",  
+	"aspects": {  
+	    "friend.away": 1  
+	},  
+	"icon" : "side.fiorenza",  
+	"xtriggers" : {  
+		"recall" : "friend.fiorenza"  
+	},  
+	"overlays": [  
+    {  
+      "image": "side.fiorenza",  
+      "grayscale": true,  
+      "color": "#000000"  
+    }  
+	],  
+	"slots": [  
+	{  
+		"id": "needsfriend",  
+		"actionid": "communicate",  
+		"label": "朋友",  
+		"required": {  
+			"friend" : 1  
+		},  
+		"forbidden": {  
+			"edgelong" : 1,  
+			"otherworldly" : 1  
+		}  
+	}  
+	]  
+	},  
+	
+	{
+	"id": "friend.lorenzo",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.healer" : 1,
+		"friend.chef" : 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+			"warzone" : 1,
+			"memento" : 1,
+			"foe.corpse.unnatural" : 1,
+			"wounded" : 1,
+			"corpse.beast" : 1,
+			"wound.eye" : 1,
+			"wound.hand" : 1,
+			"wound.leg" : 1,
+			"wound.ear" : 1,
+			"tool" : 1
+		},
+	},
+	],
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.lorenzo.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.lorenzo.exhausted",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.healer" : 1,
+		"friend.chef" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.lorenzo.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ],
+		
+		"halftired": {
+		  "morpheffect": "timeset",
+		  "level": 90000
+		}
+	}
+	},
+	
+	{
+	"id": "friend.lorenzo.wounded",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.healer" : 1,
+		"friend.chef" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.lorenzo.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{  
+	"id": "friend.lorenzo.away",  
+	"label": "洛伦佐·巴斯 (客场)",  
+	"description": "一位老练的厨师，也是一位外科医师代理。作为后者，他可堪一用；但实际上，他的<i>红烩牛肉</i>比他的手术刀救下了更多人。 [将这张卡牌放入“沟通”槽中，即可召回你的伙伴。]",  
+	"aspects": {  
+	    "friend.away": 1  
+	},  
+	"icon" : "side.lorenzo",  
+	"xtriggers" : {  
+		"recall" : "friend.lorenzo"  
+	},  
+	"overlays": [  
+    {  
+      "image": "side.lorenzo",  
+      "grayscale": true,  
+      "color": "#000000"  
+    }  
+	],  
+	"slots": [  
+	{  
+		"id": "needsfriend",  
+		"actionid": "communicate",  
+		"label": "朋友",  
+		"required": {  
+			"friend" : 1  
+		},  
+		"forbidden": {  
+			"edgelong" : 1,  
+			"otherworldly" : 1  
+		}  
+	}  
+	]  
+	},  
+	
+	{
+	"id": "friend.padre",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.priest" : 1,
+		"friend.exorcist" : 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+			"warzone": 1,
+			"memento": 1,
+			"trauma": 1,
+			"foe.undead": 1,
+			"foe.growth": 1,
+			"foe.chasseur": 1,
+			"foe.chasseur.reviving": 1,
+			"tool" : 1
+		}
+	},
+	],
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.padre.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.padre.exhausted",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.priest" : 1,
+		"friend.exorcist" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.padre.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.padre.wounded",
+	"aspects$add": {
+		"friend.named" : 1,
+		"friend.priest" : 1,
+		"friend.exorcist" : 1
+	},
+	"xtriggers$add": {
+		"reassign": [
+		{
+		    "id": "friend.padre.away"
+		},
+		
+		{
+			"id": "friend.getthefuckout",
+			"morpheffect": "setmutation",
+			"level" : 0
+		}
+	    ]
+	}
+	},
+	
+	{  
+	"id": "friend.padre.away",  
+	"label": "鲁杰罗神父 (客场)",  
+	"description": "一位神父，老兵……或许还是除灵师？这位好神父在上一次大战期间还只是牧师，在那时他发誓要除尽他所找到的一切邪恶——世界之内的如此，世界之外的亦然。 [将这张卡牌放入“沟通”槽中，即可召回你的伙伴。]",  
+	"aspects": {  
+	    "friend.away": 1  
+	},  
+	"icon" : "side.padre",  
+	"xtriggers" : {  
+		"recall" : "friend.padre"  
+	},  
+	"overlays": [  
+    {  
+      "image": "side.padre",  
+      "grayscale": true,  
+      "color": "#000000"  
+    }  
+	],  
+	"slots": [  
+	{  
+		"id": "needsfriend",  
+		"actionid": "communicate",  
+		"label": "朋友",  
+		"required": {  
+			"friend" : 1  
+		},  
+		"forbidden": {  
+			"edgelong" : 1,  
+			"otherworldly" : 1  
+		}  
+	}  
+	]  
+	},  
+	
+	{
+	"id": "friend.eva",
+	"aspects$add": {
+		"friend.cannibal" : 1,
+		"friend.morbid" : 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+			"warzone" : 1,
+			"memento" : 1,
+			"remnant" : 1
+		}
+	}
+	]
+	},
+	
+	{
+	"id": "friend.eva.exhausted",
+	"aspects$add": {
+		"friend.cannibal" : 1,
+		"friend.morbid" : 1
+	},
+	"xtriggers$add": {
+		"halftired": {
+		  "morpheffect": "timeset",
+		  "level": 90000
+		}
+	}
+	},
+	
+	{
+	"id": "friend.eva.wounded",
+	"aspects$add": {
+		"friend.cannibal" : 1,
+		"friend.morbid" : 1
+	}
+	},
+	
+	{
+	"id": "friend.vanja",
+	"aspects$add": {
+		"friend.observant" : 1,
+		"friend.longing" : 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+			"warzone" : 1,
+			"memento" : 1,
+			"foe" : 1,
+			"foe.hidden" : 1,
+			"tool" : 1
+		},
+		"forbidden" : {
+			"weakened" : 1
+		}
+	}
+	]
+	},
+	
+	{
+	"id": "friend.vanja.exhausted",
+	"aspects$add": {
+		"friend.observant" : 1,
+		"friend.longing" : 1
+	}
+	},
+	
+	{
+	"id": "friend.vanja.wounded",
+	"aspects$add": {
+		"friend.observant" : 1,
+		"friend.longing" : 1
+	}
+	},
+	
+	{
+	"id": "friend.walther",
+	"aspects$add": {
+		"friend.priest" : 1,
+		"friend.clergyman" : 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+			"warzone" : 1,
+			"memento" : 1,
+			"trauma" : 1,
+			"hindrance.worms": 1,
+		    "hindrance.cannibalism": 1,
+		    "hindrance.dionysian": 1,
+		    "hindrance.apollonian": 1,
+		    "hindrance.nocturnal": 1,
+		    "hindrance.moonspace": 1,
+		    "hindrance.lionsmith": 1,
+		    "hindrance.wolf": 1,
+		    "hindrance.colonel": 1,
+			"tool" : 1
+		}
+	}
+	]
+	},
+	
+	{
+	"id": "friend.walther.exhausted",
+	"aspects$add": {
+		"friend.priest" : 1,
+		"friend.clergyman" : 1
+	},
+	"xtriggers$add": {
+		"halftired": {
+		  "morpheffect": "timeset",
+		  "level": 90000
+		}
+
+	}
+	},
+	
+	{
+	"id": "friend.tibor",
+	"aspects$add": {
+		"friend.healer" : 1,
+		"friend.crafty" : 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+			"warzone" : 1,
+			"memento" : 1,
+			"wounded" : 1,
+			"wound.generic" : 1,
+			"tool" : 1
+		}
+	}
+	]
+	},
+	
+	{
+	"id": "friend.tibor.exhausted",
+	"aspects$add": {
+		"friend.healer" : 1,
+		"friend.crafty" : 1
+	},
+	"xtriggers$add": {
+		"halftired": {
+		  "morpheffect": "timeset",
+		  "level": 90000
+		}
+
+	}
+	},
+	
+	{
+	"id": "friend.tibor.wounded",
+	"aspects$add": {
+		"friend.healer" : 1,
+		"friend.crafty" : 1
+	}
+	}
+	
+]
+}

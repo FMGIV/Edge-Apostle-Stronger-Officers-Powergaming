@@ -1,0 +1,602 @@
+{
+"elements": [
+    {
+	"id" : "allyattackmarker",
+	"label" : "Ally Command Marker",
+	"description" : "Commanded Allies",
+	"lifetime" : 1,
+	"isHidden": true
+	},
+	
+    {
+	"id": "supplies.smokegrenade",
+	"label": "烟雾弹",
+	"description": "拔掉引信，即可制造迷惑、遮蔽和烟雾。非常实用。",
+	"aspects": {
+	    "moth": 6,
+	    "supplies": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	}
+    },
+	
+	{
+	"id" : "capture.infrastructure.marker",
+	"label" : "Infrastructure Attack marker",
+	"description" : "Attacking Infrastructure",
+	"lifetime" : 1,
+	"isHidden": true
+	},
+	
+	{
+	"id" : "destroy.infrastructure.marker",
+	"label" : "Infrastructure Attack marker",
+	"description" : "Attacking Infrastructure",
+	"lifetime" : 1,
+	"isHidden": true
+	},
+	
+	{
+	"id": "decision.enemy.defensive.preparation",
+	"label": "Decision: Prepare Defensive Strategy",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+	
+	{
+	"id": "decision.enemy.offensive.preparation",
+	"label": "Decision: Prepare Offensive Strategy",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "decision": 1
+	}
+    },
+	
+	{
+	"id": "enemy.interference.blocker",
+	"label": "Enemy Interference",
+	"lifetime": 1,
+	"isHidden": true
+    },
+	
+	{
+	"id": "buffcounter",
+	"label": "Enemy Buffs",
+	"lifetime": 1,
+	"isHidden": true
+    },
+	
+	{
+	"id": "marinette.gone",
+	"label": "玛琳内特，阵亡？",
+	"description" : "那只狼似乎吞噬了这位利格利亚人。这究竟是否意味着她真的死了，则是另一个问题，但我总觉得，在这片梦境的这一边，我再也见不到她了。[此卡计为两个“纷争”。玛琳内特将不再出现在“废墟之国”追捕你。]",
+	"aspects": {
+	    "strife.tracker": 2
+	}
+    },
+	
+	{  
+	"id": "marinette.opening", 
+	"icon" : "opening.foe",
+	"label": "击杀利格利安？",  
+	"description": "我手头没有任何东西能彻底解决‘干巫’的问题。不过‘狼’或许有办法。",  
+	"aspects": {  
+		"op": 1  
+	},  
+	"slots": [  
+		{  
+			"id": "needswolfdivided1",  
+			"label": "权威机构",  
+			"required": {  
+				"op.wolfdivided": 1  
+			}  
+		},
+		
+		{  
+			"id": "needswolfdivided2",   
+			"label": "权威机构",   
+			"required": {  
+				"op.wolfdivided": 1  
+			}  
+		},
+		
+		{  
+			"id": "Desire",   
+			"label": "欲望",  
+			"required": {  
+				"antithesis": 1  
+			}  
+		},
+		
+		{  
+			"id": "needsunmake",  
+			"label": "电源",  
+			"required": {  
+				"skill.unmake": 1  
+			}  
+		},
+		
+		{  
+			"id": "needsmarinette",  
+			"label": "玛丽奈特",  
+			"required": {  
+				"foe.marinette.recovering": 1,
+				"foe.marinette" : 1
+			}  
+		}  
+	],
+	"unique": true
+	},
+	
+    {
+	"id": "foe.wrake.sergei",
+	"label": "戕狼",
+	"description": "有些痛苦过于强烈，以至于这些痛苦比身受痛苦之人存在得更久——而这失去容器的移动酷刑正急于寻求新的居所。你不会希望这居所是你的。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "otherworldly": 1,
+	    "needswinter": 14,
+	    "needswinterheart": 6
+	},
+	"xtriggers": {
+	    "refresh": "foe.wrake",
+	    "killfoe": "husk",
+	    "concealidentity": "foe.wrake.sergei.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.wrake",
+    },
+	
+    {
+	"id": "foe.wrake.sergei.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.wrake.sergei.hidden",
+	    "killfoe": "agony",
+	    "revealidentity": "foe.wrake.sergei",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "foe.cold.sergei",
+	"label": "寒冷",
+	"description": "‘铁食者’周围的天气似乎异常活跃且充满敌意。在这反常的严寒中，人们会冻死，甚至来不及发出半声尖叫。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "needsforge": 8,
+	    "needsheart": 8
+	},
+	"xtriggers": {
+	    "killfoe": "husk",
+	    "concealidentity": "foe.cold.sergei.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsforge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsheart",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ]
+	},
+	"icon": "foe.cold",
+    },
+	
+    {
+	"id": "foe.cold.sergei.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.cold.sergei.hidden",
+	    "killfoe": "agony",
+	    "revealidentity": "foe.cold.sergei",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "needswinterheart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "foe.wolves.sergei",
+	"label": "狼",
+	"description": "这里是老狼的猎犬。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "needsedge": 10,
+	    "foe.coordinated": 1
+	},
+	"xtriggers": {
+	    "killfoe": "provisions",
+	    "concealidentity": "foe.wolves.sergei.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.watchdog"
+    },
+	
+    {
+	"id": "foe.wolves.sergei.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.wolves.sergei.hidden",
+	    "killfoe": "provisions",
+	    "revealidentity": "foe.wolves.sergei",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "foe.grame.sergei",
+	"label": "忿狼",
+	"description": "如果说‘狼之碎片’是灵魂的绝望超越了它的光芒，并掀起吞噬精神的痛苦，那么‘狼之怨’便是那些未得报复、未获解答之人的怒火，在内心深处暗自翻腾、日渐恶化。只有狼才知道‘铁食者’究竟拥有多少这样的怨念。",
+	"inherits": "foe.template",
+	"aspects": {
+	    "needsedgewinter": 10,
+	    "foe.commander": 1
+	},
+	"xtriggers": {
+	    "killfoe": "husk",
+	    "concealidentity": "foe.grame.sergei.hidden",
+	    "takeadditional": [
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+	    ],
+	    "makeadditional": [
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+	    ],
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.grame"
+    },
+	
+    {
+	"id": "foe.grame.sergei.hidden",
+	"label": "未知敌军",
+	"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+	"inherits": "foe.template",
+	"aspects": {
+	    "foe.hidden": 1
+	},
+	"xtriggers": {
+	    "refresh": "foe.grame.sergei.hidden",
+	    "killfoe": "husk",
+	    "revealidentity": "foe.grame.sergei",
+	    "weaken": [
+		{
+		    "id": "weakened",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "needsedgewinter",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+	    ]
+	},
+	"icon": "foe.unknown",
+	"noStack": true
+    },
+	
+    {
+	"id": "long.bossfight.marker",
+	"label": "Long Bossfight Marker",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "travel.blocker": 1
+	}
+    },
+	
+    {
+	"id": "requisitioning",
+	"label": "Requisitioning Something",
+	"lifetime": 1,
+	"isHidden": true
+    },
+	
+    {
+	"id": "requisitioning.provisions",
+	"label": "Requisitioning Provisions",
+	"lifetime": 1,
+	"isHidden": true
+    },
+	
+    {
+	"id": "requisitioning.supplies",
+	"label": "Requisitioning Supplies",
+	"lifetime": 1,
+	"isHidden": true
+    },
+	
+    {
+	"id": "requisitioning.medics",
+	"label": "Requisitioning Medics",
+	"lifetime": 1,
+	"isHidden": true
+    },
+	
+    {
+	"id": "requisitioning.engineers",
+	"label": "Requisitioning Engineers",
+	"lifetime": 1,
+	"isHidden": true
+    },
+	
+    {
+	"id": "requisitioning.scouts",
+	"label": "Requisitioning Scouts",
+	"lifetime": 1,
+	"isHidden": true
+    },
+	
+    {
+	"id": "requisitioning.snipers",
+	"label": "Requisitioning Sniper",
+	"lifetime": 1,
+	"isHidden": true
+    },
+	
+    {
+	"id": "requisitioning.godbuilders",
+	"label": "Requisitioning Godbuilders",
+	"lifetime": 1,
+	"isHidden": true
+    },
+	
+    {
+	"id": "requisitioning.heavyunits",
+	"label": "Requisitioning Heavy Units",
+	"lifetime": 1,
+	"isHidden": true
+    },
+	
+    {
+	"id": "induction.halter",
+	"label": "Stop giving me this useless shit",
+	"lifetime": 1,
+	"isHidden": true
+    },
+	
+    {
+	"id": "long.here.already",
+	"label": "Someone's already beating your ass fam",
+	"lifetime": 1,
+	"isHidden": true,
+	"aspects": {
+	    "long.blocker": 1
+		}
+    },
+	
+    {
+	"id": "reputation.infamy.permanent",
+	"label": "恐怖之名",
+	"description": "我所犯下的那些难以启齿的行径，已让我背负了永不磨灭的恶名，这恶名传播的速度甚至比我还要快。[此卡计为1点恶名。]",
+	"aspects": {
+	    "local.infamy": 1
+		}
+    },
+	
+	{  
+	"id": "loc.hospital.staffed",
+	"$derives" : ["loc.hospital"], 
+	"label": "野战医院（配有医护人员）",
+	"icon": "loc.hospital",
+	"xtriggers": {
+	    "fatiguing": "loc.hospital.staffed.exhausted",
+	}
+	},
+	
+    {
+	"id": "loc.hospital.staffed.exhausted",
+	"$derives" : ["loc.hospital.exhausted"], 
+	"label": "野战医院（有医护人员——已超负荷）",
+	"lifetime": 150,
+	"decayTo": "loc.hospital.staffed"
+	},
+	
+	{  
+	"id": "proterant.reputation", 
+	"label": "声望",  
+	"description": "衡量我在当地民众中的声望。他们是爱我还是恨我，取决于我的所作所为。[你可以用这张卡牌招募游击队员。]",  
+	"aspects": {  
+		"reputation.good": 3  
+	},  
+	"slots": [  
+		{  
+			"id": "Location",   
+			"label": "位置",
+			"actionid": "communicate",  
+			"required": {  
+				"warzone.current": 1,
+				"location" : 1
+			}  
+		}
+	],
+	"unique": true,
+	"xtriggers": {
+	    "badrepgain": [
+		{
+		    "id": "reputation.bad",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ],
+		"goodrepgain": [
+		{
+		    "id": "reputation.good",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	}
+	
+	
+	
+]
+}
