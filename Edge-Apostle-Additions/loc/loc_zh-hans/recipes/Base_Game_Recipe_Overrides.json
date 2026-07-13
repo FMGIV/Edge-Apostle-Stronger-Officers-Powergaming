@@ -562,7 +562,7 @@
 	
 	{
 	"id": "attackenemy.success",
-	"alt$prepend" : [
+	"alt$append" : [
 		{
 			"id": "enemy.fieldhospital.survived",
 			"chance": "25 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
@@ -612,6 +612,22 @@
 		"chance": "30 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
 	    }
 	]
+	},
+	
+	{ 
+	"id": "attackenemy.success", 
+	"$incompatible": [ "3713855248" ],
+	"alt$listedit": { 
+	"3$dictedit" : { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [weakened] * 100" } 
+		} 
+	},
+	
+	{ 
+	"id": "attackenemy.success", 
+	"$depends": [ "3713855248" ],
+	"alt$listedit": { 
+	"1$dictedit" : { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [weakened] * 100" } 
+		} 
 	},
 	
 	{
@@ -4188,6 +4204,11 @@
 	{
 	"id": "abandon.ally.monster",
 	"requirements$add": {"provisions" : -1}
+	},
+	
+	{
+	"id": "resilient.survived",
+	"aspects$add": {"weaken" : 1}
 	}
 
 ]
