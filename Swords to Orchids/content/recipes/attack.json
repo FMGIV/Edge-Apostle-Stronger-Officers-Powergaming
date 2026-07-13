@@ -590,8 +590,7 @@
             "description": "Military trains run day and night; tank treads grind the frozen earth. The last reserve has been mobilized. The Germans are gambling everything.",
             "actionId": "foeactionumiri",
             "grandReqs": {
-                "([~/extant:foe.officer] || [~/extant:foe.umiri.pre]) >= 1": 1,
-                "[~/extant:allresolution] <= 3": 1
+                "[~/extant:allresolution] >= 9": 1
             },
             "effects": {
                 "foe.bombers": 1,
@@ -630,7 +629,7 @@
             "description": "Berlin believes the stalemate in Eastern Europe requires more troops and an outstanding commander to break—so I can probably guess who's coming.",
             "actionId": "foeactionumiri",
             "extantreqs": {
-                "foe.umiri.3": 1
+                "[~/extant:allresolution] >= 6 && [~/extant:allresolution] <= 8": 1
             },
             "effects": {
                 "foe.bombers": 1,
@@ -1483,7 +1482,8 @@
                     "id": "singleattack.handtoattack.startup"
                 }
             ]
-        },{
+        },
+{
     "id": "foe.umiri.legweakupcorpse",
     "label": "Enemy Officer Planning",
     "startdescription": "She is trying to rouse her comrades once more...",
@@ -1509,6 +1509,63 @@
     "tablereqs": {
         "foe.corpses": 1
     },
+            "mutations": [
+                {
+                    "filter": "foe.corpses",
+                    "mutate": "weakened",
+                    "level": 0
+                },
+                {
+                    "filter": "foe.corpses",
+                    "mutate": "needsedge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe.corpses",
+                    "mutate": "needswinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe.corpses",
+                    "mutate": "needsmoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe.corpses",
+                    "mutate": "needsforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe.corpses",
+                    "mutate": "needsforgemoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe.corpses",
+                    "mutate": "needsedgeforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe.corpses",
+                    "mutate": "needsedgewinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe.corpses",
+                    "mutate": "needsedgelantern",
+                    "level": 0
+                },
+                {
+                    "filter": "foe.corpses",
+                    "mutate": "foe.aerial",
+                    "level": 0
+                },
+                {
+                    "filter": "foe.corpses",
+                    "mutate": "foe.escorted",
+                    "level": 0
+                }
+            ],
     "extantreqs": {
         "foe.wound.leg": 1,
         "foe.umiri.mark": 1,
