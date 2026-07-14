@@ -1,6 +1,5 @@
 {
   "recipes": [
-
     {
 	"id": "travelling.cycle",
   "linked$prepend": [
@@ -384,7 +383,8 @@
             "foe.artillery.hidden": 1,
             "foe.tanks": 1,
             "foe.tanks.hidden": 1,
-            "allnaval": 1
+            "allnaval": 1,
+            "italian": 1
           },
           "greedy": true
         }
@@ -409,7 +409,8 @@
             "foe.artillery.hidden": 1,
             "foe.tanks": 1,
             "foe.tanks.hidden": 1,
-            "allnaval": 1
+            "allnaval": 1,
+            "italian": 1
           },
           "greedy": true
         }
@@ -436,7 +437,7 @@
       "id": "ob.success",
       "linked$prepend": [
         {
-          "id": "ob.success.breakout"
+          "id": "ob.success.breakthroughsuccessful"
         },
         {
           "id": "ob.success.nya"
@@ -453,7 +454,7 @@
       ]
     },
     {
-      "id": "ob.success.breakout",
+      "id": "ob.success.breakthroughsuccessful",
       "label": "A Victory!",
       "startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
       "description": "And so we are victorious.",
@@ -1019,6 +1020,9 @@
       },
       "alt$append": [
         {
+          "id": "respondnative.edgemoth"
+        },
+        {
           "id": "respondnative.grailmoth"
         },
         {
@@ -1029,6 +1033,74 @@
         }
       ]
     },
+    {
+	"id": "respondnative.edgemoth",
+	"label": "Lure the Tiger into the Trap",
+	"startdescription": "Kick up sand to blind their eyes, conceal the blade and wait for them to tire. They are famed for speed and ferocity, but we are no less.",
+	"requirements": {
+	    "needsedgemoth": 1,
+	    "edge": "needsedgemoth",
+	    "moth": "needsedgemoth"
+	},
+      "effects": {
+        "progression": 1,
+        "foe": -99,
+        "hindrance": -99
+      },
+      "linked": [
+        {
+          "id": "makefoeguardiandelete.progression"
+        },
+        {
+          "id": "ob.success"
+        },
+        {
+          "id": "detectadditional.side.afraid",
+          "chance": 30
+        },
+        {
+          "id": "detectadditional.side",
+          "chance": 30
+        },
+        {
+          "id": "leadinto.thirdobstacle.side"
+        },
+        {
+          "id": "leadinto.secondobstacle.side"
+        },
+        {
+          "id": "leadinto.firstobstacle.side"
+        },
+        {
+          "id": "detectadditional.afraid"
+        },
+        {
+          "id": "detectadditional"
+        },
+        {
+          "id": "makethirdobstacle"
+        },
+        {
+          "id": "makesecondobstacle"
+        },
+        {
+          "id": "makefirstobstacle"
+        }
+      ],
+      "alt": [
+        {
+          "id": "producecasualty",
+          "additional": true,
+          "chance": 30,
+          "expulsion": {
+            "limit": 1,
+            "filter": {
+              "friend": 1
+            }
+          }
+        }
+      ]
+	    },
     {
       "id": "respondnative.grailmoth",
       "label": "“Fallen”, “Lost”",
@@ -1513,6 +1585,12 @@
         },
         {
           "id": "foe.coordinated.foemanhunters.pre"
+        },
+        {
+          "id": "foe.coordinated.foegebirgsjager.pre"
+        },
+        {
+          "id": "foe.coordinated.foebersaglieri.pre"
         }
       ]
     },
@@ -1527,6 +1605,12 @@
         },
         {
           "id": "foe.coordinated.foemanhunters.pre"
+        },
+        {
+          "id": "foe.coordinated.foegebirgsjager.pre"
+        },
+        {
+          "id": "foe.coordinated.foebersaglieri.pre"
         }
       ]
     },
@@ -1541,6 +1625,12 @@
         },
         {
           "id": "foe.coordinated.foemanhunters.pre"
+        },
+        {
+          "id": "foe.coordinated.foegebirgsjager.pre"
+        },
+        {
+          "id": "foe.coordinated.foebersaglieri.pre"
         }
       ]
     },
@@ -1555,6 +1645,12 @@
         },
         {
           "id": "foe.coordinated.foemanhunters.pre"
+        },
+        {
+          "id": "foe.coordinated.foegebirgsjager.pre"
+        },
+        {
+          "id": "foe.coordinated.foebersaglieri.pre"
         }
       ]
     },
@@ -1637,6 +1733,92 @@
           "label": "Enemy",
           "required": {
             "foe.coordinated.foemanhunters": 1
+          },
+          "forbidden": {
+            "remnant": 1
+          },
+          "greedy": true
+        }
+      ]
+    },
+    
+    {
+      "id": "foe.coordinated.foegebirgsjager.pre",
+      "$extends": ["foe.coordinated.getsecond.pre"],
+      "requirements": {
+        "foe.coordinated.foegebirgsjager": 1
+      },
+      "linked": [
+        {
+          "id": "foe.coordinated.foegebirgsjager"
+        }
+      ]
+    },
+    {
+      "id": "foe.coordinated.foegebirgsjager",
+      "$extends": ["foe.coordinated.getsecond"],
+      "slots": [
+        {
+          "id": "needscoordinated",
+          "label": "Enemy",
+          "required": {
+            "foe.coordinated.foegebirgsjager": 1
+          },
+          "forbidden": {
+            "remnant": 1
+          },
+          "greedy": true
+        }
+      ]
+    },
+    
+    {
+      "id": "foe.coordinated.foebersaglieri.pre",
+      "$extends": ["foe.coordinated.getsecond.pre"],
+      "requirements": {
+        "foe.coordinated.foebersaglieri": 1
+      },
+      "linked": [
+        {
+          "id": "foe.coordinated.foebersaglieri.1",
+          "chance": 50
+        },
+        {
+          "id": "foe.coordinated.foebersaglieri.2"
+        }
+      ]
+    },
+    {
+      "id": "foe.coordinated.foebersaglieri.1",
+      "$extends": ["foe.coordinated.getsecond"],
+      "slots": [
+        {
+          "id": "needscoordinated",
+          "label": "Enemy",
+          "required": {
+            "foe.coordinated.foebersaglieri": 1
+          },
+          "forbidden": {
+            "remnant": 1
+          },
+          "greedy": true
+        }
+      ]
+    },
+    {
+      "id": "foe.coordinated.foebersaglieri.2",
+      "$extends": ["foe.coordinated.getsecond"],
+      "aspects": {},
+      "effects": {
+        "foe.bersaglieri": -99,
+        "foe.bersaglieri.double": 1
+      },
+      "slots": [
+        {
+          "id": "needscoordinated",
+          "label": "Enemy",
+          "required": {
+            "foe.coordinated.foebersaglieri": 1
           },
           "forbidden": {
             "remnant": 1

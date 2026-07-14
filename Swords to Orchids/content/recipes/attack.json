@@ -2975,6 +2975,23 @@
         {
             "id": "produce.strife_incur4",
 			"chance": 30
+        },
+
+        {
+            "id": "produce.strife_incur.p",
+			"chance": 30
+        },
+        {
+            "id": "produce.strife_incur2.p",
+			"chance": 30
+        },
+        {
+            "id": "produce.strife_incur3.p",
+			"chance": 30
+        },
+        {
+            "id": "produce.strife_incur4.p",
+			"chance": 30
         }
     ]
     },
@@ -3003,7 +3020,9 @@
     "extantreqs": {
 	    "strife.tracker": 6,
         "strife.incur": -1,
-        "foe.umiri.dead": -1
+        "foe.umiri.dead": -1,
+        "foe.umiri.mark": -1,
+        "obdurant.story": 1
     }
     },
     {
@@ -3013,7 +3032,9 @@
     "extantreqs": {
 	    "strife.tracker": 9,
         "strife.incur": -1,
-        "foe.umiri.dead": -1
+        "foe.umiri.dead": -1,
+        "foe.umiri.mark": -1,
+        "obdurant.story": 1
     }
     },
     {
@@ -3022,7 +3043,58 @@
     "extantreqs": {
 	    "strife.tracker": 12,
         "strife.incur": -1,
-        "foe.umiri.dead": -1
+        "foe.umiri.dead": -1,
+        "foe.umiri.mark": -1,
+        "obdurant.story": 1
+    }
+    },
+
+    {
+	"id": "produce.strife_incur.p",
+	"$extends": ["produce.strife_incur"],
+    "extantreqs": {
+	    "strife.tracker": 3,
+        "strife.incur": -1,
+        "foe.umiri.dead": -1,
+        "foe.umiri.mark": -1,
+        "proterant.story": 1,
+        "tool.sharp": 1
+    }
+    },
+    {
+	"id": "produce.strife_incur2.p",
+	"$extends": ["produce.strife_incur"],
+    "extantreqs": {
+	    "strife.tracker": 6,
+        "strife.incur": -1,
+        "foe.umiri.dead": -1,
+        "foe.umiri.mark": -1,
+        "proterant.story": 1,
+        "tool.sharp": 1
+    }
+    },
+    {
+	"id": "produce.strife_incur3.p",
+	"$extends": ["produce.strife_incur"],
+    "extantreqs": {
+	    "strife.tracker": 9,
+        "strife.incur": -1,
+        "foe.umiri.dead": -1,
+        "foe.umiri.mark": -1,
+        "proterant.story": 1,
+        "tool.sharp": 1
+    }
+    },
+    {
+	"id": "produce.strife_incur4.p",
+	"$extends": ["produce.strife_incur"],
+    "extantreqs": {
+	    "strife.tracker": 12,
+        "strife.incur": -1,
+        "foe.umiri.dead": -1,
+        "foe.umiri.mark": -1,
+        "proterant.story": 1,
+        "tool.sharp": 1
     }
     },
     
@@ -3095,18 +3167,31 @@
 	},
 	"linked$prepend": [
 	    {
-		"id": "attackenemy.failure.necessary",
-		"chance": 100
+		"id": "attackenemy.failure.analysis"
+	    },
+	    {
+		"id": "attackenemy.failure.necessary"
 	    }
 	]
     },
     {
 	"id": "attackenemy.failure.necessary",
-	"label": "Stage an attack against a hidden enemy?",
-	"startdescription": "Rushing headlong at an enemy we have no measure of is a sure strategy for disaster.\n\n[An attack against a Hidden Enemy will reveal its identity, but it will also usually result in casualties.]",
+	"label": "Stage an attack against a hidden enemy",
 	"grandReqs": {
 	    "[uqjerome] >= 1 || [uqlionel] >= 1 || [clockwork.mark] >= 1 || [tomori.mark] >= 1 || [foe.umiri.mark] >= 1": 1
 	},
+    "linked": [
+        {
+            "id": "attackenemy.failure"
+        }
+    ]
+    },
+    {
+	"id": "attackenemy.failure.analysis",
+	"label": "Stage an attack against a hidden enemy",
+	"requirements": {
+        "foe.analysis": 1
+    },
     "linked": [
         {
             "id": "attackenemy.failure"
@@ -3308,8 +3393,17 @@
 		"additional": true
 	    },
 	    {
+		"id": "foeskilldeflect.survived"
+	    },
+	    {
+		"id": "braced.survived"
+	    },
+	    {
 		"id": "resilient.survived",
 		"chance": 30
+	    },
+	    {
+		"id": "defeateddefiant.turnintofriend"
 	    },
 		{
 			"id": "fake.enemy.killed"
@@ -3391,19 +3485,11 @@
 	    },
 	    {
 		"id": "produce.escape.marinette",
-		"additional": true,
-		"chance": 100
+		"additional": true
 	    },
 	    {
 		"id": "produce.escape.bloodonhands",
-		"additional": true,
-		"chance": 100
-	    },
-	    {
-		"id": "braced.survived"
-	    },
-	    {
-		"id": "defeateddefiant.turnintofriend"
+		"additional": true
 	    },
 	    {
 		"id": "produce.monsterlesson",
@@ -3492,6 +3578,22 @@
 	},
 	"grandReqs": {
 	    "[ins_soviet] <= [ins_german]": 1
+	}
+    },
+    {
+	"id": "foeskilldeflect.survived",
+	"label": "The Enemy Stands!",
+    "startdescription": "Our attack veered off course without warning — the enemy has suddenly become impenetrable and emboldened.\n\n[When \"Great Enemy: Invincible Defense\" is present on the field, the enemy will always survive an attack.]",
+    "description": "Our attack veered off course without warning — the enemy has suddenly become impenetrable and emboldened.\n\n[When \"Great Enemy: Invincible Defense\" is present on the field, the enemy will always survive an attack.]",
+    "extantreqs": {
+	    "foe.skill.deflect": 1,
+        "foe.umiri.mark": 1
+	},
+    "xpans": {
+        "skilldeflect_exhausted": 1
+    },
+	"aspects": {
+	    "fatiguing": 1
 	}
     },
     {
