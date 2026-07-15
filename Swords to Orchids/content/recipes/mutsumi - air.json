@@ -8,10 +8,15 @@
       "grandreqs": { "[~/extant:forcesize] < [~/extant:room]": 1 },
       "extantreqs": {
         "loc.commtower": 1,
-        "lake.here": -1
+        "lake.here": -1,
+        "obdurant.story": 1,
+        "callfriend.mark": -1
       },
       "requirements": {
-        "call.air": 1
+        "cancallair": 1
+      },
+      "aspects": {
+        "fatiguing": 1
       },
       "craftable": true,
       "warmup": 10,
@@ -30,11 +35,16 @@
       "grandreqs": { "[~/extant:forcesize] < [~/extant:room]": 1 },
       "extantreqs": {
         "loc.commtower": -1,
-        "lake.here": -1
+        "lake.here": -1,
+        "obdurant.story": 1,
+        "callfriend.mark": -1
       },
       "requirements": {
-        "call.air": 1,
+        "cancallair": 1,
         "friend": 1
+      },
+      "aspects": {
+        "fatiguing": 1
       },
       "craftable": true,
       "warmup": 10,
@@ -52,17 +62,30 @@
       ]
     },
     {
+      "id": "getreinforcements.withcomms",
+      "extantreqs": {
+          "callfriend.mark": -1
+      }
+    },
+    {
       "id": "getreinforcements.air.hint",
       "actionid": "communicate",
       "label": "Call in Local Air Support?",
       "startdescription": "My superiors have noted my achievements. As proof, the Soviet Air Force will come to support us and once again roar at the Germans.\n\n[When friendly air forces on the field are weaker than enemy air forces, you can call in air support.]",
       "extantreqs": {
-        "lake.here": -1
+        "lake.here": -1,
+        "obdurant.story": 1
       },
       "requirements": {
-        "call.air": 1
+        "cancallair": 1
       },
       "hintonly": true
+    },
+    {
+      "id": "getreinforcements.nocomms",
+      "extantreqs": {
+          "callfriend.mark": -1
+      }
     },
     {
       "id": "spit.getreinforcements.withcomms.air",
@@ -111,10 +134,83 @@
       },
       "deckeffects": {
         "allies.fly": 2
-      }
+      },
+      "linked": [
+        {
+          "id": "getreinforcements.success.air.local"
+        }
+      ]
+    },
+    {
+	    "id": "getreinforcements.success.air.local",
+      "label": "Arrived!",
+      "startdescription": "More men to the cause; more meat to the slaughter.",
+      "mutations": [
+        {
+          "filter": "friend",
+          "mutate": "local",
+          "level": 1
+        }
+      ]
+    },
+
+    {
+      "id": "spit.getreinforcements.withcomms",
+      "internaldeck": {
+        "spec": [
+          "readiness.token",
+          "readiness.token",
+          "readiness.token",
+          "husk",
+          "husk"
+        ],
+        "defaultcard": "husk",
+        "draws": 1,
+        "resetonexhaustion": true
+      },
+      "linked": [
+          {
+        "id": "getreinforcements.success",
+        "chance": 100
+          },
+          {
+        "id": "spit.getreinforcements.withcomms"
+          }
+      ]
+    },
+    {
+      "id": "spit.getreinforcements.nocomms",
+      "effects": {
+      },
+      "internaldeck": {
+        "spec": [
+          "readiness.token",
+          "readiness.token",
+          "readiness.token",
+          "husk",
+          "husk",
+          "husk",
+          "husk"
+        ],
+        "defaultcard": "husk",
+        "draws": 1,
+        "resetonexhaustion": true
+      },
+      "linked": [
+          {
+        "id": "getreinforcements.success",
+        "chance": 100
+          },
+          {
+        "id": "spit.getreinforcements.nocomms"
+          }
+      ]
     },
     {
       "id": "getreinforcements.success",
+      "requirements": {
+        "readiness.token": 3
+      },
       "alt$prepend": [
         {
           "id": "getreinforcements.success.more",
@@ -125,11 +221,15 @@
     {
       "id": "getreinforcements.success.more",
       "$extends": ["getreinforcements.success.heavy"],
+      "extantreqs": {
+        "obdurant.story": 1
+      },
       "deckeffects": {
         "allies.light": 2,
         "allies.fly": 1
       }
     },
+
     {
       "id": "mo.foefighter.stratup",
       "actionId": "fighter.foe",

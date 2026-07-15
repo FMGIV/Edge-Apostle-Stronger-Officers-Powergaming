@@ -5,27 +5,34 @@
     "alt": [
         {
             "id": "foe.umiri.coming4",
-            "chance": 30,
+            "chance": 50,
             "additional": true
         },
         {
             "id": "foe.umiri.coming3",
-            "chance": 20,
+            "chance": 40,
             "additional": true
         },
         {
             "id": "foe.umiri.coming2",
-            "chance": 15,
-            "additional": true
-        },
-        {
-            "id": "foe.umiri.coming2.withanno",
             "chance": 30,
             "additional": true
         },
+
+        {
+            "id": "foe.umiri.coming2.withanno",
+            "chance": 20,
+            "additional": true
+        },
+        {
+            "id": "friend.anno.coming.forumiri.first0",
+            "chance": 20,
+            "additional": true
+        },
+
         {
             "id": "foe.umiri.coming.firstinroute",
-            "chance": 10,
+            "chance": 20,
             "additional": true
         },
 	    {
@@ -84,6 +91,24 @@
             "additional": true
 	    }
     ]
+    },
+    {
+	"id": "corrivality.turnexileadvantage",
+	"alt": [
+        {
+            "id": "friend.anno.coming.forumiri.first0",
+            "additional": true
+        }
+	]
+    },
+    {
+	"id": "corrivality.cycle.exile",
+	"alt$prepend": [
+        {
+            "id": "friend.anno.coming.forumiri.first0",
+            "additional": true
+        }
+	]
     },
         {
             "id": "foe.umiri.coming.firstinroute",
@@ -628,7 +653,7 @@
             "startdescription": "Berlin believes the stalemate in Eastern Europe requires more troops and an outstanding commander to break—so I can probably guess who's coming.",
             "description": "Berlin believes the stalemate in Eastern Europe requires more troops and an outstanding commander to break—so I can probably guess who's coming.",
             "actionId": "foeactionumiri",
-            "extantreqs": {
+            "grandReqs": {
                 "[~/extant:allresolution] >= 6 && [~/extant:allresolution] <= 8": 1
             },
             "effects": {
@@ -2180,6 +2205,9 @@
 	"id": "time.cycle",
 	"linked$prepend": [
 	    {
+		"id": "pre.achievement.monster_battle"
+	    },
+	    {
 		"id": "pre.death_defiance"
 	    },
 	    {
@@ -2235,6 +2263,21 @@
 		"chance": 40
 	    }
 	]
+    },
+    {
+	"id": "pre.achievement.monster_battle",
+    "extantreqs": {
+        "foe.niniame": 1,
+        "friend.galika": 1
+    },
+    "achievements": [
+        "achievement.monster_battle"
+    ],
+    "linked": [
+        {
+            "id": "time.cycle"
+        }
+    ]
     },
         {
         "id": "arrive.marinette",
@@ -3006,6 +3049,7 @@
         "strife.incur": -1,
         "foe.umiri.dead": -1,
         "foe.umiri.mark": -1,
+        "lake.here": -1,
         "obdurant.story": 1
     },
 	"effects": {
@@ -3022,6 +3066,7 @@
         "strife.incur": -1,
         "foe.umiri.dead": -1,
         "foe.umiri.mark": -1,
+        "lake.here": -1,
         "obdurant.story": 1
     }
     },
@@ -3034,6 +3079,7 @@
         "strife.incur": -1,
         "foe.umiri.dead": -1,
         "foe.umiri.mark": -1,
+        "lake.here": -1,
         "obdurant.story": 1
     }
     },
@@ -3045,6 +3091,7 @@
         "strife.incur": -1,
         "foe.umiri.dead": -1,
         "foe.umiri.mark": -1,
+        "lake.here": -1,
         "obdurant.story": 1
     }
     },
@@ -3058,7 +3105,7 @@
         "foe.umiri.dead": -1,
         "foe.umiri.mark": -1,
         "proterant.story": 1,
-        "tool.sharp": 1
+        "tool.shape": 1
     }
     },
     {
@@ -3070,7 +3117,7 @@
         "foe.umiri.dead": -1,
         "foe.umiri.mark": -1,
         "proterant.story": 1,
-        "tool.sharp": 1
+        "tool.shape": 1
     }
     },
     {
@@ -3082,7 +3129,7 @@
         "foe.umiri.dead": -1,
         "foe.umiri.mark": -1,
         "proterant.story": 1,
-        "tool.sharp": 1
+        "tool.shape": 1
     }
     },
     {
@@ -3094,7 +3141,7 @@
         "foe.umiri.dead": -1,
         "foe.umiri.mark": -1,
         "proterant.story": 1,
-        "tool.sharp": 1
+        "tool.shape": 1
     }
     },
     
@@ -3589,6 +3636,9 @@
 	    "foe.skill.deflect": 1,
         "foe.umiri.mark": 1
 	},
+    "requirements": {
+        "german": 1
+    },
     "xpans": {
         "skilldeflect_exhausted": 1
     },
