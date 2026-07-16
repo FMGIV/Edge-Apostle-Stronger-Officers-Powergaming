@@ -5,7 +5,7 @@
       "actionid": "communicate",
       "label": "Request ally reinforcements",
       "startdescription": "Send word over wire and wave. If we need more manpower, this is the way to ask for it.\n\n[This will consume one charge and summon several local fighter jets.]",
-      "grandreqs": { "[~/extant:forcesize] < [~/extant:room]": 1 },
+      "grandreqs": {},
       "extantreqs": {
         "loc.commtower": 1,
         "lake.here": -1,
@@ -32,7 +32,7 @@
       "actionid": "communicate",
       "label": "Send an ally to procure reinforcements",
       "startdescription": "With our communications non-operational, radio and telegram are no longer viable options for us. If we need reinforcements, someone must make the long trek to the next allied position, and then return again.\n\n[This will consume one charge and summon several local fighter jets.]\n\n[Without a Communications Tower, asking for reinforcements will take much longer.]",
-      "grandreqs": { "[~/extant:forcesize] < [~/extant:room]": 1 },
+      "grandreqs": {},
       "extantreqs": {
         "loc.commtower": -1,
         "lake.here": -1,
@@ -109,10 +109,10 @@
       "linked": [
         {
           "id": "getreinforcements.success.air",
-          "chance": 50
+          "chance": 70
         },
         {
-          "id": "spit.getreinforcements.withcomms"
+          "id": "spit.getreinforcements.withcomms.air"
         }
       ]
     },
@@ -128,10 +128,10 @@
       "linked": [
         {
           "id": "getreinforcements.success.air",
-          "chance": 30
+          "chance": 45
         },
         {
-          "id": "spit.getreinforcements.nocomms"
+          "id": "spit.getreinforcements.nocomms.air"
         }
       ]
     },
@@ -647,7 +647,8 @@
             "remnant": 1,
             "debilitation": 1,
             "contemnant.weapon": 1,
-            "friend.immortal.blocker": 1
+            "friend.immortal.blocker": 1,
+            "hasebrehel": 1
           },
           "greedy": true
         }
@@ -969,7 +970,7 @@
         "mutsumi.mark": 1
       },
       "grandReqs": {
-        "({([foe.aerial] + 1) / ([friend.aerial] + 2)} * [anti_air_friendly] + [friend.aerial] + 1) <= [foe.aerial]": 1
+        "({([foe.aerial] + 2) / 2} * [anti_air_friendly] + [friend.aerial] + 1) <= [foe.aerial]": 1
       },
       "linked": [
         {
@@ -985,7 +986,7 @@
         "mortis.mark": 1
       },
       "grandReqs": {
-        "({([foe.aerial] + 1) / ([friend.aerial] + 2)} * [anti_air_friendly] + [friend.aerial] + 1) <= [foe.aerial]": 1
+        "({([foe.aerial] + 2) / 2} * [anti_air_friendly] + [friend.aerial] + 1) <= [foe.aerial]": 1
       },
       "linked": [
         {
@@ -1127,7 +1128,7 @@
       "label": "We have achieved a partial victory.",
       "startdescription": "Victory and defeat hinge on a single moment.\n\n[In aerial combat, the attacker can only use fighters; the defender can additionally use bombers and anti-aircraft emplacements. However, if the defender wins, air superiority returns to neutral. If both sides have forces present, there is a chance that aircraft may run out of fuel and become exhausted, or be shot down and damaged.]",
       "grandReqs": {
-        "({([foe.aerial] + 1) / ([friend.aerial] + 2)} * [anti_air_friendly] + [friend.aerial]) >= [foe.aerial]": 1
+        "({([foe.aerial] + 2) / 2} * [anti_air_friendly] + [friend.aerial]) >= [foe.aerial]": 1
       },
       "effects": {
         "soviet_airsupremacy_self": 1
