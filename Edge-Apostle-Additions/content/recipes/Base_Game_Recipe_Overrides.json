@@ -626,7 +626,8 @@
 	"id": "attackenemy.success", 
 	"$depends": [ "3713855248" ],
 	"alt$listedit": { 
-	"1$dictedit" : { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [weakened] * 100" } 
+	"1$dictedit" : { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [weakened] * 100" },
+	"6$dictedit" : { "chance": "50 - [~/visible:corrivality.exile] * 25 + [~/visible:corrivality.foe] * 25" } 
 		} 
 	},
 	
@@ -1840,11 +1841,22 @@
 		"0$dictedit" : 	 { "chance": "20+[~/visible:strife.tracker]*3" }
 		},
 	"alt$listedit": { 
-		"0$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-		"1$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-		"2$dictedit" : 	 { "chance": "25 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-		"3$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-		"4$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		"0$dictedit" : 	 { "chance": "50 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"1$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"2$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"3$dictedit" : 	 { "chance": "20 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"4$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"5$dictedit" : 	 { "chance": "50 + [~/visible:strife.tracker] * 3 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" },
+		"6$dictedit" : 	 { "chance": "20 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"7$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "corrivality.turnfoeadvantage", 
+	"$depends": [ "3713855248" ],
+	"alt$listedit": { 
+		"3$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
 		}
 	},
 	
@@ -1859,12 +1871,25 @@
 	},
 	
 	{
-	"id": "corrivality.cycle.foe",
+	"id": "corrivality.cycle.foe", 
+	"$incompatible": [ "3713855248" ],
 	"linked$listedit": { 
-		"1$dictedit" : 	 { "chance": "30+[~/visible:strife.tracker]*3" }
+		"1$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker]*3" }
 		},
 	"alt$listedit": { 
-		"0$dictedit" : 	 { "chance": "40+[~/visible:strife.tracker]*3" }
+		"0$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker]*3" }
+		}
+	},
+	
+	{
+	"id": "corrivality.cycle.foe", 
+	"$depends": [ "3713855248" ],
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker]*3" }
+		},
+	"alt$listedit": { 
+		"3$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"6$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker]*3" }
 		}
 	},
 	
@@ -3134,10 +3159,20 @@
 	},
 	
 	{
-	"id": "attack.conclude",
+	"id": "attack.conclude", 
+	"$incompatible": [ "3713855248" ],
 	"alt$listedit": { 
 		"1$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
 		"4$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
+		}
+	},
+	
+	{
+	"id": "attack.conclude", 
+	"$depends": [ "3713855248" ],
+	"alt$listedit": { 
+		"2$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"5$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
 		}
 	},
 	
@@ -4221,7 +4256,42 @@
 	{
 	"id": "resilient.survived",
 	"aspects$add": {"weaken" : 1}
-	}
+	},
+	
+	{ 
+	"id": "time.cycle", 
+	"$incompatible": [ "3713855248" ],
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" },
+	"1$dictedit" : { "chance": "45 + [~/visible:strife.tracker] * 2" },
+	"2$dictedit" : { "chance": "45 + [~/visible:strife.tracker] * 2" },
+	"3$dictedit" : { "chance": "15 + [~/visible:strife.tracker] * 2" },
+	"4$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+	"5$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+	"6$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 + [~/visible:strife.tracker] * 2" },
+	"7$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 " },
+	"8$dictedit" : { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 " }
+		} 
+	},
+	
+	{ 
+	"id": "time.cycle", 
+	"$depends": [ "3713855248" ],
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "10 - [~/visible:corrivality.exile] * 10 + [~/visible:corrivality.foe] * 20" },
+	"1$dictedit" : { "chance": "10 - [~/visible:corrivality.exile] * 10 + [~/visible:corrivality.foe] * 20" },
+	"9$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+	"10$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" },
+	"11$dictedit" : { "chance": "45 + [~/visible:strife.tracker] * 2" },
+	"12$dictedit" : { "chance": "45 + [~/visible:strife.tracker] * 2" },
+	"13$dictedit" : { "chance": "15 + [~/visible:strife.tracker] * 2" },
+	"14$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+	"15$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+	"16$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 + [~/visible:strife.tracker] * 2" },
+	"17$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 " },
+	"18$dictedit" : { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 " }
+		} 
+	},
 
 ]
 }
