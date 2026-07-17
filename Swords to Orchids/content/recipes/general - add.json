@@ -441,6 +441,12 @@
       "id": "ob.success",
       "linked$prepend": [
         {
+          "id": "ob.success.amphibious_assault"
+        },
+        {
+          "id": "ob.success.gustavline"
+        },
+        {
           "id": "ob.success.breakthroughsuccessful"
         },
         {
@@ -457,6 +463,82 @@
         }
       ]
     },
+    {
+      "id": "ob.success.amphibious_assault",
+      "label": "A Victory!",
+      "startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+      "description": "And so we are victorious.",
+      "requirements": {
+        "amphibious_assault.template": 1,
+        "warzone.current": -1
+      },
+      "effects": {
+        "anno.resolution": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "Location",
+          "required": {
+            "warzone.current": 1
+          },
+          "greedy": true
+        }
+      ],
+      "mutations": [
+        {
+          "filter": "warzone.current",
+          "mutate": "amphibious_assault.victory",
+          "level": 1
+        }
+      ],
+      "warmup": 10,
+      "linked": [
+        {
+          "id": "ob.success.amphibious_assault"
+        }
+      ]
+    },
+    {
+      "id": "ob.success.gustavline",
+      "label": "A Victory!",
+      "startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+      "description": "And so we are victorious.",
+      "requirements": {
+        "anno.resolution": 1,
+        "warzone.current": -1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "Location",
+          "required": {
+            "warzone.current": 1
+          },
+          "greedy": true
+        }
+      ],
+      "mutations": [
+        {
+          "filter": "warzone.current",
+          "mutate": "gustavline.broken",
+          "level": 1
+        },
+        {
+          "filter": "warzone.current",
+          "mutate": "gustavline",
+          "level": -1,
+          "additive": true
+        }
+      ],
+      "warmup": 10,
+      "linked": [
+        {
+          "id": "ob.success.gustavline"
+        }
+      ]
+    },
+
     {
       "id": "ob.success.breakthroughsuccessful",
       "label": "A Victory!",
