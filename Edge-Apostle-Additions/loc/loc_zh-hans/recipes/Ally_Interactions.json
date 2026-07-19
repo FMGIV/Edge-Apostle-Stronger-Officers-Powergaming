@@ -1043,7 +1043,47 @@
 		"wounded" : 1,
 	    "([friend.partisan.physician] || [friend.partisan.physician.hidden] || [friend.partisan.physician.afraid])": 1
 	}
-    }
+    },
+	
+	{  
+	"id": "command.abandon.ally.pre",
+	"$priority" : 1,
+	"actionid": "abandon",  
+	"label": "盟友指挥权的重新分配",  
+	"startdescription": "我可以通过将这一友军委派至别处以减小我分队的规模。或许我们必须轻装行军。或许我们必须逃离。",
+	"grandReqs": {
+	    "friend": 1,
+		"[~/extant:allyattackmarker]=3": -1,
+		"friend.tomori": -1,
+        "faction.anno": -1,
+		"provisions" : -1
+	},
+	"effects" : {
+	"allyattackmarker" : 1
+	},
+	"inductions": [  
+		{
+		"id" : "command.abandon.ally",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+			}
+		}
+	],  
+	"craftable": true  
+	},
+	
+	{  
+	"id": "command.abandon.ally",
+	"actionid": "ally.abandon.action",  
+	"label": "盟友指挥权的重新分配",  
+	"startdescription": "我可以通过将这一友军委派至别处以减小我分队的规模。或许我们必须轻装行军。或许我们必须逃离。",
+	"linked": [  
+		{
+		"id": "abandon*"
+	    }
+	] 
+	}
 	
 ]
 }

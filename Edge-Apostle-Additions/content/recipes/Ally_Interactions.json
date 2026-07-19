@@ -1043,7 +1043,47 @@
 		"wounded" : 1,
 	    "([friend.partisan.physician] || [friend.partisan.physician.hidden] || [friend.partisan.physician.afraid])": 1
 	}
-    }
+    },
+	
+	{  
+	"id": "command.abandon.ally.pre",
+	"$priority" : 1,
+	"actionid": "abandon",  
+	"label": "Command Reassignment of an Ally",  
+	"startdescription": "I could cut down on the size of my contingent by assigning this Ally elsewhere. Perhaps we must travel lighter. Perhaps we must run.",
+	"grandReqs": {
+	    "friend": 1,
+		"[~/extant:allyattackmarker]=3": -1,
+		"friend.tomori": -1,
+        "faction.anno": -1,
+		"provisions" : -1
+	},
+	"effects" : {
+	"allyattackmarker" : 1
+	},
+	"inductions": [  
+		{
+		"id" : "command.abandon.ally",
+		"expulsion": {
+			"filter": { "tlg.note": -1 },
+		    "limit": 10
+			}
+		}
+	],  
+	"craftable": true  
+	},
+	
+	{  
+	"id": "command.abandon.ally",
+	"actionid": "ally.abandon.action",  
+	"label": "Command Reassignment of an Ally",  
+	"startdescription": "I could cut down on the size of my contingent by assigning this Ally elsewhere. Perhaps we must travel lighter. Perhaps we must run.",
+	"linked": [  
+		{
+		"id": "abandon*"
+	    }
+	] 
+	}
 	
 ]
 }
