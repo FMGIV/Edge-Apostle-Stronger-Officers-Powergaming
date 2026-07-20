@@ -401,6 +401,14 @@
         {
           "id": "foe.airsupremacy.bombers",
           "additional": true
+        },
+        {
+          "id": "foe.airsupremacy.bombers.2",
+          "additional": true
+        },
+        {
+          "id": "foe.airsupremacy.bombers.3",
+          "additional": true
         }
       ]
     },
@@ -451,6 +459,14 @@
       "alt": [
         {
           "id": "foe.airsupremacy.bombers",
+          "additional": true
+        },
+        {
+          "id": "foe.airsupremacy.bombers.2",
+          "additional": true
+        },
+        {
+          "id": "foe.airsupremacy.bombers.3",
           "additional": true
         }
       ],
@@ -509,6 +525,80 @@
       "aspects": {
         "revealidentity": 1
       },
+      "effects": {
+        "friend.bombers.startup": 1
+      },
+      "grandReqs": {
+        "[~/extant:friend.bombers.startup]": 0
+      },
+      "warmup": 10,
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Enemy",
+          "required": {
+            "foebombers": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "foe.airsupremacy.bombers.escort"
+        },
+        {
+          "id": "foe.airsupremacy.bombers.intercept"
+        }
+      ]
+    },
+    {
+      "id": "foe.airsupremacy.bombers.2",
+      "actionId": "bombers.foe.2",
+      "label": "Enemy bombers dispatched.",
+      "startdescription": "Bombers laden with ammunition streak across the sky – I can almost see our supplies turning to ash.\n\n[This action will destroy our supplies and installations. Interception is possible. If 5 'Air Power' accumulate, the mission is guaranteed to succeed.]",
+      "aspects": {
+        "revealidentity": 1
+      },
+      "effects": {
+        "friend.bombers.startup": 1
+      },
+      "grandReqs": {
+        "[~/extant:friend.bombers.startup]": 1
+      },
+      "warmup": 10,
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Enemy",
+          "required": {
+            "foebombers": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "foe.airsupremacy.bombers.escort"
+        },
+        {
+          "id": "foe.airsupremacy.bombers.intercept"
+        }
+      ]
+    },
+    {
+      "id": "foe.airsupremacy.bombers.3",
+      "actionId": "bombers.foe.3",
+      "label": "Enemy bombers dispatched.",
+      "startdescription": "Bombers laden with ammunition streak across the sky – I can almost see our supplies turning to ash.\n\n[This action will destroy our supplies and installations. Interception is possible. If 5 'Air Power' accumulate, the mission is guaranteed to succeed.]",
+      "aspects": {
+        "revealidentity": 1
+      },
+      "effects": {
+        "friend.bombers.startup": 1
+      },
+      "grandReqs": {
+        "[~/extant:friend.bombers.startup]": 2
+      },
       "warmup": 10,
       "slots": [
         {
@@ -553,6 +643,9 @@
       ],
       "linked": [
         {
+          "id": "foe.airsupremacy.bombers.intercept.anno"
+        },
+        {
           "id": "foe.airsupremacy.bombers.intercept"
         }
       ]
@@ -577,7 +670,8 @@
           },
           "forbidden": {
             "exhausted": 1,
-            "damaged": 1
+            "damaged": 1,
+            "repairing": 1
           }
         }
       ],
@@ -594,6 +688,39 @@
       "linked": [
         {
           "id": "foe.airsupremacy.bombers.cutoff.destroysupplies"
+        }
+      ]
+    },
+    {
+      "id": "foe.airsupremacy.bombers.intercept.anno",
+      "$extends": ["foe.airsupremacy.bombers.intercept"],
+      "extantreqs": {
+        "faction.anno": 1
+      },
+      "warmup": 10,
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "intercept",
+          "required": {
+            "friendfighter": 1,
+            "friendbombers": 1,
+            "anti_air_friendly": 1,
+            "friend.aerial": 1
+          },
+          "essential": {
+            "local": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "damaged": 1,
+            "repairing": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "foe.airsupremacy.bombers.intercept"
         }
       ]
     },
@@ -726,6 +853,11 @@
         "supplies": -99,
         "weapon": -99
       },
+      "linked": [
+        {
+          "id": "foe.airsupremacy.bombers.cutoff.end.anno"
+        }
+      ],
       "alt": [
         {
           "id": "produce.strife",
@@ -733,6 +865,17 @@
           "chance": 30
         }
       ]
+    },
+    {
+      "id": "foe.airsupremacy.bombers.cutoff.end.anno",
+      "$extends": ["foe.airsupremacy.bombers.cutoff.end"],
+      "aspects": {},
+      "warmup": 0,
+      "effects": {
+        "anno.damaged": 1
+      },
+      "linked": [],
+      "alt": []
     },
     {
       "id": "foe.airsupremacy.fight",
@@ -781,6 +924,9 @@
         {
           "id": "foe.airsupremacy.fight.soviet.environment",
           "chance": 30
+        },
+        {
+          "id": "foe.airsupremacy.fight.anno"
         },
         {
           "id": "foe.airsupremacy.fight.soviet"
@@ -850,6 +996,9 @@
           "chance": 30
         },
         {
+          "id": "foe.airsupremacy.fight.anno"
+        },
+        {
           "id": "foe.airsupremacy.fight.soviet"
         }
       ]
@@ -897,6 +1046,9 @@
           "chance": 30
         },
         {
+          "id": "foe.airsupremacy.fight.anno"
+        },
+        {
           "id": "foe.airsupremacy.fight.soviet"
         }
       ]
@@ -910,10 +1062,13 @@
         "op.environment": 1,
         "mutsumi.mark": -1
       },
+      "effects": {
+        "readiness.token": "friend"
+      },
       "slots": [
         {
           "id": "needsgerman1",
-          "label": "Environment",
+          "label": "Weather",
           "required": {
             "op.environment": 1
           },
@@ -925,6 +1080,9 @@
         {
           "id": "foe.airsupremacy.fight.soviet.environment",
           "chance": 30
+        },
+        {
+          "id": "foe.airsupremacy.fight.anno"
         },
         {
           "id": "foe.airsupremacy.fight.soviet"
@@ -940,7 +1098,10 @@
         "revealidentity": 1
       },
       "effects": {
-        "foe.cutoff": 1
+        "foe.cutoff": 1,
+        "german.provisions": -99,
+        "soviet.provisions": -99,
+        "readiness.token": "friend"
       },
       "slots": [
         {
@@ -956,6 +1117,9 @@
         {
           "id": "foe.airsupremacy.fight.soviet.environment",
           "chance": 30
+        },
+        {
+          "id": "foe.airsupremacy.fight.anno"
         },
         {
           "id": "foe.airsupremacy.fight.soviet"
@@ -1001,12 +1165,16 @@
       "warmup": 10,
       "effects": {
         "foe.cutoff": -1,
-        "german.provisions": 1
+        "german.provisions": 1,
+        "readiness.token": "friend"
       },
       "linked": [
         {
           "id": "foe.airsupremacy.fight.soviet.environment",
           "chance": 30
+        },
+        {
+          "id": "foe.airsupremacy.fight.anno"
         },
         {
           "id": "foe.airsupremacy.fight.soviet"
@@ -1064,10 +1232,15 @@
           },
           "forbidden": {
             "exhausted": 1,
-            "damaged": 1
+            "damaged": 1,
+            "repairing": 1
           }
         }
       ],
+      "effects": {
+        "german.provisions": -99,
+        "soviet.provisions": -99
+      },
       "alt": [
         {
           "id": "foe.airsupremacy.fight.soviet.none"
@@ -1079,6 +1252,61 @@
         },
         {
           "id": "airsupremacy.nonewin"
+        }
+      ]
+    },
+    {
+      "id": "foe.airsupremacy.fight.anno",
+      "$extends": ["foe.airsupremacy.fight.soviet"],
+      "extantreqs": {
+        "anno.mark": 1
+      },
+      "slots": [
+        {
+          "id": "needsgerman1",
+          "label": "Defend",
+          "required": {
+            "friendfighter": 1,
+            "friendbombers": 1,
+            "anti_air_friendly": 1,
+            "friend.aerial": 1
+          },
+          "essential": {
+            "local": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "damaged": 1,
+            "repairing": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "foe.airsupremacy.fight.continue"
+        },
+        {
+          "id": "foe.airsupremacy.fight.both"
+        },
+        {
+          "id": "airsupremacy.nonewin"
+        }
+      ]
+    },
+
+    {
+      "id": "foe.airsupremacy.fight.continue",
+      "label": "Enemy launches aerial combat!",
+      "grandReqs": {
+        "[readiness.token] == [friend]": 1
+      },
+      "effects": {
+        "readiness.token": -99
+      },
+      "linked": [
+        {
+          "id": "foe.airsupremacy.fight.soviet"
         }
       ]
     },
@@ -1111,8 +1339,7 @@
         "[foe] >= 1 || [friend] >= 1": 1
       },
       "effects": {
-        "german.provisions": -99,
-        "soviet.provisions": -99
+        "readiness.token": -99
       },
       "linked": [
         {

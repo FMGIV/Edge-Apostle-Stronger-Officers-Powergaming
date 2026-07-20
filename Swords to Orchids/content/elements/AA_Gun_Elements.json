@@ -7,12 +7,180 @@
 	"isAspect": true
     },
 	{
+	"id": "anti_air_foe",
+	"label": "Anti-air (Foe)",
+	"description": "This structure has anti-air capabilities.",
+	"isAspect": true
+    },
+	{
 	"id": "aimelsewhere",
 	"label": "让防空炮转向",
 	"isAspect": true,
 	"isHidden": true
     },
 	
+	{
+	"id": "foe_building",
+	"label": "Enemy Structure",
+	"description": "A stronghold established by enemy forces after occupying this location. [This enemy can only be destroyed by completing a mission objective.]",
+	"isAspect": true
+    },
+    {
+	"id": "foe_arch",
+	"$extends": ["foe"],
+	"icon": "foe",
+	"induces": {},
+	"comments": "这个才是用来判定的别忘了！！！"
+    },
+    {
+	"id": "antiairgun.complete",
+	"label": "antiairgun",
+	"isAspect": false,
+	"lifetime": 1,
+	"isHidden": true
+    },
+    {
+	"id": "foe_arch.antiairgun",
+	"label": "Enemy Anti-Air Position [Aimed Up]",
+	"description": "Behind cover, inside fortifications, several dark gun barrels stare directly outward beyond the defensive line.",
+	"inherits": "foe_arch.template",
+	"aspects": {
+	    "side": 1,
+	    "objective": 1,
+		"anti_air_foe": 1
+	},
+	"lifetime": 180,
+	"decayTo": "foe_arch.antiairgun.horizontal",
+	"xtriggers": {
+	    "refresh": "foe_arch.antiairgun",
+	    "killgerman": "foe_arch.antiairgun.exhausted",
+	    "killfoe": "foe_arch.antiairgun.exhausted",
+	    "killmortal": "foe_arch.antiairgun.exhausted",
+	    "careeradvancement": [
+		{
+		    "id": "antiairgun.complete"
+		},
+		{
+		    "id": "op.ruins",
+		    "morpheffect": "spawn",
+			"level": 3
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.manhunters",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.artillery.ins",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe_arch.antiairgun.exhausted",
+	"$extends": ["foe_arch.antiairgun.horizontal"],
+	"label": "Enemy Anti-Air Position (Exhausted)",
+	"description": "Behind cover, inside fortifications, several dark gun barrels stare directly outward beyond the defensive line.",
+	"aspects": {
+	    "side": 1,
+	    "objective": 1,
+		"exhausted": 1
+	},
+	"resaturate": true,
+	"icon": "foe_arch.antiairgun",
+	"lifetime": 240,
+	"decayTo": "foe_arch.antiairgun"
+    },
+    {
+	"id": "foe_arch.antiairgun.horizontal",
+	"label": "Enemy Anti-Air Position [Aimed Horizontally]",
+	"description": "Behind cover, inside fortifications, several dark gun barrels stare directly outward beyond the defensive line.",
+	"inherits": "foe_arch.template",
+	"aspects": {
+	    "side": 1,
+	    "objective": 1,
+		"needsedge": 30,
+		"needsedgelantern": 12,
+		"needsedgeknock": 12,
+		"needsedgeforge": 12
+	},
+	"lifetime": 300,
+	"decayTo": "foe_arch.antiairgun",
+	"xtriggers": {
+	    "refresh": "foe_arch.antiairgun",
+	    "killgerman": "foe_arch.antiairgun.exhausted",
+	    "killfoe": "foe_arch.antiairgun.exhausted",
+	    "killmortal": "foe_arch.antiairgun.exhausted",
+	    "careeradvancement": [
+		{
+		    "id": "antiairgun.complete"
+		},
+		{
+		    "id": "op.ruins",
+		    "morpheffect": "spawn",
+			"level": 3
+		}
+	    ],
+	    "opx.progress0": [
+		{
+		    "id": "foe_arch.antiairgun.horizontal.ing"
+		},
+		{
+		    "id": "hindrance.fortifications",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress1": [
+		{
+		    "id": "foe.tanks",
+		    "morpheffect": "spawn"
+		}
+	    ],
+	    "opx.progress2": [
+		{
+		    "id": "foe.artillery.ins",
+		    "morpheffect": "spawn"
+		}
+	    ]
+	}
+    },
+    {
+	"id": "foe_arch.antiairgun.horizontal.exhausted",
+	"$extends": ["foe_arch.antiairgun.horizontal"],
+	"label": "Enemy Anti-Air Position (Exhausted)",
+	"description": "Behind cover, inside fortifications, several dark gun barrels stare directly outward beyond the defensive line.",
+	"aspects": {
+	    "side": 1,
+	    "objective": 1,
+		"exhausted": 1
+	},
+	"icon": "foe_arch.antiairgun.horizontal",
+	"resaturate": true,
+	"lifetime": 480,
+	"decayTo": "foe_arch.antiairgun.horizontal"
+    },
+    {
+	"id": "foe_arch.antiairgun.horizontal.ing",
+	"$extends": ["foe_arch.antiairgun.horizontal"],
+	"aspects": {
+	    "side": 1,
+	    "objective": 1
+	},
+	"icon": "foe_arch.antiairgun.horizontal",
+	"lifetime": 1,
+	"decayTo": "foe_arch.antiairgun.horizontal"
+    },
+
     {
 	"id": "loc.antiairgun",
 	"label": "Anti-Air Gun [Aimed Up]",

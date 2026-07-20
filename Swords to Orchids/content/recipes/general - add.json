@@ -441,6 +441,9 @@
       "id": "ob.success",
       "linked$prepend": [
         {
+          "id": "ob.success.antiairgun"
+        },
+        {
           "id": "ob.success.amphibious_assault"
         },
         {
@@ -464,12 +467,44 @@
       ]
     },
     {
+      "id": "ob.success.antiairgun",
+      "label": "A Victory!",
+      "startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
+      "description": "And so we are victorious.",
+      "requirements": {
+        "antiairgun.complete": 1,
+        "enemyforces": -3
+      },
+      "effects": {
+        "enemyforces": 1
+      },
+      "internaldeck": {
+        "spec": [
+          "provisions",
+          "provisions",
+          "supplies.apmunitions",
+          "supplies.apmunitions",
+          "supplies.apmunitions"
+        ],
+        "draws": 1,
+        "defaultcard": "provisions",
+        "resetonexhaustion": true
+      },
+      "warmup": 5,
+      "linked": [
+        {
+          "id": "ob.success.antiairgun",
+          "chance": 60
+        }
+      ]
+    },
+    {
       "id": "ob.success.amphibious_assault",
       "label": "A Victory!",
       "startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
       "description": "And so we are victorious.",
       "requirements": {
-        "amphibious_assault.template": 1,
+        "amphibious_assault.complete": 1,
         "warzone.current": -1
       },
       "effects": {
