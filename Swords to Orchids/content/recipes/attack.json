@@ -2130,6 +2130,12 @@
             ]
         },
         {
+            "id": "foe.umiri.attack.aux.ex",
+            "$extends": ["foe.umiri.attack.aux"],
+            "extantreqs": {},
+            "requirements": {}
+        },
+        {
             "id": "foe.umiri.attack",
             "label": "Enemy Forces Beginning Large-Scale Concentration",
             "startdescription": "From every road comes the low thrum of drums. Every frequency is thick with an irritating hum. A new wave of attacks is about to begin.",
@@ -2137,28 +2143,50 @@
             "warmup": 10,
             "linked": [
                 {
-                    "id": "foe.umiri.circle"
+                    "id": "foe.umiri.circle.defense"
+                },
+                {
+                    "id": "foe.umiri.circle.rally"
+                },
+                {
+                    "id": "foe.umiri.circle.tactics1"
+                },
+                {
+                    "id": "foe.umiri.circle.tactics2"
+                },
+                {
+                    "id": "foe.umiri.circle.tactics2.p"
+                },
+                {
+                    "id": "foe.umiri.circle.tactics3"
+                },
+                {
+                    "id": "foe.umiri.attack.aux.ex"
                 }
             ],
             "alt": [
                 {
                     "id": "foe.umiri.attack.aux"
-                },
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.circle.defense",
+            "label": "Enemy Forces Beginning Large-Scale Concentration",
+            "requirements": {
+                "strategy.defense": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.circle"
+                }
+            ],
+            "alt": [
                 {
                     "id": "foe.umiri.attack.defense.first",
                     "expulsion": {
                         "filter": {
                             "strategy.defense": 1
-                        },
-                        "limit": 1
-                    },
-					"additional": true
-                },
-                {
-                    "id": "foe.umiri.attack.rally.first",
-                    "expulsion": {
-                        "filter": {
-                            "strategy.rally": 1
                         },
                         "limit": 1
                     },
@@ -2173,6 +2201,30 @@
                         "limit": 1
                     },
 					"additional": true
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.circle.rally",
+            "label": "Enemy Forces Beginning Large-Scale Concentration",
+            "requirements": {
+                "strategy.rally": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.circle"
+                }
+            ],
+            "alt": [
+                {
+                    "id": "foe.umiri.attack.rally.first",
+                    "expulsion": {
+                        "filter": {
+                            "strategy.rally": 1
+                        },
+                        "limit": 1
+                    },
+					"additional": true
                 },
                 {
                     "id": "foe.umiri.attack.rally",
@@ -2183,7 +2235,25 @@
                         "limit": 1
                     },
 					"additional": true
-                },
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.circle.tactics1",
+            "label": "Enemy Forces Beginning Large-Scale Concentration",
+            "extantreqs": {
+                "strife.tracker": 2,
+                "foe.cutoff": -8
+            },
+            "requirements": {
+                "strategy.tactics1": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.circle"
+                }
+            ],
+            "alt": [
                 {
                     "id": "foe.umiri.attack.tactics1.first",
                     "expulsion": {
@@ -2193,7 +2263,26 @@
                         "limit": 1
                     },
 					"additional": true
-                },
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.circle.tactics2",
+            "label": "Enemy Forces Beginning Large-Scale Concentration",
+            "extantreqs": {
+                "strife.tracker": 4,
+                "foetanks": 3,
+                "foe.cutoff": -5
+            },
+            "requirements": {
+                "strategy.tactics2": 1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.circle"
+                }
+            ],
+            "alt": [
                 {
                     "id": "foe.umiri.attack.tactics2.first",
                     "expulsion": {
@@ -2203,9 +2292,30 @@
                         "limit": 1
                     },
 					"additional": true
-                },
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.circle.tactics3",
+            "label": "Enemy Forces Beginning Large-Scale Concentration",
+            "extantreqs": {
+                "strife.tracker": 7,
+                "foe.cutoff": -3
+            },
+            "grandReqs": {
+                "[~/exterior:foebombers] >= 3 || [~/exterior:foeartillery] >= 3": 1
+            },
+            "requirements": {
+                "strategy.tactics3": 1
+            },
+            "linked": [
                 {
-                    "id": "foe.umiri.attack.tactics3.first",
+                    "id": "foe.umiri.circle"
+                }
+            ],
+            "alt": [
+                {
+                    "id": "foe.umiri.attack.tactics1.first",
                     "expulsion": {
                         "filter": {
                             "strategy.tactics3": 1
@@ -2216,7 +2326,7 @@
                 }
             ]
         },
-        
+
     {
 	"id": "time.cycle",
 	"linked$prepend": [
