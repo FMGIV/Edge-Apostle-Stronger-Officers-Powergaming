@@ -75,7 +75,7 @@
 	
     {
 	"id": "provisions",
-	"slots" : [
+	"slots$append" : [
 		{
 		"id": "Tiredally",
 		"actionid": "abandon",
@@ -94,7 +94,46 @@
 		"required": {
 		    "provisions": 1
 			}
-		}
+		},
+		
+		{
+		"id": "medic",
+		"actionid": "mobilize",
+		"label": "Medics",
+		"required": {
+		    "friend.medics": 1,
+			"friendmedics": 1,
+			"friend.medics.supplied": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+			"exhausted": 1
+			}
+	    },
+		
+	    {
+		"id": "engi",
+		"actionid": "mobilize",
+		"label": "Engineers",
+		"required": {
+		    "friend.engineers": 1,
+			"friendengineers": 1,
+			"friend.engineers.wellstocked": 1
+		},
+		"forbidden": {
+		    "wounded": 1,
+			"exhausted": 1
+			}
+	    },
+		
+	    {
+		"id": "provisions",
+		"actionid": "mobilize",
+		"label": "Provisions",
+		"required": {
+		    "provisions": 1
+			}
+	    }
 	],
 	"aspects": {
 	"edge": 2,
@@ -148,7 +187,12 @@
 	],
 	"xtriggers$add": {
 		"becomezombiesoldier": "foe.chasseur"
-	}
+	},
+	"induces$prepend": [
+	    {
+		"id": "evac.corpse.remover"
+	    }
+	]
 	},
 	
 	{

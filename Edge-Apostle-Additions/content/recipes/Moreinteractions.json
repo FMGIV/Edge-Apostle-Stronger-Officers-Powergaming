@@ -675,52 +675,9 @@
 	
 	{
 	"id": "contemplate.noon",
-	"actionid": "operate",
+	"$extends": ["contemplate.night"],
 	"label": "Contemplate under the sun?",
-	"startdescription": "The sun has reached its zenith. I find some time to rest, before duty calls me back. What might I ponder, under the light of the sun?",
-	"description": "Nothing consequential, I suppose.",
-	"slots": [
-	    {
-		"id": "needscontemplation",
-		"label": "Something to think about?",
-		"required": {
-		    "contemplation": 1
-		},
-	    }
-	],
-	"alt": [
-		{
-		"id": "obdurant.defiancehints"
-	    },
-	    {
-		"id": "contemplation.complete.anno"
-	    },
-	    {
-		"id": "contemnant.namehints"
-	    },
-	    {
-		"id": "proterant.namehints"
-	    },
-	    {
-		"id": "obdurant.namehints"
-	    },
-	    {
-		"id": "contemplation.complete"
-	    },
-	    {
-		"id": "contemplate.mainobjective.contemnant"
-	    },
-	    {
-		"id": "contemplate.wolfdream"
-	    },
-	    {
-		"id": "contemplate.antithesis"
-	    },
-	    {
-		"id": "othercontemplations"
-	    }
-	],
-	"warmup": 30
+	"startdescription": "The sun has reached its zenith. I find some time to rest, before duty calls me back. What might I ponder, under the light of the sun?"
     },
 	
 	{  
@@ -750,52 +707,9 @@
 	
 	{
 	"id": "contemplate.sunset",
-	"actionid": "operate",
+	"$extends": ["contemplate.night"],
 	"label": "Contemplate under sunset?",
 	"startdescription": "The sun is retreating from the moon. I find some time to rest, before liberation calls me back. What might I ponder, under the fading light?",
-	"description": "Nothing consequential, I suppose.",
-	"slots": [
-	    {
-		"id": "needscontemplation",
-		"label": "Something to think about?",
-		"required": {
-		    "contemplation": 1
-		},
-	    }
-	],
-	"alt": [
-		{
-		"id": "obdurant.defiancehints"
-	    },
-	    {
-		"id": "contemplation.complete.anno"
-	    },
-	    {
-		"id": "contemnant.namehints"
-	    },
-	    {
-		"id": "proterant.namehints"
-	    },
-	    {
-		"id": "obdurant.namehints"
-	    },
-	    {
-		"id": "contemplation.complete"
-	    },
-	    {
-		"id": "contemplate.mainobjective.contemnant"
-	    },
-	    {
-		"id": "contemplate.wolfdream"
-	    },
-	    {
-		"id": "contemplate.antithesis"
-	    },
-	    {
-		"id": "othercontemplations"
-	    }
-	],
-	"warmup": 30
     },
 	
 	{
@@ -847,12 +761,7 @@
 	
 	{
 	"id": "travelslot.takemoreimportantfriend",
-	"startdescription": "",
-	"$priority" : 1,
-	"label": "Preparing to Depart",
-	"extantreqs": {
-	    "battlehunger": -1
-	},
+	"$extends": ["travelslot.takefriends"],
 	"tablereqs": {
     "friend.getthefuckout": 1,
 	"friend" : 1
@@ -871,53 +780,9 @@
 		},
 		"greedy": true
 	    }
-	],
-	"warmup": 10,
-	"linked": [
+		],
+	"linked$prepend": [
 	    {
-		"id": "travelslot.abort.longbossfight"
-	    },
-	    
-		{
-		"id": "travelslot.takefriends"
-	    }
-	],
-	"alt": [
-		{
-		"id": "travelslot.moreimportantfriendfound"
-		},
-	]
-    },
-	
-	{
-	"id": "travelslot.moreimportantfriendfound",
-	"$priority" : 1,
-	"label": "Departing...",
-	"startdescription": "",
-	"requirements": {
-	    "friend.getthefuckout": 1,
-		"friend" : 1
-	},
-	"mutations": [
-	    {
-		"filter": "friend",
-		"mutate": "friend.departing",
-		"level": 1
-	    },
-	    {
-		"filter": "friend.departing",
-		"mutate": "friend",
-		"level": -1
-	    }
-	],
-	"linked": [
-		{
-		"id": "travelslot.abort.longbossfight"
-	    },
-	    {
-		"id": "travelslot.takemoreimportantfriend"
-	    },
-		{
 		"id": "travelslot.takefriends"
 	    }
 	]
@@ -2349,6 +2214,120 @@
 	},
 	"hintonly": true,
 	"craftable": false
+    },
+	
+	{  
+    "id": "evacuate.allies",  
+    "actionid": "evacallyverb",
+    "label": "Evacuating Allies",  
+    "startdescription": "We are leaving.",
+	"warmup": 99999
+	},
+	
+	{
+    "id": "stop.ally.evac",
+    "actionid" : "allyattack",
+    "label": "Evacuation Complete!",
+    "startdescription": "Evacuation Complete!",
+    "description": "Evacuation Complete!",
+    "warmup": 1,
+    "haltverb" : {
+        "evacallyverb" : 1
+		}
+    },
+	
+	{
+	"id": "evac.corpse.remover",
+	"actionid": "respawnenemycorpse",
+	"label": "Ally Killed!",
+	"startdescription": "An Ally has died!",
+	"description": "An Ally has died!",
+	"warmup": 1,
+	"grandReqs": {
+		"([remnant] && [friend.getthefuckout])": 1,
+	},
+	"slots": [
+	    {
+		"id": "deadally",
+		"label": "Dead Ally",
+		"required": {
+			"friend.getthefuckout" : 1
+		},
+		"essential": {
+		    "friend.corpses": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [  
+		{  
+			"filter": "remnant",  
+			"mutate": "friend.getthefuckout",  
+			"level": -1  
+		}  
+		]
+	},
+	
+    {
+	"id": "prepare.evac.faster",
+	"actionid": "mobilize",
+	"label": "Prepare Evacuation",
+	"startdescription": "We aren't staying here forever. Some preparation now will allow us to move on faster. [You can only have a maximum of 2 evacuation preparedness at a time. This will consume the allies and provisions used.]",
+	"description": "Done.",
+	"requirements": {
+	    "provisions": 2,
+		"friend" : 2
+	},  
+    "extantreqs": {  
+        "faster.evac": -2
+    },  
+    "effects": {  
+        "faster.evac": 1,
+		"friend" : -2,
+		"provisions" : -2
+		},
+	"craftable": true,
+	"warmup": 60
+    },
+	
+	{
+	"id": "hint.prepare.evac",
+	"actionid": "mobilize",
+	"label": "Prepare Evacuation?",
+	"startdescription": "If I dedicate some men and resources to Evacuation Preparations, I can get out of this warzone faster.",
+	"requirements": {
+	    "provisions": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+    {
+	"id": "evacuate.router",
+	"actionid": "evac.faster.verb",
+	"label": "Evacuating Allies...",
+	"startdescription": "We Are Leaving.",  
+    "extantreqs": {  
+        "faster.evac": 1
+    },  
+    "effects": {  
+        "evac.recipe.halter": 1,
+		},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"warmup": 10
+    },
+	
+    {
+	"id": "evacuate.2ndslot",
+	"$extends" : ["evacuate.router"], 
+	"actionid": "evac.faster.verb2",
+    "extantreqs": {  
+        "faster.evac": 2
+		}
     }
 	
 	

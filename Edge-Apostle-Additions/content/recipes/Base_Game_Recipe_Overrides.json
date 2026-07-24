@@ -255,11 +255,144 @@
 	
 	{
    "id": "travelslot.friendfound",
+   "mutations": [],
    "linked$prepend": [
 	    {
 		"id": "travelslot.takemoreimportantfriend"
 	    }
-	],
+		],
+    "furthermore": [
+		{
+		"movements": {
+        "~/tabletop!evacallyverb[situationstorage]+": {
+			"filter": "friend"
+				}
+			}
+		}
+      ],
+   "inductions$prepend": [
+	    {
+		"id": "evacuate.router"
+	    },
+		
+		{
+		"id": "evacuate.2ndslot"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.firstwarzone",
+   "inductions$prepend": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.firstwarzone.proterant",
+   "inductions$prepend": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.firstwarzone.contemnant",
+   "inductions$prepend": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	
+	{
+   "id": "travelslot.takefriends",
+   "inductions$prepend": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travelslot.takefriends.sergei",
+   "inductions$prepend": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.warzone.sector.a.proterant",
+   "inductions$prepend": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.warzone.sector.b.proterant",
+   "inductions$prepend": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.warzone.sector.a",
+   "inductions$prepend": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.warzone.sector.b",
+   "inductions$prepend": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.warzone.sector.a.contemnant",
+   "inductions$prepend": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.warzone.sector.b.contemnant",
+   "inductions$prepend": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travelslot.abort.longbossfight",
+    "haltverb$add" : {
+        "evacallyverb" : 1,
+		"evac.faster.verb" : 1,
+		"evac.faster.verb2" : 1
+		}
+	},
+	
+	{
+	"id": "travelslot.end",
+	"requirements$add" : {"evac.recipe.halter" : -1}
 	},
 	
 	{
@@ -381,7 +514,12 @@
 	{
 	"id": "travelling.cycle.purge",
 	"haltverb$add" : {"sendinglettercompanion" : 5, "lake.monster" : 5, "enemy.offensive.preparation" : 5, "enemy.defensive.preparation" : 5, "allyattack": 5, "ally.scouts.action" : 5, "ally.engineer.action" : 5, "ally.medics.action" : 5, "sergei_enemy_verb" : 2, "active.hindrances" : 1, "enemycontrolledwarzone" : 1, "fatality.overrun" : 1, "enemy.doing.main.objective" : 1, "badweather" : 1},
-	"purge$add" : {"enemy.infrastructure" : 99, "andnowwhat" : 99, "active.hindrance" : 99, "hindrance.active": 99, "enemy.defensive.preparation" : 99, "enemy.offensive.preparation" : 99}
+	"purge$add" : {"enemy.infrastructure" : 99, "andnowwhat" : 99, "active.hindrance" : 99, "hindrance.active": 99, "enemy.defensive.preparation" : 99, "enemy.offensive.preparation" : 99},
+    "inductions$append": [
+		{
+		"id" : "stop.ally.evac"
+		}
+		]
 	},
 	
 	{
