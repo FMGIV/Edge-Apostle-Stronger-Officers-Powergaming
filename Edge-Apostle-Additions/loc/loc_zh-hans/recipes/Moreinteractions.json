@@ -675,52 +675,9 @@
 	
 	{
 	"id": "contemplate.noon",
-	"actionid": "operate",
+	"$extends": ["contemplate.night"],
 	"label": "在阳光下沉思？",  
-	"startdescription": "太阳已升至正午。在职责召唤我回去之前，我抽空休息片刻。在这阳光下，我该思考些什么呢？",
-	"description": "我想，这没什么大不了的。",
-	"slots": [
-	    {
-		"id": "needscontemplation",
-		"label": "值得思考的问题？",
-		"required": {
-		    "contemplation": 1
-		},
-	    }
-	],
-	"alt": [
-		{
-		"id": "obdurant.defiancehints"
-	    },
-	    {
-		"id": "contemplation.complete.anno"
-	    },
-	    {
-		"id": "contemnant.namehints"
-	    },
-	    {
-		"id": "proterant.namehints"
-	    },
-	    {
-		"id": "obdurant.namehints"
-	    },
-	    {
-		"id": "contemplation.complete"
-	    },
-	    {
-		"id": "contemplate.mainobjective.contemnant"
-	    },
-	    {
-		"id": "contemplate.wolfdream"
-	    },
-	    {
-		"id": "contemplate.antithesis"
-	    },
-	    {
-		"id": "othercontemplations"
-	    }
-	],
-	"warmup": 30
+	"startdescription": "太阳已升至正午。在职责召唤我回去之前，我抽空休息片刻。在这阳光下，我该思考些什么呢？"
     },
 	
 	{  
@@ -750,52 +707,9 @@
 	
 	{
 	"id": "contemplate.sunset",
-	"actionid": "operate",
+	"$extends": ["contemplate.night"],
 	"label": "在夕阳下沉思？",  
-	"startdescription": "太阳正从月亮后退去。在解脱的召唤将我唤回之前，我抽空休息片刻。在这渐暗的光线中，我该思索些什么呢？",
-	"description": "我想，没什么大不了的。",
-	"slots": [
-	    {
-		"id": "needscontemplation",
-		"label": "值得思考的问题？",
-		"required": {
-		    "contemplation": 1
-		},
-	    }
-	],
-	"alt": [
-		{
-		"id": "obdurant.defiancehints"
-	    },
-	    {
-		"id": "contemplation.complete.anno"
-	    },
-	    {
-		"id": "contemnant.namehints"
-	    },
-	    {
-		"id": "proterant.namehints"
-	    },
-	    {
-		"id": "obdurant.namehints"
-	    },
-	    {
-		"id": "contemplation.complete"
-	    },
-	    {
-		"id": "contemplate.mainobjective.contemnant"
-	    },
-	    {
-		"id": "contemplate.wolfdream"
-	    },
-	    {
-		"id": "contemplate.antithesis"
-	    },
-	    {
-		"id": "othercontemplations"
-	    }
-	],
-	"warmup": 30
+	"startdescription": "太阳正从月亮后退去。在解脱的召唤将我唤回之前，我抽空休息片刻。在这渐暗的光线中，我该思索些什么呢？"
     },
 	
 	{
@@ -847,12 +761,7 @@
 	
 	{
 	"id": "travelslot.takemoreimportantfriend",
-	"startdescription": "",
-	"$priority" : 1,
-	"label": "准备出发",
-	"extantreqs": {
-	    "battlehunger": -1
-	},
+	"$extends": ["travelslot.takefriends"],
 	"tablereqs": {
     "friend.getthefuckout": 1,
 	"friend" : 1
@@ -871,21 +780,11 @@
 		},
 		"greedy": true
 	    }
-	],
-	"warmup": 10,
-	"linked": [
+		],
+	"linked$prepend": [
 	    {
-		"id": "travelslot.abort.longbossfight"
-	    },
-	    
-		{
 		"id": "travelslot.takefriends"
 	    }
-	],
-	"alt": [
-		{
-		"id": "travelslot.moreimportantfriendfound"
-		},
 	]
     },
 	
@@ -2349,6 +2248,120 @@
 	},
 	"hintonly": true,
 	"craftable": false
+    },
+	
+	{  
+    "id": "evacuate.allies",  
+    "actionid": "evacallyverb",
+    "label": "撤离盟友",  
+    "startdescription": "我们要走了。",
+	"warmup": 99999
+	},
+	
+	{
+    "id": "stop.ally.evac",
+    "actionid" : "allyattack",
+    "label": "疏散完成！",
+    "startdescription": "疏散完成！",
+    "description": "疏散完成！",
+    "warmup": 1,
+    "haltverb" : {
+        "evacallyverb" : 1
+		}
+    },
+	
+	{
+	"id": "evac.corpse.remover",
+	"actionid": "respawnenemycorpse",
+	"label": "盟友阵亡！",
+	"startdescription": "一名盟友阵亡了！",
+	"description": "一名盟友阵亡了！",
+	"warmup": 1,
+	"grandReqs": {
+		"([remnant] && [friend.getthefuckout])": 1,
+	},
+	"slots": [
+	    {
+		"id": "deadally",
+		"label": "已故的盟友",
+		"required": {
+			"friend.getthefuckout" : 1
+		},
+		"essential": {
+		    "friend.corpses": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [  
+		{  
+			"filter": "remnant",  
+			"mutate": "friend.getthefuckout",  
+			"level": -1  
+		}  
+		]
+	},
+	
+    {
+	"id": "prepare.evac.faster",
+	"actionid": "mobilize",
+	"label": "准备撤离",
+	"startdescription": "我们不会永远待在这里。现在做好一些准备，能让我们更快地继续前进。[同一时间最多只能进行2项撤离准备。这将消耗已使用的盟友和补给。]",
+	"description": "完成。",
+	"requirements": {
+	    "provisions": 2,
+		"friend" : 2
+	},  
+    "extantreqs": {  
+        "faster.evac": -2
+    },  
+    "effects": {  
+        "faster.evac": 1,
+		"friend" : -2,
+		"provisions" : -2
+		},
+	"craftable": true,
+	"warmup": 60
+    },
+	
+	{
+	"id": "hint.prepare.evac",
+	"actionid": "mobilize",
+	"label": "准备撤离？",
+	"startdescription": "如果我调配部分人员和资源用于撤离准备，就能更快地撤出这个战区。",
+	"requirements": {
+	    "provisions": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+    {
+	"id": "evacuate.router",
+	"actionid": "evac.faster.verb",
+	"label": "撤离盟友……",
+	"startdescription": "我们要走了。",  
+    "extantreqs": {  
+        "faster.evac": 1
+    },  
+    "effects": {  
+        "evac.recipe.halter": 1,
+		},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"warmup": 10
+    },
+	
+    {
+	"id": "evacuate.2ndslot",
+	"$extends" : ["evacuate.router"], 
+	"actionid": "evac.faster.verb2",
+    "extantreqs": {  
+        "faster.evac": 2
+		}
     }
 	
 	
