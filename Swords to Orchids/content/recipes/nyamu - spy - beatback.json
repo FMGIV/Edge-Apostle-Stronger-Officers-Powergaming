@@ -4,7 +4,7 @@
 	"id": "nya.beatback.washing.startup",
 	"actionId": "communicate",
 	"label": "Purge the army",
-	"startdescription": "You are certain there are spies infiltrated among your men. For the final victory, it is better to kill a thousand by mistake than to let one go!\n\n[This will cause three of your comrades to die at random, but will immediately reduce the infiltration value by 3 points.]",
+	"startdescription": "You are certain there are spies infiltrated among your men. For the final victory, it is better to kill a thousand by mistake than to let one go!\n\n[This will randomly cause three of your comrades to die, but will immediately lower the infiltration level. Alternatively, you may choose a gentler but slower approach to reduce infiltration.]",
 	"requirements": {
 		"weapon": 1
 	},
@@ -30,8 +30,23 @@
 	"id": "nya.beatback.washing",
 	"actionId": "washing",
 	"label": "Purge the army",
-	"startdescription": "Mutterings, unrest, unkind stares pierce your back... someone is stirring trouble in your ranks!\n\n[This will cause three of your comrades to die at random, but will immediately reduce the infiltration value by 3 points.]",
+	"startdescription": "Mutterings, unrest, unkind stares pierce your back... someone is stirring trouble in your ranks!\n\n[This will randomly cause three of your comrades to die, but will immediately lower the infiltration level.]",
 	"linked": [
+		{
+			"id": "nya.beatback.washing.de_inf.8"
+		},
+		{
+			"id": "nya.beatback.washing.de_inf.7",
+			"chance": 85
+		},
+		{
+			"id": "nya.beatback.washing.de_inf.6",
+			"chance": 60
+		},
+		{
+			"id": "nya.beatback.washing.de_inf.5",
+			"chance": 30
+		},
 		{
 			"id": "nya.beatback.washing"
 		},
@@ -63,6 +78,26 @@
 	"effects": {
 		"enemyforces": 1
 	},
+	"warmup": 60
+    },
+    {
+	"id": "nya.beatback.washing.de_inf.8",
+	"label": "Infiltration Decrease",
+	"startdescription": "Martial law has proven effective; after a few gunshots, the situation stabilized considerably.\n\n[The higher the infiltration value, the higher the success rate of reducing infiltration.]",
+	"linked": [
+		{
+			"id": "nya.beatback.washing"
+		},
+		{
+			"id": "nya.beatback.washing.end"
+		}
+	],
+	"extantreqs": {
+		"nya.infiltration": 8
+	},
+	"aspects": {
+		"killmortal": 1
+	},
 	"furthermore": [
 		{
 			"target": "~/tabletop!nya[situationstorage]+",
@@ -71,7 +106,91 @@
 			}
 		}
 	],
-	"warmup": 60
+	"warmup": 10
+    },
+    {
+	"id": "nya.beatback.washing.de_inf.7",
+	"label": "Infiltration Decrease",
+	"startdescription": "Martial law has proven effective; after a few gunshots, the situation stabilized considerably.\n\n[The higher the infiltration value, the higher the success rate of reducing infiltration.]",
+	"linked": [
+		{
+			"id": "nya.beatback.washing"
+		},
+		{
+			"id": "nya.beatback.washing.end"
+		}
+	],
+	"extantreqs": {
+		"nya.infiltration": 7
+	},
+	"aspects": {
+		"killmortal": 1
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!nya[situationstorage]+",
+			"aspects": {
+				"de_inf": 1
+			}
+		}
+	],
+	"warmup": 10
+    },
+    {
+	"id": "nya.beatback.washing.de_inf.6",
+	"label": "Infiltration Decrease",
+	"startdescription": "Martial law has proven effective; after a few gunshots, the situation stabilized considerably.\n\n[The higher the infiltration value, the higher the success rate of reducing infiltration.]",
+	"linked": [
+		{
+			"id": "nya.beatback.washing"
+		},
+		{
+			"id": "nya.beatback.washing.end"
+		}
+	],
+	"extantreqs": {
+		"nya.infiltration": 6
+	},
+	"aspects": {
+		"killmortal": 1
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!nya[situationstorage]+",
+			"aspects": {
+				"de_inf": 1
+			}
+		}
+	],
+	"warmup": 10
+    },
+    {
+	"id": "nya.beatback.washing.de_inf.5",
+	"label": "Infiltration Decrease",
+	"startdescription": "Martial law has proven effective; after a few gunshots, the situation stabilized considerably.\n\n[The higher the infiltration value, the higher the success rate of reducing infiltration.]",
+	"linked": [
+		{
+			"id": "nya.beatback.washing"
+		},
+		{
+			"id": "nya.beatback.washing.end"
+		}
+	],
+	"extantreqs": {
+		"nya.infiltration": 5
+	},
+	"aspects": {
+		"killmortal": 1
+	},
+	"furthermore": [
+		{
+			"target": "~/tabletop!nya[situationstorage]+",
+			"aspects": {
+				"de_inf": 1
+			}
+		}
+	],
+	"warmup": 10
     },
     {
 	"id": "nya.beatback.washing.achievement",
@@ -98,7 +217,7 @@
 	"id": "nya.beatback.localpower.startup",
 	"actionId": "communicate",
 	"label": "Ask the local forces for help",
-	"startdescription": "Local civilian inspection squads exist. Perhaps we can make use of their abilities, hoping they are not insatiable.\n\n[This will immediately reduce the infiltration value, but local forces may sometimes demand more; failure to satisfy may result in increased cipher or resistance levels.]",
+	"startdescription": "Local civilian inspection squads exist. Perhaps we can make use of their abilities, hoping they are not insatiable.\n\n[This will immediately reduce the infiltration level, but local forces may sometimes demand more. If their demands are not met, it may increase the cipher level or the resistance level. Alternatively, you may choose a quicker but more brutal method to lower infiltration.]",
 	"requirements": {
 		"provisions": 1
 	},
@@ -133,15 +252,27 @@
 	],
 	"linked": [
 		{
+			"id": "nya.beatback.localpower.de_inf.8"
+		},
+		{
+			"id": "nya.beatback.localpower.de_inf.7",
+			"chance": 85
+		},
+		{
+			"id": "nya.beatback.localpower.de_inf.6",
+			"chance": 60
+		},
+		{
+			"id": "nya.beatback.localpower.de_inf.5",
+			"chance": 30
+		},
+		{
 			"id": "nya.beatback.localpower"
 		},
 		{
 			"id": "nya.beatback.localpower.end"
 		}
 	],
-	"aspects": {
-		"killmortal": 1
-	},
 	"requirements": {
 		"enemyforces": -3
 	},
@@ -149,6 +280,23 @@
 		"enemyforces": 1,
 		"notmoreprovisions": -99
 	},
+	"warmup": 60
+    },
+    {
+	"id": "nya.beatback.localpower.de_inf.8",
+	 "label": "Infiltration Decrease",
+	"startdescription": "Thank goodness, they finally did something!\n\n[The higher the infiltration value, the higher the success rate of reducing infiltration.]",
+	"extantreqs": {
+		"nya.infiltration": 8
+	},
+	"linked": [
+		{
+			"id": "nya.beatback.localpower"
+		},
+		{
+			"id": "nya.beatback.localpower.end"
+		}
+	],
 	"furthermore": [
 		{
 			"target": "~/tabletop!nya[situationstorage]+",
@@ -157,7 +305,82 @@
 			}
 		}
 	],
-	"warmup": 60
+	"warmup": 10
+    },
+    {
+	"id": "nya.beatback.localpower.de_inf.7",
+	 "label": "Infiltration Decrease",
+	"startdescription": "Thank goodness, they finally did something!\n\n[The higher the infiltration value, the higher the success rate of reducing infiltration.]",
+	"extantreqs": {
+		"nya.infiltration": 7
+	},
+	"linked": [
+		{
+			"id": "nya.beatback.localpower"
+		},
+		{
+			"id": "nya.beatback.localpower.end"
+		}
+	],
+	"furthermore": [
+		{
+			"target": "~/tabletop!nya[situationstorage]+",
+			"aspects": {
+				"de_inf": 1
+			}
+		}
+	],
+	"warmup": 10
+    },
+    {
+	"id": "nya.beatback.localpower.de_inf.6",
+	 "label": "Infiltration Decrease",
+	"startdescription": "Thank goodness, they finally did something!\n\n[The higher the infiltration value, the higher the success rate of reducing infiltration.]",
+	"extantreqs": {
+		"nya.infiltration": 6
+	},
+	"linked": [
+		{
+			"id": "nya.beatback.localpower"
+		},
+		{
+			"id": "nya.beatback.localpower.end"
+		}
+	],
+	"furthermore": [
+		{
+			"target": "~/tabletop!nya[situationstorage]+",
+			"aspects": {
+				"de_inf": 1
+			}
+		}
+	],
+	"warmup": 10
+    },
+    {
+	"id": "nya.beatback.localpower.de_inf.5",
+	 "label": "Infiltration Decrease",
+	"startdescription": "Thank goodness, they finally did something!\n\n[The higher the infiltration value, the higher the success rate of reducing infiltration.]",
+	"extantreqs": {
+		"nya.infiltration": 5
+	},
+	"linked": [
+		{
+			"id": "nya.beatback.localpower"
+		},
+		{
+			"id": "nya.beatback.localpower.end"
+		}
+	],
+	"furthermore": [
+		{
+			"target": "~/tabletop!nya[situationstorage]+",
+			"aspects": {
+				"de_inf": 1
+			}
+		}
+	],
+	"warmup": 10
     },
     {
 	"id": "nya.beatback.localpower.more.startup",
@@ -377,6 +600,30 @@
 		"resetonexhaustion": true
 	},
 	"warmup": 10
+    },
+    {
+	"id": "produce.weakness.inf",
+	"$extends": ["produce.weakness"],
+	"internaldeck": {},
+	"effects": {
+		"side.inf": 1
+	}
+    },
+    {
+	"id": "produce.weakness.dec",
+	"$extends": ["produce.weakness"],
+	"internaldeck": {},
+	"effects": {
+		"side.dec": 1
+	}
+    },
+    {
+	"id": "produce.weakness.dis",
+	"$extends": ["produce.weakness"],
+	"internaldeck": {},
+	"effects": {
+		"side.dis": 1
+	}
     }
     ]
 }

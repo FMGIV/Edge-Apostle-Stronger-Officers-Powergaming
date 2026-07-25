@@ -98,6 +98,23 @@
     },
     {
       "id": "nya.circle",
+      "tablereqs": {
+        "lake.here": -1,
+        "craterfield.here": -1,
+        "wasteland.ironeater.here": -1,
+        "wasteland": -1
+      },
+      "effects": {
+        "nya.strategy.prep": 1
+      },
+      "linked": [
+        {
+          "id": "nya.circle.end"
+        }
+      ]
+    },
+    {
+      "id": "nya.circle.end",
       "label": "The enemy's intelligence agency is growing.",
       "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
       "slots": [
@@ -124,7 +141,6 @@
         "wasteland": -1
       },
       "effects": {
-        "nya.strategy.prep": 1,
         "long.lesson": -99,
         "op": -99
       },
@@ -134,6 +150,34 @@
         },
         {
           "id": "nya.toomuch2"
+        },
+        {
+          "id": "nya.attack.inf.quickly",
+          "chance": 40
+        },
+        {
+          "id": "nya.attack.dis.quickly",
+          "chance": 40
+        },
+        {
+          "id": "nya.attack.dec.quickly",
+          "chance": 40
+        },
+        {
+          "id": "nya.attack.downtime.quickly",
+          "chance": 40
+        },
+        {
+          "id": "nya.attack.inf"
+        },
+        {
+          "id": "nya.attack.dis"
+        },
+        {
+          "id": "nya.attack.dec"
+        },
+        {
+          "id": "nya.attack.downtime"
         },
         {
           "id": "nya.befoundout",
@@ -191,34 +235,6 @@
         },
         {
           "id": "nya.firstone"
-        },
-        {
-          "id": "nya.attack.inf.quickly",
-          "chance": 40
-        },
-        {
-          "id": "nya.attack.dis.quickly",
-          "chance": 40
-        },
-        {
-          "id": "nya.attack.dec.quickly",
-          "chance": 40
-        },
-        {
-          "id": "nya.attack.downtime.quickly",
-          "chance": 40
-        },
-        {
-          "id": "nya.attack.inf"
-        },
-        {
-          "id": "nya.attack.dis"
-        },
-        {
-          "id": "nya.attack.dec"
-        },
-        {
-          "id": "nya.attack.downtime"
         },
         {
           "id": "nya.circle.high"
@@ -294,12 +310,28 @@
       ]
     },
     {
-      "id": "nya.firstone.high",
-      "$extends": ["nya.firstone"]
+      "id": "nya.circle.high",
+      "tablereqs": {
+        "lake.here": -1,
+        "craterfield.here": -1,
+        "wasteland.ironeater.here": -1,
+        "wasteland": -1
+      },
+      "grandReqs": {
+        "[~/extant:allresolution] >= 10": 1
+      },
+      "effects": {
+        "nya.strategy.prep": 1
+      },
+      "linked": [
+        {
+          "id": "nya.circle.high.end"
+        }
+      ]
     },
     {
-      "id": "nya.circle.high",
-      "$extends": ["nya.circle"],
+      "id": "nya.circle.high.end",
+      "$extends": ["nya.circle.end"],
       "label": "The enemy's intelligence agency is growing.",
       "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
       "grandReqs": {
@@ -311,6 +343,34 @@
         },
         {
           "id": "nya.toomuch2"
+        },
+        {
+          "id": "nya.attack.inf.quickly",
+          "chance": 70
+        },
+        {
+          "id": "nya.attack.dis.quickly",
+          "chance": 70
+        },
+        {
+          "id": "nya.attack.dec.quickly",
+          "chance": 70
+        },
+        {
+          "id": "nya.attack.downtime.quickly",
+          "chance": 70
+        },
+        {
+          "id": "nya.attack.inf"
+        },
+        {
+          "id": "nya.attack.dis"
+        },
+        {
+          "id": "nya.attack.dec"
+        },
+        {
+          "id": "nya.attack.downtime"
         },
         {
           "id": "nya.befoundout",
@@ -367,35 +427,7 @@
           "chance": 50
         },
         {
-          "id": "nya.firstone.high"
-        },
-        {
-          "id": "nya.attack.inf.quickly",
-          "chance": 70
-        },
-        {
-          "id": "nya.attack.dis.quickly",
-          "chance": 70
-        },
-        {
-          "id": "nya.attack.dec.quickly",
-          "chance": 70
-        },
-        {
-          "id": "nya.attack.downtime.quickly",
-          "chance": 70
-        },
-        {
-          "id": "nya.attack.inf"
-        },
-        {
-          "id": "nya.attack.dis"
-        },
-        {
-          "id": "nya.attack.dec"
-        },
-        {
-          "id": "nya.attack.downtime"
+          "id": "nya.firstone"
         },
         {
           "id": "nya.circle.high"
@@ -505,7 +537,7 @@
         }
       ],
       "signalimportantloop": true,
-      "warmup": 10
+      "warmup": 30
     },
     {
       "id": "nya.growup.inf.op",
@@ -540,7 +572,7 @@
           "id": "nya.growup"
         }
       ],
-      "warmup": 15
+      "warmup": 30
     },
     {
       "id": "nya.growup.dis",
@@ -568,7 +600,7 @@
         }
       ],
       "signalimportantloop": true,
-      "warmup": 10
+      "warmup": 30
     },
     {
       "id": "nya.growup.dis.op",
@@ -603,7 +635,7 @@
           "id": "nya.growup"
         }
       ],
-      "warmup": 15
+      "warmup": 30
     },
     {
       "id": "nya.growup.dec",
@@ -631,7 +663,7 @@
         }
       ],
       "signalimportantloop": true,
-      "warmup": 10
+      "warmup": 30
     },
     {
       "id": "nya.growup.dec.op",
@@ -666,7 +698,7 @@
           "id": "nya.growup"
         }
       ],
-      "warmup": 15
+      "warmup": 30
     },
     {
       "id": "nya.growup.downtime",
@@ -700,7 +732,7 @@
         }
       ],
       "signalimportantloop": true,
-      "warmup": 10
+      "warmup": 30
     },
     {
       "id": "nya.growup.wolves.op",
@@ -721,7 +753,7 @@
       },
       "alt": [
         {
-          "id": "produce.weakness",
+          "id": "produce.weakness.inf",
           "additional": true,
           "chance": 50
         }
@@ -752,7 +784,7 @@
       },
       "alt": [
         {
-          "id": "produce.weakness",
+          "id": "produce.weakness.inf",
           "additional": true,
           "chance": 50
         }
@@ -783,7 +815,7 @@
       },
       "alt": [
         {
-          "id": "produce.weakness",
+          "id": "produce.weakness.inf",
           "additional": true,
           "chance": 50
         }
@@ -814,7 +846,7 @@
       },
       "alt": [
         {
-          "id": "produce.weakness",
+          "id": "produce.weakness.dis",
           "additional": true,
           "chance": 50
         }
@@ -845,7 +877,7 @@
       },
       "alt": [
         {
-          "id": "produce.weakness",
+          "id": "produce.weakness.dis",
           "additional": true,
           "chance": 50
         }
@@ -876,7 +908,7 @@
       },
       "alt": [
         {
-          "id": "produce.weakness",
+          "id": "produce.weakness.dis",
           "additional": true,
           "chance": 50
         }
@@ -907,7 +939,7 @@
       },
       "alt": [
         {
-          "id": "produce.weakness",
+          "id": "produce.weakness.dec",
           "additional": true,
           "chance": 50
         }
@@ -938,7 +970,7 @@
       },
       "alt": [
         {
-          "id": "produce.weakness",
+          "id": "produce.weakness.dec",
           "additional": true,
           "chance": 50
         }
@@ -969,7 +1001,7 @@
       },
       "alt": [
         {
-          "id": "produce.weakness",
+          "id": "produce.weakness.dec",
           "additional": true,
           "chance": 50
         }
@@ -1124,11 +1156,24 @@
     },
     {
       "id": "nya.attack.inf",
-      "label": "The enemy has launched an infiltration operation.",
+      "label": "The enemy's intelligence agency is growing.",
       "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
       "requirements": {
         "intention.inf": 1,
-        "nya.strategy.prep": 4
+        "nya.strategy.prep": 3
+      },
+      "linked": [
+        {
+          "id": "nya.attack.inf.end"
+        }
+      ]
+    },
+    {
+      "id": "nya.attack.inf.end",
+      "label": "The enemy has launched an infiltration operation.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.inf": 1
       },
       "aspects": {
         "reveal.strategy": 1
@@ -1168,11 +1213,24 @@
     },
     {
       "id": "nya.attack.dis",
-      "label": "The enemy has launched a resistance operation.",
+      "label": "The enemy's intelligence agency is growing.",
       "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
       "requirements": {
         "intention.dis": 1,
-        "nya.strategy.prep": 4
+        "nya.strategy.prep": 3
+      },
+      "linked": [
+        {
+          "id": "nya.attack.dis.end"
+        }
+      ]
+    },
+    {
+      "id": "nya.attack.dis.end",
+      "label": "The enemy has launched a resistance operation.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.dis": 1
       },
       "aspects": {
         "reveal.strategy": 1
@@ -1212,11 +1270,24 @@
     },
     {
       "id": "nya.attack.dec",
-      "label": "The enemy has launched a decryption operation.",
+      "label": "The enemy's intelligence agency is growing.",
       "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
       "requirements": {
         "intention.dec": 1,
-        "nya.strategy.prep": 4
+        "nya.strategy.prep": 3
+      },
+      "linked": [
+        {
+          "id": "nya.attack.dec.end"
+        }
+      ]
+    },
+    {
+      "id": "nya.attack.dec.end",
+      "label": "The enemy has launched a decryption operation.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.dec": 1
       },
       "aspects": {
         "reveal.strategy": 1
@@ -1256,11 +1327,24 @@
     },
     {
       "id": "nya.attack.downtime",
-      "label": "The enemy has not made its next move yet.",
+      "label": "The enemy's intelligence agency is growing.",
       "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
       "requirements": {
         "intention.downtime": 1,
-        "nya.strategy.prep": 4
+        "nya.strategy.prep": 3
+      },
+      "linked": [
+        {
+          "id": "nya.attack.downtime.end"
+        }
+      ]
+    },
+    {
+      "id": "nya.attack.downtime.end",
+      "label": "The enemy has not made its next move yet.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "requirements": {
+        "intention.downtime": 1
       },
       "aspects": {
         "reveal.strategy": 1
@@ -1305,7 +1389,7 @@
       "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
       "requirements": {
         "intention.inf": 1,
-        "nya.strategy.prep": 3
+        "nya.strategy.prep": 2
       }
     },
     {
@@ -1315,7 +1399,7 @@
       "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
       "requirements": {
         "intention.dis": 1,
-        "nya.strategy.prep": 3
+        "nya.strategy.prep": 2
       }
     },
     {
@@ -1325,7 +1409,7 @@
       "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
       "requirements": {
         "intention.dec": 1,
-        "nya.strategy.prep": 3
+        "nya.strategy.prep": 2
       }
     },
     {
@@ -1335,7 +1419,7 @@
       "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
       "requirements": {
         "intention.downtime": 1,
-        "nya.strategy.prep": 3
+        "nya.strategy.prep": 2
       }
     },
     {

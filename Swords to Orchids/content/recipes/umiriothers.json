@@ -349,6 +349,7 @@
         "foe.umiri.dead": -1,
         "umiri.blocker": -1,
         "wasteland": -1,
+        "wasteland.ironeater.here": -1,
         "lake.here": -1
     },
     "effects": {
@@ -365,9 +366,61 @@
             "id": "foeumiricoming.defiance"
         }
     ],
-    "warmup": 10,
+    "warmup": 15,
     "craftable": true
 },
+{
+    "id": "letter.umiri.ex",
+    "$extends": ["letter.umiri"],
+    "grandReqs": {
+        "([~/extant:foe.officer] + [~/extant:foe.umiri.pre]) == 1": 1
+    },
+    "effects": {}
+},
+    {
+        "id": "letter.umiri.umiri",
+        "actionId": "communicate",
+        "label": "Within Reach?",
+        "previewDescription": "She is within arm's reach, could not be closer.",
+        "requirements": {
+            "letter.umiri.exhausted": 1,
+            "weapon": -1
+        },
+        "extantreqs": {
+            "foe.umiri.mark": 1
+        },
+        "hintonly": true
+    },
+    {
+        "id": "letter.umiri.dead",
+        "actionId": "communicate",
+        "label": "Out of Reach?",
+        "previewDescription": "Even she has places she cannot reach.",
+        "requirements": {
+            "letter.umiri.exhausted": 1,
+            "weapon": -1
+        },
+        "extantreqs": {
+            "foe.umiri.dead": 1,
+            "umiri.blocker": 1
+        },
+        "hintonly": true
+    },
+    {
+        "id": "letter.umiri.wasteland",
+        "actionId": "communicate",
+        "label": "Unreachable?",
+        "previewDescription": "I haven't heard from the great enemy for a long time; I suppose she can't respond to me right now.",
+        "requirements": {
+            "letter.umiri.exhausted": 1,
+            "weapon": -1
+        },
+        "extantreqs": {
+            "wasteland": 1,
+            "lake.here": 1
+        },
+        "hintonly": true
+    },
 {
     "id": "foeumiricoming.defiance",
     "label": "Inform the arch enemy of Your Location",
