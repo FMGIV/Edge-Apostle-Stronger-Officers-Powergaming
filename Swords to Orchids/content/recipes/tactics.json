@@ -272,7 +272,8 @@
             "label": "Epiphany!",
             "startdescription": "\"Learn the barbarians’ arts to subdue them.\" — Wei Yuan, *Illustrated Treatise on the Maritime Kingdoms*",
             "extantreqs": {
-                "obdurant.story": 1
+                "obdurant.story": 1,
+                "lessoninsightmark": -15
             },
             "effects": {
                 "lesson.insight": 1
@@ -438,7 +439,7 @@
         {
             "id": "operate.steamroller_tactics.weaken",
             "label": "Enemy Forces Tremble!",
-            "startdescription": "Inflict weakness on enemy formations",
+            "startdescription": "The enemy line shatters; we march over their fallen corpses and press onward!",
             "aspects": {
                 "fatiguing": 1,
                 "dissolution": 1
@@ -487,7 +488,7 @@
         {
             "id": "operate.steamroller_tactics.end",
             "label": "Enemy Forces Tremble!",
-            "startdescription": "Inflict weakness on enemy formations",
+            "startdescription": "The enemy line shatters; we march over their fallen corpses and press onward!",
             "aspects": {
                 "fatiguing": 1,
                 "dissolution": 1,
@@ -502,34 +503,35 @@
             ],
             "linked": [
                 {
-                    "id": "operate.steamroller_tactics..end.overwhelming"
-                },
-                {
-                    "id": "operate.steamroller_tactics.defiance"
+                    "id": "operate.steamroller_tactics.end.overwhelming"
                 }
             ]
         },
         {
             "id": "operate.steamroller_tactics.end.overwhelming",
-            "label": "Enemy Forces Tremble!",
+            "$extends": ["operate.steamroller_tactics.end"],
+            "aspects": {},
             "requirements": {
                 "tactics1.overwhelming": 1
             },
+            "achievements": [],
             "effects": {
                 "foe": -99,
                 "remnant": -99,
                 "foe.chasseur.reviving": -99
             },
-            "linked": [
+            "linked": [],
+            "alt": [
                 {
-                    "id": "operate.steamroller_tactics.defiance"
+                    "id": "produce.tactics.umiri.1",
+                    "additional": true
                 }
             ]
         },
         {
             "id": "operate.steamroller_tactics.defiance",
-            "label": "Enemy Forces Tremble!",
-            "startdescription": "Inflict weakness on enemy formations",
+            "label": "Defiance",
+            "startdescription": "I have proclaimed my fire of resistance to her.",
             "maxexecutions": 1,
             "effects": {
                 "defiance.b": 1
@@ -602,6 +604,12 @@
             "effects": {
                 "tactics2.intimidate": 1
             },
+            "alt": [
+                {
+                    "id": "produce.tactics.umiri.2",
+                    "additional": true
+                }
+            ],
             "linked": [
                 {
                     "id": "operate.desperate_defense.prep"
@@ -1112,17 +1120,23 @@
             },
             "linked": [
                 {
-                    "id": "operate.besiege_reinforcements.more"
+                    "id": "operate.besiege_reinforcements.endmore"
                 }
             ]
         },
         {
-            "id": "operate.besiege_reinforcements.more",
+            "id": "operate.besiege_reinforcements.endmore",
             "label": "Decisive Victory!",
             "startdescription": "Annihilate the enemy’s core combat strength!",
             "requirements": {
                 "besiege_reinforcements.more": 1
             },
+            "alt": [
+                {
+                    "id": "produce.tactics.umiri.3",
+                    "additional": true
+                }
+            ],
             "internaldeck": {
                 "spec": [
                     "supplies.apmunitions",
@@ -1136,6 +1150,115 @@
                 "resetonexhaustion": true
             }
         },
+        {
+        "id": "produce.tactics.umiri.1",
+        "actionId": "umiriout",
+        "label": "Shell-borne Letter",
+        "startdescription": "This time, the enemy shelling came unusually close to the command post. An unexploded shell stood upright in the open ground fifty meters away. The sappers carefully removed the fuse and retrieved a roll of letter paper with charred edges from the chamber...",
+        "extantreqs": {
+        "tactics.umiri.1": -1
+        },
+        "maxexecutions": 1,
+        "effects": {
+        "tactics.umiri.1": 1
+        },
+        "linked": [
+        {
+            "id": "produce.tactics.umiri.1.tri"
+        }
+        ],
+        "warmup": 10
+        },
+        {
+        "id": "produce.tactics.umiri.1.tri",
+        "$extends": ["produce.tactics.umiri.1"],
+        "extantreqs": {
+        "tactics.umiri.mark": 3
+        },
+        "effects": {},
+        "achievements": [
+        "achievement.tri_tactics"
+        ],
+        "linked": [
+            {
+                "id": "operate.steamroller_tactics.defiance"
+            }
+        ],
+        "warmup": 0
+        },
+        {
+        "id": "produce.tactics.umiri.2",
+        "actionId": "umiriout",
+        "label": "Enemy Courier's Message",
+        "startdescription": "A German messenger handed over a crumpled letter. I took it and silently turned away...",
+        "extantreqs": {
+        "tactics.umiri.2": -1
+        },
+        "maxexecutions": 1,
+        "effects": {
+        "tactics.umiri.2": 1
+        },
+        "linked": [
+        {
+            "id": "produce.tactics.umiri.2.tri"
+        }
+        ],
+        "warmup": 10
+        },
+        {
+        "id": "produce.tactics.umiri.2.tri",
+        "$extends": ["produce.tactics.umiri.2"],
+        "extantreqs": {
+        "tactics.umiri.mark": 3
+        },
+        "effects": {},
+        "achievements": [
+        "achievement.tri_tactics"
+        ],
+        "linked": [
+            {
+                "id": "operate.steamroller_tactics.defiance"
+            }
+        ],
+        "warmup": 0
+        },
+        {
+        "id": "produce.tactics.umiri.3",
+        "actionId": "umiriout",
+        "label": "Airdropped Secret Letter",
+        "startdescription": "The German planes roared overhead, but this time they seemed unusually peaceful. A metal canister slammed into the frozen soil, its parachute drifting slowly down. I unscrewed the canister and found a letter from I.v.H. and a few cigars...",
+        "extantreqs": {
+        "tactics.umiri.3": -1
+        },
+        "maxexecutions": 1,
+        "effects": {
+        "tactics.umiri.3": 1
+        },
+        "linked": [
+        {
+            "id": "produce.tactics.umiri.3.tri"
+        }
+        ],
+        "warmup": 10
+        },
+        {
+        "id": "produce.tactics.umiri.3.tri",
+        "$extends": ["produce.tactics.umiri.3"],
+        "extantreqs": {
+        "tactics.umiri.mark": 3
+        },
+        "effects": {},
+        "achievements": [
+        "achievement.tri_tactics"
+        ],
+        "linked": [
+            {
+                "id": "operate.steamroller_tactics.defiance"
+            }
+        ],
+        "warmup": 0
+        },
+
         {
             "id": "produce.steamroller_tactics",
             "actionId": "operate",
