@@ -1319,8 +1319,29 @@
 	    "killfriend": "mem.grief",
 	    "makecasualty": "friend.veteran.wounded",
 	    "refresh": "friend.veteran",
-		"adv_soviet": "friend.veteran.ins"
-	}
+		"adv_soviet": "friend.veteran.ins",
+		"concealidentity" : "friend.veteran.hidden",
+		"fatiguing" : "friend.veteran"
+	},
+	"slots": [
+		{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "意图？",
+		"required": {
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1,
+			"op.velvet" : 1,
+			"warzone" : 1,
+			"supplies.smokegrenade" : 1
+			}
+		}
+	]
     },
 	
 	{
@@ -1334,11 +1355,47 @@
 	},
 	"lifetime": 180,
 	"decayTo": "friend.veteran",
+	"xtriggers": {
+	    "refresh": "friend.veteran.ins",
+		"concealidentity" : "friend.veteran.hidden.ins"
+	}
+    },
+	
+	{
+	"id": "friend.veteran.hidden",
+	"$derives" : ["friend.veteran"],
+	"label": "老兵（负伤）",
+	"aspects": {
+	    "edge": 12,
+	    "winter": 12,
+	    "lantern": 8,
+	    "friend.hidden": 1
+		},
+	"xtriggers": {
+	    "refresh": "friend.veteran.hidden",
+		"adv_soviet": "friend.veteran.hidden.ins",
+	},
+	"decayTo": "friend.veteran.hidden"
+    },
+	
+	{
+	"id": "friend.veteran.hidden.ins",
+	"$derives" : ["friend.veteran.hidden"],
+	"aspects": {
+	    "edge": 18,
+	    "winter": 18,
+	    "lantern": 14,
+	    "ins_soviet": 1
+	},
+	"lifetime": 180,
+	"xtriggers": {
+	    "refresh": "friend.veteran.hidden.ins"
+	}
     },
 	
     {
 	"id": "friend.veteran.wounded",
-	"label": "老兵（负伤）",
+	"label": "老兵（隐藏）",
 	"icon": "friend.conscript",
 	"description": "[使用一名‘冬日行家’来治疗这位盟友。]",
 	"aspects": {
