@@ -98,25 +98,14 @@
     },
     {
       "id": "nya.circle",
+      "label": "The enemy's intelligence agency is growing.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
       "tablereqs": {
         "lake.here": -1,
         "craterfield.here": -1,
         "wasteland.ironeater.here": -1,
         "wasteland": -1
       },
-      "effects": {
-        "nya.strategy.prep": 1
-      },
-      "linked": [
-        {
-          "id": "nya.circle.end"
-        }
-      ]
-    },
-    {
-      "id": "nya.circle.end",
-      "label": "The enemy's intelligence agency is growing.",
-      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
       "slots": [
         {
           "id": "needsally",
@@ -134,12 +123,6 @@
           }
         }
       ],
-      "tablereqs": {
-        "lake.here": -1,
-        "craterfield.here": -1,
-        "wasteland.ironeater.here": -1,
-        "wasteland": -1
-      },
       "effects": {
         "long.lesson": -99,
         "op": -99
@@ -150,41 +133,6 @@
         },
         {
           "id": "nya.toomuch2"
-        },
-        {
-          "id": "nya.attack.inf.quickly",
-          "chance": 40
-        },
-        {
-          "id": "nya.attack.dis.quickly",
-          "chance": 40
-        },
-        {
-          "id": "nya.attack.dec.quickly",
-          "chance": 40
-        },
-        {
-          "id": "nya.attack.downtime.quickly",
-          "chance": 40
-        },
-        {
-          "id": "nya.attack.inf"
-        },
-        {
-          "id": "nya.attack.dis"
-        },
-        {
-          "id": "nya.attack.dec"
-        },
-        {
-          "id": "nya.attack.downtime"
-        },
-        {
-          "id": "nya.befoundout",
-          "challenges": {
-            "lantern": "base",
-            "knock": "base"
-          }
         },
         {
           "id": "nya.attack.inf.delayed",
@@ -206,8 +154,63 @@
             "forge": "base",
             "moth": "base"
           }
+        },
+        {
+          "id": "nya.attack.inf.quickly",
+          "chance": 30
+        },
+        {
+          "id": "nya.attack.dis.quickly",
+          "chance": 30
+        },
+        {
+          "id": "nya.attack.dec.quickly",
+          "chance": 30
+        },
+        {
+          "id": "nya.attack.downtime.quickly",
+          "chance": 30
+        },
+        {
+          "id": "nya.attack.inf"
+        },
+        {
+          "id": "nya.attack.dis"
+        },
+        {
+          "id": "nya.attack.dec"
+        },
+        {
+          "id": "nya.attack.downtime"
+        },
+        {
+          "id": "nya.befoundout",
+          "challenges": {
+            "lantern": "base",
+            "knock": "base"
+          }
         }
       ],
+      "linked": [
+        {
+          "id": "nya.circle.end"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "nya.circle.end",
+      "label": "The enemy's intelligence agency is growing.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "tablereqs": {
+        "lake.here": -1,
+        "craterfield.here": -1,
+        "wasteland.ironeater.here": -1,
+        "wasteland": -1
+      },
+      "effects": {
+        "nya.strategy.prep": 1
+      },
       "linked": [
         {
           "id": "nya.circle.still"
@@ -242,8 +245,7 @@
         {
           "id": "nya.circle"
         }
-      ],
-      "warmup": 30
+      ]
     },
     {
       "id": "nya.firstone",
@@ -275,19 +277,19 @@
         },
         {
           "id": "nya.attack.inf.quickly",
-          "chance": 50
+          "chance": 60
         },
         {
           "id": "nya.attack.dis.quickly",
-          "chance": 50
+          "chance": 60
         },
         {
           "id": "nya.attack.dec.quickly",
-          "chance": 50
+          "chance": 60
         },
         {
           "id": "nya.attack.downtime.quickly",
-          "chance": 50
+          "chance": 60
         },
         {
           "id": "nya.attack.inf"
@@ -311,29 +313,7 @@
     },
     {
       "id": "nya.circle.high",
-      "tablereqs": {
-        "lake.here": -1,
-        "craterfield.here": -1,
-        "wasteland.ironeater.here": -1,
-        "wasteland": -1
-      },
-      "grandReqs": {
-        "[~/extant:allresolution] >= 10": 1
-      },
-      "effects": {
-        "nya.strategy.prep": 1
-      },
-      "linked": [
-        {
-          "id": "nya.circle.high.end"
-        }
-      ]
-    },
-    {
-      "id": "nya.circle.high.end",
-      "$extends": ["nya.circle.end"],
-      "label": "The enemy's intelligence agency is growing.",
-      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "$extends": ["nya.circle"],
       "grandReqs": {
         "[~/extant:allresolution] >= 10": 1
       },
@@ -343,6 +323,27 @@
         },
         {
           "id": "nya.toomuch2"
+        },
+        {
+          "id": "nya.attack.inf.delayed",
+          "challenges": {
+            "edge": "advanced",
+            "heart": "advanced"
+          }
+        },
+        {
+          "id": "nya.attack.dis.delayed",
+          "challenges": {
+            "winter": "advanced",
+            "grail": "advanced"
+          }
+        },
+        {
+          "id": "nya.attack.dec.delayed",
+          "challenges": {
+            "forge": "advanced",
+            "moth": "advanced"
+          }
         },
         {
           "id": "nya.attack.inf.quickly",
@@ -378,29 +379,23 @@
             "lantern": "advanced",
             "knock": "advanced"
           }
-        },
-        {
-          "id": "nya.attack.inf.delayed",
-          "challenges": {
-            "edge": "advanced",
-            "heart": "advanced"
-          }
-        },
-        {
-          "id": "nya.attack.dis.delayed",
-          "challenges": {
-            "winter": "advanced",
-            "grail": "advanced"
-          }
-        },
-        {
-          "id": "nya.attack.dec.delayed",
-          "challenges": {
-            "forge": "advanced",
-            "moth": "advanced"
-          }
         }
       ],
+      "linked": [
+        {
+          "id": "nya.circle.high.end"
+        }
+      ],
+      "warmup": 15
+    },
+    {
+      "id": "nya.circle.high.end",
+      "$extends": ["nya.circle.end"],
+      "label": "The enemy's intelligence agency is growing.",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "grandReqs": {
+        "[~/extant:allresolution] >= 10": 1
+      },
       "linked": [
         {
           "id": "nya.circle.still"
@@ -432,8 +427,7 @@
         {
           "id": "nya.circle.high"
         }
-      ],
-      "warmup": 15
+      ]
     },
     {
       "id": "nya.attack.inf.delayed",
@@ -1386,7 +1380,7 @@
       "id": "nya.attack.inf.quickly",
       "$extends": ["nya.attack.inf"],
       "label": "The enemy has launched an infiltration operation.",
-      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]\n\n[Sometimes, intelligence agencies may act in advance.]",
       "requirements": {
         "intention.inf": 1,
         "nya.strategy.prep": 2
@@ -1396,7 +1390,7 @@
       "id": "nya.attack.dis.quickly",
       "$extends": ["nya.attack.dis"],
       "label": "The enemy has launched a resistance operation.",
-      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]\n\n[Sometimes, intelligence agencies may act in advance.]",
       "requirements": {
         "intention.dis": 1,
         "nya.strategy.prep": 2
@@ -1406,7 +1400,7 @@
       "id": "nya.attack.dec.quickly",
       "$extends": ["nya.attack.dec"],
       "label": "The enemy has launched a decryption operation.",
-      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]\n\n[Sometimes, intelligence agencies may act in advance.]",
       "requirements": {
         "intention.dec": 1,
         "nya.strategy.prep": 2
@@ -1416,7 +1410,7 @@
       "id": "nya.attack.downtime.quickly",
       "$extends": ["nya.attack.downtime"],
       "label": "The enemy has not made its next move yet.",
-      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]",
+      "startdescription": "We can send spies to investigate them.\n\n[Use <sprite name=lantern> or <sprite name=knock> to uncover the enemy's current plan.]\n\n[Sometimes, intelligence agencies may act in advance.]",
       "requirements": {
         "intention.downtime": 1,
         "nya.strategy.prep": 2
