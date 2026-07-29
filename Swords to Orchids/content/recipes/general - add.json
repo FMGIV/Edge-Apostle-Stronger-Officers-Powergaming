@@ -1,6 +1,16 @@
 {
   "recipes": [
     {
+      "id": "produce.hindrance.fire",
+      "actionid": "spit.forge",
+      "label": "Prairie Fire",
+      "startdescription": "The enemy has erected a wall of fire in our path!",
+      "effects": {
+        "hindrance.fire": 1
+      },
+      "warmup": 10
+    },
+    {
       "id": "buildbarracks",
       "extantreqs": {
         "wasteland": -1,
@@ -1006,6 +1016,74 @@
         "contemnant.story": 1
       }
     },
+{
+  "id": "attackenemy.needsforgewinter.overwhelm",
+  "actionid": "operate",
+  "label": "Stage an overwhelming offensive using a twofold strategy",
+  "startdescription": "Forge and Winter are the cold dawn. See how they will resist.",
+  "requirements": {
+    "foe": 1,
+    "provisions": 1,
+    "needsforgewinter": 1,
+    "forge": "needsforgewinter",
+    "winter": "needsforgewinter",
+    "foe.ingluviate.engorged": -1
+  },
+  "grandreqs": {
+    "[forge] - [needsforgewinter]": 5,
+    "[winter] - [needsforgewinter]": 5
+  },
+  "craftable": true,
+  "warmup": 30,
+  "linked": [
+    {
+      "id": "attackenemy.success.wreckage"
+    },
+    {
+      "id": "attackenemy.success"
+    }
+  ]
+},
+{
+  "id": "attackenemy.needsforgewinter",
+  "actionid": "operate",
+  "label": "Stage an offensive using a twofold strategy",
+  "startdescription": "Talk is over. Pragmatism and patience will win us victory.",
+  "requirements": {
+    "foe": 1,
+    "provisions": 1,
+    "needsforgewinter": 1,
+    "forge": "needsforgewinter",
+    "winter": "needsforgewinter",
+    "foe.ingluviate.engorged": -1
+  },
+  "craftable": true,
+  "warmup": 30,
+  "linked": [
+    {
+      "id": "attackenemy.complicate",
+      "chance": 30
+    },
+    {
+      "id": "attackenemy.success.wreckage"
+    },
+    {
+      "id": "attackenemy.success"
+    }
+  ]
+},
+{
+    "id": "attackenemy.success.wreckage",
+    "label": "A Victory!",
+    "startdescription": "Amidst the blazing inferno, the armor gives one last screech before the prayer casts it completely out of the world of the living.",
+    "aspects": {
+      "dissolution": 1,
+      "fatiguing": 1
+    },
+    "requirements": {
+      "foe.wreckage": 1
+    }
+},
     {
       "id": "attackenemy.needsedgegrailmoth.overwhelm",
       "actionid": "operate",
@@ -1181,6 +1259,9 @@
         },
         {
           "id": "respondnative.edgegrailwinter"
+        },
+        {
+          "id": "respondnative.forgewinter"
         }
       ]
     },
@@ -1192,6 +1273,74 @@
 	    "needsedgemoth": 1,
 	    "edge": "needsedgemoth",
 	    "moth": "needsedgemoth"
+	},
+      "effects": {
+        "progression": 1,
+        "foe": -99,
+        "hindrance": -99
+      },
+      "linked": [
+        {
+          "id": "makefoeguardiandelete.progression"
+        },
+        {
+          "id": "ob.success"
+        },
+        {
+          "id": "detectadditional.side.afraid",
+          "chance": 30
+        },
+        {
+          "id": "detectadditional.side",
+          "chance": 30
+        },
+        {
+          "id": "leadinto.thirdobstacle.side"
+        },
+        {
+          "id": "leadinto.secondobstacle.side"
+        },
+        {
+          "id": "leadinto.firstobstacle.side"
+        },
+        {
+          "id": "detectadditional.afraid"
+        },
+        {
+          "id": "detectadditional"
+        },
+        {
+          "id": "makethirdobstacle"
+        },
+        {
+          "id": "makesecondobstacle"
+        },
+        {
+          "id": "makefirstobstacle"
+        }
+      ],
+      "alt": [
+        {
+          "id": "producecasualty",
+          "additional": true,
+          "chance": 30,
+          "expulsion": {
+            "limit": 1,
+            "filter": {
+              "friend": 1
+            }
+          }
+        }
+      ]
+	    },
+    {
+	"id": "respondnative.forgewinter",
+	"label": "Winter of the Mountaineer",
+	"startdescription": "At dawn we sing our prayers, and the avalanches reply in silence.",
+	"requirements": {
+	    "needsforgewinter": 1,
+	    "forge": "needsforgewinter",
+	    "winter": "needsforgewinter"
 	},
       "effects": {
         "progression": 1,
@@ -2012,6 +2161,16 @@
       ],
       "alt$prepend": [
         {
+          "id": "mountain.hide",
+          "additional": true,
+          "chance": 15
+        },
+        {
+          "id": "mu.foefighter.stratup.2",
+          "additional": true,
+          "chance": 15
+        },
+        {
           "id": "mu.foefighter.stratup",
           "additional": true,
           "chance": 15
@@ -2022,16 +2181,18 @@
           "chance": 60
         },
         {
-          "id": "mu.foefighter.more",
+          "id": "mu.foefighter.more.startup",
           "additional": true,
           "chance": 20
         }
       ]
     },
     {
-        "id": "mu.foefighter.more",
+        "id": "mu.foefighter.more.startup",
         "$extends": ["reinforcements.startup"],
-        "requirements": {},
+        "requirements": {
+          "foe": -3
+        },
         "extantreqs": {
           "mutsumi.mark": 1,
           "foefighter": -3
@@ -2040,16 +2201,28 @@
           "spec": [
             "foe.fighter_aircraft",
             "foe.fighter_aircraft",
-            "foe.bombers",
-            "husk",
-            "husk"
+            "foe.bombers"
           ],
-          "draws": 2,
+          "draws": 1,
           "defaultcard": "husk",
           "resetonexhaustion": true
         },
-        "linked": [],
-        "warmup": 30
+        "linked": [
+          {
+            "id": "mu.foefighter.more.startup",
+            "chance": 60
+          },
+          {
+            "id": "mu.foefighter.more"
+          }
+        ],
+        "warmup": 0
+    },
+    {
+        "id": "mu.foefighter.more",
+        "$extends": ["reinforcements.startup"],
+        "requirements": {},
+        "linked": []
     },
     {
       "id": "enemy.cycle.slowmore",
@@ -2308,6 +2481,10 @@
         },
         {
           "id": "naval.cycle",
+          "additional": true
+        },
+        {
+          "id": "produce.skill.mortis",
           "additional": true
         },
         {

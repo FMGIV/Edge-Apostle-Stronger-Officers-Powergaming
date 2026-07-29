@@ -18,6 +18,258 @@
 		"description": "Breath pressed into the earth, blade hidden in the ruins.\n[This enemy's next attack threshold will be increased once after concealing itself.]",
 		"isAspect": true
 	},
+	{
+		"id": "foe.wreckage",
+		"label": "这是敌军装甲残骸",
+		"description": "这是敌军装甲残骸",
+		"isAspect": true,
+		"isHidden": true
+	},
+{
+  "id": "foe.wreckage.tanks",
+  "label": "Enemy Armor Wreckage",
+  "description": "Firelight illuminates its remains, yet it sinks into winter.",
+  "aspects": {
+    "op": 1,
+    "supplies": 1,
+    "forge": 4,
+    "winter": 4
+  },
+  "xtriggers": {
+    "fatiguing": "husk",
+    "umiri_promotiontodisciple_wreckage": "foe.chasseur.tanks"
+  },
+  "lifetime": 300
+},
+{
+  "id": "foe.wreckage.art",
+  "label": "Enemy Artillery Wreckage",
+  "description": "Firelight illuminates its remains, yet it sinks into winter.",
+  "aspects": {
+    "op": 1,
+    "supplies": 1,
+    "forge": 4,
+    "winter": 4
+  },
+  "xtriggers": {
+    "fatiguing": "husk",
+    "umiri_promotiontodisciple_wreckage": "foe.chasseur.artillery"
+  },
+  "lifetime": 300
+},
+{
+  "id": "foe.wreckage.air",
+  "label": "Enemy Aircraft Wreckage",
+  "description": "Firelight illuminates its remains, yet it sinks into winter.",
+  "aspects": {
+    "op": 1,
+    "supplies": 1,
+    "forge": 4,
+    "winter": 4
+  },
+  "xtriggers": {
+    "fatiguing": "husk",
+    "umiri_promotiontodisciple_wreckage": "foe.chasseur.air"
+  },
+  "lifetime": 300
+},
+{
+  "id": "foe.broken",
+  "label": "Armor Damaged",
+  "description": "The armor is dented, the tracks are torn, and black smoke billows from the engine—yet it remains utterly inexplicable how it still drives. [Nothing can pierce what has already been pierced.]",
+  "isAspect": true
+},
+{
+  "id": "foe.chasseur.tanks",
+  "label": "Enemy Wreckage Tank",
+  "description": "The tank moves with a creaking wail; its rusted engine, still driven by the duty it was given in life, churns slowly but steadily forward.",
+  "inherits": "foe.template",
+  "aspects": {
+    "otherworldly": 1,
+    "needsedgewinter": 12,
+    "needsforgewinter": 6,
+    "foe.broken": 1,
+    "foe.wreckage": 1,
+    "german": 1
+  },
+  "induces": [
+	{
+		"id": "produce.hindrance.fire",
+		"chance": 50
+	}
+  ],
+  "lifetime": 180,
+  "decayTo": "husk",
+  "xtriggers": {
+    "refresh": "foe.chasseur.tanks",
+    "killgerman": "influenceforgec",
+	"dissolution": "mem.calm",
+    "killfoe": "influenceforgec",
+    "takeadditional": [
+      {
+        "id": "needsedgewinter",
+        "morpheffect": "mutate",
+        "level": -2
+      },
+      {
+        "id": "needsforgewinter",
+        "morpheffect": "mutate",
+        "level": -2
+      }
+    ],
+    "makeadditional": [
+      {
+        "id": "needsedgewinter",
+        "morpheffect": "mutate",
+        "level": 2
+      },
+      {
+        "id": "needsforgewinter",
+        "morpheffect": "mutate",
+        "level": 2
+      }
+    ],
+    "weaken": [
+      {
+        "id": "weakened",
+        "morpheffect": "mutate",
+        "level": 1
+      },
+      {
+        "id": "needsedgewinter",
+        "morpheffect": "mutate",
+        "level": -4
+      },
+      {
+        "id": "needsforgewinter",
+        "morpheffect": "mutate",
+        "level": -2
+      }
+    ]
+  }
+},
+{
+  "id": "foe.chasseur.artillery",
+  "label": "Enemy Ember Artillery",
+  "description": "The fractures at the muzzle are faintly visible. It laboriously raises its barrel to aim at enemies no longer where they were, unleashing its final fury.",
+  "inherits": "foe.template",
+  "aspects": {
+    "otherworldly": 1,
+    "needsedgewinter": 18,
+    "needsforgewinter": 10,
+    "foe.wreckage": 1,
+    "german": 1
+  },
+  "induces": [
+	{
+		"id": "produce.hindrance.fire",
+		"chance": 50
+	}
+  ],
+  "lifetime": 180,
+  "decayTo": "husk",
+  "xtriggers": {
+    "refresh": "foe.chasseur.artillery",
+    "killgerman": "influenceedgec",
+	"dissolution": "mem.calm",
+    "killfoe": "influenceedgec",
+    "takeadditional": [
+      {
+        "id": "needsedgewinter",
+        "morpheffect": "mutate",
+        "level": -2
+      },
+      {
+        "id": "needsforgewinter",
+        "morpheffect": "mutate",
+        "level": -2
+      }
+    ],
+    "makeadditional": [
+      {
+        "id": "needsedgewinter",
+        "morpheffect": "mutate",
+        "level": 2
+      },
+      {
+        "id": "needsforgewinter",
+        "morpheffect": "mutate",
+        "level": 2
+      }
+    ],
+    "weaken": [
+      {
+        "id": "weakened",
+        "morpheffect": "mutate",
+        "level": 1
+      },
+      {
+        "id": "needsedgewinter",
+        "morpheffect": "mutate",
+        "level": -6
+      },
+      {
+        "id": "needsforgewinter",
+        "morpheffect": "mutate",
+        "level": -4
+      }
+    ]
+  }
+},
+{
+  "id": "foe.chasseur.air",
+  "label": "Enemy Ghost Fighter",
+  "description": "The incarnation of death ascends into the sky, thick black smoke blotting out the heavens; black snow falls over everything it passes.",
+  "inherits": "foe.template",
+  "aspects": {
+    "otherworldly": 1,
+    "needsforgewinter": 16,
+    "foe.aerial": 1,
+    "foebombers": 1,
+    "foe.wreckage": 1,
+    "german": 1
+  },
+  "induces": [
+	{
+		"id": "produce.hindrance.fire",
+		"chance": 50
+	}
+  ],
+  "lifetime": 180,
+  "decayTo": "husk",
+  "xtriggers": {
+    "refresh": "foe.chasseur.air",
+    "killgerman": "influencewinterc",
+	"dissolution": "mem.calm",
+    "killfoe": "influencewinterc",
+    "takeadditional": [
+      {
+        "id": "needsforgewinter",
+        "morpheffect": "mutate",
+        "level": -4
+      }
+    ],
+    "makeadditional": [
+      {
+        "id": "needsforgewinter",
+        "morpheffect": "mutate",
+        "level": 4
+      }
+    ],
+    "weaken": [
+      {
+        "id": "weakened",
+        "morpheffect": "mutate",
+        "level": 1
+      },
+      {
+        "id": "needsforgewinter",
+        "morpheffect": "mutate",
+        "level": -6
+      }
+    ]
+  }
+},
     {
 	"id": "foe.insurgent",
 	"label": "Enemy Insurgent Company",
@@ -351,6 +603,13 @@
 	"icon": "foe.coordinated"
     },
 
+    {
+	"id": "umiri_promotiontodisciple_wreckage",
+	"label": "umiri_promotiontodisciple_wreckage",
+	"isAspect": true,
+	"isHidden": true,
+	"comments": "此卡用来把残骸变为亡灵"
+    },
     {
 	"id": "umiri_promotiontodisciple",
 	"label": "Umiri_promotiontodisciple",
@@ -901,9 +1160,42 @@
 	"xtriggers": {
 	    "refresh": "foe.tanks",
 	    "adv_german": "foe.tanks.ins",
-	    "killgerman": "foe.corpses",
-	    "killfoe": "foe.corpses",
-	    "killmortal": "foe.corpses",
+	    "killgerman": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killfoe": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killmortal": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
 	    "concealidentity": "foe.tanks.hidden",
 	    "takeadditional": [
 		{
@@ -983,9 +1275,42 @@
 	"xtriggers": {
 	    "refresh": "foe.tanks.hidden",
 	    "adv_german": "foe.tanks.hidden.ins",
-	    "killgerman": "foe.corpses",
-	    "killfoe": "foe.corpses",
-	    "killmortal": "foe.corpses",
+	    "killgerman": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killfoe": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killmortal": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.tanks",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
 	    "revealidentity": "foe.tanks",
 	    "weaken": [
 		{
@@ -1044,9 +1369,42 @@
 	    "makecasualty_air": "foe.bombers.refuel",
 	    "adv_german": "foe.bombers.ins",
 	    "refreshair": "foe.bombers",
-	    "killgerman": "foe.corpses",
-	    "killfoe": "foe.corpses",
-	    "killmortal": "foe.corpses",
+	    "killgerman": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killfoe": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killmortal": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
 	    "concealidentity": "foe.bombers.hidden",
 	    "takeadditional": [
 		{
@@ -1116,9 +1474,42 @@
 	    "makecasualty_air": "foe.bombers.refuel",
 	    "adv_german": "foe.bombers.hidden.ins",
 	    "refreshair": "foe.bombers.hidden",
-	    "killgerman": "foe.corpses",
-	    "killfoe": "foe.corpses",
-	    "killmortal": "foe.corpses",
+	    "killgerman": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killfoe": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killmortal": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
 	    "revealidentity": "foe.bombers",
 	    "weaken": [
 		{
@@ -1185,9 +1576,42 @@
 	    "enemyintoenvironmentair": "foe.fighter_aircraft.environment.hidden",
 	    "decaytoair": "foe.fighter_aircraft.refuel",
 	    "makecasualty_air": "foe.fighter_aircraft.repairing",
-	    "killgerman": "foe.corpses",
-	    "killfoe": "foe.corpses",
-	    "killmortal": "foe.corpses",
+	    "killgerman": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killfoe": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killmortal": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
 	    "concealidentity": "foe.fighter_aircraft.hidden",
 	    "takeadditional": [
 		{
@@ -1262,9 +1686,42 @@
 	},
 	"xtriggers": {
 	    "makecasualty_air": "foe.corpses",
-	    "killgerman": "foe.corpses",
-	    "killfoe": "foe.corpses",
-	    "killmortal": "foe.corpses"
+	    "killgerman": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killfoe": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killmortal": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		]
 	},
 	"decayTo": "foe.fighter_aircraft",
 	"resaturate": true
@@ -1303,9 +1760,42 @@
 	    "decaytoair": "foe.fighter_aircraft.refuel",
 	    "enemyintoenvironmentair": "foe.fighter_aircraft.environment.hidden",
 	    "makecasualty_air": "foe.fighter_aircraft.repairing",
-	    "killgerman": "foe.corpses",
-	    "killfoe": "foe.corpses",
-	    "killmortal": "foe.corpses",
+	    "killgerman": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killfoe": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killmortal": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.air",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
 	    "revealidentity": "foe.fighter_aircraft",
 	    "weaken": [
 		{
@@ -1362,9 +1852,42 @@
 	"xtriggers": {
 	    "refresh": "foe.artillery",
 	    "adv_german": "foe.artillery.ins",
-	    "killgerman": "foe.corpses",
-	    "killfoe": "foe.corpses",
-	    "killmortal": "foe.corpses",
+	    "killgerman": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.art",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killfoe": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.art",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killmortal": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.art",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
 	    "concealidentity": "foe.artillery.hidden",
 	    "takeadditional": [
 		{
@@ -1438,9 +1961,42 @@
 	"xtriggers": {
 	    "refresh": "foe.artillery.hidden",
 	    "adv_german": "foe.artillery.hidden.ins",
-	    "killgerman": "foe.corpses",
-	    "killfoe": "foe.corpses",
-	    "killmortal": "foe.corpses",
+	    "killgerman": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.art",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killfoe": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.art",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
+	    "killmortal": [
+		{
+		    "id": "foe.corpses",
+		    "morpheffect": "transform",
+		    "level": 1
+		},
+		{
+		    "id": "foe.wreckage.art",
+		    "morpheffect": "spawn",
+		    "level": 1
+		}
+		],
 	    "revealidentity": "foe.artillery",
 	    "weaken": [
 		{
