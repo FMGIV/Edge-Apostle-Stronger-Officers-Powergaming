@@ -420,8 +420,7 @@
             "foe.artillery.hidden": 1,
             "foe.tanks": 1,
             "foe.tanks.hidden": 1,
-            "allnaval": 1,
-            "italian": 1
+            "allnaval": 1
           },
           "greedy": true
         }
@@ -446,8 +445,7 @@
             "foe.artillery.hidden": 1,
             "foe.tanks": 1,
             "foe.tanks.hidden": 1,
-            "allnaval": 1,
-            "italian": 1
+            "allnaval": 1
           },
           "greedy": true
         }
@@ -475,12 +473,6 @@
       "linked$prepend": [
         {
           "id": "ob.success.antiairgun"
-        },
-        {
-          "id": "ob.success.amphibious_assault"
-        },
-        {
-          "id": "ob.success.gustavline"
         },
         {
           "id": "ob.success.breakthroughsuccessful"
@@ -528,81 +520,6 @@
         {
           "id": "ob.success.antiairgun",
           "chance": 60
-        }
-      ]
-    },
-    {
-      "id": "ob.success.amphibious_assault",
-      "label": "A Victory!",
-      "startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
-      "description": "And so we are victorious.",
-      "requirements": {
-        "amphibious_assault.complete": 1,
-        "warzone.current": -1
-      },
-      "effects": {
-        "anno.resolution": 1
-      },
-      "slots": [
-        {
-          "id": "needssupplies",
-          "label": "Location",
-          "required": {
-            "warzone.current": 1
-          },
-          "greedy": true
-        }
-      ],
-      "mutations": [
-        {
-          "filter": "warzone.current",
-          "mutate": "amphibious_assault.victory",
-          "level": 1
-        }
-      ],
-      "warmup": 10,
-      "linked": [
-        {
-          "id": "ob.success.amphibious_assault"
-        }
-      ]
-    },
-    {
-      "id": "ob.success.gustavline",
-      "label": "A Victory!",
-      "startdescription": "The guns are falling silent. Our enemies have scattered to the wind. With caution, I slowly begin to register that the battle is over.",
-      "description": "And so we are victorious.",
-      "requirements": {
-        "anno.resolution": 1,
-        "warzone.current": -1
-      },
-      "slots": [
-        {
-          "id": "needssupplies",
-          "label": "Location",
-          "required": {
-            "warzone.current": 1
-          },
-          "greedy": true
-        }
-      ],
-      "mutations": [
-        {
-          "filter": "warzone.current",
-          "mutate": "gustavline.broken",
-          "level": 1
-        },
-        {
-          "filter": "warzone.current",
-          "mutate": "gustavline",
-          "level": -1,
-          "additive": true
-        }
-      ],
-      "warmup": 10,
-      "linked": [
-        {
-          "id": "ob.success.gustavline"
         }
       ]
     },
@@ -1665,7 +1582,6 @@
       "requirements$add": {
         "foe.umiri.mark": -1,
         "foe.rankofficer": -1,
-        "clockwork.mark": -1,
         "infrastructure": -1,
         "mastery.edge": -1
       }
@@ -1675,7 +1591,6 @@
       "requirements$add": {
         "foe.umiri.mark": -1,
         "foe.rankofficer": -1,
-        "clockwork.mark": -1,
         "infrastructure": -1,
         "foe.analysis": -1,
         "mastery.edge": -1
@@ -1888,9 +1803,6 @@
         },
         {
           "id": "foe.coordinated.foegebirgsjager.pre"
-        },
-        {
-          "id": "foe.coordinated.foebersaglieri.pre"
         }
       ]
     },
@@ -1908,9 +1820,6 @@
         },
         {
           "id": "foe.coordinated.foegebirgsjager.pre"
-        },
-        {
-          "id": "foe.coordinated.foebersaglieri.pre"
         }
       ]
     },
@@ -1928,9 +1837,6 @@
         },
         {
           "id": "foe.coordinated.foegebirgsjager.pre"
-        },
-        {
-          "id": "foe.coordinated.foebersaglieri.pre"
         }
       ]
     },
@@ -1948,9 +1854,6 @@
         },
         {
           "id": "foe.coordinated.foegebirgsjager.pre"
-        },
-        {
-          "id": "foe.coordinated.foebersaglieri.pre"
         }
       ]
     },
@@ -2041,92 +1944,7 @@
         }
       ]
     },
-    
-    {
-      "id": "foe.coordinated.foegebirgsjager.pre",
-      "$extends": ["foe.coordinated.getsecond.pre"],
-      "requirements": {
-        "foe.coordinated.foegebirgsjager": 1
-      },
-      "linked": [
-        {
-          "id": "foe.coordinated.foegebirgsjager"
-        }
-      ]
-    },
-    {
-      "id": "foe.coordinated.foegebirgsjager",
-      "$extends": ["foe.coordinated.getsecond"],
-      "slots": [
-        {
-          "id": "needscoordinated",
-          "label": "Enemy",
-          "required": {
-            "foe.coordinated.foegebirgsjager": 1
-          },
-          "forbidden": {
-            "remnant": 1
-          },
-          "greedy": true
-        }
-      ]
-    },
-    
-    {
-      "id": "foe.coordinated.foebersaglieri.pre",
-      "$extends": ["foe.coordinated.getsecond.pre"],
-      "requirements": {
-        "foe.coordinated.foebersaglieri": 1
-      },
-      "linked": [
-        {
-          "id": "foe.coordinated.foebersaglieri.1",
-          "chance": 50
-        },
-        {
-          "id": "foe.coordinated.foebersaglieri.2"
-        }
-      ]
-    },
-    {
-      "id": "foe.coordinated.foebersaglieri.1",
-      "$extends": ["foe.coordinated.getsecond"],
-      "slots": [
-        {
-          "id": "needscoordinated",
-          "label": "Enemy",
-          "required": {
-            "foe.coordinated.foebersaglieri": 1
-          },
-          "forbidden": {
-            "remnant": 1
-          },
-          "greedy": true
-        }
-      ]
-    },
-    {
-      "id": "foe.coordinated.foebersaglieri.2",
-      "$extends": ["foe.coordinated.getsecond"],
-      "aspects": {},
-      "effects": {
-        "foe.bersaglieri": -99,
-        "foe.bersaglieri.double": 1
-      },
-      "slots": [
-        {
-          "id": "needscoordinated",
-          "label": "Enemy",
-          "required": {
-            "foe.coordinated.foebersaglieri": 1
-          },
-          "forbidden": {
-            "remnant": 1
-          },
-          "greedy": true
-        }
-      ]
-    },
+
     {
       "id": "use.renew.op",
       "actionid": "operate",
@@ -2314,7 +2132,6 @@
             "detectivetemptation": 1,
             "marinette.marker": 1,
             "foe.exilenightmare": 1,
-            "tomori.mark": 1,
             "umiri.mark": 1,
             "allnaval": 1
           },
@@ -2385,7 +2202,6 @@
             "detectivetemptation": 1,
             "marinette.marker": 1,
             "foe.exilenightmare": 1,
-            "tomori.mark": 1,
             "umiri.mark": 1,
             "allnaval": 1
           },
@@ -2436,7 +2252,6 @@
             "detectivetemptation": 1,
             "marinette.marker": 1,
             "foe.exilenightmare": 1,
-            "tomori.mark": 1,
             "mutsumi.mark": 1,
             "mortis.mark": 1,
             "umiri.mark": 1,

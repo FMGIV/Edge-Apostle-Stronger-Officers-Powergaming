@@ -2721,7 +2721,6 @@
 	    "foe.fighter_aircraft.refuel": 99,
 	    "foe.fighter_aircraft.repairing": 99,
 	    "faction.anno": 99,
-		"enemy_fire": 99,
 	    "umiri.blocker.pre": 99,
 	    "umiri.blocker.0": 99,
 	    "umiri.blocker.1": 99,
@@ -2931,7 +2930,6 @@
 	    "foe.fighter_aircraft.refuel": 99,
 	    "foe.fighter_aircraft.repairing": 99,
 	    "faction.anno": 99,
-		"enemy_fire": 99,
 	    "umiri.blocker.pre": 99,
 	    "umiri.blocker.0": 99,
 	    "umiri.blocker.1": 99,
@@ -3065,7 +3063,6 @@
 	    "foe.fighter_aircraft.refuel": 99,
 	    "foe.fighter_aircraft.repairing": 99,
 	    "faction.anno": 99,
-		"enemy_fire": 99,
 	    "reputation.infamy": 99,
 	    "mem.eva": 99,
 	    "mem.walther": 99,
@@ -3271,23 +3268,6 @@
         {
             "id": "produce.strife_incur4",
 			"chance": 30
-        },
-
-        {
-            "id": "produce.strife_incur.p",
-			"chance": 30
-        },
-        {
-            "id": "produce.strife_incur2.p",
-			"chance": 30
-        },
-        {
-            "id": "produce.strife_incur3.p",
-			"chance": 30
-        },
-        {
-            "id": "produce.strife_incur4.p",
-			"chance": 30
         }
     ]
     },
@@ -3357,63 +3337,6 @@
     }
     },
 
-    {
-	"id": "produce.strife_incur.p",
-	"$extends": ["produce.strife_incur"],
-    "extantreqs": {
-	    "strife.tracker": 3,
-        "strife.incur": -1,
-        "foe.umiri.dead": -1,
-        "foe.umiri.mark": -1,
-        "wasteland": -1,
-        "wasteland.ironeater.here": -1,
-        "proterant.story": 1,
-        "tool.shape": 1
-    }
-    },
-    {
-	"id": "produce.strife_incur2.p",
-	"$extends": ["produce.strife_incur"],
-    "extantreqs": {
-	    "strife.tracker": 6,
-        "strife.incur": -1,
-        "foe.umiri.dead": -1,
-        "foe.umiri.mark": -1,
-        "wasteland": -1,
-        "wasteland.ironeater.here": -1,
-        "proterant.story": 1,
-        "tool.shape": 1
-    }
-    },
-    {
-	"id": "produce.strife_incur3.p",
-	"$extends": ["produce.strife_incur"],
-    "extantreqs": {
-	    "strife.tracker": 9,
-        "strife.incur": -1,
-        "foe.umiri.dead": -1,
-        "foe.umiri.mark": -1,
-        "wasteland": -1,
-        "wasteland.ironeater.here": -1,
-        "proterant.story": 1,
-        "tool.shape": 1
-    }
-    },
-    {
-	"id": "produce.strife_incur4.p",
-	"$extends": ["produce.strife_incur"],
-    "extantreqs": {
-	    "strife.tracker": 12,
-        "strife.incur": -1,
-        "foe.umiri.dead": -1,
-        "foe.umiri.mark": -1,
-        "wasteland": -1,
-        "wasteland.ironeater.here": -1,
-        "proterant.story": 1,
-        "tool.shape": 1
-    }
-    },
-    
     {
 	"id": "resupply.startup",
 	"extantreqs$add": {
@@ -3494,7 +3417,7 @@
 	"id": "attackenemy.failure.necessary",
 	"label": "Stage an attack against a hidden enemy",
 	"grandReqs": {
-	    "[uqjerome] >= 1 || [uqlionel] >= 1 || [clockwork.mark] >= 1 || [tomori.mark] >= 1 || [foe.umiri.mark] >= 1": 1
+	    "[uqjerome] >= 1 || [uqlionel] >= 1 || [foe.umiri.mark] >= 1": 1
 	},
     "linked": [
         {
@@ -3606,9 +3529,6 @@
 	"alt$prepend": [
 	    {
 		"id": "obdurant.defiancehints"
-	    },
-	    {
-		"id": "contemplation.complete.anno"
 	    }
 	]
     },
@@ -3762,11 +3682,6 @@
 		"level": -1
 	    },
 	    {
-		"filter": "karotechia.officerdetail",
-		"mutate": "karotechia.officerdetail",
-		"level": -1
-	    },
-	    {
 		"filter": "battlehunger",
 		"mutate": "battlehunger",
 		"level": -1,
@@ -3783,16 +3698,6 @@
 		"id": "produce.pinceroffensive",
 		"additional": true,
 		"chance": 50
-	    },
-	    {
-		"id": "clockwork.orderguard",
-	 	"additional": true,
-		"expulsion": {
-		    "limit": 99,
-		    "filter": {
-			"clockwork.mark": 1
-		    }
-		}
 	    },
 	    {
 		"id": "produce.escape",
@@ -3889,9 +3794,6 @@
 },
     {
 	"id": "resilient.survived",
-	"aspects$add": {
-        "refreshonlyclockwork": 1
-	},
 	"grandReqs": {
 	    "[ins_soviet] <= [ins_german]": 1
 	}
@@ -3925,19 +3827,7 @@
 	},
 	"aspects": {
 	    "concealidentity": 1
-	},
-	"alt": [
-	    {
-		"id": "clockwork.orderguard.3",
-	 	"additional": true,
-		"expulsion": {
-		    "limit": 99,
-		    "filter": {
-			"clockwork.mark": 1
-		    }
-		}
-	    }
-	]
+	}
     }
     ]
 }
