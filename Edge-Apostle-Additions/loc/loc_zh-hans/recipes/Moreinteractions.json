@@ -20,14 +20,13 @@
 	
     {
 	"id": "hint.godbuilder",
+	"$extends": ["hint.sniper"],
 	"actionid": "operate",
 	"label": "咨询实验部队？",
 	"startdescription": "博戈斯特罗伊特利部队——这是内务人民委员部（NKVD）与OPRP合作生产的一支新型实验部队。如果我手头还有多余的肉，就能提高他们的战斗力。",
 	"requirements": {
 	    "friend.godbuilder": 1
-	},
-	"hintonly": true,
-	"craftable": false
+		}
     },
 	
 	{  
@@ -463,81 +462,52 @@
 	
 	{
 	"id": "attackenemy.success.voice",
-	"label": "胜利！",
-	"description": "在这场胜利中，我们听见了一首歌，一个暗示。这只生物的秘密，如今已属于我们。",
-	"aspects": {
-	    "dissolution": 1,
-		"killfoe" : 1,
-	    "fatiguing": 1
-	},
+	"$extends": ["attackenemy.success.ostlingant"],
 	"requirements": {
 	    "foe.voice": 1
-	},
-	"effects": {
-		"flock.clue" : 1
-	}
+		}
     },
 	
 	{
 	"id": "attackenemy.success.grame",
-	"label": "胜利！",
+	"$extends": ["attackenemy.success.ostlingant"],
 	"description": "噩梦正在消退。狼格拉姆的怒火无法压过我的怒火。而我 <i>很生气</i>。",
-	"aspects": {
-	    "dissolution": 1,
-		"killfoe" : 1,
-	    "fatiguing": 1
-	},
 	"requirements": {
 	    "foe.grame": 1
 	},
 	"effects": {
 		"contemplation.sobibor" : 1
-	}
+		}
     },
 	
 	{
 	"id": "attackenemy.success.devoured",
-	"label": "胜利！",
+	"$extends": ["attackenemy.success.ostlingant"],
 	"description": "噩梦正在消退。被诅咒的使命驱使着我，在完成它之前，我绝不会停歇。天地都无法阻挡我，这地狱更不可能。",
-	"aspects": {
-	    "dissolution": 1,
-		"killfoe" : 1,
-	    "fatiguing": 1
-	},
 	"requirements": {
 	    "foe.shade": 1
 	},
 	"effects": {
 		"contemplation.sobibor" : 1
-	}
+		}
     },
 	
 	{
 	"id": "attackenemy.success.nightmare",
-	"label": "胜利！",
+	"$extends": ["attackenemy.success.ostlingant"],
 	"description": "噩梦正在消退。我的过去不会吞噬我的现在或未来。我绝不会允许这种事发生。",
-	"aspects": {
-	    "dissolution": 1,
-		"killfoe" : 1,
-	    "fatiguing": 1
-	},
 	"requirements": {
 	    "foe.nightmare": 1
 	},
 	"effects": {
 		"shred.self" : 1
-	}
+		}
     },
 	
 	{
 	"id": "attackenemy.success.reclaimer",
-	"label": "胜利！",
+	"$extends": ["attackenemy.success.ostlingant"],
 	"description": "回收者已死。他们为何又回来了？为何偏偏是现在？如果我仔细思考这个问题，或许能找到答案……",
-	"aspects": {
-	    "dissolution": 1,
-		"killfoe" : 1,
-	    "fatiguing": 1
-	},
 	"requirements": {
 	    "foe.cross": 1
 	},
@@ -552,7 +522,7 @@
 		"contemplation.cross.3" : -1,
 		"op.axe" : -1,
 		"cross.summonsign": -1
-	}
+		}
     },
 	
     {
@@ -978,8 +948,8 @@
 	{
 	"id": "hint.Hallowed.Prosthesis",
 	"actionid": "abandon",
-	"label": "复活一名新兵？",
-	"startdescription": "死者生前曾立下誓言。这件义肢蕴含的力量能让他们重拾这份誓言。[将一具尸体放入其中，即可将其复活为新兵。]",
+	"label": "呼唤冬天？",
+	"startdescription": "死者生前曾立下誓言。这件义肢蕴含的力量能让他们重温这些誓言。如果我有盟友即将死去或生命将尽，我也能推迟这一时刻。[将一具尸体放入其中，便可将其复活为征召兵；将一名垂死的盟友放入其中，便可治愈他们。]",
 	"requirements": {
 	    "debilitation.leg.colonel" : 1
 	},
@@ -1875,11 +1845,11 @@
 	},
 	
     {
-	"id": "healveteran.adeptwinter",
+	"id": "healdecaying.adeptwinter",
 	"actionid": "operate",
-	"label": "召唤挽歌者，阻止老兵的腐朽",
-	"startdescription": "我派出的卫兵正密切监视着囚犯，只见他将铁锤高高举过老兵头顶。房间里的寒意似乎又加深了一分。",
-	"description": "老兵站了起来。腐朽已然停止，它将能继续战斗更久。它的职责尚未结束。",
+	"label": "请哀歌诗人阻止士兵的腐朽",
+	"startdescription": "我派驻的卫兵正密切注视着我的囚犯，只见对方举起了锤子。房间里的寒意似乎又加深了一分。",
+	"description": "《挽歌》的作者知道万物终将消亡，但今天却无法获得任何灵魂。腐朽已然停止，死亡也被驱散。它的使命尚未结束。",
 	"requirements": {
 	    "friend.adeptwinter": 1,
 	    "decaying": 1
@@ -2372,10 +2342,10 @@
     },
 	
     {
-	"id": "operate.startup.shakedown.veteran",
+	"id": "operate.startup.shakedown.otherunits",
 	"$extends": ["operate.startup.shakedown"],
 	"grandReqs": {
-	    "([isveteran] || [friend.conscript])": 1,
+	    "forceshakedown": 1,
 	    "warzone.current": 1,
 	    "lake.here": -1,
 	    "craterfield.here": -1,
@@ -2385,6 +2355,91 @@
 	    "shrine.wolf.lionsmith": -1
 	},
 	"requirements" : {}
+	},
+	
+	{  
+    "id": "empowered.induction",  
+    "actionid": "empoweredverb",
+    "label": "内心的武器",  
+    "startdescription": "狮匠对这支部队在战斗中展现出的勇气表示赞赏。他的关注带来了诸多好处……",  
+    "description": "更强、更强，再更强。",  
+	"internaldeck": {
+				"spec": [
+				"strength",
+				"anger",
+				"courage"
+				],
+				"draws": 1,
+				"resetonexhaustion": true
+			},
+	"warmup": 15
+	},
+	
+	{
+	"id": "attackenemy.success.gunmanadept",
+	"$extends": ["attackenemy.success.ostlingant"],
+	"description": "死前是痛苦，痛苦之后是死亡。",
+	"requirements": {
+	    "gunmanadepttrigger": 1
+	},
+	"effects": {
+		"agony" : 1
+	}
+    },
+	
+    {
+	"id": "healdecaying.colonelleg",
+	"actionid": "abandon",
+	"label": "呼吁《论坛报》阻止一名士兵的凋零",
+	"startdescription": "我腿中蕴含的力量可以阻止这条腿的腐烂。这需要一些时间。",
+	"description": "所有死者都要经由“挽歌者”之手，但军人则要先经由上校之手。而此人尚未完全死去。",
+	"requirements": {
+	    "debilitation.leg.colonel": 1,
+	    "decaying": 1
+	},
+	"aspects": {
+	    "restorehealth": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+	
+    {
+	"id": "healdecaying.raisedead",
+	"$priority" : 1,
+	"actionid": "abandon",
+	"label": "召唤“使节的祈祷”来阻止一名士兵的衰亡",
+	"startdescription": "这些虽然还没完全死掉，但已经岌岌可危了。我还能把它们从死亡边缘救回来。",
+	"description": "所有死者都要经由“挽歌者”之手，但军人则要先经由上校之手。而这些人还未完全死去。",
+	"requirements": {
+	    "skill.raisedead": 1,
+	    "decaying": 1
+	},
+	"aspects": {
+	    "restorehealth": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+	
+	{  
+    "id": "godbuilderveteran.induction",  
+    "actionid": "godbuilderveteraninductionverb",
+    "label": "内心的武器",  
+    "startdescription": "上校对该部队在战斗中展现出的机智表示赞赏。他的关注带来了好处……",  
+    "description": "于是，纷争仍在持续。",  
+	"internaldeck": {
+				"spec": [
+				"wisdom",
+				"cunning",
+				"patience"
+				],
+				"draws": 1,
+				"resetonexhaustion": true
+			},
+	"warmup": 15
 	}
 	
 	
