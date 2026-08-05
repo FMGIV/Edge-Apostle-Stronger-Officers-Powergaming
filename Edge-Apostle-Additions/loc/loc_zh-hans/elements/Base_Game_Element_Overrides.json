@@ -1916,15 +1916,15 @@
 	
 	{
 	"id": "debilitation.leg.colonel",
-	"description": "这块橡木外壳上刻有士兵圣徒的名字，并被敌军军官的鲜血涂抹过。[这张卡牌将计入你的死亡次数。你可以使用这张卡牌，将一名阵亡士兵复活为新兵。]",
+	"description": "橡木外壳上刻有士兵圣徒的名字，并被敌方军官的鲜血涂抹过。[这张卡牌将计入你的死亡次数。你可以使用这张卡牌，将一名阵亡士兵复活为新兵，或阻止一名盟友的腐朽。]",
 	"slots$append" : [
 		{
 		"id": "corpse",
 		"actionid": "abandon",
-		"label": "阵亡士兵",
-		"description": "一名阵亡士兵。",
+		"label": "意图？",
 		"required": {
-		    "remnant": 1
+		    "remnant": 1,
+			"decaying" :1
 			},
 		"forbidden": {
 		    "foe.corpse.unnatural": 1,
@@ -2674,6 +2674,9 @@
 	
 	{
 	"id": "friend.conscript",
+	"aspects$add": {
+		"forceshakedown" : 1
+	},
 	"xtriggers$add": {
 		"promotiontoveteran": "friend.veteran"
 	},
@@ -2872,6 +2875,39 @@
             }
         }
 		]
+	},
+	
+    {
+	"id": "skill.raisedead",
+	"description": "在“无编号军团”中，有一句格言——“MORS NON EST FINIS OFFICII”（死亡并非职责的终结）——因为军团士兵们深知，死亡并非安息，而仅仅是停战。他们说出这些话，是为了提醒逝者们生前所立的誓言，而逝者们总会倾听。[你可以使用此效果将棋盘上所有“堕落盟友”转化为“征召兵”。你也可以使用此效果阻止某些盟友的衰亡。]",
+	"slots$append" : [
+		{
+		"id": "thing1",
+		"actionid": "abandon",
+		"label": "Decaying",
+		"required": {
+		    "decaying": 1
+			}
+		},
+		
+		{
+		"id": "thing2",
+		"actionid": "abandon",
+		"label": "Decaying",
+		"required": {
+		    "decaying": 1
+			}
+		},
+		
+		{
+		"id": "thing3",
+		"actionid": "abandon",
+		"label": "Decaying",
+		"required": {
+		    "decaying": 1
+			}
+		}
+	]
 	}
 	
 	

@@ -2,6 +2,9 @@
 "elements": [
     {
 	"id": "friend.sniper",
+	"aspects$add": {
+	    "canhide": 1
+	},
 	"slots$append": [
 	{
 		"id": "intent",
@@ -18,8 +21,8 @@
 			"op.velvet" : 1,
 			"warzone" : 1,
 			"supplies.smokegrenade" : 1
-		},
-	},
+			}
+		}
 	],
 	"xtriggers$add": {
 		"concealidentity" : "friend.sniper.hidden"
@@ -61,7 +64,20 @@
     },
 	
 	{
+	"id": "friend.sniper.wounded",
+	"xtriggers$add": {
+		"promotion": "friend.sniper.sightless"
+		},
+	"aspects$add": {
+	    "obdurantpromotiontrigger": 1
+		}
+    },
+	
+	{
 	"id": "friend.militia",
+	"aspects$add": {
+	    "canhide": 1
+	},
 	"slots$append": [
 	{
 		"id": "intent",
@@ -82,7 +98,10 @@
 	},
 	],
 	"xtriggers$add": {
-		"concealidentity" : "friend.militia.hidden"
+		"concealidentity" : "friend.militia.hidden",
+		"maxpromotion" : "friend.infantry.unstoppable",
+		"partialpromotion" : "friend.empowered.infantry",
+		"minorpromotion" : "friend.lonesoldier"
 	}
     },
 	
@@ -117,6 +136,15 @@
 		"adv_soviet": "friend.militia.hidden.ins"
 		}
     },
+	
+	{
+	"id": "friend.militia.exhausted",
+	"xtriggers$add": {
+		"maxpromotion" : "friend.infantry.unstoppable",
+		"partialpromotion" : "friend.empowered.infantry",
+		"minorpromotion" : "friend.lonesoldier"
+		}
+	},
 	
 	{
 	"id": "friend.tanks.exhausted",
@@ -191,7 +219,8 @@
 	{
 	"id": "friend.gunman.exhausted",
 	"xtriggers$add": {
-		"refresh": "friend.gunman"
+		"refresh": "friend.gunman",
+		"promotion": "friend.adept.gunman"
 		}
 	},
 	
@@ -219,14 +248,16 @@
 	{
 	"id": "friend.dregsoldier.exhausted",
 	"xtriggers$add": {
-		"refresh": "friend.dregsoldier"
+		"refresh": "friend.dregsoldier",
+		"promotion": "friend.dreg.adept"
 		}
 	},
 	
 	{
 	"id": "friend.dregarsonists.exhausted",
 	"xtriggers$add": {
-		"refresh": "friend.dregarsonists"
+		"refresh": "friend.dregarsonists",
+		"promotion": "friend.arsonist.adept"
 		},
     "induces$listedit": { 
 		"0$dictedit" : {
@@ -288,6 +319,16 @@
 		},
 	"lifetime": 180,
 	"decayTo": "friend.infantry.inspired",
+    },
+	
+	{
+	"id": "friend.infantry.wounded",
+	"xtriggers$add": {
+		"promotion": "friend.adept.infantry"
+		},
+	"aspects$add": {
+	    "obdurantpromotiontrigger": 1
+		}
     },
 	
 	{
@@ -983,7 +1024,9 @@
 	    "edge": 4,
 		"knock" : 4,
 		"lantern" : 4,
-		"forge" : 4
+		"forge" : 4,
+		"godbuildermarker" : 1,
+		"obdurantpromotiontrigger" : 1
 	},
 	"xtriggers": {
 	    "fatiguing": "friend.godbuilder.exhausted",
@@ -997,7 +1040,8 @@
 		"adv_soviet": "friend.godbuilder.ins",
 	    "becaptive": "foe.manhunters",
 	    "makeafraid": "friend.godbuilder.afraid",
-	    "makeweaken": "friend.godbuilder.weaken"
+	    "makeweaken": "friend.godbuilder.weaken",
+	    "promotion": "friend.godbuilder.veteran"
 	},
 	"slots": [
 	    {
@@ -1010,27 +1054,25 @@
 			"provisions" : 1
 		}
 	    }
-	]
+	],
+	"decayTo": "friend.godbuilder"
     },
 	
     {
 	"id": "friend.godbuilder.exhausted",
+	"$derives" : ["friend.godbuilder"],
 	"label": "博戈斯特罗伊特利部队（原型——已耗尽）",
 	"description": "一支由政委——即'造神者'——组成的骨干队伍率领着这支步兵分队，在士兵们的武器与血肉中点燃辉煌的烈火。",
 	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 4,
 	    "exhausted": 1
 	},
+	"aspects$remove" : [
+	    "edge",
+		"knock",
+		"forge",
+		"lantern"
+		],
 	"xtriggers": {
-	    "fatiguing": "friend.godbuilder.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.godbuilder.wounded",
-	    "refresh": "friend.godbuilder",
-	    "refreshally": "friend.godbuilder",
-	    "becaptive": "foe.manhunters",
 	    "makeafraid": "friend.godbuilder.afraid.exhausted",
 	    "makeweaken": "friend.godbuilder.afraid.exhausted"
 	},
@@ -1042,20 +1084,21 @@
 	
     {
 	"id": "friend.godbuilder.wounded",
+	"$derives" : ["friend.godbuilder.exhausted"],
 	"label": "博戈斯特罗伊特利部队（原型——负伤）",
 	"icon": "friend.godbuilder.wounded",
 	"description": "[使用野战医护兵或野战医院为该盟友治疗。]",
 	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 4,
 	    "wounded": 1
 	},
+	"aspects$remove" : [
+	    "exhausted"
+		],
 	"xtriggers": {
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
+		"fatiguing": "friend.godbuilder.wounded",
 	    "makecasualty": "friend.corpses",
-	    "restorehealth": "friend.godbuilder"
+		"refresh": "friend.godbuilder.wounded",
+	    "refreshally": "friend.godbuilder.wounded",
 	}
 	},
 	
@@ -1067,8 +1110,7 @@
 		"knock" : 6,
 		"lantern" : 6,
 		"forge" : 6,
-	    "ins_soviet": 1,
-		"boosted" : 1
+	    "ins_soviet": 1
 	},
 	"xtriggers": {
 		"adv_soviet": "friend.godbuilder.ins",
@@ -1314,7 +1356,9 @@
 	    "edge": 8,
 	    "winter": 8,
 		"lantern" : 4,
-		"isveteran" : 1
+		"isveteran" : 1,
+		"canhide" : 1,
+		"forceshakedown" : 1
 	},
 	"xtriggers": {
 	    "killfriend": "mem.grief",
@@ -1409,8 +1453,7 @@
     {
 	"id": "friend.veteran.wounded",
 	"label": "老兵（隐藏）",
-	"icon": "friend.conscript",
-	"description": "[使用一名‘冬日行家’来治疗这位盟友。]",
+	"description": "[使用'冬日行家'、'神圣义肢'或'使节的召唤'来治疗这位盟友。]",
 	"aspects": {
 	    "friend": 1,
 	    "mortal": 1,
