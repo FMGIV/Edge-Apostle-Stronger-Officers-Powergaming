@@ -211,7 +211,7 @@
 	],
 	"xtriggers$add": {
 		"becomezombiesoldier": "foe.chasseur"
-	},
+	}
 	},
 	
 	{
@@ -1784,7 +1784,7 @@
 			"friend.conscript" : 1
 			}
 		}
-	],
+	]
 	},
 	
 	{
@@ -1916,15 +1916,15 @@
 	
 	{
 	"id": "debilitation.leg.colonel",
-	"description": "The oak exterior has been inscribed with the names of soldier-saints, and anointed with the blood of an enemy officer. [This card counts towards your death. You can use this card to raise a conscript from a fallen soldier.]",
+	"description": "The oak exterior has been inscribed with the names of soldier-saints, and anointed with the blood of an enemy officer. [This card counts towards your death. You can use this card to raise a conscript from a fallen soldier or halt the decay of an ally.]",
 	"slots$append" : [
 		{
 		"id": "corpse",
 		"actionid": "abandon",
-		"label": "Fallen Soldier",
-		"description": "A fallen soldier.",
+		"label": "Intent?",
 		"required": {
-		    "remnant": 1
+		    "remnant": 1,
+			"decaying" : 1
 			},
 		"forbidden": {
 		    "foe.corpse.unnatural": 1,
@@ -2674,6 +2674,9 @@
 	
 	{
 	"id": "friend.conscript",
+	"aspects$add": {
+		"forceshakedown" : 1
+	},
 	"xtriggers$add": {
 		"promotiontoveteran": "friend.veteran"
 	},
@@ -2788,6 +2791,123 @@
 	{
 	"id": "anger",
 	"aspects$add" : { "edge": 4 }
+	},
+	
+	{
+    "id": "contemnant.fragmentedgeg",
+		"slots$append": [
+        {
+        "id": "intent",
+        "actionid": "abandon",
+        "label": "Teaching",
+        "required": {
+			"friend": 1
+            }
+        }
+		]
+	},
+	
+	{
+    "id": "contemnant.fragmentedgeg.grail",
+		"slots$append": [
+        {
+        "id": "intent",
+        "actionid": "abandon",
+        "label": "Teaching",
+        "required": {
+			"friend": 1
+            }
+        }
+		]
+	},
+	
+	{
+    "id": "contemnant.fragmentedgeg.knock",
+		"slots$append": [
+        {
+        "id": "intent",
+        "actionid": "abandon",
+        "label": "Teaching",
+        "required": {
+			"friend": 1
+            }
+        }
+		]
+	},
+	
+	{
+    "id": "contemnant.fragmentedgeg.lantern",
+		"slots$append": [
+        {
+        "id": "intent",
+        "actionid": "abandon",
+        "label": "Teaching",
+        "required": {
+			"friend": 1
+            }
+        }
+		]
+	},
+	
+	{
+    "id": "proterant.fragmentedgeg",
+		"slots$append": [
+        {
+        "id": "intent",
+        "actionid": "abandon",
+        "label": "Teaching",
+        "required": {
+			"friend": 1
+            }
+        }
+		]
+	},
+	
+	{
+    "id": "obdurant.fragmentedgeg",
+		"slots$append": [
+        {
+        "id": "intent",
+        "actionid": "abandon",
+        "label": "Teaching",
+        "required": {
+			"friend": 1
+            }
+        }
+		]
+	},
+	
+    {
+	"id": "skill.raisedead",
+	"description": "In the Unnumbered Legion, they had a saying - MORS NON EST FINIS OFFICII - for the legionaries knew that death was not peace, but only armistice. These are the words they spoke to remind the dead of the oaths they took in life, and the dead would always listen. [You can use this to turn all Fallen Allies on the board into Conscripts. You can also use this to halt the decay of certain allies.]",
+	"slots$append" : [
+		{
+		"id": "thing1",
+		"actionid": "abandon",
+		"label": "Decaying",
+		"required": {
+		    "decaying": 1
+			}
+		},
+		
+		{
+		"id": "thing2",
+		"actionid": "abandon",
+		"label": "Decaying",
+		"required": {
+		    "decaying": 1
+			}
+		},
+		
+		{
+		"id": "thing3",
+		"actionid": "abandon",
+		"label": "Decaying",
+		"required": {
+		    "decaying": 1
+			}
+		}
+	]
 	}
 	
 	

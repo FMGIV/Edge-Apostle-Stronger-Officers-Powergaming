@@ -56,6 +56,7 @@
 	    "fatiguing": "friend.partisan.infiltrator.exhausted",
 	    "killmortal": "friend.corpses",
 	    "killfriend": "friend.corpses",
+		"makeweaken" : "friend.partisan.infiltrator.weaken",
 	    "makecasualty": "friend.partisan.infiltrator.wounded",
 		"concealidentity" : "friend.partisan.infiltrator.hidden",
 		"refresh" : "friend.partisan.infiltrator",
@@ -113,6 +114,25 @@
     },
 	
     {
+	"id": "friend.partisan.infiltrator.weaken",
+	"label": "Partisan Infiltrators",
+	"$derives" : ["friend.partisan.infiltrator"],
+	"aspects": {
+	    "weakened": 1,
+	    "moth": 3,
+	    "lantern": 3,
+	    "heart": 3
+	},
+	"xtriggers": {
+		"makeweaken": "friend.partisan.infiltrator.afraid",
+	    "bestronger": "friend.partisan.infiltrator",
+		"fatiguing" : "friend.partisan.infiltrator.weaken.exhausted"
+	},
+	"lifetime": 75,
+	"resaturate": true
+    },
+	
+    {
 	"id": "friend.partisan.infiltrator.exhausted",
 	"label": "Partisan Infiltrators (Exhausted)",
 	"$derives" : ["friend.partisan.infiltrator"],
@@ -129,6 +149,17 @@
 	},
 	"lifetime": 30,
 	"resaturate": true
+    },
+	
+    {
+	"id": "friend.partisan.infiltrator.weaken.exhausted",
+	"$derives" : ["friend.partisan.infiltrator.exhausted"],
+	"aspects": {
+	    "weakened": 1
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.partisan.infiltrator.weaken"
     },
 	
     {
@@ -220,7 +251,8 @@
 	    "moth": 8,
 	    "lantern": 8,
 	    "heart": 6
-	}
+	},
+	"icon": "friend.partisan.infiltrator.hidden"
     },
 	
 	{
@@ -233,7 +265,8 @@
 	    "mortal": 1,
 	    "heart": 4,
 	    "knock": 4,
-	    "forge": 4
+	    "forge": 4,
+		"issapper" : 1
 	},
 	"slots": [
 	{
@@ -286,6 +319,7 @@
 	    "fatiguing": "friend.partisan.sapper.exhausted",
 	    "killmortal": "friend.corpses",
 	    "killfriend": "friend.corpses",
+		"makeweaken": "friend.partisan.sapper.weaken",
 	    "makecasualty": "friend.partisan.sapper.wounded",
 		"concealidentity" : "friend.partisan.sapper.hidden",
 		"refresh" : "friend.partisan.sapper",
@@ -336,10 +370,31 @@
 		    "morpheffect": "mutate",
 		    "level": -2
 		}
-	    ]
+	    ],
+		"maxpromotion" : "friend.infantry.unstoppable",
+		"partialpromotion" : "friend.infantry.empowered",
+		"minorpromotion" : "friend.lonesoldier"
 	},
 	"decayTo": "friend.partisan.sapper",
 	"icon": "friend.partisan.sapper"
+    },
+	
+    {
+	"id": "friend.partisan.sapper.weaken",
+	"$derives" : ["friend.partisan.sapper"],
+	"aspects": {
+	    "weakened": 1,
+	    "forge": 3,
+	    "knock": 3,
+	    "heart": 3
+	},
+	"xtriggers": {
+		"makeweaken": "friend.partisan.sapper.afraid",
+	    "bestronger": "friend.partisan.sapper",
+		"fatiguing" : "friend.partisan.sapper.weaken.exhausted"
+	},
+	"lifetime": 75,
+	"resaturate": true
     },
 	
     {
@@ -359,6 +414,17 @@
 	},
 	"lifetime": 45,
 	"resaturate": true
+    },
+	
+    {
+	"id": "friend.partisan.sapper.weaken.exhausted",
+	"$derives" : ["friend.partisan.sapper.exhausted"],
+	"aspects": {
+	    "weakened": 1
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.partisan.sapper.weaken"
     },
 	
     {
@@ -464,7 +530,8 @@
 	    "mortal": 1,
 	    "winter": 4,
 	    "edge": 4,
-	    "heart": 4
+	    "heart": 4,
+		"ispartisansniper" : 1
 	},
 	"slots": [
 	{
@@ -490,6 +557,7 @@
 	    "fatiguing": "friend.partisan.sniper.exhausted",
 	    "killmortal": "friend.corpses",
 	    "killfriend": "friend.corpses",
+		"makeweaken" : "friend.partisan.sniper.weaken",
 	    "makecasualty": "friend.partisan.sniper.wounded",
 		"concealidentity" : "friend.partisan.sniper.hidden",
 		"refresh" : "friend.partisan.sniper",
@@ -540,10 +608,29 @@
 		    "morpheffect": "mutate",
 		    "level": -2
 		}
-	    ]
+	    ],
+		"minorpromotion" : "friend.lonesoldier"	
 	},
 	"decayTo": "friend.partisan.sniper",
-	"icon": "foe.vivienne"
+	"icon": "friend.partisan.sniper"
+    },
+	
+    {
+	"id": "friend.partisan.sniper.weaken",
+	"$derives" : ["friend.partisan.sniper"],
+	"aspects": {
+	    "weakened": 1,
+	    "edge": 3,
+	    "winter": 3,
+	    "heart": 3
+	},
+	"xtriggers": {
+		"makeweaken": "friend.partisan.sniper.afraid",
+	    "bestronger": "friend.partisan.sniper",
+		"fatiguing": "friend.partisan.sniper.weaken.exhausted"
+	},
+	"lifetime": 75,
+	"resaturate": true
     },
 	
     {
@@ -563,6 +650,17 @@
 	},
 	"lifetime": 30,
 	"resaturate": true
+    },
+	
+    {
+	"id": "friend.partisan.sniper.weaken.exhausted",
+	"$derives" : ["friend.partisan.sniper.exhausted"],
+	"aspects": {
+	    "weakened": 1
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.partisan.sniper.weaken"
     },
 	
     {
@@ -654,7 +752,8 @@
 	    "winter": 8,
 	    "edge": 8,
 	    "heart": 8
-	}
+	},
+	"icon": "friend.partisan.sniper.hidden"
     },
 	
 	{
@@ -666,7 +765,8 @@
 		"partisan" : 1,
 	    "mortal": 1,
 	    "heart": 4,
-	    "grail": 4
+	    "grail": 4,
+		"isphysician" : 1
 	},
 	"slots": [
 	{
@@ -715,6 +815,7 @@
 	    "killmortal": "friend.corpses",
 	    "killfriend": "friend.corpses",
 	    "makecasualty": "friend.partisan.physician.wounded",
+		"makeweaken": "friend.partisan.physician.weaken",
 		"concealidentity" : "friend.partisan.physician.hidden",
 		"refresh" : "friend.partisan.physician",
 		"refreshally" : "friend.partisan.physician",
@@ -761,6 +862,23 @@
     },
 	
     {
+	"id": "friend.partisan.physician.weaken",
+	"$derives" : ["friend.partisan.physician"],
+	"aspects": {
+	    "weakened": 1,
+	    "grail": 3,
+	    "heart": 3
+	},
+	"xtriggers": {
+		"makeweaken": "friend.partisan.physician.afraid",
+	    "bestronger": "friend.partisan.physician",
+		"fatiguing" : "friend.partisan.physician.weaken.exhausted"
+	},
+	"lifetime": 75,
+	"resaturate": true
+    },
+	
+    {
 	"id": "friend.partisan.physician.exhausted",
 	"label": "Partisan Physicians (Exhausted)",
 	"$derives" : ["friend.partisan.physician"],
@@ -777,6 +895,17 @@
 	},
 	"lifetime": 45,
 	"resaturate": true
+    },
+	
+    {
+	"id": "friend.partisan.physician.weaken.exhausted",
+	"$derives" : ["friend.partisan.physician.exhausted"],
+	"aspects": {
+	    "weakened": 1
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.partisan.physician.weaken"
     },
 	
     {
@@ -854,7 +983,7 @@
 	    "fatiguing": "friend.partisan.physician.afraid.wounded",
 		"makeafraid": "friend.partisan.physician.afraid.wounded",
 	    "restorehealth": "friend.partisan.physician.afraid"
-	},
+	}
     },
 	
     {
@@ -865,7 +994,8 @@
 	    "friend.hidden": 1,
 	    "heart": 8,
 	    "grail": 8
-	}
+	},
+	"icon": "friend.partisan.physician.hidden"
     }
 	
 ]

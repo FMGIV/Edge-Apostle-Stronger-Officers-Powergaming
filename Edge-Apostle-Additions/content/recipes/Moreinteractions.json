@@ -20,14 +20,12 @@
 	
     {
 	"id": "hint.godbuilder",
-	"actionid": "operate",
+	"$extends": ["hint.sniper"],
 	"label": "Consult with an Experimental Unit?",
 	"startdescription": "The Bogostroiteli Troop - a new, experimental unit produced in a collaboration between the NKVD and the OPRP. If I have some spare flesh around, I could increase their effectiveness.",
 	"requirements": {
 	    "friend.godbuilder": 1
-	},
-	"hintonly": true,
-	"craftable": false
+	}
     },
 	
 	{  
@@ -463,30 +461,16 @@
 	
 	{
 	"id": "attackenemy.success.voice",
-	"label": "A Victory!",
-	"description": "In our victory, we hear a voice, a hint. The secrets of this creature are ours, now.",
-	"aspects": {
-	    "dissolution": 1,
-		"killfoe" : 1,
-	    "fatiguing": 1
-	},
+	"$extends": ["attackenemy.success.ostlingant"],
 	"requirements": {
 	    "foe.voice": 1
-	},
-	"effects": {
-		"flock.clue" : 1
 	}
     },
 	
 	{
 	"id": "attackenemy.success.grame",
-	"label": "A Victory!",
+	"$extends": ["attackenemy.success.ostlingant"],
 	"description": "The nightmare recedes. The rage of the Wolf-grame could not overcome my rage. and I am <i>angry</i>.",
-	"aspects": {
-	    "dissolution": 1,
-		"killfoe" : 1,
-	    "fatiguing": 1
-	},
 	"requirements": {
 	    "foe.grame": 1
 	},
@@ -497,13 +481,8 @@
 	
 	{
 	"id": "attackenemy.success.devoured",
-	"label": "A Victory!",
+	"$extends": ["attackenemy.success.ostlingant"],
 	"description": "The nightmare recedes. Accursed purpose drives me, and I will not rest until it is done. Heaven and Earth wont stop me, and this hell certainly wont.",
-	"aspects": {
-	    "dissolution": 1,
-		"killfoe" : 1,
-	    "fatiguing": 1
-	},
 	"requirements": {
 	    "foe.shade": 1
 	},
@@ -514,13 +493,8 @@
 	
 	{
 	"id": "attackenemy.success.nightmare",
-	"label": "A Victory!",
+	"$extends": ["attackenemy.success.ostlingant"],
 	"description": "The nightmare recedes. My past will not consume my present or my future. I won't allow it.",
-	"aspects": {
-	    "dissolution": 1,
-		"killfoe" : 1,
-	    "fatiguing": 1
-	},
 	"requirements": {
 	    "foe.nightmare": 1
 	},
@@ -531,13 +505,8 @@
 	
 	{
 	"id": "attackenemy.success.reclaimer",
-	"label": "A Victory!",
+	"$extends": ["attackenemy.success.ostlingant"],
 	"description": "The reclaimer lies dead. Why have they come back? Why now? If I ponder this, I may get an answer...",
-	"aspects": {
-	    "dissolution": 1,
-		"killfoe" : 1,
-	    "fatiguing": 1
-	},
 	"requirements": {
 	    "foe.cross": 1
 	},
@@ -944,8 +913,8 @@
 	{
 	"id": "hint.Hallowed.Prosthesis",
 	"actionid": "abandon",
-	"label": "Raise a Conscript?",
-	"startdescription": "The dead took oaths in life. The power in this prosthesis can remind them of that. [Slot a corpse in to raise it as a conscript.]",
+	"label": "Call upon winter?",
+	"startdescription": "The dead took oaths in life. The power in this prosthesis can remind them of that. If I have allies nearing and ending, I can postpone that too. [Slot a corpse in to raise it as a conscript. Slot in a decaying ally to heal them.]",
 	"requirements": {
 	    "debilitation.leg.colonel" : 1
 	},
@@ -1841,11 +1810,11 @@
 	},
 	
     {
-	"id": "healveteran.adeptwinter",
+	"id": "healdecaying.adeptwinter",
 	"actionid": "operate",
-	"label": "Call upon the Elegiast to halt the decay of a Veteran",
-	"startdescription": "The guard I have posted watches my prisoner carefully as they raise a hammer above the Veteran. The room chills a shade colder.",
-	"description": "The Veteran rises to its feet. The decay has stopped, and it will fight on longer. It's duty isn't over yet.",
+	"label": "Call upon the Elegiast to halt the decay of a Soldier",
+	"startdescription": "The guard I have posted watches my prisoner carefully as they raise a hammer. The room chills a shade colder.",
+	"description": "The Elegiast knows when all will die, but will not get a soul today. The decay has stopped, and death is warded off. It's duty isn't over yet.",
 	"requirements": {
 	    "friend.adeptwinter": 1,
 	    "decaying": 1
@@ -2338,10 +2307,10 @@
     },
 	
     {
-	"id": "operate.startup.shakedown.veteran",
+	"id": "operate.startup.shakedown.otherunits",
 	"$extends": ["operate.startup.shakedown"],
 	"grandReqs": {
-	    "([isveteran] || [friend.conscript])": 1,
+	    "forceshakedown": 1,
 	    "warzone.current": 1,
 	    "lake.here": -1,
 	    "craterfield.here": -1,
@@ -2351,6 +2320,102 @@
 	    "shrine.wolf.lionsmith": -1
 	},
 	"requirements" : {}
+	},
+	
+	{  
+    "id": "empowered.induction",  
+    "actionid": "empoweredverb",
+    "label": "The Weapons of the Interior",  
+    "startdescription": "The Lionsmith approves of the courage this unit shows in battle. His attention brings benefits...",  
+    "description": "Stronger, Stronger, and Stronger still.",  
+	"internaldeck": {
+				"spec": [
+				"strength",
+				"anger",
+				"courage"
+				],
+				"draws": 1,
+				"resetonexhaustion": true
+			},
+	"warmup": 15
+	},
+	
+    {
+	"id": "upgrade.lonesoldier",
+	"$extends": ["upgrade.namedally"],
+	"description": "The Lionsmith grows stronger every day. So does this one.",
+	"requirements": {
+	    "friend.lonesoldier": 1,
+	    "exhausted": -1,
+	    "experience.exile.ally": 3
+	}
+    },
+	
+	{
+	"id": "attackenemy.success.gunmanadept",
+	"$extends": ["attackenemy.success.ostlingant"],
+	"description": "Before Death, Agony. After Agony, Death.",
+	"requirements": {
+	    "gunmanadepttrigger": 1
+	},
+	"effects": {
+		"agony" : 1
+	}
+    },
+	
+    {
+	"id": "healdecaying.colonelleg",
+	"actionid": "abandon",
+	"label": "Call upon the Tribune to halt the decay of a soldier",
+	"startdescription": "The power imbued in my leg can halt the decay of this one. It's going to take some time.",
+	"description": "All dead pass through the Elegiast's hands, but soldierly ones pass through the Colonel first. And this one isn't dead quite yet.",
+	"requirements": {
+	    "debilitation.leg.colonel": 1,
+	    "decaying": 1
+	},
+	"aspects": {
+	    "restorehealth": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+	
+    {
+	"id": "healdecaying.raisedead",
+	"$priority" : 1,
+	"actionid": "abandon",
+	"label": "Call upon the Legate's Invocation to halt the decay of a soldier",
+	"startdescription": "These ones aren't quite dead, but are close. I can pull them back from the brink.",
+	"description": "All dead pass through the Elegiast's hands, but soldierly ones pass through the Colonel first. And this one isn't dead quite yet.",
+	"requirements": {
+	    "skill.raisedead": 1,
+	    "decaying": 1
+	},
+	"aspects": {
+	    "restorehealth": 1,
+	    "fatiguing": 1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+	
+	{  
+    "id": "godbuilderveteran.induction",  
+    "actionid": "godbuilderveteraninductionverb",
+    "label": "The Weapons of the Interior",  
+    "startdescription": "The Colonel approves of the cunning this unit shows in battle. His attention brings benefits...",  
+    "description": "And so strife endures.",  
+	"internaldeck": {
+				"spec": [
+				"wisdom",
+				"cunning",
+				"patience"
+				],
+				"draws": 1,
+				"resetonexhaustion": true
+			},
+	"warmup": 15
 	}
 	
 	

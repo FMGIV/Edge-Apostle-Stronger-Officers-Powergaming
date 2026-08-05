@@ -1,0 +1,2126 @@
+{
+"elements": [
+
+	{
+	"id": "friend.sniper.sightless",
+	"label": "Sightless Sniper",
+	"description": "More accurate than ever, now.",
+	"aspects": {
+	    "friend": 1,
+		"forcesize": 1,
+	    "mortal": 1,
+	    "lantern": 12,
+	    "edge": 10,
+	    "winter": 10,
+		"promoted" : 1,
+		"fragile" : 1,
+		"ap" : 1
+	},
+	"slots": [
+		{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1,
+			"op.velvet" : 1,
+			"warzone" : 1,
+			"supplies.smokegrenade" : 1
+			}
+		}
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.sightless.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.sniper.sightless.wounded",
+		"concealidentity" : "friend.sniper.sightless.hidden",
+		"refresh" : "friend.sniper.sightless",
+		"refreshally" : "friend.sniper.sightless",
+		"provisionrefresh": "friend.sniper.sightless",
+		"makeafraid": "friend.sniper.sightless.afraid",
+	    "restorehealth": "friend.sniper.sightless",
+	    "deweaken": "friend.sniper.sightless",
+	    "makeweaken": "friend.sniper.sightless.weaken",
+		"adv_soviet": "friend.sniper.sightless.ins"
+	},
+	"decayTo": "friend.sniper.sightless",
+	"icon": "friend.sniper.sightless"
+    },
+	
+    {
+	"id": "friend.sniper.sightless.ins",
+	"$derives" : ["friend.sniper.sightless"],
+	"aspects": {
+	    "edge": 12,
+	    "winter": 12,
+	    "lantern": 14,
+		"ins_soviet" : 1
+	},
+	"xtriggers": {
+		"makeweaken": "friend.sniper.sightless.afraid",
+		"fatiguing" : "friend.sniper.sightless.weaken.exhausted",
+		"concealidentity" : "friend.sniper.sightless.hidden.ins",
+	},
+	"lifetime": 75,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.sniper.sightless.weaken",
+	"$derives" : ["friend.sniper.sightless"],
+	"aspects": {
+	    "weakened": 1,
+	    "edge": 8,
+	    "winter": 8,
+	    "lantern": 10
+	},
+	"xtriggers": {
+		"makeweaken": "friend.sniper.sightless.afraid",
+		"fatiguing" : "friend.sniper.sightless.weaken.exhausted"
+	},
+	"lifetime": 75,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.sniper.sightless.exhausted",
+	"label": "Sightless Sniper (Exhausted)",
+	"$extends" : ["friend.sniper.sightless"],
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "edge",
+	    "lantern",
+	    "winter"],
+	"xtriggers": {
+		"makeafraid": "friend.sniper.sightless.afraid.exhausted",
+		"makeweaken": "friend.sniper.sightless.weaken.exhausted"
+	},
+	"lifetime": 70,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.sniper.sightless.weaken.exhausted",
+	"$derives" : ["friend.sniper.sightless.exhausted"],
+	"aspects": {
+	    "weakened": 1
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.sniper.sightless.weaken",
+	"xtriggers": {
+		"makeweaken": "friend.sniper.sightless.afraid.exhausted"
+		}
+    },
+	
+    {
+	"id": "friend.sniper.sightless.wounded",
+	"$derives" : ["friend.sniper.sightless"],
+	"label": "Sightless Sniper (Wounded)",
+	"description": "[Use a Winter Adept, Hallowed Prosthesis, or Legate's Invocation to heal this Ally.]",
+	"aspects": {
+		"decaying" : 1
+	},
+	"aspects$remove" : [
+	    "edge",
+	    "lantern",
+	    "winter"
+		],
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.sightless.wounded",
+	    "makecasualty": "friend.corpses",
+		"makeafraid": "friend.sniper.sightless.afraid.wounded",
+	    "restorehealth": "friend.sniper.sightless",
+	    "makeweaken": "friend.sniper.sightless.afraid.wounded"
+	},
+	"icon": "friend.sniper.sightless.wounded",
+	"lifetime": 140,
+	"decayTo": "friend.corpses",
+    },
+	
+    {
+	"id": "friend.sniper.sightless.afraid",
+	"$derives" : ["friend.sniper.sightless"],
+	"aspects": {
+	    "edge": 6,
+	    "lantern": 8,
+	    "winter": 6,
+	    "friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.sightless.afraid.exhausted",
+	    "makecasualty": "friend.sniper.sightless.afraid.wounded",
+		"refresh" : "friend.sniper.sightless",
+		"refreshally" : "friend.sniper.sightless",
+		"provisionrefresh": "friend.sniper.sightless.afraid",
+		"makeafraid": "friend.sniper.sightless.afraid",
+	    "restorehealth": "friend.sniper.sightless.afraid",
+	    "makeweaken": "friend.sniper.sightless.afraid"
+	},
+	"lifetime": 150
+    },
+	
+    {
+	"id": "friend.sniper.sightless.afraid.exhausted",
+	"$derives" : ["friend.sniper.sightless.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.sightless.afraid.exhausted",
+	    "makecasualty": "friend.sniper.sightless.afraid.wounded",
+		"provisionrefresh": "friend.sniper.sightless.afraid",
+		"makeafraid": "friend.sniper.sightless.afraid.exhausted",
+	    "restorehealth": "friend.sniper.sightless.afraid",
+	    "makeweaken": "friend.sniper.sightless.afraid.exhausted"
+	},
+	"lifetime": 70,
+	"decayTo": "friend.sniper.sightless.afraid",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.sniper.sightless.afraid.wounded",
+	"$derives" : ["friend.sniper.sightless.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.sniper.sightless.afraid.wounded",
+		"makeafraid": "friend.sniper.sightless.afraid.wounded",
+	    "restorehealth": "friend.sniper.sightless.afraid",
+	    "makeweaken": "friend.sniper.sightless.afraid.wounded"
+	}
+    },
+	
+    {
+	"id": "friend.sniper.sightless.hidden",
+	"label": "Sightless Sniper (Hidden)",
+	"$derives" : ["friend.sniper.sightless"],
+	"aspects": {
+	    "friend.hidden": 1,
+	    "edge": 14,
+	    "lantern": 16,
+	    "winter": 14,
+		"ap" : 2
+	},
+	"xtriggers": {
+	    "adv_soviet": "friend.sniper.sightless.ins"
+		}
+    },
+	
+    {
+	"id": "friend.sniper.sightless.hidden.ins",
+	"$derives" : ["friend.sniper.sightless.hidden"],
+	"aspects": {
+	    "edge": 18,
+	    "lantern": 20,
+	    "winter": 18,
+		"ins_soviet" : 1
+	},
+	"lifetime": 90,
+	"decayTo" : "friend.sniper.sightless.hidden"
+    },
+	
+	{
+	"id": "friend.adept.infantry",
+	"label": "Adept Infantry",
+	"description": "Their scars are shields, and they raise them in tactical formation. ",
+	"aspects": {
+	    "friend": 1,
+		"promoted" : 1,
+	    "forcesize": 3,
+	    "edge": 12,
+		"forceshakedown" : 1,
+		"fragile" : 1
+	},
+	"slots": [
+		{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+			}
+		},
+		
+		{
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.adept.infantry.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+		"makeweaken" : "friend.adept.infantry.weaken",
+	    "makecasualty": "friend.adept.infantry.wounded",
+		"concealidentity" : "friend.adept.infantry.hidden",
+		"refresh" : "friend.adept.infantry",
+		"refreshally" : "friend.adept.infantry",
+		"provisionrefresh": "friend.adept.infantry",
+		"makeafraid": "friend.adept.infantry.afraid",
+	    "restorehealth": "friend.adept.infantry",
+		"adv_soviet": "friend.adept.infantry.ins"
+	},
+	"decayTo": "friend.adept.infantry",
+	"icon": "friend.adept.infantry"
+    },
+	
+    {
+	"id": "friend.adept.infantry.ins",
+	"$derives" : ["friend.adept.infantry"],
+	"aspects": {
+	    "edge": 14,
+		"ins_soviet" : 1
+	},
+	"xtriggers": {
+		"makeweaken": "friend.adept.infantry",
+		"fatiguing" : "friend.adept.infantry.exhausted",
+	},
+	"lifetime": 75,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.adept.infantry.weaken",
+	"$derives" : ["friend.adept.infantry"],
+	"aspects": {
+	    "weakened": 1,
+	    "edge": 10
+	},
+	"xtriggers": {
+		"makeweaken": "friend.adept.infantry.afraid",
+		"fatiguing": "friend.adept.infantry.weaken.exhausted"
+	},
+	"lifetime": 90,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.adept.infantry.exhausted",
+	"label": "Adept Infantry (Exhausted)",
+	"$derives" : ["friend.adept.infantry"],
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "edge"
+		],
+	"xtriggers": {
+		"makeafraid": "friend.adept.infantry.afraid.exhausted",
+		"makeweaken": "friend.adept.infantry.weaken.exhausted"
+	},
+	"lifetime": 90,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.adept.infantry.weaken.exhausted",
+	"$derives" : ["friend.adept.infantry.exhausted"],
+	"aspects": {
+	    "weakened": 1
+	},
+	"lifetime": 90,
+	"resaturate": true,
+	"xtriggers": {
+		"makeweaken": "friend.adept.infantry.afraid.exhausted"
+	},
+	"decayTo": "friend.adept.infantry.weaken"
+    },
+	
+    {
+	"id": "friend.adept.infantry.wounded",
+	"$derives" : ["friend.adept.infantry"],
+	"label": "Adept Infantry (Wounded)",
+	"description": "[Use a Winter Adept, Hallowed Prosthesis, or Legate's Invocation to heal this Ally.]",
+	"aspects": {
+		"decaying" : 1
+	},
+	"aspects$remove" : [
+	    "edge"
+		],
+	"xtriggers": {
+	    "fatiguing": "friend.adept.infantry.wounded",
+	    "makecasualty": "friend.corpses",
+		"makeafraid": "friend.adept.infantry.afraid.wounded",
+		"makeweaken": "friend.adept.infantry.afraid.wounded",
+	    "restorehealth": "friend.adept.infantry"
+	},
+	"icon": "friend.adept.infantry.wounded",
+	"lifetime" : 180,
+	"decayTo" : "friend.corpses"
+    },
+	
+    {
+	"id": "friend.adept.infantry.afraid",
+	"$extends" : ["friend.adept.infantry"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+		"friend.weakened" : 1,
+	    "edge": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.adept.infantry.afraid.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adept.infantry.afraid.wounded",
+		"refresh" : "friend.adept.infantry",
+		"refreshally" : "friend.adept.infantry",
+		"provisionrefresh": "friend.adept.infantry.afraid",
+		"makeafraid": "friend.adept.infantry.afraid",
+		"makeweaken": "friend.adept.infantry.afraid.exhausted",
+	    "restorehealth": "friend.adept.infantry.afraid"
+	},
+	"lifetime": 150
+    },
+	
+    {
+	"id": "friend.adept.infantry.afraid.exhausted",
+	"$derives" : ["friend.adept.infantry.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.adept.infantry.afraid.exhausted",
+	    "makecasualty": "friend.adept.infantry.afraid.wounded",
+		"provisionrefresh": "friend.adept.infantry.afraid",
+		"makeafraid": "friend.adept.infantry.afraid.exhausted",
+	    "restorehealth": "friend.adept.infantry.afraid",
+		"makeweaken": "friend.adept.infantry.afraid.exhausted"
+	},
+	"lifetime": 120,
+	"decayTo": "friend.adept.infantry.afraid",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.adept.infantry.afraid.wounded",
+	"$derives" : ["friend.adept.infantry.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.adept.infantry.afraid.wounded",
+		"makeafraid": "friend.adept.infantry.afraid.wounded",
+	    "restorehealth": "friend.adept.infantry.afraid",
+		"makeweaken": "friend.adept.infantry.afraid.wounded"
+		}
+    },
+	
+	{
+	"id": "friend.unstoppable.infantry",
+	"label": "Unstoppable infantry",
+	"description": "The ground quakes as we march. Men flee. Stand in our way, and perish. [Attacks including this ally ignore enemy Resilient and Braced]",
+	"aspects": {
+	    "friend": 1,
+		"promoted" : 1,
+	    "forcesize": 3,
+	    "edge": 14,
+		"forceshakedown" : 1,
+		"unstoppable" : 1,
+		"promoted" : 1
+	},
+	"slots": [
+		{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+			}
+		},
+		
+		{
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.unstoppable.infantry.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+		"makeweaken" : "friend.unstoppable.infantry.weaken",
+	    "makecasualty": "friend.unstoppable.infantry.wounded",
+		"concealidentity" : "friend.unstoppable.infantry.hidden",
+		"refresh" : "friend.unstoppable.infantry",
+		"refreshally" : "friend.unstoppable.infantry",
+		"provisionrefresh": "friend.unstoppable.infantry",
+		"makeafraid": "friend.unstoppable.infantry.afraid",
+	    "restorehealth": "friend.unstoppable.infantry",
+		"adv_soviet": "friend.unstoppable.infantry.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	},
+	"decayTo": "friend.unstoppable.infantry",
+	"icon": "friend.unstoppable.infantry"
+    },
+	
+    {
+	"id": "friend.unstoppable.infantry.ins",
+	"$derives" : ["friend.unstoppable.infantry"],
+	"aspects": {
+	    "edge": 18,
+		"ins_soviet" : 1
+	},
+	"xtriggers": {
+		"makeweaken": "friend.unstoppable.infantry",
+		"fatiguing" : "friend.unstoppable.infantry.exhausted",
+	},
+	"lifetime": 75,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.unstoppable.infantry.weaken",
+	"$derives" : ["friend.unstoppable.infantry"],
+	"aspects": {
+	    "weakened": 1,
+	    "edge": 10
+	},
+	"xtriggers": {
+		"makeweaken": "friend.unstoppable.infantry.afraid",
+	    "bestronger": "friend.unstoppable.infantry",
+		"fatiguing": "friend.unstoppable.infantry.weaken.exhausted"
+	},
+	"lifetime": 90,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.unstoppable.infantry.exhausted",
+	"label": "Unstoppable infantry (Exhausted)",
+	"$derives" : ["friend.unstoppable.infantry"],
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "edge"
+		],
+	"xtriggers": {
+		"makeafraid": "friend.unstoppable.infantry.afraid.exhausted",
+	    "bestronger": "friend.unstoppable.infantry",
+		"makeweaken": "friend.unstoppable.infantry.weaken.exhausted"
+	},
+	"lifetime": 90,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.unstoppable.infantry.weaken.exhausted",
+	"$derives" : ["friend.unstoppable.infantry.exhausted"],
+	"aspects": {
+	    "weakened": 1
+	},
+	"xtriggers": {
+		"makeweaken": "friend.unstoppable.infantry.afraid.exhausted"
+	},
+	"lifetime": 90,
+	"resaturate": true,
+	"decayTo": "friend.unstoppable.infantry.weaken"
+    },
+	
+    {
+	"id": "friend.unstoppable.infantry.wounded",
+	"$derives" : ["friend.unstoppable.infantry"],
+	"label": "Unstoppable infantry (Wounded)",
+	"description": "[Use a Medic to Heal this Ally.]",
+	"aspects": {
+		"wounded" : 1
+	},
+	"aspects$remove" : [
+	    "edge"
+		],
+	"xtriggers": {
+	    "fatiguing": "friend.unstoppable.infantry.wounded",
+	    "makecasualty": "friend.corpses",
+		"makeafraid": "friend.unstoppable.infantry.afraid.wounded",
+	    "restorehealth": "friend.unstoppable.infantry",
+		"makeweaken": "friend.unstoppable.infantry.afraid.wounded"
+	},
+	"icon": "friend.unstoppable.infantry.wounded",
+    },
+	
+    {
+	"id": "friend.unstoppable.infantry.afraid",
+	"$extends" : ["friend.unstoppable.infantry"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+		"friend.weakened" : 1,
+	    "edge": 8
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.unstoppable.infantry.afraid.exhausted",
+	    "makecasualty": "friend.unstoppable.infantry.afraid.wounded",
+		"refresh" : "friend.unstoppable.infantry",
+		"refreshally" : "friend.unstoppable.infantry",
+		"provisionrefresh": "friend.unstoppable.infantry.afraid",
+	    "restorehealth": "friend.unstoppable.infantry.afraid",
+	    "bestronger": "friend.unstoppable.infantry",
+		"makeweaken": "friend.unstoppable.infantry.afraid"
+	},
+	"lifetime": 150
+    },
+	
+    {
+	"id": "friend.unstoppable.infantry.afraid.exhausted",
+	"$derives" : ["friend.unstoppable.infantry.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.unstoppable.infantry.afraid.exhausted",
+	    "makecasualty": "friend.unstoppable.infantry.afraid.wounded",
+		"provisionrefresh": "friend.unstoppable.infantry.afraid",
+		"makeafraid": "friend.unstoppable.infantry.afraid.exhausted",
+	    "restorehealth": "friend.unstoppable.infantry.afraid",
+	    "bestronger": "friend.unstoppable.infantry",
+		"makeweaken": "friend.unstoppable.infantry.afraid.exhausted"
+	},
+	"lifetime": 120,
+	"decayTo": "friend.unstoppable.infantry.afraid",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.unstoppable.infantry.afraid.wounded",
+	"$derives" : ["friend.unstoppable.infantry.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.unstoppable.infantry.afraid.wounded",
+		"makeafraid": "friend.unstoppable.infantry.afraid.wounded",
+	    "restorehealth": "friend.unstoppable.infantry.afraid",
+		"makeweaken": "friend.unstoppable.infantry.afraid.wounded"
+	}
+    },
+	
+	{
+	"id": "friend.empowered.infantry",
+	"label": "Empowered Infantry",
+	"description": "The enemy must think that this unit is no threat- Smaller than normal, and poorly equipped. They don't understand that modern day berserkers don't need guns. [This ally produces Strength or Anger or Courage when used.]",
+	"aspects": {
+	    "friend": 1,
+		"promoted" : 1,
+	    "forcesize": 2,
+	    "edge": 10,
+		"forge": 4,
+		"heart": 4,
+		"forceshakedown" : 1,
+		"promoted" : 1
+	},
+	"slots": [
+		{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+			}
+		},
+		
+		{
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.empowered.infantry.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+		"makeweaken" : "friend.empowered.infantry.weaken",
+	    "makecasualty": "friend.empowered.infantry.wounded",
+		"concealidentity" : "friend.empowered.infantry.hidden",
+		"refresh" : "friend.empowered.infantry",
+		"refreshally" : "friend.empowered.infantry",
+		"provisionrefresh": "friend.empowered.infantry",
+		"makeafraid": "friend.empowered.infantry.afraid",
+	    "restorehealth": "friend.empowered.infantry",
+		"adv_soviet": "friend.empowered.infantry.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": 2
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		},
+		{
+		    "id": "forge",
+		    "morpheffect": "mutate",
+		    "level": -2
+		},
+		{
+		    "id": "heart",
+		    "morpheffect": "mutate",
+		    "level": -2
+		}
+		]
+	},
+	"decayTo": "friend.empowered.infantry",
+	"icon": "friend.unstoppable.infantry"
+    },
+	
+    {
+	"id": "friend.empowered.infantry.ins",
+	"$derives" : ["friend.empowered.infantry"],
+	"aspects": {
+	    "edge": 12,
+		"forge": 6,
+		"heart": 6,
+		"ins_soviet" : 1
+	},
+	"xtriggers": {
+		"makeweaken": "friend.empowered.infantry",
+		"fatiguing" : "friend.empowered.infantry.exhausted",
+	},
+	"lifetime": 75,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.empowered.infantry.weaken",
+	"$derives" : ["friend.empowered.infantry"],
+	"aspects": {
+	    "weakened": 1,
+	    "edge": 8,
+		"forge": 2,
+		"heart": 2
+	},
+	"xtriggers": {
+		"makeweaken": "friend.empowered.infantry.afraid",
+	    "bestronger": "friend.empowered.infantry",
+		"fatiguing": "friend.empowered.infantry.weaken.exhausted"
+	},
+	"lifetime": 90,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.empowered.infantry.exhausted",
+	"label": "Empowered Infantry (Exhausted)",
+	"$derives" : ["friend.empowered.infantry"],
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "edge",
+		"heart",
+		"forge"
+		],
+	"xtriggers": {
+		"makeafraid": "friend.empowered.infantry.afraid.exhausted",
+		"makeweaken": "friend.empowered.infantry.weaken.exhausted",
+	    "bestronger": "friend.empowered.infantry"
+	},
+	"lifetime": 90,
+	"resaturate": true,
+	"induces": [
+	    {
+		"id": "empowered.induction"
+	    }
+	]
+    },
+	
+    {
+	"id": "friend.empowered.infantry.weaken.exhausted",
+	"$derives" : ["friend.empowered.infantry.exhausted"],
+	"aspects": {
+	    "weakened": 1
+	},
+	"lifetime": 90,
+	"resaturate": true,
+	"xtriggers": {
+		"makeweaken": "friend.empowered.infantry.afraid.exhausted"
+	},
+	"decayTo": "friend.empowered.infantry.weaken"
+    },
+	
+    {
+	"id": "friend.empowered.infantry.wounded",
+	"$derives" : ["friend.empowered.infantry"],
+	"label": "Empowered Infantry (Wounded)",
+	"description": "[Use a Medic to Heal this Ally.]",
+	"aspects": {
+		"wounded" : 1
+	},
+	"aspects$remove" : [
+	    "edge",
+		"heart",
+		"forge"
+		],
+	"xtriggers": {
+	    "fatiguing": "friend.empowered.infantry.wounded",
+	    "makecasualty": "friend.corpses",
+		"makeafraid": "friend.empowered.infantry.afraid.wounded",
+	    "restorehealth": "friend.empowered.infantry",
+		"makeweaken": "friend.empowered.infantry.afraid.wounded"
+	},
+	"icon": "friend.unstoppable.infantry.wounded",
+    },
+	
+    {
+	"id": "friend.empowered.infantry.afraid",
+	"$extends" : ["friend.empowered.infantry"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+		"friend.weakened" : 1,
+	    "edge": 6
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.empowered.infantry.afraid.exhausted",
+	    "makecasualty": "friend.empowered.infantry.afraid.wounded",
+		"provisionrefresh": "friend.empowered.infantry.afraid",
+	    "restorehealth": "friend.empowered.infantry.afraid",
+	    "bestronger": "friend.empowered.infantry",
+		"makeweaken": "friend.empowered.infantry.afraid"
+	},
+	"lifetime": 150
+    },
+	
+    {
+	"id": "friend.empowered.infantry.afraid.exhausted",
+	"$derives" : ["friend.empowered.infantry.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.empowered.infantry.afraid.exhausted",
+	    "makecasualty": "friend.empowered.infantry.afraid.wounded",
+		"provisionrefresh": "friend.empowered.infantry.afraid",
+		"makeafraid": "friend.empowered.infantry.afraid.exhausted",
+	    "restorehealth": "friend.empowered.infantry.afraid",
+	    "bestronger": "friend.empowered.infantry",
+		"makeweaken": "friend.empowered.infantry.afraid.exhausted"
+	},
+	"lifetime": 120,
+	"decayTo": "friend.empowered.infantry.afraid",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.empowered.infantry.afraid.wounded",
+	"$derives" : ["friend.empowered.infantry.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.empowered.infantry.afraid.wounded",
+		"makeafraid": "friend.empowered.infantry.afraid.wounded",
+	    "restorehealth": "friend.empowered.infantry.afraid",
+		"makeweaken": "friend.empowered.infantry.afraid.wounded"
+	}
+    },
+	
+	{
+	"id": "friend.lonesoldier",
+	"label": "Lone Soldier",
+	"description": "If you can't have strength in numbers, then just have strength. Stronger and stronger, forever. [This ally gains one edge when used.]",
+	"aspects": {
+	    "friend": 1,
+		"promoted" : 1,
+	    "forcesize": 1,
+	    "edge": 8,
+		"forceshakedown" : 1,
+		"promoted" : 1
+	},
+	"slots": [
+		{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+			}
+		},
+		
+		{
+		"id": "needswarzone",
+		"actionid": "operate",
+		"label": "Warzone",
+		"required": {
+		    "warzone.current": 1
+		},
+		"forbidden": {
+		    "wasteland": 1
+		}
+	    }
+	],
+	"xtriggers": {
+	    "fatiguing": [
+		{
+		    "id": "friend.lonesoldier.exhausted"
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+		],
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+		"makeweaken" : "friend.lonesoldier.weaken",
+	    "makecasualty": [
+		{
+		    "id": "friend.lonesoldier.wounded"
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+		],
+		"concealidentity" : "friend.lonesoldier.hidden",
+		"refresh" : "friend.lonesoldier",
+		"refreshally" : "friend.lonesoldier",
+		"provisionrefresh": "friend.lonesoldier",
+		"makeafraid": "friend.lonesoldier.afraid",
+	    "restorehealth": "friend.lonesoldier",
+		"adv_soviet": "friend.lonesoldier.ins",
+	    "bestronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ],
+	    "destronger": [
+		{
+		    "id": "friend.stronger",
+		    "morpheffect": "mutate",
+		    "level": -1
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": -4
+		}
+		]
+	},
+	"decayTo": "friend.lonesoldier",
+	"icon": "friend.lonesoldier"
+    },
+	
+    {
+	"id": "friend.lonesoldier.ins",
+	"$derives" : ["friend.lonesoldier"],
+	"aspects": {
+	    "edge": 12,
+		"ins_soviet" : 1
+	},
+	"xtriggers": {
+		"makeweaken": "friend.lonesoldier"
+	},
+	"lifetime": 75,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.lonesoldier.weaken",
+	"$derives" : ["friend.lonesoldier"],
+	"aspects": {
+	    "weakened": 1,
+	    "edge": 6
+	},
+	"xtriggers": {
+		"makeweaken": "friend.lonesoldier.afraid",
+	    "bestronger": "friend.lonesoldier",
+		"fatiguing": [
+		{
+		    "id": "friend.lonesoldier.weaken.exhausted"
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+		],
+		"makeweaken": "friend.lonesoldier.afraid"
+	},
+	"lifetime": 90,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.lonesoldier.exhausted",
+	"label": "Lone Soldier (Exhausted)",
+	"$derives" : ["friend.lonesoldier"],
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "edge"
+		],
+	"xtriggers": {
+		"makeafraid": "friend.lonesoldier.afraid.exhausted",
+	    "bestronger": "friend.lonesoldier",
+		"makeweaken": "friend.lonesoldier.weaken.exhausted"
+	},
+	"lifetime": 90,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.lonesoldier.weaken.exhausted",
+	"$derives" : ["friend.lonesoldier.exhausted"],
+	"aspects": {
+	    "weakened": 1
+	},
+	"lifetime": 90,
+	"resaturate": true,
+	"decayTo": "friend.lonesoldier.weaken",
+	"xtriggers": {
+		"makeweaken": "friend.lonesoldier.afraid.exhausted"
+		}
+    },
+	
+    {
+	"id": "friend.lonesoldier.wounded",
+	"$derives" : ["friend.lonesoldier"],
+	"label": "Lone Soldier (Wounded)",
+	"description": "[Use a Medic to Heal this Ally.]",
+	"aspects": {
+		"wounded" : 1
+	},
+	"aspects$remove" : [
+	    "edge"
+		],
+	"xtriggers": {
+	    "fatiguing": "friend.lonesoldier.wounded",
+	    "makecasualty": "friend.corpses",
+		"makeafraid": "friend.lonesoldier.afraid.wounded",
+	    "restorehealth": "friend.lonesoldier",
+		"makeweaken": "friend.lonesoldier.afraid.wounded"
+	},
+	"icon": "friend.lonesoldier.wounded",
+    },
+	
+    {
+	"id": "friend.lonesoldier.afraid",
+	"$extends" : ["friend.lonesoldier"],
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+		"friend.weakened" : 1,
+	    "edge": 4
+	},
+	"xtriggers": {
+		"fatiguing": [
+		{
+		    "id": "friend.lonesoldier.afraid.exhausted"
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+		],
+		"makecasualty": [
+		{
+		    "id": "friend.lonesoldier.afraid.wounded"
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+		],
+		"refresh" : "friend.lonesoldier",
+		"refreshally" : "friend.lonesoldier",
+		"provisionrefresh": "friend.lonesoldier.afraid",
+	    "restorehealth": "friend.lonesoldier.afraid",
+	    "bestronger": "friend.lonesoldier",
+		"makeweaken": "friend.lonesoldier.afraid"
+	},
+	"lifetime": 150
+    },
+	
+    {
+	"id": "friend.lonesoldier.afraid.exhausted",
+	"$derives" : ["friend.lonesoldier.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": [
+		{
+		    "id": "friend.lonesoldier.afraid.exhausted"
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+		],
+		"makecasualty": [
+		{
+		    "id": "friend.lonesoldier.afraid.wounded"
+		},
+		{
+		    "id": "edge",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+		],
+		"provisionrefresh": "friend.lonesoldier.afraid",
+		"makeafraid": "friend.lonesoldier.afraid.exhausted",
+	    "restorehealth": "friend.lonesoldier.afraid",
+	    "bestronger": "friend.lonesoldier",
+		"makeweaken": "friend.lonesoldier.afraid.exhausted"
+	},
+	"lifetime": 120,
+	"decayTo": "friend.lonesoldier.afraid",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.lonesoldier.afraid.wounded",
+	"$derives" : ["friend.lonesoldier.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.lonesoldier.afraid.wounded",
+		"makeafraid": "friend.lonesoldier.afraid.wounded",
+	    "restorehealth": "friend.lonesoldier.afraid",
+		"makeweaken": "friend.lonesoldier.afraid.wounded"
+		}
+    },	
+	
+	{
+	"id": "friend.adept.gunman",
+	"label": "Gunman Adept",
+	"description": "Hate is stronger than fear. Now, where this one walks, agony follows. [This ally will create Agony whenever they kill an enemy]",
+	"aspects": {
+	    "friend": 1,
+		"forcesize": 1,
+	    "mortal": 1,
+	    "winter": 10,
+	    "edge": 10,
+		"forceshakedown" : 1,
+		"gunmanadepttrigger" : 1,
+		"promoted" : 1
+	},
+	"slots": [
+		{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1,
+			"op.velvet" : 1,
+			"warzone" : 1,
+			"supplies.smokegrenade" : 1
+			}
+		}
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.adept.gunman.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.adept.gunman.wounded",
+		"concealidentity" : "friend.adept.gunman.hidden",
+		"refresh" : "friend.adept.gunman",
+		"refreshally" : "friend.adept.gunman",
+		"provisionrefresh": "friend.adept.gunman",
+		"makeafraid": "friend.adept.gunman.afraid",
+	    "restorehealth": "friend.adept.gunman",
+	    "deweaken": "friend.adept.gunman",
+	    "makeweaken": "friend.adept.gunman.weaken"
+	},
+	"decayTo": "friend.adept.gunman",
+	"icon": "friend.adept.gunman"
+    },
+	
+    {
+	"id": "friend.adept.gunman.weaken",
+	"$derives" : ["friend.adept.gunman"],
+	"aspects": {
+	    "weakened": 1,
+	    "edge": 8,
+	    "winter": 8
+	},
+	"xtriggers": {
+		"makeweaken": "friend.adept.gunman.afraid",
+		"fatiguing" : "friend.adept.gunman.weaken.exhausted"
+	},
+	"lifetime": 75,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.adept.gunman.exhausted",
+	"label": "Gunman Adept (Exhausted)",
+	"$extends" : ["friend.adept.gunman"],
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "edge",
+	    "lantern",
+	    "winter"
+		],
+	"xtriggers": {
+		"makeafraid": "friend.adept.gunman.afraid.exhausted",
+		"makeweaken": "friend.adept.gunman.weaken.exhausted"
+	},
+	"lifetime": 70,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.adept.gunman.weaken.exhausted",
+	"$derives" : ["friend.adept.gunman.exhausted"],
+	"aspects": {
+	    "weakened": 1
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.adept.gunman.weaken"
+    },
+	
+    {
+	"id": "friend.adept.gunman.wounded",
+	"$derives" : ["friend.adept.gunman"],
+	"label": "Gunman Adept (Wounded)",
+	"description": "[Use a Medic to Heal this Ally.]",
+	"aspects": {
+		"wounded" : 1
+	},
+	"aspects$remove" : [
+	    "edge",
+	    "lantern",
+	    "winter"
+		],
+	"xtriggers": {
+	    "fatiguing": "friend.adept.gunman.wounded",
+	    "makecasualty": "friend.corpses",
+		"makeafraid": "friend.adept.gunman.afraid.wounded",
+	    "restorehealth": "friend.adept.gunman",
+		"makeweaken": "friend.adept.gunman.afraid.wounded"
+	},
+	"icon": "friend.adept.gunman.wounded"
+    },
+	
+    {
+	"id": "friend.adept.gunman.afraid",
+	"$derives" : ["friend.adept.gunman"],
+	"aspects": {
+	    "edge": 6,
+	    "winter": 6,
+	    "friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.adept.gunman.afraid.exhausted",
+	    "makecasualty": "friend.adept.gunman.afraid.wounded",
+		"refresh" : "friend.adept.gunman",
+		"refreshally" : "friend.adept.gunman",
+		"provisionrefresh": "friend.adept.gunman.afraid",
+		"makeafraid": "friend.adept.gunman.afraid",
+	    "restorehealth": "friend.adept.gunman.afraid",
+		"makeweaken": "friend.adept.gunman.afraid.exhausted"
+	},
+	"lifetime": 150
+    },
+	
+    {
+	"id": "friend.adept.gunman.afraid.exhausted",
+	"$derives" : ["friend.adept.gunman.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.adept.gunman.afraid.exhausted",
+	    "makecasualty": "friend.adept.gunman.afraid.wounded",
+		"provisionrefresh": "friend.adept.gunman.afraid",
+		"makeafraid": "friend.adept.gunman.afraid.exhausted",
+	    "restorehealth": "friend.adept.gunman.afraid",
+		"makeweaken": "friend.adept.gunman.afraid.exhausted"
+	},
+	"lifetime": 70,
+	"decayTo": "friend.adept.gunman.afraid",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.adept.gunman.afraid.wounded",
+	"$derives" : ["friend.adept.gunman.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.adept.gunman.afraid.wounded",
+		"makeafraid": "friend.adept.gunman.afraid.wounded",
+	    "restorehealth": "friend.adept.gunman.afraid",
+		"makeweaken": "friend.adept.gunman.afraid.wounded"
+	}
+    },
+	
+    {
+	"id": "friend.adept.gunman.hidden",
+	"label": "Gunman Adept (Hidden)",
+	"$derives" : ["friend.adept.gunman"],
+	"aspects": {
+	    "friend.hidden": 1,
+	    "edge": 16,
+	    "winter": 16
+		}
+    },
+	
+	{
+	"id": "friend.dreg.adept",
+	"label": "Dreg Adept",
+	"description": "Each one has learned a different technique of unmaking. Wolves hunt in packs, after all. [This ally will create the Wolf-Divided's Shadow when they die]",
+	"aspects": {
+	    "friend": 1,
+		"forcesize": 3,
+	    "mortal": 1,
+		"grail": 8,
+	    "winter": 8,
+	    "edge": 10,
+		"forceshakedown" : 1,
+		"vicious" : 1,
+		"promoted" : 1
+	},
+	"slots": [
+		{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1,
+			"op.velvet" : 1,
+			"warzone" : 1,
+			"supplies.smokegrenade" : 1
+			}
+		}
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.dreg.adept.exhausted",
+	    "makecasualty": "friend.dreg.adept.wounded",
+		"concealidentity" : "friend.dreg.adept.hidden",
+		"refresh" : "friend.dreg.adept",
+		"refreshally" : "friend.dreg.adept",
+		"provisionrefresh": "friend.dreg.adept",
+		"makeafraid": "friend.dreg.adept.afraid",
+	    "restorehealth": "friend.dreg.adept",
+	    "deweaken": "friend.dreg.adept",
+	    "makeweaken": "friend.dreg.adept.weaken",
+	    "killmortal": [
+		{
+		    "id": "op.wolfdivided",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		
+		{
+		    "id": "friend.corpses"
+		}
+	    ],
+		
+	    "killfriend": [
+		{
+		    "id": "op.wolfdivided",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		
+		{
+		    "id": "friend.corpses"
+		}
+			]
+		},
+	"decayTo": "friend.dreg.adept",
+	"icon": "friend.dreg.adept"
+    },
+	
+    {
+	"id": "friend.dreg.adept.weaken",
+	"$derives" : ["friend.dreg.adept"],
+	"aspects": {
+	    "weakened": 1,
+	    "edge": 8,
+	    "winter": 6,
+	    "grail": 6
+	},
+	"xtriggers": {
+		"makeweaken": "friend.dreg.adept.afraid",
+		"fatiguing" : "friend.dreg.adept.weaken.exhausted"
+	},
+	"lifetime": 75,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.dreg.adept.exhausted",
+	"label": "Dreg Adept (Exhausted)",
+	"$extends" : ["friend.dreg.adept"],
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "edge",
+	    "lantern",
+	    "winter"
+		],
+	"xtriggers": {
+		"makeafraid": "friend.dreg.adept.afraid.exhausted"
+	},
+	"lifetime": 70,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.dreg.adept.weaken.exhausted",
+	"$derives" : ["friend.dreg.adept.exhausted"],
+	"aspects": {
+	    "weakened": 1
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.dreg.adept.weaken",
+	"xtriggers": {
+	    "makeweaken": "friend.dreg.adept.afraid.exhausted"
+		}	
+    },
+	
+    {
+	"id": "friend.dreg.adept.wounded",
+	"$derives" : ["friend.dreg.adept"],
+	"label": "Dreg Adept (Wounded)",
+	"description": "[Use a Medic to Heal this Ally.]",
+	"aspects": {
+		"wounded" : 1
+	},
+	"aspects$remove" : [
+	    "edge",
+	    "lantern",
+	    "winter"
+		],
+	"xtriggers": {
+	    "fatiguing": "friend.dreg.adept.wounded",
+	    "makecasualty": [
+		{
+		    "id": "op.wolfdivided",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		
+		{
+		    "id": "friend.corpses"
+		}
+	    ],
+		"makeafraid": "friend.dreg.adept.afraid.wounded",
+	    "restorehealth": "friend.dreg.adept",
+	    "makeweaken": "friend.dreg.adept.afraid.wounded"
+	},
+	"icon": "friend.dreg.adept.wounded"
+    },
+	
+    {
+	"id": "friend.dreg.adept.afraid",
+	"$derives" : ["friend.dreg.adept"],
+	"aspects": {
+	    "edge": 6,
+	    "winter": 4,
+	    "grail": 4,
+	    "friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dreg.adept.afraid.exhausted",
+	    "makecasualty": "friend.dreg.adept.afraid.wounded",
+		"refresh" : "friend.dreg.adept",
+		"refreshally" : "friend.dreg.adept",
+		"provisionrefresh": "friend.dreg.adept.afraid",
+	    "makeweaken": "friend.dreg.adept.afraid",
+	    "restorehealth": "friend.dreg.adept.afraid"
+	},
+	"lifetime": 150
+    },
+	
+    {
+	"id": "friend.dreg.adept.afraid.exhausted",
+	"$derives" : ["friend.dreg.adept.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dreg.adept.afraid.exhausted",
+	    "makecasualty": "friend.dreg.adept.afraid.wounded",
+		"provisionrefresh": "friend.dreg.adept.afraid",
+		"makeafraid": "friend.dreg.adept.afraid.exhausted",
+	    "restorehealth": "friend.dreg.adept.afraid",
+	    "makeweaken": "friend.dreg.adept.afraid.exhausted"
+	},
+	"lifetime": 70,
+	"decayTo": "friend.dreg.adept.afraid",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.dreg.adept.afraid.wounded",
+	"$derives" : ["friend.dreg.adept.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.dreg.adept.afraid.wounded",
+		"makeafraid": "friend.dreg.adept.afraid.wounded",
+	    "restorehealth": "friend.dreg.adept.afraid",
+	    "makeweaken": "friend.dreg.adept.afraid.wounded"
+		}
+    },
+	
+    {
+	"id": "friend.dreg.adept.hidden",
+	"label": "Dreg Adept (Hidden)",
+	"$derives" : ["friend.dreg.adept"],
+	"aspects": {
+	    "friend.hidden": 1,
+	    "edge": 14,
+	    "winter": 12,
+	    "grail": 12
+		}
+    },
+	
+	{
+	"id": "friend.arsonist.adept",
+	"label": "Arsonist Adept",
+	"description": "Fire is the domain of many different hours- The Wolf only commands its most destructive natures. Lucky, those are the only natures these ones care to learn. [This ally will create a flame oppurtunity when used]",
+	"aspects": {
+	    "friend": 1,
+		"forcesize": 3,
+	    "mortal": 1,
+		"forge": 12,
+	    "edge": 10,
+	    "winter": 10,
+		"vicious" : 1,
+		"promoted" : 1
+	},
+	"slots": [
+		{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1,
+			"op.velvet" : 1,
+			"warzone" : 1,
+			"supplies.smokegrenade" : 1
+			}
+		}
+	],
+	"xtriggers": {
+	    "fatiguing": "friend.arsonist.adept.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.arsonist.adept.wounded",
+		"concealidentity" : "friend.arsonist.adept.hidden",
+		"refresh" : "friend.arsonist.adept",
+		"refreshally" : "friend.arsonist.adept",
+		"provisionrefresh": "friend.arsonist.adept",
+		"makeafraid": "friend.arsonist.adept.afraid",
+	    "restorehealth": "friend.arsonist.adept",
+	    "deweaken": "friend.arsonist.adept",
+	    "makeweaken": "friend.arsonist.adept.weaken"
+	},
+	"decayTo": "friend.arsonist.adept",
+	"icon": "friend.arsonist.adept",
+	"induces": [
+	    {
+		"id": "produce.flames"
+	    }
+	]
+    },
+	
+    {
+	"id": "friend.arsonist.adept.weaken",
+	"$derives" : ["friend.arsonist.adept"],
+	"aspects": {
+	    "weakened": 1,
+	    "edge": 10,
+	    "winter": 8,
+	    "grail": 8
+	},
+	"xtriggers": {
+		"makeweaken": "friend.arsonist.adept.afraid",
+		"fatiguing" : "friend.arsonist.adept.weaken.exhausted"
+	},
+	"lifetime": 75,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.arsonist.adept.exhausted",
+	"label": "Arsonist Adept (Exhausted)",
+	"$extends" : ["friend.arsonist.adept"],
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "edge",
+	    "lantern",
+	    "winter"
+		],
+	"xtriggers": {
+		"makeafraid": "friend.arsonist.adept.afraid.exhausted",
+	    "makeweaken": "friend.arsonist.adept.afraid.exhausted"
+	},
+	"lifetime": 70,
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.arsonist.adept.weaken.exhausted",
+	"$derives" : ["friend.arsonist.adept.exhausted"],
+	"aspects": {
+	    "weakened": 1
+	},
+	"lifetime": 60,
+	"resaturate": true,
+	"decayTo": "friend.arsonist.adept.weaken",
+	"xtriggers": {
+	    "makeweaken": "friend.arsonist.adept.afraid.exhausted"
+		}
+    },
+	
+    {
+	"id": "friend.arsonist.adept.wounded",
+	"$derives" : ["friend.arsonist.adept"],
+	"label": "Arsonist Adept (Wounded)",
+	"description": "[Use a Medic to Heal this Ally.]",
+	"aspects": {
+		"wounded" : 1
+	},
+	"aspects$remove" : [
+	    "edge",
+	    "lantern",
+	    "winter"
+		],
+	"xtriggers": {
+	    "fatiguing": "friend.arsonist.adept.wounded",
+	    "makecasualty": "friend.corpses",
+		"makeafraid": "friend.arsonist.adept.afraid.wounded",
+	    "restorehealth": "friend.arsonist.adept",
+		"makeweaken": "friend.arsonist.adept.afraid.exhausted"
+	},
+	"icon": "friend.arsonist.adept.wounded"
+    },
+	
+    {
+	"id": "friend.arsonist.adept.afraid",
+	"$derives" : ["friend.arsonist.adept"],
+	"aspects": {
+	    "edge": 8,
+	    "winter": 6,
+	    "grail": 6,
+	    "friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.arsonist.adept.afraid.exhausted",
+	    "makecasualty": "friend.arsonist.adept.afraid.wounded",
+		"refresh" : "friend.arsonist.adept",
+		"refreshally" : "friend.arsonist.adept",
+		"provisionrefresh": "friend.arsonist.adept.afraid",
+		"makeafraid": "friend.arsonist.adept.afraid",
+	    "restorehealth": "friend.arsonist.adept.afraid",
+		"makeweaken": "friend.arsonist.adept.afraid.exhausted"
+	},
+	"lifetime": 150
+    },
+	
+    {
+	"id": "friend.arsonist.adept.afraid.exhausted",
+	"$derives" : ["friend.arsonist.adept.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.arsonist.adept.afraid.exhausted",
+	    "makecasualty": "friend.arsonist.adept.afraid.wounded",
+		"provisionrefresh": "friend.arsonist.adept.afraid",
+		"makeafraid": "friend.arsonist.adept.afraid.exhausted",
+	    "restorehealth": "friend.arsonist.adept.afraid",
+		"makeweaken": "friend.arsonist.adept.afraid.exhausted"
+	},
+	"lifetime": 70,
+	"decayTo": "friend.arsonist.adept.afraid",
+	"resaturate": true
+    },
+	
+    {
+	"id": "friend.arsonist.adept.afraid.wounded",
+	"$derives" : ["friend.arsonist.adept.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.arsonist.adept.afraid.wounded",
+		"makeafraid": "friend.arsonist.adept.afraid.wounded",
+	    "restorehealth": "friend.arsonist.adept.afraid",
+		"makeweaken": "friend.arsonist.adept.afraid.wounded"
+	}
+    },
+	
+    {
+	"id": "friend.arsonist.adept.hidden",
+	"label": "Arsonist Adept (Hidden)",
+	"$derives" : ["friend.arsonist.adept"],
+	"aspects": {
+	    "friend.hidden": 1,
+	    "forge": 16,
+	    "edge": 14,
+		"winter" : 14
+		}
+    },
+	
+	{
+	"id": "friend.godbuilder.veteran",
+	"label": "Bogostroiteli Troop (Veteran)",
+	"icon": "friend.godbuilder.veteran",
+	"description": "These ones already knew some of the invisible arts, but my tutelage has brought them patience and potency. [This ally produces a random useful influence when used]",
+	"aspects": {
+	    "friend": 1,
+	    "mortal": 1,
+	    "forcesize": 4,
+	    "edge": 8,
+		"knock" : 8,
+		"lantern" : 8,
+		"forge" : 8,
+		"fragile" : 1,
+		"promoted" : 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.godbuilder.veteran.exhausted",
+	    "killmortal": "friend.corpses",
+	    "killfriend": "friend.corpses",
+	    "makecasualty": "friend.godbuilder.veteran.wounded",
+		"giveallyprovisions" : "friend.godbuilder.veteran.inspired",
+		"godbuildertakecorpse" : "friend.godbuilder.veteran.boosted",
+	    "refresh": "friend.godbuilder.veteran",
+	    "refreshally": "friend.godbuilder.veteran",
+		"adv_soviet": "friend.godbuilder.veteran.ins",
+	    "becaptive": "foe.manhunters",
+	    "makeafraid": "friend.godbuilder.veteran.afraid",
+	    "makeweaken": "friend.godbuilder.veteran.weaken"
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"actionid": "communicate",
+		"label": "Intent",
+		"required": {
+		    "warzone": 1,
+		    "remnant": 1,
+			"provisions" : 1
+		}
+	    }
+	],
+	"decayTo" : "friend.godbuilder.veteran"
+    },
+	
+    {
+	"id": "friend.godbuilder.veteran.exhausted",
+	"$derives" : ["friend.godbuilder.veteran"],
+	"label": "Bogostroiteli Troop (Veteran - Exhausted)",
+	"description": "A cadre of commissars-ithast - 'god-builders' - leads this infantry detachment, stoking glorious fires in the weapons and flesh of their men.",
+	"aspects": {
+	    "exhausted": 1
+	},
+	"aspects$remove" : [
+	    "edge",
+		"knock",
+		"forge",
+		"lantern"
+		],
+	"xtriggers": {
+	    "makeafraid": "friend.godbuilder.afraid.exhausted",
+	    "makeweaken": "friend.godbuilder.afraid.exhausted"
+	},
+	"lifetime": 120,
+	"resaturate": true,
+	"induces": [
+	    {
+		"id": "godbuilderveteran.induction"
+	    }
+	]
+    },
+	
+    {
+	"id": "friend.godbuilder.veteran.wounded",
+	"$derives" : ["friend.godbuilder.veteran.exhausted"],
+	"label": "Bogostroiteli Troop (Veteran - Wounded)",
+	"icon": "friend.godbuilder.veteran.wounded",
+	"description": "[Use a Winter Adept, Hallowed Prosthesis, or Legate's Invocation to heal this Ally.]",
+	"aspects": {
+	    "decaying": 1
+	},
+	"aspects$remove" : [
+	    "exhausted"
+		],
+	"xtriggers": {
+		"fatiguing": "friend.godbuilder.wounded",
+	    "makecasualty": "friend.corpses",
+	    "restorehealth": "friend.godbuilder",
+		"refresh": "friend.godbuilder.wounded",
+	    "refreshally": "friend.godbuilder.wounded",
+	    "makeweaken": "friend.godbuilder.veteran.afraid.wounded"
+	},
+	"lifetime": 120,
+	"resaturate": true,
+	"decayTo" : "friend.corpses",
+	"induces": []
+	},
+	
+	{
+	"id": "friend.godbuilder.veteran.ins",
+	"$derives" : ["friend.godbuilder.veteran"],
+	"aspects": {
+	    "edge": 10,
+		"knock" : 10,
+		"lantern" : 10,
+		"forge" : 10,
+	    "ins_soviet": 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.veteran.ins",
+		"giveallyprovisions" : "friend.godbuilder.veteran.boosted.inspired",
+		"godbuildertakecorpse" : "friend.godbuilder.veteran.boosted.ins",
+	    "refresh": "friend.godbuilder.veteran.ins",
+	    "refreshally": "friend.godbuilder.veteran.ins"
+		},
+	"lifetime": 180
+    },
+	
+	{
+	"id": "friend.godbuilder.veteran.boosted",
+	"$derives" : ["friend.godbuilder.veteran"],
+	"label": "Bogostroiteli Troop (Veteran - Boosted)",
+	"aspects": {
+	    "edge": 12,
+		"knock" : 12,
+		"lantern" : 12,
+		"forge" : 12,
+		"boosted" : 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.veteran.boosted.inspired.ins",
+		"giveallyprovisions" : "friend.godbuilder.veteran.boosted.inspired",
+	    "refresh": "friend.godbuilder.veteran.boosted",
+	    "refreshally": "friend.godbuilder.veteran.boosted"
+		}
+    },
+	
+	{
+	"id": "friend.godbuilder.veteran.boosted.ins",
+	"$derives" : ["friend.godbuilder.veteran.boosted"],
+	"label": "Bogostroiteli Troop (Veteran - Boosted)",
+	"aspects": {
+	    "edge": 14,
+		"knock" : 14,
+		"lantern" : 14,
+		"forge" : 14,
+	    "ins_soviet": 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.veteran.boosted.ins",
+		"giveallyprovisions" : "friend.godbuilder.veteran.boosted.inspired",
+	    "refresh": "friend.godbuilder.veteran.boosted.ins",
+	    "refreshally": "friend.godbuilder.veteran.boosted.ins"
+		},
+	"lifetime": 180,
+	"decayTo": "friend.godbuilder.veteran.boosted",
+    },
+	
+	{
+	"id": "friend.godbuilder.veteran.inspired",
+	"$derives" : ["friend.godbuilder.veteran"],
+	"label": "Bogostroiteli Troop (Veteran - Inspired)",
+	"aspects": {
+	    "edge": 10,
+		"knock" : 10,
+		"lantern" : 10,
+		"forge" : 10,
+		"friend.inspired" : 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.veteran.inspired.ins",
+		"godbuildertakecorpse" : "friend.godbuilder.veteran.boosted.inspired",
+	    "refresh": "friend.godbuilder.veteran.inspired",
+	    "refreshally": "friend.godbuilder.veteran.inspired"
+		}
+    },
+	
+	{
+	"id": "friend.godbuilder.veteran.inspired.ins",
+	"$derives" : ["friend.godbuilder.veteran"],
+	"label": "Bogostroiteli Troop (Veteran - Inspired)",
+	"aspects": {
+	    "edge": 12,
+		"knock" : 12,
+		"lantern" : 12,
+		"forge" : 12,
+		"friend.inspired" : 1,
+	    "ins_soviet": 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.veteran.inspired.ins",
+		"godbuildertakecorpse" : "friend.godbuilder.veteran.boosted.inspired.ins",
+	    "refresh": "friend.godbuilder.veteran.inspired.ins",
+	    "refreshally": "friend.godbuilder.veteran.inspired.ins"
+		},
+	"decayTo" : "friend.godbuilder.veteran.inspired",
+	"lifetime" : 90
+    },
+	
+	{
+	"id": "friend.godbuilder.veteran.boosted.ins",
+	"$derives" : ["friend.godbuilder.veteran.boosted"],
+	"label": "Bogostroiteli Troop (Veteran - Boosted)",
+	"aspects": {
+	    "edge": 14,
+		"knock" : 14,
+		"lantern" : 14,
+		"forge" : 14,
+	    "ins_soviet": 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.veteran.boosted.ins",
+		"giveallyprovisions" : "friend.godbuilder.veteran.boosted.inspired.ins",
+	    "refresh": "friend.godbuilder.veteran.boosted.ins",
+	    "refreshally": "friend.godbuilder.veteran.boosted.ins"
+		},
+	"lifetime": 180,
+	"decayTo": "friend.godbuilder.veteran.boosted",
+    },
+	
+	{
+	"id": "friend.godbuilder.veteran.boosted.inspired",
+	"$derives" : ["friend.godbuilder.veteran.boosted"],
+	"label": "Bogostroiteli Troop (Veteran - Boosted, Inspired)",
+	"aspects": {
+	    "edge": 12,
+		"knock" : 12,
+		"lantern" : 12,
+		"forge" : 12
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.veteran.boosted.inspired.ins",
+	    "refresh": "friend.godbuilder.veteran.boosted.inspired",
+	    "refreshally": "friend.godbuilder.veteran.boosted.inspired"
+		}
+    },
+	
+	{
+	"id": "friend.godbuilder.veteran.boosted.inspired.ins",
+	"$derives" : ["friend.godbuilder.veteran.boosted.ins"],
+	"label": "Bogostroiteli Troop (Veteran - Boosted, Inspired)",
+	"aspects": {
+	    "edge": 16,
+		"knock" : 16,
+		"lantern" : 16,
+		"forge" : 16,
+		"friend.inspired" : 1
+	},
+	"decayTo": "friend.godbuilder.veteran.boosted.inspired",
+	"xtriggers": {
+		"adv_soviet": "friend.godbuilder.veteran.boosted.inspired.ins",
+	    "refresh": "friend.godbuilder.veteran.boosted.inspired.ins",
+	    "refreshally": "friend.godbuilder.veteran.boosted.inspired.ins"
+		}
+    },
+	
+    {
+	"id": "friend.godbuilder.veteran.weaken",
+	"$derives": ["friend.godbuilder.veteran"],
+	"aspects": {
+	    "edge": 6,
+		"knock" : 6,
+		"lantern" : 6,
+		"forge" : 6,
+	    "weakened": 1
+	},
+	"lifetime": 150,
+	"xtriggers": {
+	    "fatiguing": "friend.godbuilder.veteran.weaken.exhausted",
+	    "makecasualty": "friend.godbuilder.veteran.afraid.wounded",
+	    "deweaken": "friend.godbuilder.veteran",
+	    "makeweaken": "friend.godbuilder.veteran.afraid"
+	}
+    },
+	
+    {
+	"id": "friend.godbuilder.veteran.afraid",
+	"$derives": ["friend.godbuilder.veteran"],
+	"aspects": {
+	    "edge": 4,
+		"knock" : 4,
+		"lantern" : 4,
+		"forge" : 4,
+	    "friend.weakened": 1
+	},
+	"lifetime": 300,
+	"decayTo": "friend.godbuilder.veteran.weaken",
+	"xtriggers": {
+	    "fatiguing": "friend.godbuilder.veteran.afraid.exhausted",
+	    "makecasualty": "friend.godbuilder.veteran.afraid.wounded",
+	    "refresh": "friend.godbuilder.veteran.weaken",
+	    "refreshally": "friend.godbuilder.veteran.weaken",
+	    "deweaken": "friend.godbuilder.veteran.weaken",
+	    "makeafraid": "friend.godbuilder.veteran.afraid",
+	    "makeweaken": "friend.godbuilder.veteran.afraid.exhausted"
+	}
+    },
+	
+    {
+	"id" : "friend.godbuilder.veteran.weaken.exhausted",
+	"$derives": ["friend.godbuilder.veteran.exhausted"],
+	"xtriggers": {
+	    "fatiguing": "friend.godbuilder.veteran.weaken.exhausted",
+	    "makecasualty": "friend.godbuilder.veteran.afraid.wounded",
+	    "refresh": "friend.godbuilder.veteran.weaken",
+	    "refreshally": "friend.godbuilder.veteran.weaken",
+	    "makeweaken": "friend.godbuilder.veteran.afraid.exhausted"
+	},
+	"lifetime": 120,
+	"decayTo": "friend.godbuilder.veteran.weaken"
+    },
+	
+    {
+	"id" : "friend.godbuilder.veteran.afraid.exhausted",
+	"$derives": ["friend.godbuilder.veteran.exhausted"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "friend.godbuilder.veteran.afraid.exhausted",
+	    "makecasualty": "friend.godbuilder.veteran.afraid.wounded",
+	    "refresh": "friend.godbuilder.veteran.afraid",
+	    "refreshally": "friend.godbuilder.veteran.afraid",
+	    "makeweaken": "friend.godbuilder.veteran.afraid.exhausted"
+	},
+	"lifetime": 120,
+	"decayTo": "friend.godbuilder.veteran.weaken"
+    },
+	
+    {
+	"id": "friend.godbuilder.veteran.afraid.wounded",
+	"$derives": ["friend.godbuilder.veteran.wounded"],
+	"aspects": {
+		"friend.weakened": 1
+	},
+	"xtriggers": {
+	    "restorehealth": "friend.godbuilder.veteran.afraid"
+	}
+	}
+	
+]
+}

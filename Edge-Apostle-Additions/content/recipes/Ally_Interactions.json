@@ -637,9 +637,11 @@
 	},
 	"grandReqs": {
 	    "([op] || [supplies.smokegrenade])": 1,
-		"([friend.militia] || [friend.sniper] || [friend.militia.ins] || [friend.sniper.ins] || [partisan] || [friend.veteran] || [friend.veteran.ins])": 1,
+		"([canhide] || [partisan])": 1,
 		"friend.weakened" : -1,
-		"[~/extant:allyattackmarker]=3": -1 
+		"weakened" : -1,
+		"[~/extant:allyattackmarker]=3": -1,
+		"friend.hidden" : -1
 	},
 	"effects" : {
 	"allyattackmarker" : 1
@@ -692,7 +694,9 @@
 	    "hired": -1,
 	    "friend.hidden": -1,
 	    "op": 1,
-		"foe.chasseur.reviving" : -1
+		"foe.chasseur.reviving" : -1,
+		"weakened" : -1,
+		"friend.weakened" : -1
 	},
 	"effects": {
 	    "op": -99
@@ -841,7 +845,7 @@
 	"startdescription": "I have glorious fires to be stoking. Get to it.",
 	"grandReqs": {
 	    "remnant": 1,
-	    "([friend.godbuilder] || [friend.godbuilder.inspired] || [friend.godbuilder.inspired.ins])": 1,
+	    "godbuildermarker": 1,
 		"[~/extant:allyattackmarker]=3": -1,
 		"boosted" : -1
 	},
@@ -881,7 +885,7 @@
 	"description": "The Fires of Glory burn gloriously.",
 	"grandReqs": {
 	    "remnant": 1,
-	    "([friend.godbuilder] || [friend.godbuilder.inspired] || [friend.godbuilder.inspired.ins])": 1,
+	    "godbuildermarker": 1,
 		"boosted" : -1
 	},
 	"aspects": {
@@ -973,7 +977,7 @@
 	"startdescription": "I have something to fix or build for the sappers to do. Get to it.",
 	"grandReqs": {
 	    "provisions": 2,
-	    "([friend.partisan.sapper] || [friend.partisan.sapper.afraid] || [friend.partisan.sapper.hidden])": 1,
+	    "issapper" : 1,
 		"[~/extant:allyattackmarker]=3": -1,
 		"main": -1,
 		"side" : -1,
@@ -987,7 +991,7 @@
 	"requirements": {},
 	"grandReqs": {
 	    "provisions": 2,
-	    "([friend.partisan.sapper] || [friend.partisan.sapper.afraid] || [friend.partisan.sapper.hidden])": 1,
+	    "issapper" : 1,
 	    "damaged": 1,
 	    "provisions": 2
 	},
@@ -1000,7 +1004,7 @@
 	"requirements": {},
 	"grandReqs": {
 	    "provisions": 2,
-	    "([friend.partisan.sapper] || [friend.partisan.sapper.afraid] || [friend.partisan.sapper.hidden])": 1,
+	    "issapper" : 1,
 	    "infrastructure.destroyed": 1
 	},
 	"warmup": 90
@@ -1012,7 +1016,7 @@
 	"requirements": {},
 	"grandReqs": {
 	    "provisions": 2,
-	    "([friend.partisan.sapper] || [friend.partisan.sapper.afraid] || [friend.partisan.sapper.hidden])": 1
+	    "issapper" : 1
 	},
 	"effects": {
 	    "partisan": -99,
@@ -1029,7 +1033,7 @@
 	"grandReqs": {
 	    "provisions": 1,
 		"wounded" : 1,
-	    "([friend.partisan.physician] || [friend.partisan.physician.hidden] || [friend.partisan.physician.afraid])": 1,
+	    "isphysician": 1,
 		"[~/extant:allyattackmarker]=3": -1
 		}
 	},
@@ -1041,7 +1045,7 @@
 	"grandReqs": {
 	    "provisions": 1,
 		"wounded" : 1,
-	    "([friend.partisan.physician] || [friend.partisan.physician.hidden] || [friend.partisan.physician.afraid])": 1
+	    "isphysician": 1
 	}
     },
 	

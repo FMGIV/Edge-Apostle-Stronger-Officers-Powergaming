@@ -2,6 +2,9 @@
 "elements": [
     {
 	"id": "friend.sniper",
+	"aspects$add": {
+	    "canhide": 1
+	},
 	"slots$append": [
 		{
 		"id": "intent",
@@ -61,7 +64,20 @@
     },
 	
 	{
+	"id": "friend.sniper.wounded",
+	"xtriggers$add": {
+		"promotion": "friend.sniper.sightless"
+		},
+	"aspects$add": {
+	    "obdurantpromotiontrigger": 1
+		}
+    },
+	
+	{
 	"id": "friend.militia",
+	"aspects$add": {
+	    "canhide": 1
+	},
 	"slots$append": [
 	{
 		"id": "intent",
@@ -82,7 +98,10 @@
 	},
 	],
 	"xtriggers$add": {
-		"concealidentity" : "friend.militia.hidden"
+		"concealidentity" : "friend.militia.hidden",
+		"maxpromotion" : "friend.infantry.unstoppable",
+		"partialpromotion" : "friend.empowered.infantry",
+		"minorpromotion" : "friend.lonesoldier"
 	}
     },
 	
@@ -117,6 +136,15 @@
 		"adv_soviet": "friend.militia.hidden.ins"
 		}
     },
+	
+	{
+	"id": "friend.militia.exhausted",
+	"xtriggers$add": {
+		"maxpromotion" : "friend.infantry.unstoppable",
+		"partialpromotion" : "friend.empowered.infantry",
+		"minorpromotion" : "friend.lonesoldier"
+		}
+	},
 	
 	{
 	"id": "friend.tanks.exhausted",
@@ -191,7 +219,8 @@
 	{
 	"id": "friend.gunman.exhausted",
 	"xtriggers$add": {
-		"refresh": "friend.gunman"
+		"refresh": "friend.gunman",
+		"promotion": "friend.adept.gunman"
 		}
 	},
 	
@@ -219,14 +248,16 @@
 	{
 	"id": "friend.dregsoldier.exhausted",
 	"xtriggers$add": {
-		"refresh": "friend.dregsoldier"
+		"refresh": "friend.dregsoldier",
+		"promotion": "friend.dreg.adept"
 		}
 	},
 	
 	{
 	"id": "friend.dregarsonists.exhausted",
 	"xtriggers$add": {
-		"refresh": "friend.dregarsonists"
+		"refresh": "friend.dregarsonists",
+		"promotion": "friend.arsonist.adept"
 		},
     "induces$listedit": { 
 		"0$dictedit" : {
@@ -288,6 +319,16 @@
 		},
 	"lifetime": 180,
 	"decayTo": "friend.infantry.inspired",
+    },
+	
+	{
+	"id": "friend.infantry.wounded",
+	"xtriggers$add": {
+		"promotion": "friend.adept.infantry"
+		},
+	"aspects$add": {
+	    "obdurantpromotiontrigger": 1
+		}
     },
 	
 	{
@@ -983,7 +1024,9 @@
 	    "edge": 4,
 		"knock" : 4,
 		"lantern" : 4,
-		"forge" : 4
+		"forge" : 4,
+		"godbuildermarker" : 1,
+		"obdurantpromotiontrigger" : 1
 	},
 	"xtriggers": {
 	    "fatiguing": "friend.godbuilder.exhausted",
@@ -997,7 +1040,8 @@
 		"adv_soviet": "friend.godbuilder.ins",
 	    "becaptive": "foe.manhunters",
 	    "makeafraid": "friend.godbuilder.afraid",
-	    "makeweaken": "friend.godbuilder.weaken"
+	    "makeweaken": "friend.godbuilder.weaken",
+	    "promotion": "friend.godbuilder.veteran"
 	},
 	"slots": [
 	    {
@@ -1010,52 +1054,49 @@
 			"provisions" : 1
 		}
 	    }
-	]
+	],
+	"decayTo": "friend.godbuilder"
     },
 	
     {
 	"id": "friend.godbuilder.exhausted",
+	"$derives" : ["friend.godbuilder"],
 	"label": "Bogostroiteli Troop (Prototype - Exhausted)",
-	"description": "A cadre of commissars-ithast - 'god-builders' - leads this infantry detachment, stoking glorious fires in the weapons and flesh of their men.",
 	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 4,
 	    "exhausted": 1
 	},
+	"aspects$remove" : [
+	    "edge",
+		"knock",
+		"forge",
+		"lantern"
+		],
 	"xtriggers": {
-	    "fatiguing": "friend.godbuilder.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.godbuilder.wounded",
-	    "refresh": "friend.godbuilder",
-	    "refreshally": "friend.godbuilder",
-	    "becaptive": "foe.manhunters",
 	    "makeafraid": "friend.godbuilder.afraid.exhausted",
 	    "makeweaken": "friend.godbuilder.afraid.exhausted"
 	},
 	"lifetime": 120,
-	"decayTo": "friend.godbuilder",
-	"icon": "friend.godbuilder",
 	"resaturate": true
     },
 	
     {
 	"id": "friend.godbuilder.wounded",
+	"$derives" : ["friend.godbuilder.exhausted"],
 	"label": "Bogostroiteli Troop (Prototype - Wounded)",
 	"icon": "friend.godbuilder.wounded",
 	"description": "[Use a Field Medic or Field Hospital to heal this Ally.]",
 	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 4,
 	    "wounded": 1
 	},
+	"aspects$remove" : [
+	    "exhausted"
+		],
 	"xtriggers": {
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
+		"fatiguing": "friend.godbuilder.wounded",
 	    "makecasualty": "friend.corpses",
-	    "restorehealth": "friend.godbuilder"
+	    "restorehealth": "friend.godbuilder",
+		"refresh": "friend.godbuilder.wounded",
+	    "refreshally": "friend.godbuilder.wounded",
 	}
 	},
 	
@@ -1067,8 +1108,7 @@
 		"knock" : 6,
 		"lantern" : 6,
 		"forge" : 6,
-	    "ins_soviet": 1,
-		"boosted" : 1
+	    "ins_soviet": 1
 	},
 	"xtriggers": {
 		"adv_soviet": "friend.godbuilder.ins",
@@ -1314,7 +1354,9 @@
 	    "edge": 8,
 	    "winter": 8,
 		"lantern" : 4,
-		"isveteran" : 1
+		"isveteran" : 1,
+		"canhide" : 1,
+		"forceshakedown" : 1
 	},
 	"xtriggers": {
 	    "killfriend": "mem.grief",
@@ -1410,7 +1452,7 @@
 	"id": "friend.veteran.wounded",
 	"label": "Veteran (Wounded)",
 	"icon": "friend.conscript",
-	"description": "[Use a Winter Adept to Heal this Ally.]",
+	"description": "[Use a Winter Adept, Hallowed Prosthesis, or Legate's Invocation to heal this Ally.]",
 	"aspects": {
 	    "friend": 1,
 	    "mortal": 1,

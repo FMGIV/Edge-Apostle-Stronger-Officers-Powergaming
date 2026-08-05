@@ -1,0 +1,314 @@
+{
+"recipes": [
+	
+    {  
+    "id": "teaching.obdurant",  
+    "actionid": "abandon",
+    "label": "The Wisdom of Scars",  
+    "startdescription": "I have learned much since this campaign began. My lessons cover my skin, written in scar tissue. This one has been scarred, too. . . Perhaps I could guide them down the same road I have taken. But these ancient techniques are NOT the same as medical attention. Those unsuited to the mysteries will simply die, and survivors will be fragile at best.",  
+	"description": "My hand does not tremble as I cut away wounded limbs. My voice does not waver as I speak the secrets I have learned. The sightless gaze of the tribune does not falter as he watches from above.",
+	"grandReqs": {
+	    "edge": 14,
+		"lore" : 1,
+		"friend" : 1,
+		"wounded" : 1,
+		"obdurantpromotiontrigger": 1
+	},
+	"requirements": {
+		"otherworldly": -1,
+		"exhausted": -1,
+		"named.local" : -1,
+		"friend.named": -1,
+		"faction.anno": -1,
+		"promoted" : -1
+	},
+	"extantreqs": {
+		"obdurant.story" : 1
+	},
+    "warmup": 60,  
+    "craftable": true,
+	"slots": [
+	    {
+		"id": "Interior",
+		"label": "Alignment of War",
+		"required": {
+		    "patience": 1,
+			"wisdom" : 1,
+			"cunning" : 1,
+			"strength" : 1,
+			"courage" : 1,
+			"anger" : 1,
+			"agony" : 1,
+			"hatred" : 1,
+			"despair" : 1
+			}
+	    }
+	],
+	"linked": [
+	    {
+		"id": "teaching.success*",
+		"chance": "60 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [memory] * 20"
+	    },
+		
+		{
+		"id": "teaching.failure*"
+	    }
+	]
+	},
+	
+	{  
+    "id": "teaching.proterant",
+	"$extends": ["teaching.obdurant"],
+    "label": "To Reforge what is not Broken",  
+    "startdescription": "It is in the lionsmith's nature to become stronger, forever stronger. I know a training exercise that could allow these men to imitate that nature. Many will die of exhaustion, but those that remain will become strong enough to shatter stone and dent metal.",  
+	"grandReqs": {
+	    "edge": 16,
+		"lore" : 1,
+		"friend" : 1,
+	    "wounded": -1,
+		"local" : -1
+	},
+	"extantreqs": {
+		"proterant.story" : 1
+	},
+	"linked": [
+	    {
+		"id": "teaching.success.proterant.full",
+		"chance": "10 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [memory] * 20"
+	    },
+		
+		{
+		"id": "teaching.success.proterant.partial",
+		"chance": "30 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [memory] * 20"
+	    },
+		
+		{
+		"id": "teaching.success.proterant.minor",
+		"chance": "50 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [memory] * 20"
+	    },
+		
+		{
+		"id": "teaching.failure*"
+	    }
+	]
+	},
+	
+	{  
+    "id": "teaching.contemnant.hopelessness",
+	"$extends": ["teaching.obdurant"],
+    "label": "The Truth",  
+    "startdescription": "My ally is bound. The knife rests in my hand. Class is in session.",  
+	"grandReqs": {
+	    "edge": 14,
+		"lore" : 1,
+		"friend" : 1,
+	    "vicious": 1
+	},
+	"extantreqs": {
+		"hopelessness" : 1
+	}
+	},
+	
+	{  
+    "id": "teaching.contemnant.antithesis",
+	"$extends": ["teaching.contemnant.hopelessness"],
+    "label": "<color=red>HURTS<color=#005500>",  
+    "startdescription": "They jolt as I grab the sides of their head, hard enough to hurt. I can smell the fear in them as I lean closer. I whisper in their ear one, little word. . .",  
+	"extantreqs": {
+		"antithesis" : 1
+	}
+	},
+	
+	{
+    "id": "teaching.success.obdurant",  
+    "label": "The Experience of Scars",  
+    "description": "The wounds have been consecrated. The prosthetics click into place. The room smells of gunpowder and snow. This one will be an asset to me.",
+	"extantreqs" : {
+		"obdurant.story": 1
+		}, 
+	"aspects": {
+	    "fatiguing": 1
+		},
+	 "furthermore": [
+	  {
+         "aspects": {
+            "promotion": 1
+				}
+			}
+		]
+	},
+	
+	{
+    "id": "teaching.failure.obdurant",  
+    "label": "The Suffering of Scars",  
+    "description": "They flinched. They begged me to stop. I did not yield. Now they are dead.",
+	"extantreqs" : {
+		"obdurant.story": 1
+		}, 
+	"aspects": {
+	    "killfriend": 1,
+		"fatiguing" : 1
+		}
+	},
+	
+	{
+    "id": "teaching.success.proterant.full",
+	"$extends": ["teaching.success.obdurant"],
+    "label": "The Strength of the Interior",  
+    "description": "These men are more determined than I expected. Our losses are minimal; our power grows.",
+	"requirements" : {
+	"ispartisansniper" : -1
+	},
+	"extantreqs" : {
+		"proterant.story": 1
+		},
+	 "furthermore": [
+	  {
+         "aspects": {
+            "maxpromotion": 1
+				}
+			}
+		]
+	},
+	
+	{
+    "id": "teaching.success.proterant.partial",
+	"$extends": ["teaching.success.proterant.full"],
+    "label": "The Anger of the Interior",  
+    "description": "Many died, but many remain. ",
+	 "furthermore": [
+	  {
+         "aspects": {
+            "partialpromotion": 1
+				}
+			}
+		]
+	},
+	
+	{
+    "id": "teaching.success.proterant.minor",
+	"$extends": ["teaching.success.proterant.full"],
+    "label": "The Courage of the Interior",  
+    "description": "Only a single one remains. I suppose I'll have to learn their name, now.",
+	"requirements" : {},
+	"extantreqs" : {
+		"proterant.story": 1
+		},
+	 "furthermore": [
+	  {
+         "aspects": {
+            "minorpromotion": 1
+				}
+			}
+		]
+	},
+	
+	{
+    "id": "teaching.failure.proterant",
+	"$extends": ["teaching.failure.obdurant"],  
+    "label": "C'est la Guerre",  
+    "description": "One by one, they fall- exhaustion, heatstroke, put down by my hands as they try to desert on the spot. What a waste.",
+	"extantreqs" : {
+		"obdurant.story": 1
+		}
+	},
+	
+	{
+    "id": "teaching.success.contemnant.hopeless",
+	"$extends": ["teaching.success.obdurant"],
+    "label": "To Abandon Hope",  
+    "description": "The blood dries. Something hardens behind my ally's eyes. They know the wolf's truth, now.",
+	"extantreqs" : {
+		"hopelessness": 1
+		}
+	},
+	
+	{
+    "id": "teaching.failure.contemnant.hopelessness",
+	"$extends": ["teaching.failure.obdurant"],  
+    "label": "Failure",  
+    "description": "They couldn't withstand the torture I inflicted. They feel nothing, now. Perhaps that's for the best.",
+	"extantreqs" : {
+		"hopelessness": 1
+		}
+	},
+	
+	{
+    "id": "teaching.success.contemnant.antithesis",
+	"$extends": ["teaching.success.obdurant"],
+    "label": "<color=red>And Embrace Oblivion<color=#005500>",  
+    "description": "<color=red>I grip them tightly until the thrashing stops. When they rise, I can see a new cruelty in their eyes. They understand a level of hate they couldn't comprehend, before. Good.<color=#005500>",
+	"extantreqs" : {
+		"antithesis": 1
+		}
+	},
+	
+	{
+    "id": "teaching.failure.contemnant.antithesis",
+	"$extends": ["teaching.failure.obdurant"],  
+    "label": "<color=red>Mortis<color=#005500>",  
+    "description": "<color=red>They couldn't withstand the torture I inflicted. They feel nothing, now. Perhaps that's for the best.<color=#005500>",
+	"extantreqs" : {
+		"antithesis": 1
+		}
+	},
+	
+	{
+	"id": "hint.teaching.obdurant",
+	"actionid": "abandon",
+	"label": "The Experience of Scars",
+	"startdescription": "The lessons learnt in the spilling of blood can be passed down to some of my men. Said men must be on the verge of death, however.",
+	"requirements": {
+	    "lore": 1,
+		"edge" : 14,
+		"skill.swoleup.active" : -1
+	},
+	"extantreqs" : {
+		"obdurant.story": 1
+		},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{
+    "id": "hint.teaching.proterant",
+	"$extends": ["hint.teaching.obdurant"],  
+    "label": "To Inspire Strength",  
+    "startdescription": "Some lessons learn in the shattering of bone could be passed down to my men. Said men must be strong themselves, however.",
+	"extantreqs" : {
+		"proterant.story": 1
+		}
+	},
+	
+	{
+    "id": "hint.teaching.contemnant.cant",
+	"$extends": ["hint.teaching.obdurant"],  
+    "label": "Reviled Knowledge",  
+    "startdescription": "No. I won't subject anyone else to the 'training' I went through.",
+	"extantreqs" : {
+		"contemnant.memento": 1
+		}
+	},
+	
+	{
+    "id": "hint.teaching.contemnant.hopelessness",
+	"$extends": ["hint.teaching.obdurant"],  
+    "label": "To Abandon Hope?",  
+    "startdescription": "I could teach this one some of the secrets that I've learned. But the lessons of the Wolf can only be learned through agony. . . More often than not, they'll simply die. But if this works, they'll become much more useful.\n\n[The ally needs to have the 'Vicous' Aspect.]",
+	"extantreqs" : {
+		"hopelessness": 1
+		}
+	},
+	
+	{
+    "id": "hint.teaching.contemnant.antithesis",
+	"$extends": ["hint.teaching.obdurant"],  
+    "label": "<color=red>And Embrace Oblivion<color=#005500>",  
+    "startdescription": "<color=red>I could let this one in on a little secret. Tell them what I really think of them. It'll make them hurt, just like they deserve.<color=#005500>\n\n[The ally needs to have the 'Vicous' Aspect.]",
+	"extantreqs" : {
+		"antithesis": 1
+		}
+	}
+	
+]
+}
