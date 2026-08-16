@@ -1,11 +1,6 @@
 {
 "recipes": [
-	{
-	"id": "operate.church.edge",
-	"actionid": "mobilize",
-	"effects" : {"location":-99}
-	},
-	
+
 	{
 	"id": "operate.church.heart",
 	"actionid": "mobilize",
@@ -24,20 +19,7 @@
 	},
 	
 	{
-	"id": "operate.farm.edge",
-	"actionid": "mobilize",
-	"effects" : {"location":-99}
-	},
-	
-	{
 	"id": "operate.farm.edge.contemnant",
-	"actionid": "mobilize",
-	"effects$remove" : ["op"],
-	"effects$add" : {"location":-99}
-	},
-	
-	{
-	"id": "operate.farm.grail",
 	"actionid": "mobilize",
 	"effects$remove" : ["op"],
 	"effects$add" : {"location":-99}
@@ -1806,8 +1788,17 @@
 	{
 	"id": "corrivality.cycle", 
 	"$incompatible": [ "3713855248" ],
+	"$incompatible": [ "3775567517" ],
 	"linked$listedit": { 
 		"0$dictedit" : 	 { "chance": "20+[~/visible:strife.tracker]*3" }
+		}
+	},
+	
+	{
+	"id": "corrivality.cycle", 
+	"$depends": [ "3775567517" ],
+	"linked$listedit": { 
+		"1$dictedit" : 	 { "chance": "20+[~/visible:strife.tracker]*3" }
 		}
 	},
 	
@@ -1835,6 +1826,7 @@
 	
 	{
 	"id": "corrivality.cycle.exile",
+	"$incompatible": [ "3775567517" ],
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30+[~/visible:strife.tracker]*3" }
 		},
@@ -1844,10 +1836,33 @@
 	},
 	
 	{
+	"id": "corrivality.cycle.exile",
+	"$depends": [ "3775567517" ],
+	"linked$listedit": { 
+		"2$dictedit" : 	 { "chance": "30+[~/visible:strife.tracker]*3" }
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "40+[~/visible:strife.tracker]*3" }
+		}
+	},
+	
+	{
 	"id": "corrivality.cycle.foe", 
 	"$incompatible": [ "3713855248" ],
+	"$incompatible": [ "3775567517" ],
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker]*3" }
+		},
+	"alt$listedit": { 
+		"0$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker]*3" }
+		}
+	},
+	
+	{
+	"id": "corrivality.cycle.foe", 
+	"$depends": [ "3775567517" ],
+	"linked$listedit": { 
+		"2$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker]*3" }
 		},
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker]*3" }
@@ -3732,6 +3747,8 @@
 	
 	{
 	"id": "operate.church.edge",
+	"actionid": "mobilize",
+	"effects" : {"location":-99},
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"  }
 		},
@@ -3750,6 +3767,8 @@
 	
 	{
 	"id": "operate.farm.edge",
+	"actionid": "mobilize",
+	"effects" : {"location":-99},
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"  }
 		},
@@ -3768,6 +3787,9 @@
 	
 	{
 	"id": "operate.farm.grail",
+	"actionid": "mobilize",
+	"effects$remove" : ["op"],
+	"effects$add" : {"location":-99},
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 - [~/visible:reputation.good] * 3 - [~/visible:resolution] * 5 + [~/visible:reputation.bad] * 5"  }
 		},
