@@ -1,0 +1,2488 @@
+{
+"recipes": [
+    
+	{
+	"id": "evacuate.router",
+	"actionid": "evac.faster.verb",
+	"label": "Evacuating Allies...",
+	"startdescription": "We Are Leaving.",  
+    "extantreqs": {  
+        "faster.evac": 1
+    },  
+    "effects": {  
+        "evac.recipe.halter": 1,
+		},
+	"linked": [
+	    {
+		"id": "travelslot.takefriends"
+	    }
+	],
+	"warmup": 10
+    },
+	
+    {
+	"id": "evacuate.2ndslot",
+	"$extends" : ["evacuate.router"], 
+	"actionid": "evac.faster.verb2",
+    "extantreqs": {  
+        "faster.evac": 2
+		}
+    },
+	
+	{
+	"id": "weakenenemies.detect.success",
+	"mutations": [],
+	"aspects": {
+	    "weaken": 1
+		},
+	"movements": {
+        "~/tabletop": "foe"
+		}
+	},
+	
+	{
+    "id": "weakenenemies.detect",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "foe.rankofficer" : 1 }
+			}
+		}
+    },
+	
+	{
+	"id": "travelslot.end",
+	"requirements" : {"evac.recipe.halter" : -1}
+	},
+	
+	{
+   "id": "travelslot.friendfound",
+   "mutations": [],
+   "linked$prepend": [
+	    {
+		"id": "travelslot.takemoreimportantfriend"
+	    }
+		],
+    "furthermore": [
+		{
+		"movements": {
+        "~/tabletop!evacallyverb[situationstorage]+": {
+			"filter": "friend"
+				}
+			}
+		}
+      ],
+   "inductions": [
+	    {
+		"id": "evacuate.router"
+	    },
+		
+		{
+		"id": "evacuate.2ndslot"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.firstwarzone",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.firstwarzone.proterant",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.firstwarzone.contemnant",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	
+	{
+   "id": "travelslot.takefriends",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travelslot.takefriends.sergei",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.warzone.sector.a.proterant",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.warzone.sector.b.proterant",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.warzone.sector.a",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.warzone.sector.b",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.warzone.sector.a.contemnant",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.warzone.sector.b.contemnant",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.lake",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.craterfield",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travel.wasteland.ironeater",
+   "inductions": [
+	    {
+		"id": "evacuate.allies"
+	    }
+		]
+	},
+	
+	{
+   "id": "travelslot.abort.longbossfight",
+    "haltverb" : {
+        "evacallyverb" : 1,
+		"evac.faster.verb" : 1,
+		"evac.faster.verb2" : 1
+		}
+	},
+	
+	{
+	"id": "vilna.spawner",
+	"actionid": "spit.lantern",
+	"label": "Enemies, Allies, Opportunities",
+	"startdescription": "The Battlefield",
+	"description": "Enemies, Allies, and Useful Things",
+	"maxexecutions": 1,
+	"warmup": 1,
+	"inductions": [
+	    {
+		"id": "vilna.spawn.enemies"
+	    },
+		
+		{
+		"id": "vilna.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "vilna.spawn.enemies",
+	"actionid": "spit.edge",
+	"label": "Who are we fighting?",
+	"startdescription": "Those We Strive Against",
+	"description": "And so Strife Continues.",
+	"requirements": {
+	    "husk": -1
+	},
+	"warmup": 1,
+	"deckeffects" : {
+		"vilna.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "vilna.spawn.enemies"
+	    }
+	],
+	"furthermore": [
+		{
+		"movements": {
+        "~/tabletop": "foe"
+			}
+		}
+		]
+	},
+	
+	{
+	"id": "vilna.spawn.misc",
+	"actionid": "spit.heart",
+	"label": "What's Here?",
+	"startdescription": "What can I use?",
+	"description": "Here's whats here.",
+	"requirements": {
+	    "husk": -1
+	},
+	"warmup": 1,
+	"deckeffects" : {
+		"vilna.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "vilna.spawn.misc"
+	    }
+	], 
+	"mutations": [
+	    {
+		"filter": "friend",
+		"mutate": "local",
+		"level": 1
+	    }
+	],
+	"furthermore": [
+		{
+		"movements": {
+        "~/tabletop": "local"
+			}
+		}
+		]
+	},
+	
+	{
+	"id": "bialystok.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "bialystok.spawn.enemies"
+	    },
+		
+		{
+		"id": "bialystok.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "bialystok.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"bialystok.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "bialystok.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "bialystok.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"bialystok.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "bialystok.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "vitebsk.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "vitebsk.spawn.enemies"
+	    },
+		
+		{
+		"id": "vitebsk.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "vitebsk.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"vitebsk.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "vitebsk.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "vitebsk.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"vitebsk.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "vitebsk.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "minsk.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "minsk.spawn.enemies"
+	    },
+		
+		{
+		"id": "minsk.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "minsk.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"minsk.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "minsk.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "minsk.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"minsk.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "minsk.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "orsha.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "orsha.spawn.enemies"
+	    },
+		
+		{
+		"id": "orsha.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "orsha.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"orsha.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "orsha.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "orsha.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"orsha.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "orsha.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "smolensk.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "smolensk.spawn.enemies"
+	    },
+		
+		{
+		"id": "smolensk.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "smolensk.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"smolensk.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "smolensk.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "smolensk.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"smolensk.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "smolensk.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "vyazma.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "vyazma.spawn.enemies"
+	    },
+		
+		{
+		"id": "vyazma.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "vyazma.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"vyazma.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "vyazma.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "vyazma.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"vyazma.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "vyazma.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "rzhev.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "rzhev.spawn.enemies"
+	    },
+		
+		{
+		"id": "rzhev.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "rzhev.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"rzhev.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "rzhev.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "rzhev.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"rzhev.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "rzhev.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "bryansk.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "bryansk.spawn.enemies"
+	    },
+		
+		{
+		"id": "bryansk.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "bryansk.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"bryansk.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "bryansk.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "bryansk.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"bryansk.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "bryansk.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "kyiv.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "kyiv.spawn.enemies"
+	    },
+		
+		{
+		"id": "kyiv.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "kyiv.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"kyiv.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "kyiv.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "kyiv.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"kyiv.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "kyiv.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "kursk.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "kursk.spawn.enemies"
+	    },
+		
+		{
+		"id": "kursk.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "kursk.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"kursk.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "kursk.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "kursk.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"kursk.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "kursk.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "livny.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "livny.spawn.enemies"
+	    },
+		
+		{
+		"id": "livny.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "livny.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"livny.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "livny.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "livny.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"livny.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "livny.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "voronezh.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "voronezh.spawn.enemies"
+	    },
+		
+		{
+		"id": "voronezh.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "voronezh.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"voronezh.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "voronezh.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "voronezh.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"voronezh.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "voronezh.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "kharkov.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "kharkov.spawn.enemies"
+	    },
+		
+		{
+		"id": "kharkov.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "kharkov.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"kharkov.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "kharkov.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "kharkov.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"kharkov.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "kharkov.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "uman.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "uman.spawn.enemies"
+	    },
+		
+		{
+		"id": "uman.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "uman.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"uman.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "uman.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "uman.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"uman.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "uman.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "odessa.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "odessa.spawn.enemies"
+	    },
+		
+		{
+		"id": "odessa.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "odessa.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"odessa.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "odessa.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "odessa.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"odessa.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "odessa.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "perekop.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "perekop.spawn.enemies"
+	    },
+		
+		{
+		"id": "perekop.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "perekop.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"perekop.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "perekop.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "perekop.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"perekop.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "perekop.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "izyum.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "izyum.spawn.enemies"
+	    },
+		
+		{
+		"id": "izyum.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "izyum.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"izyum.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "izyum.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "izyum.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"izyum.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "izyum.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "stalingrad.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "stalingrad.spawn.enemies"
+	    },
+		
+		{
+		"id": "stalingrad.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "stalingrad.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"stalingrad.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "stalingrad.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "stalingrad.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"stalingrad.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "stalingrad.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "paestum.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "paestum.spawn.enemies"
+	    },
+		
+		{
+		"id": "paestum.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "paestum.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"paestum.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "paestum.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "paestum.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"paestum.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "paestum.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "potenza.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "potenza.spawn.enemies"
+	    },
+		
+		{
+		"id": "potenza.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "potenza.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"potenza.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "potenza.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "potenza.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"potenza.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "potenza.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "salerno.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "salerno.spawn.enemies"
+	    },
+		
+		{
+		"id": "salerno.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "salerno.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"salerno.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "salerno.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "salerno.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"salerno.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "salerno.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "benevento.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "benevento.spawn.enemies"
+	    },
+		
+		{
+		"id": "benevento.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "benevento.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"benevento.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "benevento.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "benevento.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"benevento.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "benevento.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "napoli.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "napoli.spawn.enemies"
+	    },
+		
+		{
+		"id": "napoli.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "napoli.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"napoli.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "napoli.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "napoli.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"napoli.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "napoli.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "campobasso.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "campobasso.spawn.enemies"
+	    },
+		
+		{
+		"id": "campobasso.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "campobasso.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"campobasso.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "campobasso.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "campobasso.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"campobasso.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "campobasso.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "termoli.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "termoli.spawn.enemies"
+	    },
+		
+		{
+		"id": "termoli.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "termoli.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"termoli.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "termoli.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "termoli.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"termoli.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "termoli.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "minturno.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "minturno.spawn.enemies"
+	    },
+		
+		{
+		"id": "minturno.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "minturno.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"minturno.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "minturno.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "minturno.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"minturno.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "minturno.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "gaeta.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "gaeta.spawn.enemies"
+	    },
+		
+		{
+		"id": "gaeta.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "gaeta.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"gaeta.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "gaeta.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "gaeta.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"gaeta.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "gaeta.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "montecassino.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "montecassino.spawn.enemies"
+	    },
+		
+		{
+		"id": "montecassino.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "montecassino.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"montecassino.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "montecassino.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "montecassino.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"montecassino.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "montecassino.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "pontecorvo.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "pontecorvo.spawn.enemies"
+	    },
+		
+		{
+		"id": "pontecorvo.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "pontecorvo.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"pontecorvo.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "pontecorvo.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "pontecorvo.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"pontecorvo.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "pontecorvo.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "ortucchio.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "ortucchio.spawn.enemies"
+	    },
+		
+		{
+		"id": "ortucchio.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "ortucchio.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"ortucchio.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "ortucchio.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "ortucchio.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"ortucchio.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "ortucchio.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "ortona.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "ortona.spawn.enemies"
+	    },
+		
+		{
+		"id": "ortona.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "ortona.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"ortona.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "ortona.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "ortona.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"ortona.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "ortona.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "valmontone.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "valmontone.spawn.enemies"
+	    },
+		
+		{
+		"id": "valmontone.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "valmontone.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"valmontone.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "valmontone.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "valmontone.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"valmontone.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "valmontone.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "velletri.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "velletri.spawn.enemies"
+	    },
+		
+		{
+		"id": "velletri.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "velletri.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"velletri.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "velletri.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "velletri.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"velletri.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "velletri.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "anzio.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "anzio.spawn.enemies"
+	    },
+		
+		{
+		"id": "anzio.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "anzio.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"anzio.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "anzio.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "anzio.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"anzio.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "anzio.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "rome.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "rome.spawn.enemies"
+	    },
+		
+		{
+		"id": "rome.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "rome.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"rome.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "rome.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "rome.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"rome.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "rome.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "craterfield.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "craterfield.spawn.enemies"
+	    },
+		{
+		"id": "legion.cycle"
+	    }
+	]
+	},
+	
+	{
+	"id": "craterfield.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"craterfield.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "craterfield.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "kaunas.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "kaunas.spawn.enemies"
+	    },
+		
+		{
+		"id": "kaunas.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "kaunas.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"kaunas.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "kaunas.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "kaunas.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"kaunas.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "kaunas.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "brest.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "brest.spawn.enemies"
+	    },
+		
+		{
+		"id": "brest.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "brest.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"brest.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "brest.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "brest.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"brest.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "brest.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "konigsberg.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "konigsberg.spawn.enemies"
+	    },
+		
+		{
+		"id": "konigsberg.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "konigsberg.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"konigsberg.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "konigsberg.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "konigsberg.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"konigsberg.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "konigsberg.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "gdansk.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "gdansk.spawn.enemies"
+	    },
+		
+		{
+		"id": "gdansk.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "gdansk.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"gdansk.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "gdansk.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "gdansk.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"gdansk.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "gdansk.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "grudziadz.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "grudziadz.spawn.enemies"
+	    },
+		
+		{
+		"id": "grudziadz.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "grudziadz.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"grudziadz.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "grudziadz.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "grudziadz.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"grudziadz.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "grudziadz.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "lodz.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "lodz.spawn.enemies"
+	    },
+		
+		{
+		"id": "lodz.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "lodz.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"lodz.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "lodz.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "lodz.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"lodz.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "lodz.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "warsaw.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "warsaw.spawn.enemies"
+	    },
+		
+		{
+		"id": "warsaw.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "warsaw.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"warsaw.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "warsaw.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "warsaw.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"warsaw.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "warsaw.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "lublin.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "lublin.spawn.enemies"
+	    },
+		
+		{
+		"id": "lublin.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "lublin.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"lublin.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "lublin.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "lublin.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"lublin.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "lublin.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "katowice.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "katowice.spawn.enemies"
+	    },
+		
+		{
+		"id": "katowice.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "katowice.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"katowice.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "katowice.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "katowice.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"katowice.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "katowice.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "krakow.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "krakow.spawn.enemies"
+	    },
+		
+		{
+		"id": "krakow.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "krakow.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"krakow.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "krakow.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "krakow.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"krakow.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "krakow.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "vienna.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "vienna.spawn.enemies"
+	    },
+		
+		{
+		"id": "vienna.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "vienna.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"vienna.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "vienna.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "vienna.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"vienna.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "vienna.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "brno.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "brno.spawn.enemies"
+	    },
+		
+		{
+		"id": "brno.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "brno.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"brno.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "brno.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "brno.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"brno.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "brno.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "prague.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "prague.spawn.enemies"
+	    },
+		
+		{
+		"id": "prague.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "prague.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"prague.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "prague.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "prague.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"prague.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "prague.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "liberec.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "liberec.spawn.enemies"
+	    },
+		
+		{
+		"id": "liberec.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "liberec.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"liberec.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "liberec.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "liberec.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"liberec.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "liberec.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "dresden.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "dresden.spawn.enemies"
+	    },
+		
+		{
+		"id": "dresden.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "dresden.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"dresden.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "dresden.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "dresden.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"dresden.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "dresden.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "wroclaw.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "wroclaw.spawn.enemies"
+	    },
+		
+		{
+		"id": "wroclaw.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "wroclaw.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"wroclaw.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "wroclaw.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "wroclaw.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"wroclaw.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "wroclaw.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "poznan.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "poznan.spawn.enemies"
+	    },
+		
+		{
+		"id": "poznan.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "poznan.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"poznan.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "poznan.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "poznan.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"poznan.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "poznan.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "szczecin.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "szczecin.spawn.enemies"
+	    },
+		
+		{
+		"id": "szczecin.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "szczecin.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"szczecin.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "szczecin.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "szczecin.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"szczecin.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "szczecin.spawn.misc"
+	    }
+		]
+	},
+	
+	{
+	"id": "berlin.spawner",
+	"$extends" : ["vilna.spawner"],
+	"inductions": [
+	    {
+		"id": "berlin.spawn.enemies"
+	    },
+		
+		{
+		"id": "berlin.spawn.misc"
+	    }
+	]
+	},
+	
+	{
+	"id": "berlin.spawn.enemies",
+	"$extends" : ["vilna.spawn.enemies"],
+	"deckeffects" : {
+		"berlin.enemies" : 1
+	},
+	"linked": [
+	    {
+		"id": "berlin.spawn.enemies"
+	    }
+	]
+	},
+	
+	{
+	"id": "berlin.spawn.misc",
+	"$extends" : ["vilna.spawn.misc"],
+	"deckeffects" : {
+		"berlin.misc" : 1
+	},
+	"linked": [
+	    {
+		"id": "berlin.spawn.misc"
+	    }
+		]
+	}
+	
+]
+}
