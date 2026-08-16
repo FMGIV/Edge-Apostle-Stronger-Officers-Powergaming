@@ -14,7 +14,7 @@
 			"forbidden$add" : { "friend.away" : 1 }
 			}
 	},
-	"xtriggers$add": {
+	"xtriggers": {
 		"giveammo": [
 			{
 		    "id": "foe.equipped",
@@ -75,7 +75,7 @@
 	
     {
 	"id": "provisions",
-	"slots$append" : [
+	"slots" : [
 		{
 		"id": "Tiredally",
 		"actionid": "abandon",
@@ -89,8 +89,8 @@
 		{
 		"id": "moreprovisions",
 		"actionid": "abandon",
-		"label": "更多物资",
-		"description": "更多物资。",
+		"label": "更多规定",
+		"description": "更多用品。",
 		"required": {
 		    "provisions": 1
 			}
@@ -99,7 +99,7 @@
 		{
 		"id": "medic",
 		"actionid": "mobilize",
-		"label": "医务人员",
+		"label": "医护人员",
 		"required": {
 		    "friend.medics": 1,
 			"friendmedics": 1,
@@ -131,7 +131,7 @@
 	    {
 		"id": "provisions",
 		"actionid": "mobilize",
-		"label": "条款",
+		"label": "规定",
 		"required": {
 		    "provisions": 1
 			}
@@ -176,21 +176,21 @@
 	
 	{
     "id": "friend.corpses",
-		"slots$append": [
+		"slots": [
         {
         "id": "intent",
         "actionid": "abandon",
         "label": "意图",
         "required": {
           "heart": 1,
-		  "grail": 1
+					"grail": 1
             }
         }
 	],
 	"xtriggers$add": {
 		"becomezombiesoldier": "foe.chasseur"
 	},
-	"induces$prepend": [
+	"induces": [
 	    {
 		"id": "evac.corpse.remover"
 	    }
@@ -199,7 +199,7 @@
 	
 	{
     "id": "neutral.corpses",
-		"slots$append": [
+		"slots": [
         {
         "id": "intent",
         "actionid": "abandon",
@@ -216,7 +216,7 @@
 	
 	{
     "id": "foe.corpses",
-	"slots$append": [
+	"slots": [
         {
         "id": "intent",
         "actionid": "abandon",
@@ -244,22 +244,22 @@
 	
 	{
 	"id": "foe.ostlingant",
-	"description": "鸟形时辰的低阶仆从，被称为‘秘密承载者’和‘吟游欺骗者’。它们不会在白天飞行——事实上，在清醒世界中的任何地方都不会飞行——而且它们的歌声本就不该被凡人听见。[如果未对这个敌人的攻击进行防御，它将对你造成创伤。击杀这个敌人可能会让你更接近那把破旧的剑。]"
+	"description": "鸟形司辰们的次要仆从，又被称为“携带秘密者”与“欺骗艺人者”。它们并不在阳光下飞翔——实际上，它们不在醒时世界飞翔——它们的乐声也并非凡人所能聆听。[若这一敌军的攻击未被防御，其将使你获得精神创伤。击杀这个敌人可能会让你离那把破旧的剑更近一步。]",
 	},
 	
 	{
 	"id": "foe.voice",
-	"description": "‘回头，回头……’ [如果未对该敌人的攻击进行防御，它将摧毁“羽翼低语”（若存在的话）。击杀此敌人可能会让你更接近那把破旧的剑。]"
+	"description": "“往回走吧，往回走吧……”[若这一敌军的攻击未被防御，其将破坏其所能找到的翼间低语。击杀这个敌人可能会让你离那把破旧的剑更近一步。]",
 	},
 	
 	{
 	"id": "foe.grame",
-	"description": "如果说‘狼刺’是灵魂的绝望超越了它的光芒，并掀起吞噬精神的痛苦，那么‘狼疮’便是那些未得报复、未获解答的怨恨所积聚的、暗涌不息、脓疮般的怒火。我体内一定寄宿着数十个这样的存在。[击杀这个敌人或许能帮助你完成此处的使命。]",
+	"description": "若碎狼是灵魂的绝望超出灵魂光芒之具现，戕狼是吞噬灵魂的痛苦之具现，那么忿狼便是未得复仇者与未得回应者那满溢溃烂的怒火的具现。想必我身上也寄宿着不少。 [击杀这个敌人可能会帮助你完成此处的任务。]"
 	},
 	
 	{
 	"id": "foe.shade",
-	"description": "‘你不累吗？来吧，来吧。跟我们一起走在这条既无日也无月、既无痛苦也无悲伤、既无此处也无彼处的路上。来吧，一切都将不复存在。’ [每当这个敌人行动时，都有可能触发'日益加剧的恐惧'效果。击杀这个敌人或许能帮助你完成此处的使命。]",
+	"description": "“你不累吗？过来，过来。与我们一同行于这无日无月，无苦无悲，无此无彼的道路上吧。过来吧，然后便无需再承受。”[每当这一敌军行动，都有概率产生“恐惧渐增”。 击杀这个敌人可能会帮助你完成此处的任务。]"
 	},
 	
 	{
@@ -313,7 +313,7 @@
 		"dissolve": "husk",
 		"enemycontrolled" : "loc.commtower.enemy"
 	},
-	"slots$append": [
+	"slots": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
@@ -383,7 +383,7 @@
 	
 	{
     "id": "main.repossess",
-	"description": "一件珍贵物品在废墟与烈火之中不翼而飞。德国人正在搜寻它——我们绝不能让它落入他们手中。[完成此任务可获得一些战利品。]",
+	"description": "一件重要的资产在火焰与碎石中丢失。德军在寻找它——而我们不能让它落到德军手中。[完成这个目标后，你会获得一些战利品。]",
     "xtriggers$dictedit": {
 		"careeradvancement": [
 		{
@@ -420,7 +420,7 @@
 	
 	{
     "id": "main.withdraw",
-	"description": "这一阵地正迅速变得难以守住。我们必须为盟军撤离提供足够的掩护，以抵御德军的进攻。[完成此目标将导致战区内的当地盟军撤离。]",
+	"description": "这一地点很快就将变得难以捍卫。我们必须提供足够的掩护，我们的友军才能在德军的攻势下撤退。[完成此目标将导致战区内的当地盟友撤离。]",
     "xtriggers$dictedit": {
 		"careeradvancement": [
 		{
@@ -457,7 +457,7 @@
 	
 	{
     "id": "main.eliminate",
-	"description": "据当地情报显示，我们当前所在位置出现了一名重要目标。如果能在继续前进前消灭该目标，将对战争大局大有裨益。[完成此任务将削弱当前战区内的敌军力量。]",
+	"description": "当地情报表明一个高姿态的目标正位于我们当前的所在地。若我们能够在继续行军前歼灭这一目标，那对于战争而言将是个好兆头。[完成此目标将削弱当前战区内的敌人。]",
     "xtriggers$dictedit": {
 		
 		"careeradvancement": [
@@ -495,7 +495,7 @@
 	
 	{
     "id": "main.sabotage",
-	"description": "此处遍布着宝贵的基础设施——那些我们无法带走的东西。在继续前进之前，我们应确保德国国防军无法利用我们留下的这些设施。[完成此目标将摧毁当前战区内的所有基础设施。]",
+	"description": "这一地点充满了珍贵的基础设施——我们带不走的基础设施。在继续行军之前，我们需要保证德国国防军无法享受我们遗留的任何事物。[完成此目标将摧毁当前战区内的所有基础设施。]",
     "xtriggers$dictedit": {
 		
 		"careeradvancement": [
@@ -533,8 +533,8 @@
 	
 	{
     "id": "main.rout",
-	"description": "我们的目标很简单：彻底歼灭敌人。将他们全部消灭。[完成此目标将导致战区内所有德军撤退，并将该战区及所有敌方基础设施移交至你的控制之下。]",
-    "aspects$add" : {"evacuate.trigger":1},
+	"description": "我们的目标非常简单：将敌人完全歼灭。杀光他们。[完成此目标将导致战区内的所有德军撤退，并将该战区及所有敌方基础设施移交至你的控制之下。]",
+    "aspects" : {"evacuate.trigger":1},
     "xtriggers$dictedit": {
 		
 		"careeradvancement": [
@@ -572,8 +572,8 @@
 	
 	{
     "id": "main.capture",
-	"description": "敌人已在此地——就在这里，在我们的家园和街道上——占据了阵地。将他们驱逐出去，夺回这座城市。[完成此目标后，该战区及此处的所有敌方基础设施将转由你方控制。]",	
-    "aspects$add" : {"evacuate.trigger":1},
+	"description": "敌军已在此就位——在我们的家与我们的街上就位。将他们驱赶出去，夺回这座城市。[完成此目标后，该战区及此处的所有敌方设施将转由你方控制。]",
+    "aspects" : {"evacuate.trigger":1},
 	"xtriggers$dictedit": {
 		
 		"careeradvancement": [
@@ -611,7 +611,7 @@
 	
 	{
     "id": "main.rout.contemnant",
-	"description": "我们的目标很简单：彻底歼灭敌人。将他们全部消灭。[完成此目标将导致战区内的所有德国人撤退。]",
+	"description": "我们的目标非常简单：将敌人完全歼灭。杀光他们。[完成此目标将导致战区内的所有德军撤退，并将该战区及所有敌方基础设施移交至你的控制之下。]",
     "aspects$add" : {"evacuate.trigger":1},
 	"xtriggers$dictedit": {
 		
@@ -650,7 +650,7 @@
 	
 	{
     "id": "main.eliminate.contemnant",
-	"description": "一名被当场抓获的德国军队高级军官正在城内活动——我定要取他性命。[完成此目标将削弱当前战区内的德军力量。]",
+	"description": "一个手上沾满鲜血的德军高级军官正在城市内行动——我将让他死亡。[完成此目标将削弱当前战区内的德军力量。]",
     "xtriggers$dictedit": {
 		
 		"careeradvancement": [
@@ -844,475 +844,7 @@
 	
 	{
 	"id": "strife",
-	"description": "当我们战斗时，我们便为'对立'注入能量，助长其巨大的波动。反过来，'对立'又点燃并激荡着我们周围这个战火纷飞的世界。那个被称为‘流亡者’的存在将这种现象描述为‘美丽’。[随着‘纷争’的加剧，你的敌人会变得更加咄咄逼人且数量激增。任务目标将变得更加艰难。一旦‘纷争’达到七级，一股骇人的力量可能会被吸引到你的所在地。]"
-	},
-	
-    {
-    "id": "paestum.here",
-    "aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-    },
-	
-	{
-	"id": "potenza.here",
-    "aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "salerno.here",
-    "aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-    },
-	
-	{
-	"id": "benevento.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "napoli.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "campobasso.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "termoli.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "minturno.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "gaeta.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "montecassino.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-		
-	{
-	"id": "pontecorvo.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "ortucchio.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "ortona.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "valmontone.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "velletri.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "anzio.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "rome.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {
-		"convertonce": [
-		{
-		    "id": "converted.already",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "craterfield.here",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.partisan.infiltrator" : 1, "friend.partisan.infiltrator.hidden" : 1, "friend.partisan.infiltrator.afraid" : 1}
-			}
-	}
+	"description": "每当我们战斗，我们就为纷争添加燃料，驱动其巨大的螺旋回转。而纷争则点燃并激化我们身处的这战争中的世界作为回报。被称为流亡者之人以“美丽”形容这一现象。[随着“纷争”等级提升，你的敌人会变得更加凶猛且数量更多。任务目标也将变得更加困难。一旦“纷争”达到七级，一股可怕的力量可能会被吸引到你的所在地。]",
 	},
 	
 	{
@@ -1441,286 +973,6 @@
 	    ]
 	}
 	},
-
-	{
-	"id": "kaunas.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-		
-	{
-	"id": "brest.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "konigsberg.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "gdansk.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},	
-
-	{
-	"id": "grudziadz.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "grudziadz.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "lodz.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-
-	{
-	"id": "warsaw.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "lublin.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "katowice.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "krakow.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-
-	{
-	"id": "vienna.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "brno.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "prague.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "liberec.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "dresden.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "wroclaw.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "poznan.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "szczecin.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "berlin.here",
-	"aspects$add" : {"warzone.enemy.controlled":1},
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
 	
 	{
     "id": "trauma",
@@ -1734,8 +986,8 @@
 	
     {
 	"id": "skill.refreshally",
-	"description": "绝不允许任何人推诿。绝不后退半步。我的命令不容违抗，所有士兵都必须服从。[你可以使用此卡立即恢复棋盘上所有精疲力竭的非机械化盟军单位。你可以使用此卡将征召兵转化为老兵。你还可以使用此卡将某些障碍转化为有用的资源。]",
-	"slots$append" : [
+	"description": "无人被允许退缩。无人能后退一步。我的言语即为不容违抗的命令，而一切身为士兵之人都将服从。[你可以使用这一技能立刻刷新一个枯竭的友军。你可以使用这张卡将新兵转化为老兵。你还可以使用这张卡将某些障碍转化为有用的东西。]",
+	"slots" : [
 		{
 		"id": "thing1",
 		"actionid": "abandon",
@@ -1768,7 +1020,7 @@
 			"friend.conscript" : 1
 			}
 		}
-	],
+	]
 	},
 	
 	{
@@ -1794,83 +1046,83 @@
 	
 	{
 	"id": "hindrance.earthquake",
-	"xtriggers$add": {
+	"xtriggers": {
 		"converthindrance": "op.ruins"
 	}
 	},
 	
 	{
 	"id": "hindrance.fortifications",
-	"xtriggers$add": {
+	"xtriggers": {
 		"converthindrance": "mem.ingenuity"
 	}
 	},
 	
 	{
 	"id": "hindrance.nocturnal",
-	"xtriggers$add": {
+	"xtriggers": {
 		"converthindrance": "mem.fear"
 	}
 	},
 	
 	{
 	"id": "hindrance.apollonian",
-	"xtriggers$add": {
+	"xtriggers": {
 		"converthindrance": "mem.rage"
 	}
 	},
 	
 	{
 	"id": "hindrance.dionysian",
-	"xtriggers$add": {
+	"xtriggers": {
 		"converthindrance": "mem.taste"
 	}
 	},
 	
 	{
 	"id": "hindrance.wolf",
-	"xtriggers$add": {
+	"xtriggers": {
 		"converthindrance": "mem.grief"
 	}
 	},
 	
 	{
 	"id": "hindrance.lionsmith",
-	"xtriggers$add": {
+	"xtriggers": {
 		"converthindrance": "op.thelionsmith"
 	}
 	},
 	
 	{
 	"id": "hindrance.colonel",
-	"xtriggers$add": {
+	"xtriggers": {
 		"converthindrance": "op.thecolonel"
 	}
 	},
 	
 	{
 	"id": "hindrance.moonspace",
-	"xtriggers$add": {
+	"xtriggers": {
 		"converthindrance": "op.time.dawn"
 	}
 	},
 	
 	{
 	"id": "hindrance.worms",
-	"xtriggers$add": {
+	"xtriggers": {
 		"converthindrance": "mem.joy"
 	}
 	},
 	
 	{
 	"id": "debilitation.eye.colonel",
-	"description": "上校虽然失明，但没有任何事情能逃过他的法眼。[你可以使用这张卡牌揭露隐藏的敌人并削弱他们。这张卡牌将计入你的死亡次数。]",
-	"slots$append" : [
+	"description": "上校目盲，但无物可逃离上校的关注。[你可以使用这张卡牌来揭露隐藏的敌人并削弱他们。这张卡牌将计入你的死亡次数。]",
+	"slots" : [
 		{
 		"id": "enemy",
 		"actionid": "abandon",
 		"label": "敌人",
-		"description": "挡我路的人。",
+		"description": "有人挡在我前面。",
 		"required": {
 		    "foe": 1
 			},
@@ -1883,13 +1135,13 @@
 	
 	{
 	"id": "debilitation.ear.colonel",
-	"description": "我似乎能听到雪花落在石头上发出的声响。[这张卡牌计入你的死亡次数。你可以使用这张卡牌，将棋盘上的一项阻碍转化为有用的东西。]",
-	"slots$append" : [
+	"description": "我能够听到雪落于石时发出的声音。[此卡牌亦使你离死亡更近一步。你可以使用这张卡牌，将棋盘上的一个障碍转化为有用的东西。]",
+	"slots" : [
 		{
 		"id": "hindrance",
 		"actionid": "abandon",
 		"label": "障碍",
-		"description": "挡在我前面的东西。",
+		"description": "有东西挡在我前面。",
 		"required": {
 		    "hindrance": 1,
 		    "hindrance.active": 1
@@ -1900,15 +1152,15 @@
 	
 	{
 	"id": "debilitation.leg.colonel",
-	"description": "橡木外壳上刻有士兵圣徒的名字，并被敌方军官的鲜血涂抹过。[这张卡牌将计入你的死亡次数。你可以使用这张卡牌，将一名阵亡士兵复活为新兵，或阻止一名盟友的腐朽。]",
-	"slots$append" : [
+	"description": "义肢的橡木外壳刻满了士兵圣者的名字，并用一位敌军军官的血洗礼。[此卡牌亦使你离死亡更近一步。你可以使用这张卡牌，从阵亡的士兵身上招募一名新兵，或阻止盟友的腐朽。]",
+	"slots" : [
 		{
 		"id": "corpse",
 		"actionid": "abandon",
-		"label": "意图？",
+		"label": "意图?",
 		"required": {
 		    "remnant": 1,
-			"decaying" :1
+			"decaying" : 1
 			},
 		"forbidden": {
 		    "foe.corpse.unnatural": 1,
@@ -1933,13 +1185,8 @@
 	},
 	
 	{
-	"id": "skill.raisedead",
-	"description": "在‘无编号军团’中，有一句格言——MORS NON EST FINIS OFFICII——因为军团士兵们深知，死亡并非安息，而仅仅是停战。他们说出这些话，是为了提醒逝者们生前所立的誓言，而逝者们总会倾听。[你可以使用此效果，将棋盘上所有敌方不死生物和士兵的尸体转化为新兵。]"	
-	},
-	
-	{
 	"id": "op.earthquake",
-	"slots$append" : [
+	"slots" : [
 		{
 		"id": "enemybuilding",
 		"actionid": "operate",
@@ -2062,7 +1309,7 @@
 	
 	{
 	"id": "skill.unmake",
-	"description": "心与手；思绪与灵魂；外在的血肉、内里的鲜红，以及更深处的纯白——这一切，皆未成形。[你可以使用这张卡牌瞬间摧毁几乎任何敌人、障碍或盟友。每次使用这张卡牌时，其“锋芒”值都会增加，但也会产生一次“创伤”。]",
+	"description": "心、手、灵、魂、肉、血、骨——将这一切，尽数毁灭。[你可以使用这张卡牌立即摧毁几乎任何敌人、障碍或盟友。每次使用这张卡牌时，其“优势”值都会增加，但也会产生“创伤”。]",
     "slots$listedit": { 
 		"0$dictedit" : {
 			"required$add" : { "hindrance" : 1, "hindrance.active" : 1 }
@@ -2072,12 +1319,12 @@
 	
 	{
 	"id": "skill.intimidate.dormant",
-	"description": "当我发出血腥的咆哮时，勇气将从人们心中逃离；雄狮将蜷缩在地，变得温顺；就连天空也会为之颤抖。听我咆哮，并为之恐惧吧。[激活此卡可暂时阻止敌人对你采取任何攻击行动。这将清除棋盘上的所有障碍。此外，使用此卡会引发地震。]",
+	"description": "勇气会从人们的灵魂中逃离；狮群将低头并保持温驯；甚至天空都会在我怒号时颤抖。听吧，而后畏惧吧。[此卡牌在计时结束前都持续生效，期间一切敌人都不会对你展开进攻。并且，使用此卡牌会引发一次地震。此外，使用这张卡会引发地震。]",
 	},
 	
 	{
 	"id": "skill.intimidate.active",
-	"description": "当我发出血腥的咆哮时，勇气将从人们心中逃离；雄狮将蜷缩在地，变得温顺；就连天空也会为之颤抖。听我咆哮，并为之恐惧吧。[激活此卡可暂时阻止敌人对你采取任何攻击行动。这将清除棋盘上的所有障碍。此外，使用此卡会引发地震。]",
+	"description": "勇气会从人们的灵魂中逃离；狮群将低头并保持温驯；甚至天空都会在我怒号时颤抖。听吧，而后畏惧吧。[此卡牌在计时结束前都持续生效，期间一切敌人都不会对你展开进攻。并且，使用此卡牌会引发一次地震。此外，使用这张卡会引发地震。]",
 	"lifetime": 90
 	},
 	
@@ -2102,7 +1349,7 @@
 	},
 	"xtriggers$add": {
 		"dissolve": "husk"
-		}
+	}
 	},
 	
 	{
@@ -2122,7 +1369,7 @@
     "slots$listedit": { 
 		"0$dictedit" : {
 			"required$add" : { "friend.medics.supplied" : 1, "friend.partisan.physician" : 1, "isphysician" : 1},
-			"forbidden$add" : { "exhausted" : 1, "wounded" : 1 }
+			"forbidden" : { "exhausted" : 1, "wounded" : 1 }
 			}
 	}
 	},
@@ -2132,7 +1379,7 @@
     "slots$listedit": { 
 		"0$dictedit" : {
 			"required$add" : { "friend.medics.supplied" : 1, "friend.partisan.physician" : 1, "isphysician" : 1},
-			"forbidden$add" : { "exhausted" : 1, "wounded" : 1 }
+			"forbidden" : { "exhausted" : 1, "wounded" : 1 }
 			}
 	}
 	},
@@ -2142,7 +1389,7 @@
     "slots$listedit": { 
 		"0$dictedit" : {
 			"required$add" : { "friend.medics.supplied" : 1, "friend.partisan.physician" : 1, "isphysician" : 1},
-			"forbidden$add" : { "exhausted" : 1, "wounded" : 1 }
+			"forbidden" : { "exhausted" : 1, "wounded" : 1 }
 			}
 	}
 	},
@@ -2152,255 +1399,8 @@
     "slots$listedit": { 
 		"0$dictedit" : {
 			"required$add" : { "friend.medics.supplied" : 1, "friend.partisan.physician" : 1, "isphysician" : 1},
-			"forbidden$add" : { "exhausted" : 1, "wounded" : 1 }
+			"forbidden" : { "exhausted" : 1, "wounded" : 1 }
 			}
-	}
-	},
-	
-	{
-	"id": "bialystok.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "vilna.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "minsk.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "vitebsk.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "orsha.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "smolensk.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "vyazma.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "rzhev.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "bryansk.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "kyiv.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "kursk.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "livny.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "voronezh.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "kharkov.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "uman.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "odessa.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "perekop.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "izyum.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "stalingrad.here",
-	"xtriggers$add": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
 	}
 	},
 	
@@ -2483,7 +1483,7 @@
 	
     {
 	"id": "mem.walther",
-	"description": "一位为使他人获得自由而牺牲自身自由的太阳教神职人员。",
+	"description": "一位虔诚的牧师，他牺牲了自己的自由，只为让他人获得自由。",
 	"icon" : "friend.walther",
 	"overlays": [
 		{
@@ -2501,7 +1501,7 @@
 	
 	{
     "id": "op.cat",
-		"slots$append": [
+		"slots": [
         {
         "id": "intent",
         "actionid": "operate",
@@ -2515,13 +1515,13 @@
 	
     {
 	"id": "skill.deflect",
-	"description": "这些动作极其艰辛，能将身体锻造成一座堡垒。要完成这些动作所需的精准度和体能，通常只有‘长’才能具备，但凡人——一个极其谨慎、训练有素的凡人——也可以有限度地运用这些技巧，来格挡那些原本会致命的攻击。[你可以用此能力抵御来自任何来源的攻击。你也可以使用这张卡牌消除1点创伤。]",
-	"slots$append" : [
+	"description": "这些极其折磨且费力的动作可将身体变为一座要塞。执行这一动作所需的精准与训练通常仅能在长生者身上寻得，但一个凡人——一个极其谨慎，极其训练有素的凡人——或许能够在一定限度上使用这些技术以使本将致命的攻击偏向。[你可以使用这一技能防御来自任何来源的攻击。你也可以使用这张卡牌消除1点创伤。]",
+	"slots" : [
 		{
 		"id": "trauma1",
 		"actionid": "abandon",
 		"label": "创伤",
-		"description": "对心灵的侵袭。",
+		"description": "对心灵的攻击。",
 		"required": {
 		    "trauma": 1
 			}
@@ -2532,13 +1532,13 @@
 	
     {
 	"id": "skill.refreshself",
-	"description": "对自我的淬炼，将灵魂的所有能量汇聚于彻底歼灭对手。维持这一过程所需的狂暴与耐力通常只有龙才具备，但凡人——一个极其强悍、极其勇敢的凡人——或许也能有限度地运用这些技巧，从而以原本无法企及的速度和凶猛程度发起攻击。[你可以使用这张卡牌刷新任意一张“武器”或“知识”卡牌。你也可以使用这张卡牌消除自身的创伤。]",
+	"description": "这种对自身的精炼可以将灵魂中所有能量引导向彻底消灭对手的方向。支持这一过程所需的狂怒与忍耐通常仅能在长生者身上寻得，但一个凡人——一个极其强大，极其富有勇气的凡人——或许能够在一定限度上使用这些技术以使其攻击获得以其他方式不可能实现的速度和凶猛。[你可以使用这一技能立刻刷新一件枯竭的武器，或一份枯竭的密传。你也可以用这张卡来消除自身的创伤。]",
 	"slots$append" : [
 		{
 		"id": "trauma1",
 		"actionid": "abandon",
 		"label": "创伤",
-		"description": "对心灵的侵袭。",
+		"description": "对心灵的攻击。",
 		"required": {
 		    "trauma": 1
 			}
@@ -2554,7 +1554,7 @@
 	
 	{
     "id": "obdurant.memento",
-	"slots$append": [
+	"slots": [
         {
         "id": "scaredyboi",
         "actionid": "communicate",
@@ -2570,7 +1570,7 @@
 	{
     "id": "contemnant.memento",
 	"aspects$add" : {"hope.blocker":1},
-	"slots$append": [
+	"slots": [
         {
         "id": "scaredyboi",
         "actionid": "communicate",
@@ -2585,7 +1585,7 @@
 	
 	{
     "id": "proterant.memento",
-	"slots$append": [
+	"slots": [
         {
         "id": "scaredyboi",
         "actionid": "communicate",
@@ -2605,12 +1605,12 @@
 	
     {
 	"id": "contemplation.cross.1",
-	"description": "铠甲十字军早已远走高飞，或隐入天幕之后，或沉入世界之下，抑或融入我们的体内。他们中的一员此刻归来，究竟有何缘由？山楂般的思绪在我心中翻涌——在这场战争的阴影中，某种隐秘的力量正在暗中运作。"
+	"description": "介壳种很久以前就已逃离，去往天空之后、世界之下、或是我们之内。是什么原因驱使着其中之一返回这一世界？又是为何它试图取走一位刃之长生者的性命？思绪伴着山楂香气在我脑内翻涌——在这场战争的阴影中肯定有神秘之物正在谋划。"
 	},
 	
 	{
     "id": "op.beachcomber",
-	"slots$append": [
+	"slots": [
 	{
 		"id": "enemycorpse",
 		"actionid": "operate",
@@ -2624,12 +1624,12 @@
 	
 	{
 	"id": "bloodlust",
-	"slots$append" : [
+	"slots" : [
 		{
 		"id": "ally",
 		"actionid": "operate",
 		"label": "背叛",
-		"description": "一个可以发泄我嗜血之欲的对象。",
+		"description": "找个人发泄一下我的嗜血欲望。",
 		"required": {
 		    "friend": 1,
 			"edgelong" : 1
@@ -2657,11 +1657,11 @@
 	
 	{
     "id": "contemnant.weapon",
-		"slots$append": [
+		"slots": [
         {
         "id": "intent",
         "actionid": "abandon",
-        "label": "恐惧",
+        "label": "Fear",
         "required": {
 			"trauma": 1
             }
@@ -2677,7 +1677,7 @@
 	"xtriggers$add": {
 		"promotiontoveteran": "friend.veteran"
 	},
-	"slots$append": [
+	"slots": [
 		{
 		"id": "needswarzone",
 		"actionid": "operate",
@@ -2748,11 +1748,11 @@
 	
 	{
     "id": "op.velvet",
-		"slots$append": [
+		"slots": [
         {
         "id": "intent",
         "actionid": "operate",
-        "label": "纷争",
+        "label": "Strife",
         "required": {
           "strife": 1
             }
@@ -2876,12 +1876,12 @@
 	
     {
 	"id": "skill.raisedead",
-	"description": "在“无编号军团”中，有一句格言——“MORS NON EST FINIS OFFICII”（死亡并非职责的终结）——因为军团士兵们深知，死亡并非安息，而仅仅是停战。他们说出这些话，是为了提醒逝者们生前所立的誓言，而逝者们总会倾听。[你可以使用此效果将棋盘上所有“堕落盟友”转化为“征召兵”。你也可以使用此效果阻止某些盟友的衰亡。]",
-	"slots$append" : [
+	"description": "在无尽军团中，流传着这样一句话——MORS NON EST FINIS OFFICII——因为军团士兵们知晓死亡并非安息，仅是一时休战。这些是他们向死者说出的祷文，以提醒死者其在生前立下的誓言，而死者总是会聆听。[你可以使用此功能，将棋盘上所有敌方不死生物和士兵的尸体转化为新兵。]",
+	"slots" : [
 		{
 		"id": "thing1",
 		"actionid": "abandon",
-		"label": "Decaying",
+		"label": "衰变",
 		"required": {
 		    "decaying": 1
 			}
@@ -2890,7 +1890,7 @@
 		{
 		"id": "thing2",
 		"actionid": "abandon",
-		"label": "Decaying",
+		"label": "衰变",
 		"required": {
 		    "decaying": 1
 			}
@@ -2899,7 +1899,7 @@
 		{
 		"id": "thing3",
 		"actionid": "abandon",
-		"label": "Decaying",
+		"label": "衰变",
 		"required": {
 		    "decaying": 1
 			}
