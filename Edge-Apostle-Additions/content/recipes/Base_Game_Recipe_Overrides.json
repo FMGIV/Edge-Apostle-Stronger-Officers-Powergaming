@@ -860,26 +860,57 @@
 	
 	{
 	"id": "healcasualty.medics.monster",
-    "slots$listedit": { 
-		"0$dictedit" : { "required$add" : { "friend.engineers.wellstocked" : 1 } }
-	},
-	"alt$prepend": [
+	"startdescription": "This will take a little more than morphine, stitches, and saws.\n\n[Provide Ally Engineers or Max Edge Lore to complete the healing of this Ally.]",
+	"slots": [
 	    {
-		"id": "healcasualty.medics.monster.success.faster"
+		"id": "needsengineer",
+		"label": "Metal",
+		"required": {
+		    "friend.engineers": 1,
+			"friend.engineers.wellstocked" : 1,
+			"friendengineers" : 1,
+			"lore" : 1
+		}
+	    }
+	],
+	"alt$prepend": [
+		{
+		"id": "healcasualty.medics.monster.success.lore"
 	    }
 	]
 	},
 	
 	{
 	"id": "heal.adeptgrail.wounded.monster",
-    "slots$listedit": { 
-		"0$dictedit" : { "required$add" : { "friend.engineers.wellstocked" : 1 } }
-	},
-	"alt$prepend": [
+	"startdescription": "Even with the arts of Grail at my disposal, I'll need a bit more to fully address these wounds. An engineer's tools will be necessary to work on this uncommon biology.\n\n[Provide Ally Engineers or Lore to complete the healing of this Ally.]",
+	"slots": [
 	    {
-		"id": "heal.adeptgrail.wounded.monster.success.faster"
+		"id": "needsengineer",
+		"label": "Metal",
+		"required": {
+		    "friend.engineers": 1,
+			"friend.engineers.wellstocked" : 1,
+			"friendengineers" : 1,
+			"lore" : 1
+		}
 	    }
 	]
+	},
+	
+    {
+	"id": "healcasualty.medics.monster.success",
+	"requirements": {},
+	"grandReqs" : {
+		"([friend.engineers] || [well.stocked] || [friendengineers])": 1
+		}
+	},
+	
+    {
+	"id": "heal.adeptgrail.wounded.monster.success",
+	"requirements": {},
+	"grandReqs" : {
+		"([friend.engineers] || [well.stocked] || [friendengineers] || [proterant.fragmentedgeg])": 1
+		}
 	},
 	
 	{

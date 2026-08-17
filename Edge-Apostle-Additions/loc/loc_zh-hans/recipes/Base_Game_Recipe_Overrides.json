@@ -860,26 +860,57 @@
 	
 	{
 	"id": "healcasualty.medics.monster",
-    "slots$listedit": { 
-		"0$dictedit" : { "required$add" : { "friend.engineers.wellstocked" : 1 } }
-	},
-	"alt$prepend": [
+	"startdescription": "除了吗啡、缝线与骨锯，我还需要一些其他东西。\n\n[提供盟友工程师或“极致锋芒”背景故事，以完成对该盟友的治疗。]",
+	"slots": [
 	    {
-		"id": "healcasualty.medics.monster.success.faster"
+		"id": "needsengineer",
+		"label": "金属",
+		"required": {
+		    "friend.engineers": 1,
+			"friend.engineers.wellstocked" : 1,
+			"friendengineers" : 1,
+			"lore" : 1
+		}
+	    }
+	],
+	"alt$prepend": [
+		{
+		"id": "healcasualty.medics.monster.success.lore"
 	    }
 	]
 	},
 	
 	{
 	"id": "heal.adeptgrail.wounded.monster",
-    "slots$listedit": { 
-		"0$dictedit" : { "required$add" : { "friend.engineers.wellstocked" : 1 } }
-	},
-	"alt$prepend": [
+	"startdescription": "即便赤杯的技艺能为我所用，我仍需要一些帮助才能完全处理这些伤口。为了塑造其不寻常的生理，我需要工兵的工具。\n\n[请派遣盟友工程师或提供背景设定，以完成对该盟友的治疗。]",
+	"slots": [
 	    {
-		"id": "heal.adeptgrail.wounded.monster.success.faster"
+		"id": "needsengineer",
+		"label": "金属",
+		"required": {
+		    "friend.engineers": 1,
+			"friend.engineers.wellstocked" : 1,
+			"friendengineers" : 1,
+			"lore" : 1
+		}
 	    }
 	]
+	},
+	
+    {
+	"id": "healcasualty.medics.monster.success",
+	"requirements": {},
+	"grandReqs" : {
+		"([friend.engineers] || [well.stocked] || [friendengineers])": 1
+		}
+	},
+	
+    {
+	"id": "heal.adeptgrail.wounded.monster.success",
+	"requirements": {},
+	"grandReqs" : {
+		"([friend.engineers] || [well.stocked] || [friendengineers] || [proterant.fragmentedgeg])": 1
+		}
 	},
 	
 	{
