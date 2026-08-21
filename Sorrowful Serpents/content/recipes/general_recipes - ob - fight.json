@@ -1,0 +1,3619 @@
+{
+  "recipes": [
+    {
+      "id": "operate.mainthelastseven.startup",
+      "actionid": "operate",
+      "label": "<i>七步斩七蟠</i>",
+      "startdescription": "正如书中所说，杀死这位强大的怪物需要充分的准备，我们必须确保仪式的成功。\n\n[请确保手中至少有五种不同的神圣武器]",
+      "description": "不可仓促应战。",
+      "requirements": {
+          "main.thelastseven": 1,
+          "wound.thelastseven": 1
+      },
+      "slots": [
+          {
+            "id": "needsresponse",
+            "label": "祭司",
+            "required": {
+                "friend.tomori.priestess": 1
+            }
+          },
+          {
+            "id": "needsresponse2",
+            "label": "意图",
+            "required": {
+                "pillar.serpent.purple": 1
+            }
+          },
+          {
+            "id": "needsresponse3",
+            "label": "处决",
+            "required": {
+                "obdurant.fragmentedgeg": 1
+            }
+          }
+      ],
+      "alt": [
+        {
+          "id": "operate.mainthelastseven.ready"
+        }
+      ],
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "operate.mainthelastseven.ready",
+      "label": "<i>七步斩七蟠</i>",
+      "startdescription": "一切准备就绪！\n\n[请确保手中至少有五种不同的神圣武器]",
+      "requirements": {
+          "friend.tomori.priestess": 1,
+          "pillar.serpent.purple": 1,
+          "obdurant.fragmentedgeg": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "burnimage": "fightingwithseven",
+	    "playAudioTrack": "fightingwithseven.mp3",
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ]
+    },
+    {
+      "id": "operate.mainthelastseven.cycle",
+      "label": "<i>七步斩七蟠</i>",
+      "aspects": {
+        "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle.7"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.6"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.5"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.4"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.3"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.2"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.1"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.0"
+        }
+      ]
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.7",
+      "label": "<i>巨蛇倒下</i>",
+      "startdescription": "巨躯轰然倾覆，大地为之震动，烟尘如浪涌起。它在大地上蜷作死寂的长影，像一条被遗忘的山脉。",
+      "requirements": {
+        "progression": 7
+      },
+      "effects": {
+        "foe": -1,
+        "main": -1,
+        "corpse.thelastseven": 1
+      },
+      "signalEndingFlavour": "Grand",
+      "signalMusic": "fightingend.mp3",
+      "achievements": [
+          "achievements.killworms"
+      ],
+      "alt": [
+        {
+          "id": "produce.spirit_grailc_moth",
+          "additional": true
+        }
+      ],
+      "warmup": 30
+    },
+
+    {
+      "id": "operate.mainthelastseven.cycle.false",
+      "label": "仪式终止！",
+      "startdescription": "祂从控制中脱离了，祂将会将祂所有的愤怒倾斜于我们！",
+      "alt": [
+          {
+            "id": "enemyaction.irritable.uqthelastseven.startup",
+            "additional": true,
+            "expulsion": {
+              "filter": {
+                "foe.irritable": 1
+              },
+              "limit": 1
+            }
+          },
+          {
+            "id": "produce.curse.thelastseven",
+            "additional": true
+          }
+      ]
+    },
+
+    {
+      "id": "operate.mainthelastseven.cycle.6",
+      "label": "<i>第七步</i>",
+      "startdescription": "覆羽为巨蛇之天敌，唯有它才能给予巨蛇最后一击。",
+      "requirements": {
+        "progression": 6
+      },
+      "slots": [
+          {
+            "id": "needsresponse",
+            "label": "应对",
+            "required": {
+                "weapon.yihulun": 1
+            }
+          }
+      ],
+      "alt": [
+        {
+          "id": "operate.mainthelastseven.cycle.6.blind"
+        }
+      ],
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle.false"
+        }
+      ],
+      "warmup": 20
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.6.blind",
+      "label": "<i>第七步</i>",
+      "startdescription": "终结之力贯透终末。没有声响，没有挣扎的余波，在一声极轻的、宛如叹息的震颤，化为空壳。",
+      "requirements": {
+        "weapon.yihulun": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+
+    {
+      "id": "operate.mainthelastseven.cycle.5",
+      "label": "<i>第六步</i>",
+      "startdescription": "致密冷硬的鳞甲覆满周身，凡世武器甚至不得留下浅痕。",
+      "requirements": {
+        "progression": 5
+      },
+      "slots": [
+          {
+            "id": "needsresponse",
+            "label": "应对",
+            "required": {
+                "weapon.talon": 1,
+                "weapon.wormnail": 1,
+                "debilitation.hand.colonel": 1,
+                "weapon.histid": 1,
+                "ebrehel": 1
+            }
+          }
+      ],
+      "alt": [
+        {
+          "id": "operate.mainthelastseven.cycle.5.talon"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.5.wormnail"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.5.colonel"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.5.histid"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.5.ebrehel"
+        }
+      ],
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle.false"
+        }
+      ],
+      "warmup": 20
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.5.talon",
+      "label": "<i>第六步</i>",
+      "startdescription": "敏锐地辗转腾跃，撕开蛇腹鳞片，皮开肉绽。",
+      "requirements": {
+        "weapon.talon": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.5.wormnail",
+      "label": "<i>第六步</i>",
+      "startdescription": "对于蠕虫，这个武器是专业的，无论是戳刺，还是割裂。",
+      "requirements": {
+        "weapon.wormnail": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.5.colonel",
+      "label": "<i>第六步</i>",
+      "startdescription": "以军礼之力凝为锋刃，破开厚鳞。",
+      "requirements": {
+        "debilitation.hand.colonel": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.5.histid",
+      "label": "<i>第六步</i>",
+      "startdescription": "奋力掷出投矛标枪，足以穿透长生者身躯的长枪破开厚鳞。",
+      "requirements": {
+        "weapon.histid": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.5.ebrehel",
+      "label": "<i>第六步</i>",
+      "startdescription": "此剑裹挟着本应为一位王者所用的神力，剑光夺目，灼烧邪魔异质。",
+      "requirements": {
+        "ebrehel": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    
+    {
+      "id": "operate.mainthelastseven.cycle.4",
+      "label": "<i>第五步</i>",
+      "startdescription": "致密冷硬的鳞甲覆满周身，凡世武器甚至不得留下浅痕。",
+      "requirements": {
+        "progression": 4
+      },
+      "slots": [
+          {
+            "id": "needsresponse",
+            "label": "应对",
+            "required": {
+                "weapon.talon": 1,
+                "weapon.wormnail": 1,
+                "debilitation.hand.colonel": 1,
+                "weapon.histid": 1,
+                "ebrehel": 1
+            }
+          }
+      ],
+      "alt": [
+        {
+          "id": "operate.mainthelastseven.cycle.4.talon"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.4.wormnail"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.4.colonel"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.4.histid"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.4.ebrehel"
+        }
+      ],
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle.false"
+        }
+      ],
+      "warmup": 20
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.4.talon",
+      "label": "<i>第五步</i>",
+      "startdescription": "敏锐地辗转腾跃，撕开蛇腹鳞片，皮开肉绽。",
+      "requirements": {
+        "weapon.talon": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.4.wormnail",
+      "label": "<i>第五步</i>",
+      "startdescription": "对于蠕虫，这个武器是专业的，无论是戳刺，还是割裂。",
+      "requirements": {
+        "weapon.wormnail": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.4.colonel",
+      "label": "<i>第五步</i>",
+      "startdescription": "以军礼之力凝为锋刃，破开厚鳞。",
+      "requirements": {
+        "debilitation.hand.colonel": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.4.histid",
+      "label": "<i>第五步</i>",
+      "startdescription": "奋力掷出投矛标枪，足以穿透长生者身躯的长枪破开厚鳞。",
+      "requirements": {
+        "weapon.histid": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.4.ebrehel",
+      "label": "<i>第五步</i>",
+      "startdescription": "此剑裹挟着本应为一位王者所用的神力，剑光夺目，灼烧邪魔异质。",
+      "requirements": {
+        "ebrehel": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+
+    {
+      "id": "operate.mainthelastseven.cycle.3",
+      "label": "<i>第四步</i>",
+      "startdescription": "致密冷硬的鳞甲覆满周身，凡世武器甚至不得留下浅痕。",
+      "requirements": {
+        "progression": 3
+      },
+      "slots": [
+          {
+            "id": "needsresponse",
+            "label": "应对",
+            "required": {
+                "weapon.talon": 1,
+                "weapon.wormnail": 1,
+                "debilitation.hand.colonel": 1,
+                "weapon.histid": 1,
+                "ebrehel": 1
+            }
+          }
+      ],
+      "alt": [
+        {
+          "id": "operate.mainthelastseven.cycle.3.talon"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.3.wormnail"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.3.colonel"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.3.histid"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.3.ebrehel"
+        }
+      ],
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle.false"
+        }
+      ],
+      "warmup": 20
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.3.talon",
+      "label": "<i>第四步</i>",
+      "startdescription": "敏锐地辗转腾跃，撕开蛇腹鳞片，皮开肉绽。",
+      "requirements": {
+        "weapon.talon": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.3.wormnail",
+      "label": "<i>第四步</i>",
+      "startdescription": "对于蠕虫，这个武器是专业的，无论是戳刺，还是割裂。",
+      "requirements": {
+        "weapon.wormnail": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.3.colonel",
+      "label": "<i>第四步</i>",
+      "startdescription": "以军礼之力凝为锋刃，破开厚鳞。",
+      "requirements": {
+        "debilitation.hand.colonel": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.3.histid",
+      "label": "<i>第四步</i>",
+      "startdescription": "奋力掷出投矛标枪，足以穿透长生者身躯的长枪破开厚鳞。",
+      "requirements": {
+        "weapon.histid": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.3.ebrehel",
+      "label": "<i>第四步</i>",
+      "startdescription": "此剑裹挟着本应为一位王者所用的神力，剑光夺目，灼烧邪魔异质。",
+      "requirements": {
+        "ebrehel": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+
+    {
+      "id": "operate.mainthelastseven.cycle.2",
+      "label": "<i>第三步</i>",
+      "startdescription": "<i>七蟠</i>那盘绕扭动的庞大躯壳层层叠叠，混乱难辨，封堵所有突进空隙。",
+      "requirements": {
+        "progression": 2
+      },
+      "slots": [
+          {
+            "id": "needsresponse",
+            "label": "应对",
+            "required": {
+                "weapon.skull": 1,
+                "ebrehel": 1
+            },
+            "forbidden": {
+                "exhausted": 1
+            }
+          }
+      ],
+      "alt": [
+        {
+          "id": "operate.mainthelastseven.cycle.2.skull"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.2.ebrehel"
+        }
+      ],
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle.false"
+        }
+      ],
+      "warmup": 20
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.2.skull",
+      "label": "<i>第三步</i>",
+      "startdescription": "颅骨发出克制邪物的频率，心之力量震荡蛇的感官，使其眩晕，使其失能。",
+      "requirements": {
+        "weapon.skull": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.2.ebrehel",
+      "label": "<i>第三步</i>",
+      "startdescription": "造门者开辟道路，无人能挡，无人能毁。",
+      "requirements": {
+        "ebrehel": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+
+    {
+      "id": "operate.mainthelastseven.cycle.1",
+      "label": "<i>第二步</i>",
+      "startdescription": "那怪物开始发出尖啸，而后幼妹聚集起来将我们团团包围。",
+      "requirements": {
+        "progression": 1
+      },
+      "slots": [
+          {
+            "id": "needsresponse",
+            "label": "应对",
+            "required": {
+                "weapon": 1
+            },
+            "forbidden": {
+                "exhausted": 1
+            }
+          }
+      ],
+      "alt": [
+        {
+          "id": "operate.mainthelastseven.cycle.1.unadvice"
+        },
+        {
+          "id": "operate.mainthelastseven.cycle.1.blind"
+        }
+      ],
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle.false"
+        }
+      ],
+      "warmup": 20
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.1.unadvice",
+      "label": "<i>第二步</i>",
+      "startdescription": "杀鸡焉用牛刀。",
+      "requirements": {
+        "weapon.yihulun": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.1.blind",
+      "label": "<i>第二步</i>",
+      "startdescription": "我劈开幼妹组成的怪物潮，从血海中杀出。",
+      "requirements": {
+        "weapon": 1,
+        "edge": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+
+    {
+      "id": "operate.mainthelastseven.cycle.0",
+      "label": "<i>第一步</i>",
+      "startdescription": "<i>七蟠</i>扭动着身躯，将身上的怪诞花纹扭曲折叠并展示给祂的敌人。",
+      "slots": [
+          {
+            "id": "needsresponse",
+            "label": "应对",
+            "required": {
+                "friend.blind": 1
+            }
+          }
+      ],
+      "alt": [
+        {
+          "id": "operate.mainthelastseven.cycle.0.blind"
+        }
+      ],
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle.false"
+        }
+      ],
+      "warmup": 20
+    },
+    {
+      "id": "operate.mainthelastseven.cycle.0.blind",
+      "label": "<i>第一步</i>",
+      "startdescription": "我已目盲，我无惧虬结。",
+      "requirements": {
+        "friend.blind": 1
+      },
+      "linked": [
+        {
+          "id": "operate.mainthelastseven.cycle"
+        }
+      ],
+      "effects": {
+        "progression": 1
+      }
+    },
+
+
+    {
+      "id": "produce.spirit_grailc_moth",
+      "actionid": "spit.heart",
+      "label": "天降使者",
+      "startdescription": "我听到了一些欢快的歌声，那些家伙一定在云上，或者是梦境的另一面。这些家伙像蠕虫一样不易察觉，好在它们是站在我们这边的。",
+      "description": "真不近人情，它们在催促我们离开，歌声越来越响亮。看来，后面的活儿用不着我参与了。",
+      "extantreqs": {
+        "underground.here": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "表皮的裂缝",
+          "required": {
+            "underground.here": 1
+          },
+          "greedy": true,
+          "consumes": true
+        }
+      ],
+      "haltverb": {
+          "enemyaction.*": 99
+      },
+      "linked": [
+        {
+          "id": "produce.spirit_grailc_moth"
+        },
+        {
+          "id": "produce.spirit_grailc_moth.end"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "produce.spirit_grailc_moth.end",
+      "label": "天降使者",
+      "startdescription": "我听到了一些欢快的歌声，那些家伙一定在云上，或者是梦境的另一面。这些家伙像蠕虫一样不易察觉，好在它们是站在我们这边的。",
+      "description": "真不近人情，它们在催促我们离开，歌声越来越响亮。看来，后面的活儿用不着我参与了。",
+      "deleteverb": {
+          "enemyaction.*": 99
+      },
+      "purge": {
+          "foe": 99,
+          "revivingthings": 99,
+          "side": 99,
+          "thelastseven.opening": 99
+      }
+    },
+
+    {
+      "id": "operate.produce.salt",
+      "actionId": "operate",
+      "label": "触碰尸体",
+      "startdescription": "那巨大的残骸随即化为齑粉，我想可能是因为裂缝被修复的原因，我派人把它们收集了起来，毕竟我们不可能把怪物尸体一起带走。",
+      "requirements": {
+          "corpse.thelastseven": 1
+      },
+      "aspects": {
+          "fatiguing": 1
+      },
+      "craftable": true,
+      "warmup": 10
+    },
+    {
+      "id": "abandon.produce.salt",
+      "actionId": "abandon",
+      "label": "触碰尸体",
+      "startdescription": "那巨大的残骸随即化为齑粉，我想可能是因为裂缝被修复的原因，我派人把它们收集了起来，毕竟我们不可能把怪物尸体一起带走。",
+      "requirements": {
+          "corpse.thelastseven": 1
+      },
+      "aspects": {
+          "fatiguing": 1
+      },
+      "craftable": true,
+      "warmup": 10
+    },
+
+    {
+      "id": "produce.mainthelastseven",
+      "actionid": "operate",
+      "label": "铲除七蟠尸身",
+      "startdescription": "机不可失！就是现在！",
+      "requirements": {
+          "thelastseven.opening": 7
+      },
+      "aspects": {
+          "fatiguing": 1
+      },
+      "effects": {
+        "main.thelastseven": 1
+      },
+      "craftable": true,
+      "warmup": 10
+    },
+    {
+      "id": "produce.mainthelastseven.hint",
+      "actionid": "operate",
+      "label": "铲除七蟠尸身？",
+      "startdescription": "不够，我需要更多！\n\n[这将使你领悟一种特殊仪式]",
+      "requirements": {
+          "thelastseven.opening": 1
+      },
+      "hintonly": true
+    },
+
+    {
+      "id": "banish.revivingthings.knock",
+      "actionid": "operate",
+      "label": "湮灭怪物最后的残余",
+      "startdescription": "有时，碾碎躁动的敌军需要两倍的努力。",
+      "description": "它们死了——这次，不会再复活了。",
+      "requirements": {
+          "revivingthings": 1,
+          "knock": 6,
+          "needsknock": 1
+      },
+      "aspects": {
+          "promotionto_d_knock": 1,
+          "fatiguing": 1
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "banish.revivingthings.moth",
+      "actionid": "operate",
+      "label": "湮灭怪物最后的残余",
+      "startdescription": "有时，碾碎躁动的敌军需要两倍的努力。",
+      "description": "它们死了——这次，不会再复活了。",
+      "requirements": {
+          "revivingthings": 1,
+          "moth": 6,
+          "needsmoth": 1
+      },
+      "aspects": {
+          "promotionto_d_moth": 1,
+          "fatiguing": 1
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "banish.revivingthings.lantern",
+      "actionid": "operate",
+      "label": "湮灭怪物最后的残余",
+      "startdescription": "有时，碾碎躁动的敌军需要两倍的努力。",
+      "description": "它们死了——这次，不会再复活了。",
+      "requirements": {
+          "revivingthings": 1,
+          "lantern": 6,
+          "needslantern": 1
+      },
+      "aspects": {
+          "promotionto_d_lantern": 1,
+          "fatiguing": 1
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "banish.revivingthings.winter",
+      "actionid": "operate",
+      "label": "湮灭怪物最后的残余",
+      "startdescription": "有时，碾碎躁动的敌军需要两倍的努力。",
+      "description": "它们死了——这次，不会再复活了。",
+      "requirements": {
+          "revivingthings": 1,
+          "winter": 6,
+          "needswinter": 1
+      },
+      "aspects": {
+          "promotionto_d_winter": 1,
+          "fatiguing": 1
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "banish.revivingthings.edge",
+      "actionid": "operate",
+      "label": "湮灭怪物最后的残余",
+      "startdescription": "有时，碾碎躁动的敌军需要两倍的努力。",
+      "description": "它们死了——这次，不会再复活了。",
+      "requirements": {
+          "revivingthings": 1,
+          "edge": 6,
+          "needsedge": 1
+      },
+      "aspects": {
+          "promotionto_d_edge": 1,
+          "fatiguing": 1
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "banish.revivingthings.edgelantern",
+      "actionid": "operate",
+      "label": "安息曾经的战友",
+      "startdescription": "我们动作迅速且致命——确保他们在此过程中不用承受太多的痛苦。",
+      "description": "在仪式的最后，一股清风吹过，我仿佛听到了他们的轻声道谢。",
+      "requirements": {
+          "revivingthings": 1,
+          "edge": 6,
+          "lantern": 6,
+          "needsedgelantern": 1
+      },
+      "aspects": {
+          "fatiguing": 1,
+          "promotionto_d_lantern": 1
+      },
+      "effects": {
+        "friend.corpses": 1
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "banish.revivingthings.edgemoth",
+      "actionid": "operate",
+      "label": "安息曾经的战友",
+      "startdescription": "我们动作迅速且致命——确保他们在此过程中不用承受太多的痛苦。",
+      "description": "在仪式的最后，一股清风吹过，我仿佛听到了他们的轻声道谢。",
+      "requirements": {
+          "revivingthings": 1,
+          "edge": 6,
+          "moth": 6,
+          "needsedgemoth": 1
+      },
+      "aspects": {
+          "fatiguing": 1,
+          "promotionto_d_moth": 1
+      },
+      "effects": {
+        "friend.corpses": 1
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+
+    {
+      "id": "attackenemy.moth.overwhelm.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用难料战术的压倒性袭击",
+      "startdescription": "灵巧地穿越森林地阴影，避开漏下的点点月光，我们将开展攻击。看他们该如何抵挡。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsmoth": 1,
+          "moth": "needsmoth"
+      },
+      "grandreqs": { "[moth]-[needsmoth]": 5 },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.lantern.overwhelm.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用无情战术的压倒性袭击",
+      "startdescription": "绝对的确定自上方降临。看他们该如何抵挡。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needslantern": 1,
+          "lantern": "needslantern"
+      },
+      "grandreqs": { "[lantern]-[needslantern]": 5 },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.heart.overwhelm.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用不休战术的压倒性袭击",
+      "startdescription": "前进，前进——血肉的鼓动催促我们不断向前。看他们该如何抵挡。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsheart": 1,
+          "heart": "needsheart"
+      },
+      "grandreqs": { "[heart]-[needsheart]": 5 },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+           "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.ap.overwhelm.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用特化武器的压倒性袭击",
+      "startdescription": "我们的枪炮将震撼大地，削去山头。看他们该如何抵挡。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "foe.armoured": 1,
+          "ap": "foe.armoured"
+      },
+      "grandreqs": { "[ap]-[foe.armoured]": 5 },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+           "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.edgelantern.overwhelm.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用双重战术的压倒性袭击",
+      "startdescription": "刃与灯是亲密的战友。看他们该如何抵挡。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsedgelantern": 1,
+          "edge": "needsedgelantern",
+          "lantern": "needsedgelantern",
+          "uqjerome": -1
+      },
+      "grandreqs": { 
+          "[edge]-[needsedgelantern]": 5,
+          "[lantern]-[needsedgelantern]": 5
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.edgewinter.overwhelm.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用双重战术的压倒性袭击",
+      "startdescription": "因此我们带去痛苦。看他们该如何抵挡。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsedgewinter": 1,
+          "edge": "needsedgewinter",
+          "winter": "needsedgewinter"
+      },
+      "grandreqs": { 
+          "[edge]-[needsedgewinter]": 5,
+          "[winter]-[needsedgewinter]": 5
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.edgeknock.overwhelm.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用双重战术的压倒性袭击",
+      "startdescription": "刃开启血肉，诞下伤口。看他们该如何抵挡。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsedgeknock": 1,
+          "edge": "needsedgeknock",
+          "knock": "needsedgeknock",
+          "uqlionel": -1
+      },
+      "grandreqs": { 
+          "[edge]-[needsedgeknock]": 5,
+          "[knock]-[needsedgeknock]": 5
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.edgegrail.overwhelm.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用双重战术的压倒性袭击",
+      "startdescription": "赤杯最为显著的本性为其折磨，而在折磨中痛苦与愉悦亲若兄弟。看他们该如何抵挡。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsedgegrail": 1,
+          "edge": "needsedgegrail",
+          "grail": "needsedgegrail",
+          "foe.ingluviate.engorged": -1
+      },
+      "grandreqs": { 
+          "[edge]-[needsedgegrail]": 5,
+          "[grail]-[needsedgegrail]": 5
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.edgemoth.overwhelm.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用双重战术的压倒性袭击",
+      "startdescription": "以耳贴地，以鼻向空。我们如猛兽般巡猎，如猛兽般袭击。看他们该如何抵挡。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsedgemoth": 1,
+          "edge": "needsedgemoth",
+          "moth": "needsedgemoth"
+      },
+      "extantreqs": {
+          "guard": -1
+      },
+      "grandreqs": { 	    
+          "[edge]-[needsedgemoth]": 5,
+          "[moth]-[needsedgemoth]": 5
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+           "id": "attackenemy.success"
+          }
+      ]
+    },
+
+    {
+      "id": "attackenemy.ap.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用特化武器的袭击",
+      "startdescription": "谈话到此为止。现在是时候让这些道具证明它们的价值了。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "foe.armoured": 1,
+          "ap": "foe.armoured"
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.complicate",
+            "chance": 30
+          },
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.edgelantern.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用双重战术的袭击",
+      "startdescription": "谈话到此为止。武力与光芒将助我们赢得胜利。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsedgelantern": 1,
+          "edge": "needsedgelantern",
+          "lantern": "needsedgelantern"
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.complicate",
+            "chance": 30
+          },
+          {
+           "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.edgewinter.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用双重战术的袭击",
+      "startdescription": "谈话到此为止。痛苦与耐心将助我们赢得胜利。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsedgewinter": 1,
+          "edge": "needsedgewinter",
+          "winter": "needsedgewinter"
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.complicate",
+            "chance": 30
+          },
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.edgeknock.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用双重战术的袭击",
+      "startdescription": "谈话到此为止。剑刃与钥匙将助我们赢得胜利。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsedgeknock": 1,
+          "edge": "needsedgeknock",
+          "knock": "needsedgeknock"
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.complicate",
+            "chance": 30
+          },
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.edgegrail.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用双重战术的袭击",
+      "startdescription": "谈话到此为止。此处存有对痛苦的胃口，而我将使其餍足。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsedgegrail": 1,
+          "edge": "needsedgegrail",
+          "grail": "needsedgegrail"
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.complicate",
+            "chance": 30
+          },
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.edgemoth.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用双重战术的袭击",
+      "startdescription": "谈话到此为止。现在，激情升于心，憎恨升于手。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsedgemoth": 1,
+          "edge": "needsedgemoth",
+          "moth": "needsedgemoth"
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.complicate",
+            "chance": 30
+          },
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.heart.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用不休战术的袭击",
+      "startdescription": "谈话到此为止。现在是时候开始一段永不休止的攻击了。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsheart": 1,
+          "heart": "needsheart"
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.complicate",
+            "chance": 30
+          },
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.moth.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用难料战术的袭击",
+      "startdescription": "谈话到此为止。现在是时候让欺骗与隐秘派上用场了。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needsmoth": 1,
+          "moth": "needsmoth"
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.complicate",
+            "chance": 30
+          },
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.lantern.restless",
+      "actionid": "operate",
+      "label": "筹划一次采用无情战术的袭击",
+      "startdescription": "谈话到此为止。现在是时候驱除阴影了。",
+      "requirements": {
+          "foe": 1,
+          "op.darklantern": 1,
+          "needslantern": 1,
+          "lantern": "needslantern"
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "attackenemy.complicate",
+            "chance": 30
+          },
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+
+    {
+      "id": "corrivality.cycle",
+      "linked$prepend": [
+          {
+            "id": "corrivality.halt.first"
+          }
+      ]
+    },
+    {
+      "id": "corrivality.change",
+      "linked$prepend": [
+          {
+            "id": "corrivality.halt.first"
+          }
+      ]
+    },
+    {
+      "id": "corrivality.turnexileadvantage",
+      "linked$prepend": [
+          {
+            "id": "corrivality.halt.first"
+          }
+      ]
+    },
+    {
+      "id": "corrivality.cycle.exile",
+      "linked$prepend": [
+          {
+            "id": "corrivality.halt.first"
+          }
+      ]
+    },
+    {
+      "id": "corrivality.turnfoeadvantage",
+      "linked$prepend": [
+          {
+            "id": "corrivality.halt.first"
+          }
+      ]
+    },
+    {
+      "id": "corrivality.cycle.foe",
+      "linked$prepend": [
+          {
+            "id": "corrivality.halt.first"
+          }
+      ]
+    },
+    {
+      "id": "corrivality.restore",
+      "linked$prepend": [
+          {
+            "id": "corrivality.halt.first"
+          }
+      ]
+    },
+    {
+      "id": "corrivality.restore.duel",
+      "linked$prepend": [
+          {
+            "id": "corrivality.halt.first"
+          }
+      ]
+    },
+    {
+      "id": "corrivality.halt.first",
+      "label": "纷争停滞",
+      "extantreqs": {
+        "underground.here": 1
+      },
+      "aspects": {
+        "nocraftable": 1
+      },
+      "effects": {
+        "nocraftable": 1
+      },
+      "linked": [
+          {
+            "id": "corrivality.halt"
+          }
+      ]
+    },
+    {
+      "id": "corrivality.halt",
+      "label": "纷争停滞",
+      "startdescription": "流亡者与大敌的斗争波纹无法传播至此处。\n\n[离开当前区域后将恢复]",
+      "extantreqs": {
+        "underground.here": 1
+      },
+      "warmup": 60,
+      "linked": [
+          {
+            "id": "corrivality.halt"
+          },
+          {
+            "id": "corrivality.halt.end"
+          }
+      ]
+    },
+    {
+      "id": "corrivality.halt.end",
+      "label": "纷争停滞",
+      "effects": {
+        "nocraftable": -99
+      },
+      "linked": [
+          {
+            "id": "corrivality.cycle"
+          }
+      ]
+    },
+
+    {
+      "id": "produce.thelastseven.opening",
+      "actionId": "produce.thelastseven.opening",
+      "label": "扫除障碍！",
+      "startdescription": "把这些拦路的怪物统统铲除！",
+      "extantreqs": {
+        "uqthelastseven": 1
+      },
+      "warmup": 10,
+      "effects": {
+        "thelastseven.opening": 1
+      }
+    },
+    {
+      "id": "produce.thelastseven.opening.uqthelastseven",
+      "actionId": "produce.thelastseven.opening",
+      "label": "扫除障碍！",
+      "startdescription": "把这些拦路的怪物统统铲除！",
+      "extantreqs": {
+        "uqthelastseven": 1
+      },
+      "warmup": 10,
+      "effects": {
+        "thelastseven.opening": 1
+      }
+    },
+
+    {
+      "id": "produce.curse.thelastseven",
+      "actionId": "enemyaction.restless.curse",
+      "label": "第七诅咒",
+      "startdescription": "怪物突然喉咙深处传来短促的呜咽声，仿佛正处于极度痛苦之中，扭动起它庞大的身躯……",
+      "warmup": 10,
+      "slots": [
+          {
+            "id": "needsally",
+            "label": "友军",
+            "required": {
+                "friend": 1
+            },
+            "forbidden": {
+                "friend.motherofants": 1
+            },
+            "greedy": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "produce.curse.thelastseven.defend"
+        }
+      ]
+    },
+    {
+      "id": "produce.curse.thelastseven.defend",
+      "label": "第七诅咒",
+      "startdescription": "随后我们中的一员便突然倒地，高烧不退，危在旦夕。\n\n[你需要足够强大的心影响，或者一位恰当司晨的庇护]",
+      "warmup": 30,
+      "aspects": {
+        "killmortal": 1
+      },
+      "slots": [
+          {
+            "id": "needsally",
+            "label": "应对",
+            "required": {
+                "influenceheartg": 1,
+                "op.thunderskin": 1
+            }
+          }
+      ],
+      "alt": [
+        {
+          "id": "produce.curse.thelastseven.defend.influenceheartg"
+        },
+        {
+          "id": "produce.curse.thelastseven.defend.op"
+        }
+      ],
+      "linked": [
+        {
+          "id": "produce.curse.thelastseven.defend.end"
+        }
+      ]
+    },
+    {
+      "id": "produce.curse.thelastseven.defend.influenceheartg",
+      "label": "第七诅咒",
+      "startdescription": "我们的力量足够强大，这诅咒无法缠住我们！",
+      "requirements": {
+        "influenceheartg": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      }
+    },
+    {
+      "id": "produce.curse.thelastseven.defend.op",
+      "label": "第七诅咒",
+      "startdescription": "我们的力量足够强大，这诅咒无法缠住我们！",
+      "requirements": {
+        "op": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      }
+    },
+    {
+      "id": "produce.curse.thelastseven.defend.end",
+      "label": "第七诅咒",
+      "startdescription": "他变成了他曾讨厌的东西。",
+      "aspects": {
+        "turnworm": 1
+      }
+    },
+
+    {
+      "id": "foe.restless.cycle",
+      "actionid": "enemyaction.restless.main",
+      "label": "敌军正蠢蠢欲动……",
+      "startdescription": "这块旷野上到处都是邪恶的怪物，但现在它们正四处游荡，也许它们还没注意到我们。",
+      "warmup": 30,
+      "effects": {
+          "readiness.token": 1
+      },
+      "linked": [
+          {
+            "id": "foe.restless.pickaction.router",
+            "chance": 40
+          },
+          {
+            "id": "foe.restless.cycle"
+          }
+      ],
+      "extantreqs": {
+          "faction.king": -1,
+          "faction.legion": -1,
+          "foe.huntingparty": -1,
+          "sobibor.here": -1
+      }
+    },
+    {
+      "id": "foe.restless.pickaction.router",
+      "label": "它们行动了！",
+      "startdescription": "迅速组织迎战！",
+      "warmup": 10,
+      "requirements": {
+          "readiness.token": 2
+      },
+      "effects": {
+          "readiness.token": -99
+      },
+      "internaldeck": {
+          "spec": [
+            "decision.enemy.singleattack",
+            "decision.enemy.singleattack",
+            "decision.enemy.singleattack",
+            "decision.enemy.singleattack",
+            "decision.enemy.hide",
+            "decision.enemy.hide"
+          ],
+          "draws": 1,
+          "defaultcard": "decision.enemy.singleattack",
+          "resetonexhaustion": true
+      },
+      "alt": [
+          {
+            "id": "foe.restless.reinforcements",
+            "chance": 40
+          }
+      ],
+      "linked": [
+          {
+            "id": "foe.restless.singleattack"
+          },
+          {
+            "id": "foe.restless.hide"
+          }
+      ]
+    },
+    {
+      "id": "foe.restless.reinforcements",
+      "label": "它们行动了！",
+      "startdescription": "迅速组织迎战！",
+      "extantreqs": {
+          "strife.tracker": 5,
+          "foe": -6
+      },
+      "effects": {
+          "readiness.token": 1
+      },
+      "alt": [
+          {
+            "id": "enemyaction.restless.reinforcements",
+            "additional": true,
+            "chance": 40
+          }
+      ],
+      "linked": [
+          {
+            "id": "foe.restless.cycle"
+          }
+      ]
+    },
+    {
+      "id": "foe.restless.hide",
+      "label": "它们行动了！",
+      "startdescription": "迅速组织迎战！",
+      "requirements": {
+          "decision.enemy.hide": 1
+      },
+      "effects": {
+          "decision.enemy.hide": -1,
+          "readiness.token": 1
+      },
+      "alt": [
+          {
+            "id": "enemyaction.restless.hide",
+            "additional": true
+          }
+      ],
+      "linked": [
+          {
+            "id": "foe.restless.cycle"
+          }
+      ]
+    },
+
+    {
+      "id": "foe.restless.singleattack",
+      "label": "它们行动了！",
+      "startdescription": "迅速组织迎战！",
+      "requirements": {
+          "decision.enemy.singleattack": 1
+      },
+      "effects": {
+          "decision.enemy.singleattack": -1
+      },
+      "alt": [
+          {
+            "id": "enemyaction.restless.thelastseven.attack",
+            "additional": true,
+            "chance": 40
+          },
+          {
+            "id": "enemyaction.restless.thelastseven.angry.attack",
+            "additional": true
+          },
+          {
+            "id": "foe.restless.doubleattack.startup",
+            "chance": 40
+          }
+      ],
+      "linked": [
+          {
+            "id": "foe.restless.singleattack.startup"
+          }
+      ]
+    },
+    {
+      "id": "foe.restless.singleattack.startup",
+      "label": "它们行动了！",
+      "startdescription": "迅速组织迎战！",
+      "alt": [
+          {
+            "id": "enemyaction.restless.singleattack",
+            "additional": true
+          }
+      ],
+      "linked": [
+          {
+            "id": "foe.restless.cycle"
+          }
+      ]
+    },
+    {
+      "id": "foe.restless.doubleattack.startup",
+      "label": "它们行动了！",
+      "startdescription": "迅速组织迎战！",
+      "extantreqs": {
+          "strife.tracker": 5
+      },
+      "alt": [
+          {
+            "id": "enemyaction.restless.doubleattack.one",
+            "additional": true
+          },
+          {
+            "id": "enemyaction.restless.doubleattack.another",
+            "additional": true
+          }
+      ],
+      "linked": [
+          {
+            "id": "foe.restless.cycle"
+          }
+      ]
+    },
+    
+    {
+      "id": "enemyaction.restless.reinforcements",
+      "actionId": "produce.monster",
+      "label": "更多的怪物抵达此处！",
+      "startdescription": "怪物因为此地的纷争被吸引而来，随即变为蠕虫的又一个晚餐。",
+      "requirements": {
+        "readiness.token": -2
+      },
+      "effects": {
+        "readiness.token": 1
+      },
+      "warmup": 15,
+      "internaldeck": {
+          "spec": [
+            "foe.restless.wisp",
+            "foe.restless.wisp",
+            "foe.restless.wisp",
+            "foe.restless.serpent",
+            "foe.restless.serpent",
+            "foe.restless.cross",
+            "foe.restless.worm",
+            "foe.restless.worm"
+          ],
+          "draws": 1,
+          "resetonexhaustion": true
+      },
+      "linked": [
+          {
+            "id": "enemyaction.restless.reinforcements",
+            "chance": 50
+          }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.hide",
+      "actionId": "enemyaction.hide",
+      "label": "怪物移动",
+      "startdescription": "有一个狡猾的怪物躲到碎石后消失了。",
+      "aspects": {
+        "concealidentity": 1
+      },
+      "warmup": 10,
+      "slots": [
+          {
+            "id": "needswasteland",
+            "label": "怪物",
+            "required": {
+                "foe": 1
+            },
+            "forbidden": {
+                "uqthelastseven": 1
+            },
+            "greedy": true
+          }
+      ]
+    },
+
+    {
+      "id": "enemyaction.irritable.startup",
+      "actionId": "enemyaction.single",
+      "label": "恼怒！",
+      "startdescription": "迅速组织迎战！",
+      "requirements": {
+        "foe.irritable": 1,
+        "uqthelastseven": -1
+      },
+      "aspects": {
+        "revealidentity": 1
+      },
+      "warmup": 10,
+      "linked": [
+        {
+          "id": "enemyaction.restless.singleattack.takeadditional"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.singleattack",
+      "actionId": "enemyaction.single",
+      "label": "怪物发动攻击！",
+      "startdescription": "迅速组织迎战！",
+      "aspects": {
+        "revealidentity": 1
+      },
+      "warmup": 10,
+      "slots": [
+          {
+            "id": "needswasteland",
+            "label": "怪物",
+            "required": {
+                "foe": 1
+            },
+            "forbidden": {
+                "uqthelastseven": 1
+            },
+            "greedy": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "enemyaction.restless.singleattack.takeadditional"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.doubleattack.one",
+      "actionId": "enemyaction.double.1",
+      "label": "怪物从两侧发动攻击！",
+      "startdescription": "迅速组织迎战！",
+      "aspects": {
+        "revealidentity": 1
+      },
+      "warmup": 10,
+      "slots": [
+          {
+            "id": "needswasteland",
+            "label": "怪物",
+            "required": {
+                "foe": 1
+            },
+            "forbidden": {
+                "uqthelastseven": 1
+            },
+            "greedy": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "enemyaction.restless.singleattack.takeadditional"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.doubleattack.another",
+      "actionId": "enemyaction.double.2",
+      "label": "怪物从两侧发动攻击！",
+      "startdescription": "迅速组织迎战！",
+      "aspects": {
+        "revealidentity": 1
+      },
+      "warmup": 10,
+      "slots": [
+          {
+            "id": "needswasteland",
+            "label": "怪物",
+            "required": {
+                "foe": 1
+            },
+            "forbidden": {
+                "uqthelastseven": 1
+            },
+            "greedy": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "enemyaction.restless.singleattack.takeadditional"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.singleattack.takeadditional",
+      "label": "怪物发动攻击！",
+      "startdescription": "迅速组织迎战！",
+      "aspects": {
+        "takeadditional": 1
+      },
+      "effects": {
+	      "decision.enemy.attack": 1
+	    },
+      "linked": [
+        {
+          "id": "defend.opportunity"
+        }
+      ]
+    },
+
+    {
+      "id": "enemyaction.irritable.uqthelastseven.startup",
+      "actionId": "enemyaction.restless.thelastseven.attack",
+      "label": "恼怒！",
+      "startdescription": "迅速组织迎战！",
+      "requirements": {
+        "uqthelastseven": 1,
+        "monster.wound": -2
+      },
+      "aspects": {
+        "revealidentity": 1
+      },
+      "warmup": 10,
+      "mutations": [
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgeknock",
+            "level": -16,
+            "additive": true
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgelantern",
+            "level": -16,
+            "additive": true
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgemoth",
+            "level": -16,
+            "additive": true
+          }
+      ],
+      "internaldeck": {
+          "spec": [
+            "attackthelastseven.1",
+            "attackthelastseven.1",
+            "attackthelastseven.2",
+            "attackthelastseven.3",
+            "attackthelastseven.1",
+            "attackthelastseven.2",
+            "attackthelastseven.3"
+          ],
+          "draws": 1,
+          "defaultcard": "attackthelastseven.1",
+          "resetonexhaustion": true
+      },
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.1"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.2"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.3"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.angry.attack",
+      "actionId": "enemyaction.restless.thelastseven.attack",
+      "label": "<i>七蟠余孽</i>意图攻击！",
+      "startdescription": "那恶心的怪物正扭动身躯。不好！快准备防御！",
+      "description": "它又挪动了一下，注意力从我们身上挪开了",
+      "aspects": {
+        "revealidentity": 1
+      },
+      "extantreqs": {
+        "foe.restless.thelastseven.angry": 1
+      },
+      "warmup": 10,
+      "slots": [
+          {
+            "id": "needsfoe",
+            "label": "怪物",
+            "required": {
+                "uqthelastseven": 1
+            },
+            "greedy": true
+          }
+      ],
+      "mutations": [
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgeknock",
+            "level": -16,
+            "additive": true
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgelantern",
+            "level": -16,
+            "additive": true
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgemoth",
+            "level": -16,
+            "additive": true
+          }
+      ],
+      "internaldeck": {
+          "spec": [
+            "attackthelastseven.1",
+            "attackthelastseven.1",
+            "attackthelastseven.2",
+            "attackthelastseven.3",
+            "attackthelastseven.1",
+            "attackthelastseven.2",
+            "attackthelastseven.3"
+          ],
+          "draws": 1,
+          "defaultcard": "attackthelastseven.1",
+          "resetonexhaustion": true
+      },
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.1"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.2"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.3"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack",
+      "actionId": "enemyaction.restless.thelastseven.attack",
+      "label": "<i>七蟠余孽</i>意图攻击！",
+      "startdescription": "那恶心的怪物正扭动身躯。不好！快准备防御！",
+      "description": "它又挪动了一下，注意力从我们身上挪开了",
+      "aspects": {
+        "revealidentity": 1
+      },
+      "warmup": 10,
+      "slots": [
+          {
+            "id": "needsfoe",
+            "label": "怪物",
+            "required": {
+                "uqthelastseven": 1
+            },
+            "greedy": true
+          }
+      ],
+      "mutations": [
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgeknock",
+            "level": -16,
+            "additive": true
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgelantern",
+            "level": -16,
+            "additive": true
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgemoth",
+            "level": -16,
+            "additive": true
+          }
+      ],
+      "internaldeck": {
+          "spec": [
+            "attackthelastseven.1",
+            "attackthelastseven.1",
+            "attackthelastseven.2",
+            "attackthelastseven.3",
+            "attackthelastseven.1",
+            "attackthelastseven.2",
+            "attackthelastseven.3"
+          ],
+          "draws": 1,
+          "defaultcard": "attackthelastseven.1",
+          "resetonexhaustion": true
+      },
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.1"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.2"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.3"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.1",
+      "label": "<i>七蟠余孽</i>意图攻击！",
+      "startdescription": "那怪物正将祂的大尾巴猛地甩向我们！",
+      "requirements": {
+        "attackthelastseven.1": 1,
+        "foe": 1
+      },
+      "warmup": 15,
+      "slots": [
+          {
+            "id": "needsresponse",
+            "label": "防御",
+            "required": {
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1
+            }
+          },
+          {
+            "id": "needsresponse2",
+            "label": "防御",
+            "required": {
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1
+            }
+          },
+          {
+            "id": "needsresponse3",
+            "label": "防御",
+            "required": {
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1
+            }
+          }
+      ],
+      "alt": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.deflect"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.edge"
+        }
+      ],
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.false"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.2",
+      "label": "<i>七蟠余孽</i>意图攻击！",
+      "startdescription": "那怪物正对着我们发出异常的尖啸！",
+      "requirements": {
+        "attackthelastseven.2": 1,
+        "foe": 1
+      },
+      "warmup": 30,
+      "slots": [
+          {
+            "id": "needsresponse",
+            "label": "防御",
+            "required": {
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1
+            }
+          },
+          {
+            "id": "needsresponse2",
+            "label": "防御",
+            "required": {
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1
+            }
+          },
+          {
+            "id": "needsresponse3",
+            "label": "防御",
+            "required": {
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1
+            }
+          }
+      ],
+      "alt": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.deflect"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.moth"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.winter"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.heart"
+        }
+      ],
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.false"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.3",
+      "label": "<i>七蟠余孽</i>意图攻击！",
+      "startdescription": "那怪物正张开祂的血盆大口向我们扑来！",
+      "requirements": {
+        "attackthelastseven.3": 1,
+        "foe": 1
+      },
+      "warmup": 30,
+      "slots": [
+          {
+            "id": "needsresponse",
+            "label": "防御",
+            "required": {
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1
+            }
+          },
+          {
+            "id": "needsresponse2",
+            "label": "防御",
+            "required": {
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1
+            }
+          },
+          {
+            "id": "needsresponse3",
+            "label": "防御",
+            "required": {
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1
+            }
+          }
+      ],
+      "alt": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.deflect"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.edgeknock"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.edgelantern"
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.edgegrail"
+        }
+      ],
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.false"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.deflect",
+      "label": "我之守御无可侵犯",
+      "startdescription": "我灵魂的中点与血肉的中点重合。我的伤疤即为装甲。我将不受创伤。",
+      "requirements": {
+          "skill.deflect": 1
+      },
+      "aspects": {
+          "killmortal": 1,
+          "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.turnlunatic"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.edge",
+      "label": "<i>七蟠余孽</i>被击退了！",
+      "startdescription": "我们的钢铁与火光组成的巨拳逆着猛地撞击回去！",
+      "requirements": {
+          "needsedge": 1,
+          "edge": "needsedge"
+      },
+      "aspects": {
+          "killmortal": 1,
+          "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.turnlunatic"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.moth",
+      "label": "<i>七蟠余孽</i>被击退了！",
+      "startdescription": "我们模糊与混淆了声音和我们之间的界限。",
+      "requirements": {
+          "needsmoth": 1,
+          "moth": "needsmoth"
+      },
+      "aspects": {
+          "killmortal": 1,
+          "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.turnlunatic"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.winter",
+      "label": "<i>七蟠余孽</i>被击退了！",
+      "startdescription": "我们屏息敛神，用无尽的寂静回应巨蛇。",
+      "requirements": {
+          "needswinter": 1,
+          "winter": "needswinter"
+      },
+      "aspects": {
+          "killmortal": 1,
+          "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.turnlunatic"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.heart",
+      "label": "<i>七蟠余孽</i>被击退了！",
+      "startdescription": "我们士气非凡，任何困难都吓不倒我们！",
+      "requirements": {
+          "needsheart": 1,
+          "heart": "needsheart"
+      },
+      "aspects": {
+          "killmortal": 1,
+          "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.turnlunatic"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.edgeknock",
+      "label": "<i>七蟠余孽</i>被击退了！",
+      "startdescription": "我们的士兵身经百战，伤疤遍布，伴随着划破天际的冲锋哨声，我们向着七蟠发起冲锋！",
+      "requirements": {
+          "needsedgeknock": 1,
+          "edge": "needsedgeknock",
+          "knock": "needsedgeknock"
+      },
+      "aspects": {
+          "killmortal": 1,
+          "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.turnlunatic"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.edgelantern",
+      "label": "<i>七蟠余孽</i>被击退了！",
+      "startdescription": "我们的士兵目光锐利，不可抵挡，伴随着响彻天际的冲锋声，我们向着七蟠发起冲锋！",
+      "requirements": {
+          "needsedgelantern": 1,
+          "edge": "needsedgelantern",
+          "lantern": "needsedgelantern"
+      },
+      "aspects": {
+          "killmortal": 1,
+          "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.turnlunatic"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.edgegrail",
+      "label": "<i>七蟠余孽</i>被击退了！",
+      "startdescription": "我们的士兵渴望杀戮，胜过怪物，伴随着无边无际的欲望，我们向着七蟠发起冲锋！",
+      "requirements": {
+          "needsedgegrail": 1,
+          "edge": "needsedgegrail",
+          "grail": "needsedgegrail"
+      },
+      "aspects": {
+          "killmortal": 1,
+          "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.turnlunatic"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.turnlunatic",
+      "label": "目睹虬结",
+      "startdescription": "目睹虬结之人会因承受不住其怪谲而毁灭……",
+      "aspects": {
+          "turnlunatic": 1
+      },
+      "mutations": [
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgeknock",
+            "level": 16,
+            "additive": true
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgelantern",
+            "level": 16,
+            "additive": true
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgemoth",
+            "level": 16,
+            "additive": true
+          }
+      ],
+      "alt": [
+          {
+            "id": "produce.strife",
+            "additional": true,
+            "chance": 65
+          }
+      ]
+    },
+    {
+      "id": "produce.trauma.corded",
+      "actionid": "despair",
+      "label": "目睹虬结",
+      "startdescription": "一股寒意爬上后背，我无法理解的文字和符号穿透了我的大脑，一种灵魂深处对其的排斥然我快速闭上眼睛——而这无用，图案已深入脑髓。",
+      "warmup": 10,
+      "requirements": {
+          "foe.corded": 1
+      },
+      "effects": {
+          "trauma": 1
+      },
+      "extantreqs": {
+          "friend.blind": -1
+      }
+    },
+
+    {
+      "id": "enemyaction.restless.thelastseven.attack.false",
+      "label": "<i>七蟠余孽</i>得手了",
+      "startdescription": "祂贪婪地吞咽着我们士兵的血肉，我们却无能为力。",
+      "warmup": 10,
+      "requirements": {
+          "readiness.token": -5
+      },
+      "effects": {
+          "readiness.token": 1
+      },
+      "slots": [
+          {
+            "id": "needswasteland",
+            "label": "友军",
+            "required": {
+                "friend": 1
+            },
+            "forbidden": {
+                "uqpolevaya": 1
+            },
+            "greedy": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.false",
+          "chance": 60
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.false.destroy",
+          "chance": 40
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.false.end"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.false.destroy",
+      "label": "<i>七蟠余孽</i>得手了",
+      "startdescription": "祂肆意地摧毁着我们的物资，我们却无能为力。",
+      "warmup": 10,
+      "requirements": {
+          "readiness.token": -5
+      },
+      "effects": {
+          "readiness.token": 1
+      },
+      "slots": [
+          {
+            "id": "needswasteland",
+            "label": "物资",
+            "required": {
+                "supplies": 1,
+                "weapon": 1
+            },
+            "forbidden": {
+                "hasebrehel": 1,
+                "damage.body": 1
+            },
+            "consumes": true,
+            "greedy": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "enemyaction.restless.thelastseven.attack.false.destroy",
+          "chance": 60
+        },
+        {
+          "id": "enemyaction.restless.thelastseven.attack.false.end"
+        }
+      ]
+    },
+    {
+      "id": "enemyaction.restless.thelastseven.attack.false.end",
+      "label": "<i>七蟠余孽</i>得手了",
+      "startdescription": "祂远去了，留下一片狼藉。",
+      "effects": {
+          "readiness.token": -5
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "killmortal": 1
+      },
+      "mutations": [
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgeknock",
+            "level": 16,
+            "additive": true
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgelantern",
+            "level": 16,
+            "additive": true
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgemoth",
+            "level": 16,
+            "additive": true
+          }
+      ],
+      "alt": [
+          {
+            "id": "produce.strife",
+            "additional": true,
+            "chance": 65
+          },
+          {
+            "id": "produce.wounds",
+            "additional": true,
+            "chance": 50
+          },
+          {
+            "id": "produce.trauma.corded",
+            "additional": true
+          }
+      ]
+    },
+
+
+
+    {
+      "id": "operate.weakenenemy.eye.startup",
+      "actionid": "operate",
+      "label": "使用目盲者之眼弱化敌军",
+      "startdescription": "我的眼已为凛冬，我能在沉默与寂静中观察这些生物的弱点。",
+      "requirements": {
+        "eye.serpent": 1,
+        "foe.restless": 1,
+        "provisions": -1,
+        "main": -1,
+        "side": -1,
+        "weakened": -1
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "weaken": 1
+      },
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "operate.weakenenemy.eye.hint",
+      "actionid": "operate",
+      "label": "使用目盲者之眼弱化敌军？",
+      "startdescription": "我的眼已为凛冬，我能在沉默与寂静中观察这些生物的弱点。",
+      "requirements": {
+        "eye.serpent": 1,
+        "provisions": -1,
+        "main": -1,
+        "side": -1,
+        "weakened": -1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "communicate.purple.turnwinter",
+      "actionid": "communicate",
+      "label": "使我目盲",
+      "startdescription": "少女亲吻了我尚好的那只眼，我的眼窝处传来一阵冰凉，随后我便无畏直视七蟠。\n\n[整局游戏中你只能这样做一次，此行动将产生一道残疾，并在离开当前战区时恢复]",
+      "extantreqs": {
+        "underground.here": 1
+      },
+      "requirements": {
+          "friend.tomori.priestess": 1,
+          "debilitation.eye.colonel": 1,
+          "wound.serpent.green": -1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "effects": {
+        "eye.serpent": 1
+      },
+      "maxexecutions": 1,
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "communicate.purple.turnwinter.hint",
+      "actionid": "communicate",
+      "label": "使我目盲？",
+      "startdescription": "我尚未处于需要这样做的险境中。\n\n[这需要在你身处险境中才能进行]",
+      "extantreqs": {
+        "underground.here": -1,
+        "eye.serpent": -1,
+        "eye.serpent.exhausted": -1
+      },
+      "requirements": {
+          "friend.tomori.priestess": 1,
+          "debilitation.eye.colonel": 1,
+          "wound.serpent.green": -1
+      },
+      "hintonly": true
+    },
+
+    {
+      "id": "travelling.cycle",
+      "linked$prepend": [
+          {
+            "id": "halt.travel.underground"
+          }
+      ]
+    },
+    {
+      "id": "travelling.cycle.makeprogress_forcesizesmall",
+      "linked$prepend": [
+          {
+            "id": "halt.travel.underground"
+          }
+      ]
+    },
+    {
+      "id": "travelling.cycle.makeprogress_forcesizemedium",
+      "linked$prepend": [
+          {
+            "id": "halt.travel.underground"
+          }
+      ]
+    },
+    {
+      "id": "travelling.cycle.makeprogress_forcesizelarge",
+      "linked$prepend": [
+          {
+            "id": "halt.travel.underground"
+          }
+      ]
+    },
+    {
+      "id": "travelling.cycle.complete",
+      "linked$prepend": [
+          {
+            "id": "halt.travel.underground"
+          }
+      ]
+    },
+    {
+      "id": "travelling.cycle.complete.remote",
+      "linked$prepend": [
+          {
+            "id": "halt.travel.underground"
+          }
+      ]
+    },
+    {
+      "id": "halt.travel.underground",
+      "label": "偏离行军路线",
+      "startdescription": "我将行军至荒芜之荒芜，我有使命在身。\n\n[解决荒野中的怪象后，我才能前往下一个地点]",
+      "extantreqs": {
+          "gotowasteland": 1
+      },
+      "effects": {
+        "progression": -1
+      },
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "travelling.cycle.complete.remote"
+          },
+          {
+            "id": "travelling.cycle.complete"
+          },
+          {
+            "id": "travelling.cycle"
+          },
+          {
+            "id": "halt.travel.underground"
+          }
+      ]
+    },
+
+    {
+      "id": "mobilize.shrinecolonel.wasteland_u",
+      "actionid": "mobilize",
+      "label": "检查雕像",
+      "previewDescription": "少女拉住了我的手，她产生了好奇。我随她绕行石像一周，在基座与雪泥之间掘开一小团阴影——里面是一柄断裂的匕首。再往下，是一节白骨。我打扰了一位已逝之人。",
+      "startdescription": "自泥土之下，已逝者轻声咒诉着，无论是选择服从还是挣扎，继续前进，我会与她别无二致。而后，我回应她，哪怕死亡与覆雪无所避免，为了守护什么，我也愿意去之战斗。 而后少女指向我手中，这幼蛇的尸体如何处置？",
+      "description": "我低头。匕首早已不知去向，掌中蜷着一条死去的幼蛇。泥土之下，不过蛇窝。简单祈祷后，我将其再次埋下。",
+      "requirements": {
+          "loc.shrine.colonel.wasteland_u.fake": 1
+      },
+      "effects": {
+        "loc.shrine.colonel.wasteland_u.fake": -1,
+        "loc.shrine.colonel.wasteland_u": 1
+      },
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "recon.wasteland.u.scouts",
+      "actionid": "recon",
+      "label": "搜索荒芜之地？",
+      "startdescription": "在这寂静、空旷的地区里，我们将找到什么？又有什么将找上我们？",
+      "extantreqs": {
+          "duel.wilhelm": -1
+      },
+      "requirements": {
+          "friend.scouts": 1,
+          "wasteland.u": 1
+      },
+      "aspects": {
+          "fatiguing": 1
+      },
+      "warmup": 30,
+      "craftable": true,
+      "internaldeck": {
+          "spec": [
+            "nothing",
+            "nothing",
+            "nothing",
+            "nothing",
+            "nothing",
+            "nothing",
+            "nothing",
+            "op.darklantern",
+            "op.darklantern",
+            "op.time.dawn",
+            "op.time.noon",
+            "op.time.sunset",
+            "op.time.night",
+            "foe.warrior",
+            "foe.undead",
+            "foe.growth",
+            "loc.shrine.colonel.wasteland_u.fake"
+          ],
+          "draws": 1,
+          "resetonexhaustion": true
+      },
+      "linked": [
+          {
+            "id": "recon.wasteland_u"
+          }
+      ],
+      "alt": [
+          {
+            "id": "uncover.enemy",
+            "additional": true,
+            "chance": 40
+          }
+      ]
+    },
+    {
+      "id": "recon.wasteland.u",
+      "actionid": "recon",
+      "label": "搜索荒芜之地？",
+      "startdescription": "在这寂静、空旷的地区里，我们将找到什么？又有什么将找上我们？",
+      "extantreqs": {
+          "duel.wilhelm": -1
+      },
+      "requirements": {
+          "wasteland.u": 1
+      },
+      "warmup": 60,
+      "craftable": true,
+      "internaldeck": {
+          "spec": [
+            "nothing",
+            "nothing",
+            "nothing",
+            "nothing",
+            "nothing",
+            "nothing",
+            "nothing",
+            "nothing",
+            "op.darklantern",
+            "op.darklantern",
+            "op.time.dawn",
+            "op.time.noon",
+            "op.time.sunset",
+            "op.time.night",
+            "foe.warrior",
+            "foe.undead",
+            "foe.growth",
+            "loc.shrine.colonel.wasteland_u.fake"
+          ],
+          "draws": 1,
+          "resetonexhaustion": true
+      },
+      "linked": [
+          {
+            "id": "recon.wasteland_u"
+          }
+      ],
+      "alt": [
+          {
+            "id": "uncover.enemy",
+            "additional": true,
+            "chance": 40
+          }
+      ]
+    },
+    {
+      "id": "recon.wasteland_u",
+      "label": "搜索荒芜之地？",
+      "startdescription": "在这寂静、空旷的地区里，我们将找到什么？又有什么将找上我们？",
+      "requirements": {
+        "loc.shrine.colonel.wasteland_u.fake": 1
+      },
+      "achievements": [
+          "achievements.fourteenth"
+      ]
+    },
+
+    {
+      "id": "recon.underground.scouts",
+      "actionid": "recon",
+      "label": "探索表皮的裂缝",
+      "startdescription": "越往深处走，阳光就越暗，大地的震颤就越发剧烈，怪物就越发亢奋。这里是世界裸露的表皮，是醒时与虚界本不应链接之处。",
+      "extantreqs": {
+          "duel.wilhelm": -1
+      },
+      "requirements": {
+          "friend.scouts": 1,
+          "underground.here": 1
+      },
+      "aspects": {
+          "fatiguing": 1
+      },
+      "warmup": 30,
+      "craftable": true,
+      "internaldeck": {
+          "spec": [
+            "op.darklantern",
+            "op.darklantern",
+            "op.darklantern",
+            "op.darklantern",
+            "op.darklantern",
+            "op.darklantern",
+            "op.darklantern",
+            "op.darklantern",
+            "side.underground",
+            "side.underground",
+            "side.underground",
+            "side.underground",
+            "op.madrugad",
+            "op.velvet",
+            "op.beachcomber",
+            "op.thecolonel",
+            "op.thelionsmith",
+            "op.wolfdivided",
+            "op.motherofants",
+            "op.thunderskin",
+            "foe.restless.wisp",
+            "foe.restless.wisp",
+            "foe.restless.wisp",
+            "foe.restless.serpent",
+            "foe.restless.serpent",
+            "foe.restless.cross",
+            "foe.restless.worm",
+            "foe.restless.worm",
+            "loc.shrine.colonel.wasteland_u.fake"
+          ],
+          "draws": 1,
+          "resetonexhaustion": true
+      },
+      "linked": [
+          {
+            "id": "recon.wasteland_u.underground"
+          }
+      ],
+      "alt": [
+          {
+            "id": "uncover.enemy",
+            "additional": true,
+            "chance": 40
+          }
+      ]
+    },
+    {
+      "id": "recon.underground",
+      "actionid": "recon",
+      "label": "探索表皮的裂缝",
+      "startdescription": "越往深处走，阳光就越暗，大地的震颤就越发剧烈，怪物就越发亢奋。这里是世界裸露的表皮，是醒时与虚界本不应链接之处。",
+      "extantreqs": {
+          "duel.wilhelm": -1
+      },
+      "requirements": {
+          "underground.here": 1
+      },
+      "warmup": 60,
+      "craftable": true,
+      "internaldeck": {
+          "spec": [
+            "op.darklantern",
+            "op.darklantern",
+            "op.darklantern",
+            "op.darklantern",
+            "op.darklantern",
+            "op.darklantern",
+            "op.darklantern",
+            "op.darklantern",
+            "side.underground",
+            "side.underground",
+            "side.underground",
+            "side.underground",
+            "op.madrugad",
+            "op.velvet",
+            "op.beachcomber",
+            "op.thecolonel",
+            "op.thelionsmith",
+            "op.wolfdivided",
+            "op.motherofants",
+            "op.thunderskin",
+            "foe.restless.wisp",
+            "foe.restless.wisp",
+            "foe.restless.wisp",
+            "foe.restless.serpent",
+            "foe.restless.serpent",
+            "foe.restless.cross",
+            "foe.restless.worm",
+            "foe.restless.worm",
+            "loc.shrine.colonel.wasteland_u.fake"
+          ],
+          "draws": 1,
+          "resetonexhaustion": true
+      },
+      "linked": [
+          {
+            "id": "recon.wasteland_u.underground"
+          }
+      ],
+      "alt": [
+          {
+            "id": "uncover.enemy",
+            "additional": true,
+            "chance": 40
+          }
+      ]
+    },
+    {
+      "id": "recon.wasteland_u.underground",
+      "label": "探索表皮的裂缝",
+      "startdescription": "越往深处走，阳光就越暗，大地的震颤就越发剧烈，怪物就越发亢奋。这里是世界裸露的表皮，是醒时与虚界本不应链接之处。",
+      "requirements": {
+        "loc.shrine.colonel.wasteland_u.fake": 1
+      },
+      "achievements": [
+          "achievements.fourteenth"
+      ]
+    },
+
+    {
+	    "id": "enemy.cycle",
+      "extantreqs$add": {
+          "foe.restless": -1,
+          "underground.here": -1
+      }
+    },
+    {
+      "id": "travelling.cycle.purge",
+      "furthermore": [
+          { 
+            "target": "~/exterior",
+            "effects": { 
+                "[warzone] && [sobibor]=0 && [underground]=0": -99,
+                "foe.bombers.refuel": -99,
+                "[op] && ![op.axe] && ![broodscent]": -99
+            } 
+          } 
+      ]
+    },
+    {
+      "id": "travel.warzone.sector.fromunderground",
+      "actionid": "mobilize",
+      "label": "偏离行军路线",
+      "startdescription": "命运等待着我们。出发吧。\n\n[一局游戏中只能做一次，你将前往表皮最脆弱的地方，且在将蠕虫之首斩除前无法离开。]\n\n[启程将终止你在当前战区的任何行动，并将任何敌军，障碍，次要目标与机会留在当前战区。你的旅程将会通过战火摧残的地区，即是说，那位于你现在位置与目的地之间的偏远、危险的废土。]",
+      "requirements": {
+          "provisions": 3,
+          "underground": 1
+      },
+      "effects": {
+          "gotowasteland": 1
+      },
+      "extantreqs": {
+          "wasteland": 1
+      },
+      "linked": [
+        {
+          "id": "travel.warzone.sector.fromunderground.cricle"
+        }
+      ],
+      "maxexecutions": 1,
+      "craftable": true
+    },
+    {
+      "id": "travel.warzone.sector.fromunderground.cricle",
+      "label": "偏离行军路线",
+      "startdescription": "命运等待着我们。出发吧。\n\n[一局游戏中只能做一次，你将前往表皮最脆弱的地方，且在将蠕虫之首斩除前无法离开。]\n\n[启程将终止你在当前战区的任何行动，并将任何敌军，障碍，次要目标与机会留在当前战区。你的旅程将会通过战火摧残的地区，即是说，那位于你现在位置与目的地之间的偏远、危险的废土。]",
+      "extantreqs": {
+          "wasteland": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "行军",
+          "required": {
+            "wasteland": 1
+          },
+          "greedy": true,
+          "consumes": true
+        }
+      ],
+      "alt": [
+        {
+          "id": "travel.warzone.sector.fromunderground.wasteland"
+        }
+      ],
+      "linked": [
+        {
+          "id": "travel.warzone.sector.fromunderground.cricle"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "travel.warzone.sector.fromunderground.wasteland",
+      "label": "偏离行军路线",
+      "startdescription": "命运等待着我们。出发吧。\n\n[一局游戏中只能做一次，你将前往表皮最脆弱的地方，且在将蠕虫之首斩除前无法离开。]\n\n[启程将终止你在当前战区的任何行动，并将任何敌军，障碍，次要目标与机会留在当前战区。你的旅程将会通过战火摧残的地区，即是说，那位于你现在位置与目的地之间的偏远、危险的废土。]",
+      "requirements": {
+          "wasteland": 1
+      },
+      "effects": {
+          "wasteland.u": 1
+      },
+      "alt": [
+        {
+          "id": "travelling.cycle.u",
+          "additional": true,
+          "expulsion": {
+              "limit": 2,
+              "filter": {
+                "warzone": 1,
+                "gotowasteland": 1
+              }
+          }
+        }
+      ]
+    },
+    {
+      "id": "travelling.cycle.u",
+      "actionid": "ticktock.u",
+      "label": "行军中……",
+      "startdescription": "我们的脚步整齐划一。疲惫告知我们仍活着。\n\n[当你在战火摧残的地区行军时会积累进度，当你带领的部队规模过大时进度的积累会更慢。只要进度积累至三，你就会得到前进至下一个战区的机会。若你的目的地具有遥远，进度则需要积累至四。]",
+      "warmup": 60,
+      "extantreqs": {
+          "duel.wilhelm": -1
+      },
+      "linked": [
+          {
+        "id": "halt.travel.duel.u"
+          },
+          {
+        "id": "travelling.cycle.complete.u"
+          },
+          {
+        "id": "travelling.cycle.makeprogress_forcesizesmall.u",
+        "chance": 70
+          },
+          {
+        "id": "travelling.cycle.makeprogress_forcesizemedium.u",
+        "chance": 40
+          },
+          {
+        "id": "travelling.cycle.makeprogress_forcesizelarge.u",
+        "chance": 25
+          },
+          {
+        "id": "travelling.cycle.u"
+          }
+      ]
+    },
+    {
+      "id": "travelling.cycle.makeprogress_forcesizesmall.u",
+      "label": "行军的进展",
+      "startdescription": "我们在地图上标记我们已走过的路。现在我们离目的地更近了。\n\n[你获得了进度。]",
+      "requirements": {
+          "forcesize": -7
+      },
+      "effects": {
+          "progression": 1
+      },
+      "linked": [
+          {
+        "id": "halt.travel.duel.u"
+          },
+          {
+        "id": "travelling.cycle.complete.u"
+          },
+          {
+        "id": "travelling.cycle.u"
+          }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "travelling.cycle.makeprogress_forcesizemedium.u",
+      "label": "行军的进展",
+      "startdescription": "我们在地图上标记我们已走过的路。现在我们离目的地更近了。\n\n[你获得了进度。]",
+      "requirements": {
+          "forcesize": -13
+      },
+      "effects": {
+          "progression": 1
+      },
+      "linked": [
+          {
+        "id": "halt.travel.duel.u"
+          },
+          {
+        "id": "travelling.cycle.complete.u"
+          },
+          {
+        "id": "travelling.cycle.u"
+          }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "travelling.cycle.makeprogress_forcesizelarge.u",
+      "label": "行军的进展",
+      "startdescription": "我们在地图上标记我们已走过的路。现在我们离目的地更近了。\n\n[你获得了进度。]",
+      "effects": {
+          "progression": 1
+      },
+      "linked": [
+          {
+        "id": "halt.travel.duel.u"
+          },
+          {
+        "id": "travelling.cycle.complete.u"
+          },
+          {
+        "id": "travelling.cycle.u"
+          }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "travelling.cycle.complete.u",
+      "label": "踏入不祥之地？",
+      "startdescription": "行军即将结束——是时候出发了。\n\n[当进度积累至三，你就可以前进至下一个战区。若你选择折返至战火摧残的地区，进度将可能消失，而你需要再次等待其积累至三。]",
+      "requirements": {
+          "progression": 3,
+          "distant": -1
+      },
+      "extantreqs": {
+          "duel.wilhelm": -1
+      },
+      "slots": [
+          {
+        "id": "needswasteland",
+        "label": "启程？",
+        "description": "我们现在身处何处？又将前往何处？",
+        "required": {
+            "warzone.current": 1
+        },
+        "consumes": true
+          }
+      ],
+      "linked": [
+          {
+        "id": "halt.travel.duel.u"
+          },
+          {
+        "id": "travelling.cycle.downgrade.u",
+        "chance": 50
+          },
+          {
+        "id": "travelling.cycle.complete.u"
+          }
+      ],
+      "alt": [
+          {
+        "id": "travelling.cycle.complete.haltverbs.u"
+          }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "travelling.cycle.downgrade.u",
+      "label": "再一次，回到原点",
+      "startdescription": "我们向后方移动。我想，得再要几天——我们需要在这饱受轰炸、空无一人的荒野再花几天以搜寻某物。\n\n[你丢失了进度。]",
+      "effects": {
+          "progression": -1
+      },
+      "linked": [
+          {
+        "id": "travelling.cycle.u"
+          }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "travelling.cycle.complete.haltverbs.u",
+      "label": "踏入不祥之地",
+      "startdescription": "离开，从这个寸草不生的地方离开——",
+      "extantreqs": {
+          "duel.wilhelm": -1
+      },
+      "requirements": {
+          "warzone.current": 1
+      },
+      "haltverb": {
+          "operate": 1,
+          "abandon": 1,
+          "recon": 1,
+          "communicate": 1,
+          "mobilize": 1,
+          "main": 99,
+          "side": 99,
+          "side.2": 99,
+          "side.3": 99,
+          "resupply": 99,
+          "hindrances.verb": 99,
+          "enemyaction": 99,
+          "enemyaction.single": 99,
+          "enemyaction.double.1": 99,
+          "enemyaction.double.2": 99,
+          "enemyaction.cutoff": 99,
+          "enemyaction.destroysupplies": 99,
+          "enemyaction.hide": 99,
+          "enemyaction.infrastructure": 99,
+          "enemyaction.reinforcements": 99,
+          "enemyaction.niniame": 99,
+          "friend.verb": 99,
+          "fatality": 99,
+          "spit.*": 99,
+          "long.wilhelm": 99,
+          "long.sergei": 99,
+          "long.camilla": 99,
+          "explorevault_casualty": 99,
+          "edgelong.wounds": 99,
+          "action.legion": 99,
+          "action.king": 99,
+          "produce.monster": 99,
+          "disgruntle": 99,
+          "marinettearrival": 99,
+          "huntingparty": 99
+      },
+      "linked": [
+          {
+        "id": "travelling.cycle.complete.purge.u"
+          }
+      ]
+    },
+    {
+      "id": "travelling.cycle.complete.purge.u",
+      "label": "踏入不祥之地",
+      "startdescription": "离开，从这个寸草不生的地方离开——",
+      "deleteverb": {
+          "side": 99,
+          "side.2": 99,
+          "side.3": 99,
+          "resupply": 99,
+          "hindrances.verb": 99,
+          "enemyaction": 99,
+          "enemyaction.single": 99,
+          "enemyaction.double.1": 99,
+          "enemyaction.double.2": 99,
+          "enemyaction.cutoff": 99,
+          "enemyaction.destroysupplies": 99,
+          "enemyaction.hide": 99,
+          "enemyaction.infrastructure": 99,
+          "enemyaction.reinforcements": 99,
+          "friend.verb": 99,
+          "fatality": 99,
+          "spit.*": 99,
+          "long.wilhelm": 99,
+          "long.sergei": 99,
+          "long.camilla": 99,
+          "explorevault_casualty": 99,
+          "edgelong.wounds": 99,
+          "action.legion": 99,
+          "action.king": 99,
+          "produce.monster": 99
+      },
+      "purge": {
+          "foe.bombers.refuel": 99,
+          "objective": 99,
+          "location": 99,
+          "hindrance": 99,
+          "warzone.current": 99,
+          "foe": 99,
+          "strife": 99,
+          "side": 99,
+          "infrastructure": 99,
+          "infrastructure.destroyed": 99,
+          "local": 99,
+          "warzone.current": 99
+      },
+      "aspects": {
+          "arriving": 1
+      },
+      "linked": [
+          {
+        "id": "travelling.cycle.arriving.two.u"
+          }
+      ]
+    },
+    {
+      "id": "travelling.cycle.arriving.two.u",
+      "label": "踏入不祥之地",
+      "startdescription": "离开，从这个寸草不生的地方离开——",
+      "aspects": {
+          "arriving.two": 1
+      },
+      "linked": [
+          {
+        "id": "travelling.cycle.complete.exit.u"
+          }
+      ]
+    },
+    {
+      "id": "travelling.cycle.complete.exit.u",
+      "actionid": "ticktock",
+      "label": "踏入不祥之地",
+      "startdescription": "离开，从这个寸草不生的地方离开——",
+      "description": "——不完成使命誓不撤退。\n\n<i>“那蛇的邪恶教义，他试图强加于人，将安宁的社群撕裂，引发纷争与裂痕。鬼魂般的士兵在深夜悄然到来，以火力与威势，迎战那邪恶的蛇怪。”——《蛇》</i>",
+      "effects": {
+          "wasteland.a": -1,
+          "wasteland.b": -1,
+          "wasteland.u": -1
+      },
+      "alt": [
+        {
+          "id": "foe.restless.cycle",
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "halt.travel.duel.u",
+      "label": "在斗争之司辰的注视下",
+      "startdescription": "根据<i>狮鼠之斗</i>仪式的古老规则，我有义务坚守阵线，否则我将引来耻辱与消灭。我将停留于此地，直到我取得胜利或惨遭击败。",
+      "extantreqs": {
+          "duel.marker": 1
+      },
+      "warmup": 30,
+      "linked": [
+          {
+        "id": "travelling.cycle.complete.remote.u"
+          },
+          {
+        "id": "travelling.cycle.complete.u"
+          },
+          {
+        "id": "travelling.cycle.u"
+          },
+          {
+        "id": "halt.travel.duel.u"
+          }
+      ]
+    },
+
+
+    {
+      "id": "travel.warzone.sector.fromunderground.hint",
+      "actionid": "mobilize",
+      "label": "过于遥远？",
+      "startdescription": "这一地点在荒野外的荒野，若我想到达此地，我也必须从荒野出发。",
+      "requirements": {
+          "warzone": 1,
+          "underground": 1
+      },
+      "$priority": 3,
+      "extantreqs": {
+          "wasteland": -1
+      },
+      "hintonly": true
+    }
+  ]
+}

@@ -1,0 +1,698 @@
+{
+  "recipes": [
+    {
+      "id": "operate.church.edge",
+      "alt$prepend": [
+          {
+            "id": "produce.motherofantschurch",
+            "additional": true,
+            "chance": 30
+          }
+      ]
+    },
+
+    {
+      "id": "find.marinettehungry",
+      "actionid": "exclaim.sh",
+      "label": "欲望与苦痛",
+      "startdescription": "赤杯，蔑视矛盾，于是战场鲜少被赤杯祝福，赤杯，对矛盾宽容以待，于是士兵有时也欲望高涨。有一位拉吉亚之女再次光临基铺，而这次，战争让她的狩猎更加困难了。",
+      "effects": {
+          "op.marinettehungry": 1
+      },
+      "warmup": 10,
+      "maxexecutions": 1
+    },
+    {
+      "id": "recon.kyiv.scouts",
+      "alt$prepend": [
+          {
+            "id": "find.marinettehungry",
+            "additional": true,
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "recon.kyiv",
+      "alt$prepend": [
+          {
+            "id": "find.marinettehungry",
+            "additional": true,
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "recon.smolensk.scouts",
+      "alt$prepend": [
+          {
+            "id": "produce.serpent.church",
+            "additional": true,
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "recon.smolensk",
+      "alt$prepend": [
+          {
+            "id": "produce.serpent.church",
+            "additional": true,
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "recon.vyazma.scouts",
+      "alt$prepend": [
+          {
+            "id": "produce.serpent.church",
+            "additional": true,
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "recon.vyazma",
+      "alt$prepend": [
+          {
+            "id": "produce.serpent.church",
+            "additional": true,
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "recon.bryansk.scouts",
+      "alt$prepend": [
+          {
+            "id": "produce.serpent.church",
+            "additional": true,
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "recon.bryansk",
+      "alt$prepend": [
+          {
+            "id": "produce.serpent.church",
+            "additional": true,
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "visit.shrinecolonel.contemplation",
+      "requirements$add": {
+          "mission.tomoriserpent.a": -1,
+          "mission.tomoriserpent.b": -1,
+          "pillar.serpent.green": -1,
+          "pillar.serpent.purple": -1
+      }
+    },
+    {
+      "id": "visit.shrinecolonel.contemplation.hint",
+      "actionid": "mobilize",
+      "label": "在铁之神祠寻求建议？",
+      "startdescription": "我不该向军人询问一位少女的心事。",
+      "requirements": {
+          "shrinecolonel": 1,
+          "contemplation": 1,
+          "promise": -1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "recon.wasteland.a",
+      "requirements$add": {
+          "uqpolevaya": -1
+      }
+    },
+    {
+      "id": "recon.wasteland.b",
+      "requirements$add": {
+          "uqpolevaya": -1
+      }
+    },
+    {
+	  "id": "attack.nodefense",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "uqpolevaya": 1 }
+			}
+		}
+    },
+    {
+	  "id": "attack.nodefense.second",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "uqpolevaya": 1 }
+			}
+		}
+    },
+    {
+	  "id": "spit.nospace.penalty",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.dwelling": 1 }
+			}
+		}
+    },
+    {
+      "id": "hint.getreinforcements.lake",
+      "requirements$add": {
+          "uqpolevaya": -1
+      }
+    },
+    {
+      "id": "hint.getreinforcements.noroom",
+      "requirements$add": {
+          "uqpolevaya": -1
+      }
+    },
+    {
+      "id": "getreinforcements.withcomms",
+      "requirements$add": {
+          "uqpolevaya": -1
+      }
+    },
+    {
+      "id": "getreinforcements.nocomms",
+      "requirements$add": {
+          "uqpolevaya": -1
+      }
+    },
+
+    {
+      "id": "attackenemy.grail.overwhelm",
+      "linked$prepend": [
+          {
+            "id": "attackenemy.success.serpentgrail.proterant"
+          },
+          {
+            "id": "attackenemy.success.serpentgrail"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.grail",
+      "linked": [
+          {
+            "id": "attackenemy.complicate",
+            "chance": 30
+          },
+          {
+            "id": "attackenemy.success.serpentgrail.proterant"
+          },
+          {
+            "id": "attackenemy.success.serpentgrail"
+          },
+          {
+            "id": "attackenemy.success.warriorgrail"
+          },
+          {
+           "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.success",
+      "alt$prepend": [
+          {
+            "id": "enemyaction.irritable.uqthelastseven.startup",
+            "additional": true,
+            "expulsion": {
+              "filter": {
+                "foe.irritable": 1
+              },
+              "limit": 1
+            }
+          },
+          {
+            "id": "produce.thelastseven.opening",
+            "additional": true,
+            "chance": 50
+          },
+          {
+            "id": "produce.thelastseven.opening.uqthelastseven",
+            "additional": true
+          }
+      ],
+      "linked$prepend": [
+          {
+            "id": "uqthelastseven.slain"
+          }
+      ]
+    },
+    {
+      "id": "uqthelastseven.slain",
+      "label": "强弩之末",
+      "startdescription": "那怪物舔舐着自己的伤口，朝天发出似悲鸣似怒号的嘶哑之声，愤怒的毁灭一切祂所见所闻所听所触。",
+      "requirements": {
+          "uqthelastseven": 1,
+          "monster.wound": 3
+      },
+      "mutations": [
+          {
+            "filter": "uqthelastseven",
+            "mutate": "wound.thelastseven",
+            "level": 1
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgeknock",
+            "level": -16,
+            "additive": true
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgelantern",
+            "level": -16,
+            "additive": true
+          },
+          {
+            "filter": "uqthelastseven",
+            "mutate": "needsedgemoth",
+            "level": -16,
+            "additive": true
+          }
+      ],
+      "linked": [
+          {
+        "id": "clear.bloodlust"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.success.serpentgrail",
+      "label": "胜利！",
+      "startdescription": "战争对环境的破坏让幼妹不得不出来觅食，如果我们能，赤红技艺的诱惑让我们拥有满足它的手段，故它将会吞食我们为它准备好的任何“食物”，而非吞食我们。",
+      "aspects": {
+          "dissolutione": 1,
+          "fatiguing": 1
+      },
+      "requirements": {
+          "foe.serpent": 1,
+          "grail": 8
+      }
+    },
+    {
+      "id": "attackenemy.success.serpentgrail.proterant",
+      "label": "胜利！",
+      "startdescription": "战争对环境的破坏让幼妹不得不出来觅食，如果我们能，赤红技艺的诱惑让我们拥有满足它的手段，故它将会吞食我们为它准备好的任何“食物”，而非吞食我们。",
+      "aspects": {
+          "dissolutione": 1,
+          "fatiguing": 1
+      },
+      "requirements": {
+          "foe.serpent": 1,
+          "grail": 8
+      },
+      "extantreqs": {
+        "proterant.story": 1
+      },
+      "slots": [
+        {
+          "id": "needsally",
+          "label": "回忆",
+          "required": {
+            "knock": 1
+          },
+          "consumes": true
+        }
+      ],
+      "alt": [
+        {
+          "id": "attackenemy.success.serpentgrail.proterant.knock"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "attackenemy.success.serpentgrail.proterant",
+      "label": "胜利！",
+      "startdescription": "战争对环境的破坏让幼妹不得不出来觅食，如果我们能，赤红技艺的诱惑让我们拥有满足它的手段，故它将会吞食我们为它准备好的任何“食物”，而非吞食我们。",
+      "aspects": {
+          "dissolutione": 1,
+          "fatiguing": 1
+      },
+      "requirements": {
+          "foe.serpent": 1,
+          "grail": 8
+      },
+      "extantreqs": {
+        "proterant.story": 1
+      },
+      "slots": [
+        {
+          "id": "needsally",
+          "label": "回忆",
+          "required": {
+            "knock": 1
+          },
+          "essential": {
+            "influence": 1
+          },
+          "consumes": true
+        }
+      ],
+      "alt": [
+        {
+          "id": "attackenemy.success.serpentgrail.proterant.knock"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "attackenemy.success.serpentgrail.proterant.knock",
+      "label": "让幼妹陷入回忆",
+      "startdescription": "趁着这个它大快朵颐之时，我在周围施加了些许启的影响，随后它进食的动作停了下来，开始用它的眼睛盯着我。",
+      "aspects": {
+          "dissolution": 1,
+          "fatiguing": 1
+      },
+      "requirements": {
+          "knock": 1,
+          "influence": 1
+      }
+    },
+
+    {
+      "id": "produce.motherofantschurch",
+      "actionid": "spit.knock",
+      "label": "渎神之罪",
+      "startdescription": "教堂乃神圣之地，神谕祭司将惩罚任何亵渎此地之人。\n\n[占领教堂时可能会招致蚁母的恶意]",
+      "effects": {
+        "hindrance.motherofants": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "produce.motherofantshindrance",
+      "actionid": "spit.knock",
+      "label": "长姊庇护幼妹",
+      "startdescription": "长姊和幼妹的关系并没有听上去的那样亲密，但两者毕竟是血亲，蚁母的神力将会回应它。\n\n[幼妹行动时可能会招致蚁母的恶意]",
+      "extantreqs": {
+        "obdurant.story": -1
+      },
+      "effects": {
+        "hindrance.motherofants": 1
+      },
+      "warmup": 10
+    },
+
+    {
+      "id": "heal.poison",
+      "actionid": "abandon",
+      "label": "以毒攻毒",
+      "startdescription": "毒液被稀释后需分七次涂抹在蛇咬处。治疗者还需洞开自己并辅以神圣的祷告。",
+      "$priority": 3,
+      "requirements": {
+        "supplies.serpent.knock": 1,
+        "friend.poisoning": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "effects": {
+        "supplies.serpent.knock": -1
+      },
+      "mutations": [
+          {
+            "filter": "friend.poisoning",
+            "mutate": "edge",
+            "level": 2,
+            "additive": true
+          },
+          {
+            "filter": "friend",
+            "mutate": "friend.poisoning",
+            "level": 0
+          }
+      ],
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "heal.poison.hint",
+      "actionid": "abandon",
+      "label": "尝试治愈一名中毒的友军？",
+      "startdescription": "蚁母是谋杀者也是治愈者，她对治疗和下毒同等了解，我们或许可以利用祂的力量解我们的燃眉之急。",
+      "requirements": {
+        "supplies.serpent.knock": 1
+      },
+      "hintonly": true
+    },
+
+    {
+      "id": "resilient.survived",
+      "alt": [
+          {
+            "id": "enemyaction.irritable.uqthelastseven.startup",
+            "additional": true,
+            "expulsion": {
+              "filter": {
+                "foe.irritable": 1
+              },
+              "limit": 1
+            }
+          },
+          {
+            "id": "enemyaction.irritable.startup",
+            "additional": true,
+            "expulsion": {
+              "filter": {
+                "foe.irritable": 1
+              },
+              "limit": 1
+            }
+          }
+      ]
+    },
+    {
+      "id": "braced.survived",
+      "alt": [
+          {
+            "id": "enemyaction.irritable.uqthelastseven.startup",
+            "additional": true,
+            "expulsion": {
+              "filter": {
+                "foe.irritable": 1
+              },
+              "limit": 1
+            }
+          },
+          {
+            "id": "enemyaction.irritable.startup",
+            "additional": true,
+            "expulsion": {
+              "filter": {
+                "foe.irritable": 1
+              },
+              "limit": 1
+            }
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.failure",
+      "linked$prepend": [
+          {
+            "id": "attackenemy.failure.worm"
+          },
+          {
+            "id": "attackenemy.failure.serpent"
+          }
+      ],
+      "alt": [
+          {
+            "id": "enemyaction.irritable.uqthelastseven.startup",
+            "additional": true,
+            "expulsion": {
+              "filter": {
+                "foe.irritable": 1
+              },
+              "limit": 1
+            }
+          },
+          {
+            "id": "enemyaction.irritable.startup",
+            "additional": true,
+            "expulsion": {
+              "filter": {
+                "foe.irritable": 1
+              },
+              "limit": 1
+            }
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.failure.worm",
+      "label": "感染！",
+      "startdescription": "可憎的蠕虫钻入了我们士兵的皮下！",
+      "requirements": {
+          "foe.restless.worm": 1
+      },
+      "aspects": {
+          "killmortal": 1
+      },
+      "linked": [
+        {
+          "id": "attackenemy.failure.worm.end"
+        }
+      ]
+    },
+    {
+      "id": "attackenemy.failure.worm.end",
+      "label": "感染！",
+      "startdescription": "可憎的蠕虫钻入了我们士兵的皮下！",
+      "aspects": {
+          "turnworm": 1
+      }
+    },
+    {
+      "id": "attackenemy.failure.serpent",
+      "label": "七步蛇",
+      "startdescription": "巨蛇并未放过我们，它使我们洞开，随后蚁母自其中现身。",
+      "requirements": {
+          "foe.poison": 1
+      },
+      "aspects": {
+	        "makecasualty": 1
+      },
+      "mutations": [
+          {
+            "filter": "friend.poisoning",
+            "mutate": "edge",
+            "level": 2,
+            "additive": true
+          },
+          {
+            "filter": "friend",
+            "mutate": "friend.poisoning",
+            "level": 1
+          },
+          {
+            "filter": "friend.poisoning",
+            "mutate": "edge",
+            "level": -2,
+            "additive": true
+          },
+          {
+            "filter": "uqpolevaya",
+            "mutate": "friend.poisoning",
+            "level": 0
+          }
+      ]
+    },
+    {
+      "id": "attack.conclude",
+      "linked$prepend": [
+          {
+            "id": "attack.conclude.worm"
+          },
+          {
+            "id": "attack.conclude.serpent"
+          }
+      ]
+    },
+    {
+      "id": "attack.conclude.worm",
+      "label": "感染！",
+      "startdescription": "可憎的蠕虫钻入了我们士兵的皮下！",
+      "requirements": {
+           "foe.restless.worm": 1
+      },
+      "aspects": {
+          "killmortal": 1
+      },
+      "linked": [
+        {
+          "id": "attack.conclude.worm.end"
+        }
+      ]
+    },
+    {
+      "id": "attack.conclude.worm.end",
+      "label": "感染！",
+      "startdescription": "可憎的蠕虫钻入了我们士兵的皮下！",
+      "aspects": {
+          "turnworm": 1
+      }
+    },
+    {
+      "id": "attack.conclude.serpent",
+      "label": "七步蛇",
+      "startdescription": "巨蛇并未放过我们，它使我们洞开，随后蚁母自其中现身。",
+      "requirements": {
+          "foe.poison": 1
+      },
+      "mutations": [
+          {
+            "filter": "friend.poisoning",
+            "mutate": "edge",
+            "level": 2,
+            "additive": true
+          },
+          {
+            "filter": "friend",
+            "mutate": "friend.poisoning",
+            "level": 1
+          },
+          {
+            "filter": "friend.poisoning",
+            "mutate": "edge",
+            "level": -2,
+            "additive": true
+          },
+          {
+            "filter": "uqpolevaya",
+            "mutate": "friend.poisoning",
+            "level": 0
+          }
+      ]
+    },
+    {
+	    "id": "encounteradditional.failure",
+      "linked$prepend": [
+          {
+            "id": "encounteradditional.failure.serpent"
+          }
+      ]
+    },
+    {
+      "id": "encounteradditional.failure.serpent",
+      "label": "七步蛇",
+      "startdescription": "巨蛇并未放过我们，它使我们洞开，随后蚁母自其中现身。",
+      "requirements": {
+          "foe.poison": 1
+      },
+      "mutations": [
+          {
+            "filter": "friend.poisoning",
+            "mutate": "edge",
+            "level": 2,
+            "additive": true
+          },
+          {
+            "filter": "friend",
+            "mutate": "friend.poisoning",
+            "level": 1
+          },
+          {
+            "filter": "friend.poisoning",
+            "mutate": "edge",
+            "level": -2,
+            "additive": true
+          },
+          {
+            "filter": "uqpolevaya",
+            "mutate": "friend.poisoning",
+            "level": 0
+          }
+      ]
+    }
+  ]
+}

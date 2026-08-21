@@ -1,0 +1,220 @@
+{
+  "elements": [
+    {
+	    "id": "loc.hospital",
+      "slots$listedit": { 
+      "0$dictedit" : {
+          "forbidden$add": { "wound.serpent.green": 1 }
+        },
+      "1$dictedit" : {
+          "forbidden$add": { "wound.serpent.green": 1 }
+        },
+      "2$dictedit" : {
+          "forbidden$add": { "wound.serpent.green": 1 }
+        }
+      }
+    },
+    {
+      "id": "obdurant.fragmentedgeg",
+      "slots$listedit": { 
+      "0$dictedit" : {
+          "forbidden$add": { "uqpolevaya": 1 }
+        }
+      }
+    },
+    {
+      "id": "proterant.fragmentedgeg",
+      "slots$listedit": { 
+      "0$dictedit" : {
+          "forbidden$add": { "uqpolevaya": 1 }
+        }
+      }
+    },
+    {
+      "id": "contemnant.fragmentedgeg",
+      "slots$listedit": { 
+      "0$dictedit" : {
+          "forbidden$add": { "uqpolevaya": 1 }
+        }
+      }
+    },
+    {
+      "id": "contemnant.fragmentedgeg.knock",
+      "slots$listedit": { 
+      "0$dictedit" : {
+          "forbidden$add": { "uqpolevaya": 1 }
+        }
+      }
+    },
+    {
+      "id": "contemnant.fragmentedgeg.lantern",
+      "slots$listedit": { 
+      "0$dictedit" : {
+          "forbidden$add": { "uqpolevaya": 1 }
+        }
+      }
+    },
+    {
+      "id": "contemnant.fragmentedgeg.grail",
+      "slots$listedit": { 
+      "0$dictedit" : {
+          "forbidden$add": { "uqpolevaya": 1 }
+        }
+      }
+    },
+    {
+      "id": "stalingrad",
+      "unique": true
+    },
+    {
+      "id": "friend.adeptlantern",
+      "slots$listedit": { 
+      "0$dictedit" : {
+        "label": "不纯之物",
+        "required$add" : { "hindrance.motherofants" : 1 }
+        }
+      }
+    },
+    {
+      "id": "sad.serpent",
+      "label": "哭泣的幼妹",
+      "description": "这个小家伙低着头失去了活力，仿佛在回忆着什么，随后我听到了它喉咙里低沉的咕噜声——它是在哭泣吗。",
+      "aspects": {
+          "op": 1,
+          "otherworldly": 1,
+          "foe.monster": 1,
+          "legacyplotitem": 1
+      },
+      "lifetime": 180,
+      "decayTo": "mem.grief"
+    },
+    {
+      "id": "foe.serpent",
+      "aspects": {
+          "otherworldly": 1,
+          "needsedge": 16,
+          "needsgrail": 10,
+          "needsedgeknock": 10,
+          "foe.monster": 1,
+          "foe.poison": 1
+      },
+      "induces": [
+        {
+          "id": "produce.motherofantshindrance",
+          "chance": 30
+        }
+      ],
+      "xtriggers": {
+          "refresh": "foe.serpent",
+          "killfoe": [
+            {
+                "id": "foe.corpse.unnatural",
+                "morpheffect": "transform",
+                "level": 1
+            },
+            {
+                "id": "supplies.serpent.knock",
+                "morpheffect": "spawn",
+                "level": 1,
+                "chance": 70
+            }
+          ],
+          "dissolution": "sad.serpent",
+          "dissolutione": "mem.taste",
+          "concealidentity": "foe.serpent.hidden",
+          "takeadditional": [
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -2
+        },
+        {
+            "id": "needsgrail",
+            "morpheffect": "mutate",
+            "level": -2
+        },
+        {
+            "id": "needsedgeknock",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+          ],
+          "makeadditional": [
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": 2
+        },
+        {
+            "id": "needsgrail",
+            "morpheffect": "mutate",
+            "level": 2
+        },
+        {
+            "id": "needsedgeknock",
+            "morpheffect": "mutate",
+            "level": 2
+        }
+          ],
+          "weaken": [
+        {
+            "id": "weakened",
+            "morpheffect": "mutate",
+            "level": 1
+        },
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -4
+        },
+        {
+            "id": "needsgrail",
+            "morpheffect": "mutate",
+            "level": -2
+        },
+        {
+            "id": "needsedgeknock",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+	    ]
+	  }
+    },
+    {
+      "id": "foe.serpent.hidden",
+      "induces": [
+        {
+          "id": "produce.motherofantshindrance",
+          "chance": 30
+        }
+      ],
+      "xtriggers": {
+          "refresh": "foe.serpent.hidden",
+          "killfoe": "foe.corpse.unnatural",
+          "revealidentity": "foe.serpent",
+          "weaken": [
+        {
+            "id": "weakened",
+            "morpheffect": "mutate",
+            "level": 1
+        },
+        {
+            "id": "needsedge",
+            "morpheffect": "mutate",
+            "level": -4
+        },
+        {
+            "id": "needsgrail",
+            "morpheffect": "mutate",
+            "level": -2
+        },
+        {
+            "id": "needsedgeknock",
+            "morpheffect": "mutate",
+            "level": -2
+        }
+          ]
+      }
+    }
+  ]
+}
