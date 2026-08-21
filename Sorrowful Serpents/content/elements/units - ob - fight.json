@@ -1,0 +1,1466 @@
+{
+  "elements": [
+    {
+		"id": "thelastseven.opening",
+		"label": "破绽！",
+		"description": "若要完成仪式，我们必须确保那头野兽周围的虫豸都已清空。",
+		"aspects": {
+			"op": 1
+		},
+		"slots": [
+			{
+			"id": "needsheal2",
+			"actionid": "operate",
+			"label": "破绽",
+			"required": {
+				"thelastseven.opening": 1
+			}
+			},
+			{
+			"id": "needsheal3",
+			"actionid": "operate",
+			"label": "破绽",
+			"required": {
+				"thelastseven.opening": 1
+			}
+			},
+			{
+			"id": "needsheal4",
+			"actionid": "operate",
+			"label": "破绽",
+			"required": {
+				"thelastseven.opening": 1
+			}
+			},
+			{
+			"id": "needsheal5",
+			"actionid": "operate",
+			"label": "破绽",
+			"required": {
+				"thelastseven.opening": 1
+			}
+			},
+			{
+			"id": "needsheal6",
+			"actionid": "operate",
+			"label": "破绽",
+			"required": {
+				"thelastseven.opening": 1
+			}
+			},
+			{
+			"id": "needsheal7",
+			"actionid": "operate",
+			"label": "破绽",
+			"required": {
+				"thelastseven.opening": 1
+			}
+			}
+		],
+		"xtriggers": {
+			"fatiguing": "husk"
+		}
+    },
+    {
+		"id": "main.thelastseven",
+		"label": "主要任务：七步斩七蟠",
+		"description": "若我再重创这只巨兽，我便能模仿目盲之人斩除怪物之母的仪式……与我的爱人一起。",
+		"aspects": {
+			"main": 1
+		},
+		"unique": true,
+		"slots": [
+			{
+			"id": "needsheal",
+			"actionid": "operate",
+			"label": "受伤的巨兽",
+			"required": {
+				"wound.thelastseven": 1
+			}
+			}
+		]
+    },
+    {
+      "id": "side.underground",
+      "label": "次要任务：修补裂缝",
+      "description": "这些裂缝里流出的来自虚界的力量正维系这这群怪物的活力。如果我们能修复足够多的表皮，我们就能暂时遏制住这群怪物。",
+      "inherits": "side.template",
+      "xtriggers": {
+          "careeradvancement": [
+            {
+                "id": "influenceheartg"
+            },
+            {
+                "id": "thelastseven.opening",
+                "morpheffect": "spawn"
+            },
+            {
+                "id": "op.darklantern",
+                "morpheffect": "spawn",
+				"level": 3
+            }
+          ],
+          "opx.progress0": [
+            {
+                "id": "hindrance.crags",
+                "morpheffect": "spawn"
+            }
+          ],
+          "opx.progress1": [
+            {
+                "id": "foe.restless.wisp",
+                "morpheffect": "spawn"
+            }
+          ],
+          "opx.progress2": [
+            {
+                "id": "hindrance.worms",
+                "morpheffect": "spawn"
+            }
+          ]
+      },
+	  "lifetime": 300
+    },
+
+    {
+	"id": "op.darklantern",
+	"label": "墨玉灯盏的投影",
+	"description": "门扉在哪里？未知。光源在何处？未知。但唯有这墨玉色灯光照亮这片不可照亮之处。我们唯一知道的是它在下方。",
+	"aspects": {
+	    "winter": 6,
+		"lantern": 6,
+		"forge": 6,
+	    "op": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "husk"
+	},
+	"lifetime": 300
+    },
+
+    {
+	"id": "eye.serpent",
+	"label": "目盲者之眼",
+	"description": "目盲而心不盲，眼伤而身未伤。[你可以使用此卡牌弱化特殊敌军。此卡牌亦算作一道残疾。此卡牌在离开当前战区时将自然恢复。]",
+	"aspects": {
+	    "winter": 6,
+	    "debilitation": 1,
+	    "damage.body": 1,
+		"op": 1,
+		"friend.blind": 1
+	},
+	"slots": [
+		{
+		"id": "needsheal",
+		"actionid": "operate",
+		"label": "敌军",
+		"required": {
+			"foe.restless": 1
+		}
+		}
+	],
+	"xtriggers": {
+	    "fatiguing": "eye.serpent.exhausted"
+	},
+	"unique": true
+    },
+    {
+	"id": "eye.serpent.exhausted",
+	"label": "目盲者之眼（准备中）",
+	"description": "目盲而心不盲，眼伤而身未伤。[此卡牌亦算作一道残疾。此卡牌在离开当前战区时将自然恢复。]",
+	"aspects": {
+	    "exhausted": 1,
+	    "debilitation": 1,
+	    "damage.body": 1,
+		"op": 1,
+		"friend.blind": 1
+	},
+	"lifetime": 160,
+	"decayTo": "eye.serpent",
+	"icon": "eye.serpent",
+	"resaturate": true,
+	"unique": true
+    },
+
+    {
+	"id": "loc.shrine.colonel.wasteland_u.fake",
+	"label": "残酷雕像？",
+	"description": "行军路上，一尊石像无端耸立雪中：一位夫人拖拽着一对男女，石指嵌进他们肩头。说不清他们与我的关系，也说不清他们彼此的关系。唯一的共同点，我们都在这里停滞。",
+	"aspects": {
+	    "location": 1
+	},
+	"icon": "loc.shrine.colonel",
+	"unique": true
+    },
+    {
+	"id": "loc.shrine.colonel.wasteland_u",
+	"label": "残酷雕像",
+	"description": "行军路上，一尊石像无端耸立雪中：一位夫人拖拽着一对男女，石指嵌进他们肩头。说不清他们与我的关系，也说不清他们彼此的关系。唯一的共同点，我们都在这里停滞。",
+	"aspects": {
+	    "location": 1,
+	    "shrinecolonel": 1
+	},
+	"slots": [
+	    {
+		"id": "needsintent",
+		"label": "意图",
+		"description": "我为何来此？",
+		"required": {
+		    "lore": 1,
+		    "debilitation": 1,
+		    "contemplation": 1,
+		    "legacyplotitem": 1
+		},
+		"forbidden": {
+		    "completed": 1
+		}
+	    }
+	],
+	"icon": "loc.shrine.colonel",
+	"unique": true
+    },
+    {
+	"id": "wasteland.u",
+	"label": "荒芜之地",
+	"description": "此地在地图及边缘处，乃至于战火都未曾蔓延至此，但仍不可掉以轻心。[此地少有有用的机会，且有奇怪的敌人出没。]",
+	"aspects": {
+	    "warzone.current": 1,
+	    "wasteland": 1
+	},
+	"slots": [
+	    {
+		"id": "needsscout",
+		"actionid": "recon",
+		"label": "斥候",
+		"required": {
+		    "friend.scouts": 1
+		}
+	    }
+	]
+    },
+    {
+	"id": "underground",
+	"label": "表皮的裂缝",
+	"description": "斩除消灭一切蠕虫及可能的蠕虫泄漏是每一位学徒都应做的，更何况我所学习的是蠕虫展馆之主的技艺。但在进入之前，我必须做好万全的准备……",
+	"aspects": {
+	    "warzone": 1
+	},
+	"slots": [
+	    {
+		"id": "needsprovisions1",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions2",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    },
+	    {
+		"id": "needsprovisions3",
+		"label": "补给品",
+		"required": {
+		    "provisions": 1
+		},
+		"consumes": true
+	    }
+	],
+	"xtriggers": {
+	    "arriving": [
+		{
+		    "id": "underground.here"
+		},
+		{
+		    "id": "foe.restless.thelastseven",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.restless.wisp",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.restless.wisp.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.restless.serpent",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.restless.serpent.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.restless.cross",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.restless.cross.hidden",
+		    "morpheffect": "spawn",
+		    "level": 3
+		},
+		{
+		    "id": "foe.restless.worm",
+		    "morpheffect": "spawn",
+		    "level": 1
+		},
+		{
+		    "id": "foe.restless.worm.hidden",
+		    "morpheffect": "spawn",
+		    "level": 4
+		}
+	    ]
+	}
+    },
+    {
+	"id": "underground.here",
+	"label": "表皮的裂缝",
+	"description": "上校和蚁母合力将七蟠溺死在自己的血中，这是每个上校的信徒都知晓的故事。然而在这里，吞噬七蟠尸身的孽物仍欢快且恶毒地蠕动，不管如何，它都应被我们净化。",
+	"aspects": {
+	    "warzone.current": 1,
+	    "sector.b": 1,
+	    "long.blocker": 1,
+	    "wasteland": 1
+	},
+	"decayTo": "wasteland.b",
+	"slots": [
+	    {
+		"id": "needsscout",
+		"actionid": "recon",
+		"label": "斥候",
+		"required": {
+		    "friend.scouts": 1
+		}
+	    }
+	],
+    "icon": "vaultcontinentdefault"
+    },
+    {
+	"id": "gotowasteland",
+	"label": "荒野之荒野",
+    "isAspect": true,
+    "isHidden": true,
+    "lifetime": 1
+    },
+
+    {
+	"id": "foe.restless",
+	"label": "躁动敌军",
+	"description": "这群怪物已经被蠕虫控制了思想和行动，它们需要被净化，它们需要被驱逐。",
+    "isAspect": true
+    },
+    {
+	"id": "foe.restless.template",
+	"label": "Foe Restless Template",
+	"slots": [
+	    {
+		"id": "needsresources1",
+		"label": "资源",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    },
+	    {
+		"id": "needsresources2",
+		"label": "资源",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "wounded": 1,
+		    "damaged": 1
+		}
+	    },
+	    {
+		"id": "needsresources3",
+		"label": "更多？",
+		"description": "一份力量？一个聚点？一个来自地面或天空的征兆？",
+		"required": {
+		    "moth": 1,
+		    "lantern": 1,
+		    "forge": 1,
+		    "edge": 1,
+		    "winter": 1,
+		    "heart": 1,
+		    "grail": 1,
+		    "knock": 1
+		},
+		"forbidden": {
+		    "exhausted": 1,
+		    "friend": 1,
+		    "supplies": 1,
+		    "weapon": 1
+		}
+	    },
+	    {
+		"id": "needsdarklantern",
+		"label": "墨玉灯盏的投影",
+		"required": {
+		    "op.darklantern": 1
+		},
+		"consumes": true
+	    }
+	]
+    },
+    {
+		"id": "uqthelastseven",
+		"label": "七蟠余孽",
+		"isAspect": true,
+		"isHidden": true
+    },
+    {
+		"id": "friend.corpses",
+		"xtriggers$add": {
+			"turnlunatic": "friend.lunatic",
+			"turnworm": "foe.wormist"
+		}
+    },
+    {
+		"id": "turnlunatic",
+		"label": "转为疯人",
+		"isAspect": true,
+		"isHidden": true
+    },
+    {
+		"id": "turnworm",
+		"label": "转为蠕虫患者",
+		"isAspect": true,
+		"isHidden": true
+    },
+    {
+		"id": "revivingthings",
+		"label": "转化中",
+		"isAspect": true,
+		"isHidden": true
+    },
+    {
+		"id": "foe.curse",
+		"label": "咒怨",
+		"description": "祂憎恶我们，祂怨恨我们，祂用祂的喉咙发出沙哑的尖叫！[拥有此性相的敌军行动时有概率使一位未得到庇护的友军变为蠕虫]",
+		"isAspect": true,
+		"induces": [
+			{
+				"id": "produce.curse.thelastseven",
+				"chance": 30
+			}
+		]
+    },
+    {
+		"id": "foe.irritable",
+		"label": "易怒",
+		"description": "它可能会很不高兴你打扰到它独自一人的<i>“美好时光”</i>[拥有此性相的敌军被攻击但未命中时将会立刻进行反击]",
+		"isAspect": true
+    },
+    {
+		"id": "foe.corded",
+		"label": "虬结",
+		"description": "鳞面上的花纹……不断扭动的身躯……[被拥有此性相的敌军攻击或抵挡的友军将变为<i>可悲的疯人</i>，且如果攻击成功则必定对你造成精神损伤]",
+		"isAspect": true,
+		"icon": "colours.endless" 
+    },
+    {
+		"id": "wound.thelastseven",
+		"label": "强弩之末",
+		"description": "现在用神圣的仪式将其送回地狱吧。[你需要通过特殊手段将其彻底消灭]",
+		"isAspect": true
+    },
+    {
+		"id": "friend.blind",
+		"label": "我已目盲",
+		"description": "吾舍即吾得。[这可使<i>七蟠余孽</i>的攻击无法对你造成精神损伤]",
+		"isAspect": true
+    },
+    {
+	"id": "corrivality.exile",
+	"xtriggers$add": {
+	    "nocraftable": "corrivality.stalemate"
+	}
+    },
+    {
+	"id": "corrivality.foe",
+	"xtriggers$add": {
+	    "nocraftable": "corrivality.stalemate"
+	}
+    },
+    {
+		"id": "nocraftable",
+		"label": "改变图标",
+		"isHidden": true,
+		"verbicon": "nocraftable",
+		"lifetime": 1
+    },
+    {
+		"id": "attackthelastseven.1",
+		"label": "七蟠攻击1",
+		"aspects": {
+			"needsedge": 30
+		},
+		"isHidden": true,
+		"lifetime": 1
+    },
+    {
+		"id": "attackthelastseven.2",
+		"label": "七蟠攻击2",
+		"aspects": {
+			"needsmoth": 12,
+			"needswinter": 12,
+			"needsheart": 12
+		},
+		"isHidden": true,
+		"lifetime": 1
+    },
+    {
+		"id": "attackthelastseven.3",
+		"label": "七蟠攻击3",
+		"aspects": {
+			"needsedgeknock": 10,
+			"needsedgelantern": 10,
+			"needsedgegrail": 10
+		},
+		"isHidden": true,
+		"lifetime": 1
+    },
+    {
+	"id": "supplies.serpent.salt",
+	"label": "暗淡尸盐",
+	"description": "裂缝被修复后，七蟠留在醒时的一部分化作了齑粉，此为我们打败七蟠的依据。[这一物资无法被消耗]",
+	"aspects": {
+	    "winter": 5,
+	    "supplies.fake": 1,
+		"promise.purple": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "supplies.serpent.salt"
+	},
+	"unique": true
+    },
+    {
+	"id": "corpse.thelastseven",
+	"label": "大型怪物残骸",
+	"description": "死了，死了两次，死的不能再死了。",
+	"aspects": {
+		"op": 1,
+	    "remnant": 1
+	},
+	"xtriggers": {
+	    "fatiguing": "supplies.serpent.salt"
+	},
+	"unique": true
+    },
+    {
+		"id": "foe.restless.thelastseven",
+		"label": "<color=purple><i>七蟠余孽</i></color>",
+		"description": "七蟠曾栖居与沙漠中，在祂死去后，祂的残躯自沙土中浮现。这是七蟠曾经复数个头颅中的七个，它们之下的躯体呈现及其不规则的扭曲状，我能看到这头怪物的皮肤下有什么正在蠕动。",
+		"inherits": "foe.restless.template",
+		"aspects": {
+			"otherworldly": 1,
+			"needsedgeknock": 16,
+			"needsedgelantern": 16,
+			"needsedgemoth": 16,
+			"foe.monster": 1,
+			"foe.restless": 1,
+			"foe.irritable": 1,
+			"foe": 1,
+			"foe.braced": 1,
+			"foe.lethal": 1,
+			"foe.curse": 1,
+			"foe.corded": 1,
+			"uqthelastseven": 1,
+			"gotowasteland": 1
+		},
+		"unique": true,
+		"xtriggers": {
+			"refresh": "foe.restless.thelastseven",
+			"killfoe": [
+			{
+				"id": "foe.restless.thelastseven.angry",
+				"morpheffect": "transform"
+			},
+			{
+				"id": "monster.wound",
+				"morpheffect": "mutate",
+				"level": 1
+			}
+			],
+			"concealidentity": "foe.restless.thelastseven.hidden",
+			"takeadditional": [
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgelantern",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgemoth",
+				"morpheffect": "mutate",
+				"level": -4
+			}
+			],
+			"makeadditional": [
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": 4
+			},
+			{
+				"id": "needsedgelantern",
+				"morpheffect": "mutate",
+				"level": 4
+			},
+			{
+				"id": "needsedgemoth",
+				"morpheffect": "mutate",
+				"level": 4
+			}
+			],
+			"weaken": [
+			{
+				"id": "weakened",
+				"morpheffect": "mutate",
+				"level": 1
+			},
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgelantern",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgemoth",
+				"morpheffect": "mutate",
+				"level": -4
+			}
+			]
+	}
+    },
+    {
+		"id": "foe.restless.thelastseven.angry",
+		"label": "<color=red><i>七蟠余孽</i></color>（暴怒中）",
+		"description": "巨蛇因身上遭遇的疼痛而嚎叫，鲜血，或者说什么别的东西不停地流下，随后祂疯狂地扭曲着，躁动着，奋力想将我们这些蛀虫甩掉。[倒计时结束前，<i>七蟠余孽</i>将进入无敌状态，且攻击欲望强烈]",
+		"inherits": "foe.restless.template",
+		"aspects": {
+			"otherworldly": 1,
+			"foe.monster": 1,
+			"foe.restless": 1,
+			"foe.irritable": 1,
+			"foe": 1,
+			"foe.braced": 1,
+			"foe.lethal": 1,
+			"foe.curse": 1,
+			"foe.corded": 1,
+			"uqthelastseven": 1,
+			"gotowasteland": 1
+		},
+		"lifetime": 180,
+		"decayTo": "foe.restless.thelastseven",
+		"unique": true,
+		"xtriggers": {
+			"refresh": "foe.restless.thelastseven.angry",
+			"killfoe": [
+			{
+				"id": "monster.wound",
+				"morpheffect": "mutate",
+				"level": 1
+			}
+			],
+			"concealidentity": "foe.restless.thelastseven.hidden",
+			"takeadditional": [
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgelantern",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgemoth",
+				"morpheffect": "mutate",
+				"level": -4
+			}
+			],
+			"makeadditional": [
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": 4
+			},
+			{
+				"id": "needsedgelantern",
+				"morpheffect": "mutate",
+				"level": 4
+			},
+			{
+				"id": "needsedgemoth",
+				"morpheffect": "mutate",
+				"level": 4
+			}
+			],
+			"weaken": [
+			{
+				"id": "weakened",
+				"morpheffect": "mutate",
+				"level": 1
+			},
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgelantern",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgemoth",
+				"morpheffect": "mutate",
+				"level": -4
+			}
+			]
+	}
+    },
+    {
+		"id": "foe.restless.thelastseven.hidden",
+		"label": "未知敌军",
+		"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+		"inherits": "foe.restless.template",
+		"aspects": {
+			"foe.hidden": 1,
+			"foe.monster": 1,
+			"foe.restless": 1,
+			"foe": 1,
+			"uqthelastseven": 1
+		},
+		"xtriggers": {
+			"refresh": "foe.restless.thelastseven.hidden",
+			"killfoe": [
+			{
+				"id": "monster.wound",
+				"morpheffect": "mutate",
+				"level": 1
+			}
+			],
+			"revealidentity": "foe.restless.thelastseven",
+			"weaken": [
+			{
+				"id": "weakened",
+				"morpheffect": "mutate",
+				"level": 1
+			},
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgelantern",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgemoth",
+				"morpheffect": "mutate",
+				"level": -4
+			}
+			]
+		},
+		"icon": "foe.unknown",
+		"noStack": true
+    },
+	
+    {
+		"id": "foe.restless.wisp",
+		"label": "躁动亡灵",
+		"description": "此处虚界的影响被无限放大，从阶梯上来的亡灵贪婪的寻找着它们的下一个目标。",
+		"inherits": "foe.restless.template",
+		"aspects": {
+			"otherworldly": 1,
+			"needsedgewinter": 12,
+			"needsedgeknock": 8,
+			"foe.monster": 1,
+			"foe.restless": 1,
+			"foe": 1,
+			"foe.irritable": 1,
+			"foe.resilient": 1
+		},
+		"xtriggers": {
+			"refresh": "foe.restless.wisp",
+			"killfoe": "foe.restless.wisp.reviving",
+			"concealidentity": "foe.restless.wisp.hidden",
+			"takeadditional": [
+			{
+				"id": "needsedgewinter",
+				"morpheffect": "mutate",
+				"level": -2
+			},
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": -2
+			}
+			],
+			"makeadditional": [
+			{
+				"id": "needsedgewinter",
+				"morpheffect": "mutate",
+				"level": 2
+			},
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": 2
+			}
+			],
+			"weaken": [
+			{
+				"id": "weakened",
+				"morpheffect": "mutate",
+				"level": 1
+			},
+			{
+				"id": "needsedgewinter",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": -2
+			}
+			]
+	}
+    },
+    {
+		"id": "foe.restless.wisp.hidden",
+		"label": "未知敌军",
+		"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+		"inherits": "foe.restless.template",
+		"aspects": {
+			"foe.hidden": 1,
+			"foe.monster": 1,
+			"foe.restless": 1,
+			"foe": 1
+		},
+		"xtriggers": {
+			"refresh": "foe.restless.wisp.hidden",
+			"killfoe": "foe.restless.worm",
+			"revealidentity": "foe.restless.wisp",
+			"weaken": [
+			{
+				"id": "weakened",
+				"morpheffect": "mutate",
+				"level": 1
+			},
+			{
+				"id": "needsedgewinter",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": -2
+			}
+			]
+		},
+		"icon": "foe.unknown",
+		"noStack": true
+    },
+    {
+		"id": "foe.restless.wisp.reviving",
+		"label": "躁动亡灵（复活中）",
+		"description": "它们很快就会再回来，很快……",
+		"aspects": {
+          	"revivingthings": 1,
+			"otherworldly": 1,
+			"needsknock": 6,
+			"needswinter": 6,
+			"needslantern": 6,
+			"op": 1
+		},
+		"slots": [
+			{
+			"id": "needssomething1",
+			"label": "某物",
+			"required": {
+				"moth": 1,
+				"lantern": 1,
+				"forge": 1,
+				"edge": 1,
+				"winter": 1,
+				"heart": 1,
+				"grail": 1,
+				"knock": 1
+			}
+			},
+			{
+			"id": "needssomething2",
+			"label": "某物",
+			"required": {
+				"moth": 1,
+				"lantern": 1,
+				"forge": 1,
+				"edge": 1,
+				"winter": 1,
+				"heart": 1,
+				"grail": 1,
+				"knock": 1
+			}
+			}
+		],
+		"icon": "foe.restless.wisp",
+		"decayTo": "foe.restless.wisp",
+		"resaturate": true,
+		"lifetime": 120,
+		"xtriggers": {
+			"refresh": "foe.restless.wisp",
+			"promotionto_d_knock": "fleeting",
+			"promotionto_d_winter": "dread",
+			"promotionto_d_lantern": "fascination"
+	}
+    },
+    {
+		"id": "foe.wormist",
+		"label": "蠕虫患者（转化中）",
+		"description": "他，现在应该成为他们，以目前的情况无药可救，必死无疑。[倒计时结束后该单位将转化为躁动蠕虫]",
+		"aspects": {
+          	"revivingthings": 1,
+			"otherworldly": 1,
+			"needsedgelantern": 6,
+			"needsedgemoth": 6,
+			"op": 1
+		},
+		"slots": [
+			{
+			"id": "needssomething1",
+			"label": "某物",
+			"required": {
+				"moth": 1,
+				"lantern": 1,
+				"forge": 1,
+				"edge": 1,
+				"winter": 1,
+				"heart": 1,
+				"grail": 1,
+				"knock": 1
+			}
+			},
+			{
+			"id": "needssomething2",
+			"label": "某物",
+			"required": {
+				"moth": 1,
+				"lantern": 1,
+				"forge": 1,
+				"edge": 1,
+				"winter": 1,
+				"heart": 1,
+				"grail": 1,
+				"knock": 1
+			}
+			}
+		],
+		"decayTo": "foe.restless.worm",
+		"lifetime": 120,
+		"xtriggers": {
+			"refresh": "foe.restless.wisp",
+			"promotionto_d_lantern": [
+			{
+				"id": "friend.corpse",
+				"morpheffect": "transform"
+			},
+			{
+				"id": "mem.grief",
+				"morpheffect": "spawn",
+				"level": 1
+			}
+			],
+			"promotionto_d_moth": [
+			{
+				"id": "friend.corpse",
+				"morpheffect": "transform"
+			},
+			{
+				"id": "mem.grief",
+				"morpheffect": "spawn",
+				"level": 1
+			}
+			]
+	}
+    },
+	
+    {
+		"id": "foe.restless.serpent",
+		"label": "躁动幼妹",
+		"description": "周围的幼妹感受到了这里的来自“母亲”的呼唤，于是成群结队而来，却不幸感染。",
+		"inherits": "foe.restless.template",
+		"aspects": {
+			"otherworldly": 1,
+			"needsedgeknock": 10,
+			"needsedgegrail": 8,
+			"foe.monster": 1,
+			"foe.restless": 1,
+			"foe": 1,
+			"foe.poison": 1,
+			"foe.irritable": 1
+		},
+		"xtriggers": {
+			"refresh": "foe.restless.serpent",
+			"killfoe": [
+			{
+				"id": "foe.corpse.unnatural",
+				"morpheffect": "transform"
+			},
+			{
+				"id": "foe.restless.worm",
+				"morpheffect": "spawn",
+				"level": 1
+			}
+			],
+			"concealidentity": "foe.restless.serpent.hidden",
+			"takeadditional": [
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": -2
+			},
+			{
+				"id": "needsedgegrail",
+				"morpheffect": "mutate",
+				"level": -2
+			}
+			],
+			"makeadditional": [
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": 2
+			},
+			{
+				"id": "needsedgegrail",
+				"morpheffect": "mutate",
+				"level": 2
+			}
+			],
+			"weaken": [
+			{
+				"id": "weakened",
+				"morpheffect": "mutate",
+				"level": 1
+			},
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgegrail",
+				"morpheffect": "mutate",
+				"level": -2
+			}
+			]
+	}
+    },
+    {
+		"id": "foe.restless.serpent.hidden",
+		"label": "未知敌军",
+		"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+		"inherits": "foe.restless.template",
+		"aspects": {
+			"foe.hidden": 1,
+			"foe.monster": 1,
+			"foe.restless": 1,
+			"foe": 1
+		},
+		"xtriggers": {
+			"refresh": "foe.restless.serpent.hidden",
+			"killfoe": [
+			{
+				"id": "foe.corpse.unnatural",
+				"morpheffect": "transform"
+			},
+			{
+				"id": "foe.restless.worm",
+				"morpheffect": "spawn",
+				"level": 1
+			}
+			],
+			"revealidentity": "foe.restless.serpent",
+			"weaken": [
+			{
+				"id": "weakened",
+				"morpheffect": "mutate",
+				"level": 1
+			},
+			{
+				"id": "needsedgeknock",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgegrail",
+				"morpheffect": "mutate",
+				"level": -2
+			}
+			]
+		},
+		"icon": "foe.unknown",
+		"noStack": true
+    },
+	
+    {
+		"id": "foe.restless.cross",
+		"label": "躁动介壳种",
+		"description": "介壳种崇拜石源诸神，七蟠则曾为怪物之母。阿卢卡因吞食自己的子嗣而变成怪物，餮猊因饮下厄客德娜的馈赠而变成怪物，介壳种中的龙族因啖噬司辰的遗骸而变成怪物......",
+		"inherits": "foe.restless.template",
+		"aspects": {
+			"otherworldly": 1,
+			"needsedgelantern": 10,
+			"needsedgemoth": 8,
+			"needsedgegrail": 8,
+			"foe.monster": 1,
+			"foe.restless": 1,
+			"foe": 1,
+			"foe.braced": 1,
+			"foe.armoured": 1,
+			"foe.irritable": 1
+		},
+		"xtriggers": {
+			"refresh": "foe.restless.cross",
+			"killfoe": [
+			{
+				"id": "foe.corpse.unnatural",
+				"morpheffect": "transform"
+			},
+			{
+				"id": "foe.restless.worm",
+				"morpheffect": "spawn",
+				"level": 1
+			}
+			],
+			"concealidentity": "foe.restless.cross.hidden",
+			"takeadditional": [
+			{
+				"id": "needsedgelantern",
+				"morpheffect": "mutate",
+				"level": -2
+			},
+			{
+				"id": "needsedgemoth",
+				"morpheffect": "mutate",
+				"level": -2
+			},
+			{
+				"id": "needsedgegrail",
+				"morpheffect": "mutate",
+				"level": -2
+			}
+			],
+			"makeadditional": [
+			{
+				"id": "needsedgelantern",
+				"morpheffect": "mutate",
+				"level": 2
+			},
+			{
+				"id": "needsedgemoth",
+				"morpheffect": "mutate",
+				"level": 2
+			},
+			{
+				"id": "needsedgegrail",
+				"morpheffect": "mutate",
+				"level": 2
+			}
+			],
+			"weaken": [
+			{
+				"id": "weakened",
+				"morpheffect": "mutate",
+				"level": 1
+			},
+			{
+				"id": "needsedgelantern",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgemoth",
+				"morpheffect": "mutate",
+				"level": -2
+			},
+			{
+				"id": "needsedgegrail",
+				"morpheffect": "mutate",
+				"level": -2
+			}
+			]
+	}
+    },
+    {
+		"id": "foe.restless.cross.hidden",
+		"label": "未知敌军",
+		"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+		"inherits": "foe.restless.template",
+		"aspects": {
+			"foe.hidden": 1,
+			"foe.monster": 1,
+			"foe.restless": 1,
+			"foe": 1
+		},
+		"xtriggers": {
+			"refresh": "foe.restless.cross.hidden",
+			"killfoe": [
+			{
+				"id": "foe.corpse.unnatural",
+				"morpheffect": "transform"
+			},
+			{
+				"id": "foe.restless.worm",
+				"morpheffect": "spawn",
+				"level": 1
+			}
+			],
+			"revealidentity": "foe.restless.cross",
+			"weaken": [
+			{
+				"id": "weakened",
+				"morpheffect": "mutate",
+				"level": 1
+			},
+			{
+				"id": "needsedgelantern",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsedgemoth",
+				"morpheffect": "mutate",
+				"level": -2
+			},
+			{
+				"id": "needsedgegrail",
+				"morpheffect": "mutate",
+				"level": -2
+			}
+			]
+		},
+		"icon": "foe.unknown",
+		"noStack": true
+    },
+	
+    {
+		"id": "foe.restless.worm",
+		"label": "躁动蠕虫",
+		"description": "错误选择吞噬七蟠尸身的，可怜而更可恨的蠕虫，而我会负责将其送往仅由墨玉灯盏照亮之处。[被这一敌军攻击的友军将被蠕虫感染]",
+		"inherits": "foe.restless.template",
+		"aspects": {
+			"otherworldly": 1,
+			"needslantern": 12,
+			"needsmoth": 12,
+			"needsheart": 12,
+			"foe.monster": 1,
+			"foe.restless": 1,
+			"foe": 1,
+			"foe.irritable": 1
+		},
+		"xtriggers": {
+			"refresh": "foe.restless.worm",
+			"killfoe": "foe.restless.worm.reviving",
+			"concealidentity": "foe.restless.worm.hidden",
+			"takeadditional": [
+			{
+				"id": "needslantern",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsmoth",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsheart",
+				"morpheffect": "mutate",
+				"level": -4
+			}
+			],
+			"makeadditional": [
+			{
+				"id": "needslantern",
+				"morpheffect": "mutate",
+				"level": 4
+			},
+			{
+				"id": "needsmoth",
+				"morpheffect": "mutate",
+				"level": 4
+			},
+			{
+				"id": "needsheart",
+				"morpheffect": "mutate",
+				"level": 4
+			}
+			],
+			"weaken": [
+			{
+				"id": "weakened",
+				"morpheffect": "mutate",
+				"level": 1
+			},
+			{
+				"id": "needslantern",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsmoth",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsheart",
+				"morpheffect": "mutate",
+				"level": -4
+			}
+			]
+	}
+    },
+    {
+		"id": "foe.restless.worm.hidden",
+		"label": "未知敌军",
+		"description": "最为危险的敌军永远是那些我们未预料其行动的那些",
+		"inherits": "foe.restless.template",
+		"aspects": {
+			"foe.hidden": 1,
+			"foe.monster": 1,
+			"foe.restless": 1,
+			"foe": 1
+		},
+		"xtriggers": {
+			"refresh": "foe.restless.worm.hidden",
+			"killfoe": "foe.restless.worm.reviving",
+			"revealidentity": "foe.restless.worm",
+			"weaken": [
+			{
+				"id": "weakened",
+				"morpheffect": "mutate",
+				"level": 1
+			},
+			{
+				"id": "needslantern",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsmoth",
+				"morpheffect": "mutate",
+				"level": -4
+			},
+			{
+				"id": "needsheart",
+				"morpheffect": "mutate",
+				"level": -4
+			}
+			]
+		},
+		"icon": "foe.unknown",
+		"noStack": true
+    },
+    {
+		"id": "foe.restless.worm.reviving",
+		"label": "蠕虫虫卵（孵化中）",
+		"description": "快看！它在动！",
+		"aspects": {
+          	"revivingthings": 1,
+			"otherworldly": 1,
+			"needsedge": 6,
+			"needswinter": 6,
+			"needsknock": 6,
+			"op": 1
+		},
+		"slots": [
+			{
+			"id": "needssomething1",
+			"label": "某物",
+			"required": {
+				"moth": 1,
+				"lantern": 1,
+				"forge": 1,
+				"edge": 1,
+				"winter": 1,
+				"heart": 1,
+				"grail": 1,
+				"knock": 1
+			}
+			},
+			{
+			"id": "needssomething2",
+			"label": "某物",
+			"required": {
+				"moth": 1,
+				"lantern": 1,
+				"forge": 1,
+				"edge": 1,
+				"winter": 1,
+				"heart": 1,
+				"grail": 1,
+				"knock": 1
+			}
+			}
+		],
+		"decayTo": "foe.restless.worm",
+		"resaturate": true,
+		"lifetime": 120,
+		"xtriggers": {
+			"refresh": "foe.restless.worm",
+			"promotionto_d_edge": "mem.rage",
+			"promotionto_d_winter": "mem.fear",
+			"promotionto_d_knock": "mem.revelation"
+	}
+    }
+  ]
+}

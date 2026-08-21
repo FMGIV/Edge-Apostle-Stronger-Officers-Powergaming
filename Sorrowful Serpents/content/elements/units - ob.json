@@ -1,0 +1,1379 @@
+{
+  "elements": [
+    {
+      "id": "lovingdeeply",
+      "label": "至爱",
+      "description": "是的，我们相爱。",
+      "icon": "rose",
+      "isAspect": true
+    },
+    {
+      "id": "weaponending",
+      "label": "终局之武器",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
+      "id": "ebrehel",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "ebrehel.exhausted",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "debilitation.hand.colonel",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "debilitation.hand.colonel.exhausted",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.kazimir",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.kazimir.exhausted",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.revolver.5",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.revolver.5.exhausted",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.revolver.4",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.revolver.4.exhausted",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.revolver.3",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.revolver.3.exhausted",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.revolver.2",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.revolver.2.exhausted",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.revolver.1",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.revolver.1.exhausted",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+
+    {
+      "id": "weapon.skull",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.skull.exhausted",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.talon",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.talon.exhausted",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.wormnail",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "weapon.wormnail.exhausted",
+      "aspects$add": {
+          "weaponending": 1
+      }
+    },
+    {
+      "id": "s.surgeries.exsanguinations",
+      "label": "手术与放血",
+      "description": "手术必然涉及放血，而放血必然涉及净化，但此门也向另一个方向敞开。",
+      "lifetime": 1
+    },
+    {
+      "id": "weaponyihulun",
+      "label": "依呼伦",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
+      "id": "weapon.yihulun",
+      "label": "依呼伦覆羽",
+      "description": "它看起来平平无奇，但只要一碰到它，肉体就会灰飞烟灭。也许它真的是从七蟠内部将其杀死的那件武器的最后一块碎片。",
+      "aspects": {
+          "weapon": 1,
+          "edge": 10,
+          "weaponending": 1
+      },
+      "icon": "weapon.e",
+      "xtriggers": {
+          "fatiguing": "weapon.yihulun.exhausted"
+      },
+      "uniquenessgroup": "weaponyihulun",
+	    "unique": true
+    },
+    {
+      "id": "weapon.yihulun.exhausted",
+      "label": "依呼伦覆羽（枯竭）",
+      "description": "它看起来平平无奇，但只要一碰到它，肉体就会灰飞烟灭。也许它真的是从七蟠内部将其杀死的那件武器的最后一块碎片。",
+      "aspects": {
+          "weapon": 1,
+          "exhausted": 1,
+          "weaponending": 1
+      },
+      "xtriggers": {
+          "fatiguing": "weapon.yihulun.exhausted",
+          "refresh": "weapon.yihulun"
+      },
+      "lifetime": 60,
+      "decayTo": "weapon.yihulun",
+      "icon": "weapon.e",
+      "resaturate": true,
+      "uniquenessgroup": "weaponyihulun",
+	    "unique": true
+    },
+
+    {
+      "id": "op.marinettehungry",
+      "label": "<i>山坡下的吞噬者</i>",
+      "description": "常言道，人如其食(you are what you eat，plus)无论过去多久，丽姬娅玛丽内特总是如此饥饿。伊万杰琳·波列瓦娅告诉我她想替我去谈谈。",
+      "aspects": {
+        "op": 1,
+        "opligeian": 1
+      },
+      "slots": [
+          {
+            "id": "needsheal",
+            "actionid": "communicate",
+            "label": "代言者",
+            "required": {
+                "friend": 1
+            },
+            "forbidden": {
+              "exhausted": 1,
+              "wounded": 1,
+              "damaged": 1
+            }
+          }
+      ],
+      "xtriggers": {
+        "fatiguing": "op.marinettehungry",
+        "ligeian": "op.marinettedone"
+      },
+      "icon": "marinette",
+      "lifetime": 300,
+      "unique": true
+    },
+    {
+      "id": "op.marinettedone",
+      "label": "“操线仙娥”玛丽内特",
+      "description": "虽然玛丽从不餍足，但看起来她很满意你为她提供的大餐。",
+      "aspects": {
+        "op": 1,
+        "opligeian": 1
+      },
+      "icon": "marinette",
+      "unique": true
+    },
+    {
+      "id": "op.ligeianmedusa",
+      "aspects$add": {
+        "opligeian": 1
+      }
+    },
+    {
+      "id": "op.sulochanacoming",
+      "label": "苏洛恰那正在赶来",
+      "description": "玛丽无法为我们提供必要的开启之物，但她认识的另一位丽姬娅可以，现在的她，距离基辅不算太远。",
+      "aspects": {
+        "op": 1
+      },
+      "icon": "marinette.enroute",
+      "resaturate": true,
+      "lifetime": 180,
+      "decayTo": "op.sulochanaarrived",
+      "unique": true
+    },
+    {
+      "id": "op.sulochanaarrived",
+      "label": "苏洛恰那·阿摩伐舍",
+      "description": "她千里迢迢地赶来，很难说她单纯是因为同伴的呼唤而来，还是因为想来看看哪位上校的使徒和怪物搞在了一起。",
+      "aspects": {
+        "op": 1,
+        "opligeian": 1
+      },
+      "icon": "sulochana",
+      "unique": true
+    },
+
+    {
+      "id": "serpent.green",
+      "label": "巨蛇",
+      "description": "比人类更狡猾，比猛兽更强壮，比教士更深谙启之准则。",
+      "lifetime": 1
+    },
+    {
+      "id": "pillar.serpent.green",
+      "label": "蛇的规避之法",
+      "description": "拆毁篱笆之人，必被毒蛇所噬。(Qui dissipat sepem, mordebit eum coluber.)我想要避开麻烦，就要远离蛇常出没的地方，教堂，洞穴，与荒野。同时做好解毒驱蛇的灵物，必须从蛇毒中提取足够的基底，佐以拥有超凡力量的酒精，粉末，油。最终在蛇母的见证下制取出驱蛇之物。之后需一位有信仰的助手将药液均匀涂抹在伤口上并为我佩戴圣物加以虔诚的祷告，这样，即使是再狡猾的蛇也会畏惧我，无法阻挠我实现伟业。",
+      "aspects": {
+          "lore": 1,
+          "contemplation": 1
+      },
+      "xtriggers": {
+        "serpentpriest": "pillar.serpent.purple"
+      },
+      "slots": [
+          {
+            "id": "needsheal",
+            "actionid": "operate",
+            "label": "药剂",
+            "required": {
+                "supplies": 1
+            }
+          }
+      ],
+      "unique": true
+    },
+    {
+      "id": "pillar.serpent.purple",
+      "label": "双重胜利之法？",
+      "description": "双生子与蚁母敌对，但蚁母与上校至今仍维持着某种合作联系。伊万杰琳·波列瓦娅身上还流淌着与蚁母相同的血。现在我已肯定，我与她的命运已缠绕到一起，在我完成自己的职责之后，她会有怎样的结局？当我强大至拥有五把不同的神圣武器之时，我也可以仿照吾友那般为其铺设一条道路。首先我要与她真心相待。另外去寻得另一份钥匙，至于其他的，便只能期待荒野上的奇遇。",
+      "aspects": {
+          "lore": 1,
+          "contemplation": 1
+      },
+      "slots": [
+          {
+            "id": "needsfollower",
+            "actionid": "operate",
+            "label": "助手",
+            "required": {
+                "follower": 1
+            },
+            "forbidden": {
+              "exhausted": 1,
+              "wounded.fake": 1
+            }
+          },
+          {
+            "id": "needswounded",
+            "actionid": "operate",
+            "label": "伤口",
+            "essential": {
+              "knock": 1,
+              "damage.body": 1
+            },
+            "forbidden": {
+              "debilitation": 1
+            }
+          },
+          {
+            "id": "needstool",
+            "actionid": "operate",
+            "label": "仪器",
+            "required": {
+                "tool": 1,
+                "supplies": 1
+            }
+          },
+          {
+            "id": "needsinfluence",
+            "actionid": "operate",
+            "label": "影响",
+            "required": {
+                "influence": 1
+            }
+          },
+          {
+            "id": "needslocal",
+            "actionid": "operate",
+            "label": "地点",
+            "required": {
+                "op": 1
+            }
+          }
+      ],
+      "unique": true
+    },
+
+    {
+      "id": "wound.serpent.green",
+      "label": "不治蛇毒",
+      "description": "毒素已经深入表层，我们的医护人员已尽了最大努力保住我的性命。[这个伤口无法通过常规手段治愈，但并非不可治愈]",
+      "aspects": {
+          "grail": 2,
+          "knock": 4,
+          "winter": 2,
+          "damage.body": 1
+      },
+      "xtriggers": {
+          "serpentpriest": "wound.serpent.purple",
+          "serpentheal": "wound.serpent.heal"
+      },
+      "icon": "scar_moth",
+      "slots": [
+          {
+            "id": "needsheal",
+            "actionid": "abandon",
+            "label": "药剂",
+            "required": {
+                "nectar": 1
+            }
+          },
+          {
+            "id": "needsmedics",
+            "actionid": "abandon",
+            "label": "助手",
+            "required": {
+                "friend.medics": 1,
+                "haspolevaya": 1
+            },
+            "essential": {
+                "friend.motherofants": 1
+            }
+          },
+          {
+            "id": "needstool",
+            "actionid": "abandon",
+            "label": "工具",
+            "required": {
+                "knock": 1
+            },
+            "essential": {
+                "tool": 1
+            }
+          },
+          {
+            "id": "needsinfluence",
+            "actionid": "abandon",
+            "label": "影响",
+            "required": {
+                "knock": 15
+            },
+            "essential": {
+                "influence": 1
+            }
+          },
+          {
+            "id": "needslocal",
+            "actionid": "abandon",
+            "label": "地点",
+            "required": {
+                "op": 1
+            },
+            "essential": {
+                "location": 1
+            }
+          }
+      ]
+    },
+    {
+      "id": "wound.serpent.heal",
+      "label": "不起眼的创伤",
+      "description": "我感觉身体比之前更棒了！[这张卡不算做你的伤口]",
+      "aspects": {
+          "winter": 2
+      },
+      "icon": "scar_winter",
+      "xtriggers": {
+          "serpentpriest": "wound.serpent.purple"
+      }
+    },
+    {
+      "id": "wound.serpent.purple",
+      "label": "女祭司的赐福",
+      "description": "女祭司拿出随身携带的针线盒，在营房内为我小心地缝合伤口，随后她咬破自己的手指将鲜血撒于伤口之上，并加之祷告，我能看见伤口在散发微光。[这张卡不算做你的伤口]",
+      "aspects": {
+          "knock": 8
+      }
+    },
+    {
+      "id": "aspects.serpent.grail",
+      "label": "灼烧",
+      "description": "尽管酒精可作为饮品服用，其同样有消毒的用途。",
+      "icon": "supplies.serpent.grail"
+    },
+    {
+      "id": "supplies.serpent.grail",
+      "label": "拉维林红酒",
+      "description": "拉维林红酒里面没有拉维林诅咒。",
+      "aspects": {
+          "grail": 8,
+          "supplies": 1
+      },
+      "xtriggers": {
+          "fatiguing": "husk"
+      }
+    },
+    {
+      "id": "side.gallery",
+      "xtriggers$dictEdit": {
+          "careeradvancement$prepend": [
+            {
+                "id": "tool.heart.fake",
+                "morpheffect": "spawn"
+            }
+          ]
+      }
+    },
+    {
+      "id": "aspects.serpent.heart",
+      "label": "痒",
+      "description": "一种奇妙的知觉体验。",
+      "icon": "ingredientheartb"
+    },
+    {
+      "id": "tool.heart.fake",
+      "label": "珍珠展品",
+      "description": "同样在收藏馆展架被拿回的珍珠复制品，能明显的观察到珍珠的光泽远不如真品般闪烁。",
+      "aspects": {
+          "heart": 4,
+          "tool": 1
+      },
+      "icon": "tool.heart",
+      "slots": [
+          {
+            "id": "needstool",
+            "actionid": "abandon",
+            "label": "意图",
+            "required": {
+                "edge": 1
+            }
+          }
+      ]
+    },
+    {
+      "id": "supplies.serpent.heart",
+      "label": "玫瑰色珍珠粉",
+      "description": "玫瑰色是双生子的颜色，重生之色。",
+      "aspects": {
+          "heart": 4,
+          "supplies": 1
+      },
+      "icon": "ingredientheartb",
+      "xtriggers": {
+          "fatiguing": "husk"
+      }
+    },
+    {
+      "id": "side.office",
+      "xtriggers$dictEdit": {
+          "careeradvancement$prepend": [
+            {
+                "id": "supplies.serpent.winter",
+                "morpheffect": "spawn"
+            }
+          ]
+      }
+    },
+    {
+      "id": "aspects.serpent.winter",
+      "label": "凉",
+      "description": "冬为万物带来寂静和寒冷。",
+      "icon": "ingredientwinterb"
+    },
+    {
+      "id": "supplies.serpent.winter",
+      "label": "灰晓之油",
+      "description": "不仅它的气味让人难以接受，它的颜色也让人心里难受。",
+      "aspects": {
+          "winter": 4,
+          "supplies": 1
+      },
+      "icon": "ingredientwinterb",
+      "xtriggers": {
+          "fatiguing": "husk"
+      }
+    },
+    {
+      "id": "supplies.serpent.green",
+      "label": "精酿毒液",
+      "description": "褪去了原先的颜色的毒液，如今其散发出的只有阵阵清香。",
+      "aspects": {
+          "knock": 6,
+          "grail": 6,
+          "nectar": 6,
+          "supplies": 1
+      },
+      "xtriggers": {
+          "fatiguing": "husk"
+      }
+    },
+
+    {
+      "id": "promise.medusa",
+      "unique": true
+    },
+    {
+      "id": "skill.deflect.exhausted",
+      "induces": [
+        {
+          "id": "produce.diary.tomoriserpent.1",
+          "chance": 100
+        }
+      ]
+    },
+    {
+      "id": "skill.raisedead.exhausted",
+      "induces": [
+        {
+          "id": "produce.diary.tomoriserpent.2",
+          "chance": 100
+        }
+      ]
+    },
+    {
+      "id": "skill.refreshally.exhausted",
+      "induces": [
+        {
+          "id": "produce.diary.tomoriserpent.3",
+          "chance": 100
+        }
+      ]
+    },
+
+    {
+      "id": "op.church",
+      "aspects$add": {
+        "shrinemotherofants": 1,
+        "location": 1
+      },
+      "xtriggers$add": {
+          "refresh": "op.church"
+      },
+      "slots": [
+          {
+            "id": "needsintent",
+            "label": "意图",
+            "actionId": "operate",
+            "required": {
+                "heart": 1,
+                "edge": 1
+            }
+          },
+          {
+            "id": "needsintent2",
+            "label": "意图",
+            "actionId": "mobilize",
+            "required": {
+                "knock": 1,
+                "friend.poisoning": 1,
+                "contemplation": 1
+            }
+          }
+      ]
+    },
+    {
+      "id": "influenceknock",
+      "xtriggers$add": {
+          "refresh": "influenceknock"
+      }
+    },
+    {
+      "id": "influenceknockc",
+      "xtriggers$add": {
+          "refresh": "influenceknockc"
+      }
+    },
+    {
+      "id": "influenceknocke",
+      "xtriggers$add": {
+          "refresh": "influenceknocke"
+      }
+    },
+    {
+      "id": "influenceknockg",
+      "xtriggers$add": {
+          "refresh": "influenceknockg"
+      }
+    },
+    {
+      "id": "serpent.church",
+      "label": "怪异的教堂",
+      "description": "当地的一所朴素的教堂，里面的主祭早已死去，教士大都紧张兮兮，且没有修女。",
+      "aspects": {
+          "op": 1,
+          "long.blocker": 1
+      },
+      "xtriggers": {
+          "recruiting": "loc.church"
+      },
+      "unique": true,
+      "slots": [
+          {
+            "id": "needsintent",
+            "label": "意图",
+            "required": {
+                "heart": 1,
+                "edge": 1,
+                "knock": 1
+            }
+          }
+      ]
+    },
+    {
+      "id": "side.serpentchurch",
+      "label": "次要目标：调查怪异的教堂",
+      "description": "莫名消失的祭司，奇怪的教士，失踪的修女…此处藏有秘密，而我需要知晓。",
+      "inherits": "side.template",
+      "xtriggers": {
+          "careeradvancement": [
+            {
+                "id": "tomori.serpent"
+            }
+          ],
+          "opx.progress0": [
+            {
+                "id": "hindrance.secretdoor",
+                "morpheffect": "spawn"
+            }
+          ],
+          "opx.progress1": [
+            {
+                "id": "hindrance.monks",
+                "morpheffect": "spawn"
+            }
+          ],
+          "opx.progress2": [
+            {
+                "id": "hindrance.greatseal",
+                "morpheffect": "spawn"
+            }
+          ]
+      },
+      "unique": true
+    },
+    {
+      "id": "side.serpentcave",
+      "label": "偏僻的巢穴",
+      "description": "说是洞穴，但几近坍塌。只剩入口处还点着几根早已熄灭的蜡烛。附近的地上还浮着一层臭气熏人的瘴气。",
+      "aspects": {
+        "location": 1
+      },
+      "xtriggers": {
+          "careeradvancement": [
+            {
+                "id": "serpent.eggb"
+            },
+            {
+                "id": "hindrance.wreckage",
+                "morpheffect": "spawn"
+            }
+          ],
+          "opx.progress0": [
+            {
+                "id": "hindrance.wreckage",
+                "morpheffect": "spawn"
+            }
+          ],
+          "opx.progress1": [
+            {
+                "id": "hindrance.door",
+                "morpheffect": "spawn"
+            }
+          ],
+          "opx.progress2": [
+            {
+                "id": "hindrance.miasma",
+                "morpheffect": "spawn"
+            }
+          ]
+      },
+      "slots": [
+          {
+            "id": "needsintent",
+            "label": "协助",
+            "required": {
+                "tomori.serpent": 1
+            },
+            "actionId": "mobilize"
+          }
+      ],
+      "unique": true
+    },
+
+    {
+      "id": "hindrance.monks",
+      "label": "僧侣",
+      "description": "被赏赐或被强迫在这里侍奉的沉思者们。被他们那奇妙的誓言所约束。我们可以杀死他们，欺骗他们，但无法诱惑他们。",
+      "icon": "guardian_monks",
+      "aspects": {
+          "hindrance": 1,
+          "needsedge": 8,
+          "needsmoth": 8
+      }
+    },
+
+    {
+      "id": "uqpolevaya",
+      "label": "伊万杰琳·波列瓦娅",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
+      "id": "haspolevaya",
+      "label": "伊万杰琳·波列瓦娅",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
+      "id": "tomori.serpent",
+      "label": "遭囚的少女？",
+      "description": "当地的教士把她囚于地下，她的泪水好似永远流不完。你的士兵们怜悯地看着她，而你则好奇地打量着“它”。",
+      "aspects": {
+          "local": 1,
+          "friend.dwelling": 1,
+          "long.blocker": 1
+      },
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya",
+      "xtriggers": {
+          "upgrade.exile.ally": "friend.tomori.serpent",
+          "mortal.introduce": [
+            {
+                "id": "side.serpentcave",
+                "morpheffect": "spawn"
+            }
+          ]
+      }
+    },
+    {
+      "id": "friend.tomori.serpent",
+      "label": "幼女 伊万杰琳·波列瓦娅",
+      "description": "于地牢之中获救，于夕阳之中叩手。囚于人类中的巨蛇，或被巨蛇所囚的人类。",
+      "aspects": {
+          "friend": 1,
+          "friend.dwelling": 1,
+          "knock": 4,
+          "winter": 4,
+          "moth": 4,
+          "haspolevaya": 1,
+          "follower": 1,
+          "friend.motherofants": 1
+      },
+      "slots": [
+          {
+            "id": "needsprovisions",
+            "label": "补偿",
+            "required": {
+                "provisions": 1
+            },
+            "consumes": true,
+            "actionId": "operate"
+          },
+          {
+            "id": "needscommunicate",
+            "label": "话题",
+            "required": {
+                "supplies": 1,
+                "op": 1,
+                "location": 1,
+                "tool": 1,
+                "memento": 1,
+                "memory": 1
+            },
+            "actionId": "communicate"
+          },
+          {
+            "id": "needswasteland",
+            "label": "荒野",
+            "required": {
+                "wasteland.a": 1,
+                "wasteland.b": 1
+            },
+            "actionId": "recon"
+          },
+          {
+            "id": "needsegg",
+            "label": "意图",
+            "required": {
+                "serpent.eggb": 1,
+                "memento": 1
+            },
+            "actionId": "abandon"
+          }
+      ],
+      "xtriggers": {
+        "promotionto_d_knock": "friend.tomori.eldestsister",
+        "killfriend": "friend.tomori.serpent.wounded",
+        "killmortal": "friend.tomori.serpent.wounded",
+        "makecasualty": "friend.tomori.serpent.wounded",
+        "fatiguing": "friend.tomori.serpent.exhausted",
+        "recruiting": "friend.tomori.serpent",
+        "leaving": "friend.tomori.serpent.leaving",
+	      "refreshally": "friend.tomori.serpent"
+      },
+      "icon": "friend.tomori.serpent",
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya"
+    },
+    {
+      "id": "friend.tomori.serpent.exhausted",
+      "label": "幼女 伊万杰琳·波列瓦娅（疲惫）",
+      "description": "于地牢之中获救，于夕阳之中叩手。囚于人类中的巨蛇，或被巨蛇所囚的人类。",
+      "aspects": {
+          "friend": 1,
+          "friend.dwelling": 1,
+          "exhausted": 1,
+          "follower": 1,
+          "friend.motherofants": 1
+      },
+      "xtriggers": {
+          "killfriend": "friend.tomori.serpent.wounded",
+          "killmortal": "friend.tomori.serpent.wounded",
+          "makecasualty": "friend.tomori.serpent.wounded",
+          "fatiguing": "friend.tomori.serpent.exhausted",
+          "refresh": "friend.tomori.serpent",
+	        "refreshally": "friend.tomori.serpent"
+      },
+      "icon": "friend.tomori.serpent",
+      "resaturate": true,
+      "decayTo": "friend.tomori.serpent",
+      "lifetime": 160,
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya"
+    },
+    {
+      "id": "friend.tomori.serpent.wounded",
+      "label": "幼女 伊万杰琳·波列瓦娅（受伤）",
+      "description": "于地牢之中获救，于夕阳之中叩手。囚于人类中的巨蛇，或被巨蛇所囚的人类。\n[幼妹在受伤状态下不会因时节而死亡，倒计时结束后她将自愈]",
+      "aspects": {
+          "friend.dwelling": 1,
+          "wounded.fake": 1,
+          "remnant": 1,
+          "follower": 1,
+          "friend.motherofants": 1
+      },
+      "xtriggers": {
+          "killfriend": "friend.tomori.serpent.wounded",
+          "killmortal": "friend.tomori.serpent.wounded",
+          "makecasualty": "friend.tomori.serpent.wounded",
+          "restorehealth": "friend.tomori.serpent"
+      },
+      "icon": "friend.tomori.serpent.wounded",
+      "resaturate": true,
+      "decayTo": "friend.tomori.serpent",
+      "lifetime": 320,
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya"
+    },
+
+    {
+      "id": "friend.tomori.eldestsister",
+      "label": "长女 伊万杰琳·波列瓦娅",
+      "description": "我们相遇在黑暗里，我们相知在尘世间。是巨蛇，亦是人类。",
+      "aspects": {
+          "friend": 1,
+          "friend.dwelling": 1,
+          "knock": 6,
+          "winter": 5,
+          "moth": 5,
+          "haspolevaya": 1,
+          "follower": 1,
+          "disciple": 1,
+          "friend.motherofants": 1
+      },
+      "slots": [
+          {
+            "id": "needsprovisions",
+            "label": "补偿",
+            "required": {
+                "provisions": 1
+            },
+            "consumes": true,
+            "actionId": "operate"
+          },
+          {
+            "id": "needscommunicate",
+            "label": "话题",
+            "required": {
+                "supplies": 1,
+                "op": 1,
+                "location": 1,
+                "tool": 1,
+                "memento": 1,
+                "memory": 1
+            },
+            "actionId": "communicate"
+          },
+          {
+            "id": "needswasteland",
+            "label": "荒野",
+            "required": {
+                "wasteland.a": 1,
+                "wasteland.b": 1
+            },
+            "actionId": "recon"
+          },
+          {
+            "id": "needsegg",
+            "label": "意图",
+            "required": {
+                "serpent.eggb": 1,
+                "memento": 1
+            },
+            "actionId": "abandon"
+          }
+      ],
+      "xtriggers": {
+        "promotionto_d_knock": "friend.tomori.priestess",
+        "killfriend": "friend.tomori.eldestsister.wounded",
+        "killmortal": "friend.tomori.eldestsister.wounded",
+        "makecasualty": "friend.tomori.eldestsister.wounded",
+        "fatiguing": "friend.tomori.eldestsister.exhausted",
+        "recruiting": "friend.tomori.eldestsister",
+        "leaving": "friend.tomori.eldestsister.leaving",
+	      "refreshally": "friend.tomori.eldestsister"
+      },
+      "icon": "friend.tomori.eldestsister",
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya"
+    },
+    {
+      "id": "friend.tomori.eldestsister.exhausted",
+      "label": "长女 伊万杰琳·波列瓦娅（疲惫）",
+      "description": "我们相遇在黑暗里，我们相知在尘世间。是巨蛇，亦是人类。",
+      "aspects": {
+          "friend": 1,
+          "friend.dwelling": 1,
+          "exhausted": 1,
+          "follower": 1,
+          "disciple": 1,
+          "friend.motherofants": 1
+      },
+      "xtriggers": {
+          "killfriend": "friend.tomori.eldestsister.wounded",
+          "killmortal": "friend.tomori.eldestsister.wounded",
+          "makecasualty": "friend.tomori.eldestsister.wounded",
+          "fatiguing": "friend.tomori.eldestsister.exhausted",
+          "refresh": "friend.tomori.eldestsister",
+	        "refreshally": "friend.tomori.eldestsister"
+      },
+      "icon": "friend.tomori.eldestsister",
+      "resaturate": true,
+      "decayTo": "friend.tomori.eldestsister",
+      "lifetime": 160,
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya"
+    },
+    {
+      "id": "friend.tomori.eldestsister.wounded",
+      "label": "长女 伊万杰琳·波列瓦娅（受伤）",
+      "description": "我们相遇在黑暗里，我们相知在尘世间。是巨蛇，亦是人类。\n[幼妹在受伤状态下不会因时节而死亡，倒计时结束后她将自愈]",
+      "aspects": {
+          "friend.dwelling": 1,
+          "wounded.fake": 1,
+          "remnant": 1,
+          "follower": 1,
+          "disciple": 1,
+          "friend.motherofants": 1
+      },
+      "xtriggers": {
+          "killfriend": "friend.tomori.eldestsister.wounded",
+          "killmortal": "friend.tomori.eldestsister.wounded",
+          "makecasualty": "friend.tomori.eldestsister.wounded",
+          "restorehealth": "friend.tomori.eldestsister"
+      },
+      "icon": "friend.tomori.eldestsister.wounded",
+      "resaturate": true,
+      "decayTo": "friend.tomori.eldestsister",
+      "lifetime": 320,
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya"
+    },
+
+    {
+      "id": "friend.tomori.priestess",
+      "label": "女祭司 伊万杰琳·波列瓦娅",
+      "description": "愿她一切安好，她就是她。伊万杰琳·波列瓦娅。",
+      "aspects": {
+          "friend": 1,
+          "friend.dwelling": 1,
+          "knock": 10,
+          "winter": 7,
+          "moth": 7,
+          "haspolevaya": 1,
+          "follower": 1,
+          "disciple": 1,
+          "exalted": 1,
+          "friend.motherofants": 1
+      },
+      "slots": [
+          {
+            "id": "needsprovisions",
+            "label": "补偿",
+            "required": {
+                "provisions": 1
+            },
+            "consumes": true,
+            "actionId": "operate"
+          },
+          {
+            "id": "needscommunicate",
+            "label": "话题",
+            "required": {
+                "supplies": 1,
+                "op": 1,
+                "location": 1,
+                "tool": 1,
+                "memento": 1,
+                "memory": 1,
+                "wound.serpent.green": 1,
+                "debilitation.eye.colonel": 1
+            },
+            "actionId": "communicate"
+          },
+          {
+            "id": "needswasteland",
+            "label": "荒野",
+            "required": {
+                "wasteland.a": 1,
+                "wasteland.b": 1
+            },
+            "actionId": "recon"
+          },
+          {
+            "id": "needsegg",
+            "label": "意图",
+            "required": {
+                "serpent.eggb": 1,
+                "memento": 1
+            },
+            "actionId": "abandon"
+          }
+      ],
+      "xtriggers": {
+        "killfriend": "friend.tomori.priestess.wounded",
+        "killmortal": "friend.tomori.priestess.wounded",
+        "makecasualty": "friend.tomori.priestess.wounded",
+        "fatiguing": "friend.tomori.priestess.exhausted",
+        "recruiting": "friend.tomori.priestess",
+        "leaving": "friend.tomori.priestess.leaving",
+	      "refreshally": "friend.tomori.priestess"
+      },
+      "icon": "friend.tomori.priestess",
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya"
+    },
+    {
+      "id": "friend.tomori.priestess.exhausted",
+      "label": "女祭司 伊万杰琳·波列瓦娅（疲惫）",
+      "description": "愿她一切安好，她就是她。伊万杰琳·波列瓦娅。",
+      "aspects": {
+          "friend": 1,
+          "friend.dwelling": 1,
+          "exhausted": 1,
+          "follower": 1,
+          "disciple": 1,
+          "exalted": 1,
+          "friend.motherofants": 1
+      },
+      "xtriggers": {
+          "killfriend": "friend.tomori.priestess.wounded",
+          "killmortal": "friend.tomori.priestess.wounded",
+          "makecasualty": "friend.tomori.priestess.wounded",
+          "fatiguing": "friend.tomori.priestess.exhausted",
+          "refresh": "friend.tomori.priestess",
+	        "refreshally": "friend.tomori.priestess"
+      },
+      "icon": "friend.tomori.priestess",
+      "resaturate": true,
+      "decayTo": "friend.tomori.priestess",
+      "lifetime": 160,
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya"
+    },
+    {
+      "id": "friend.tomori.priestess.wounded",
+      "label": "女祭司 伊万杰琳·波列瓦娅（受伤）",
+      "description": "愿她一切安好，她就是她。伊万杰琳·波列瓦娅。\n[幼妹在受伤状态下不会因时节而死亡，倒计时结束后她将自愈]",
+      "aspects": {
+          "friend.dwelling": 1,
+          "wounded.fake": 1,
+          "remnant": 1,
+          "follower": 1,
+          "disciple": 1,
+          "exalted": 1,
+          "friend.motherofants": 1
+      },
+      "xtriggers": {
+          "killfriend": "friend.tomori.priestess.wounded",
+          "killmortal": "friend.tomori.priestess.wounded",
+          "makecasualty": "friend.tomori.priestess.wounded",
+          "restorehealth": "friend.tomori.priestess"
+      },
+      "icon": "friend.tomori.priestess.wounded",
+      "resaturate": true,
+      "decayTo": "friend.tomori.priestess",
+      "lifetime": 320,
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya"
+    },
+
+
+    {
+      "id": "friend.tomori.serpent.leaving",
+      "label": "<i>一份约定</i>",
+      "description": "我与一位少女的约定。\n[此卡在场时你可以通过探索荒野将幼妹召回]",
+      "aspects": {
+        "legacyplotitem": 1,
+        "serpentleaving": 1
+      },
+      "slots": [
+          {
+            "id": "needswasteland",
+            "label": "荒野",
+            "required": {
+                "wasteland.a": 1,
+                "wasteland.b": 1
+            },
+            "actionId": "communicate"
+          }
+      ],
+      "xtriggers": {
+        "backing": "friend.tomori.serpent"
+      },
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya"
+    },
+    {
+      "id": "friend.tomori.eldestsister.leaving",
+      "label": "<i>一份约定</i>",
+      "description": "我与一位少女的约定。\n[此卡在场时你可以通过探索荒野将幼妹召回]",
+      "aspects": {
+        "legacyplotitem": 1,
+        "serpentleaving": 1
+      },
+      "slots": [
+          {
+            "id": "needswasteland",
+            "label": "荒野",
+            "required": {
+                "wasteland.a": 1,
+                "wasteland.b": 1
+            },
+            "actionId": "communicate"
+          }
+      ],
+      "xtriggers": {
+        "backing": "friend.tomori.eldestsister"
+      },
+      "icon": "friend.tomori.eldestsister.leaving",
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya"
+    },
+    {
+      "id": "friend.tomori.priestess.leaving",
+      "label": "<i>一份约定</i>",
+      "description": "我与一位少女的约定。\n[此卡在场时你可以通过探索荒野将幼妹召回]",
+      "aspects": {
+        "legacyplotitem": 1,
+        "serpentleaving": 1
+      },
+      "slots": [
+          {
+            "id": "needswasteland",
+            "label": "荒野",
+            "required": {
+                "wasteland.a": 1,
+                "wasteland.b": 1
+            },
+            "actionId": "communicate"
+          }
+      ],
+      "xtriggers": {
+        "backing": "friend.tomori.priestess"
+      },
+      "icon": "friend.tomori.priestess.leaving",
+      "unique": true,
+      "uniquenessgroup": "uqpolevaya"
+    },
+    {
+      "id": "serpentleaving",
+      "label": "约定",
+      "isAspect": true,
+      "isHidden": true
+    },
+
+    {
+      "id": "serpent.eggb",
+      "label": "巨蛇之卵",
+      "description": "一枚一直发烫的卵。我是人猿，而非爬虫或飞鸟，因此无论怎么都孵不出来。",
+      "aspects": {
+          "knock": 2,
+          "grail": 2,
+          "moth": 2,
+          "tool": 1
+      }
+    },
+    {
+      "id": "missiontomoriserpent",
+      "label": "意图少女",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
+      "id": "mission.tomoriserpent.a",
+      "label": "意图：落泪的少女",
+      "description": "过去很长一段时间我都不解那一种悲伤，直到我发现她已鲜少悲伤。我将不解的目标改为她本身，而在她的目光中，我又将问题抛向了自己。",
+      "xtriggers": {
+          "opx.progress0": [
+        {
+            "id": "challenge.contemplation.tomoriserpent.a",
+            "morpheffect": "spawn"
+        }
+          ],
+          "ascend": "mission.tomoriserpent.b"
+      },
+      "aspects": {
+          "contemplation": 1
+      },
+      "uniquenessgroup": "missiontomoriserpent"
+    },
+    {
+      "id": "challenge.contemplation.tomoriserpent.a",
+      "label": "Serpent Challenge A",
+      "aspects": {
+          "needsknock": 8,
+          "needsmoth": 8
+      },
+      "isHidden": true,
+      "lifetime": 1
+    },
+    {
+      "id": "mission.tomoriserpent.b",
+      "label": "意图：落泪的士兵",
+      "description": "每一个刃之学徒的灵魂里都埋着大片废墟，我是否走的太远，我是否已经忘记了自己的模样，废墟里的我又如何看待这个问题。",
+      "xtriggers": {
+          "opx.progress0": [
+        {
+            "id": "challenge.contemplation.tomoriserpent.b",
+            "morpheffect": "spawn"
+        }
+          ],
+          "ascend": "mission.tomoriserpent.c"
+      },
+      "aspects": {
+          "contemplation": 1
+      },
+      "uniquenessgroup": "missiontomoriserpent"
+    },
+    {
+      "id": "challenge.contemplation.tomoriserpent.b",
+      "label": "Serpent Challenge B",
+      "aspects": {
+          "needsknock": 12,
+          "needsmoth": 12
+      },
+      "isHidden": true,
+      "lifetime": 1
+    },
+    {
+      "id": "mission.tomoriserpent.c",
+      "label": "意图：落泪的利器",
+      "description": "蛇比飞鸟更接近根系，比走兽更深入黑暗。我会闭上双眼。\n<i>“不容拒绝的访客会见证我于可见与不可见的规训之下逃脱。”</i>\n然而一切不会真的消失，在我完成应尽的义务之后，我或许可以休眠。\n\n[在命定之地，如果我已完成伟业，我或许能依靠其完成更多功业；如果我未完成伟业，我或许也可以依靠其开启不一样的道路]",
+      "aspects": {
+          "contemplation": 1,
+          "completed": 1,
+          "knock": 1
+      },
+      "uniquenessgroup": "missiontomoriserpent"
+    },
+
+    {
+      "id": "diary.tomoriserpent",
+      "label": "日记",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
+      "id": "diary.tomoriserpent.a",
+      "label": "日记其一",
+      "description": "敌人炮弹的啸声压过风声，我以钢的技艺偏转炮火落点，轰鸣炸响在空地，阵地得于保全，无人在意的土地上平添了丑陋的伤口。一旁的少女静静看着全程，眼中毫无惊惧，反而流露怜悯。她缓步上前，指尖轻轻抚过我脸上的伤疤，然后展示了她的。战争中人人皆有伤痕，而世界亦然。",
+      "aspects": {
+          "diary.tomoriserpent": 1
+      }
+    },
+    {
+      "id": "diary.tomoriserpent.b",
+      "label": "日记其二",
+      "description": "阵地伤亡惨重，数名士兵倒在冻土之上，躯体尚温、魂息未散。我再度征召起他们，驱动他们的残躯，复活的士兵维持着牺牲时的姿态爬起。哭泣的少女穿梭在尸体之间，为每一名苏醒的战友扶正歪落的军帽，用泥土掩住他们可怖的脸。做完这一切，她发现了我，快步走到我身前，踮起脚尖，认真为我抚平褶皱的军装、理好凌乱的衣领。即便我还没有死去。即便我现在还没有死去。",
+      "aspects": {
+          "diary.tomoriserpent": 1
+      },
+      "icon": "documentgeneric"
+    },
+    {
+      "id": "diary.tomoriserpent.c",
+      "label": "日记其三",
+      "description": "敌军再度压境，阵线岌岌可危。我沉下心神，令我的意志凌驾一切微小的意志，令我不容忤逆。全军士兵绷直身躯，整齐肃立。一旁从未受过训练的少女似乎也清晰感知到这可怖力量。她的眼底也漫上真切的惶恐与肃穆。无需任何人教导，她下意识挺直脊背，抬手低头，郑重地行了一个标准的军礼。战火肃杀，她是整片战场里最意外的臣服者。这令人痛心。",
+      "aspects": {
+          "diary.tomoriserpent": 1
+      },
+      "icon": "concursumdiaries"
+    }
+  ]
+}

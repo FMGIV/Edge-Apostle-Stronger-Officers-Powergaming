@@ -1,0 +1,3603 @@
+{
+  "recipes": [
+    {
+      "id": "foe.begin.exhaust",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "pillar.serpent.green": 1, "pillar.serpent.purple": 1 ,"insight.sergei": 1 }
+			}
+		}
+    },
+    {
+      "id": "heal.adeptgrail.self",
+      "requirements$add": {
+          "wound.serpent.green": -1
+      }
+    },
+    {
+      "id": "healcomplete.adept",
+      "label": "拜请赤杯以充实血与肉"
+    },
+    {
+      "id": "time.cycle",
+      "linked$prepend": [
+          {
+             "id": "pre.deadworms"
+          }
+      ]
+    },
+    {
+      "id": "pre.deadworms",
+      "label": "什么东西钻在我体内？",
+      "startdescription": "什么东西钻在我体内？ 这绝对称不上好的死法，我的眼睛上出现雾气，而我从不戴眼镜，我的眼睛在被蠕虫啃食！在融化！在我的世界消失之前，伊万杰琳·波列瓦娅奔向了我，我努力朝另外一个方向奔去，然后我在黑暗中被拥住，我在溺水，我在发热。[若你在这最后的时间耗尽时仍具有至少五道伤口或五道精神创伤，你将屈服于蠕虫。]",
+      "extantreqs": {
+          "obdurant.story": 1,
+          "underground.here": 1,
+          "skill.sustain.active": -1
+      },
+      "grandReqs": {
+          "[~/extant:damage.body] >= 5 || [~/extant:damage.mind] >= 5": 1
+      },
+      "warmup": 60,
+      "signalEndingFlavour": "Melancholy",
+      "signalMusic": "neardeath.mp3",
+      "linked": [
+          {
+            "id": "deadworms"
+          },
+          {
+            "id": "time.clear"
+          }
+      ]
+    },
+    {
+      "id": "deadworms",
+      "label": "什么东西钻在我体内？",
+      "extantreqs": {
+          "obdurant.story": 1,
+          "underground.here": 1,
+          "skill.sustain.active": -1
+      },
+      "grandReqs": {
+          "[~/extant:damage.body] >= 5 || [~/extant:damage.mind] >= 5": 1
+      },
+      "ending": "ending.deadworms",
+      "achievements": [
+          "achievements.ending.deadworms"
+      ]
+    },
+
+    {
+      "id": "detectadditional",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "uqthelastseven": 1 }
+          }
+        }
+    },
+    {
+      "id": "detectadditional.side",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "uqthelastseven": 1 }
+          }
+        }
+    },
+    {
+      "id": "dreams.startup",
+      "alt$prepend": [
+          {
+            "id": "contemplation.complete.knock"
+          },
+          {
+            "id": "pillar.serpent.green.namehints"
+          },
+          {
+            "id": "pillar.serpent.purple.namehints"
+          }
+      ]
+    },
+    {
+      "id": "contemplation.complete.knock",
+      "label": "得出一个结论",
+      "startdescription": "每一对相互连接的灵魂都保留着一个初始的疑问。“我们是什么？”而更让我感兴趣的是：这个疑问从未被回答。\n她的泪水是我的镜子，她告诉我:有一把利剑从天而降，我或许是那把利剑，或许不是。于是我得以被她包罗万象的眼睛所启示，她试图带我从洪流一般的荣誉中脱离。\n我们是剑与贼，荣誉与伤口，千夫长与蛇的女儿。\n\n[你现在能尝试和少女交流了]",
+      "requirements": {
+          "contemplation": 1,
+          "completed": 1,
+          "knock": 1
+      }
+    },
+    {
+      "id": "pillar.serpent.green.namehints",
+      "label": "思考体内的毒素……",
+      "startdescription": "毒液会缓慢淤滞在四肢血脉，嵌于骨血。在昏沉的幻梦之中，没有神明启示，只有来自自身灵魂的反复自问与诅咒：我将因何而死？我将于何时死？我将于何地死？谁将向我而来？谁会随我而去？我为何非死不可？\n最后的回答，只有毒！毒！毒！…\n\n[你可以通过酿制一种特殊的药剂治疗蛇毒，当然，一位女祭司的赐福也能将伤口转化]",
+      "requirements": {
+          "pillar.serpent.green": 1
+      }
+    },
+    {
+      "id": "pillar.serpent.purple.namehints",
+      "label": "思考双重胜利之法…",
+      "startdescription": "关于我与我恋人的胜利…",
+      "requirements": {
+          "pillar.serpent.purple": 1
+      },
+      "linked": [
+          {
+            "id": "pillar.serpent.purple.drawhint"
+          }
+      ]
+    },
+    {
+      "id": "pillar.serpent.purple.drawhint",
+      "label": "思考双重胜利之法…",
+      "internaldeck": {
+          "spec": [
+            "draw.hintobdurant.lore",
+            "draw.hintobdurant.debilitations",
+            "draw.hintobdurant.ebrehel",
+            "draw.hintobdurant.medusa",
+            "draw.hintobdurant.musvashir"
+          ],
+          "draws": 1,
+          "resetonexhaustion": true
+      },
+      "linked": [
+          {
+            "id": "pillar.serpent.purple.hintdesc.lore"
+          },
+          {
+            "id": "pillar.serpent.purple.hintdesc.debilitations"
+          },
+          {
+            "id": "pillar.serpent.purple.hintdesc.ebrehel"
+          },
+          {
+           "id": "pillar.serpent.purple.hintdesc.medusa"
+          },
+          {
+            "id": "pillar.serpent.purple.hintdesc.musvashir"
+          },
+          {
+           "id": "obdurant.clearagain"
+          }
+      ]
+    },
+    {
+      "id": "pillar.serpent.purple.hintdesc.lore",
+      "label": "错误之门的钥匙…",
+      "startdescription": "蜘蛛之门，那个被错误打开的门……",
+      "description": "蜘蛛之门，那个被错误打开的门对于蚁母是神圣的，兜颈贵胄都曾穿过此门，现在它们的女儿仍然保管着它。苏洛恰那现已隐世，我们情况特殊，找到合适的引荐，它们仍可能被我们吸引，苏洛恰那会为我们开门。居屋不容爱侣，这扇非常规的门是最适合我这位非常规的恋人的门。尽管危险，尽管困难，我需要黑夜之钥的再一次现世。",
+      "requirements": {
+          "draw.hintobdurant.lore": 1
+      },
+      "grandReqs": {
+          "([~/extant:promise.purple] - [~/extant:supplies.serpent.salt]) >= 1": 1
+      },
+      "extantreqs": {
+          "promise.purple": -2
+      },
+      "warmup": 30
+    },
+    {
+      "id": "pillar.serpent.purple.hintdesc.debilitations",
+      "label": "百刃缠身的准备…",
+      "startdescription": "上校是用什么武器，多少武器杀死七蟠，现难以考据……",
+      "description": "上校是用什么武器，多少武器杀死七蟠，现难以考据。但我们不可只依仗单一的利刃。必须集齐七样神圣的异质之物：钉、剑、爪、颅、矛、羽，还有那属于自身血肉的兵器。七者齐备，方能直面荒野中的异物。",
+      "requirements": {
+          "draw.hintobdurant.debilitations": 1
+      },
+      "extantreqs": {
+          "weaponending": -4,
+          "weapon.histid": -1
+      },
+      "warmup": 30
+    },
+    {
+      "id": "pillar.serpent.purple.hintdesc.ebrehel",
+      "label": "非同寻常的羁绊…",
+      "startdescription": "我必须要与那少女缔结超脱凡俗的羁绊，扎根与灵魂深处的连接……",
+      "description": "我必须要与那少女缔结超脱凡俗的羁绊，扎根与灵魂深处的连接。之后学习秘仪，将她擢升为女祭司，蚁母曾经的职位。这将是一条灵知的道路。在她承接古老的秘密之后，她会为我赐福。",
+      "requirements": {
+          "draw.hintobdurant.ebrehel": 1
+      },
+      "extantreqs": {
+          "romanticinterest": -7
+      },
+      "warmup": 30
+    },
+    {
+      "id": "pillar.serpent.purple.hintdesc.medusa",
+      "label": "自我本身的职责",
+      "startdescription": "一者不为另一者而生，一者亦不能替代另一者……",
+      "description": "一者不为另一者而生，一者亦不能替代另一者。\n关于我自身的职责，士兵的职责，我仍需要走完士兵的道路。参与战火，推动战局走向扭转。",
+      "requirements": {
+          "draw.hintobdurant.medusa": 1
+      },
+      "extantreqs": {
+          "gotmedusa": -1,
+          "challenger.mark": -1,
+          "defiance.consecration.colonel": -3,
+          "hasebrehel": -1,
+          "resolution": -12
+      },
+      "warmup": 30
+    },
+    {
+      "id": "pillar.serpent.purple.hintdesc.musvashir",
+      "label": "偏离世界的荒芜…",
+      "startdescription": "在世界表皮破碎之处，那片偏离凡人命途的荒芜地界……",
+      "description": "在世界表皮破碎之处，那片偏离凡人命途的荒芜地界。那里仍蛰伏着非蛇之蛇。我要在此地，将它们杀灭、驱逐。这是对世界伤口的净除。",
+      "requirements": {
+          "draw.hintobdurant.musvashir": 1
+      },
+      "extantreqs": {
+          "underground": -1,
+          "underground.here": -1,
+          "corpse.thelastseven": -1,
+          "supplies.serpent.salt": -1,
+          "promise.purple": -2
+      },
+      "warmup": 30
+    },
+    {
+      "id": "pillar.serpent.purple.clearagain",
+      "label": "思考双重胜利之法…",
+      "effects": {
+          "decision": -99
+      },
+      "linked": [
+          {
+        "id": "pillar.serpent.purple.drawhint"
+          }
+      ]
+    },
+
+    {
+      "id": "visit.shrinecolonel.getyihulun",
+      "actionid": "mobilize",
+      "label": "去铁之神祠朝圣",
+      "startdescription": "若我想模仿上校的事迹——与女祭司一起，我需要知道故事的更多细节，和更多真相。",
+      "description": "神祠毫无动静。没有具名者注意到我。",
+      "requirements": {
+          "shrinecolonel": 1,
+          "pillar.serpent.purple": 1
+      },
+      "extantreqs": {
+          "weaponyihulun": -1
+      },
+      "$priority": 3,
+      "slots": [
+          {
+            "id": "needsoffering",
+            "label": "供品",
+            "required": {
+                "foe.corpses": 1,
+                "foe.corpse.unnatural": 1
+            }
+          }
+      ],
+      "alt": [
+          {
+            "id": "visit.shrinecolonel.getyihulun.success"
+          }
+      ],
+      "warmup": 60,
+      "craftable": true
+    },
+    {
+      "id": "visit.shrinecolonel.getyihulun.success",
+      "label": "<i>七步斩七蟠</i>",
+      "startdescription": "神祠内的空气变得寒冷。我的视野闪烁，不久后我只能看见漆黑。有什么来到此处。",
+      "description": "我闭上双眼。在阴影中，我听到了具名者“独眼巨人”安提柯那不均匀的脚步声，同时响起的还有一位女士的轻巧的脚步声。“人之杀手，”他以雄厚又庄重的声音说。“这是一个家喻户晓的故事另一个侧面。”",
+      "requirements": {
+          "remnant": 1
+      },
+      "effects": {
+          "shrinecolonel": -99,
+          "remnant": -99,
+          "weapon.yihulun": 1,
+          "op.motherofants": 1
+      }
+    },
+    {
+      "id": "communicate.purple.turndamage",
+      "actionid": "communicate",
+      "label": "让祭司为自己赐福",
+      "previewDescription": "若我想打败那有七个头颅的怪物，我必须接受一位祭司的赐福。\n\n[这将消耗一瓶生猛毒液]",
+      "startdescription": "女祭司先解开我的衣物，用清水清理了我中毒的伤口，先用灯芯将一根银针烧至红热，缓慢地洞开我伤口周围的皮肤，令溃烂的内里暴露于表面，但预想当中的疼痛并未到来，她靠近我，将我体内的毒素吮吸出来，有时候我真的很好奇她从哪里学到的这些技术。",
+      "description": "还缺少一样关键的试剂，我需要一些蛇毒作为原料。",
+      "requirements": {
+          "friend.tomori.priestess": 1,
+          "wound.serpent.green": 1
+      },
+      "tablereqs": {
+          "supplies.serpent.knock": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "药剂",
+          "required": {
+            "supplies.serpent.knock": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "communicate.purple.turndamage.end"
+        }
+      ],
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "communicate.purple.turndamage.end",
+      "label": "让祭司为自己赐福",
+      "startdescription": "她用自己的贴身衣物对毒液进行过滤，随后将其放到营火上加热并搅拌，一边将另外的少量液体放入其中进行混合。",
+      "description": "毒液随后被涂抹在伤口表面上，需要我静待两个时辰，如此仪式便可保护我免受蟠蛇魔法的伤害。正如从前女祭司对千夫长所做的那样。",
+      "requirements": {
+        "supplies.serpent.knock": 1
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "serpentpriest": 1
+      },
+      "warmup": 30
+    },
+    {
+      "id": "communicate.purple.turndamage.hint",
+      "actionid": "communicate",
+      "label": "让祭司为自己赐福？",
+      "startdescription": "还缺少一样关键的试剂，我需要一些蛇毒作为原料。",
+      "requirements": {
+          "friend.tomori.priestess": 1,
+          "wound.serpent.green": 1
+      },
+      "hintonly": true
+    },
+    
+    {
+      "id": "pillar.purple.discipletoexalted",
+      "actionid": "operate",
+      "label": "撰升一位助手",
+      "startdescription": "我以我之伤疤向蚁母起誓，愿诸国度能像我一般偏爱我的公主，愿万兽能像对待我一样敬畏我的恋人。",
+      "description": "就差一点。",
+      "requirements": {
+          "pillar.serpent.purple": 1,
+          "disciple": 1,
+          "exalted": -1,
+          "op.church": 1,
+          "damage.body": 1,
+          "knock": 28
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "蚁母的注视",
+          "required": {
+            "op.motherofants": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "pillar.purple.discipletoexalted.end"
+        }
+      ],
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "pillar.purple.discipletoexalted.end",
+      "actionid": "operate",
+      "label": "撰升一位助手",
+      "startdescription": "我以我之伤疤向蚁母起誓，愿诸国度能像我一般偏爱我的公主，愿万兽能像对待我一样敬畏我的恋人。我将在女祭司的注视下将她推举至更高。",
+      "description": "她于血中升起，自创口重生。她已穿越通向完美的门扉。",
+      "requirements": {
+          "op.motherofants": 1
+      },
+      "effects": {
+        "influence": -99,
+        "supplies": -99,
+        "op.motherofants": -99
+      },
+      "burnimage": "uptopriestess",
+      "aspects": {
+        "promotionto_d_knock": 1
+      }
+    },
+    {
+      "id": "pillar.purple.followertodisciple",
+      "actionid": "operate",
+      "label": "撰升一位助手",
+      "startdescription": "我向蚁母展示我之伤口和决心，众幼妹将称她为姊，且她将在女祭司的关爱下升至更高。",
+      "requirements": {
+          "pillar.serpent.purple": 1,
+          "follower": 1,
+          "disciple": -1,
+          "op.church": 1,
+          "damage.body": 1,
+          "knock": 18
+      },
+      "aspects": {
+        "promotionto_d_knock": 1
+      },
+      "effects": {
+        "influence": -99,
+        "supplies": -99
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "pillar.purple.exalted.hint",
+      "actionid": "operate",
+      "label": "已升至最高",
+      "startdescription": "她于血中升起，自创口重生。她已穿越通向完美的门扉。",
+      "requirements": {
+          "pillar.serpent.purple": 1,
+          "exalted": 1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "pillar.purple.hint",
+      "actionid": "operate",
+      "label": "撰升一位助手？",
+      "startdescription": "若我能在恰当的地点，使用恰当的手段，加之以足量的影响让司晨投来关注，她便能发挥她更多的潜力。",
+      "requirements": {
+          "pillar.serpent.purple": 1,
+          "exalted": -1
+      },
+      "hintonly": true
+    },
+
+    {
+      "id": "communicate.sulochana.startup",
+      "actionid": "communicate",
+      "label": "客人已至",
+      "startdescription": "我急忙带上腿骨迎接宾客。",
+      "requirements": {
+          "op.sulochanaarrived": 1,
+          "promise.purple": -1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "承诺",
+          "required": {
+            "tool.ligeian": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "communicate.sulochana.startup"
+        },
+        {
+          "id": "communicate.sulochana.dance"
+        }
+      ],
+      "craftable": true,
+      "warmup": 10
+    },
+    {
+      "id": "communicate.sulochana.dance",
+      "label": "另一位丽姬亚",
+      "startdescription": "“不必多说，”她吸了一口烟，眼含笑意的说，“你很有胆识和勇气，希望你不会因为你的选择而后悔。另外让我见见那个同族，放心，我路上吃过了。”我很难说请她的眼神，但在我喊来伊万杰琳·波列瓦娅之前，她不会离开。",
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "舞伴",
+          "required": {
+            "romanticinterest": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded.fake": 1
+          }
+        }
+      ],
+      "effects": {
+        "promise.purple": -1
+      },
+      "linked": [
+        {
+          "id": "communicate.sulochana.romanticinterest"
+        },
+        {
+          "id": "communicate.sulochana.dance"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "communicate.sulochana.romanticinterest",
+      "label": "一支舞蹈，一份认可",
+      "startdescription": "“她对我说了一些如何成为一名真正女人的话，还有孪生子，我不太确定我是否完全理解其中真正的奥秘…”在伊万杰琳·波列瓦娅舞至我怀中后，我确信她没有学到一些奇怪的东西。",
+      "description": "一切正常。",
+      "requirements": {
+        "romanticinterest": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "承诺",
+          "required": {
+            "pillar.serpent.purple": 1
+          },
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "communicate.sulochana.end"
+        },
+        {
+          "id": "communicate.sulochana.romanticinterest"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "communicate.sulochana.end",
+      "label": "一支舞蹈，一份认可",
+      "description": "一切正常。",
+      "requirements": {
+        "pillar.serpent.purple": 1
+      },
+      "mutations": [
+          {
+            "filter": "pillar.serpent.purple",
+            "mutate": "promise.purple",
+            "level": 1
+          }
+      ],
+      "effects": {
+        "opligeian": -1
+      },
+      "achievements": [
+          "achievements.thesecondkey"
+      ]
+    },
+
+    {
+      "id": "communicate.marinettedone",
+      "actionid": "communicate",
+      "label": "丽姬娅的回礼",
+      "startdescription": "“<sprite name=lantern>？”",
+      "description": "<sprite name=grail>……",
+      "requirements": {
+          "op.marinettedone": 1
+      },
+      "effects": {
+        "tool.marinette.grail": 1,
+        "op.marinettedone": -1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "意图",
+          "required": {
+            "contemplation": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "communicate.marinettedone.obdurant.story"
+        },
+        {
+          "id": "communicate.marinettedone.pillar.serpent.purple"
+        },
+        {
+          "id": "communicate.marinettedone.pillar.serpent.green"
+        }
+      ],
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "communicate.marinettedone.obdurant.story",
+      "label": "丽姬娅的回礼",
+      "startdescription": "“<sprite name=grail>，<sprite name=heart>，<sprite name=winter>。”\n\n[这将直接给予你石碑]",
+      "requirements": {
+          "obdurant.story": 1
+      },
+      "extantreqs": {
+        "promise.medusa": -1
+      },
+      "effects": {
+        "promise.medusa": 1,
+        "op.marinettedone": -1
+      }
+    },
+    {
+      "id": "communicate.marinettedone.pillar.serpent.purple",
+      "label": "丽姬娅的回礼",
+      "startdescription": "“<sprite name=grail>，<sprite name=moth>，<sprite name=knock>。”\n\n[另一位丽姬娅将前来]",
+      "description": "在留下一地残骨之后，吞噬者离开了。我与伊万杰琳·波列瓦娅蹲在那堆残骨旁，用树枝翻找着。最后我和她一起抓住了一根带有特殊咬痕的腿骨两端。",
+      "requirements": {
+          "pillar.serpent.purple": 1
+      },
+      "effects": {
+        "tool.ligeian": 1,
+        "op.sulochanacoming": 1,
+        "op.marinettedone": -1
+      }
+    },
+    {
+      "id": "communicate.marinettedone.pillar.serpent.green",
+      "label": "丽姬娅的回礼",
+      "startdescription": "“<sprite name=grail>，<sprite name=heart>，<sprite name=knock>。”\n\n[这将给予你最后一个治疗蛇毒的关键原料]",
+      "requirements": {
+          "pillar.serpent.green": 1
+      },
+      "effects": {
+        "supplies.serpent.grail": 1,
+        "op.marinettedone": -1
+      }
+    },
+    
+    {
+      "id": "communicate.marinettehungry.serpent",
+      "actionid": "communicate",
+      "label": "一上一下",
+      "startdescription": "我会为其提供我能做到的一切支持，以保证这名饥渴难耐的丽姬亚不会将我的珍视之人吞噬。",
+      "description": "我不应该如此匆忙地见面的。",
+      "requirements": {
+          "op.marinettehungry": 1,
+          "friend": 1,
+          "uqpolevaya": 1
+      },
+      "tablereqs": {
+        "remnant": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "礼物",
+          "required": {
+            "remnant": 1
+          },
+          "forbidden": {
+            "uqpolevaya": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "communicate.marinettehungry.unhunman.serpent"
+        },
+        {
+          "id": "communicate.marinettehungry.hunman.serpent"
+        }
+      ],
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "communicate.marinettehungry.unhunman.serpent",
+      "label": "一边吃一边谈…",
+      "startdescription": "目前，她们之间的安全距离十米，但这个距离对她来说并不安全。我将残骸抛向吞噬者。",
+      "requirements": {
+          "foe.corpse.unnatural": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "mutations": [
+          {
+            "filter": "op.marinettehungry",
+            "mutate": "approval",
+            "level": 2,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.marinettehungry.done"
+        }
+      ]
+    },
+    {
+      "id": "communicate.marinettehungry.hunman.serpent",
+      "label": "一边吃一边谈…",
+      "startdescription": "目前，她们之间的安全距离十米，但这个距离对她来说并不安全。我将尸体抛向吞噬者。",
+      "requirements": {
+          "remnant": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "mutations": [
+          {
+            "filter": "op.marinettehungry",
+            "mutate": "approval",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.marinettehungry.done"
+        }
+      ]
+    },
+
+    {
+      "id": "communicate.marinettehungry",
+      "actionid": "communicate",
+      "label": "与吞噬者交流",
+      "startdescription": "我会为其提供我能做到的一切支持，以保证这名饥渴难耐的丽姬亚不会将我吞噬。",
+      "description": "我看着她把我的士兵吞噬，一点不剩。",
+      "requirements": {
+          "op.marinettehungry": 1,
+          "friend": 1,
+          "uqpolevaya": -1
+      },
+      "effects": {
+        "friend": -1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "礼物",
+          "required": {
+            "remnant": 1
+          },
+          "forbidden": {
+            "uqpolevaya": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "communicate.marinettehungry.unhunman"
+        },
+        {
+          "id": "communicate.marinettehungry.hunman"
+        }
+      ],
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "communicate.marinettehungry.unhunman",
+      "label": "与吞噬者交流",
+      "startdescription": "我将残骸赠与吞噬者。她吃下了尸体，随即吃下了代言者。",
+      "requirements": {
+          "foe.corpse.unnatural": 1
+      },
+      "effects": {
+        "friend": -1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "mutations": [
+          {
+            "filter": "op.marinettehungry",
+            "mutate": "approval",
+            "level": 2,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.marinettehungry.done"
+        }
+      ]
+    },
+    {
+      "id": "communicate.marinettehungry.hunman",
+      "label": "与吞噬者交流",
+      "startdescription": "我将尸体赠与吞噬者。她吃下了尸体，随即吃下了代言者。",
+      "requirements": {
+          "remnant": 1
+      },
+      "effects": {
+        "friend": -1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "mutations": [
+          {
+            "filter": "op.marinettehungry",
+            "mutate": "approval",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.marinettehungry.done"
+        }
+      ]
+    },
+    {
+      "id": "communicate.marinettehungry.done",
+      "label": "与吞噬者交流",
+      "startdescription": "“<sprite name=mortal>。”",
+      "requirements": {
+          "approval": 7
+      },
+      "aspects": {
+        "ligeian": 1
+      }
+    },
+    
+    {
+      "id": "communicate.marinettehungry.serpent.hint",
+      "actionid": "communicate",
+      "label": "让少女与吞噬者交流？",
+      "startdescription": "我不该在未准备礼物的时候按响门铃。\n\n[请在派遣少女交谈前准备“礼物”]",
+      "requirements": {
+          "op.marinettehungry": 1,
+          "uqpolevaya": 1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "communicate.marinettehungry.hint",
+      "actionid": "communicate",
+      "label": "与吞噬者交流？",
+      "startdescription": "我不该如此接近一位丽姬娅，但我可以让手下的人代为交流。\n\n[除非我能找到一位与之有着共同语言的“人”，否则在交谈后友军将被吞噬]",
+      "requirements": {
+          "op.marinettehungry": 1,
+          "uqpolevaya": -1
+      },
+      "hintonly": true
+    },
+
+    {
+      "id": "mobilize.shrinemotherofants.knock.tc",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "我轻闭双眼，用耳聆听教堂里最空灵之钟声，用心思念我最思念之爱人。",
+      "description": "我的爱意没能得到回应。",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "mission.tomoriserpent.c": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "爱人",
+          "required": {
+            "romanticinterest": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded.fake": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "mobilize.shrinemotherofants.knock.tc.up"
+        }
+      ],
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "mobilize.shrinemotherofants.knock.tc.up",
+      "label": "在教堂寻求启示",
+      "startdescription": "教堂烛火昏暗，我低头参拜，明明看不见，却清楚感知圣亚割妮立于身后。粗布修女袍下窄小苍白的双脚无声无息，手中攥着钥匙、刀刃、蜡烛、以及她自己的头颅。她轻声道出故事：曾有荒野巨蛇啃噬一切。一位女祭司为勇士指明破绽。她之后又说蛇从不是最大的祸患，只要有充足的准备与远超常人的努力。",
+      "description": "话音落，身后空无一人，只剩淡淡的凉意萦绕。我的心脏狂跳，闻到了花香与暗示，而这座教堂中的每一扇窗户与门扉都已被悄然开启。",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "mission.tomoriserpent.c": 1,
+          "romanticinterest": 3
+      },
+      "effects": {
+        "pillar.serpent.purple": 1,
+        "op.motherofants": 1,
+        "tool.serpent.knock": 1
+      },
+      "maxexecutions": 1
+    },
+
+    {
+      "id": "mobilize.shrinemotherofants.knock.t",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "我离开指挥室，独自一人来到教堂，不为严峻形势，亦不为长生杀戮，却是为一位少女之心事。\n\n[我或许可以升级这一意图]",
+      "description": "理解离我而去。",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "contemplation": 1,
+          "promise": -1,
+          "missiontomoriserpent": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "蚁母的注视",
+          "required": {
+            "op.motherofants": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "mobilize.shrinemotherofants.knock.t.up"
+        }
+      ],
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "mobilize.shrinemotherofants.knock.t.up",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "随后其长姊回应我，我听到她走下台阶，身上的金属钥匙在走动的时候叮当作响。“聆听吧，”她轻声说道，“她所思所想。”",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "contemplation": 1,
+          "op.motherofants": 1,
+          "missiontomoriserpent": 1
+      },
+      "aspects": {
+        "ascend": 1,
+        "fatiguing": 1
+      }
+    },
+
+    {
+      "id": "mobilize.shrinemotherofants.knock.m",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "救恩之母向我们投下关怀，我们感恩，并收下福报。\n\n[我或许可以利用这一影响]",
+      "description": "@#mem.joy|冬日暖阳，彩窗折光，这会是一段微风徐徐的时光。#mem.calm|烛火轻摇，光尘止息，这是一次无需言语的仪式。#mem.grief|圣像垂目，长椅冰凉，我记得那场更为漫长的静默。#influenceknock|锁在旧伤里转动，门从肋间打开，呼吸畅通无阻。#influenceknockc|墙砖被拆下，钥匙藏舌下，语言自裂口漏出。#op.motherofants|阴影爬上圣坛，手臂合围，喉咙的结痂被刺穿，我又可以开口说话了。@",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "op.motherofants": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "意图",
+          "required": {
+            "friend.poisoning": 1,
+            "contemplation": 1,
+            "influence": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "wounded.fake": 1,
+            "damaged": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "mobilize.shrinemotherofants.knock.influence"
+        },
+        {
+          "id": "mobilize.shrinemotherofants.knock.heal"
+        },
+        {
+          "id": "mobilize.shrinemotherofants.knock.t.up"
+        },
+        {
+          "id": "produce.motherofantsveneration",
+          "chance": 30,
+          "additional": true
+        }
+      ],
+      "internaldeck": {
+          "spec": [
+            "mem.grief",
+            "mem.calm",
+            "mem.joy",
+            "influenceknock",
+            "influenceknock",
+            "influenceknock",
+            "influenceknockc",
+            "influenceknockc",
+            "op.motherofants"
+          ],
+          "draws": 1,
+          "defaultcard": "influenceknock",
+          "resetonexhaustion": true
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "mobilize.shrinemotherofants.knock.influence",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "蚁母盘伏环绕在伤口上，环绕在教堂上，也环绕在每一处裂缝、门扉之中。",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "influence": 1,
+          "moth": -1,
+          "lantern": -1,
+          "forge": -1,
+          "edge": -1,
+          "winter": -1,
+          "heart": -1,
+          "grail": -1,
+          "knock": 9,
+          "op.motherofants": 1
+      },
+      "aspects": {
+        "upgradeinfluence": 1,
+        "fatiguing": 1
+      }
+    },
+
+    {
+      "id": "mobilize.shrinemotherofants.knock.p",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "蚁母精通下毒与治疗，若我们足够虔诚，士兵身上的毒素将能被排出。\n\n[我或许可以治愈士兵]",
+      "description": "祷告结束，我们带着伤员离开，祈祷奇迹发生。",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "friend.poisoning": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "蚁母的注视",
+          "required": {
+            "op.motherofants": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "mobilize.shrinemotherofants.knock.heal"
+        }
+      ],
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "mobilize.shrinemotherofants.knock.heal",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "那名中毒的士兵在祷告后吐出一股浓稠的黑色粘液，我们放他在床上休息了几天，直到他完全痊愈。",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "friend.poisoning": 1,
+          "op.motherofants": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "mutations": [
+          {
+            "filter": "friend.poisoning",
+            "mutate": "edge",
+            "level": 2,
+            "additive": true
+          },
+          {
+            "filter": "friend",
+            "mutate": "friend.poisoning",
+            "level": 0
+          }
+      ]
+    },
+
+    {
+      "id": "mobilize.shrinemotherofants.knock.g",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "上校在蚁母的帮助下杀死七蟠而成就为司辰，时至今日，他们或许仍保持某种合作关系，若我能虔诚的向多臂之母祷告，她谅必会降下她的福音。\n\n[这将重置这一影响]",
+      "description": "@#mem.joy|冬日暖阳，彩窗折光，这会是一段微风徐徐的时光。#mem.calm|烛火轻摇，光尘止息，这是一次无需言语的仪式。#mem.grief|圣像垂目，长椅冰凉，我记得那场更为漫长的静默。#influenceknock|锁在旧伤里转动，门从肋间打开，呼吸畅通无阻。#influenceknockc|墙砖被拆下，钥匙藏舌下，语言自裂口漏出。#op.motherofants|阴影爬上圣坛，手臂合围，喉咙的结痂被刺穿，我又可以开口说话了。@",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "influenceknockg": 1
+      },
+      "aspects": {
+        "refresh": 1
+      },
+      "alt": [
+        {
+          "id": "produce.motherofantsveneration",
+          "chance": 30,
+          "additional": true
+        }
+      ],
+      "internaldeck": {
+          "spec": [
+            "mem.grief",
+            "mem.calm",
+            "mem.joy",
+            "influenceknock",
+            "influenceknock",
+            "influenceknock",
+            "influenceknockc",
+            "influenceknockc",
+            "op.motherofants"
+          ],
+          "draws": 1,
+          "defaultcard": "influenceknock",
+          "resetonexhaustion": true
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "mobilize.shrinemotherofants.knock.e",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "上校在蚁母的帮助下杀死七蟠而成就为司辰，时至今日，他们或许仍保持某种合作关系，若我能虔诚的向多臂之母祷告，她谅必会降下她的福音。\n\n[若我什么都不做，影响将维持不变；若我能更进一步，这些影响将变得更强]",
+      "description": "@#mem.joy|冬日暖阳，彩窗折光，这会是一段微风徐徐的时光。#mem.calm|烛火轻摇，光尘止息，这是一次无需言语的仪式。#mem.grief|圣像垂目，长椅冰凉，我记得那场更为漫长的静默。#influenceknock|锁在旧伤里转动，门从肋间打开，呼吸畅通无阻。#influenceknockc|墙砖被拆下，钥匙藏舌下，语言自裂口漏出。#op.motherofants|阴影爬上圣坛，手臂合围，喉咙的结痂被刺穿，我又可以开口说话了。@",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "influenceknocke": 1
+      },
+      "aspects": {
+        "refresh": 1
+      },
+      "alt": [
+        {
+          "id": "mobilize.shrinemotherofants.knock.influence"
+        },
+        {
+          "id": "mobilize.shrinemotherofants.knock.e.up"
+        },
+        {
+          "id": "produce.motherofantsveneration",
+          "chance": 30,
+          "additional": true
+        }
+      ],
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "影响",
+          "required": {
+            "influenceknocke": 1,
+            "op.motherofants": 1
+          }
+        }
+      ],
+      "internaldeck": {
+          "spec": [
+            "mem.grief",
+            "mem.calm",
+            "mem.joy",
+            "influenceknock",
+            "influenceknock",
+            "influenceknock",
+            "influenceknockc",
+            "influenceknockc",
+            "op.motherofants"
+          ],
+          "draws": 1,
+          "defaultcard": "influenceknock",
+          "resetonexhaustion": true
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "mobilize.shrinemotherofants.knock.e.up",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "蚁母盘伏环绕在伤口上，环绕在教堂上，也环绕在每一处裂缝、门扉之中。\n\n[这将合成两个低级影响]",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "influenceknocke": 2
+      },
+      "aspects": {
+        "upgradeinfluence": 1
+      },
+      "effects": {
+        "influenceknocke": -1,
+        "influenceknockg": -1
+      }
+    },
+    {
+      "id": "mobilize.shrinemotherofants.knock.c",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "上校在蚁母的帮助下杀死七蟠而成就为司辰，时至今日，他们或许仍保持某种合作关系，若我能虔诚的向多臂之母祷告，她谅必会降下她的福音。\n\n[若我什么都不做，影响将维持不变；若我能更进一步，这些影响将变得更强]",
+      "description": "@#mem.joy|冬日暖阳，彩窗折光，这会是一段微风徐徐的时光。#mem.calm|烛火轻摇，光尘止息，这是一次无需言语的仪式。#mem.grief|圣像垂目，长椅冰凉，我记得那场更为漫长的静默。#influenceknock|锁在旧伤里转动，门从肋间打开，呼吸畅通无阻。#influenceknockc|墙砖被拆下，钥匙藏舌下，语言自裂口漏出。#op.motherofants|阴影爬上圣坛，手臂合围，喉咙的结痂被刺穿，我又可以开口说话了。@",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "influenceknockc": 1
+      },
+      "aspects": {
+        "refresh": 1
+      },
+      "alt": [
+        {
+          "id": "mobilize.shrinemotherofants.knock.influence"
+        },
+        {
+          "id": "mobilize.shrinemotherofants.knock.c.up"
+        },
+        {
+          "id": "produce.motherofantsveneration",
+          "chance": 30,
+          "additional": true
+        }
+      ],
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "影响",
+          "required": {
+            "influenceknockc": 1,
+            "op.motherofants": 1
+          }
+        }
+      ],
+      "internaldeck": {
+          "spec": [
+            "mem.grief",
+            "mem.calm",
+            "mem.joy",
+            "influenceknock",
+            "influenceknock",
+            "influenceknock",
+            "influenceknockc",
+            "influenceknockc",
+            "op.motherofants"
+          ],
+          "draws": 1,
+          "defaultcard": "influenceknock",
+          "resetonexhaustion": true
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "mobilize.shrinemotherofants.knock.c.up",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "蚁母盘伏环绕在伤口上，环绕在教堂上，也环绕在每一处裂缝、门扉之中。\n\n[这将合成两个低级影响]",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "influenceknockc": 2
+      },
+      "aspects": {
+        "upgradeinfluence": 1
+      },
+      "effects": {
+        "influenceknocke": -1,
+        "influenceknockc": -1
+      }
+    },
+    {
+      "id": "mobilize.shrinemotherofants.knock.o",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "上校在蚁母的帮助下杀死七蟠而成就为司辰，时至今日，他们或许仍保持某种合作关系，若我能虔诚的向多臂之母祷告，她谅必会降下她的福音。\n\n[若我什么都不做，影响将维持不变；若我能更进一步，这些影响将变得更强]",
+      "description": "@#mem.joy|冬日暖阳，彩窗折光，这会是一段微风徐徐的时光。#mem.calm|烛火轻摇，光尘止息，这是一次无需言语的仪式。#mem.grief|圣像垂目，长椅冰凉，我记得那场更为漫长的静默。#influenceknock|锁在旧伤里转动，门从肋间打开，呼吸畅通无阻。#influenceknockc|墙砖被拆下，钥匙藏舌下，语言自裂口漏出。#op.motherofants|阴影爬上圣坛，手臂合围，喉咙的结痂被刺穿，我又可以开口说话了。@",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "influenceknock": 1
+      },
+      "aspects": {
+        "refresh": 1
+      },
+      "alt": [
+        {
+          "id": "mobilize.shrinemotherofants.knock.influence"
+        },
+        {
+          "id": "mobilize.shrinemotherofants.knock.o.up"
+        },
+        {
+          "id": "produce.motherofantsveneration",
+          "chance": 30,
+          "additional": true
+        }
+      ],
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "影响",
+          "required": {
+            "influenceknock": 1,
+            "op.motherofants": 1
+          }
+        }
+      ],
+      "internaldeck": {
+          "spec": [
+            "mem.grief",
+            "mem.calm",
+            "mem.joy",
+            "influenceknock",
+            "influenceknock",
+            "influenceknock",
+            "influenceknockc",
+            "influenceknockc",
+            "op.motherofants"
+          ],
+          "draws": 1,
+          "defaultcard": "influenceknock",
+          "resetonexhaustion": true
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "mobilize.shrinemotherofants.knock.o.up",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "蚁母盘伏环绕在伤口上，环绕在教堂上，也环绕在每一处裂缝、门扉之中。\n\n[这将合成两个低级影响]",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "influenceknock": 2
+      },
+      "aspects": {
+        "upgradeinfluence": 1
+      },
+      "effects": {
+        "influenceknock": -1,
+        "influenceknockc": -1
+      }
+    },
+
+    {
+      "id": "mobilize.shrinemotherofants.knock",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示",
+      "startdescription": "上校在蚁母的帮助下杀死七蟠而成就为司辰，时至今日，他们或许仍保持某种合作关系，若我能虔诚的向多臂之母祷告，她谅必会降下她的福音。",
+      "description": "@#mem.joy|冬日暖阳，彩窗折光，这会是一段微风徐徐的时光。#mem.calm|烛火轻摇，光尘止息，这是一次无需言语的仪式。#mem.grief|圣像垂目，长椅冰凉，我记得那场更为漫长的静默。#influenceknock|锁在旧伤里转动，门从肋间打开，呼吸畅通无阻。#influenceknockc|墙砖被拆下，钥匙藏舌下，语言自裂口漏出。#op.motherofants|阴影爬上圣坛，手臂合围，喉咙的结痂被刺穿，我又可以开口说话了。@",
+      "requirements": {
+          "shrinemotherofants": 1,
+          "knock": 1
+      },
+      "alt": [
+        {
+          "id": "produce.motherofantsveneration",
+          "chance": 30,
+          "additional": true
+        }
+      ],
+      "internaldeck": {
+          "spec": [
+            "mem.grief",
+            "mem.calm",
+            "mem.joy",
+            "influenceknock",
+            "influenceknock",
+            "influenceknock",
+            "influenceknockc",
+            "influenceknockc",
+            "op.motherofants"
+          ],
+          "draws": 1,
+          "defaultcard": "influenceknock",
+          "resetonexhaustion": true
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "mobilize.shrinemotherofants.hint",
+      "actionid": "mobilize",
+      "label": "在教堂寻求启示？",
+      "startdescription": "上校在蚁母的帮助下杀死七蟠而成就为司辰，时至今日，他们或许仍保持某种合作关系，若我能虔诚的向多臂之母祷告，她谅必会降下她的福音。",
+      "requirements": {
+          "shrinemotherofants": 1
+      },
+      "hintonly": true
+    },
+
+    {
+      "id": "heal.wound.serpent.green",
+      "actionid": "abandon",
+      "label": "治愈不治蛇毒",
+      "startdescription": "杯可刺激我的血肉，冬可平息我的痛苦，启可洞开腐烂内在，蜜可催生我之生命，我已满足一切必备之要求，是时候开始了。",
+      "requirements": {
+          "wound.serpent.green": 1,
+          "supplies.serpent.green": 1,
+          "friend.motherofants": 1,
+          "tool": 1,
+          "influenceknockg": 1,
+          "op.church": 1
+      },
+      "effects": {
+        "s.surgeries.exsanguinations": 1
+      },
+      "linked": [
+        {
+          "id": "heal.wound.serpent.green.end"
+        }
+      ],
+      "craftable": true
+    },
+    {
+      "id": "heal.wound.serpent.green.end",
+      "label": "治愈不治蛇毒",
+      "startdescription": "杯可刺激我的血肉，冬可平息我的痛苦，启可洞开腐烂内在，蜜可催生我之生命，我已满足一切必备之要求，是时候开始了。",
+      "aspects": {
+        "serpentheal": 1,
+        "fatiguing": 1
+      },
+      "effects": {
+        "influenceknockg": -1
+      },
+      "warmup": 30,
+      "achievements": [
+          "achievements.healingmaster"
+      ]
+    },
+    {
+      "id": "heal.wound.hint",
+      "requirements$add": {
+          "wound.serpent.green": -1
+      }
+    },
+    {
+      "id": "heal.wound.serpent.green.hint",
+      "actionid": "abandon",
+      "label": "治愈不治蛇毒？",
+      "startdescription": "我需要足够的配方，合适的人选，恰好的工具和地点。",
+      "requirements": {
+          "wound.serpent.green": 1
+      },
+      "hintonly": true
+    },
+
+    {
+      "id": "operate.makestrongerknock",
+      "actionid": "operate",
+      "label": "酿制毒液",
+      "startdescription": "不够，常规的毒液无法治愈我的伤疤，我需要更多佐料以精酿毒液。",
+      "requirements": {
+          "pillar.serpent.green": 1,
+          "supplies.serpent.knock": 1,
+          "foe": -1,
+          "friend": -1,
+          "main": -1,
+          "side": -1
+      },
+      "slots": [
+        {
+          "id": "needsally",
+          "label": "佐料",
+          "required": {
+            "op": 1,
+            "supplies": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "operate.makestrongerknock.e"
+        },
+        {
+          "id": "operate.makestrongerknock.eh"
+        },
+        {
+          "id": "operate.makestrongerknock.g"
+        },
+        {
+          "id": "operate.makestrongerknock.w"
+        },
+        {
+          "id": "operate.makestrongerknock.h"
+        }
+      ],
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "operate.makestrongerknock.e",
+      "label": "大功告成",
+      "startdescription": "我颂唱祷文，故毒液之女回应我。",
+      "requirements": {
+          "supplies.serpent.knock": 1,
+          "aspects.serpent.winter": 1,
+          "aspects.serpent.grail": 1,
+          "aspects.serpent.heart": 1,
+          "op.motherofants": 1
+      },
+      "aspects": {
+        "serpentbrew": 1
+      },
+      "effects": {
+        "op.motherofants": -1
+      }
+    },
+    {
+      "id": "operate.makestrongerknock.eh",
+      "label": "大功告成？",
+      "startdescription": "我缺少了最重要的一环——一位女祭司的赐福，有了她的神力，我的疾病谅必能被治愈。",
+      "requirements": {
+          "supplies.serpent.knock": 1,
+          "aspects.serpent.winter": 1,
+          "aspects.serpent.grail": 1,
+          "aspects.serpent.heart": 1
+      }
+    },
+    {
+      "id": "operate.makestrongerknock.g",
+      "label": "加入酒精",
+      "startdescription": "拉维林家族已经没落，但他们酿造的葡萄酒仍然在隐秘世界流通，现在我手上就有一瓶，有点甜，有点酸。",
+      "requirements": {
+          "supplies.serpent.knock": 1,
+          "aspects.serpent.grail": -1,
+          "supplies.serpent.grail": 1
+      },
+      "mutations": [
+          {
+            "filter": "supplies.serpent.knock",
+            "mutate": "aspects.serpent.grail",
+            "level": 1
+          }
+      ],
+      "effects": {
+        "supplies.serpent.grail": -1
+      }
+    },
+    {
+      "id": "operate.makestrongerknock.h",
+      "label": "加入粉末",
+      "startdescription": "这些粉末，无论在哪都有一股海的味道，或许里面掺了盐，希望没有造假。",
+      "requirements": {
+          "supplies.serpent.knock": 1,
+          "aspects.serpent.heart": -1,
+          "supplies.serpent.heart": 1
+      },
+      "mutations": [
+          {
+            "filter": "supplies.serpent.knock",
+            "mutate": "aspects.serpent.heart",
+            "level": 1
+          }
+      ],
+      "effects": {
+        "supplies.serpent.heart": -1
+      }
+    },
+    {
+      "id": "operate.makestrongerknock.w",
+      "label": "加入油",
+      "startdescription": "这瓶油取己终结之物，我最好不要细思它究竟取自哪里，让那些野兽去猜测吧。",
+      "requirements": {
+          "supplies.serpent.knock": 1,
+          "aspects.serpent.winter": -1,
+          "supplies.serpent.winter": 1
+      },
+      "mutations": [
+          {
+            "filter": "supplies.serpent.knock",
+            "mutate": "aspects.serpent.winter",
+            "level": 1
+          }
+      ],
+      "effects": {
+        "supplies.serpent.winter": -1
+      }
+    },
+    {
+      "id": "operate.makestrongerknock.hint",
+      "actionid": "operate",
+      "label": "酿制毒液？",
+      "startdescription": "首先，我需要一瓶毒液作为原液。",
+      "requirements": {
+          "pillar.serpent.green": 1
+      },
+      "hintonly": true
+    },
+
+    {
+      "id": "obdurant.setup.e",
+      "effects": {
+        "serpent.green": 1
+      },
+      "linked": [
+        {
+          "id": "obdurant.setup.s"
+        }
+      ],
+      "alt": [],
+      "warmup": 0
+    },
+    {
+      "id": "obdurant.setup.s",
+      "label": "巨蛇袭击",
+      "startdescription": "在进入这片区域之时，我与我的部队曾遇到一只蛇怪。它狡诈又强大，吞噬了我的许多士兵，若不是我的友人及时到来，我可能会付出更多代价。据我的友人所述，这片战场上的巨蛇发生了一些改变。如果我想要与它们搏斗，需要付出更多的努力，但倘若仅仅只是规避，我想我有了一份教诲。",
+      "effects": {
+          "wound.serpent.green": 1,
+          "pillar.serpent.green": 1
+      },
+      "alt": [
+          {
+        "id": "obdurant.setup.f",
+        "additional": true
+          }
+      ],
+      "warmup": 30
+    },
+
+    {
+      "id": "abandon.makeheartbroken",
+      "actionid": "abandon",
+      "label": "将珍珠碾碎",
+      "startdescription": "希望我不会搞错两颗珍珠。",
+      "description": "碎了，真希望我没有搞错。",
+      "requirements": {
+          "tool.heart.fake": 1,
+          "edge": 1
+      },
+      "effects": {
+          "tool.heart.fake": -1,
+          "supplies.serpent.heart": 1
+      },
+      "craftable": true,
+      "warmup": 10
+    },
+
+    {
+      "id": "produce.motherofantsveneration",
+      "actionid": "spit.knock",
+      "label": "第二位信徒",
+      "startdescription": "我们的人从教堂回来后，一位士兵的床头总是放着一本厚厚的圣经。",
+      "slots": [
+        {
+          "id": "needsally",
+          "label": "友军",
+          "required": {
+            "friend": 1
+          },
+          "forbidden": {
+            "friend.motherofants": 1
+          },
+          "greedy": true
+        }
+      ],
+      "mutations": [
+          {
+            "filter": "friend",
+            "mutate": "friend.motherofants",
+            "level": 1
+          }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "produce.motherofantsshadow",
+      "actionid": "spit.knock",
+      "label": "信仰之力",
+      "startdescription": "夜半时分，伤员们因伤口处的疼痛难耐哀嚎不断。随后营房内走过一位多手的苗条女性，她用手触摸伤员的痛处随后便消失在房间深处，那一夜，士兵们睡得平静如孩童。",
+      "effects": {
+        "op.motherofants": 1
+      },
+      "warmup": 10
+    },
+
+    {
+      "id": "operate.endinginitiate",
+      "linked$prepend": [
+          {
+            "id": "ascendname.colonel.double"
+          },
+          {
+            "id": "ascendname.colonel.namenotlove"
+          }
+      ],
+      "linked$append": [
+          {
+            "id": "ascendname.loveing"
+          }
+      ]
+    },
+
+    {
+      "id": "ascendname.colonel.double",
+      "label": "<color=purple>命  定  之  时</color>",
+      "startdescription": "而后斯大林格勒消失了。我脚下的街道变作古老的漫宿之石。钴蓝色的天空在我不可及之处闪着光。在我身前，丽姬亚美杜莎将她那蠕动、惨白的钥匙插入牡鹿之门。它的旧伤在痛苦中呻吟，而我身上的伤疤在那门完全开启时与其一同呻吟。我已目盲；我已身负伤疤；我不容违抗。彼方有光。",
+      "extantreqs": {
+          "gotmedusa": 1,
+          "challenger.mark": 1,
+          "defiance.consecration.colonel": 3,
+          "hasebrehel": 1,
+          "resolution": 12,
+          "mission.tomoriserpent.c": 1,
+          "romanticinterest": 7,
+          "diary.tomoriserpent": 3,
+          "promise.purple": 2
+      },
+      "linked": [
+        {
+          "id": "ascendname.colonel.double.then"
+        }
+      ],
+      "xpans": {
+        "refresh": 99,
+        "restorehealth": 99
+      },
+      "haltverb": {
+          "operate": 1,
+          "abandon": 1,
+          "recon": 1,
+          "communicate": 1,
+          "mobilize": 1,
+          "operation.edge": 99,
+          "operation.heart": 99,
+          "operation.forge": 99,
+          "main": 99,
+          "side": 99,
+          "side.2": 99,
+          "side.3": 99,
+          "resupply": 99,
+          "hindrances.verb": 99,
+          "enemyaction": 99,
+          "enemyaction.single": 99,
+          "enemyaction.double.1": 99,
+          "enemyaction.double.2": 99,
+          "enemyaction.cutoff": 99,
+          "enemyaction.destroysupplies": 99,
+          "enemyaction.hide": 99,
+          "enemyaction.infrastructure": 99,
+          "enemyaction.reinforcements": 99,
+          "enemyaction.niniame": 99,
+          "friend.verb": 99,
+          "fatality": 99,
+          "spit.*": 99,
+          "long.wilhelm": 99,
+          "long.sergei": 99,
+          "long.camilla": 99,
+          "explorevault_casualty": 99,
+          "edgelong.wounds": 99,
+          "produce.monster": 99,
+          "action.legion": 99,
+          "action.king": 99,
+          "attack.jerome": 99,
+          "attack.king": 99,
+          "attack.legion": 99,
+          "attack.lionel": 99,
+          "explosion": 99,
+          "fallingstar": 99,
+          "reinforcements.*": 99,
+          "stasis": 99,
+          "verb.retaliatory": 99,
+          "sovietaction": 99,
+          "neutral.reinforcements": 99,
+          "neutral.singleattack": 99,
+          "sovietaction.aggro": 99,
+          "aggro.destroysupplies": 99,
+          "aggro.doubleattack.1": 99,
+          "aggro.doubleattack.2": 99,
+          "aggro.hide": 99,
+          "aggro.reinforcements": 99,
+          "aggro.singleattack": 99,
+          "execution": 99,
+          "flesheater.verb": 99,
+          "ingluviate.guard": 99,
+          "marinette.arrival": 99,
+          "resupply.yellow": 99,
+          "lurk": 99,
+          "spit.grail": 99,
+          "commander.attack": 99,
+          "disgruntle": 99,
+          "marinettearrival": 99,
+          "nightmare_action": 99
+      },
+      "warmup": 60,
+      "signalEndingFlavour": "Grand",
+      "signalMusic": "nearvictoryascend.mp3",
+      "achievements": [
+          "achievements.ending.double"
+      ]
+    },
+    {
+      "id": "ascendname.colonel.double.then",
+      "label": "另一条道路…",
+      "startdescription": "就在那光触及我之前，我听见了她在那一边的余响。如同被吞噬咀嚼，如同被划伤割裂。看来这次她比我先行一步。",
+      "warmup": 60,
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "爱人",
+          "required": {
+            "romanticinterest": 7
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded.fake": 1
+          },
+          "greedy": true
+        }
+      ],
+      "signalEndingFlavour": "Grand",
+      "signalMusic": "before.double.mp3",
+      "ending": "ending.double"
+    },
+
+
+    {
+      "id": "ascendname.colonel.namenotlove",
+      "label": "<color=blue>命  定  之  时</color>",
+      "startdescription": "而后斯大林格勒在钴蓝色的光中淡去，我所踏足的街道变换为古老的漫宿之石。在我身前，孪生子的具名，丽姬亚中的美杜莎将她蠕动、惨白的钥匙插入牡鹿之门，它在痛苦中呻吟，旧伤流出金色且沸腾的血，而我也在那门开启时一同呻吟，身上的伤疤亦与其一同流血。我曾与神谕祭司的姊妹立下约定，现在她或将前来，熄灭我的眼，为我刻下伤疤，令我不容违抗，而辉光即便于战争中也依旧如永恒的太阳般闪耀——",
+      "extantreqs": {
+          "gotmedusa": 1,
+          "challenger.mark": 1,
+          "defiance.consecration.colonel": 3,
+          "hasebrehel": 1,
+          "resolution": 12,
+          "mission.tomoriserpent.c": 1,
+          "romanticinterest": 7,
+          "diary.tomoriserpent": 3
+      },
+      "linked": [
+        {
+          "id": "ascendname.colonel.namenotlove.end"
+        }
+      ],
+      "xpans": {
+        "refresh": 99,
+        "restorehealth": 99
+      },
+      "haltverb": {
+          "operate": 1,
+          "abandon": 1,
+          "recon": 1,
+          "communicate": 1,
+          "mobilize": 1,
+          "operation.edge": 99,
+          "operation.heart": 99,
+          "operation.forge": 99,
+          "main": 99,
+          "side": 99,
+          "side.2": 99,
+          "side.3": 99,
+          "resupply": 99,
+          "hindrances.verb": 99,
+          "enemyaction": 99,
+          "enemyaction.single": 99,
+          "enemyaction.double.1": 99,
+          "enemyaction.double.2": 99,
+          "enemyaction.cutoff": 99,
+          "enemyaction.destroysupplies": 99,
+          "enemyaction.hide": 99,
+          "enemyaction.infrastructure": 99,
+          "enemyaction.reinforcements": 99,
+          "enemyaction.niniame": 99,
+          "friend.verb": 99,
+          "fatality": 99,
+          "spit.*": 99,
+          "long.wilhelm": 99,
+          "long.sergei": 99,
+          "long.camilla": 99,
+          "explorevault_casualty": 99,
+          "edgelong.wounds": 99,
+          "produce.monster": 99,
+          "action.legion": 99,
+          "action.king": 99,
+          "attack.jerome": 99,
+          "attack.king": 99,
+          "attack.legion": 99,
+          "attack.lionel": 99,
+          "explosion": 99,
+          "fallingstar": 99,
+          "reinforcements.*": 99,
+          "stasis": 99,
+          "verb.retaliatory": 99,
+          "sovietaction": 99,
+          "neutral.reinforcements": 99,
+          "neutral.singleattack": 99,
+          "sovietaction.aggro": 99,
+          "aggro.destroysupplies": 99,
+          "aggro.doubleattack.1": 99,
+          "aggro.doubleattack.2": 99,
+          "aggro.hide": 99,
+          "aggro.reinforcements": 99,
+          "aggro.singleattack": 99,
+          "execution": 99,
+          "flesheater.verb": 99,
+          "ingluviate.guard": 99,
+          "marinette.arrival": 99,
+          "resupply.yellow": 99,
+          "lurk": 99,
+          "spit.grail": 99,
+          "commander.attack": 99,
+          "disgruntle": 99,
+          "marinettearrival": 99,
+          "nightmare_action": 99
+      },
+      "warmup": 60,
+      "signalEndingFlavour": "Grand",
+      "signalMusic": "nearvictoryascend.mp3",
+      "achievements": [
+          "achievements.namenotlove"
+      ]
+    },
+    {
+      "id": "ascendname.colonel.namenotlove.end",
+      "label": "留下来的小尾巴…",
+      "startdescription": "“士兵们哪，你们为什么站着望天？继续去战斗吧。悬于世界之上的光并不乐见投降。抗争至最后一息吧。”\n人群散去，唯有一小蛇留在原地，她在她所能爬到的最高最高最高处，断裂的门前。\n\n“他拆毁的，就不能再建造；他打开人，便不得合闭”……",
+      "warmup": 60,
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "爱人",
+          "required": {
+            "romanticinterest": 7
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded.fake": 1
+          },
+          "greedy": true
+        }
+      ],
+      "signalEndingFlavour": "Pale",
+      "signalMusic": "ending.fallinlove.mp3",
+      "ending": "majorcolonelvictory",
+      "achievements": [
+          "ending.nameascensioncolonel"
+      ]
+    },
+
+    {
+      "id": "obdurant.ending.high",
+      "grandReqs": {
+          "([~/extant:romanticinterest] <= 5) || ([~/extant:diary.tomoriserpent] <= 2) >= 1": 1
+      }
+    },
+    {
+      "id": "obdurant.ending.med",
+      "grandReqs": {
+          "([~/extant:romanticinterest] <= 5) || ([~/extant:diary.tomoriserpent] <= 2) >= 1": 1
+      }
+    },
+    {
+      "id": "obdurant.ending.low",
+      "grandReqs": {
+          "([~/extant:romanticinterest] <= 5) || ([~/extant:diary.tomoriserpent] <= 2) >= 1": 1
+      }
+    },
+    {
+      "id": "ascendname.loveing",
+      "label": "1943年，斯大林格勒之战",
+      "extantreqs": {
+          "mission.tomoriserpent.c": 1,
+          "romanticinterest": 10,
+          "diary.tomoriserpent": 3
+      },
+      "ending": "ending.fallinlove",
+      "achievements": [
+          "achievements.ending.fallinlove"
+      ]
+    },
+
+    {
+      "id": "produce.diary.tomoriserpent.1",
+      "actionid": "spit.heart",
+      "label": "远离战场",
+      "startdescription": "此刻的宁静是暂时的，宁静使我思绪纷飞，于是我写下日记。",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1,
+        "diary.tomoriserpent.a": -1
+      },
+      "tablereqs": {
+        "haspolevaya": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "落泪的少女",
+          "required": {
+            "haspolevaya": 1
+          },
+          "greedy": true
+        }
+      ],
+      "effects": {
+        "diary.tomoriserpent.a": 1
+      },
+      "linked": [
+        {
+          "id": "produce.diary.tomoriserpent.all"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "produce.diary.tomoriserpent.2",
+      "actionid": "pit.underling.attack.success",
+      "label": "远离战场",
+      "startdescription": "此刻的宁静是暂时的，宁静使我思绪纷飞，于是我写下日记。",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1,
+        "diary.tomoriserpent.b": -1
+      },
+      "tablereqs": {
+        "haspolevaya": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "落泪的少女",
+          "required": {
+            "haspolevaya": 1
+          },
+          "greedy": true
+        }
+      ],
+      "effects": {
+        "diary.tomoriserpent.b": 1
+      },
+      "linked": [
+        {
+          "id": "produce.diary.tomoriserpent.all"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "produce.diary.tomoriserpent.3",
+      "actionid": "spit.lantern",
+      "label": "远离战场",
+      "startdescription": "此刻的宁静是暂时的，宁静使我思绪纷飞，于是我写下日记。",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1,
+        "diary.tomoriserpent.c": -1
+      },
+      "tablereqs": {
+        "haspolevaya": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "落泪的少女",
+          "required": {
+            "haspolevaya": 1
+          },
+          "greedy": true
+        }
+      ],
+      "effects": {
+        "diary.tomoriserpent.c": 1
+      },
+      "linked": [
+        {
+          "id": "produce.diary.tomoriserpent.all"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "produce.diary.tomoriserpent.all",
+      "label": "远离战场",
+      "startdescription": "此刻的宁静是暂时的，宁静使我思绪纷飞，于是我写下日记。",
+      "extantreqs": {
+        "diary.tomoriserpent": 3
+      },
+      "achievements": [
+          "achievements.diarylove"
+      ]
+    },
+    
+    {
+      "id": "produce.whoisthearsonist",
+      "actionid": "spit.forge",
+      "label": "纵火者",
+      "startdescription": "该死的敌军！我绝对饶不了他们！",
+      "aspects": {
+        "revealidentity": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.0",
+      "actionid": "communicate",
+      "label": "于礼堂中",
+      "startdescription": "教堂的长椅还空着几个，几个士兵散坐着，我抬手与他们打招呼，这时，波列瓦娅她拉住我的手，她不安而恐惧。风从彩窗漏进来，落在她脸上。",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1,
+        "wasteland": -1
+      },
+      "tablereqs": {
+        "german": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "op.church": 1
+      },
+      "aspects": {
+        "revealidentity": 1,
+        "fatiguing": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "敌军",
+          "required": {
+            "german": 1
+          },
+          "greedy": true
+        }
+      ],
+      "effects": {
+        "hindrance.fireinthechurch": 1
+      },
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.0.fire"
+        }
+      ],
+      "alt": [
+        {
+          "id": "produce.whoisthearsonist",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "german": 1
+            },
+            "limit": 1
+          }
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.0.fire",
+      "label": "于火焰中",
+      "startdescription": "烟从正门涌进来，石柱轰然断裂。我以残肢举起碎石为士兵们开启生路。直至最后只剩我与波列瓦娅，我们想从侧门突围，却撞进一条回廊——该死，左？右？背靠烧焦的柱子，火焰越靠越近。“你明白吗？我是怪物，司辰所不怜者。在教堂下受尽唾骂，所有人都惧怕我，即便我已是人身，即使我本是人身，而你，是你为我开启镣铐、你假寐的一丝怜悯....”她指尖划过我脸上的灰，而我吻了她。",
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "应对",
+          "required": {
+            "winter": 1,
+            "forge": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "exhausted": 1,
+            "edgelong": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.0.fire"
+        }
+      ],
+      "alt": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.0.fire.forge"
+        },
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.0.fire.winter"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.0.fire.forge",
+      "label": "燃躯阻火",
+      "requirements": {
+        "forge": 4
+      },
+      "effects": {
+        "hindrance": -1,
+        "op.time.night": 1
+      },
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.0.night"
+        }
+      ]
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.0.fire.winter",
+      "label": "凛寒覆火",
+      "requirements": {
+        "winter": 4
+      },
+      "effects": {
+        "hindrance": -1,
+        "op.time.night": 1
+      },
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.0.night"
+        }
+      ]
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.0.night",
+      "label": "于夜色中",
+      "startdescription": "闭着眼，火焰轰鸣如远方的机枪，又像千万人的高喊——前进？撤退？还是哈利路亚？波利瓦娅掐起我的手腕，睁眼时回廊尽头有光，莫斯科冬天惨白棉絮状的的日光，而蛇影行在地上。我们跌跌撞撞地冲出教堂，它在我闯出正门时轰然倒塌，可我们刚刚还在侧廊……伊万杰琳站在废墟边，眼睛中的泪映着余烬与我。",
+      "description": "我爬起来，轻轻拍掉红星军装上的灰。有人在喊我，有人在祈祷。我走向他们，拉住爱人的手。",
+      "mutations": [
+          {
+            "filter": "uqpolevaya",
+            "mutate": "romanticinterest",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.all"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.1",
+      "actionid": "communicate",
+      "label": "共度时光：农场",
+      "startdescription": "她捡到一些被遗弃的旧衣物，她说眼泪如果能变成棉花就好了，我表达了肯定，并向她询问在他眼里我是什么？她困惑于我将眼泪与她绑定。\n\n“亚麻……”\n\n之后又改口为“钢针”",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1,
+        "wasteland": -1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "op.farm": 1
+      },
+      "mutations": [
+          {
+            "filter": "haspolevaya",
+            "mutate": "romanticinterest",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.all"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.2",
+      "actionid": "communicate",
+      "label": "共度时光：补给品",
+      "startdescription": "我的干茶罐变成了一小份罐头肉，我想我知道是谁干的好事。肉不能提神，一时半会也找不到可以拌食的粥。我学习如野兽一般咽食，事后才想起我手头有刀。",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1,
+        "wasteland": -1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "provisions": 1
+      },
+      "effects": {
+        "provisions": -1
+      },
+      "mutations": [
+          {
+            "filter": "haspolevaya",
+            "mutate": "romanticinterest",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.all"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.3",
+      "actionid": "communicate",
+      "label": "共度时光：悲痛",
+      "startdescription": "她带着我在荒野的巨石下坐着，她的泪水仍然不会停下…我不明白她为什么一直哭泣。\n\n我们的交谈的比以往任何一次都久。直至最后，我也流出眼泪。孤独也不成其孤独，歇息也不成其歇息。",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1,
+        "wasteland": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "mem.grief": 1
+      },
+      "mutations": [
+          {
+            "filter": "haspolevaya",
+            "mutate": "romanticinterest",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.all"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.4",
+      "actionid": "communicate",
+      "label": "共度时光：愉快",
+      "startdescription": "她带着我行走在那些早已干涸的河滩，向我介绍地上的那些平滑的印记，以及蛇的道路，就像在介绍她自己…而此时忽然刮起了风，于天堂之战中被逐出天穹，无家可归的风。\n\n我们伫立片刻，风停了，而一颗照明弹自远方升起，放射光辉，地上的每一个坎坷皆于此时爆发出寻常黑夜所不得见的色彩，她立在原地注视，久久不动。",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1,
+        "wasteland": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "mem.joy": 1
+      },
+      "mutations": [
+          {
+            "filter": "haspolevaya",
+            "mutate": "romanticinterest",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.all"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.5",
+      "actionid": "communicate",
+      "label": "共度时光：平静",
+      "startdescription": "她在凌晨带我前往空荡荡的森林，我们之间的距离仅有一颗子弹之长。高加索的雪掩盖了我心中的火，白色的森林，白色的山丘，白色的眼晴。\n\n当冷冽的白色太阳初升将冰雪融化，这一切又化作我的沉默，至少是其中的一部分。",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1,
+        "wasteland": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "mem.calm": 1
+      },
+      "mutations": [
+          {
+            "filter": "haspolevaya",
+            "mutate": "romanticinterest",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.all"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.6",
+      "actionid": "communicate",
+      "label": "赠予：铭刻秘密之石",
+      "startdescription": "我把这块石头放进她掌心。她于怀中称量这秘密的重量，而后用牙齿划过石面，似要从那旧物上刮出新纹。随后又闭目将石贴在耳畔，像在听它的搏动。良久，她低声道：“谢谢。”我点头。她把石藏进衣内。这世上有谁没有几个不能言说的秘密呢。更何况是位战场上的少女。",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "tool.moth": 1
+      },
+      "effects": {
+        "tool": -1
+      },
+      "mutations": [
+          {
+            "filter": "haspolevaya",
+            "mutate": "romanticinterest",
+            "level": 1,
+            "additive": true
+          },
+          {
+            "filter": "haspolevaya",
+            "mutate": "moth",
+            "level": 2,
+            "additive": true
+          },
+          {
+            "filter": "haspolevaya",
+            "mutate": "follower_honoured",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.all"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.7",
+      "actionid": "communicate",
+      "label": "共度时光：悦耳小提琴",
+      "startdescription": "我打开琴盒，取出小提琴，如装模作样地架上颈项，用口哨吹出一支不成调的歌。她先是一愣，随即笑开，闹着要学。我把琴交给她，她学我的样子架好，嘴唇凑近，却只发出“嘶嘶”的气音，像幼蛇。她不甘，再试，又变成“呀呀”的短音，如雏鸟。最后她憋得满脸通红，琴险险自肩头滑落，她将琴还给我。我接过，放回盒中扣好。琴声始终没有真正响起，我却听见了一首无弦之乐。",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "tool.grail": 1
+      },
+      "mutations": [
+          {
+            "filter": "haspolevaya",
+            "mutate": "romanticinterest",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.all"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.8",
+      "actionid": "communicate",
+      "label": "赠予：可疑的钥匙",
+      "startdescription": "我取出一根细绳，穿过钥匙的环。她低下头，急不可耐地将颈子蹭上我的手，似锁孔渴求钥匙。我命她乖乖坐好。手上的伤让打结变得艰难，我便以牙齿衔住绳端，而嘴唇擦过她的后颈。凉意如触到旧地窖里的门环。当我们再次相对，我齿间仍衔着她一缕发丝，衔着一句未语的词。",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "tool.knock": 1
+      },
+      "effects": {
+        "tool": -1
+      },
+      "mutations": [
+          {
+            "filter": "haspolevaya",
+            "mutate": "romanticinterest",
+            "level": 1,
+            "additive": true
+          },
+          {
+            "filter": "haspolevaya",
+            "mutate": "knock",
+            "level": 4,
+            "additive": true
+          },
+          {
+            "filter": "haspolevaya",
+            "mutate": "follower_honoured",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.all"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.9",
+      "actionid": "communicate",
+      "label": "共度时光：猫",
+      "startdescription": "营地边缘踱来一只猫，我们都不讨它喜欢。它挑战我的威严。我便与这猫开始了无声的小小争斗。它炸起毛，冲我嘶声。少女或许为护我，也俯身向那猫哈气。风从我们之间穿过，三者之间不知是谁拨动一根看不见的弦。我也哈了一声。而后营地一角响起难掩的粗鲁笑声。",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1,
+        "wasteland": -1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "op.cat": 1
+      },
+      "mutations": [
+          {
+            "filter": "haspolevaya",
+            "mutate": "romanticinterest",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.romanticinterest.all"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.all",
+      "label": "甘果……",
+      "startdescription": "她散发着芬芳，我闻到了，我在她的呼吸下呼吸，我尝到她的滋味，我感到一丝饥渴，而她抚摩我的唇，我怀着心中炽热的神火向望和平，今夜，和平回应了我。",
+      "requirements": {
+        "romanticinterest": 10
+      },
+      "achievements": [
+          "achievements.lovelovelove"
+      ],
+      "mutations": [
+          {
+            "filter": "haspolevaya",
+            "mutate": "lovingdeeply",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "maxexecutions": 1
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.memento",
+      "actionid": "communicate",
+      "label": "共度时光：纪念品",
+      "startdescription": "我找到她时，她正坐在营地，石子在指间绕了又绕。我坐过去，我并不是一个话多的人，但今天很适合谈心。",
+      "description": "@#mem.joy|我诉说了自己对未来的展望。\n她有些好奇，抱住我的胳膊说：“我真希望见识到你口中的世界，我们一起，我期待。”#mem.calm|我的诉说中夹杂着内心的苦郁与迷茫。\n她笑了一过，拉住我的手说：“我不介意多听听。无论发生什么，我会一直支持你的。”#mem.grief|我诉说了自己的愤怒与不满。\n她离着我远了一些，她明显被吓到了。然而仅是小半天，她又主动找上我，给了我一个拥抱。@",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "memento": 1
+      },
+      "internaldeck": {
+          "spec": [
+            "mem.grief",
+            "mem.grief",
+            "mem.calm",
+            "mem.calm",
+            "mem.calm",
+            "mem.joy",
+            "mem.joy"
+          ],
+          "draws": 1,
+          "defaultcard": "mem.calm",
+          "resetonexhaustion": true
+      },
+      "warmup": 30,
+      "craftable": true
+    },
+
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.hint.a",
+      "actionid": "communicate",
+      "label": "共度时光？",
+      "startdescription": "也许现在打扰她不是一个好的选择。\n\n[你可以使用其他话题，或在其他地点尝试]",
+      "extantreqs": {
+        "mission.tomoriserpent.c": 1
+      },
+      "requirements": {
+        "haspolevaya": 1
+      },
+	    "grandreqs": {
+        "([supplies] || [op] || [memory]) >= 1": 1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.hint.b",
+      "actionid": "communicate",
+      "label": "与少女谈话？",
+      "startdescription": "我需要更加了解她。\n\n[你需要先破解这位少女的意图]",
+      "extantreqs": {
+        "mission.tomoriserpent.c": -1
+      },
+      "requirements": {
+        "haspolevaya": 1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "communicate.tomoriserpent.romanticinterest.hint.c",
+      "actionid": "communicate",
+      "label": "<color=pink><i>至爱</i></color>",
+      "startdescription": "在我荒瘠的土地上，这是我最后的玫瑰。",
+      "requirements": {
+        "lovingdeeply": 1
+      },
+      "hintonly": true
+    },
+
+    {
+      "id": "recon.tomoriserpent.wasteland.startup",
+      "actionid": "recon",
+      "label": "让落泪的少女探索荒野",
+      "startdescription": "据她所说，她对这里足够熟悉。我相信她可以回来。",
+      "requirements": {
+        "haspolevaya": 1,
+        "warzone.current": 1,
+        "wasteland": 1
+      },
+      "warmup": 10,
+      "alt": [
+        {
+          "id": "recon.tomoriserpent.wasteland",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "haspolevaya": 1
+            },
+            "limit": 1
+          }
+        }
+      ],
+      "craftable": true
+    },
+    {
+      "id": "recon.tomoriserpent.wasteland",
+      "actionid": "recon.serpent",
+      "label": "让落泪的少女探索荒野",
+      "startdescription": "据她所说，她对这里足够熟悉。我相信她可以回来。",
+      "aspects": {
+        "fatiguing": 1
+      },
+      "warmup": 30,
+      "internaldeck": {
+          "spec": [
+            "nothing",
+            "nothing",
+            "nothing",
+            "nothing",
+            "nothing",
+            "provisions",
+            "provisions",
+            "supplies.flares",
+            "supplies.explosives",
+            "supplies.apmunitions"
+          ],
+          "draws": 1,
+          "defaultcard": "nothing",
+          "resetonexhaustion": true
+      },
+      "linked": [
+        {
+          "id": "recon.tomoriserpent.wasteland.underground",
+          "chance": 40
+        },
+        {
+          "id": "recon.tomoriserpent.wasteland.nothing"
+        },
+        {
+          "id": "recon.tomoriserpent.wasteland.other"
+        }
+      ]
+    },
+    {
+      "id": "recon.tomoriserpent.wasteland.nothing",
+      "label": "让落泪的少女探索荒野",
+      "startdescription": "她在我们离开这里之前回来了，尽管空着手，但好在我们并没有因此失去什么。当然她不这么认为，她沉默而悲伤，泪水不会停下…",
+      "requirements": {
+        "nothing": 1
+      }
+    },
+    {
+      "id": "recon.tomoriserpent.wasteland.other",
+      "label": "让落泪的少女探索荒野",
+      "startdescription": "她在我们离开这里之前回来了，微笑着双手背后，让我猜猜她找到了什么？甜菜、向日葵、土豆…军用水壶、厚手套。每次我都猜不到，也没有人知道它们来自哪里。"
+    },
+    {
+      "id": "recon.tomoriserpent.wasteland.underground",
+      "label": "紧急情况？",
+      "startdescription": "落日时分，少女急急忙忙地跑回营地，她看上去极其狼狈，看起来像是被某种东西吓坏了。我简单告知了副手情况便急忙在她的指引下出动，而我所见的是一只弱小且濒死的蠕虫。上校的技艺帮助我驱散了这条饥饿的恶毒之物。然而我知道这并未结束，这附近绝对有更多虚界邪物。少女轻声抽泣，我便也抱着她，尽我最大的努力安慰。\n回到营地后，我为她煮了一碗热汤，我们在营火边上坐了一整晚，而她为我讲述了她今天发生的全部经过。",
+      "description": "那些东西已经闻过她的气味了，我必须将之驱逐回去。",
+      "extantreqs": {
+        "pillar.serpent.purple": 1,
+        "wasteland.b": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "effects": {
+        "underground": 1
+      },
+      "maxexecutions": 1,
+      "warmup": 30
+    },
+
+    {
+      "id": "recon.tomoriserpent.wasteland.hint",
+      "actionid": "recon",
+      "label": "让落泪的少女探索荒野？",
+      "startdescription": "据她所说，她对这里足够熟悉。她也许能为我们带回些有用的物资。",
+      "requirements": {
+        "haspolevaya": 1
+      },
+      "hintonly": true
+    },
+
+    {
+      "id": "produce.tomoriserpent.poison",
+      "actionid": "operate",
+      "label": "让少女挤出毒液",
+      "startdescription": "我把食物放进帐篷，安顿好她后我快步走离开，希望她能快点结束。",
+      "description": "她很快拿着小瓶子出来了，里面的液体足够我们进行下一步工作。我抚摸了她，夸奖了她。她为帮到了我而开心。",
+      "extantreqs": {
+        "supplies.serpent.knock": -3
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "provisions": 1,
+        "pillar.serpent.purple": -1,
+        "main": -1,
+        "side": -1,
+        "foe": -1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "produce.tomoriserpent.poison.end"
+        }
+      ],
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "produce.tomoriserpent.poison.end",
+      "label": "让少女挤出毒液",
+      "description": "她很快拿着小瓶子出来了，里面的液体足够我们进行下一步工作。我抚摸了她，夸奖了她。她为帮到了我而开心。",
+      "effects": {
+        "supplies.serpent.knock": 1
+      }
+    },
+    {
+      "id": "produce.tomoriserpent.poison.hint.a",
+      "actionid": "operate",
+      "label": "让少女挤出毒液？",
+      "startdescription": "我们储存的血清还有一些，足够应急。这个过程会为她带来不适，我不应该去总是去麻烦她。",
+      "extantreqs": {
+        "supplies.serpent.knock": 3
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "pillar.serpent.purple": -1,
+        "main": -1,
+        "side": -1,
+        "foe": -1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "produce.tomoriserpent.poison.hint.b",
+      "actionid": "operate",
+      "label": "让少女挤出毒液？",
+      "startdescription": "我的士兵正备受煎熬，或许她能帮忙解决其他姊妹造成的麻烦。",
+      "extantreqs": {
+        "supplies.serpent.knock": -3
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "pillar.serpent.purple": -1,
+        "main": -1,
+        "side": -1,
+        "foe": -1
+      },
+      "hintonly": true
+    },
+    
+    {
+      "id": "abandon.tomoriserpent.a",
+      "actionid": "abandon",
+      "label": "遗弃一名少女",
+      "startdescription": "我喝令她离开，她又跟了我们一阵，直到我下令向她的脚下开枪。",
+      "requirements": {
+        "haspolevaya": 1,
+        "serpent.eggb": 1
+      },
+      "effects": {
+        "haspolevaya": -1,
+        "serpent.eggb": -1
+      },
+      "purge": {
+        "mission.tomoriserpent.a": 99,
+        "mission.tomoriserpent.b": 99,
+        "mission.tomoriserpent.c": 99
+      },
+      "achievements": [
+          "achievements.nolove"
+      ],
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "abandon.tomoriserpent.b",
+      "actionid": "abandon",
+      "label": "暂时安置一名少女",
+      "startdescription": "出发前我做了最后的调配工作，士兵的脚步窸窸窣窣，我走进她的房间里时她正坐在床边，我在她旁边半蹲下，将玩具士兵塞入她的手中，安慰她我很快就会唤她回来，这是我的使命。她将一缕发丝绕进我衣领的内侧，而后她停止了哭泣，点了点头，我随即牵着她的手送至荒野边，我看着那一抹白色消失在荒野里，伫立良久。\n\n[整局游戏中你只能这样做一次]",
+      "requirements": {
+        "haspolevaya": 1,
+        "memento": 1
+      },
+      "aspects": {
+        "leaving": 1
+      },
+      "effects": {
+        "memento": -1
+      },
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.abandon.tomoriserpent.c",
+      "actionid": "communicate",
+      "label": "轻唤少女",
+      "startdescription": "她认得我的声音，记得我的气味。如果我呼唤她，她也必定回应我。",
+      "description": "她像一只云雀一样哭泣地跑向拥抱我，这一次是喜悦之泪。",
+      "requirements": {
+        "serpentleaving": 1,
+        "wasteland": 1
+      },
+      "aspects": {
+        "backing": 1
+      },
+      "effects": {
+        "obdurant.memento": 1
+      },
+      "extantreqs": {
+        "duel.wilhelm": -1
+      },
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.abandon.tomoriserpent.c.hint",
+      "actionid": "communicate",
+      "label": "轻唤少女？",
+      "startdescription": "她认得我的声音，我的气味。如果我呼唤她，她也必定回应我。\n\n[我需要去到她能听到我声音的地方]",
+      "requirements": {
+        "serpentleaving": 1
+      },
+      "extantreqs": {
+        "duel.wilhelm": -1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "abandon.tomoriserpent.hint",
+      "actionid": "abandon",
+      "label": "遗弃一名少女？",
+      "startdescription": "让一名幼妹跟随行军队伍或许会给我们带来许多麻烦，若我要抛弃这段经历，我必须斩断彼此的所有。若我只是暂时离开，我需要给予她一件我珍重之物。",
+      "requirements": {
+        "haspolevaya": 1
+      },
+      "hintonly": true
+    },
+
+    {
+      "id": "produce.serpent.church",
+      "actionid": "pit.underling.attack.success",
+      "label": "怪事连连？",
+      "startdescription": "你的士兵们常抱怨夜里奇怪的哭声。有信仰的士兵甚至甘愿睡在外边。",
+      "extantreqs": {
+        "obdurant.story": 1
+      },
+      "effects": {
+        "serpent.church": 1
+      },
+      "maxexecutions": 1,
+      "warmup": 10
+    },
+    {
+      "id": "operate.serpentchurch.edge",
+      "actionid": "operate",
+      "label": "占领怪异的教堂以稳定军心？",
+      "startdescription": "虚伪的神明总是害怕人们掌握真理。我让几个忠诚且做事利落的手下执行这场突袭，还在里面的人瞬间乱作一团，我们不费吹灰之力便完成了占领任务。",
+      "description": "不久后我们发现了教堂内的地窖，里面摆放着各种刑具，最深处的牢房空余镣铐。",
+      "requirements": {
+          "serpent.church": 1,
+          "edge": 1
+      },
+      "aspects": {
+          "recruiting": 1
+      },
+      "achievements": [
+          "achievements.locchurch"
+      ],
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "operate.serpentchurch.heart",
+      "actionid": "operate",
+      "label": "在怪异的教堂里祷告？",
+      "startdescription": "思虑越多，离神越远。我像往常一样将双手合拢放到胸前，但不同的是这次没有神职人员在场，我也难以平复内心。",
+      "description": "直到最后，一位年轻的教士带我离开。起身时，我听见地板下方传来异响，那位教士开始神色紧张地催促我，几乎是将我赶了出去。",
+      "requirements": {
+          "serpent.church": 1,
+          "heart": 1
+      },
+      "effects": {
+          "influenceknock": 1
+      },
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "operate.serpentchurch.knock",
+      "actionid": "operate",
+      "label": "调查教堂",
+      "startdescription": "谁才是诸神的代行者？不顾当地教士的警告，我带着一支突击部队潜入了教堂，准备一探究竟。",
+      "requirements": {
+          "serpent.church": 1,
+          "knock": 1
+      },
+      "maxexecutions": 1,
+      "effects": {
+          "side.serpentchurch": 1
+      },
+      "warmup": 30,
+      "craftable": true
+    },
+
+    {
+      "id": "ob.success",
+      "linked$prepend": [
+        {
+          "id": "ob.success.tomoriserpent"
+        },
+        {
+          "id": "ob.success.underground"
+        }
+      ]
+    },
+    {
+      "id": "ob.success.underground",
+      "label": "虚源断流",
+      "startdescription": "虚界的力量如黑烟从大地的伤口中涌出，灼人指尖，又在封堵的瞬间逆流回巢。每修复一道裂缝，其他怪物的嘶鸣便弱下一分，它们的动作更加迟缓，仿佛被抽去了隐秘的筋骨。\n同时，虚流断涌的刹那，横亘于战场中央的巨蛇暴露了破绽——如门将合未合。",
+      "requirements": {
+        "influenceheartg": 1,
+        "thelastseven.opening": 1,
+        "readiness.token": -3
+      },
+      "effects": {
+        "foe": -3,
+        "readiness.token": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "敌军",
+          "required": {
+            "foe": 1
+          },
+          "forbidden": {
+            "uqthelastseven": 1
+          },
+          "consumes": true,
+          "greedy": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "ob.success.underground",
+          "chance": 60
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "ob.success.tomoriserpent",
+      "label": "胜利！",
+      "startdescription": "寻着声音的来源，把那老旧木质的地板砸开，深入尘封已久的黑暗地牢，里面所关押着的竟是一名少女，她的身体被教士们吊在半空......",
+      "requirements": {
+        "tomori.serpent": 1,
+        "serpent.church": -1
+      },
+      "aspects": {
+        "recruiting": 1
+      },
+      "slots": [
+        {
+          "id": "needssupplies",
+          "label": "怪异的教堂",
+          "required": {
+            "serpent.church": 1
+          },
+          "greedy": true
+        }
+      ],
+      "warmup": 10,
+      "linked": [
+        {
+          "id": "ob.success.tomoriserpent.end"
+        },
+        {
+          "id": "ob.success.tomoriserpent"
+        }
+      ]
+    },
+    {
+      "id": "ob.success.tomoriserpent.end",
+      "label": "胜利！",
+      "startdescription": "寻着声音的来源，把那老旧木质的地板砸开，深入尘封已久的黑暗地牢，里面关押着的是一个被吊起的少女。",
+      "requirements": {
+        "loc.church": 1
+      }
+    },
+
+    {
+      "id": "communicate.tomoriserpent",
+      "actionid": "communicate",
+      "label": "护送受伤的少女回家",
+      "startdescription": "“呜，真的…真的是，万分感谢。” 她一边哭一边说着“那些教士太可怕了——”她只睁着左眼“你们占领了他们的地盘，这真好，就像他们抢走了我的家。” 在一群远离家庭之人面前谈论家无疑是让人共情的。“是的，感谢您让我摆脱囚禁，如果您…您愿意送我…回一趟家吗。当然…我识路。”",
+      "description": "“呜…这里以前不是这样的，或许您可以和我一起进去。路很窄，只有我们两个人，很安全，我保证。”",
+      "aspects": {
+        "mortal.introduce": 1
+      },
+      "requirements": {
+        "tomori.serpent": 1
+      },
+      "craftable": true,
+      "maxexecutions": 1,
+      "warmup": 60
+    },
+    {
+      "id": "operate.startup.shakedown",
+      "requirements$add": {
+        "underground.here": -1
+      }
+    },
+    {
+      "id": "operate.startup.assistlocals",
+      "requirements$add": {
+        "underground.here": -1
+      }
+    },
+    {
+      "id": "operate.startup.shakedown.militia",
+      "requirements$add": {
+        "underground.here": -1
+      }
+    },
+    {
+      "id": "operate.startup.assistlocals.militia",
+      "requirements$add": {
+        "underground.here": -1
+      }
+    },
+    {
+      "id": "hint.getreinforcements.underground",
+      "$extends": ["hint.getreinforcements.lake"],
+      "label": "偏远之地",
+      "startdescription": "太远了，这里没有信号能沟通，我们无法且不能告知世人我们所处的险境。\n\n[在此地，你无法呼叫任何友军支援]",
+      "$priority": 3,
+      "extantreqs": {
+          "underground.here": 1
+      }
+    },
+    {
+      "id": "abandon.ally",
+      "extantreqs$add": {
+        "underground.here": -1
+      },
+      "requirements$add": {
+          "uqpolevaya": -1
+      }
+    },
+    {
+      "id": "hint.abandon.ally.underground",
+      "$extends": ["hint.abandon.ally.lake"],
+      "extantreqs": {
+          "underground.here": 1
+      }
+    },
+
+    {
+      "id": "explode.serpentcave.hint",
+      "actionid": "mobilize",
+      "label": "探索偏僻的巢穴？",
+      "startdescription": "这里空间狭窄只容得下两人通过，我需要一位能为我开启通道的人，最好曾经是这里的主人。",
+      "requirements": {
+        "side.serpentcave": 1
+      },
+      "hintonly": true
+    },
+    {
+      "id": "explode.serpentcave",
+      "actionid": "mobilize",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "我已经找到了合适的人，是时候出发了。",
+      "requirements": {
+        "side.serpentcave": 1,
+        "tomori.serpent": 1
+      },
+      "warmup": 10,
+      "craftable": true,
+      "linked": [
+        {
+          "id": "explode.serpentcave.pre"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.pre",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "出发前我需要带点武器和工具以应对可能的困难。",
+      "slots": [
+          {
+            "id": "needssomething",
+            "label": "准备",
+            "required": {
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "friend": 1,
+                "wounded": 1,
+                "damaged": 1,
+                "exhausted": 1,
+                "edgelong": 1,
+                "contemplation": 1
+            }
+          },
+          {
+            "id": "needssomething2",
+            "label": "准备",
+            "required": {
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "friend": 1,
+                "wounded": 1,
+                "damaged": 1,
+                "exhausted": 1,
+                "edgelong": 1,
+                "contemplation": 1
+            }
+          },
+          {
+            "id": "needssomething3",
+            "label": "准备",
+            "required": {
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "friend": 1,
+                "wounded": 1,
+                "damaged": 1,
+                "exhausted": 1,
+                "edgelong": 1,
+                "contemplation": 1
+            }
+          }
+      ],
+      "warmup": 30,
+      "linked": [
+        {
+          "id": "explode.serpentcave.first.pre"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.first.pre",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "匍匐前进……",
+      "warmup": 10,
+      "aspects": {
+        "opx.progress0": 1
+      },
+      "linked": [
+        {
+          "id": "explode.serpentcave.first.hindrance"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.first.hindrance",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "洞穴深处遍布废墟，我们需要扫除障碍继续前行",
+      "slots": [
+          {
+            "id": "needssomething",
+            "label": "应对",
+            "required": {
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "friend": 1,
+                "weapon": 1,
+                "supplies": 1,
+                "tool": 1,
+                "wounded": 1,
+                "damaged": 1,
+                "exhausted": 1,
+                "edgelong": 1,
+                "contemplation": 1
+            }
+          }
+      ],
+      "warmup": 30,
+      "alt": [
+        {
+          "id": "explode.serpentcave.first.heart"
+        },
+        {
+          "id": "explode.serpentcave.first.forge"
+        }
+      ],
+      "linked": [
+        {
+          "id": "explode.serpentcave.first.false"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.first.heart",
+      "label": "以心之力通过",
+      "startdescription": "我们强壮，我们将扫除障碍",
+      "requirements": {
+        "heart": 8
+      },
+      "effects": {
+        "progression": 1,
+        "hindrance": -1
+      },
+      "linked": [
+        {
+          "id": "explode.serpentcave.second.pre"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.first.forge",
+      "label": "以铸之力通过",
+      "startdescription": "我们务实，我们将扫除障碍",
+      "requirements": {
+        "forge": 6
+      },
+      "effects": {
+        "progression": 1,
+        "hindrance": -1
+      },
+      "linked": [
+        {
+          "id": "explode.serpentcave.second.pre"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.first.false",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "我们没能找到通过废墟的方法，只能先行撤退",
+      "effects": {
+        "hindrance": -1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "warmup": 30
+    },
+
+    {
+      "id": "explode.serpentcave.second.pre",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "匍匐前进……",
+      "warmup": 10,
+      "aspects": {
+        "opx.progress1": 1
+      },
+      "linked": [
+        {
+          "id": "explode.serpentcave.second.hindrance"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.second.hindrance",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "门扉紧闭，不知道是谁故意将其破坏，还是因为年久失修",
+      "slots": [
+          {
+            "id": "needssomething",
+            "label": "应对",
+            "required": {
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "friend": 1,
+                "weapon": 1,
+                "supplies": 1,
+                "tool": 1,
+                "wounded": 1,
+                "damaged": 1,
+                "exhausted": 1,
+                "edgelong": 1,
+                "contemplation": 1
+            }
+          }
+      ],
+      "warmup": 30,
+      "alt": [
+        {
+          "id": "explode.serpentcave.second.knock"
+        },
+        {
+          "id": "explode.serpentcave.second.forge"
+        }
+      ],
+      "linked": [
+        {
+          "id": "explode.serpentcave.second.false"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.second.knock",
+      "label": "以启之力通过",
+      "startdescription": "我们了解洞开，我们开启门扉，我们理当通过",
+      "requirements": {
+        "knock": 6
+      },
+      "effects": {
+        "progression": 1,
+        "hindrance": -1
+      },
+      "linked": [
+        {
+          "id": "explode.serpentcave.third.pre"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.second.forge",
+      "label": "以铸之力通过",
+      "startdescription": "我们有铸的伟力，我们破坏门扉，我们理当通过",
+      "requirements": {
+        "forge": 8
+      },
+      "effects": {
+        "progression": 1,
+        "hindrance": -1
+      },
+      "linked": [
+        {
+          "id": "explode.serpentcave.third.pre"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.second.false",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "我们没能找到开启门扉的方法，只能先行撤退",
+      "effects": {
+        "hindrance": -1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "warmup": 30
+    },
+    
+    {
+      "id": "explode.serpentcave.third.pre",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "匍匐前进……",
+      "warmup": 10,
+      "aspects": {
+        "opx.progress2": 1
+      },
+      "linked": [
+        {
+          "id": "explode.serpentcave.third.hindrance"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.third.hindrance",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "一片粘稠恶臭的瘴气，散发着腐臭味道和血的回忆。",
+      "slots": [
+          {
+            "id": "needssomething",
+            "label": "应对",
+            "required": {
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "friend": 1,
+                "weapon": 1,
+                "supplies": 1,
+                "tool": 1,
+                "wounded": 1,
+                "damaged": 1,
+                "exhausted": 1,
+                "edgelong": 1,
+                "contemplation": 1
+            }
+          }
+      ],
+      "warmup": 30,
+      "alt": [
+        {
+          "id": "explode.serpentcave.third.heart"
+        },
+        {
+          "id": "explode.serpentcave.third.grail"
+        },
+        {
+          "id": "explode.serpentcave.third.winter"
+        }
+      ],
+      "linked": [
+        {
+          "id": "explode.serpentcave.third.false"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.third.heart",
+      "label": "以心之力通过",
+      "startdescription": "心力庇护，腐毒不着。瘴气无法侵入我们。",
+      "requirements": {
+        "heart": 10
+      },
+      "effects": {
+        "progression": 1,
+        "hindrance": -1
+      },
+      "linked": [
+        {
+          "id": "explode.serpentcave.last.pre"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.third.grail",
+      "label": "以杯之力通过",
+      "startdescription": "肉身赤红，何惧血气，瘴气无法侵入我们。",
+      "requirements": {
+        "grail": 10
+      },
+      "effects": {
+        "progression": 1,
+        "hindrance": -1
+      },
+      "linked": [
+        {
+          "id": "explode.serpentcave.last.pre"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.third.winter",
+      "label": "以冬之力通过",
+      "startdescription": "保持静寂，屏息凝神。瘴气无法侵入我们。",
+      "requirements": {
+        "winter": 10
+      },
+      "effects": {
+        "progression": 1,
+        "hindrance": -1
+      },
+      "linked": [
+        {
+          "id": "explode.serpentcave.last.pre"
+        }
+      ]
+    },
+    {
+      "id": "explode.serpentcave.third.false",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "我看到了巨蛇食人的影子，此为非人之物的居所，凡人禁地，快撤。",
+      "effects": {
+        "hindrance": -1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "warmup": 30
+    },
+    {
+      "id": "explode.serpentcave.last.pre",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "在黑暗之中，我拽紧前方的手……",
+      "effects": {
+        "hindrance": -1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "explode.serpentcave.last.end"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "explode.serpentcave.last.end",
+      "label": "与少女探索偏僻的巢穴",
+      "startdescription": "在黑暗中，我拽紧前方的手。恍惚之间，我听见它的呼唤，与强烈的被包裹感。我被挤压，被刮擦，从成年与从军向前，来到更早与更早更早之前，在农庄里，在硫磺色的稻草堆中。我忆起了我还未曾拥有能力与责任的时代，一个幼童，未曾具名，不知国籍，没有信仰。我又一次品尝乳液，玩耍起脐带。而之后是一种我从未经历的痛苦，割裂的力量挤压着我，似羽毛般切开身躯，我几乎将死，直至另一种力量从我的伤口中迸发，欢快地将我推出无知的黑暗——",
+      "description": "当我再次苏醒，我完好无损地枕在少女的膝盖上，她不知何时穿上了一身衣服，“伊万杰琳·波列瓦娅”她将我搀扶起来时如此说道。我没有回应，在一旁的草丛中找到了自己的军帽。这里是向阳的山坡。没有向日葵，红色夕阳正向下坠落，“他们用我囚住了我，现在我再也回不了家了，哪个家都是。”她的泪水与太阳一同坠落。",
+      "aspects": {
+        "upgrade.exile.ally": 1
+      },
+      "effects": {
+        "serpent.eggb": 1,
+        "mission.tomoriserpent.a": 1,
+        "side.serpentcave": -1
+      },
+      "warmup": 30
+    }
+  ]
+}
