@@ -67,6 +67,9 @@
       "aspects": {
         "fatiguing": 1
       },
+      "effects": {
+        "husk": -99
+      },
       "linked": [
         {
           "id": "operate.mainthelastseven.cycle.7"
@@ -173,7 +176,7 @@
     {
       "id": "operate.mainthelastseven.cycle.6.blind",
       "label": "<i>第七步</i>",
-      "startdescription": "终结之力贯透终末。没有声响，没有挣扎的余波，在一声极轻的、宛如叹息的震颤，化为空壳。",
+      "startdescription": "终结之力贯透终末。没有声响，没有挣扎的余波，在一声极轻的、宛如叹息的震颤后，化为空壳。",
       "requirements": {
         "weapon.yihulun": 1
       },
@@ -740,7 +743,6 @@
       }
     },
 
-
     {
       "id": "produce.spirit_grailc_moth",
       "actionid": "spit.heart",
@@ -779,15 +781,15 @@
       "label": "天降使者",
       "startdescription": "我听到了一些欢快的歌声，那些家伙一定在云上，或者是梦境的另一面。这些家伙像蠕虫一样不易察觉，好在它们是站在我们这边的。",
       "description": "真不近人情，它们在催促我们离开，歌声越来越响亮。看来，后面的活儿用不着我参与了。",
-      "deleteverb": {
-          "enemyaction.*": 99
-      },
       "purge": {
+          "friend.blind": 99,
+          "strife": 99,
           "foe": 99,
           "revivingthings": 99,
           "side": 99,
           "thelastseven.opening": 99
-      }
+      },
+      "tableLeather": "tablecover.obdurant"
     },
 
     {
@@ -2803,7 +2805,7 @@
       "id": "communicate.purple.turnwinter",
       "actionid": "communicate",
       "label": "使我目盲",
-      "startdescription": "少女亲吻了我尚好的那只眼，我的眼窝处传来一阵冰凉，随后我便无畏直视七蟠。\n\n[整局游戏中你只能这样做一次，此行动将产生一道残疾，并在离开当前战区时恢复]",
+      "startdescription": "少女亲吻了我尚好的那只眼，我的眼窝处传来一阵冰凉，随后我便无畏直视七蟠。\n\n[整局游戏中你只能这样做一次，在离开当前战区时将失去该能力]",
       "extantreqs": {
         "underground.here": 1
       },
@@ -2818,6 +2820,7 @@
       "effects": {
         "eye.serpent": 1
       },
+      "tableLeather": "tablecover.obdurant.serpent",
       "maxexecutions": 1,
       "craftable": true,
       "warmup": 30
@@ -3585,16 +3588,13 @@
       "warmup": 30,
       "linked": [
           {
-        "id": "travelling.cycle.complete.remote.u"
+            "id": "travelling.cycle.complete.u"
           },
           {
-        "id": "travelling.cycle.complete.u"
+            "id": "travelling.cycle.u"
           },
           {
-        "id": "travelling.cycle.u"
-          },
-          {
-        "id": "halt.travel.duel.u"
+            "id": "halt.travel.duel.u"
           }
       ]
     },

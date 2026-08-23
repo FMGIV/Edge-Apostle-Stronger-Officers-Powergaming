@@ -1,6 +1,33 @@
 {
   "recipes": [
     {
+      "id": "hint.getreinforcements.noroom",
+      "requirements": {
+          "opligeian": -1
+      }
+    },
+    {
+      "id": "hint.getreinforcements.withcomms",
+      "requirements": {
+          "opligeian": -1
+      }
+    },
+    {
+      "id": "hint.getreinforcements.nocomms",
+      "requirements": {
+          "opligeian": -1
+      }
+    },
+
+    {
+      "id": "operate.getdream",
+      "slots$listedit": { 
+      "0$dictedit" : {
+        "forbidden$add" : { "uqpolevaya": 1, "romanticinterest": 1 }
+        }
+      }
+    },
+    {
       "id": "operate.church.edge",
       "alt$prepend": [
           {
@@ -166,6 +193,16 @@
       }
     },
     {
+      "id": "hint.getreinforcements.underground",
+      "$extends": ["hint.getreinforcements.lake"],
+      "label": "偏远之地",
+      "startdescription": "太远了，这里没有信号能沟通，我们无法且不能告知世人我们所处的险境。\n\n[在此地，你无法呼叫任何友军支援]",
+      "$priority": 3,
+      "extantreqs": {
+          "underground.here": 1
+      }
+    },
+    {
       "id": "hint.getreinforcements.noroom",
       "requirements$add": {
           "uqpolevaya": -1
@@ -295,59 +332,11 @@
       "requirements": {
           "foe.serpent": 1,
           "grail": 8
-      }
-    },
-    {
-      "id": "attackenemy.success.serpentgrail.proterant",
-      "label": "胜利！",
-      "startdescription": "战争对环境的破坏让幼妹不得不出来觅食，如果我们能，赤红技艺的诱惑让我们拥有满足它的手段，故它将会吞食我们为它准备好的任何“食物”，而非吞食我们。",
-      "aspects": {
-          "dissolutione": 1,
-          "fatiguing": 1
-      },
-      "requirements": {
-          "foe.serpent": 1,
-          "grail": 8
-      },
-      "extantreqs": {
-        "proterant.story": 1
       },
       "slots": [
         {
           "id": "needsally",
-          "label": "回忆",
-          "required": {
-            "knock": 1
-          },
-          "consumes": true
-        }
-      ],
-      "alt": [
-        {
-          "id": "attackenemy.success.serpentgrail.proterant.knock"
-        }
-      ],
-      "warmup": 30
-    },
-    {
-      "id": "attackenemy.success.serpentgrail.proterant",
-      "label": "胜利！",
-      "startdescription": "战争对环境的破坏让幼妹不得不出来觅食，如果我们能，赤红技艺的诱惑让我们拥有满足它的手段，故它将会吞食我们为它准备好的任何“食物”，而非吞食我们。",
-      "aspects": {
-          "dissolutione": 1,
-          "fatiguing": 1
-      },
-      "requirements": {
-          "foe.serpent": 1,
-          "grail": 8
-      },
-      "extantreqs": {
-        "proterant.story": 1
-      },
-      "slots": [
-        {
-          "id": "needsally",
-          "label": "回忆",
+          "label": "影响",
           "required": {
             "knock": 1
           },
@@ -359,13 +348,52 @@
       ],
       "alt": [
         {
-          "id": "attackenemy.success.serpentgrail.proterant.knock"
+          "id": "attackenemy.success.serpentgrail.knock"
         }
       ],
       "warmup": 30
     },
     {
-      "id": "attackenemy.success.serpentgrail.proterant.knock",
+      "id": "attackenemy.success.serpentgrail.proterant",
+      "label": "胜利！",
+      "startdescription": "战争对环境的破坏让幼妹不得不出来觅食，如果我们能，赤红技艺的诱惑让我们拥有满足它的手段，故它将会吞食我们为它准备好的任何“食物”，而非吞食我们。",
+      "aspects": {
+          "dissolutione": 1,
+          "fatiguing": 1
+      },
+      "extantreqs": {
+        "proterant.story": 1
+      },
+      "requirements": {
+          "foe.serpent": 1,
+          "grail": 8
+      },
+      "slots": [
+        {
+          "id": "needsally",
+          "label": "影响",
+          "required": {
+            "knock": 1,
+            "heart": 1
+          },
+          "essential": {
+            "influence": 1
+          },
+          "consumes": true
+        }
+      ],
+      "alt": [
+        {
+          "id": "attackenemy.success.serpentgrail.heart"
+        },
+        {
+          "id": "attackenemy.success.serpentgrail.knock"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "attackenemy.success.serpentgrail.knock",
       "label": "让幼妹陷入回忆",
       "startdescription": "趁着这个它大快朵颐之时，我在周围施加了些许启的影响，随后它进食的动作停了下来，开始用它的眼睛盯着我。",
       "aspects": {
@@ -374,6 +402,19 @@
       },
       "requirements": {
           "knock": 1,
+          "influence": 1
+      }
+    },
+    {
+      "id": "attackenemy.success.serpentgrail.heart",
+      "label": "让“扈从”陷入回忆",
+      "startdescription": "趁着这个它大快朵颐之时，我在周围施加了些许心的影响，随后它进食的动作停了下来，开始用它的眼睛盯着我。",
+      "aspects": {
+          "dissolutionh": 1,
+          "fatiguing": 1
+      },
+      "requirements": {
+          "heart": 1,
           "influence": 1
       }
     },
