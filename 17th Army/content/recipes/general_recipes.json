@@ -1,0 +1,1767 @@
+{
+  "recipes": [
+    {
+      "id": "edgelong.cycle",
+      "effects$add": {
+          "husk": -99,
+          "foe.chasseur.reviving": -99,
+          "foe.resuscitated.soldier.reviving": -99,
+          "trauma": -99,
+          "influencewinter": -99
+      }
+    },
+    {
+      "id": "conclusion.frienddetected",
+      "aspects": {
+          "killmortal": 1
+      }
+    },
+    {
+      "id": "expel.dead",
+      "effects": {
+        "op": -1
+      }
+    },
+    {
+      "id": "braced.survived",
+      "aspects$add": {
+          "killseventeen": 1
+      }
+    },
+
+    {
+      "id": "edgelong.attack.allies",
+      "slots$listedit": { 
+      "0$dictedit" : {
+        "required$add" : { "faction.resuscitated": 1 },
+        "forbidden": { "foe.seventeen": 1 }
+        }
+      },
+      "aspects$add": {
+          "killresuscitated": 1
+      },
+      "alt$prepend": [
+          {
+            "id": "edgelong.attack.allies.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "edgelong.attack.allies.seventeen.pre",
+      "label": "Two terrible forces...",
+      "requirements": {
+        "faction.resuscitated": 1,
+        "foe.wilhelm": 1
+      },
+      "tablereqs": {
+        "foe.seventeen": 1
+      },
+      "effects": {
+        "wilhelm.seventeen": 1
+      },
+      "linked": [
+          {
+            "id": "edgelong.attack.allies.seventeen"
+          }
+      ]
+    },
+    {
+      "id": "edgelong.attack.allies.seventeen",
+      "label": "Two terrible forces...",
+      "startdescription": "The War-Maker's actions have drawn the attention of that nightmare. Frost and flame are converging.",
+      "slots": [
+          {
+            "id": "needsfoe",
+            "label": "The Seventeenth Night",
+            "required": {
+                "foe.seventeen": 1
+            },
+            "greedy": true
+          }
+      ],
+      "linked": [
+          {
+            "id": "edgelong.attack.allies.seventeen.end.1"
+          },
+          {
+            "id": "edgelong.expel"
+          }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "edgelong.attack.allies.seventeen.end.1",
+      "label": "Two terrible forces collide!",
+      "startdescription": "The nightmare attacks the War-Maker! Frost and flame clash violently, entwining without cease; the earth trembles from the struggle of these two powers. The armies of both sides flee in terror from their path, and those unable to escape are ground to dust in an instant.",
+      "requirements": {
+        "foe.seventeen": 1
+      },
+      "warmup": 30,
+      "linked": [
+        {
+          "id": "edgelong.attack.allies.seventeen.end.2"
+        }
+      ]
+    },
+    {
+      "id": "edgelong.attack.allies.seventeen.end.2",
+      "label": "Flame against frost",
+      "startdescription": "The War-Maker roars and wields his flame, while the nightmare answers with death-bearing winds. The two terrible forces clash again and again, their sound drowning out even the roar of artillery. I believe the War-Maker is at a disadvantage; his flames are always quenched swiftly, but the resilience of a Long is beyond imagination. This battle may yet drag on, or the next clash may decide the victor.",
+      "warmup": 30,
+      "linked": [
+        {
+          "id": "edgelong.attack.allies.seventeen.end.3"
+        }
+      ]
+    },
+    {
+      "id": "edgelong.attack.allies.seventeen.end.3",
+      "label": "The decisive blow?",
+      "startdescription": "The War-Maker drives the nightmare back once more, but this time he does not press his advantage; I see fierce flames erupt upon his body. With a stomp that cracks the earth, a fist wreathed in flame tears through the freezing wind around the nightmare like a falling star, and then a blinding flash precedes the thunderclap as vast steam swallows them both.",
+      "warmup": 30,
+      "linked": [
+        {
+          "id": "edgelong.attack.allies.seventeen.end"
+        }
+      ]
+    },
+    {
+      "id": "edgelong.attack.allies.seventeen.end",
+      "label": "Winter's victory",
+      "startdescription": "The steam is blown away and cooled by the wind, revealing the nightmare's form; it must have been weakened, yet it can still spread cold and death. The War-Maker is nowhere to be seen, but I believe he has only retreated for now. In any case, this battle is over, and we must continue to face the nightmare's harrying.",
+      "effects": {
+        "foe.wilhelm": -1
+      },
+      "aspects": {
+        "zeroseventeen": 1
+      },
+      "achievements": [
+          "achievements.wilhelmseventeen"
+      ],
+      "warmup": 30
+    },
+
+    {
+      "id": "edgelong.sergei.attack.allies",
+      "alt$prepend": [
+          {
+            "id": "edgelong.sergei.attack.seventeen"
+          }
+      ]
+    },
+    {
+      "id": "edgelong.sergei.attack.seventeen",
+      "label": "The Blade-Long's terror",
+      "requirements": {
+        "foe.seventeen": 1
+      },
+      "effects": {
+        "sergei.seventeen": 1
+      },
+      "linked": [
+          {
+            "id": "edgelong.sergei.attack.seventeen.end"
+          }
+      ]
+    },
+    {
+      "id": "edgelong.sergei.attack.seventeen.end",
+      "label": "The Blade-Long's terror",
+      "startdescription": "The Cossack reins in sharply, staring in disbelief at the nightmare before him, then turns his horse and flees before the nightmare can set its sights on him.",
+      "effects": {
+        "foe.sergei": -1
+      },
+      "achievements": [
+          "achievements.sergeiseventeen"
+      ],
+      "warmup": 30
+    },
+
+    {
+      "id": "operate.endinginitiate",
+      "linked$prepend": [
+          {
+            "id": "ascendname.colonel.resuscitated"
+          },
+          {
+            "id": "obdurant.ending.high.resuscitated"
+          }
+      ]
+    },
+    {
+      "id": "ascendname.colonel.resuscitated",
+      "$extends": ["ascendname.colonel"],
+      "extantreqs$add": {
+          "faction.resuscitated": 1
+      },
+      "achievements": [
+          "ending.nameascensioncolonel",
+          "achievements.nameseventeen"
+      ]
+    },
+    {
+      "id": "obdurant.ending.high.resuscitated",
+      "$extends": ["obdurant.ending.high"],
+      "extantreqs$add": {
+          "faction.resuscitated": 1
+      },
+      "achievements": [
+          "ending.highresolution",
+          "achievements.nameseventeen"
+      ]
+    },
+    {
+      "id": "find.side.camilla",
+      "extantreqs$add": {
+          "faction.resuscitated": -1
+      }
+    },
+    {
+      "id": "travelslot.end",
+      "linked": [
+        {
+          "id": "travelslot.end.obdurant"
+        }
+      ],
+      "alt$prepend": [
+        {
+          "id": "delete.footprint",
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "travelslot.end.obdurant",
+      "label": "March outward",
+      "startdescription": "Behind us is war, and ahead is war.",
+      "extantreqs": {
+          "obdurant.story": 1
+      },
+      "effects": {
+          "footprint": 1
+      },
+      "tableLeather": "tablecover.obdurant",
+      "alt": [
+        {
+          "id": "delete.footprint",
+          "additional": true
+        },
+        {
+          "id": "dream.seventeen.startup",
+          "additional": true
+        }
+      ]
+    },
+    {
+      "id": "dream.seventeen.startup",
+      "actionId": "dream.seventeen",
+      "label": "Dream of snow and wind",
+      "startdescription": "Tonight, I shall dream of something colder than winter itself.",
+      "maxexecutions": 1,
+      "warmup": 30,
+      "effects": {
+        "fivenumbers": 1
+      },
+      "linked": [
+        {
+          "id": "dream.seventeen.end"
+        }
+      ]
+    },
+    {
+      "id": "dream.seventeen.end",
+      "label": "Dream of snow and wind",
+      "startdescription": "I walk alone through a blizzard; piano music sounds in the distance. The melody seeps through my skin, invades my veins, and freezes my blood and heartbeat together. I feel my consciousness dragged downward by an icy hand...\n\nThen I see a frost-covered window, and outside it a dark figure. The figure writes five Roman numerals on the pane with withered fingers:\n\n<b><i>“IV VII X XIV XVII”</i></b>",
+      "description": "When I wake, my face is grim – those same numbers appear on the window before me.",
+      "maxexecutions": 1,
+      "burnimage": "dreamaboutseventeen",
+      "effects": {
+        "mem.fear": 1
+      },
+      "warmup": 30
+    },
+    {
+      "id": "delete.footprint",
+      "actionId": "spit.moth",
+      "label": "Vanishing tracks",
+      "startdescription": "After entering the Invisible Lake, I look back and see only an empty snowfield. All traces we left have vanished, as if we had never passed this way.",
+      "extantreqs": {
+        "lake.vision": 1
+      },
+      "maxexecutions": 1,
+      "slots": [
+          {
+            "id": "needsally",
+            "label": "Footprints",
+            "required": {
+                "footprint": 1
+            },
+            "consumes": true,
+            "greedy": true
+          }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "produce.seventeen.reviving",
+      "actionId": "enemyaction.resuscitated.reviving",
+      "label": "<sprite name=winter>…",
+      "startdescription": "The chill that envelops the battlefield has weakened, but not dispersed. It will not be long before that dread thing returns. Whatever else we must do, we must hasten.",
+      "slots": [
+          {
+            "id": "needsally",
+            "label": "Enemy forces",
+            "required": {
+                "foe.resuscitated.seventeen.17": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1,
+                "remnant": 1,
+                "hired": 1
+            },
+            "greedy": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "produce.seventeen.reviving.end"
+        }
+      ],
+      "warmup": 800
+    },
+    {
+      "id": "produce.seventeen.reviving.end",
+      "label": "<sprite name=winter>.",
+      "startdescription": "He is back. He has returned from hell.",
+      "effects": {
+        "foe.resuscitated.seventeen.17": -1,
+        "foe.resuscitated.seventeen.3": 1
+      }
+    },
+    {
+      "id": "arrive.marinette",
+      "haltverb$add": {
+        "enemyaction.resuscitated.*": 99
+      }
+    },
+    {
+      "id": "arrive.marinette.whilehiding",
+      "haltverb$add": {
+        "enemyaction.resuscitated.*": 99
+      }
+    },
+    {
+      "id": "travel.sobibor.haltverb",
+      "haltverb$add": {
+        "enemyaction.resuscitated.*": 99
+      }
+    },
+    {
+      "id": "duel.countdown.success.stopverbs",
+      "haltverb$add": {
+        "enemyaction.resuscitated.*": 99
+      }
+    },
+    {
+      "id": "duel.countdown.success.stopverbs.proterant",
+      "haltverb$add": {
+        "enemyaction.resuscitated.*": 99
+      }
+    },
+    {
+      "id": "travelling.cycle.complete.haltverbs",
+      "haltverb$add": {
+        "enemyaction.resuscitated.*": 99
+      }
+    },
+    {
+      "id": "travelling.cycle.haltverbs",
+      "haltverb$add": {
+        "enemyaction.resuscitated.*": 99
+      }
+    },
+    {
+      "id": "travel.sobibor.purge",
+      "deleteverb$add": {
+        "enemyaction.resuscitated.*": 99
+      }
+    },
+    {
+      "id": "travelling.cycle.complete.purge",
+      "deleteverb$add": {
+        "enemyaction.resuscitated.*": 99
+      }
+    },
+    {
+      "id": "travelling.cycle.purge",
+      "deleteverb$add": {
+        "enemyaction.resuscitated.*": 99
+      }
+    },
+    {
+      "id": "exile.begin.weakenenemy",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "foe.unassailable": 1 }
+          }
+        }
+    },
+    {
+	    "id": "weakenenemies.detect",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "foe.unassailable": 1, "faction.resuscitated": 1 }
+          }
+        }
+    },
+    {
+	    "id": "doubleattack.1.startup",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "faction.resuscitated": 1 }
+          }
+        }
+    },
+    {
+	    "id": "doubleattack.2.startup",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "faction.resuscitated": 1 }
+          }
+        }
+    },
+    {
+	    "id": "singleattack.startup",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "faction.resuscitated": 1 }
+          }
+        }
+    },
+    {
+	    "id": "lake.singleattack.startup",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "faction.resuscitated": 1 }
+          }
+        }
+    },
+    {
+	    "id": "destroysupplies.startup",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "faction.resuscitated": 1 }
+          }
+        }
+    },
+    {
+	    "id": "hide.startup",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "faction.resuscitated": 1 }
+          }
+        }
+    },
+    {
+	    "id": "infrastructure.startup",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "faction.resuscitated": 1 }
+          }
+        }
+    },
+    {
+      "id": "attackenemy.needsedgeforgewinter.overwhelm",
+      "actionid": "operate",
+      "label": "Plan an overwhelming attack with a pushing tactic",
+      "startdescription": "We shall destroy the enemy's resistance with patience, fire and force. Let them try to withstand that.",
+      "requirements": {
+        "foe": 1,
+        "provisions": 1,
+        "needsedgeforgewinter": 1,
+        "edge": "needsedgeforgewinter",
+        "foe.ingluviate.engorged": -1
+      },
+      "grandreqs": {
+        "[edge] - [needsedgeforgewinter]": 5,
+        "[forge] - {[needsedgeforgewinter] / 2}": 5,
+        "[winter] - {[needsedgeforgewinter] / 2}": 5
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+        {
+          "id": "attackenemy.success"
+        }
+      ]
+    },
+    {
+      "id": "attackenemy.needsedgeforgewinter",
+      "actionid": "operate",
+      "label": "Plan an attack with a pushing tactic",
+      "startdescription": "Talk is over. Now it is time to push the line and pressure the enemy.",
+      "requirements": {
+        "foe": 1,
+        "provisions": 1,
+        "needsedgeforgewinter": 1,
+        "edge": "needsedgeforgewinter",
+        "foe.ingluviate.engorged": -1
+      },
+      "grandreqs": {
+        "[forge] - {[needsedgeforgewinter] / 2}": 0,
+        "[winter] - {[needsedgeforgewinter] / 2}": 0
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+        {
+          "id": "attackenemy.complicate",
+          "chance": 30
+        },
+        {
+          "id": "attackenemy.success"
+        }
+      ]
+    },
+    {
+      "id": "attackenemy.needsforgewinter.overwhelm",
+      "actionid": "operate",
+      "label": "Plan an overwhelming attack with a dual tactic",
+      "startdescription": "Forge and Winter are the cold dawn. Let them try to withstand that.",
+      "requirements": {
+        "foe": 1,
+        "provisions": 1,
+        "needsforgewinter": 1,
+        "forge": "needsforgewinter",
+        "winter": "needsforgewinter",
+        "foe.ingluviate.engorged": -1
+      },
+      "grandreqs": {
+        "[forge] - [needsforgewinter]": 5,
+        "[winter] - [needsforgewinter]": 5
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+        {
+          "id": "attackenemy.success.wreckage"
+        },
+        {
+          "id": "attackenemy.success"
+        }
+      ]
+    },
+    {
+      "id": "attackenemy.needsforgewinter",
+      "actionid": "operate",
+      "label": "Plan an attack with a dual tactic",
+      "startdescription": "Talk is over. Pragmatism and patience will bring us victory.",
+      "requirements": {
+        "foe": 1,
+        "provisions": 1,
+        "needsforgewinter": 1,
+        "forge": "needsforgewinter",
+        "winter": "needsforgewinter",
+        "foe.ingluviate.engorged": -1
+      },
+      "craftable": true,
+      "warmup": 30,
+      "linked": [
+        {
+          "id": "attackenemy.complicate",
+          "chance": 30
+        },
+        {
+          "id": "attackenemy.success.wreckage"
+        },
+        {
+          "id": "attackenemy.success"
+        }
+      ]
+    },
+    {
+      "id": "attackenemy.edgewinter.overwhelm",
+      "linked$prepend": [
+          {
+            "id": "attackenemy.success.undead"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.edgewinter",
+      "linked": [
+          {
+            "id": "attackenemy.complicate",
+            "chance": 30
+          },
+          {
+            "id": "attackenemy.success.undead"
+          },
+          {
+            "id": "attackenemy.success"
+          }
+      ]
+    },
+    {
+      "id": "attackenemy.success.undead",
+      "label": "Victory!",
+      "startdescription": "For them, war never ended. We cannot soothe them, only break them as enemies. Yet we can do one last thing for these wandering sufferers: release them from this agonising march.",
+      "aspects": {
+        "dissolution": 1,
+        "fatiguing": 1
+      },
+      "requirements": {
+        "foe.resuscitated.undead": 1
+      }
+    },
+    {
+      "id": "attackenemy.success.wreckage",
+      "label": "Victory!",
+      "startdescription": "The armour cries out its last lament in the fire, and then the prayer banishes it utterly from the mortal world.",
+      "aspects": {
+        "dissolution": 1,
+        "fatiguing": 1
+      },
+      "requirements": {
+        "foe.wreckage": 1
+      }
+    },
+    {
+      "id": "banish.soldier.knockwinter",
+      "actionid": "operate",
+      "label": "Annihilate the last remnants of the enemy",
+      "startdescription": "Sometimes, you need to tell someone twice.",
+      "description": "They are dead – this time, they will not rise again.",
+      "requirements": {
+          "foe.resuscitated.soldier.reviving": 1,
+          "knock": 6,
+          "winter": 6
+      },
+      "aspects": {
+          "promotionto_d_knock": 1,
+          "fatiguing": 1
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "banish.soldier.winterheart",
+      "actionid": "operate",
+      "label": "Annihilate the last remnants of the enemy",
+      "startdescription": "Sometimes, you need to tell someone twice.",
+      "description": "They are dead – this time, they will not rise again.",
+      "requirements": {
+          "foe.resuscitated.soldier.reviving": 1,
+          "heart": 6,
+          "winter": 6
+      },
+      "aspects": {
+          "promotionto_d_heart": 1,
+          "fatiguing": 1
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "banish.soldier.winterlantern",
+      "actionid": "operate",
+      "label": "Annihilate the last remnants of the enemy",
+      "startdescription": "Sometimes, you need to tell someone twice.",
+      "description": "They are dead – this time, they will not rise again.",
+      "requirements": {
+          "foe.resuscitated.soldier.reviving": 1,
+          "lantern": 6,
+          "winter": 6
+      },
+      "aspects": {
+          "promotionto_d_lantern": 1,
+          "fatiguing": 1
+      },
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "banish.seventeen.lanternknock",
+      "actionid": "operate",
+      "label": "Annihilate the last remnants of the enemy",
+      "startdescription": "The power of light and opening is ready. Now is the time to expel that dreadful thing from this world, though we all know it will not be rid of forever.",
+      "requirements": {
+          "weaknesslanternknock": 1,
+          "knock": 12,
+          "lantern": 12
+      },
+      "aspects": {
+          "killfoe": 1,
+          "fatiguing": 1
+      },
+      "achievements": [
+          "achievements.killseventeen"
+      ],
+      "craftable": true,
+      "warmup": 30
+    },
+    {
+      "id": "defend.opportunity",
+      "alt$append": [
+        {			
+          "id": "defend.forgewinter"
+        },
+        {			
+          "id": "defend.edgeforgewinter"
+        }
+      ]
+    },
+    {
+      "id": "defend.aerial",
+      "linked$prepend": [
+          {
+            "id": "foe.impact.attack"
+          }
+      ]
+    },
+    {
+      "id": "foe.impact.attack",
+      "label": "Impact!",
+      "startdescription": "The attack of the iron wing is unstoppable; we can only choose whom to sacrifice.",
+      "requirements": {
+          "foe.impact": 1
+      },
+      "aspects": {
+          "makecasualty": 1
+      }
+    },
+    {
+      "id": "defend.opportunity.seventeen",
+      "$extends": ["defend.opportunity"],
+      "startdescription": "I exchanged a glance with that thing that only wears human shape, and then I knew: <b><i>I am in trouble</i></b>.\n\n[You may commit two cards, and you must meet any one threshold of the enemy to defend successfully; if defence fails, gain <i>a debility</i> and <i>a mental wound</i>]",
+      "slots": [
+          {
+            "id": "needsresponse1",
+            "label": "Defence",
+            "required": {
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1
+            }
+          },
+          {
+            "id": "needsresponse2",
+            "label": "Defence",
+            "required": {
+                "edge": 1,
+                "winter": 1,
+                "heart": 1,
+                "grail": 1,
+                "moth": 1,
+                "lantern": 1,
+                "forge": 1,
+                "knock": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1
+            }
+          }
+      ]
+    },
+    {
+      "id": "attack.conclude",
+      "linked$prepend": [
+          {
+            "id": "attack.resuscitated.killed.seventeen"
+          },
+          {
+            "id": "foe.lethal.kill"
+          },
+          {
+            "id": "attack.resuscitated.killed"
+          }
+      ]
+    },
+    {
+      "id": "attack.resuscitated.killed",
+      "label": "The chill spreads",
+      "startdescription": "The dead have overrun our positions; fallen comrades rise and join their ranks. We must fall back and prepare for the consequences of defeat.",
+      "requirements": {
+        "faction.resuscitated": 1
+      },
+      "aspects": {
+        "makeresuscitatesoldier": 1
+      }
+    },
+    {
+      "id": "attack.resuscitated.killed.seventeen",
+      "label": "Winter's harvest",
+      "startdescription": "Heaven knows how I am still alive.",
+      "requirements": {
+        "foe.seventeen": 1
+      },
+      "aspects": {
+        "killfriend": 1
+      },
+      "linked": [
+        {
+          "id": "attack.resuscitated.killed.seventeen.end"
+        }
+      ]
+    },
+    {
+      "id": "attack.resuscitated.killed.seventeen.end",
+      "label": "Winter's harvest",
+      "startdescription": "Heaven knows how I am still alive.",
+      "aspects": {
+        "makeresuscitatesoldier": 1
+      },
+      "effects": {
+        "trauma": 1
+      },
+      "internaldeck": {
+          "spec": [
+            "debilitation.eye",
+            "debilitation.hand",
+            "debilitation.leg",
+            "debilitation.ear"
+          ],
+          "draws": 1,
+          "resetonexhaustion": true
+      }
+    },
+    {
+      "id": "enemy.resuscitated.attack.german.victory.1",
+      "label": "A chilling attack!",
+      "startdescription": "The army of the dead grows... this is not good.",
+      "aspects": {
+        "makeresuscitatesoldier": 1
+      }
+    },
+    {
+      "id": "produce.wounds",
+      "requirements": {
+        "foe.seventeen": -1
+      }
+    },
+    {
+      "id": "produce.trauma",
+      "requirements": {
+        "foe.seventeen": -1
+      }
+    },
+    {
+      "id": "defend.forgewinter",
+      "$extends" : ["defend.aerial"],
+      "requirements": {
+          "needsforgewinter": 1,
+          "forge": "needsforgewinter",
+          "winter": "needsforgewinter"
+        }
+    },
+    {
+      "id": "defend.edgeforgewinter",
+      "$extends" : ["defend.aerial"],
+      "requirements": {
+          "needsedgeforgewinter": 1,
+          "edge": "needsedgeforgewinter"
+        },
+      "grandreqs": {
+          "[forge] - {[needsedgeforgewinter] / 2}": 0,
+          "[winter] - {[needsedgeforgewinter] / 2}": 0
+        }
+    },
+    {
+      "id": "encounternative.lucky",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.special",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.aerial",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.ap",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.edge",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.winter",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.heart",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.grail",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.moth",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.lantern",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.forge",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.knock",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.forgemoth",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.edgelantern",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.edgewinter",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.edgeforge",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.knocklantern",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.forgeheart",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.winterlantern",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.edgeknock",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.edgeheart",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.edgegrail",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.winterheart",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "respondnative.lanternheart",
+      "alt$prepend": [
+          {
+            "id": "detectadditional.seventeen.pre",
+            "chance": 50
+          },
+          {
+            "id": "detectadditional.side.seventeen.pre",
+            "chance": 30
+          }
+      ]
+    },
+    {
+      "id": "detectadditional.seventeen.pre",
+      "label": "A shifting battlefield?",
+      "startdescription": "Bad weather, patrolling enemies, things behind the veil – the situation can change in an instant.\n\n[Before each obstacle of the target itself, check if any other enemy or obstacle is present on the field. If so, a random enemy or obstacle becomes a new obstacle for the target.]",
+      "requirements": {
+          "main": 1
+      },
+      "grandReqs": {
+        "[progression] == 1": 1
+      },
+      "tablereqs": {
+          "foe.seventeen": 1
+      },
+      "effects": {
+          "progression": 1,
+          "foe": -99,
+          "hindrance": -99
+      },
+      "linked": [
+          {
+            "id": "detectadditional.seventeen"
+          }
+      ]
+    },
+    {
+      "id": "detectadditional.side.seventeen.pre",
+      "label": "A shifting battlefield?",
+      "startdescription": "Bad weather, patrolling enemies, things behind the veil – the situation can change in an instant.\n\n[Before each obstacle of the target itself, check if any other enemy or obstacle is present on the field. If so, a random enemy or obstacle becomes a new obstacle for the target.]",
+      "requirements": {
+          "side": 1
+      },
+      "grandReqs": {
+        "[progression] == 1": 1
+      },
+      "tablereqs": {
+          "foe.seventeen": 1
+      },
+      "effects": {
+          "progression": 1,
+          "foe": -99,
+          "hindrance": -99
+      },
+      "linked": [
+          {
+            "id": "detectadditional.side.seventeen"
+          }
+      ]
+    },
+    {
+      "id": "detectadditional.seventeen",
+      "label": "A shifting battlefield?",
+      "startdescription": "Bad weather, patrolling enemies, things behind the veil – the situation can change in an instant.\n\n[Before each obstacle of the target itself, check if any other enemy or obstacle is present on the field. If so, a random enemy or obstacle becomes a new obstacle for the target.]",
+      "requirements": {
+          "main": 1,
+          "progression": 2
+      },
+      "tablereqs": {
+          "foe.seventeen": 1
+      },
+      "slots": [
+          {
+            "id": "needssomething",
+            "label": "Difficulty?",
+            "required": {
+                "foe.seventeen": 1
+            },
+            "forbidden": {
+                "foe.rankofficer": 1,
+                "uqbrood": 1,
+                "foe.exile": 1
+            },
+            "greedy": true
+          }
+      ],
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "makethirdobstacle"
+          },
+          {
+            "id": "makesecondobstacle"
+          },
+          {
+            "id": "makefirstobstacle"
+          }
+      ],
+      "alt": [
+          {
+            "id": "detectadditional.success.foe"
+          }
+      ]
+    },
+    {
+      "id": "detectadditional.success.foe",
+      "mutations": [
+          {
+            "filter": "foe.seventeen",
+            "mutate": "foe",
+            "level": -1,
+            "additive": true
+          }
+      ]
+    },
+    {
+      "id": "detectadditional.side.seventeen",
+      "label": "A shifting battlefield?",
+      "startdescription": "Bad weather, patrolling enemies, things behind the veil – the situation can change in an instant.\n\n[Before each obstacle of the target itself, check if any other enemy or obstacle is present on the field. If so, a random enemy or obstacle becomes a new obstacle for the target.]",
+      "requirements": {
+          "side": 1,
+          "progression": 2
+      },
+      "tablereqs": {
+          "foe.seventeen": 1
+      },
+      "slots": [
+          {
+            "id": "needssomething",
+            "label": "Difficulty?",
+            "required": {
+                "foe.seventeen": 1
+            },
+            "forbidden": {
+                "foe.rankofficer": 1,
+                "uqbrood": 1,
+                "foe.exile": 1
+            },
+            "greedy": true
+          }
+      ],
+      "warmup": 30,
+      "linked": [
+          {
+            "id": "makethirdobstacle"
+          },
+          {
+            "id": "makesecondobstacle"
+          },
+          {
+            "id": "makefirstobstacle"
+          }
+      ],
+      "alt": [
+          {
+            "id": "detectadditional.success.foe"
+          }
+      ]
+    },
+    {
+      "id": "detectadditional",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "foe.seventeen": 1 }
+          }
+        }
+    },
+    {
+      "id": "detectadditional.side",
+      "slots$listedit": { 
+        "0$dictedit" : {
+          "forbidden$add" : { "foe.seventeen": 1 }
+          }
+        }
+    },
+    {
+      "id": "encounteradditional",
+      "alt$append": [
+          {
+            "id": "respondadditional.forgewinter"
+          },
+          {
+            "id": "respondadditional.edgeforgewinter"
+          }
+      ]
+    },
+    {
+      "id": "encounteradditional.lucky",
+      "requirements": {
+        "foe.seventeen": -1
+      }
+    },
+    {
+      "id": "respondadditional.edgewinter",
+      "alt$prepend": [
+          {
+            "id": "objective.enemy.seventeen",
+            "additional": true,
+            "expulsion": {
+              "filter": {
+                "foe.seventeen": 1
+              },
+              "limit": 99
+            }
+          }
+      ]
+    },
+    {
+      "id": "respondadditional.edgeforge",
+      "alt$prepend": [
+          {
+            "id": "objective.enemy.seventeen",
+            "additional": true,
+            "expulsion": {
+              "filter": {
+                "foe.seventeen": 1
+              },
+              "limit": 99
+            }
+          }
+      ]
+    },
+    {
+      "id": "respondadditional.forgewinter",
+      "label": "The mountaineer's winter",
+      "startdescription": "At dawn we chant our prayers, and the avalanche answers us in silence.",
+      "requirements": {
+          "needsforgewinter": 1,
+          "forge": "needsforgewinter",
+          "winter": "needsforgewinter"
+      },
+      "effects": {
+        "foe": -99,
+        "hindrance": -99
+      },
+      "linked": [
+          {
+            "id": "makethirdobstacle"
+          },
+          {
+            "id": "makesecondobstacle"
+          },
+          {
+            "id": "makefirstobstacle"
+          }
+      ],
+      "alt": [
+          {
+            "id": "producecasualty",
+            "additional": true,
+            "chance": 30,
+            "expulsion": {
+                "limit": 1,
+                "filter": {
+              "friend": 1
+                }
+            }
+          },
+          {
+            "id": "objective.enemy.seventeen",
+            "additional": true,
+            "expulsion": {
+              "filter": {
+                "foe.seventeen": 1
+              },
+              "limit": 99
+            }
+          }
+      ]
+    },
+    {
+      "id": "respondadditional.edgeforgewinter",
+      "label": "Unstoppable force",
+      "startdescription": "We have ample patience, practical weapons, and strength greater than the enemy's. Therefore we shall not be stopped; therefore we shall prevail.",
+      "requirements": {
+          "needsedgeforgewinter": 1,
+          "edge": "needsedgeforgewinter"
+      },
+      "effects": {
+        "foe": -99,
+        "hindrance": -99
+      },
+      "grandreqs": { 
+          "[forge] - {[needsedgeforgewinter] / 2}": 0,
+          "[winter] - {[needsedgeforgewinter] / 2}": 0
+      },
+      "linked": [
+          {
+            "id": "makethirdobstacle"
+          },
+          {
+            "id": "makesecondobstacle"
+          },
+          {
+            "id": "makefirstobstacle"
+          }
+      ],
+      "alt": [
+          {
+            "id": "producecasualty",
+            "additional": true,
+            "chance": 30,
+            "expulsion": {
+                "limit": 1,
+                "filter": {
+              "friend": 1
+                }
+            }
+          },
+          {
+            "id": "objective.enemy.seventeen",
+            "additional": true,
+            "expulsion": {
+              "filter": {
+                "foe.seventeen": 1
+              },
+              "limit": 99
+            }
+          }
+      ]
+    },
+    {
+        "id": "objective.enemy.seventeen",
+        "actionId": "pit.underling.attack.success",
+        "label": "Breakthrough!",
+        "startdescription": "We have broken through the obstacle of that dreadful thing and accomplished our objective, but that does not mean we can shake it off.",
+        "mutations": [
+            {
+                "filter": "foe.seventeen",
+                "mutate": "foe",
+                "level": 0
+            }
+        ],
+        "aspects": {
+            "takeadditional": 1
+        },
+        "linked": [
+            {
+                "id": "objective.enemy.seventeen.end"
+            }
+        ],
+        "warmup": 10
+    },
+    {
+        "id": "objective.enemy.seventeen.end",
+        "label": "Breakthrough!",
+        "startdescription": "We have broken through the obstacle of that dreadful thing and accomplished our objective, but that does not mean we can shake it off.",
+        "requirements": {
+          "foe.braced": 1
+        },
+        "aspects": {
+          "killseventeen": 1
+        },
+        "mutations": [
+            {
+                "filter": "foe",
+                "mutate": "foe.braced",
+                "level": -1,
+                "additive": true
+            }
+        ]
+    },
+    {
+      "id": "encounteradditional.failure.nonlethal",
+      "mutations": [
+          {
+            "filter": "foe.seventeen",
+            "mutate": "foe",
+            "level": 0
+          }
+      ]
+    },
+    {
+      "id": "encounteradditional.failure",
+      "mutations": [
+          {
+            "filter": "foe.seventeen",
+            "mutate": "foe",
+            "level": 0
+          }
+      ]
+    },
+    {
+      "id": "encounteradditional.failure.growth",
+      "mutations": [
+          {
+            "filter": "foe.seventeen",
+            "mutate": "foe",
+            "level": 0
+          }
+      ]
+    },
+    {
+      "id": "encounteradditional.failure.growthcontinue",
+      "mutations": [
+          {
+            "filter": "foe.seventeen",
+            "mutate": "foe",
+            "level": 0
+          }
+      ]
+    },
+    {
+      "id": "encounteradditional.failure.makecasualty",
+      "mutations": [
+          {
+            "filter": "foe.seventeen",
+            "mutate": "foe",
+            "level": 0
+          }
+      ]
+    },
+    {
+      "id": "encounteradditional.failure.killfriends",
+      "mutations": [
+          {
+            "filter": "foe.seventeen",
+            "mutate": "foe",
+            "level": 0
+          }
+      ]
+    },
+    {
+      "id": "produce.hindrance.fire",
+      "label": "Raging fire",
+      "startdescription": "The enemy has raised a wall of fire on our path!",
+      "actionid": "spit.forge",
+      "effects": {
+        "hindrance.fire": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "produce.disintegration.fire.startup",
+      "label": "Suicide attack!",
+      "startdescription": "\"Quick! Take cover!\"",
+      "actionid": "explosion",
+      "slots": [
+          {
+            "id": "needsally",
+            "label": "Enemy forces",
+            "required": {
+                "foe.resuscitated.air": 1
+            },
+            "forbidden": {
+                "exhausted": 1,
+                "wounded": 1,
+                "damaged": 1,
+                "remnant": 1,
+                "hired": 1
+            },
+            "greedy": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "produce.disintegration.fire.cycle"
+        },
+        {
+          "id": "produce.disintegration.fire.startup"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "produce.disintegration.fire.cycle",
+      "label": "Suicide attack!",
+      "startdescription": "\"Quick! Take cover!\"",
+      "requirements": {
+        "foe.resuscitated.air": 1
+      },
+      "slots": [
+          {
+            "id": "needsfriend",
+            "label": "Allies",
+            "required": {
+                "friend": 1
+            },
+            "forbidden": {
+                "remnant": 1,
+                "friend.hidden": 1
+            },
+            "greedy": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "produce.disintegration.fire.cycle",
+          "chance": 40
+        },
+        {
+          "id": "produce.disintegration.fire.end"
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "produce.disintegration.fire.end",
+      "label": "Suicide attack!",
+      "startdescription": "\"Quick! Take cover!\"",
+      "aspects": {
+        "makecasualty": 1
+      },
+      "effects": {
+        "hindrance.fire": 1,
+        "foe": -1
+      }
+    },
+    {
+      "id": "time.cycle",
+      "linked$prepend": [
+          {
+             "id": "pre.deadofseventeen"
+          }
+      ],
+      "alt$prepend": [
+          {
+            "id": "conclusion.startup.finality",
+            "additional": true
+          },
+          {
+            "id": "spit.lefttoelements.penalty.finality",
+            "additional": true
+          }
+        ]
+    },
+    {
+      "id": "pre.deadofseventeen",
+      "label": "Winter's bite",
+      "startdescription": "Limbs grow cold, heartbeat slows, frost seems to form before my eyes. I feel myself being dragged into the great maw of winter, its sharp fangs already piercing my flesh –\n\n[If, when this final time runs out, you have at least five wounds or five mental traumas, you will succumb to the Resurgent army.]",
+      "extantreqs": {
+          "obdurant.story": 1,
+          "faction.resuscitated": 1,
+          "skill.sustain.active": -1
+      },
+      "grandReqs": {
+          "[~/extant:damage.body] >= 5 || [~/extant:damage.mind] >= 5": 1
+      },
+      "warmup": 60,
+      "signalEndingFlavour": "Melancholy",
+      "signalMusic": "neardeath.mp3",
+      "linked": [
+          {
+            "id": "deadofseventeen"
+          },
+          {
+            "id": "time.clear"
+          }
+      ]
+    },
+    {
+      "id": "deadofseventeen",
+      "label": "Winter's bite",
+      "extantreqs": {
+          "obdurant.story": 1,
+          "faction.resuscitated": 1,
+          "skill.sustain.active": -1
+      },
+      "grandReqs": {
+          "[~/extant:damage.body] >= 5 || [~/extant:damage.mind] >= 5": 1
+      },
+      "ending": "ending.deadofseventeen",
+      "achievements": [
+          "achievements.ending.deadofseventeen"
+      ]
+    },
+    {
+      "id": "conclusion.startup.finality",
+      "$extends": ["conclusion.startup"],
+      "extantreqs": {
+        "foe.seventeen": 1
+      },
+      "requirements": {}
+    },
+    {
+      "id": "spit.lefttoelements.penalty.finality",
+      "$extends": ["spit.lefttoelements.penalty"],
+      "extantreqs": {
+        "foe.seventeen": 1
+      },
+      "grandReqs": {}
+    }
+  ]
+}
