@@ -1,15 +1,313 @@
 {
   "elements": [
     {
+      "id": "obdurant.memento.serpent",
+      "label": "Toy Officer",
+      "description": "Carefully crafted by my beloved, made of wood with stone paint. Every scratch carries warmth, matching mine.",
+      "aspects": {
+          "heart": 1,
+          "memento": 1,
+          "lovetoken": 1,
+          "talkwithtomoriserpent": 1
+      },
+      "decayTo": "obdurant.memento.serpent",
+      "unique": true
+    },
+    {
+      "id": "lovetoken",
+      "label": "Love Token",
+      "description": "“Wandering ends with the meeting of lovers.”",
+      "isAspect": true,
+      "icon": "benefactor_proposal"
+    },
+    {
+      "id": "commissionarticlespirit_heart",
+      "label": "Commission: Golden Fleece",
+      "description": "The sword-keeper of the Invisible Lake has offered you a commission; she hopes you can find a powerful vitality to bring passion to the lake.",
+      "aspects": {
+          "legacyplotitem": 1
+	    },
+      "slots": [
+          {
+            "id": "needsprovisions",
+            "label": "Commission Item",
+            "required": {
+                "supplies": 1
+            },
+            "forbidden": {
+              "exhausted": 1,
+              "wounded.fake": 1
+            },
+            "actionId": "communicate"
+          },
+          {
+            "id": "needscommunicate",
+            "label": "Transport Method",
+            "required": {
+                "weapon": 1
+            },
+            "consumes": true,
+            "actionId": "communicate"
+          },
+          {
+            "id": "needswasteland",
+            "label": "Destination",
+            "required": {
+                "warzone": 1
+            },
+            "actionId": "communicate"
+          }
+      ],
+      "unique": true
+    },
+    {
+      "id": "op.farm",
+      "induces": [
+        {
+          "id": "produce.heartfarm.startup",
+          "chance": 40
+        }
+      ]
+    },
+    {
+      "id": "side.heartfarm",
+      "label": "Strange Farm",
+      "description": "Here, music never ceases. People dance by the fences, weapons stuck in the mud. We infiltrate among them, seeking the source of music among the sheep.",
+      "inherits": "side.template",
+      "xtriggers": {
+          "careeradvancement": [
+            {
+                "id": "friend.goldsheep"
+            }
+          ],
+          "opx.progress0": [
+            {
+                "id": "hindrance.muisc",
+                "morpheffect": "spawn"
+            }
+          ],
+          "opx.progress1": [
+            {
+                "id": "foe.spirit_heartc",
+                "morpheffect": "spawn"
+            }
+          ],
+          "opx.progress2": [
+            {
+                "id": "foe.hunman",
+                "morpheffect": "spawn"
+            }
+          ]
+      }
+    },
+    {
+      "id": "hindrance.muisc",
+      "label": "Intoxicating Music",
+      "description": "The music at this moment has a hypnotic effect; we must control our bodies and stay alert.",
+      "aspects": {
+          "hindrance": 1,
+          "needsheart": 8,
+          "needslantern": 6
+      }
+    },
+    {
+      "id": "foe.spirit_heartc",
+      "label": "Pounder",
+      "description": "Covered in fur and claws, gleaming golden, with immense strength, ready for battle.",
+      "icon": "foe.percussigant",
+      "aspects": {
+          "foe": 1,
+          "needsedge": 10,
+          "needsheart": 10
+      }
+    },
+    {
+      "id": "foe.hunman",
+      "label": "Awakened Guards",
+      "description": "These fellows have woken from their stupor. What a nuisance.",
+      "icon": "guardian_watchers",
+      "aspects": {
+          "foe": 1,
+          "needsedge": 12,
+          "needsgrail": 12,
+          "needsmoth": 12
+      }
+    },
+    {
+      "id": "uqgoldsheep",
+      "label": "Golden Fleece",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
+      "id": "friend.goldsheep",
+      "label": "“Golden Fleece”",
+      "description": "A pelt that has passed yet still dances.",
+      "aspects": {
+          "friend": 1,
+          "friend.dwelling": 1,
+          "heart": 4,
+    	    "prisoner": 1,
+    	    "supplies": 1
+      },
+      "xtriggers": {
+        "killfriend": "friend.goldsheep.wounded",
+        "makecasualty": "friend.goldsheep.wounded",
+        "fatiguing": "friend.goldsheep.exhausted",
+        "refresh": "friend.goldsheep",
+        "recruiting": "friend.goldsheep",
+	      "refreshally": "friend.goldsheep"
+      },
+      "icon": "spirit_heartc_edge",
+      "unique": true,
+      "uniquenessgroup": "uqgoldsheep"
+    },
+    {
+      "id": "friend.goldsheep.exhausted",
+      "label": "“Golden Fleece” (Exhausted)",
+      "description": "Its vitality wanes, it trembles its limbs.",
+      "aspects": {
+          "friend": 1,
+          "friend.dwelling": 1,
+    	    "prisoner": 1,
+    	    "supplies": 1,
+          "exhausted": 1
+      },
+      "xtriggers": {
+        "killfriend": "friend.goldsheep.wounded",
+        "makecasualty": "friend.goldsheep.wounded",
+        "fatiguing": "friend.goldsheep.exhausted",
+        "refresh": "friend.goldsheep",
+        "recruiting": "friend.goldsheep",
+	      "refreshally": "friend.goldsheep"
+      },
+      "icon": "spirit_heartc_edge",
+      "resaturate": true,
+      "decayTo": "friend.goldsheep",
+      "lifetime": 160,
+      "unique": true,
+      "uniquenessgroup": "uqgoldsheep"
+    },
+    {
+      "id": "friend.goldsheep.wounded",
+      "label": "“Golden Fleece” (Wounded)",
+      "description": "Its fur is damaged, no longer lustrous. [Golden Fleece will not die from the changing of seasons while wounded; it will heal itself after the countdown ends]",
+      "aspects": {
+          "friend.dwelling": 1,
+    	    "prisoner": 1,
+    	    "supplies": 1,
+          "wounded.fake": 1,
+          "remnant": 1
+      },
+      "xtriggers": {
+          "killfriend": "friend.goldsheep.wounded",
+          "makecasualty": "friend.goldsheep.wounded",
+          "restorehealth": "friend.goldsheep"
+      },
+      "resaturate": true,
+      "decayTo": "friend.goldsheep",
+      "lifetime": 280,
+      "unique": true,
+      "uniquenessgroup": "uqgoldsheep"
+    },
+    {
+      "id": "hasnimianefavour",
+      "label": "Nimiane",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
+      "id": "nimianefavour",
+      "label": "Nimiane's Favor",
+      "description": "The twins promise that our fates are linked and our paths intertwined; even the birds in the sky will congratulate us. [This card provides protection. Also, using a dove in 'Communicate' will grant supplies or memories.]",
+      "icon": "mentorguidance",
+      "aspects": {
+        "heart": 6
+      },
+      "xtriggers": {
+        "fatiguing": "nimianefavour.exhausted"
+      },
+      "decayTo": "nimianefavour.exhausted",
+      "unique": true,
+      "uniquenessgroup": "hasnimianefavour"
+    },
+    {
+      "id": "nimianefavour.exhausted",
+      "label": "Nimiane's Favor (Exhausted)",
+      "description": "The twins promise that our fates are linked and our paths intertwined; even the birds in the sky will congratulate us. [Using a dove in 'Communicate' will grant supplies or memories.]",
+      "lifetime": 280,
+      "decayTo": "nimianefavour",
+      "resaturate": true,
+      "icon": "mentorguidance",
+      "unique": true,
+      "uniquenessgroup": "hasnimianefavour"
+    },
+    {
+      "id": "op.dove",
+      "aspects$add": {
+          "legacyplotitem": 1
+      }
+    },
+
+    {
+      "id": "hasnimiane",
+      "label": "Nimiane",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
+      "id": "nimiane",
+      "aspects$add": {
+          "uses.remaining": 3
+      },
+      "xtriggers": {
+        "fatiguing": "nimiane.1"
+      },
+      "unique": true,
+      "uniquenessgroup": "hasnimiane"
+    },
+    {
+      "id": "nimiane.1",
+      "label": "Nimiane in the Water",
+      "description": "Keeper of the Broken Sword; named one of the Twin Witches, and also named one of the Twin Maidens. She was born in resistance to the curse laid by the Mother of Ants upon an ancient bloodline of Avalon. Was she exiled to this lake as punishment? Or hidden here for her safety? The Twins indeed favor the evaded — but why only one? Why only two?",
+      "aspects": {
+          "otherworldly": 1,
+          "local": 1,
+          "uses.remaining": 2
+	    },
+      "xtriggers": {
+        "fatiguing": "nimiane.2"
+      },
+      "icon": "nimiane",
+      "unique": true,
+      "uniquenessgroup": "hasnimiane"
+    },
+    {
+      "id": "nimiane.2",
+      "label": "Nimiane in the Water",
+      "description": "Keeper of the Broken Sword; named one of the Twin Witches, and also named one of the Twin Maidens. She was born in resistance to the curse laid by the Mother of Ants upon an ancient bloodline of Avalon. Was she exiled to this lake as punishment? Or hidden here for her safety? The Twins indeed favor the evaded — but why only one? Why only two?",
+      "aspects": {
+          "otherworldly": 1,
+          "local": 1,
+          "uses.remaining": 1
+	    },
+      "xtriggers": {
+        "fatiguing": "husk"
+      },
+      "icon": "nimiane",
+      "unique": true,
+      "uniquenessgroup": "hasnimiane"
+    },
+    {
       "id": "lovingdeeply",
-      "label": "至爱",
-      "description": "是的，我们相爱。",
+      "label": "Beloved",
+      "description": "Yes, we love each other.",
       "icon": "rose",
       "isAspect": true
     },
     {
       "id": "weaponending",
-      "label": "终局之武器",
+      "label": "Endgame Weapon",
       "isAspect": true,
       "isHidden": true
     },
@@ -148,20 +446,20 @@
     },
     {
       "id": "s.surgeries.exsanguinations",
-      "label": "手术与放血",
-      "description": "手术必然涉及放血，而放血必然涉及净化，但此门也向另一个方向敞开。",
+      "label": "Surgery and Bloodletting",
+      "description": "Surgery necessarily involves bloodletting, and bloodletting necessarily involves purification, but this door also opens in another direction.",
       "lifetime": 1
     },
     {
       "id": "weaponyihulun",
-      "label": "依呼伦",
+      "label": "Yihulun",
       "isAspect": true,
       "isHidden": true
     },
     {
       "id": "weapon.yihulun",
-      "label": "依呼伦覆羽",
-      "description": "它看起来平平无奇，但只要一碰到它，肉体就会灰飞烟灭。也许它真的是从七蟠内部将其杀死的那件武器的最后一块碎片。",
+      "label": "Yihulun's Plume",
+      "description": "It looks ordinary, but the moment you touch it, flesh turns to ash. Perhaps it truly is the last fragment of the weapon that slew the Seven-Coiled from within.",
       "aspects": {
           "weapon": 1,
           "edge": 10,
@@ -176,8 +474,8 @@
     },
     {
       "id": "weapon.yihulun.exhausted",
-      "label": "依呼伦覆羽（枯竭）",
-      "description": "它看起来平平无奇，但只要一碰到它，肉体就会灰飞烟灭。也许它真的是从七蟠内部将其杀死的那件武器的最后一块碎片。",
+      "label": "Yihulun's Plume (Exhausted)",
+      "description": "It looks ordinary, but the moment you touch it, flesh turns to ash. Perhaps it truly is the last fragment of the weapon that slew the Seven-Coiled from within.",
       "aspects": {
           "weapon": 1,
           "exhausted": 1,
@@ -197,8 +495,8 @@
 
     {
       "id": "op.marinettehungry",
-      "label": "<i>山坡下的吞噬者</i>",
-      "description": "常言道，人如其食(you are what you eat，plus)无论过去多久，丽姬娅玛丽内特总是如此饥饿。伊万杰琳·波列瓦娅告诉我她想替我去谈谈。",
+      "label": "<i>Devourer Below the Hillside</i>",
+      "description": "As they say, you are what you eat (plus). No matter how long passes, Ligeia Marinette is always so hungry. Evangelina Polevaya told me she wants to go and speak on my behalf.",
       "aspects": {
         "op": 1,
         "opligeian": 1
@@ -207,7 +505,7 @@
           {
             "id": "needsheal",
             "actionid": "communicate",
-            "label": "代言者",
+            "label": "Spokesperson",
             "required": {
                 "friend": 1
             },
@@ -228,8 +526,8 @@
     },
     {
       "id": "op.marinettedone",
-      "label": "“操线仙娥”玛丽内特",
-      "description": "虽然玛丽从不餍足，但看起来她很满意你为她提供的大餐。",
+      "label": "“Marinette the Puppeteer”",
+      "description": "Although Marie is never sated, she seems satisfied with the feast you provided.",
       "aspects": {
         "op": 1,
         "opligeian": 1
@@ -245,8 +543,8 @@
     },
     {
       "id": "op.sulochanacoming",
-      "label": "苏洛恰那正在赶来",
-      "description": "玛丽无法为我们提供必要的开启之物，但她认识的另一位丽姬娅可以，现在的她，距离基辅不算太远。",
+      "label": "Sulochana is Coming",
+      "description": "Marie cannot provide us with the necessary opening item, but another Ligeia she knows can; she is now not too far from Kiev.",
       "aspects": {
         "op": 1
       },
@@ -258,8 +556,8 @@
     },
     {
       "id": "op.sulochanaarrived",
-      "label": "苏洛恰那·阿摩伐舍",
-      "description": "她千里迢迢地赶来，很难说她单纯是因为同伴的呼唤而来，还是因为想来看看哪位上校的使徒和怪物搞在了一起。",
+      "label": "Sulochana Amavasya",
+      "description": "In the west, we share our flesh, confirming each other in a language only we know. In the east, on days unloved by the sun, we go to consume desires beneath the earth.",
       "aspects": {
         "op": 1,
         "opligeian": 1
@@ -270,14 +568,14 @@
 
     {
       "id": "serpent.green",
-      "label": "巨蛇",
-      "description": "比人类更狡猾，比猛兽更强壮，比教士更深谙启之准则。",
+      "label": "Great Serpent",
+      "description": "More cunning than humans, stronger than beasts, more versed in the principles of Knock than priests.",
       "lifetime": 1
     },
     {
       "id": "pillar.serpent.green",
-      "label": "蛇的规避之法",
-      "description": "拆毁篱笆之人，必被毒蛇所噬。(Qui dissipat sepem, mordebit eum coluber.)我想要避开麻烦，就要远离蛇常出没的地方，教堂，洞穴，与荒野。同时做好解毒驱蛇的灵物，必须从蛇毒中提取足够的基底，佐以拥有超凡力量的酒精，粉末，油。最终在蛇母的见证下制取出驱蛇之物。之后需一位有信仰的助手将药液均匀涂抹在伤口上并为我佩戴圣物加以虔诚的祷告，这样，即使是再狡猾的蛇也会畏惧我，无法阻挠我实现伟业。",
+      "label": "The Serpent's Evasion Method",
+      "description": "He who breaks down a hedge will be bitten by a snake. (Qui dissipat sepem, mordebit eum coluber.) To avoid trouble, I must stay away from places frequented by snakes: churches, caves, and wilderness. At the same time, prepare a spiritual remedy to detoxify and repel snakes: extract a sufficient base from snake venom, supplemented with alcohol, powder, and oil of extraordinary power. Finally, under the witness of the Serpent Mother, produce the snake-repelling concoction. Then a faithful assistant must apply the solution evenly to the wound and adorn me with a relic with pious prayer. Thus, even the most cunning serpent will fear me and cannot hinder my great work.",
       "aspects": {
           "lore": 1,
           "contemplation": 1
@@ -289,7 +587,7 @@
           {
             "id": "needsheal",
             "actionid": "operate",
-            "label": "药剂",
+            "label": "Potion",
             "required": {
                 "supplies": 1
             }
@@ -299,8 +597,8 @@
     },
     {
       "id": "pillar.serpent.purple",
-      "label": "双重胜利之法？",
-      "description": "双生子与蚁母敌对，但蚁母与上校至今仍维持着某种合作联系。伊万杰琳·波列瓦娅身上还流淌着与蚁母相同的血。现在我已肯定，我与她的命运已缠绕到一起，在我完成自己的职责之后，她会有怎样的结局？当我强大至拥有五把不同的神圣武器之时，我也可以仿照吾友那般为其铺设一条道路。首先我要与她真心相待。另外去寻得另一份钥匙，至于其他的，便只能期待荒野上的奇遇。",
+      "label": "Method of Double Victory?",
+      "description": "The Twins are hostile to the Ant Mother, yet the Ant Mother and the Colonel have maintained some form of cooperative connection to this day. Evangeline Polevaya still carries the same blood as the Ant Mother in her veins. Now I am certain that her fate and mine have become intertwined—what will become of her after I have fulfilled my duty? When I have grown powerful enough to wield many different sacred weapons, I too can, following my friend's example, pave a path for her. First, I must treat her with sincerity. In addition, I must go to the shrine to hear the great deeds of the past, and seek another key. As for the rest, I can only count on chance encounters in the wilderness.",
       "aspects": {
           "lore": 1,
           "contemplation": 1,
@@ -310,7 +608,7 @@
           {
             "id": "needsfollower",
             "actionid": "operate",
-            "label": "助手",
+            "label": "Assistant",
             "required": {
                 "follower": 1
             },
@@ -322,7 +620,7 @@
           {
             "id": "needswounded",
             "actionid": "operate",
-            "label": "伤口",
+            "label": "Wound",
             "essential": {
               "knock": 1,
               "damage.body": 1
@@ -334,7 +632,7 @@
           {
             "id": "needstool",
             "actionid": "operate",
-            "label": "仪器",
+            "label": "Instrument",
             "required": {
                 "tool": 1,
                 "supplies": 1
@@ -343,7 +641,7 @@
           {
             "id": "needsinfluence",
             "actionid": "operate",
-            "label": "影响",
+            "label": "Influence",
             "required": {
                 "influence": 1
             }
@@ -351,7 +649,7 @@
           {
             "id": "needslocal",
             "actionid": "operate",
-            "label": "地点",
+            "label": "Location",
             "required": {
                 "location": 1
             }
@@ -362,8 +660,8 @@
 
     {
       "id": "wound.serpent.green",
-      "label": "不治蛇毒",
-      "description": "毒素已经深入表层，我们的医护人员已尽了最大努力保住我的性命。[这个伤口无法通过常规手段治愈，但并非不可治愈]",
+      "label": "Incurable Snake Venom",
+      "description": "The poison has seeped deep into the surface; our medics have done their utmost to save my life. [This wound cannot be cured by conventional means, but it is not incurable.]",
       "aspects": {
           "grail": 2,
           "knock": 4,
@@ -379,7 +677,7 @@
           {
             "id": "needsheal",
             "actionid": "abandon",
-            "label": "药剂",
+            "label": "Potion",
             "required": {
                 "nectar": 1
             }
@@ -387,7 +685,7 @@
           {
             "id": "needsmedics",
             "actionid": "abandon",
-            "label": "助手",
+            "label": "Assistant",
             "required": {
                 "friend.medics": 1,
                 "haspolevaya": 1
@@ -399,7 +697,7 @@
           {
             "id": "needstool",
             "actionid": "abandon",
-            "label": "工具",
+            "label": "Tool",
             "required": {
                 "knock": 1
             },
@@ -410,7 +708,7 @@
           {
             "id": "needsinfluence",
             "actionid": "abandon",
-            "label": "影响",
+            "label": "Influence",
             "required": {
                 "knock": 15
             },
@@ -421,7 +719,7 @@
           {
             "id": "needslocal",
             "actionid": "abandon",
-            "label": "地点",
+            "label": "Location",
             "required": {
                 "location": 1
             }
@@ -430,8 +728,8 @@
     },
     {
       "id": "wound.serpent.heal",
-      "label": "不起眼的创伤",
-      "description": "我感觉身体比之前更棒了！[这张卡不算做你的伤口]",
+      "label": "Unremarkable Wound",
+      "description": "I feel better than before! [This card does not count as a wound.]",
       "aspects": {
           "winter": 2
       },
@@ -441,23 +739,31 @@
       }
     },
     {
+      "id": "motherofants.blocker",
+      "label": "Stop the Ant Mother's malice.",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
       "id": "wound.serpent.purple",
-      "label": "女祭司的赐福",
-      "description": "女祭司拿出随身携带的针线盒，在营房内为我小心地缝合伤口，随后她咬破自己的手指将鲜血撒于伤口之上，并加之祷告，我能看见伤口在散发微光。[这张卡不算做你的伤口]",
+      "label": "Blessing of the Priestess",
+      "description": "The priestess took out her sewing kit and carefully stitched my wound in the barracks; then she bit her finger and sprinkled blood over the wound, adding a prayer. I could see the wound glowing faintly. [This card does not count as your wound. It no longer generates 'Ant Mother's Pity' due to the younger sister's actions.]",
       "aspects": {
-          "knock": 8
-      }
+          "knock": 8,
+          "motherofants.blocker": 1
+      },
+      "unique": true
     },
     {
       "id": "aspects.serpent.grail",
-      "label": "灼烧",
-      "description": "尽管酒精可作为饮品服用，其同样有消毒的用途。",
+      "label": "Burning",
+      "description": "Although alcohol can be consumed as a drink, it also serves for disinfection.",
       "icon": "supplies.serpent.grail"
     },
     {
       "id": "supplies.serpent.grail",
-      "label": "拉维林红酒",
-      "description": "拉维林红酒里面没有拉维林诅咒。",
+      "label": "Lavilin Red Wine",
+      "description": "There is no Lavilin curse in the Lavilin red wine.",
       "aspects": {
           "grail": 8,
           "supplies": 1
@@ -471,7 +777,7 @@
       "xtriggers$dictEdit": {
           "careeradvancement$prepend": [
             {
-                "id": "tool.heart.fake",
+                "id": "husk",
                 "morpheffect": "spawn"
             }
           ]
@@ -479,14 +785,14 @@
     },
     {
       "id": "aspects.serpent.heart",
-      "label": "痒",
-      "description": "一种奇妙的知觉体验。",
+      "label": "Itch",
+      "description": "A curious sensory experience.",
       "icon": "ingredientheartb"
     },
     {
       "id": "tool.heart.fake",
-      "label": "珍珠展品",
-      "description": "同样在收藏馆展架被拿回的珍珠复制品，能明显的观察到珍珠的光泽远不如真品般闪烁。",
+      "label": "Pearl Exhibit",
+      "description": "A replica pearl taken from the museum display; one can clearly see its luster is far less brilliant than the genuine article.",
       "aspects": {
           "heart": 4,
           "tool": 1
@@ -496,7 +802,7 @@
           {
             "id": "needstool",
             "actionid": "abandon",
-            "label": "意图",
+            "label": "Intent",
             "required": {
                 "edge": 1
             }
@@ -505,8 +811,22 @@
     },
     {
       "id": "supplies.serpent.heart",
-      "label": "玫瑰色珍珠粉",
-      "description": "玫瑰色是双生子的颜色，重生之色。",
+      "label": "Powder of Rebirth",
+      "description": "She rubbed pearl powder from her fingers into my palm. [This supply cannot be consumed.]",
+      "aspects": {
+          "heart": 4,
+          "supplies": 1
+      },
+      "icon": "ingredientheartb",
+      "decayTo": "supplies.serpent.heart",
+      "xtriggers": {
+          "fatiguing": "supplies.serpent.heart"
+      }
+    },
+    {
+      "id": "supplies.serpent.heart.fake",
+      "label": "Rose-Colored Pearl Powder",
+      "description": "Rose is the color of the Twins, the color of rebirth.",
       "aspects": {
           "heart": 4,
           "supplies": 1
@@ -529,27 +849,100 @@
     },
     {
       "id": "aspects.serpent.winter",
-      "label": "凉",
-      "description": "冬为万物带来寂静和寒冷。",
+      "label": "Cool",
+      "description": "Winter brings silence and cold to all things.",
       "icon": "ingredientwinterb"
     },
     {
+      "id": "upwinter",
+      "label": "Add Coolness",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
+      "id": "morewinter",
+      "label": "Add More Coolness",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
+      "id": "suppliesserpentwinter",
+      "label": "Oil of Grey Dawn",
+      "isAspect": true,
+      "isHidden": true
+    },
+    {
       "id": "supplies.serpent.winter",
-      "label": "灰晓之油",
-      "description": "不仅它的气味让人难以接受，它的颜色也让人心里难受。",
+      "label": "Oil of Grey Dawn (Near Empty)",
+      "description": "Not only is its odor offensive, its color is also disturbing.",
       "aspects": {
-          "winter": 4,
-          "supplies": 1
+          "winter": 2,
+          "supplies": 1,
+          "uses.remaining": 1
       },
       "icon": "ingredientwinterb",
       "xtriggers": {
+          "upwinter": "supplies.serpent.winter.2",
+          "morewinter": "supplies.serpent.winter.4",
           "fatiguing": "husk"
-      }
+      },
+      "uniquenessgroup": "suppliesserpentwinter"
+    },
+    {
+      "id": "supplies.serpent.winter.2",
+      "label": "Oil of Grey Dawn (Half Full)",
+      "description": "Not only is its odor offensive, its color is also disturbing.",
+      "aspects": {
+          "winter": 4,
+          "supplies": 1,
+          "uses.remaining": 2
+      },
+      "icon": "ingredientwinterb",
+      "xtriggers": {
+          "upwinter": "supplies.serpent.winter.3",
+          "morewinter": "supplies.serpent.winter.4",
+          "fatiguing": "supplies.serpent.winter"
+      },
+      "uniquenessgroup": "suppliesserpentwinter"
+    },
+    {
+      "id": "supplies.serpent.winter.3",
+      "label": "Oil of Grey Dawn (Nearly Full)",
+      "description": "Not only is its odor offensive, its color is also disturbing.",
+      "aspects": {
+          "winter": 6,
+          "supplies": 1,
+          "uses.remaining": 3
+      },
+      "icon": "ingredientwinterb",
+      "xtriggers": {
+          "upwinter": "supplies.serpent.winter.4",
+          "morewinter": "supplies.serpent.winter.4",
+          "fatiguing": "supplies.serpent.winter.2"
+      },
+      "uniquenessgroup": "suppliesserpentwinter"
+    },
+    {
+      "id": "supplies.serpent.winter.4",
+      "label": "Oil of Grey Dawn (Full)",
+      "description": "Not only is its odor offensive, its color is also disturbing.",
+      "aspects": {
+          "winter": 8,
+          "supplies": 1,
+          "uses.remaining": 4
+      },
+      "icon": "ingredientwinterb",
+      "xtriggers": {
+          "upwinter": "supplies.serpent.winter.4",
+          "morewinter": "supplies.serpent.winter.4",
+          "fatiguing": "supplies.serpent.winter.3"
+      },
+      "uniquenessgroup": "suppliesserpentwinter"
     },
     {
       "id": "supplies.serpent.green",
-      "label": "精酿毒液",
-      "description": "褪去了原先的颜色的毒液，如今其散发出的只有阵阵清香。",
+      "label": "Brewed Venom",
+      "description": "Venom that has lost its original color, now only giving off a faint fragrance.",
       "aspects": {
           "knock": 6,
           "grail": 6,
@@ -605,7 +998,7 @@
       "slots": [
           {
             "id": "needsintent",
-            "label": "意图",
+            "label": "Intent",
             "actionId": "operate",
             "required": {
                 "heart": 1,
@@ -614,7 +1007,7 @@
           },
           {
             "id": "needsintent2",
-            "label": "意图",
+            "label": "Intent",
             "actionId": "mobilize",
             "required": {
                 "heart": 1,
@@ -652,8 +1045,8 @@
     },
     {
       "id": "serpent.church",
-      "label": "怪异的教堂",
-      "description": "当地的一所朴素的教堂，里面的主祭早已死去，教士大都紧张兮兮，且没有修女。",
+      "label": "Strange Church",
+      "description": "A modest local church; the head priest died long ago, the clergy are mostly nervous, and there are no nuns.",
       "aspects": {
           "op": 1,
           "long.blocker": 1
@@ -665,7 +1058,7 @@
       "slots": [
           {
             "id": "needsintent",
-            "label": "意图",
+            "label": "Intent",
             "required": {
                 "heart": 1,
                 "edge": 1,
@@ -676,8 +1069,8 @@
     },
     {
       "id": "side.serpentchurch",
-      "label": "次要目标：调查怪异的教堂",
-      "description": "莫名消失的祭司，奇怪的教士，失踪的修女…此处藏有秘密，而我需要知晓。",
+      "label": "Side Objective: Investigate the Strange Church",
+      "description": "A priest who vanished mysteriously, strange clergy, missing nuns... This place holds secrets, and I need to know them.",
       "inherits": "side.template",
       "xtriggers": {
           "careeradvancement": [
@@ -708,8 +1101,8 @@
     },
     {
       "id": "side.serpentcave",
-      "label": "偏僻的巢穴",
-      "description": "说是洞穴，但几近坍塌。只剩入口处还点着几根早已熄灭的蜡烛。附近的地上还浮着一层臭气熏人的瘴气。",
+      "label": "Remote Lair",
+      "description": "It's called a cave, but it's nearly collapsed. Only a few long-extinguished candles remain at the entrance. A layer of foul miasma hangs over the nearby ground.",
       "aspects": {
         "location": 1
       },
@@ -745,7 +1138,7 @@
       "slots": [
           {
             "id": "needsintent",
-            "label": "协助",
+            "label": "Assist",
             "required": {
                 "tomori.serpent": 1
             },
@@ -757,11 +1150,11 @@
 
     {
       "id": "hindrance.monks",
-      "label": "僧侣",
-      "description": "被赏赐或被强迫在这里侍奉的沉思者们。被他们那奇妙的誓言所约束。我们可以杀死他们，欺骗他们，但无法诱惑他们。",
+      "label": "Monks",
+      "description": "Contemplatives gifted or forced to serve here. Bound by their wondrous oaths. We can kill them, deceive them, but we cannot seduce them.",
       "icon": "guardian_monks",
       "aspects": {
-          "hindrance": 1,
+          "foe": 1,
           "needsedge": 8,
           "needsmoth": 8
       }
@@ -769,20 +1162,20 @@
 
     {
       "id": "uqpolevaya",
-      "label": "伊万杰琳·波列瓦娅",
+      "label": "Evangelina Polevaya",
       "isAspect": true,
       "isHidden": true
     },
     {
       "id": "haspolevaya",
-      "label": "伊万杰琳·波列瓦娅",
+      "label": "Evangelina Polevaya",
       "isAspect": true,
       "isHidden": true
     },
     {
       "id": "tomori.serpent",
-      "label": "遭囚的少女？",
-      "description": "当地的教士把她囚于地下，她的泪水好似永远流不完。你的士兵们怜悯地看着她，而你则好奇地打量着“它”。",
+      "label": "Imprisoned Maiden?",
+      "description": "The local clergy imprisoned her underground; her tears seem to never run dry. Your soldiers look at her with pity, while you curiously observe 'it'.",
       "aspects": {
           "local": 1,
           "friend.dwelling": 1,
@@ -802,8 +1195,8 @@
     },
     {
       "id": "friend.tomori.serpent",
-      "label": "幼女 伊万杰琳·波列瓦娅",
-      "description": "于地牢之中获救，于夕阳之中叩手。囚于人类中的巨蛇，或被巨蛇所囚的人类。",
+      "label": "Young Girl Evangelina Polevaya",
+      "description": "Rescued from the dungeon, clasping hands in the sunset. A great serpent imprisoned among humans, or a human imprisoned by the great serpent.",
       "aspects": {
           "friend": 1,
           "friend.dwelling": 1,
@@ -817,7 +1210,7 @@
       "slots": [
           {
             "id": "needsprovisions",
-            "label": "补偿",
+            "label": "Compensation",
             "required": {
                 "provisions": 1
             },
@@ -826,7 +1219,7 @@
           },
           {
             "id": "needscommunicate",
-            "label": "话题",
+            "label": "Topic",
             "required": {
                 "supplies": 1,
                 "op": 1,
@@ -839,7 +1232,7 @@
           },
           {
             "id": "needswasteland",
-            "label": "荒野",
+            "label": "Wilderness",
             "required": {
                 "wasteland.a": 1,
                 "wasteland.b": 1
@@ -848,7 +1241,7 @@
           },
           {
             "id": "needsegg",
-            "label": "意图",
+            "label": "Intent",
             "required": {
                 "serpent.eggb": 1,
                 "memento": 1
@@ -872,8 +1265,8 @@
     },
     {
       "id": "friend.tomori.serpent.exhausted",
-      "label": "幼女 伊万杰琳·波列瓦娅（疲惫）",
-      "description": "于地牢之中获救，于夕阳之中叩手。囚于人类中的巨蛇，或被巨蛇所囚的人类。",
+      "label": "Young Girl Evangelina Polevaya (Exhausted)",
+      "description": "She is tired, in every way.",
       "aspects": {
           "friend": 1,
           "friend.dwelling": 1,
@@ -898,8 +1291,8 @@
     },
     {
       "id": "friend.tomori.serpent.wounded",
-      "label": "幼女 伊万杰琳·波列瓦娅（受伤）",
-      "description": "于地牢之中获救，于夕阳之中叩手。囚于人类中的巨蛇，或被巨蛇所囚的人类。\n[幼妹在受伤状态下不会因时节而死亡，倒计时结束后她将自愈]",
+      "label": "Young Girl Evangelina Polevaya (Wounded)",
+      "description": "She heals in a place I don't know, using scales and fluffy rabbits.\n[Little Sister will not die from the changing of seasons while wounded; she will heal after the countdown ends.]",
       "aspects": {
           "friend.dwelling": 1,
           "wounded.fake": 1,
@@ -923,8 +1316,8 @@
 
     {
       "id": "friend.tomori.eldestsister",
-      "label": "长女 伊万杰琳·波列瓦娅",
-      "description": "我们相遇在黑暗里，我们相知在尘世间。是巨蛇，亦是人类。",
+      "label": "Eldest Daughter Evangelina Polevaya",
+      "description": "We met in darkness, we knew each other in the mortal world. A great serpent, yet also human.",
       "aspects": {
           "friend": 1,
           "friend.dwelling": 1,
@@ -939,7 +1332,7 @@
       "slots": [
           {
             "id": "needsprovisions",
-            "label": "补偿",
+            "label": "Compensation",
             "required": {
                 "provisions": 1
             },
@@ -948,7 +1341,7 @@
           },
           {
             "id": "needscommunicate",
-            "label": "话题",
+            "label": "Topic",
             "required": {
                 "supplies": 1,
                 "op": 1,
@@ -961,7 +1354,7 @@
           },
           {
             "id": "needswasteland",
-            "label": "荒野",
+            "label": "Wilderness",
             "required": {
                 "wasteland.a": 1,
                 "wasteland.b": 1
@@ -970,7 +1363,7 @@
           },
           {
             "id": "needsegg",
-            "label": "意图",
+            "label": "Intent",
             "required": {
                 "serpent.eggb": 1,
                 "memento": 1
@@ -994,8 +1387,8 @@
     },
     {
       "id": "friend.tomori.eldestsister.exhausted",
-      "label": "长女 伊万杰琳·波列瓦娅（疲惫）",
-      "description": "我们相遇在黑暗里，我们相知在尘世间。是巨蛇，亦是人类。",
+      "label": "Eldest Daughter Evangelina Polevaya (Exhausted)",
+      "description": "She is tired, in every way.",
       "aspects": {
           "friend": 1,
           "friend.dwelling": 1,
@@ -1021,8 +1414,8 @@
     },
     {
       "id": "friend.tomori.eldestsister.wounded",
-      "label": "长女 伊万杰琳·波列瓦娅（受伤）",
-      "description": "我们相遇在黑暗里，我们相知在尘世间。是巨蛇，亦是人类。\n[幼妹在受伤状态下不会因时节而死亡，倒计时结束后她将自愈]",
+      "label": "Eldest Daughter Evangelina Polevaya (Wounded)",
+      "description": "She heals in a place I don't know, using scales and fluffy rabbits.\n[Little Sister will not die from the changing of seasons while wounded; she will heal after the countdown ends.]",
       "aspects": {
           "friend.dwelling": 1,
           "wounded.fake": 1,
@@ -1047,8 +1440,8 @@
 
     {
       "id": "friend.tomori.priestess",
-      "label": "女祭司 伊万杰琳·波列瓦娅",
-      "description": "愿她一切安好，她就是她。伊万杰琳·波列瓦娅。",
+      "label": "Priestess Evangelina Polevaya",
+      "description": "May she be well; she is who she is. Evangelina Polevaya.",
       "aspects": {
           "friend": 1,
           "friend.dwelling": 1,
@@ -1064,7 +1457,7 @@
       "slots": [
           {
             "id": "needsprovisions",
-            "label": "补偿",
+            "label": "Compensation",
             "required": {
                 "provisions": 1
             },
@@ -1073,7 +1466,7 @@
           },
           {
             "id": "needscommunicate",
-            "label": "话题",
+            "label": "Topic",
             "required": {
                 "supplies": 1,
                 "op": 1,
@@ -1088,7 +1481,7 @@
           },
           {
             "id": "needswasteland",
-            "label": "荒野",
+            "label": "Wilderness",
             "required": {
                 "wasteland.a": 1,
                 "wasteland.b": 1
@@ -1097,7 +1490,7 @@
           },
           {
             "id": "needsegg",
-            "label": "意图",
+            "label": "Intent",
             "required": {
                 "serpent.eggb": 1,
                 "memento": 1
@@ -1120,8 +1513,8 @@
     },
     {
       "id": "friend.tomori.priestess.exhausted",
-      "label": "女祭司 伊万杰琳·波列瓦娅（疲惫）",
-      "description": "愿她一切安好，她就是她。伊万杰琳·波列瓦娅。",
+      "label": "Priestess Evangelina Polevaya (Exhausted)",
+      "description": "She is tired, in every way.",
       "aspects": {
           "friend": 1,
           "friend.dwelling": 1,
@@ -1148,8 +1541,8 @@
     },
     {
       "id": "friend.tomori.priestess.wounded",
-      "label": "女祭司 伊万杰琳·波列瓦娅（受伤）",
-      "description": "愿她一切安好，她就是她。伊万杰琳·波列瓦娅。\n[幼妹在受伤状态下不会因时节而死亡，倒计时结束后她将自愈]",
+      "label": "Priestess Evangelina Polevaya (Wounded)",
+      "description": "She heals in a place I don't know, using scales and fluffy rabbits.\n[Little Sister will not die from the changing of seasons while wounded; she will heal after the countdown ends.]",
       "aspects": {
           "friend.dwelling": 1,
           "wounded.fake": 1,
@@ -1176,8 +1569,8 @@
 
     {
       "id": "friend.tomori.serpent.leaving",
-      "label": "<i>一份约定</i>",
-      "description": "我与一位少女的约定。\n[此卡在场时你可以通过探索荒野将幼妹召回]",
+      "label": "<i>A Promise</i>",
+      "description": "A promise between me and a maiden.\n[While this card is present, you can recall Little Sister by exploring the wasteland.]",
       "aspects": {
         "legacyplotitem": 1,
         "serpentleaving": 1
@@ -1185,7 +1578,7 @@
       "slots": [
           {
             "id": "needswasteland",
-            "label": "荒野",
+            "label": "Wilderness",
             "required": {
                 "wasteland.a": 1,
                 "wasteland.b": 1
@@ -1201,8 +1594,8 @@
     },
     {
       "id": "friend.tomori.eldestsister.leaving",
-      "label": "<i>一份约定</i>",
-      "description": "我与一位少女的约定。\n[此卡在场时你可以通过探索荒野将幼妹召回]",
+      "label": "<i>A Promise</i>",
+      "description": "A promise between me and a maiden.\n[While this card is present, you can recall Little Sister by exploring the wasteland.]",
       "aspects": {
         "legacyplotitem": 1,
         "serpentleaving": 1
@@ -1210,7 +1603,7 @@
       "slots": [
           {
             "id": "needswasteland",
-            "label": "荒野",
+            "label": "Wilderness",
             "required": {
                 "wasteland.a": 1,
                 "wasteland.b": 1
@@ -1227,8 +1620,8 @@
     },
     {
       "id": "friend.tomori.priestess.leaving",
-      "label": "<i>一份约定</i>",
-      "description": "我与一位少女的约定。\n[此卡在场时你可以通过探索荒野将幼妹召回]",
+      "label": "<i>A Promise</i>",
+      "description": "A promise between me and a maiden.\n[While this card is present, you can recall Little Sister by exploring the wasteland.]",
       "aspects": {
         "legacyplotitem": 1,
         "serpentleaving": 1
@@ -1236,7 +1629,7 @@
       "slots": [
           {
             "id": "needswasteland",
-            "label": "荒野",
+            "label": "Wilderness",
             "required": {
                 "wasteland.a": 1,
                 "wasteland.b": 1
@@ -1253,15 +1646,15 @@
     },
     {
       "id": "serpentleaving",
-      "label": "约定",
+      "label": "Promise",
       "isAspect": true,
       "isHidden": true
     },
 
     {
       "id": "serpent.eggb",
-      "label": "巨蛇之卵",
-      "description": "一枚一直发烫的卵。我是人猿，而非爬虫或飞鸟，因此无论怎么都孵不出来。",
+      "label": "Great Serpent Egg",
+      "description": "An egg that is always warm. I am an ape, not a reptile or bird, so no matter what I do, I cannot hatch it.",
       "aspects": {
           "knock": 2,
           "grail": 2,
@@ -1271,14 +1664,14 @@
     },
     {
       "id": "missiontomoriserpent",
-      "label": "意图少女",
+      "label": "Intent Maiden",
       "isAspect": true,
       "isHidden": true
     },
     {
       "id": "mission.tomoriserpent.a",
-      "label": "意图：落泪的少女",
-      "description": "过去很长一段时间我都不解那一种悲伤，直到我发现她已鲜少悲伤。我将不解的目标改为她本身，而在她的目光中，我又将问题抛向了自己。",
+      "label": "Intent: The Weeping Maiden",
+      "description": "For a long time, I did not understand that kind of sorrow, until I realized she seldom grieves anymore. I shifted my confusion to her herself, and in her gaze, I turned the question back on myself.",
       "xtriggers": {
           "opx.progress0": [
         {
@@ -1305,8 +1698,8 @@
     },
     {
       "id": "mission.tomoriserpent.b",
-      "label": "意图：落泪的士兵",
-      "description": "每一个刃之学徒的灵魂里都埋着大片废墟，我是否走的太远，我是否已经忘记了自己的模样，废墟里的我又如何看待这个问题。",
+      "label": "Intent: The Weeping Soldier",
+      "description": "In the soul of every Edge apprentice lies vast ruins. Have I gone too far? Have I forgotten what I look like? How does the me in the ruins see this question?",
       "xtriggers": {
           "opx.progress0": [
         {
@@ -1333,8 +1726,8 @@
     },
     {
       "id": "mission.tomoriserpent.c",
-      "label": "意图：落泪的利器",
-      "description": "蛇比飞鸟更接近根系，比走兽更深入黑暗。我会闭上双眼。\n<i>“不容拒绝的访客会见证我于可见与不可见的规训之下逃脱。”</i>\n然而一切不会真的消失，在我完成应尽的义务之后，我或许可以休眠。\n\n[在命定之地，如果我已完成伟业，我或许能依靠其完成更多功业；如果我未完成伟业，我或许也可以依靠其开启不一样的道路]",
+      "label": "Intent: The Weeping Edge",
+      "description": "The serpent is closer to the roots than birds, and deeper into the dark than beasts. I will close my eyes.\n<i>\"The unrefusable visitor will witness my escape from visible and invisible disciplines.\"</i>\nYet nothing truly disappears; after I fulfill my duty, I may rest.\n\n[In the destined place, if I have completed my great work, I may rely on it to accomplish more; if I have not, I may also rely on it to open a different path.]",
       "aspects": {
           "contemplation": 1,
           "completed": 1,
@@ -1346,22 +1739,22 @@
 
     {
       "id": "diary.tomoriserpent",
-      "label": "日记",
+      "label": "Diary",
       "isAspect": true,
       "isHidden": true
     },
     {
       "id": "diary.tomoriserpent.a",
-      "label": "日记其一",
-      "description": "敌人炮弹的啸声压过风声，我以钢的技艺偏转炮火落点，轰鸣炸响在空地，阵地得于保全，无人在意的土地上平添了丑陋的伤口。一旁的少女静静看着全程，眼中毫无惊惧，反而流露怜悯。她缓步上前，指尖轻轻抚过我脸上的伤疤，然后展示了她的。战争中人人皆有伤痕，而世界亦然。",
+      "label": "Diary I",
+      "description": "The whistle of enemy shells drowned out the wind; I used my steelcraft to deflect the artillery's impact, and the roar blasted the open ground. The position was saved, but ugly wounds were added to the forgotten land. The maiden beside me watched silently, her eyes showing not fear but pity. She stepped forward, gently traced the scar on my face with her fingertips, then showed hers. In war, everyone has scars, and so does the world.",
       "aspects": {
           "diary.tomoriserpent": 1
       }
     },
     {
       "id": "diary.tomoriserpent.b",
-      "label": "日记其二",
-      "description": "阵地伤亡惨重，数名士兵倒在冻土之上，躯体尚温、魂息未散。我再度征召起他们，驱动他们的残躯，复活的士兵维持着牺牲时的姿态爬起。哭泣的少女穿梭在尸体之间，为每一名苏醒的战友扶正歪落的军帽，用泥土掩住他们可怖的脸。做完这一切，她发现了我，快步走到我身前，踮起脚尖，认真为我抚平褶皱的军装、理好凌乱的衣领。即便我还没有死去。即便我现在还没有死去。",
+      "label": "Diary II",
+      "description": "Our position suffered heavy casualties; several soldiers fell on the frozen ground, their bodies still warm, their souls not yet dispersed. I re-conscipted them, driving their remains; the resurrected soldiers rose in the posture of their sacrifice. The weeping maiden moved among the bodies, straightening the crooked caps of each awakened comrade and covering their horrid faces with soil. After finishing, she noticed me, hurried over, stood on tiptoes, and carefully smoothed my wrinkled uniform and tidied my messy collar. Even though I had not yet died. Even though I am not dead yet.",
       "aspects": {
           "diary.tomoriserpent": 1
       },
@@ -1369,8 +1762,8 @@
     },
     {
       "id": "diary.tomoriserpent.c",
-      "label": "日记其三",
-      "description": "敌军再度压境，阵线岌岌可危。我沉下心神，令我的意志凌驾一切微小的意志，令我不容忤逆。全军士兵绷直身躯，整齐肃立。一旁从未受过训练的少女似乎也清晰感知到这可怖力量。她的眼底也漫上真切的惶恐与肃穆。无需任何人教导，她下意识挺直脊背，抬手低头，郑重地行了一个标准的军礼。战火肃杀，她是整片战场里最意外的臣服者。这令人痛心。",
+      "label": "Diary III",
+      "description": "The enemy pressed again, the line was precarious. I calmed my mind, letting my will override all lesser wills, making me unopposable. The soldiers straightened their bodies and stood in rigid order. The maiden beside me, never trained, seemed to clearly sense this dreadful power. Her eyes filled with genuine fear and solemnity. Without anyone teaching her, she instinctively straightened her back, raised her hand, bowed her head, and solemnly rendered a standard military salute. In the grimness of war, she was the most unexpected submitter on the entire battlefield. It was heartbreaking.",
       "aspects": {
           "diary.tomoriserpent": 1
       },
