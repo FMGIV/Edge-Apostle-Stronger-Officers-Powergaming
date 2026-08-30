@@ -3977,8 +3977,7 @@
 	
 	{
 	"id": "proterant.setup.f",
-	"effects$remove" : ["friend.medics", "friend.scouts"],
-	"effects$add" : {"friend.partisan.physician":1, "friend.partisan.sniper" : 1, "friend.partisan.sapper" : 1, "friend.partisan.infiltrator" : 1, "proterant.reputation" : 1}
+	"effects$add" : {"friend.partisan.physician":1, "friend.partisan.sniper" : 1, "friend.partisan.sapper" : 1, "friend.partisan.infiltrator" : 1, "proterant.reputation" : 1, "friend.medics" : -99, "friend.scouts" : -99}
 	},
 	
 	{
@@ -4746,11 +4745,18 @@
 	
 	{
     "id": "ob.success.rescueallies",
-	"internaldeck$dictedit" : {
-    "spec$remove": [
-		"friend.tanks",
-		"friend.artillery"
-        ]
+	"internaldeck": {
+	    "spec": [
+		"friend.infantry",
+		"friend.infantry",
+		"friend.scouts",
+		"friend.engineers",
+		"friend.engineers",
+		"friend.medics",
+		"friend.medics"
+	    ],
+	    "draws": 4,
+	    "resetonexhaustion": true
 		}
     },
 	

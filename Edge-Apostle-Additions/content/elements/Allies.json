@@ -1099,18 +1099,15 @@
 	
     {
 	"id": "friend.godbuilder.exhausted",
-	"$derives" : ["friend.godbuilder"],
+	"$extends" : ["friend.godbuilder"],
 	"label": "Bogostroiteli Troop (Prototype - Exhausted)",
 	"aspects": {
-	    "exhausted": 1
+	    "exhausted": 1,
+	    "mortal": 1,
+	    "forcesize": 4,
+		"obdurantpromotiontrigger" : 1
 	},
-	"aspects$remove" : [
-	    "edge",
-		"knock",
-		"forge",
-		"lantern"
-		],
-	"xtriggers": {
+	"xtriggers$add": {
 	    "makeafraid": "friend.godbuilder.afraid.exhausted",
 	    "makeweaken": "friend.godbuilder.afraid.exhausted"
 	},

@@ -91,16 +91,17 @@
 	
     {
 	"id": "friend.sniper.sightless.exhausted",
+	"$extends" : ["friend.sniper.sightless"],
 	"label": "失明的狙击手 （精疲力尽）",
-	"$derives" : ["friend.sniper.sightless"],
 	"aspects": {
+		"friend": 1,
+		"forcesize": 1,
+	    "mortal": 1,
+		"promoted" : 1,
+		"fragile" : 1,
 	    "exhausted": 1
 	},
-	"aspects$remove" : [
-	    "edge",
-	    "lantern",
-	    "winter"],
-	"xtriggers": {
+	"xtriggers$add": {
 		"makeafraid": "friend.sniper.sightless.afraid.exhausted",
 		"makeweaken": "friend.sniper.sightless.weaken.exhausted"
 	},
@@ -124,18 +125,18 @@
 	
     {
 	"id": "friend.sniper.sightless.wounded",
-	"$derives" : ["friend.sniper.sightless"],
+	"$extends" : ["friend.sniper.sightless"],
 	"label": "失明的狙击手 （受伤）",
 	"description": "[使用“冬之行者”、“神圣义肢”或“使节的召唤”来治疗这位盟友。]",
 	"aspects": {
+		"friend": 1,
+		"forcesize": 1,
+	    "mortal": 1,
+		"promoted" : 1,
+		"fragile" : 1,
 		"decaying" : 1
 	},
-	"aspects$remove" : [
-	    "edge",
-	    "lantern",
-	    "winter"
-		],
-	"xtriggers": {
+	"xtriggers$add": {
 	    "fatiguing": "friend.sniper.sightless.wounded",
 	    "makecasualty": "friend.corpses",
 		"makeafraid": "friend.sniper.sightless.afraid.wounded",
@@ -655,8 +656,7 @@
 	    "edge": 10,
 		"forge": 4,
 		"heart": 4,
-		"forceshakedown" : 1,
-		"promoted" : 1
+		"forceshakedown" : 1
 	},
 	"slots": [
 		{
@@ -779,17 +779,15 @@
 	
     {
 	"id": "friend.empowered.infantry.exhausted",
+	"$extends" : ["friend.empowered.infantry"],
 	"label": "强化步兵 （精疲力尽）",
-	"$derives" : ["friend.empowered.infantry"],
 	"aspects": {
+		"friend": 1,
+		"promoted" : 1,
+	    "forcesize": 2,
 	    "exhausted": 1
 	},
-	"aspects$remove" : [
-	    "edge",
-		"heart",
-		"forge"
-		],
-	"xtriggers": {
+	"xtriggers$add": {
 		"makeafraid": "friend.empowered.infantry.afraid.exhausted",
 		"makeweaken": "friend.empowered.infantry.weaken.exhausted",
 	    "bestronger": "friend.empowered.infantry"
@@ -819,18 +817,16 @@
 	
     {
 	"id": "friend.empowered.infantry.wounded",
-	"$derives" : ["friend.empowered.infantry"],
+	"$extends" : ["friend.empowered.infantry"],
 	"label": "强化步兵 （受伤）",
 	"description": "[使用医疗兵为该盟友治疗。]",
 	"aspects": {
+		"friend": 1,
+		"promoted" : 1,
+	    "forcesize": 2,
 		"wounded" : 1
 	},
-	"aspects$remove" : [
-	    "edge",
-		"heart",
-		"forge"
-		],
-	"xtriggers": {
+	"xtriggers$add": {
 	    "fatiguing": "friend.empowered.infantry.wounded",
 	    "makecasualty": "friend.corpses",
 		"makeafraid": "friend.empowered.infantry.afraid.wounded",
@@ -838,6 +834,8 @@
 		"makeweaken": "friend.empowered.infantry.afraid.wounded"
 	},
 	"icon": "friend.empowered.infantry.wounded",
+	"lifetime": 120,
+	"decayTo": "friend.corpses"
     },
 	
     {
@@ -1243,16 +1241,16 @@
 	
     {
 	"id": "friend.adept.gunman.exhausted",
+	"$extends" : ["friend.adept.gunman"],
 	"label": "枪术专家 （精疲力尽）",
-	"$derives" : ["friend.adept.gunman"],
 	"aspects": {
+		"friend": 1,
+		"forcesize": 1,
+	    "mortal": 1,
+		"promoted" : 1,
 	    "exhausted": 1
 	},
-	"aspects$remove" : [
-	    "edge",
-	    "winter"
-		],
-	"xtriggers": {
+	"xtriggers$add": {
 		"makeafraid": "friend.adept.gunman.afraid.exhausted",
 		"makeweaken": "friend.adept.gunman.weaken.exhausted"
 	},
@@ -1273,24 +1271,26 @@
 	
     {
 	"id": "friend.adept.gunman.wounded",
-	"$derives" : ["friend.adept.gunman"],
+	"$extends" : ["friend.adept.gunman"],
 	"label": "枪术专家 （受伤）",
 	"description": "[使用医疗兵为该盟友治疗。]",
 	"aspects": {
+		"friend": 1,
+		"forcesize": 1,
+	    "mortal": 1,
+		"promoted" : 1,
 		"wounded" : 1
 	},
-	"aspects$remove" : [
-	    "edge",
-	    "winter"
-		],
-	"xtriggers": {
+	"xtriggers$add": {
 	    "fatiguing": "friend.adept.gunman.wounded",
 	    "makecasualty": "friend.corpses",
 		"makeafraid": "friend.adept.gunman.afraid.wounded",
 	    "restorehealth": "friend.adept.gunman",
 		"makeweaken": "friend.adept.gunman.afraid.wounded"
 	},
-	"icon": "friend.adept.gunman.wounded"
+	"icon": "friend.adept.gunman.wounded",
+	"lifetime": 90,
+	"decayTo": "friend.corpses"
     },
 	
     {
@@ -1450,17 +1450,16 @@
 	
     {
 	"id": "friend.dreg.adept.exhausted",
+	"$extends" : ["friend.dreg.adept"],
 	"label": "渣滓行家 （精疲力尽）",
-	"$derives" : ["friend.dreg.adept"],
 	"aspects": {
+		"friend": 1,
+		"forcesize": 1,
+	    "mortal": 1,
+		"promoted" : 1,
 	    "exhausted": 1
 	},
-	"aspects$remove" : [
-	    "edge",
-	    "grail",
-	    "winter"
-		],
-	"xtriggers": {
+	"xtriggers$add": {
 		"makeafraid": "friend.dreg.adept.afraid.exhausted"
 	},
 	"lifetime": 70,
@@ -1483,18 +1482,17 @@
 	
     {
 	"id": "friend.dreg.adept.wounded",
-	"$derives" : ["friend.dreg.adept"],
+	"$extends" : ["friend.dreg.adept"],
 	"label": "渣滓行家 （受伤）",
 	"description": "[使用医疗兵为该盟友治疗。]",
 	"aspects": {
+		"friend": 1,
+		"forcesize": 1,
+	    "mortal": 1,
+		"promoted" : 1,
 		"wounded" : 1
 	},
-	"aspects$remove" : [
-	    "edge",
-	    "grail",
-	    "winter"
-		],
-	"xtriggers": {
+	"xtriggers$add": {
 	    "fatiguing": "friend.dreg.adept.wounded",
 	    "makecasualty": [
 		{
@@ -1511,7 +1509,9 @@
 	    "restorehealth": "friend.dreg.adept",
 	    "makeweaken": "friend.dreg.adept.afraid.wounded"
 	},
-	"icon": "friend.dreg.adept.wounded"
+	"icon": "friend.dreg.adept.wounded",
+	"lifetime": 60,
+	"decayTo": "op.wolfdivided"
     },
 	
     {
@@ -1655,17 +1655,16 @@
 	
     {
 	"id": "friend.arsonist.adept.exhausted",
+	"$extends" : ["friend.arsonist.adept"],
 	"label": "纵火专家 （精疲力尽）",
-	"$derives" : ["friend.arsonist.adept"],
 	"aspects": {
+		"friend": 1,
+		"forcesize": 1,
+	    "mortal": 1,
+		"promoted" : 1,
 	    "exhausted": 1
 	},
-	"aspects$remove" : [
-	    "edge",
-	    "forge",
-	    "winter"
-		],
-	"xtriggers": {
+	"xtriggers$add": {
 		"makeafraid": "friend.arsonist.adept.afraid.exhausted",
 	    "makeweaken": "friend.arsonist.adept.afraid.exhausted"
 	},
@@ -1689,25 +1688,26 @@
 	
     {
 	"id": "friend.arsonist.adept.wounded",
-	"$derives" : ["friend.arsonist.adept"],
+	"$extends" : ["friend.arsonist.adept"],
 	"label": "纵火专家 （受伤）",
 	"description": "[使用医疗兵为该盟友治疗。]",
 	"aspects": {
+		"friend": 1,
+		"forcesize": 1,
+	    "mortal": 1,
+		"promoted" : 1,
 		"wounded" : 1
 	},
-	"aspects$remove" : [
-	    "edge",
-	    "forge",
-	    "winter"
-		],
-	"xtriggers": {
+	"xtriggers$add": {
 	    "fatiguing": "friend.arsonist.adept.wounded",
 	    "makecasualty": "friend.corpses",
 		"makeafraid": "friend.arsonist.adept.afraid.wounded",
 	    "restorehealth": "friend.arsonist.adept",
 		"makeweaken": "friend.arsonist.adept.afraid.exhausted"
 	},
-	"icon": "friend.arsonist.adept.wounded"
+	"icon": "friend.arsonist.adept.wounded",
+	"lifetime": 90,
+	"decayTo": "friend.corpses"
     },
 	
     {
@@ -1827,15 +1827,14 @@
 	"$derives" : ["friend.godbuilder.veteran"],
 	"label": "“沼泽建造者”部队 （老兵——精疲力尽）",
 	"aspects": {
+		"friend": 1,
+	    "mortal": 1,
+	    "forcesize": 4,
+		"fragile" : 1,
+		"promoted" : 1,
 	    "exhausted": 1
 	},
-	"aspects$remove" : [
-	    "edge",
-		"knock",
-		"forge",
-		"lantern"
-		],
-	"xtriggers": {
+	"xtriggers$add": {
 	    "makeafraid": "friend.godbuilder.afraid.exhausted",
 	    "makeweaken": "friend.godbuilder.afraid.exhausted"
 	},

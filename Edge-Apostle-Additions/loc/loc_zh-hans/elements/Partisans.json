@@ -135,15 +135,14 @@
     {
 	"id": "friend.partisan.infiltrator.exhausted",
 	"label": "游击队渗透者（精疲力尽）",
-	"$derives" : ["friend.partisan.infiltrator"],
+	"$extends" : ["friend.partisan.infiltrator"],
 	"aspects": {
+		"friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
 	    "exhausted": 1
 	},
-	"aspects$remove" : [
-	    "moth",
-	    "lantern",
-	    "heart"],
-	"xtriggers": {
+	"xtriggers$add": {
 		"makeafraid": "friend.partisan.infiltrator.afraid.exhausted",
 	    "bestronger": "friend.partisan.infiltrator"
 	},
@@ -164,23 +163,24 @@
 	
     {
 	"id": "friend.partisan.infiltrator.wounded",
-	"$derives" : ["friend.partisan.infiltrator"],
+	"$extends" : ["friend.partisan.infiltrator"],
 	"label": "游击队渗透者（负伤）",
 	"description": "[使用野战医护兵或野战医院来治疗这位盟友。]",
 	"aspects": {
+		"friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
 		"wounded" : 1
 	},
-	"aspects$remove" : [
-	    "moth",
-	    "lantern",
-	    "heart"],
 	"xtriggers": {
 	    "fatiguing": "friend.partisan.infiltrator.wounded",
 	    "makecasualty": "friend.corpses",
 		"makeafraid": "friend.partisan.infiltrator.afraid.wounded",
 	    "restorehealth": "friend.partisan.infiltrator"
 	},
-	"icon": "friend.partisan.infiltrator.wounded"
+	"icon": "friend.partisan.infiltrator.wounded",
+	"lifetime": 90,
+	"decayTo": "friend.corpses"
     },
 	
     {
@@ -400,15 +400,14 @@
     {
 	"id": "friend.partisan.sapper.exhausted",
 	"label": "游击工兵 （精疲力尽）",
-	"$derives" : ["friend.partisan.sapper"],
+	"$extends" : ["friend.partisan.sapper"],
 	"aspects": {
+		"friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
 	    "exhausted": 1
 	},
-	"aspects$remove" : [
-	    "heart",
-	    "knock",
-	    "forge"],
-	"xtriggers": {
+	"xtriggers$add": {
 		"makeafraid": "friend.partisan.sapper.afraid.exhausted",
 	    "bestronger": "friend.partisan.sapper"
 	},
@@ -429,23 +428,24 @@
 	
     {
 	"id": "friend.partisan.sapper.wounded",
-	"$derives" : ["friend.partisan.sapper"],
+	"$extends" : ["friend.partisan.sapper"],
 	"label": "游击工兵 （受伤）",
 	"description": "[使用野战医护兵或野战医院来治疗这位盟友。]",
 	"aspects": {
+		"friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
 		"wounded" : 1
 	},
-	"aspects$remove" : [
-	    "heart",
-	    "forge",
-	    "knock"],
-	"xtriggers": {
+	"xtriggers$add": {
 	    "fatiguing": "friend.partisan.sapper.wounded",
 	    "makecasualty": "friend.corpses",
 		"makeafraid": "friend.partisan.sapper.afraid.wounded",
 	    "restorehealth": "friend.partisan.sapper"
 	},
-	"icon": "friend.labourer.wounded"
+	"icon": "friend.labourer.wounded",
+	"lifetime": 90,
+	"decayTo": "friend.corpses"
     },
 	
     {
@@ -636,16 +636,15 @@
 	
     {
 	"id": "friend.partisan.sniper.exhausted",
+	"$extends" : ["friend.partisan.sniper"],
 	"label": "游击狙击手 （精疲力尽）",
-	"$derives" : ["friend.partisan.sniper"],
 	"aspects": {
+		"friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
 	    "exhausted": 1
 	},
-	"aspects$remove" : [
-	    "edge",
-	    "winter",
-	    "heart"],
-	"xtriggers": {
+	"xtriggers$add": {
 		"makeafraid": "friend.partisan.sniper.afraid.exhausted",
 	    "bestronger": "friend.partisan.sniper"
 	},
@@ -666,23 +665,24 @@
 	
     {
 	"id": "friend.partisan.sniper.wounded",
-	"$derives" : ["friend.partisan.sniper"],
+	"$extends" : ["friend.partisan.sniper"],
 	"label": "游击狙击手 （受伤）",
 	"description": "[使用野战医护兵或野战医院来治疗这位盟友。]",
 	"aspects": {
+		"friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
 		"wounded" : 1
 	},
-	"aspects$remove" : [
-	    "edge",
-	    "winter",
-	    "heart"],
-	"xtriggers": {
+	"xtriggers$add": {
 	    "fatiguing": "friend.partisan.sniper.wounded",
 	    "makecasualty": "friend.corpses",
 		"makeafraid": "friend.partisan.sniper.afraid.wounded",
 	    "restorehealth": "friend.partisan.sniper"
 	},
-	"icon": "friend.partisan.sniper.wounded"
+	"icon": "friend.partisan.sniper.wounded",
+	"lifetime": 90,
+	"decayTo": "friend.corpses"
     },
 	
     {
@@ -864,15 +864,15 @@
 	
     {
 	"id": "friend.partisan.physician.exhausted",
+	"$extends" : ["friend.partisan.physician"],
 	"label": "党派医生 （精疲力尽）",
-	"$derives" : ["friend.partisan.physician"],
 	"aspects": {
+		"friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
 	    "exhausted": 1
 	},
-	"aspects$remove" : [
-	    "heart",
-	    "grail"],
-	"xtriggers": {
+	"xtriggers$add": {
 		"makeafraid": "friend.partisan.physician.afraid.exhausted",
 	    "bestronger": "friend.partisan.physician",
 	    "restorehealth": "friend.partisan.physician.exhausted",
@@ -900,22 +900,24 @@
 	
     {
 	"id": "friend.partisan.physician.wounded",
-	"$derives" : ["friend.partisan.physician"],
+	"$extends" : ["friend.partisan.physician"],
 	"label": "党派医生 （受伤）",
 	"description": "[使用野战医护兵或野战医院来治疗这位盟友。]",
 	"aspects": {
+		"friend": 1,
+		"partisan" : 1,
+	    "mortal": 1,
 		"wounded" : 1
 	},
-	"aspects$remove" : [
-	    "grail",
-	    "heart"],
-	"xtriggers": {
+	"xtriggers$add": {
 	    "fatiguing": "friend.partisan.physician.wounded",
 	    "makecasualty": "friend.corpses",
 		"makeafraid": "friend.partisan.physician.afraid.wounded",
 	    "restorehealth": "friend.partisan.physician"
 	},
-	"icon": "friend.partisan.physician.wounded"
+	"icon": "friend.partisan.physician.wounded",
+	"lifetime": 90,
+	"decayTo": "friend.corpses"
     },
 	
 	{
