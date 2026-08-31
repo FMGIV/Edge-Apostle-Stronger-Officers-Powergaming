@@ -4,8 +4,8 @@
 	{
 	"id": "enemy.capture.infrastructure.startup",
 	"actionid": "enemyaction.infrastructure",
-	"label": "锁定基础设施！",
-	"startdescription": "敌人企图夺取战争行动中的一条生命线——",
+	"label": "夺取设施！",
+    "startdescription": "敌军寻求夺取支撑我军的大动脉之一——",
 	"aspects": {
 	    "takeadditional": 1
 	},
@@ -19,7 +19,7 @@
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
@@ -40,7 +40,8 @@
             "foeartillery": 1,
             "foebombers": 1,
             "foefighter": 1,
-            "foefighterhidden": 1
+            "foefighterhidden": 1,
+			"mechanized_forces": 1
 		},
 		"greedy": true
 	    },
@@ -60,8 +61,8 @@
 	
     {
 	"id": "enemy.capture.infrastructure.nodefence",
-	"label": "基础设施失守！",
-	"startdescription": "我们的关键设施已被占领！",
+	"label": "失去设施！",
+    "startdescription": "一处我军的重要设施已被占领！",
 	"requirements": {
 	    "decision.enemy.infrastructure.capture": 1
 	},
@@ -72,7 +73,7 @@
 	"slots": [
 	    {
 		"id": "needsinfrastructure",
-		"label": "基础设施",
+		"label": "军事设施",
 		"required": {
 		    "infrastructure": 1
 		},
@@ -104,9 +105,9 @@
 	{
 	"id": "convert.to.enemy.buildings",
 	"actionid" : "enemycontrolledwarzone",
-	"label": "敌方控制的战场",
-	"startdescription": "该战场处于敌方控制之下。毕竟没人说过战争会轻松。",
-	"description": "该战场处于敌方控制之下。毕竟没人说过战争会轻松。",
+	"label": "敌军已控制战区",
+    "startdescription": "当前战区已落入敌军掌控，无人曾言战争简单。",
+    "description": "当前战区已落入敌军掌控，无人曾言战争简单。",
 	"warmup": 0,
 	"extantreqs": {
 	    "warzone.enemy.controlled": 1,
@@ -122,8 +123,8 @@
 	
     {
 	"id": "foe.coordinated.getsecond.enemycomms.pre",
-	"label": "协同步兵突击！",
-	"startdescription": "这支敌军与另一支敌军汇合——",
+	"label": "步兵协同进攻！",
+    "startdescription": "这一敌军企图与另一支敌军联合——",
 	"tablereqs": {
 	    "loc.commtower.enemy": 1
 	},
@@ -142,8 +143,8 @@
 	
 	{
 	"id": "foe.coordinated.getsecond.enemycomms",
-	"label": "协同步兵突击！",
-	"startdescription": "这支敌军与另一支敌军汇合——",
+	"label": "步兵协同进攻！",
+    "startdescription": "这一敌军企图与另一支敌军联合——",
 	"aspects": {
 	    "revealidentity": 1,
 		"takeadditional" : 1
@@ -151,7 +152,7 @@
 	"slots": [
 	    {
 		"id": "needscoordinated",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "foe.infantry": 1,
 			"foe.infantry.hidden": 1,
@@ -171,9 +172,9 @@
 	
     {
 	"id": "enemy.fieldhospital.survived",
-	"label": "敌人仍在！",
-	"startdescription": "真令人沮丧——我们的目标在敌人的野战医院接受了治疗。至少下次杀他们会更容易些。\n\n[该地点的敌方野战医院仍在运作。]",
-	"description": "真令人沮丧——我们的目标在敌人的野战医院接受了治疗。至少下次杀他们会更容易些。\n\n[该地点的敌方野战医院仍在运作。]",
+	"label": "敌军仍存！",
+    "startdescription": "真是令人沮丧——我们的敌人被敌军战地医院及时救下了。至少，下一次进攻会简单些。\n\n[当前战区内有敌军战地医院存在]",
+    "description": "真是令人沮丧——我们的敌人被敌军战地医院及时救下了。至少，下一次进攻会简单些。\n\n[当前战区内有敌军战地医院存在]",
 	"tablereqs": {
 	    "loc.hospital.enemy": 1
 	},
@@ -191,8 +192,8 @@
 	
 	{
 	"id": "enemy.controlled.warzone.interference.router",
-	"label": "敌人会干预吗？",
-	"startdescription": "我们无法控制这片战区。敌人可能会干预我们与当地人的交涉。",
+	"label": "敌军干扰？",
+    "startdescription": "当前战区并不受我们掌控。敌军可能会干扰我们对当地人的行动。",
 	"grandReqs" : {
 		"[progression]>[enemy.interference.blocker]" : 1,
 		"[progression]=3" : -1 
@@ -215,8 +216,8 @@
 	
 	{
 	"id": "enemy.controlled.warzone.interference.afraid",
-	"label": "不断变化的战场——恐惧",
-	"startdescription": "我是狮子，他们是猎物。他们不会插手。",
+	"label": "多变的战场——恐惧即我！",
+    "startdescription": "我即为雄狮，而他们是猎物。他们不会打扰我们。",
 	"extantreqs": {
 	    "skill.intimidate.active": 1
 	},
@@ -230,8 +231,8 @@
 	
     {
 	"id": "enemy.controlled.warzone.interference",
-	"label": "敌人会干预吗？",
-	"startdescription": "我们无法控制这片战区。敌人可能会干预我们与当地人的交涉。",
+	"label": "敌军干扰？",
+    "startdescription": "当前战区并不受我们掌控。敌军可能会干扰我们对当地人的行动。",
 	"extantreqs": {
 	    "skill.intimidate.active": -1
 	},
@@ -241,7 +242,7 @@
 	"slots": [
 	    {
 		"id": "needssomething",
-		"label": "并发症？",
+		"label": "意外？",
 		"required": {
 		    "foe": 1
 		},
@@ -271,8 +272,8 @@
 
     {
 	"id": "enemy.controlled.warzone.interference.foe",
-	"label": "敌人正在拖延行动！",
-	"startdescription": "由于战区尚未得到控制，敌人仍能在此处进行干扰！",
+	"label": "敌军采取拖延战术！",
+    "startdescription": "战区的掌控权仍未回归我们，敌军仍能够干预我们的行动！",
 	"requirements": {
 	    "foe": 1
 	},
@@ -293,8 +294,8 @@
     {
 	"id": "enemy.main.objective.pre",
 	"actionid": "enemy.doing.main.objective",
-	"label": "敌人正在追击主要目标！",
-	"startdescription": "我们来这里是有原因的，敌人也是如此。他们正在追击我们的主要目标！",
+	"label": "敌军正在夺取主要目标！",
+    "startdescription": "此地我们有任务在身，我们的敌军亦是如此。他们正尝试先我们一步完成主要目标！",
 	"tablereqs": {
 		"main": 1
 	},
@@ -337,15 +338,15 @@
 	
 	{
 	"id": "enemy.main.objective.take.enemies",
-	"label": "敌人正在追击主要目标！",
-	"startdescription": "敌人正在集结力量……",
+	"label": "敌军正在夺取主要目标！",
+    "startdescription": "敌军正在积蓄力量……",
 	"requirements": {
 	    "main": 1
 	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
@@ -358,36 +359,40 @@
 		    "otherworldly": 1,
 			"foe.sniper" : 1,
 			"foe.sniper.hidden" : 1,
+			"foe.sniper.ins" : 1,
 			"foe.manhunters" : 1,
-			"foe.manhunters.hidden" : 1
+			"foe.manhunters.hidden" : 1,
+			"foe.manhunters.ins" : 1
 		},
 		"greedy": true
 	    },
 		
 	    {
 		"id": "needsenemy2",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
 		"forbidden": {
 		    "remnant": 1,
 		    "foe.rankofficer": 1,
-		    "soviet": 1,
 			"foe.emplaced" : 1,
+		    "soviet": 1,
 		    "detectivetemptation": 1,
 		    "otherworldly": 1,
 			"foe.sniper" : 1,
 			"foe.sniper.hidden" : 1,
+			"foe.sniper.ins" : 1,
 			"foe.manhunters" : 1,
-			"foe.manhunters.hidden" : 1
+			"foe.manhunters.hidden" : 1,
+			"foe.manhunters.ins" : 1
 		},
 		"greedy": true
 	    },
 		
 	    {
 		"id": "needsenemy3",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
@@ -433,15 +438,15 @@
 	
     {
 	"id": "enemy.main.objective.defense",
-	"label": "发起防御？",
-	"startdescription": "敌人正在逼近——我们能否挺身迎战？\n\n[通过提供卡牌，使总优势值达到与敌人总优势值相等的阈值来进行防御。在此情况下，”不可侵犯的防御“无效。]",
+	"label": "进行防御？",
+    "startdescription": "敌军迫近了——我们能够奋起抵抗他们吗？\n\n[你只能使用敌军的刃阈值来进行抵抗这次进攻。<i>不侵守御<i>无法防御这次敌军谋划的大规模进攻]",
 	"requirements": {
 	    "foe": 1
 	},
 	"slots": [
 	    {
 		"id": "needsresponse",
-		"label": "国防",
+		"label": "防御",
 		"required": {
 		    "edge": 1,
 		    "winter": 1,
@@ -461,7 +466,7 @@
 		
 	    {
 		"id": "needsresponse2",
-		"label": "国防",
+		"label": "防御",
 		"required": {
 		    "edge": 1,
 		    "winter": 1,
@@ -481,7 +486,7 @@
 		
 	    {
 		"id": "needsresponse3",
-		"label": "国防",
+		"label": "防御",
 		"required": {
 		    "edge": 1,
 		    "winter": 1,
@@ -528,8 +533,8 @@
 	
     {
 	"id": "enemy.main.objective.defense.failure.enemy.overrun",
-	"label": "敌人正在蹂躏我方阵地！",
-	"startdescription": "我们无力与敌人交战。如今，敌人正在蹂躏我那些我曾立誓要保护的盟友——",
+	"label": "敌军正在推进！",
+    "startdescription": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。",
 	"aspects": {
 	    "makeadditional": 1
 	},
@@ -555,13 +560,13 @@
 	{
 	"id": "enemy.overrun.detect",
 	"actionid" : "fatality.overrun",
-	"label": "敌人正在蹂躏我们的阵地！",
-	"startdescription": "我们无力与敌人交战。如今，敌人正在蹂躏我那些我曾立誓要掩护的盟友——",
-	"description": "我们无力与敌人交战。如今，敌人正在蹂躏我那些我曾立誓要掩护的盟友——",
+	"label": "敌军正在推进！",
+    "startdescription": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。",
+    "description": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。",
 	"slots": [
 	    {
 		"id": "needslocal",
-		"label": "本地盟友",
+		"label": "当地友军",
 		"essential" : {
 			"local" : 1,
 			"friend" : 1
@@ -591,9 +596,9 @@
 	
     {
 	"id": "enemy.overrun.detect.foundlocal",
-	"label": "敌人正在蹂躏我们的阵地！",
-	"startdescription": "我们无力与敌人交战。如今，敌人正在蹂躏我那些我曾立誓要掩护的盟友——",
-	"description": "我们无力与敌人交战。如今，敌人正在蹂躏我那些我曾立誓要掩护的盟友——",
+	"label": "敌军正在推进！",
+    "startdescription": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。",
+    "description": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。",
 	"requirements": {
 	    "local": 1,
 		"mortal" : 1
@@ -610,15 +615,15 @@
 	
     {
 	"id": "enemy.overrun.detect.conclude",
-	"label": "敌人正在蹂躏我们的阵地！",
-	"startdescription": "我们无力与敌人交战。如今，敌人正在蹂躏我那些我曾立誓要掩护的盟友——",
-	"description": "我们无力与敌人交战。如今，敌人正在蹂躏我那些我曾立誓要掩护的盟友——"
+	"label": "敌军正在推进！",
+    "startdescription": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。",
+    "description": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。"
 	},
 	
     {
 	"id": "enemy.main.objective.defense.failure.enemy.capture",
-	"label": "敌军正占领战区！",
-	"startdescription": "这一区域已失守。我应该尽快撤离。",
+	"label": "敌军即将控制战区！",
+    "startdescription": "这片战区已经彻底失守。我应该赶快撤离。",
 	"aspects": {
 	    "makeadditional": 1
 	},
@@ -640,8 +645,8 @@
     {
 	"id": "enemy.capture.warzone",
 	"actionid" : "enemycontrolledwarzone",
-	"label": "战区失守！",
-	"startdescription": "该区域已失守。我应该尽快撤离！",
+	"label": "失去战区！",
+    "startdescription": "这片战区已经彻底失守。我必须不惜一切代价将其夺回！",
 	"slots": [
 	    {
 		"id": "needswarzone",
@@ -665,8 +670,8 @@
 	
     {
 	"id": "enemy.capture.warzone.warzonefound",
-	"label": "战区失守！",
-	"startdescription": "该区域已失守。我应该尽快撤离！",
+	"label": "失去战区！",
+    "startdescription": "这片战区已经彻底失守。我必须不惜一切代价将其夺回！",
 	"requirements": {
 	    "warzone.current": 1
 	},
@@ -695,8 +700,8 @@
 	
     {
 	"id": "enemy.main.objective.defense.failure.enemy.default",
-	"label": "敌方目标已完成",
-	"startdescription": "我们原本是来这里找某样东西的，但敌人抢先一步拿走了。现在，这个机会已经没了。",
+	"label": "敌军目标得手！",
+    "startdescription": "我们曾在此寻找某物，但敌军先我们一步得手。现在，我们已经没有机会了。",
 	"aspects": {
 	    "makeadditional": 1
 	},
@@ -719,8 +724,8 @@
 	"id": "enemy.withdraw.leaving.detect",
 	"actionid": "scandal",
 	"label": "敌军撤退！",
-	"startdescription": "德军已完成此行的任务。他们正在撤退回后方。",
-	"description": "德军已完成此行的任务。他们正在撤退回后方。",
+    "startdescription": "德军已经完成了他们的军事目标。他们正从这条战线上撤离。",
+    "description": "德军已经完成了他们的军事目标。他们正从这条战线上撤离。",
 	"extantreqs": {
 		"obdurant.story" : -1
 	},
@@ -730,7 +735,7 @@
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
@@ -759,7 +764,7 @@
     {
 	"id": "enemy.withdraw.leaving.success",
 	"label": "敌军撤退！",
-	"description": "德军已完成此行的任务。他们正在撤退回后方。",
+    "description": "德军已经完成了他们的军事目标。他们正从这条战线上撤离。",
 	"requirements": {
 	    "foe": 1
 	},
@@ -785,7 +790,7 @@
     {
 	"id": "enemy.withdraw.leaving.conclude",
 	"label": "敌军撤退！",
-	"description": "德军已完成此行的任务。他们正在撤退回后方。",
+    "description": "德军已经完成了他们的军事目标。他们正从这条战线上撤离。",
 	"effects": {
 		"main" : -1
 	},
@@ -803,8 +808,8 @@
 	
     {
 	"id": "enemy.main.objective.abandon.warzone",
-	"label": "一座解放了的城市？",
-	"startdescription": "德国人已经撤离了这片战区。这是件好事。那我为什么会感到如此挫败呢？",
+	"label": "解放这座城市？",
+    "startdescription": "德军放弃了这篇战区，这无疑是件好事，但为什么我如此沮丧？",
 	"slots": [
 	    {
 		"id": "needswarzone",
@@ -829,8 +834,8 @@
 	
     {
 	"id": "enemy.main.objective.warzonefound",
-	"label": "一座解放了的城市？",
-	"description": "德国人已经撤离了这片战区。这是件好事。那我为什么会感到如此挫败呢？",
+	"label": "解放这座城市？",
+    "description": "德军放弃了这篇战区，这无疑是件好事，但为什么我如此沮丧？",
 	"requirements": {
 	    "warzone.current": 1
 	},
@@ -853,8 +858,8 @@
 	
     {
 	"id": "enemy.remove.main.objective",
-	"label": "敌方目标已完成",
-	"description": "我们原本是来这里找某样东西的，但敌人抢先一步拿走了。现在这个机会已经没了。",
+	"label": "敌军目标得手！",
+    "description": "我们曾在此寻找某物，但敌军先我们一步得手。现在，我们已经没有机会了。",
 	"effects": {
 		"main" : -1
 	},
@@ -881,8 +886,8 @@
 	
     {
 	"id": "enemy.main.objective.complete.contemnant",
-	"label": "接下来该怎么办？",
-	"description": "我们原本是冲着某样东西来的，但敌人抢先一步拿走了。这个机会已经没了。我现在该怎么办？",
+	"label": "该怎么办？",
+    "description": "我们曾在此寻找某物，但敌军先我们一步得手。现在，目标已经失去，我们该怎么办？",
 	"extantreqs": {
 		"contemnant.story" : 1
 	},
@@ -894,8 +899,8 @@
     {
 	"id": "enemy.cycle.spawner",
 	"actionid" : "finalbattle",
-	"label": "最终决战",
-	"description": "战斗已达到白热化阶段。再没有哪里的竞争比这里更激烈了。就是这一刻了。",
+	"label": "最后一战",
+    "description": "战争已经进入白热化。再没有任何一处的纷争能比此处燃的更旺。我已经找不到比此处更好的舞台。",
 	"maxexecutions" : 1,
     "grandReqs": {
         "([~/visible:rome.here] || [~/visible:stalingrad.here] || [~/visible:berlin.here]) >= 1": 1
@@ -922,8 +927,8 @@
 	{
 	"id": "enemy.cycle.finalbattle",
 	"actionid": "final.battle.german",
-	"label": "最终决战",
-	"startdescription": "战斗已达到白热化阶段。再没有哪里的竞争比这里更激烈了。就是这一刻了。",
+	"label": "最后一战",
+    "startdescription": "战争已经进入白热化。再没有任何一处的纷争能比此处燃的更旺。我已经找不到比此处更好的舞台。",
 	"warmup": 30,
 	"linked": [
 	    {
@@ -935,8 +940,8 @@
 	{
 	"id": "soviet.cycle.finalbattle",
 	"actionid": "final.battle.soviet",
-	"label": "最终决战",
-	"startdescription": "战斗已达到白热化阶段。再没有哪里的竞争比这里更激烈了。就是这一刻了。",
+	"label": "最后一战",
+    "startdescription": "战争已经进入白热化。再没有任何一处的纷争能比此处燃的更旺。我已经找不到比此处更好的舞台。",
 	"warmup": 30,
 	"extantreqs": {
 		"contemnant.story" : 1
@@ -951,8 +956,8 @@
 	{
 	"id": "enemy.cycle.checker",
 	"actionid": "enemyaction",
-	"label": "敌人正在伺机而动",
-	"startdescription": "我们的敌人已大举集结于此，但至今尚未有人对我们采取行动。时间一分一秒地流逝。很快了。",
+	"label": "敌军等待时机",
+    "startdescription": "我们的敌军有部队在此，但尚未做出任何攻击行为。时间不断流逝。他们即将行动。",
 	"extantreqs": {
 		"main.rome.west.complete" : -1,
 		"main.stalingrad.north.complete" : -1,
@@ -971,11 +976,11 @@
 	{
 	"id": "hint.enemy.infrastructure",
 	"actionid": "operate",
-	"label": "如何应对敌方基础设施？",
-	"startdescription": "敌人控制着这处基础设施。我可以占领它，也可以尝试将其炸毁。[使用“插槽锻造”或拥有“优势”的非机械化/非怪物盟友来决定你的意图。]",
-	"requirements": {
-	    "enemy.infrastructure": 1
-	},
+	"label": "筹划一次对敌军军事设施的袭击？",
+    "startdescription": "敌军掌控了这座基础设施，我可以尝试将其夺回，亦或者只是将它炸成废墟。[在槽内放入<i>铸<i>或拥有<i>刃<i>性相的非机械化，非怪物友军来决定你的行为]",
+    "requirements": {
+      "enemy.infrastructure": 1
+    },
 	"hintonly": true,
 	"craftable": false
     },
@@ -983,8 +988,8 @@
 	{
 	"id": "destroy.enemy.infrastructure.pre",
 	"actionid": "operate",
-	"label": "尝试摧毁敌方基础设施",
-	"startdescription": "我决定要让这处基础设施消失。",
+	"label": "筹划一次对敌军军事设施的破坏行动",
+    "startdescription": "我已决定将此方军事设施化为废墟。",
 	"requirements": {
 	    "enemy.infrastructure": 1,
 		"forge" : 1,
@@ -1006,8 +1011,8 @@
 	{
 	"id": "capture.enemy.infrastructure.pre",
 	"actionid": "operate",
-	"label": "尝试占领敌方基础设施",
-	"startdescription": "我决定要把这处基础设施据为己有。我得派些步兵进去占领它。",
+	"label": "筹划一次对敌军军事设施的夺取行动",
+    "startdescription": "我已决定将此方军事设施的掌控权夺回我手。我需要一些人手来完成此事。",
 	"requirements": {
 	    "enemy.infrastructure": 1,
 		"provisions" : 1,
@@ -1036,15 +1041,15 @@
 	
 	{
 	"id": "enemy.infrastructure.getenemy",
-	"label": "敌方守卫！",
-	"startdescription": "一名敌人正在守卫这座基础设施。这就是那个敌人。[满足敌方的阈值要求，即可尝试占领这座基础设施]",
+	"label": "敌军守卫！",
+    "startdescription": "一组敌军奉命守卫此处军事设施。我们将在此与其遭遇。[提供足以通过这一敌军的阈值来占领这一军事设施]",
 	"aspects": {
 		"revealidentity": 1
 	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
@@ -1075,15 +1080,15 @@
 	
 	{
 	"id": "enemy.infrastructure.response",
-	"label": "敌方守卫！",
-	"startdescription": "一名敌人正在守卫这座基础设施。这就是那个敌人。[满足敌方的阈值要求，即可尝试占领这座基础设施]",
+	"label": "敌军守卫！",
+    "startdescription": "一组敌军奉命守卫此处军事设施。我们将在此与其遭遇。[提供足以通过这一敌军的阈值来摧毁这一军事设施]",
 	"requirements" : {
 		"foe" : 1
 	},
 	"slots": [
 		{
 		"id": "needsresponse",
-		"label": "响应",
+		"label": "回应",
 		"required": {
 		    "edge": 1,
 		    "winter": 1,
@@ -1117,8 +1122,8 @@
 	
 	{
 	"id": "capture.enemy.infrastructure.success",
-	"label": "缴获敌方基础设施！",
-	"startdescription": "敌人的就是我们的。今天真是个好日子；这不过是沧海一粟。",
+	"label": "占领敌军军事设施",
+    "startdescription": "他们的这些东西归我们了。今天是个好日子，但这只是沧海一粟。",
 	"requirements": {
 	    "enemy.infrastructure": 1,
 		"capture.infrastructure.marker" : 1
@@ -1138,8 +1143,8 @@
 	
 	{
 	"id": "destroy.enemy.infrastructure.success",
-	"label": "敌方基础设施已被摧毁！",
-	"startdescription": "属于他们的，现在已不再属于他们。今天是个好日子；这不过是沧海一粟。",
+	"label": "摧毁敌军军事设施！",
+    "startdescription": " 他们已经失去了这些珍贵之物。今天是个好日子，但这只是沧海一粟。",
 	"requirements": {
 	    "enemy.infrastructure": 1,
 		"destroy.infrastructure.marker" : 1
@@ -1160,15 +1165,15 @@
     {
 	"id": "enemy.barracks.lost",
 	"actionid": "scandal",
-	"label": "敌方兵营失守！",
-	"startdescription": "德国人向来以效率著称。如今他们失去了这座兵营，效率已大打折扣。\n\n[当前战区内的其他敌方单位触发阈值将降低。]",
+	"label": "敌军失去营房！",
+    "startdescription": "德军以其高效自傲。但现在我们摧毁了他们的营房之一，他们的效能已被折损。\n\n[该战区的部分敌军将被弱化] ",
 	"grandReqs" : {
 		"([loc.barracks] || [loc.barracks.destroyed])": 1,
 	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "foe": 1,
 			"german" : 1
@@ -1185,7 +1190,7 @@
 		
 		{
 		"id": "needsenemy2",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "foe": 1,
 			"german" : 1
@@ -1202,7 +1207,7 @@
 		
 		{
 		"id": "needsenemy3",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "foe": 1,
 			"german" : 1
@@ -1226,9 +1231,9 @@
 	{
 	"id": "enemy.defensive.preparation",
 	"actionid": "enemy.defensive.preparation",
-	"label": "敌人正在制定防御策略！",
-	"startdescription": "敌人正在制定防御策略！",
-	"description": "敌人现在对我们准备得更充分了。但这对他们毫无帮助。",
+	"label": "敌军采取防御措施！",
+    "startdescription": "敌军准备巩固防线——",
+    "description": "敌军的战备如今更加充足了，这无疑是件坏事。",
 	"aspects": {
 	    "defensiveprep": 1
 	},
@@ -1242,7 +1247,7 @@
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
@@ -1266,8 +1271,8 @@
 	{
 	"id": "enemy.offensive.preparation.startup",
 	"actionid": "enemy.offensive.preparation",
-	"label": "敌人正在制定进攻策略！",
-	"startdescription": "敌人正在策划进攻——",
+	"label": "敌军正在谋划一次进攻！",
+    "startdescription": "敌军正在谋划进攻——",
 	"effects": {
 	    "decision.enemy.offensive.preparation": 1
 	},
@@ -1278,7 +1283,7 @@
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "foe": 1,
 			"german" : 1
@@ -1304,9 +1309,9 @@
 	{
 	"id": "enemy.offensive.preparation.router",
 	"actionid": "enemy.offensive.preparation",
-	"label": "敌人正在制定进攻策略！",
-	"startdescription": "敌人正在策划进攻——",
-	"description": "敌人现在更有决心要杀死我们。但这对他们毫无益处。",
+	"label": "敌军正在谋划一次进攻！",
+    "startdescription": "敌军正在谋划进攻——",
+    "description": "敌军的火力如今更加充足了，这无疑是件坏事。",
 	"linked" : [
 		{
 		"id" : "enemy.offensive.preparation.ammo",
@@ -1336,9 +1341,9 @@
 	
 	{
 	"id": "enemy.offensive.preparation.ammo",
-	"label": "敌人正在制定进攻策略！",
-	"startdescription": "敌人正在策划进攻——",
-	"description": "敌人现在更有决心要杀死我们。但这对他们毫无益处。",
+	"label": "敌军正在谋划一次进攻！",
+    "startdescription": "敌军正在谋划进攻——",
+    "description": "敌军的火力如今更加充足了，这无疑是件坏事。",
 	"requirements": {
 		"foefighter" : -1
 	},
@@ -1350,9 +1355,9 @@
 	
 	{
 	"id": "enemy.offensive.preparation.elusive",
-	"label": "敌人正在制定进攻策略！",
-	"startdescription": "敌人正在策划进攻——",
-	"description": "敌人现在更有决心要杀死我们。但这对他们毫无益处。",
+	"label": "敌军正在谋划一次进攻！",
+    "startdescription": "敌军正在谋划进攻——",
+    "description": "敌军的火力如今更加充足了，这无疑是件坏事。",
 	"requirements": {
 		"foe.elusive" : -1
 	},
@@ -1363,9 +1368,9 @@
 	
 	{
 	"id": "enemy.offensive.preparation.commander",
-	"label": "敌人正在制定进攻策略！",
-	"startdescription": "敌人正在策划进攻——",
-	"description": "敌人现在更有决心要杀死我们。但这对他们毫无益处。",
+	"label": "敌军正在谋划一次进攻！",
+    "startdescription": "敌军正在谋划进攻——",
+    "description": "敌军的火力如今更加充足了，这无疑是件坏事。",
 	"requirements": {
 		"foe.commander" : -1
 	},
@@ -1376,9 +1381,9 @@
 	
 	{
 	"id": "enemy.offensive.preparation.lethal",
-	"label": "敌人正在制定进攻策略！",
-	"startdescription": "敌人正在策划进攻——",
-	"description": "敌人现在更有决心要杀死我们。但这对他们毫无益处。",
+	"label": "敌军正在谋划一次进攻！",
+    "startdescription": "敌军正在谋划进攻——",
+    "description": "敌军的火力如今更加充足了，这无疑是件坏事。",
 	"requirements": {
 		"foe.lethal" : -1
 	},
@@ -1389,8 +1394,8 @@
 	
     {
 	"id": "attackenemy.failure.kommando.retaliatory",
-	"label": "敌人反击！",
-	"startdescription": "这是个埋伏！敌人早有准备，绝不会空手而归……",
+	"label": "敌军奋起反击！",
+    "startdescription": "我们中陷阱了！敌军的早已准备伏击我们，他们绝不会让我们全身而退的……",
 	"requirements": {
 	    "kommando.retaliatory": 1
 	},
@@ -1412,14 +1417,14 @@
 	"id": "kommando.counterattack",
 	"$extends" : ["singleattack.startup"],
 	"actionid": "enemyaction.single",
-	"label": "敌人反击！",
-	"startdescription": "这是个埋伏！敌人早有准备，绝不会空手而归……",
+	"label": "敌军奋起反击！",
+    "startdescription": "我们中陷阱了！敌军的早已准备伏击我们，他们绝不会让我们全身而退的……",
 	"requirements" : {},
 	"effects" : {"decision.enemy.attack" : 1},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "kommando.retaliatory": 1
 		},
@@ -1435,9 +1440,9 @@
 	{
 	"id": "enemy.defensive.preparation.alternate",
 	"actionid": "enemy.defensive.preparation",
-	"label": "敌人正在制定防御策略！",
-	"startdescription": "敌人正在策划防御——",
-	"description": "敌人现在对我们准备得更充分了。但这对他们毫无帮助。",
+	"label": "敌军采取防御措施！",
+    "startdescription": "敌军准备巩固防线——",
+    "description": "敌军的战备如今更加充足了，这无疑是件坏事。",
 	"aspects": {
 	    "defensiveprep": 1
 	}
@@ -1446,8 +1451,8 @@
 	{  
 	"id": "enemy.preparation.pre",
 	"actionid": "enemybuffs",  
-	"label": "敌军正在做准备！",
-	"startdescription": "敌军当局已经注意到我们的战果，并向此处的敌军增派了更多兵力——",
+	"label": "敌军正在做战前准备！",
+    "startdescription": "敌军上级察觉了我们的行为，为我们的敌军分配了更多资源。",
 	"extantreqs": {
 		"foe.preparation.buffed" : -1,
 		"lake.here" : -1,
@@ -1480,9 +1485,9 @@
 	
 	{
 	"id": "enemy.preparation.resolution",
-	"label": "敌人已做好准备！",
-	"startdescription": "敌方当局已经注意到我们的战果，并向此处的敌人增派了更多资源——",
-	"description": "他们现在对我们的应对更加充分了。",
+	"label": "敌军正在做战前准备！",
+    "startdescription": "敌军上级察觉了我们的行为，为我们的敌军分配了更多资源。",
+    "description": "敌军的战备如今更加充足了。",
 	"warmup": 5,
 	"effects" : {
 		"buffcounter" : 1
@@ -1493,7 +1498,7 @@
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
@@ -1540,9 +1545,9 @@
 	{
 	"id": "enemy.preparation.retribution",
 	"actionid": "enemybuffs",
-	"label": "敌人已做好准备！",
-	"startdescription": "敌方当局已经注意到我们的战果，并向此处的敌人增派了更多资源——",
-	"description": "他们现在对我们的应对更加充分了。",
+	"label": "敌军正在做战前准备！",
+    "startdescription": "敌军上级察觉了我们的行为，为我们的敌军分配了更多资源。",
+    "description": "敌军的战备如今更加充足了。",
 	"warmup": 5,
 	"effects" : {
 		"buffcounter" : 1
@@ -1553,7 +1558,7 @@
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
@@ -1592,9 +1597,9 @@
 	{
 	"id": "enemy.action.halter.sergei",
 	"actionid" : "sergei_enemy_verb",
-	"label": "这里没有敌人？",
-	"startdescription": "这里没人。",
-	"description": "至少，我们目前没看到。",
+	"label": "此处无人？",
+    "startdescription": "谁也不在这。",
+    "description": "至少，现在谁也不在。",
 	"warmup": 1,
 	"grandReqs" : {
       "~/visible:{verb/enemyaction}:recipe/*": 1,
@@ -1607,9 +1612,9 @@
 	{
 	"id": "enemy.corpse.respawner",
 	"actionid": "respawnenemycorpse",
-	"label": "击杀敌人！",
-	"startdescription": "一名敌人已阵亡！",
-	"description": "一名敌人已阵亡！",
+	"label": "敌军被击杀！",
+    "startdescription": "一组敌军死亡了！",
+    "description": "一组敌军死亡了！",
 	"warmup": 1,
 	"effects": {
         "foe.corpses" : -1
@@ -1620,7 +1625,7 @@
 	"slots": [
 	    {
 		"id": "deadenemy",
-		"label": "死敌",
+		"label": "死去敌军",
 		"required": {
 			"foe.emplaced" : 1,
 			"foe.equipped" : 1
