@@ -36,8 +36,8 @@
 	{
 	"id" : "foe.umiri.coming.lake", 
 	"$depends": [ "3713855248" ],
-    "label": "敌方军官正在赶来",
-    "startdescription": "我们被跟踪了。还有人像我们一样想要、需要那把剑。那位久经沙场的军官正在赶来……",
+    "label": "敌军军官正在前来",
+    "startdescription": "我们被人盯上了。除了我们，还有别人也觊觎这把剑。那位身经百战的女军官正在赶来……",
     "actionId": "foecoming",
     "warmup": 30,
 	"extantreqs": {
@@ -90,8 +90,8 @@
 	
 	{
 	"id" : "foe.umiri.lake.search.cycle",
-    "label": "正在搜寻敌军军官……",
-    "startdescription": "我听到了鸽子的啼鸣，她也听到了。她和我一样，都在寻找那把剑……",
+    "label": "敌军军官正在搜寻……",
+    "startdescription": "我循着鸟鸣前来此地，她亦如此。她与我一样正在寻找那把剑……",
     "actionId": "umiri.lake.scout",
     "warmup": 30,
 	"effects" : {
@@ -116,7 +116,7 @@
 	{
 	"id" : "foe.umiri.lake.search.cycle.attemptfindclue",
     "label": "发现线索！",
-    "startdescription": "她离那把剑又近了一步。我得加把劲了。",
+    "startdescription": "她距离那剑又近了一步。我得再加快些行动。",
     "warmup": 30,
 	"requirements": {
 	    "readiness.token": 2
@@ -134,8 +134,8 @@
 	
 	{
 	"id" : "foe.umiri.lake.attempt.get.sword.pre",
-    "label": "敌方军官正追寻那把剑！",
-    "startdescription": "她找到了通往那把破剑的路径。现在，她正追寻着它……",
+    "label": "敌军军官正在夺取残缺之剑！",
+    "startdescription": "她已经发现了通往残缺之剑的道路。现在她正要去夺取它……",
     "warmup": 30,
 	"requirements": {
 	    "flock.clue.umiri": 7
@@ -153,12 +153,12 @@
 	
 	{
 	"id": "foe.umiri.lake.attempt.get.sword.take.enemies",
-	"label": "敌人正在追击那把剑！",
-	"startdescription": "敌人正在积聚力量……",
+	"label": "敌军正在夺取残缺之剑！",
+    "startdescription": "敌军正在积蓄力量……",
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
@@ -167,7 +167,7 @@
 		
 	    {
 		"id": "needsenemy2",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
@@ -176,7 +176,7 @@
 		
 	    {
 		"id": "needsenemy3",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
@@ -204,15 +204,15 @@
 	
 	{
 	"id": "foe.umiri.lake.attempt.get.sword.take.monsters",
-	"label": "敌人正在追击那把剑！",
-	"startdescription": "怪物们正在集结……",
+	"label": "敌军正在夺取残缺之剑！",
+    "startdescription": "怪物聚集……",
 	"requirements": {
 	    "german": 3
 	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "neutral_monster": 1
 		},
@@ -221,7 +221,7 @@
 		
 	    {
 		"id": "needsenemy2",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "neutral_monster": 1
 		},
@@ -230,7 +230,7 @@
 		
 	    {
 		"id": "needsenemy3",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "neutral_monster": 1
 		},
@@ -258,9 +258,9 @@
 	
 	{
 	"id" : "foe.umiri.lake.attempt.get.sword.germans.vs.monsters",
-    "label": "敌军军官正在追夺宝剑！",
-	"comments": "might add or remove ||| [german] * ||| to chance down there",
-    "startdescription": "她正伸手去拿那把剑！",
+    "label": "敌军军官正在夺取残缺之剑！",
+    "comments": "might add or remove ||| [german] * ||| to chance down there",
+    "startdescription": "她就快得到那把剑了！",
     "warmup": 30,
      "linked": [
 		{
@@ -274,66 +274,38 @@
     ]
 	},
 	
-        {
-            "id": "foe.umiri.lake.attempt.failure",
-            "label": "敌方军官已败北",
-            "startdescription": "帝国的利刃已折。失去首领的他们正仓皇溃退。她只能独自吞下失败的苦果。她终将卷土重来——带着更强大的军队和复仇的渴望。但至少目前，她不会再来骚扰我们了。",
-            "warmup": 30,
-            "actionid": "sideofficer",
-            "effects": {
-                "foe.officerdetail": -1,
-                "progression": -3
-            },
-            "aspects": {
-                "killgerman": 1
-            },
-            "haltverb": {
-                "foecoming": 99,
-                "foeactionumiri": 99,
-            },
-            "alt": [
-                {
-                "id": "routenemies.detect",
-                "additional": true
-                },
-                {
-                    "id": "foeumiriofficer.side.finish"
-                }
-            ]
-        },
-	
-        {
-            "id": "foe.umiri.lake.attempt.failure",
-            "label": "敌方军官已败北",
-            "startdescription": "帝国的利刃已折。失去首领的他们正仓皇溃退。她只能独自吞下失败的苦果。她终将卷土重来——带着更强大的军队和复仇的渴望。但至少目前，她不会再来骚扰我们了。",
-            "warmup": 30,
-            "actionid": "sideofficer",
-            "effects": {
-                "foe.officerdetail": -1,
-                "progression": -3
-            },
-            "aspects": {
-                "killgerman": 1
-            },
-            "haltverb": {
-                "foecoming": 99,
-                "foeactionumiri": 99,
-            },
-            "alt": [
-                {
-                "id": "weakenenemies.detect",
-                "additional": true
-                },
-                {
-                    "id": "foeumiriofficer.side.finish"
-                }
-            ]
-        },
+	{
+		"id": "foe.umiri.lake.attempt.failure",
+		"label": "敌军军官夺剑失败",
+		"startdescription": "帝国的利刃已经败北。他们群龙无首，仓皇撤离。她只得自己吞下这枚失败的苦果。她还会回来，带着更强大的军队与复仇的欲望。至少现在，她不会来找我们的麻烦了。",
+		"warmup": 30,
+		"actionid": "sideofficer",
+		"effects": {
+			"foe.officerdetail": -1,
+			"progression": -3
+		},
+		"aspects": {
+			"killgerman": 1
+		},
+		"haltverb": {
+			"foecoming": 99,
+			"foeactionumiri": 99,
+		},
+		"alt": [
+			{
+			"id": "routenemies.detect",
+			"additional": true
+			},
+			{
+				"id": "foeumiriofficer.side.finish"
+			}
+		]
+	},
 	
     {
 	"id": "foe.umiri.lake.attempt.get.sword.success",
-	"label": "敌方目标已完成",
-	"startdescription": "我们原本是来这里找某样东西的，但敌人抢先一步拿走了。现在，这个机会已经没了。",
+	"label": "敌军目标得手！",
+    "startdescription": "我们曾在此寻找某物，但敌军先我们一步得手。现在，我们已经没有机会了。",
 	"aspects": {
 	    "makeadditional": 1
 	},
@@ -367,7 +339,7 @@
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌人",
+		"label": "敌军",
 		"required": {
 		    "german": 1
 		},
@@ -401,9 +373,9 @@
 	{
 	"id": "foe.umiri.get.ebrehel",
 	"actionid" : "finalbattle",
-	"label": "伤疤之剑",
-	"startdescription": "随着冯·海灵的死，我终于得到了那把能让我名扬天下的剑。",
-	"description": "随着冯·海灵的死，我终于得到了那把能让我名扬天下的剑。",
+	"label": "残缺之剑",
+    "startdescription": "冯·海玲已经死去，这把代表具名者资格的剑重归我手。",
+    "description": "冯·海玲已经死去，这把代表具名者资格的剑重归我手。",
 	"extantreqs" : {
 		"ebrehel.umiri" : 1
 	},
@@ -436,9 +408,9 @@
     {
 	"id": "too.late.lake",
 	"actionid": "operate",
-	"label": "Too Late",
+	"label": "太迟了",
 	"$priority" : 1,
-	"startdescription": "那个德国军官比我先拿到了那把剑。现在，我唯一能拿到那把剑的方式，就是从她的尸体上拿走。",
+	"startdescription": "那位德军军官已经先我一步取得那把剑。如今我只能从她的尸体旁边取走它了。",
 	"grandreqs": {
 		"([flock.clue] || [side.ebrehel])": 1,
 	},

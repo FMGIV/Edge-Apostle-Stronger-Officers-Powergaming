@@ -4,8 +4,8 @@
 	"id": "lake.monster.cycle", 
 	"$depends": [ "3713855248" ],
 	"actionid": "lake.monster",
-	"label": "怪物们在静待时机",
-	"startdescription": "我们的敌人已大举来袭，但至今尚未有人对我们采取行动。时间一分一秒地流逝。很快了。",
+	"label": "怪物们正等待时机",
+    "startdescription": "我们的敌军在此聚集，但尚未做出任何攻击行为。时间不断流逝。它们即将行动。",
 	"warmup": 30,
 	"linked": [
 	    {
@@ -21,7 +21,7 @@
     {
 	"id": "lake.monster.pickaction.router", 
 	"$depends": [ "3713855248" ],
-	"label": "The Monsters Act!",
+	"label": "怪物们行动了！",
 	"startdescription": "",
 	"linked": [
 	    {
@@ -39,8 +39,8 @@
     {
 	"id": "lake.monster.pickaction.high", 
 	"$depends": [ "3713855248" ],
-	"label": "怪物出动了！",
-	"startdescription": "警报声大作——我们的敌人正在集结！",
+	"label": "怪物们行动了！",
+    "startdescription": "警报响起——我们的敌人开始行动了！",
 	"extantreqs": {
 	    "strife.tracker": 5
 	},
@@ -62,8 +62,8 @@
     {
 	"id": "lake.monster.pickaction.medium", 
 	"$depends": [ "3713855248" ],
-	"label": "怪物出动了！",
-	"startdescription": "警报声大作——我们的敌人正在集结！",
+	"label": "怪物们行动了！",
+    "startdescription": "警报响起——我们的敌人开始行动了！",
 	"extantreqs": {
 	    "strife.tracker": 3
 	},
@@ -85,8 +85,8 @@
     {
 	"id": "lake.monster.pickaction.low", 
 	"$depends": [ "3713855248" ],
-	"label": "怪物出动了！",
-	"startdescription": "警报声大作——我们的敌人正在集结！",
+	"label": "怪物们行动了！",
+    "startdescription": "警报响起——我们的敌人开始行动了！",
 	"deckeffects": {
 	    "decisions.lake.monster.low": 1
 	},
@@ -105,8 +105,8 @@
     {
 	"id": "lake.monster.executeaction", 
 	"$depends": [ "3713855248" ],
-	"label": "怪物出动了！",
-	"startdescription": "警报声大作——我们的敌人正在集结！",
+	"label": "怪物们行动了！",
+    "startdescription": "警报响起——我们的敌人开始行动了！",
 	"linked": [
 	    {
 		"id": "lake.monster.clear"
@@ -135,7 +135,7 @@
     {
 	"id": "lake.monster.clear", 
 	"$depends": [ "3713855248" ],
-	"label": "The Lake Monsters Act!",
+	"label": "湖中怪物行动了！",
 	"effects": {
 	    "decision": -99,
 	    "readiness.token": -99
@@ -150,8 +150,8 @@
     {
 	"id": "lake.monster.doubleattack.1.startup",
 	"actionid": "enemyaction.double.1",
-	"label": "钳形攻势！",
-	"startdescription": "我们的两名对手决定同时发动攻击——这是策略，还是纯粹的倒霉？无论如何，接下来的交锋恐怕会相当激烈。",
+	"label": "一次夹击！",
+    "startdescription": "我们的敌人之二决定同时袭击我们——是策略，还是纯粹的坏运气？无论是哪一种，我们都将遭遇一场棘手的战斗。",
 	"effects": {
 	    "decision.enemy.attack": 1
 	},
@@ -164,7 +164,7 @@
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "湖怪",
+		"label": "湖中怪物",
 		"required": {
 		    "neutral_monster": 1
 		},
@@ -204,8 +204,8 @@
     {
 	"id": "lake.monster.doubleattack.2.startup",
 	"actionid": "enemyaction.double.2",
-	"label": "钳形攻势！",
-	"startdescription": "我们的两名对手决定同时发动攻击——这是策略，还是纯粹的倒霉？无论如何，接下来的交锋恐怕会相当激烈。",
+	"label": "一次夹击！",
+    "startdescription": "我们的敌人之二决定同时袭击我们——是策略，还是纯粹的坏运气？无论是哪一种，我们都将遭遇一场棘手的战斗。",
 	"effects": {
 	    "decision.enemy.attack": 1
 	},
@@ -258,8 +258,8 @@
     {
 	"id": "lake.monster.singleattack.startup",
 	"actionid": "enemyaction.single",
-	"label": "一场敌对进攻！",
-	"startdescription": "我们的敌人之一正企图向我们发起攻击——",
+	"label": "敌军进攻了！",
+    "startdescription": "我们的敌人之一寻求对我们的袭击——",
 	"effects": {
 	    "decision.enemy.attack": 1
 	},
@@ -272,7 +272,7 @@
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "湖怪",
+		"label": "湖中怪物",
 		"required": {
 		    "neutral_monster": 1
 		},
@@ -324,7 +324,7 @@
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "湖怪",
+		"label": "湖中怪物",
 		"required": {
 		    "neutral_monster": 1
 		},
@@ -347,8 +347,8 @@
 	{
 	"id": "lake.monster.enemy.executeaction.targetenemy.pre",
 	"$depends": [ "3713855248" ],
-	"label": "湖怪出动！",
-	"startdescription": "警报声大作——我们的对手正在集结！",
+	"label": "湖中怪物行动了！",
+    "startdescription": "警报响起——我们的敌人开始行动了！",
 	"tablereqs": {
 	    "neutral_monster": 1
 	},
@@ -368,8 +368,8 @@
     {
 	"id": "lake.monster.enemy.executeaction.targetenemy", 
 	"$depends": [ "3713855248" ],
-	"label": "湖怪出动！",
-	"startdescription": "警报声大作——我们的对手正在集结！",
+	"label": "怪物们行动了！",
+    "startdescription": "警报响起——我们的敌人开始行动了！",
 	"tablereqs": {
 	    "neutral_monster": 1
 	},
@@ -391,8 +391,8 @@
     {
 	"id": "lake.monster.enemy.executeaction.targetenemy.high", 
 	"$depends": [ "3713855248" ],
-	"label": "湖怪出动！",
-	"startdescription": "警报声大作——我们的对手正在集结！",
+	"label": "怪物们行动了！",
+    "startdescription": "警报响起——我们的敌人开始行动了！",
 	"tablereqs": {
 	    "neutral_monster": 1
 	},
@@ -412,8 +412,8 @@
     {
 	"id": "lake.monster.enemy.executeaction.targetenemy.continue", 
 	"$depends": [ "3713855248" ],
-	"label": "湖怪出动！",
-	"startdescription": "警报声大作——我们的对手正在集结！",
+	"label": "湖中怪物行动了！",
+    "startdescription": "警报响起——我们的敌人开始行动了！",
 	"alt": [
 	    {
 		"id": "lake.monster.enemy.targetenemy.startup.lake.monster",
@@ -438,9 +438,9 @@
     {
 	"id": "lake.monster.enemy.targetenemy.startup.lake.monster",
 	"actionid": "enemyaction.single",
-	"label": "一场敌对进攻！",
-	"startdescription": "一只怪物正向海灵的部队发起进攻——",
-	"description": "战场一片寂静。野兽们正在沉睡。",
+	"label": "敌军进攻了！",
+    "startdescription": "怪物之一向海玲的军队发起了一次进攻——",
+    "description": "怪物们不再发出声响，战场安静了。",
 	"requirements": {
 	    "decision.enemy.singleattack": 1,
 	    "decision.enemy.doubleattack": -1
@@ -448,7 +448,7 @@
 	"slots": [
 	    {
 		"id": "needsgerman",
-		"label": "湖怪",
+		"label": "湖中怪物",
 		"required": {
 		    "neutral_monster": 1
 		},
@@ -470,8 +470,8 @@
 	
     {
 	"id": "lake.monster.enemy.targetenemy",
-	"label": "一场敌对的进攻！",
-	"startdescription": "怪物们循着鲜血和肉体的气味，向敌人发起攻击——",
+	"label": "敌军进攻了！",
+    "startdescription": "怪物循着血腥味，扑向它们的敌人——",
 	"requirements": {
 	    "foe": 1
 	},
@@ -502,7 +502,7 @@
 	
     {
 	"id": "lake.monster.enemy.targetenemy.0",
-	"label": "怪物大获全胜！",
+	"label": "怪物们获胜了！",
 	"linked": [
 	    {
 		"id": "lake.monster.enemy.targetenemy.victory",
@@ -516,8 +516,8 @@
 	
     {
 	"id": "lake.monster.enemy.targetenemy.victory",
-	"label": "怪物大获全胜！",
-	"startdescription": "远处，我看到德国人拼命逃命。今晚，这些野兽吃得可真痛快。",
+	"label": "怪物们获胜了！",
+    "startdescription": "在远处，我看见德国人正仓皇逃窜。怪物们享用了一顿不错的晚餐。",
 	"requirements": {
 	},
 	"aspects": {
@@ -535,8 +535,8 @@
 	
     {
 	"id": "lake.monster.enemy.targetenemy.victory.growth",
-	"label": "厌恶，绽放",
-	"startdescription": "‘加冕之生’的触碰并非预示死亡，而是预示生命。人们很快就会学会畏惧这一承诺。",
+	"label": "绽放的憎恶",
+    "startdescription": "戴冠之孳的触碰承诺的不是死亡，而是生命。人们很快便学会畏惧这承诺。",
 	"requirements": {
 	    "foe.growth": 1
 	},
@@ -548,8 +548,8 @@
 	
     {
 	"id": "lake.monster.enemy.targetenemy.victory.self_destruction",
-	"label": "怪物大获全胜！",
-	"startdescription": "远处，我看到德国人拼命逃命。今晚，这些野兽吃得可真尽兴。",
+	"label": "怪物们获胜了！",
+    "startdescription": "在远处，我看见德国人正仓皇逃窜。怪物们享用了一顿不错的晚餐。",
 	"requirements": {
 	    "self_destruction": 1
 	},
@@ -560,15 +560,15 @@
 	
     {
 	"id": "lake.monster.enemy.targetenemy.defeat",
-	"label": "怪物们的撤退！",
-	"startdescription": "怪物们逃离了德国人的枪口。今晚，它们将饿死。"
+	"label": "怪物们撤退了！",
+    "startdescription": "怪物们在德军的炮火之下逃窜。它们今晚还得挨饿。"
     },
 	
     {
 	"id": "lake.monster.enemy.doubleattack.1.startup.againstenemy",
 	"actionid": "enemyaction.double.1",
-	"label": "钳形攻势！",
-	"startdescription": "敌人针对对手策划了一次两面夹击——",
+	"label": "一次夹击！",
+    "startdescription": "敌军计划了一次对其对手的双线进攻——",
 	"effects": {
 	    "decision.enemy.attack": 1
 	},
@@ -581,7 +581,7 @@
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "湖怪",
+		"label": "湖中怪物",
 		"required": {
 		    "neutral_monster": 1
 		},
@@ -605,8 +605,8 @@
     {
 	"id": "lake.monster.enemy.doubleattack.2.startup.againstenemy",
 	"actionid": "enemyaction.double.2",
-	"label": "钳形攻势！",
-	"startdescription": "敌人针对对手策划了一次两面夹击——",
+	"label": "一次夹击！",
+    "startdescription": "敌军计划了一次对其对手的双线进攻——",
 	"effects": {
 	    "decision.enemy.attack": 1
 	},
@@ -619,7 +619,7 @@
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "湖怪",
+		"label": "湖中怪物",
 		"required": {
 		    "neutral_monster": 1
 		},
