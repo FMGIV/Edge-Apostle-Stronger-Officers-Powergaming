@@ -241,17 +241,42 @@
 	},
 	
 	{
-    "id": "defend.opportunity",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1 }
-			}
-		},
+    "id": "defend.opportunity", 
 	"inductions" : [
 		{
 			"id" : "make.vivienne.opening"
 		}
 		]
+    },
+	
+	{
+    "id": "defend.opportunity", 
+	"$incompatible": [ "3775567517", "3713855248" ],
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden" : { "friend.away" : 1, "exhausted" : 1 }
+			}
+		}
+    },
+	
+	{
+    "id": "defend.opportunity", 
+	"$depends": [ "3713855248" ],
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1 }
+			}
+		},
+    },
+	
+	{
+    "id": "defend.opportunity", 
+	"$depends": [ "3775567517" ],
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1 }
+			}
+		},
     },
 	
 	{
@@ -285,7 +310,18 @@
 	},
 	
 	{
-    "id": "assistlocals.prep",
+    "id": "assistlocals.prep", 
+	"$incompatible": [ "3775567517", "3713855248" ],
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden" : { "friend.away" : 1 }
+			}
+		}
+    },
+	
+	{
+    "id": "assistlocals.prep", 
+	"$depends": [ "3713855248" ],
     "slots$listedit": { 
 		"0$dictedit" : {
 			"forbidden$add" : { "friend.away" : 1 }
@@ -294,7 +330,38 @@
     },
 	
 	{
-    "id": "shakedown.prep",
+    "id": "assistlocals.prep", 
+	"$depends": [ "3775567517" ],
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1 }
+			}
+		}
+    },
+	
+	{
+    "id": "shakedown.prep", 
+	"$incompatible": [ "3775567517", "3713855248" ],
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden" : { "friend.away" : 1, "exhausted" : 1}
+			}
+		}
+    },
+	
+	{
+    "id": "shakedown.prep", 
+	"$depends": [ "3713855248" ],
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
+			}
+		}
+    },
+	
+	{
+    "id": "shakedown.prep", 
+	"$depends": [ "3775567517" ],
     "slots$listedit": { 
 		"0$dictedit" : {
 			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
@@ -312,7 +379,28 @@
     },
 	
 	{
-    "id": "encounternative",
+    "id": "encounternative", 
+	"$incompatible": [ "3775567517", "3713855248" ],
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden" : { "friend.away" : 1, "exhausted" : 1}
+			}
+		}
+    },
+	
+	{
+    "id": "encounternative", 
+	"$depends": [ "3713855248" ],
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
+			}
+		}
+    },
+	
+	{
+    "id": "encounternative", 
+	"$depends": [ "3775567517" ],
     "slots$listedit": { 
 		"0$dictedit" : {
 			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
@@ -351,7 +439,7 @@
 	
 	{
 	"id": "foe.lethal.kill",
-	"linked$append" : [
+	"linked" : [
 		{
 			"id": "foe.corrosive.dissolve"
 		}
@@ -786,7 +874,20 @@
 	},
 	
 	{
-	"id": "visit.shrinewolf.getskill",
+	"id": "visit.shrinewolf.getskill", 
+	"$incompatible": [ "3775567517", "3713855248" ],
+	"extantreqs": {"contemnant.memento" : -1}
+	},
+	
+	{
+	"id": "visit.shrinewolf.getskill", 
+	"$depends": [ "3713855248" ],
+	"extantreqs$add": {"contemnant.memento" : -1}
+	},
+	
+	{
+	"id": "visit.shrinewolf.getskill", 
+	"$depends": [ "3775567517" ],
 	"extantreqs$add": {"contemnant.memento" : -1}
 	},
 	
@@ -1937,7 +2038,34 @@
 	},
 	
 	{
-	"id": "encounteradditional",
+	"id": "encounteradditional", 
+	"$incompatible": [ "3775567517", "3713855248" ],
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"}
+		},
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden" : { "friend.away" : 1, "exhausted" : 1}
+			}
+		}
+	},
+	
+	{
+	"id": "encounteradditional", 
+	"$depends": [ "3713855248" ],
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "30 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"}
+		},
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
+			}
+		}
+	},
+	
+	{
+	"id": "encounteradditional", 
+	"$depends": [ "3775567517" ],
 	"linked$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"}
 		},
