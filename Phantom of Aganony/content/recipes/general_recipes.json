@@ -1,0 +1,566 @@
+{
+  "recipes": [
+    {
+      "id": "travel.sobibor.purge",
+      "purge$add": {
+        "neutral": 99
+      }
+    },
+    {
+      "id": "travelling.cycle.complete.purge",
+      "purge$add": {
+        "neutral": 99
+      }
+    },
+    {
+      "id": "travelling.cycle.purge",
+      "purge$add": {
+        "neutral": 99
+      }
+    },
+    {
+      "id": "encounternative",
+      "startdescription$postfix": "@#hindrance.annolondon|Within the hall, the relic lies upon the altar. Firelight shines in from outside, casting long shadows before the altar. She paces at the boundary between light and dark; the sound of her Mary Janes is clearly audible amid the burning. I take a deep breath…@"
+    },
+    {
+      "id": "encounternative.failure",
+      "linked$prepend": [
+        {
+          "id": "encounternative.failure.annolondon"
+        }
+      ]
+    },
+    {
+      "id": "encounternative.failure.annolondon",
+      "label": "Defeat!",
+      "startdescription": "Of course I cannot pass through so openly. If I want it, I must take it myself.",
+      "extantreqs": {
+        "sobibor.here": -1,
+        "annolondonhere": 1
+      },
+      "requirements": {
+        "hindrance.annolondon": 1
+      },
+      "aspects": {
+        "killfriend": 1
+      },
+      "effects": {
+        "foe": -99,
+        "hindrance": -99
+      },
+      "mutations": [
+        {
+          "filter": "side",
+          "mutate": "location",
+          "level": 1
+        },
+        {
+          "filter": "side",
+          "mutate": "side",
+          "level": -1,
+          "additive": true
+        }
+      ],
+      "alt": [
+        {
+          "id": "annolondon.fighting.startup",
+          "additional": true
+        }
+      ],
+      "warmup": 10
+    },
+    {
+      "id": "resupply.startup.contemnant",
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": { "missionannolondon": 1 }
+        }
+      }
+    },
+    {
+      "id": "encounternative.lucky",
+      "requirements": {
+        "hindrance.annolondon": -1
+      }
+    },
+    {
+      "id": "visit.shrinewolf.annolondon",
+      "actionid": "mobilize",
+      "label": "Seek Understanding in the Wolf's Shadow",
+      "startdescription": "Few shrines or monuments are built in the Wolf's name. But where his power gathers—where suffering has permanently stained the world—those who claim to follow him may find understanding.\n\n[This will give you mental trauma.]",
+      "description": "Amid the howling of the Wolf, besides the usual emotions, I am quite sure I heard a sneer.",
+      "requirements": {
+        "shrine.wolf.marker": 1,
+        "mission.annolondon.c": 1
+      },
+      "aspects": {
+        "advancement": 1
+      },
+      "effects": {
+        "trauma": 1
+      },
+      "mutations": [
+        {
+          "filter": "shrine.wolf.marker",
+          "mutate": "shrine.wolf.marker",
+          "level": -1
+        },
+        {
+          "filter": "location",
+          "mutate": "location",
+          "level": -1
+        }
+      ],
+      "warmup": 60,
+      "craftable": true
+    },
+    {
+      "id": "dreams.startup",
+      "alt$prepend": [
+        {
+          "id": "contemplation.complete.annolondon"
+        },
+        {
+          "id": "contemplation.mission.annolondon.b"
+        }
+      ]
+    },
+    {
+      "id": "contemplation.complete.annolondon",
+      "label": "Truth?",
+      "startdescription": "You cannot figure it out on your own.\n\n[Perhaps you should use this intent elsewhere.]",
+      "requirements": {
+        "mission.annolondon.c": 1
+      }
+    },
+    {
+      "id": "contemplation.mission.annolondon.b",
+      "label": "Past Events of Dresden",
+      "startdescription": "Early spring of 1926, Raffleinitz Convent...",
+      "requirements": {
+        "mission.annolondon.b": 1
+      },
+      "linked": [
+        {
+          "id": "contemplation.annolondon"
+        }
+      ]
+    },
+    {
+      "id": "contemplation.annolondon",
+      "label": "Hold Your Breath and Focus",
+      "startdescription": "The power within me—what is stirred inside me? What can help me see the truth in dreams?",
+      "slots": [
+        {
+          "id": "needssomething",
+          "label": "Will",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "weapon": 1,
+            "supplies": 1,
+            "contemplation": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "exhausted": 1,
+            "edgelong": 1
+          }
+        },
+        {
+          "id": "needssomething2",
+          "label": "Determination",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "weapon": 1,
+            "supplies": 1,
+            "contemplation": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "exhausted": 1,
+            "edgelong": 1
+          }
+        },
+        {
+          "id": "needssomething3",
+          "label": "Concentration",
+          "required": {
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "weapon": 1,
+            "supplies": 1,
+            "contemplation": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "exhausted": 1,
+            "edgelong": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "contemplate.annolondon.hindrance"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "contemplate.annolondon.hindrance",
+      "label": "Follow Anon's Footsteps",
+      "linked": [
+        {
+          "id": "contemplate.annolondon.hindrance.3"
+        },
+        {
+          "id": "contemplate.annolondon.hindrance.2"
+        },
+        {
+          "id": "contemplate.annolondon.hindrance.1"
+        },
+        {
+          "id": "contemplate.annolondon.hindrance.0"
+        }
+      ]
+    },
+    {
+      "id": "contemplate.annolondon.hindrance.3",
+      "label": "Irrefutable Fact",
+      "startdescription": "Her own sister died a horrible death; everyone who comes near the spear must be held responsible for it...!",
+      "warmup": 30,
+      "requirements": {
+        "progression": 3
+      },
+      "aspects": {
+        "ascend": 1,
+        "fatiguing": 1
+      }
+    },
+    {
+      "id": "contemplate.annolondon.hindrance.2",
+      "label": "The Deepest Part of the Dream...",
+      "startdescription": "That woman has returned...",
+      "warmup": 10,
+      "requirements": {
+        "progression": 2
+      },
+      "aspects": {
+        "opx.progress2": 1
+      },
+      "linked": [
+        {
+          "id": "contemplate.annolondon.facechallenge"
+        }
+      ]
+    },
+    {
+      "id": "contemplate.annolondon.hindrance.1",
+      "label": "Deeper into the Dream...",
+      "startdescription": "Clara chased after her...",
+      "warmup": 10,
+      "requirements": {
+        "progression": 1
+      },
+      "aspects": {
+        "opx.progress1": 1
+      },
+      "linked": [
+        {
+          "id": "contemplate.annolondon.facechallenge"
+        }
+      ]
+    },
+    {
+      "id": "contemplate.annolondon.hindrance.0",
+      "label": "Enter the Dream",
+      "startdescription": "I see Clara pacing beside the altar.",
+      "warmup": 10,
+      "aspects": {
+        "opx.progress0": 1
+      },
+      "linked": [
+        {
+          "id": "contemplate.annolondon.facechallenge"
+        }
+      ]
+    },
+    {
+      "id": "contemplate.annolondon.facechallenge",
+      "label": "Clara's Encounter",
+      "startdescription": "I need to endure this to know what happened.",
+      "slots": [
+        {
+          "id": "resources1",
+          "label": "Will",
+          "required": {
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "friend": 1,
+            "weapon": 1,
+            "supplies": 1,
+            "contemplation": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "exhausted": 1,
+            "edgelong": 1
+          }
+        }
+      ],
+      "alt": [
+        {
+          "id": "contemplate.annolondon.victory.forge"
+        },
+        {
+          "id": "contemplate.annolondon.victory.winter"
+        },
+        {
+          "id": "contemplate.annolondon.victory.knock"
+        },
+        {
+          "id": "contemplate.annolondon.victory.lantern"
+        },
+        {
+          "id": "contemplate.annolondon.victory.edgewinter"
+        }
+      ],
+      "linked": [
+        {
+          "id": "contemplate.annolondon.failure"
+        }
+      ],
+      "warmup": 30
+    },
+    {
+      "id": "contemplate.annolondon.victory.forge",
+      "label": "Follow Clara's Footsteps",
+      "startdescription": "That day, a black-eyed French woman broke into the convent...\n\"This is something I used before, miss. Please step aside.\"\nThe woman's tone was very polite, but the chill in her words seemed to crush every bone in my body.",
+      "requirements": {
+        "needsforge": 1,
+        "forge": "needsforge"
+      },
+      "effects": {
+        "progression": 1,
+        "foe": -99,
+        "hindrance": -99
+      },
+      "linked": [
+        {
+          "id": "contemplate.annolondon.hindrance"
+        }
+      ]
+    },
+    {
+      "id": "contemplate.annolondon.victory.winter",
+      "label": "Follow Clara's Footsteps",
+      "startdescription": "That day, a black-eyed French woman broke into the convent...\n\"This is something I used before, miss. Please step aside.\"\nThe woman's tone was very polite, but the chill in her words seemed to crush every bone in my body.",
+      "requirements": {
+        "needswinter": 1,
+        "winter": "needswinter"
+      },
+      "effects": {
+        "progression": 1,
+        "foe": -99,
+        "hindrance": -99
+      },
+      "linked": [
+        {
+          "id": "contemplate.annolondon.hindrance"
+        }
+      ]
+    },
+    {
+      "id": "contemplate.annolondon.victory.knock",
+      "label": "Follow Clara's Footsteps",
+      "startdescription": "The spear was handed into her hand, and the woman turned and left. As she wandered, she discovered her sister was gone. Why...",
+      "requirements": {
+        "needsknock": 1,
+        "knock": "needsknock"
+      },
+      "effects": {
+        "progression": 1,
+        "foe": -99,
+        "hindrance": -99
+      },
+      "linked": [
+        {
+          "id": "contemplate.annolondon.hindrance"
+        }
+      ]
+    },
+    {
+      "id": "contemplate.annolondon.victory.lantern",
+      "label": "Follow Clara's Footsteps",
+      "startdescription": "The spear was handed into her hand, and the woman turned and left. As she wandered, she discovered her sister was gone. Why...",
+      "requirements": {
+        "needslantern": 1,
+        "lantern": "needslantern"
+      },
+      "effects": {
+        "progression": 1,
+        "foe": -99,
+        "hindrance": -99
+      },
+      "linked": [
+        {
+          "id": "contemplate.annolondon.hindrance"
+        }
+      ]
+    },
+    {
+      "id": "contemplate.annolondon.victory.edgewinter",
+      "label": "Follow Clara's Footsteps",
+      "startdescription": "She barely avoided being shattered by that woman's words. When she came to, she was beside some brick kiln, and that woman was holding the spear, pointing it at someone she could not see clearly.\n\"The Wolf is not bound by law. I can use that lord's power in the past, and I can also pierce you into fragments now for revenge.\"\nEndless suffering emanated from the victim...",
+      "requirements": {
+        "needsedgewinter": 1,
+        "edge": "needsedgewinter",
+        "winter": "needsedgewinter"
+      },
+      "effects": {
+        "progression": 1,
+        "foe": -99,
+        "hindrance": -99
+      },
+      "linked": [
+        {
+          "id": "contemplate.annolondon.hindrance"
+        }
+      ]
+    },
+    {
+      "id": "contemplate.annolondon.failure",
+      "label": "Lost",
+      "startdescription": "Clara walked on, leaving me stranded halfway, unable to move.",
+      "aspects": {
+        "fatiguing": 1
+      }
+    },
+    {
+      "id": "soviet.turnaggro.inflames",
+      "extantreqs$add": {
+        "annolondonhere": -1,
+        "dresden.here": -1
+      }
+    },
+    {
+      "id": "soviet.cycle.startup.aggro",
+      "extantreqs$add": {
+        "annolondonhere": -1,
+        "dresden.here": -1
+      }
+    },
+    {
+      "id": "travelling.cycle.complete.exit",
+      "linked": [
+        {
+          "id": "travelling.cycle.complete.exit.dresden"
+        }
+      ]
+    },
+    {
+      "id": "travelling.cycle.complete.exit.dresden",
+      "$extends": ["travelling.cycle.complete.exit"],
+      "requirements": {
+        "dresden.here": 1
+      },
+      "effects": {
+        "wasteland.a": -1,
+        "wasteland.b": -1,
+        "main": -1,
+        "dresden.here": -1,
+        "shrine.wolf": 1
+      },
+      "mutations": [
+        {
+          "filter": "friend",
+          "mutate": "local",
+          "level": 1
+        }
+      ],
+      "linked": [
+        {
+          "id": "travelling.cycle.complete.exit.dresden.two"
+        }
+      ],
+      "alt": [
+        {
+          "id": "enemy.cycle",
+          "additional": true
+        },
+        {
+          "id": "soviet.cycle.startup",
+          "additional": true
+        }
+      ],
+      "purge": {
+        "token.escaped": 99
+      },
+      "warmup": 1
+    },
+    {
+      "id": "travelling.cycle.complete.exit.dresden.two",
+      "$extends": ["travelling.cycle.complete.exit"],
+      "requirements": {
+        "shrine.wolf": 1
+      },
+      "effects": {},
+      "mutations": [
+        {
+          "filter": "shrine.wolf",
+          "mutate": "annolondonhere",
+          "level": 1
+        },
+        {
+          "filter": "shrine.wolf",
+          "mutate": "sector.b",
+          "level": 1
+        },
+        {
+          "filter": "shrine.wolf",
+          "mutate": "long.blocker",
+          "level": 1
+        },
+        {
+          "filter": "shrine.wolf",
+          "mutate": "local.infamy",
+          "level": -99
+        }
+      ],
+      "alt": [],
+      "purge": {}
+    }
+  ]
+}

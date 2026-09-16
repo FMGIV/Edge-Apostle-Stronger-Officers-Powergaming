@@ -1,0 +1,1405 @@
+{
+  "recipes": [
+    {
+      "id": "operate.strike.annolondon.pre",
+      "actionid": "operate",
+      "label": "Make a Nearly Impossible Attack on Clara?",
+      "startdescription": "I must use everything I have in this strike. Any weaker blow will not suffice.\n\n[<b>All</b> resources used in this attack will be consumed. You need to provide a large amount of Edge to make the odds of this gamble no longer zero, but unless you use Insight, you will most likely fail]",
+      "extantreqs": {
+        "foe.annolondon": 1
+      },
+      "requirements": {
+        "annolondon.opening": 3
+      },
+      "effects": {
+        "long.breakthrough.challenge": 1
+      },
+      "craftable": true,
+      "linked": [
+        {
+          "id": "operate.strike.annolondon"
+        }
+      ]
+    },
+    {
+      "id": "operate.strike.annolondon",
+      "actionid": "operate",
+      "label": "Make a Nearly Impossible Attack on Clara?",
+      "startdescription": "I must use everything I have in this strike. Any weaker blow will not suffice.\n\n[<b>All</b> resources used in this attack will be consumed. You need to provide a large amount of Edge to make the odds of this gamble no longer zero, but unless you use Insight, you will most likely fail]",
+      "slots": [
+        {
+          "id": "needssomething",
+          "required": {
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "damage.body": 1,
+            "damage.mind": 1
+          },
+          "consumes": true
+        },
+        {
+          "id": "needssomething2",
+          "required": {
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "damage.body": 1,
+            "damage.mind": 1
+          },
+          "consumes": true
+        },
+        {
+          "id": "needssomething3",
+          "required": {
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "damage.body": 1,
+            "damage.mind": 1
+          },
+          "consumes": true
+        }
+      ],
+      "warmup": 15,
+      "alt": [
+        {
+          "id": "operate.strike.annolondon.success.insight"
+        },
+        {
+          "id": "operate.strike.annolondon.success"
+        }
+      ],
+      "linked": [
+        {
+          "id": "operate.strike.annolondon.failure"
+        }
+      ]
+    },
+    {
+      "id": "operate.strike.annolondon.success.insight",
+      "label": "Make a Nearly Impossible Attack",
+      "startdescription": "All weapons shatter in my hands. I have come close enough to see the silver wolf-head clasp at her collar. I feel the Wolf's claws upon my fingers. I will perform one of the Wolf's rare sacred acts.\n\n[This attack will certainly hit]",
+      "description": "All of this is merely to deliver a single strike.",
+      "requirements": {
+        "needsedge": 1,
+        "edge": "needsedge",
+        "insight.annolondon": 1
+      },
+      "aspects": {
+        "killfriend": 1,
+        "killmortal": 1,
+        "fatiguing": 1
+      },
+      "effects": {
+        "annolondon.behurted": 1
+      },
+      "linked": [
+        {
+          "id": "defeat.annolondon.haltverb"
+        }
+      ]
+    },
+    {
+      "id": "operate.strike.annolondon.success",
+      "label": "Make a Nearly Impossible Attack",
+      "startdescription": "All weapons shatter in my hands. I have come close enough to see the silver wolf-head clasp at her collar. I feel the Wolf's claws upon my fingers. I will perform one of the Wolf's rare sacred acts.\n\n[This attack has a small chance to hit]",
+      "description": "All of this is merely to deliver a single strike.",
+      "requirements": {
+        "needsedge": 1,
+        "edge": "needsedge"
+      },
+      "aspects": {
+        "killfriend": 1,
+        "killmortal": 1,
+        "fatiguing": 1
+      },
+      "effects": {
+        "annolondon.behurted": 1
+      },
+      "linked": [
+        {
+          "id": "operate.strike.annolondon.failure",
+          "chance": 65
+        },
+        {
+          "id": "defeat.annolondon.haltverb"
+        }
+      ]
+    },
+    {
+      "id": "operate.strike.annolondon.failure",
+      "label": "My Attack Fell Short!",
+      "startdescription": "Even though I did my utmost, the sharpness at my fingertips shattered against her with a resounding crack. She smiled contemptuously.",
+      "aspects": {
+        "killmortal": 1,
+        "killfriend": 1,
+        "fatiguing": 1
+      },
+      "effects": {
+        "annolondon.behurted": -99
+      }
+    },
+    {
+      "id": "defeat.annolondon.haltverb",
+      "label": "Clara Has Fallen!",
+      "extantreqs": {
+        "annolondon.behurted": 3
+      },
+      "haltverb": {
+        "spit.annolondon": 99
+      },
+      "effects": {
+        "annolondon.behurted": -99
+      },
+      "purge": {
+        "annolondon.opening": 99,
+        "annolondon.behurted": 99
+      },
+      "achievements": [
+        "achievement.annolondon"
+      ],
+      "linked": [
+        {
+          "id": "defeat.annolondon"
+        }
+      ],
+      "playAudioTrack": "annolondondead.mp3"
+    },
+    {
+      "id": "defeat.annolondon",
+      "label": "Clara Has Fallen!",
+      "startdescription": "“I know. I was merely making excuses for my own destruction. Perhaps my life was nothing but hypocritical chaos from beginning to end. Perhaps I was always a wolf forced to wear a mask. Perhaps... perhaps, like my sister, I was born at the start of the century and died never having existed.”",
+      "warmup": 30,
+      "slots": [
+        {
+          "id": "needsannolondon",
+          "label": "“Clara”",
+          "required": {
+            "foe.annolondon": 1
+          },
+          "consumes": true,
+          "greedy": true
+        }
+      ],
+      "effects": {
+        "foe": -1,
+        "long.opening": -99
+      },
+      "linked": [
+        {
+          "id": "defeat.annolondon.cycle"
+        }
+      ]
+    },
+    {
+      "id": "defeat.annolondon.cycle",
+      "label": "Wish Fulfilled",
+      "startdescription": "Her body dissolves into the wind. I know full well that the reason the Wolf chose her was to wait for another attendee of the Gluttonous Feast to step over her corpse and take the relic. With respect, I raise the spear toward the heavens. We have both had our wishes fulfilled.",
+      "warmup": 10,
+      "slots": [
+        {
+          "id": "needsannolondon",
+          "label": "Convent",
+          "required": {
+            "side.dresden": 1
+          },
+          "greedy": true
+        }
+      ],
+      "effects": {
+        "foe": -1,
+        "long.opening": -99
+      },
+      "linked": [
+        {
+          "id": "defeat.annolondon.end"
+        },
+        {
+          "id": "defeat.annolondon.cycle"
+        }
+      ]
+    },
+    {
+      "id": "defeat.annolondon.end",
+      "label": "Wish Fulfilled",
+      "startdescription": "Her body dissolves into the wind. I know full well that the reason the Wolf chose her was to wait for another attendee of the Gluttonous Feast to step over her corpse and take the relic. With respect, I raise the spear toward the heavens. We have both had our wishes fulfilled.",
+      "requirements": {
+        "side.dresden": 1
+      },
+      "effects": {
+        "weapon.gaebolg": 1,
+        "side.dresden": -99
+      },
+      "xpans": {
+        "turnannolondonbake": 99
+      }
+    },
+    {
+      "id": "annolondon.fighting.startup",
+      "actionid": "spit.annolondon",
+      "label": "The Final Confrontation",
+      "startdescription": "“So it's you... It seems you are not always without ambition.”",
+      "warmup": 15,
+      "effects": {
+        "foe.annolondon": 1
+      },
+      "maxexecutions": 1,
+      "mutations": [
+        {
+          "filter": "foe",
+          "mutate": "guard.gaebolg",
+          "level": 1
+        }
+      ],
+      "playAudioTrack": "annolondonfighting.mp3",
+      "linked": [
+        {
+          "id": "annolondon.fighting.low.cycle"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.low.cycle",
+      "label": "The Final Confrontation",
+      "startdescription": "“You can turn and run now, though you probably won't.”",
+      "warmup": 8,
+      "linked": [
+        {
+          "id": "annolondon.fighting.attack",
+          "chance": 40
+        },
+        {
+          "id": "annolondon.fighting.high.startup"
+        },
+        {
+          "id": "annolondon.fighting.med.startup"
+        },
+        {
+          "id": "annolondon.fighting.low.cycle"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.med.startup",
+      "label": "The Final Confrontation",
+      "extantreqs": {
+        "annolondon.behurted": 1
+      },
+      "maxexecutions": 1,
+      "effects": {
+        "annolondonbehurt": 1
+      },
+      "mutations": [
+        {
+          "filter": "foe",
+          "mutate": "needsedgegrail",
+          "level": 0
+        },
+        {
+          "filter": "foe",
+          "mutate": "needsedgeheart",
+          "level": 0
+        },
+        {
+          "filter": "foe",
+          "mutate": "needsedgelantern",
+          "level": 0
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.fighting.med.cycle"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.med.cycle",
+      "label": "The Final Confrontation",
+      "startdescription": "“You have some skill, but don't think that will let you survive.”",
+      "extantreqs": {
+        "annolondon.behurted": 1
+      },
+      "warmup": 5,
+      "linked": [
+        {
+          "id": "annolondon.fighting.attack",
+          "chance": 40
+        },
+        {
+          "id": "annolondon.fighting.high.startup"
+        },
+        {
+          "id": "annolondon.fighting.med.cycle"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.high.startup",
+      "label": "The Final Confrontation",
+      "extantreqs": {
+        "annolondon.behurted": 2
+      },
+      "effects": {
+        "annolondonbehurt": 1
+      },
+      "maxexecutions": 1,
+      "mutations": [
+        {
+          "filter": "foe",
+          "mutate": "needsedgegrail",
+          "level": 0
+        },
+        {
+          "filter": "foe",
+          "mutate": "needsedgeheart",
+          "level": 0
+        },
+        {
+          "filter": "foe",
+          "mutate": "needsedgelantern",
+          "level": 0
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.fighting.high.cycle"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.high.cycle",
+      "label": "The Final Confrontation",
+      "startdescription": "“You have some skill, but don't think that will let you survive.”",
+      "warmup": 3,
+      "extantreqs": {
+        "annolondon.behurted": 2
+      },
+      "linked": [
+        {
+          "id": "annolondon.fighting.attack",
+          "chance": 40
+        },
+        {
+          "id": "annolondon.fighting.high.cycle"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.attack",
+      "label": "The Final Confrontation",
+      "linked": [
+        {
+          "id": "annolondon.fighting.attack.edgelantern",
+          "chance": 30
+        },
+        {
+          "id": "annolondon.fighting.attack.edgegrail",
+          "chance": 50
+        },
+        {
+          "id": "annolondon.fighting.attack.edgeheart"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.attack.edgelantern",
+      "label": "The Final Confrontation",
+      "mutations": [
+        {
+          "filter": "foe",
+          "mutate": "needsedgelantern",
+          "level": 8,
+          "additive": true
+        },
+        {
+          "filter": "foe",
+          "mutate": "needsedgelantern",
+          "level": "[annolondonbehurt] * 2",
+          "additive": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.fighting.attack.defense"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.attack.edgegrail",
+      "label": "The Final Confrontation",
+      "mutations": [
+        {
+          "filter": "foe",
+          "mutate": "needsedgegrail",
+          "level": 8,
+          "additive": true
+        },
+        {
+          "filter": "foe",
+          "mutate": "needsedgegrail",
+          "level": "[annolondonbehurt] * 2",
+          "additive": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.fighting.attack.defense"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.attack.edgeheart",
+      "label": "The Final Confrontation",
+      "mutations": [
+        {
+          "filter": "foe",
+          "mutate": "needsedgeheart",
+          "level": 8,
+          "additive": true
+        },
+        {
+          "filter": "foe",
+          "mutate": "needsedgeheart",
+          "level": "[annolondonbehurt] * 2",
+          "additive": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.fighting.attack.defense"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.attack.defense",
+      "label": "Clara Attacks!",
+      "startdescription": "@#needsedgeheart|Clara holds her ten fingers falsely before her and plays notes that can only reach perfection amid destruction. She revels in it, a half-smile of delight at the corner of her mouth, the lace at her cuffs leaving scratches in the air. The unpredictable music, accompanied by a fierce wind, tears me apart.#needsedgegrail|Translucent blood wells up from the gaps in the floor, climbs along the satin trim onto her skirt, and dots her whole body with crimson gems. She rises on tiptoe and spins halfway; the sound of shattered pearls suddenly rises, and blood stains crawl up my ankles...#needsedgelantern|Clara raises both arms, the knuckles exposed at the ends of her kid gloves pointing toward the skylight. The dust dancing in the light pauses, and suddenly transforms into countless spikes that surge toward me, each flickering with an eerie light—@",
+      "slots": [
+        {
+          "id": "needssomething",
+          "required": {
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1
+          }
+        },
+        {
+          "id": "needssomething2",
+          "required": {
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1
+          }
+        },
+        {
+          "id": "needssomething3",
+          "required": {
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1
+          }
+        }
+      ],
+      "warmup": 15,
+      "alt": [
+        {
+          "id": "annolondon.fighting.attack.friend.immortal"
+        },
+        {
+          "id": "annolondon.fighting.attack.needsedgeheart"
+        },
+        {
+          "id": "annolondon.fighting.attack.needsedgelantern"
+        },
+        {
+          "id": "annolondon.fighting.attack.needsedgegrail"
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.fighting.attack.nodefense"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.attack.friend.immortal",
+      "label": "Assistance of the Immortal",
+      "startdescription": "@#friend.sergei|The Iron-Eater bares a mouth of yellow teeth and raises his hand for a shot. Clara can catch the bullet she already sensed, but is forced to retreat to dodge the consecutive slashes of the saber.#friend.cross|Gervango flaps his wings, forcing Clara to shield her head with both hands against the swirling scale powder. She spirals upward, then dives down, her stinger barely grazing Clara's cheek.@",
+      "requirements": {
+        "friend.immortal": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "mutations": [
+        {
+          "filter": "needsedgelantern",
+          "mutate": "needsedgelantern",
+          "level": -8,
+          "additive": true
+        },
+        {
+          "filter": "needsedgelantern",
+          "mutate": "needsedgelantern",
+          "level": "- [annolondonbehurt] * 2",
+          "additive": true
+        },
+        {
+          "filter": "needsedgeheart",
+          "mutate": "needsedgeheart",
+          "level": -8,
+          "additive": true
+        },
+        {
+          "filter": "needsedgeheart",
+          "mutate": "needsedgeheart",
+          "level": "- [annolondonbehurt] * 2",
+          "additive": true
+        },
+        {
+          "filter": "needsedgegrail",
+          "mutate": "needsedgegrail",
+          "level": -8,
+          "additive": true
+        },
+        {
+          "filter": "needsedgegrail",
+          "mutate": "needsedgegrail",
+          "level": "- [annolondonbehurt] * 2",
+          "additive": true
+        }
+      ],
+      "alt": [
+        {
+          "id": "produce.opening.annolondon",
+          "additional": true,
+          "chance": 40
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.fighting.attack.clear"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.attack.needsedgeheart",
+      "$extends": ["annolondon.fighting.attack.friend.immortal"],
+      "label": "Hoarse Heartbeat",
+      "startdescription": "The heart that can still beat throbs violently in my shattered chest, waves of impact spreading through my body. I clench my fists, bones exposed, and with a low roar beat at the wind blades, using the worst possible noise to make her performance difficult to continue.",
+      "requirements": {
+        "needsedgeheart": 1,
+        "edge": "needsedgeheart",
+        "heart": "needsedgeheart"
+      }
+    },
+    {
+      "id": "annolondon.fighting.attack.needsedgegrail",
+      "$extends": ["annolondon.fighting.attack.friend.immortal"],
+      "label": "Truth of Blood",
+      "startdescription": "The Wolf does not hold authority over blood, but the Wolf has an eternal thirst for fresh blood. Therefore, the Wolf despises all pretentious false flesh and blood. I cut my palm viciously and flick it; the flying droplets of blood erode the illusory stains.",
+      "requirements": {
+        "needsedgegrail": 1,
+        "edge": "needsedgegrail",
+        "grail": "needsedgegrail"
+      }
+    },
+    {
+      "id": "annolondon.fighting.attack.needsedgelantern",
+      "$extends": ["annolondon.fighting.attack.friend.immortal"],
+      "label": "Light-Splitting Gap",
+      "startdescription": "The light shows me the path, a path of weaving and dodging among the spikes. And when the last spike leaves me no way to avoid it, I turn, draw my blade, and from above downward, cut it clean in two.",
+      "requirements": {
+        "needsedgelantern": 1,
+        "edge": "needsedgelantern",
+        "lantern": "needsedgelantern"
+      }
+    },
+    {
+      "id": "annolondon.fighting.attack.nodefense",
+      "$extends": ["annolondon.fighting.attack.friend.immortal"],
+      "label": "The Power of Insight",
+      "startdescription": "“You're quite brave.”",
+      "requirements": {},
+      "alt": [
+        {
+          "id": "edgelong.spitout.wounds",
+          "additional": true
+        },
+        {
+          "id": "produce.strife.contemnant",
+          "additional": true,
+          "chance": 50
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.attack.clear",
+      "label": "Exhausted!",
+      "effects": {
+        "decision": -99
+      },
+      "alt": [
+        {
+          "id": "eject.used",
+          "additional": true,
+          "expulsion": {
+            "limit": 99,
+            "filter": {
+              "exhausted": 1,
+              "husk": 1,
+              "edge": 1,
+              "winter": 1,
+              "heart": 1,
+              "grail": 1,
+              "moth": 1,
+              "lantern": 1,
+              "forge": 1,
+              "knock": 1
+            }
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.fighting.insight"
+        },
+        {
+          "id": "annolondon.fighting.high.startup"
+        },
+        {
+          "id": "annolondon.fighting.med.startup"
+        },
+        {
+          "id": "annolondon.fighting.high.cycle"
+        },
+        {
+          "id": "annolondon.fighting.med.cycle"
+        },
+        {
+          "id": "annolondon.fighting.low.cycle"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.insight",
+      "label": "The Power of Insight",
+      "startdescription": "The mockery pierces to the deepest part of her soul. Her face turns alternately pale and blue, and her movements slow somewhat. This is not necessarily a good thing.\n\n[Her threshold will decrease, but she will lose control]",
+      "warmup": 15,
+      "requirements": {
+        "insightannolondondecend": 1
+      },
+      "effects": {
+        "insightannolondondecend": -99
+      },
+      "aspects": {
+        "turnannolondonfoe": 1
+      },
+      "mutations": [
+        {
+          "filter": "foe",
+          "mutate": "needsedgelantern",
+          "level": 6,
+          "additive": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.fighting.insight.decend"
+        },
+        {
+          "id": "annolondon.fighting.insight.nodecend"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.insight.decend",
+      "label": "The Power of Insight",
+      "requirements": {
+        "needsedgelantern": 1
+      },
+      "mutations": [
+        {
+          "filter": "foe",
+          "mutate": "needsedgelantern",
+          "level": -8,
+          "additive": true
+        },
+        {
+          "filter": "foe",
+          "mutate": "needsedgegrail",
+          "level": -2,
+          "additive": true
+        },
+        {
+          "filter": "foe",
+          "mutate": "needsedgeheart",
+          "level": -2,
+          "additive": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.fighting.attack.undefense"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.insight.nodecend",
+      "label": "The Power of Insight",
+      "mutations": [
+        {
+          "filter": "foe",
+          "mutate": "needsedgelantern",
+          "level": -6,
+          "additive": true
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.fighting.attack.undefense"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.fighting.attack.undefense",
+      "label": "<color=red><i>D E S T R U C T I O N</i></color>",
+      "startdescription": "The Wolf's authority—clearly she too is favored by the Wolf.\n\n[Anything placed within will be reduced to ashes. <b>Anything</b>. Even your Long allies will be directly repelled and cannot help you withstand this blow.]",
+      "aspects": {
+        "turnannolondonfoe": 1
+      },
+      "slots": [
+        {
+          "id": "needssomething",
+          "required": {
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "damage.body": 1,
+            "damage.mind": 1
+          },
+          "consumes": true
+        },
+        {
+          "id": "needssomething2",
+          "required": {
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "damage.body": 1,
+            "damage.mind": 1
+          },
+          "consumes": true
+        },
+        {
+          "id": "needssomething3",
+          "required": {
+            "edge": 1,
+            "winter": 1,
+            "heart": 1,
+            "grail": 1,
+            "moth": 1,
+            "lantern": 1,
+            "forge": 1,
+            "knock": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "damage.body": 1,
+            "damage.mind": 1
+          },
+          "consumes": true
+        }
+      ],
+      "warmup": 15,
+      "linked": [
+        {
+          "id": "annolondon.fighting.attack.nodefense"
+        }
+      ]
+    },
+    {
+      "id": "produce.opening.annolondon",
+      "actionid": "web.red",
+      "label": "Dragon-Scale Gap?",
+      "startdescription": "The strength and resilience of Edge-Long do not diminish in the slightest. But I am beginning to notice that their weariness accumulates, even if only slightly. Hold the defensive stance a while longer—",
+      "effects": {
+        "annolondon.opening": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "time.cycle",
+      "alt$append": [
+        {
+          "id": "annolondon.choose.first",
+          "additional": true
+        },
+        {
+          "id": "annolondon.choose.second",
+          "additional": true,
+          "chance": 15
+        }
+      ]
+    },
+    {
+      "id": "recon.wasteland.a.contemnant",
+      "alt$append": [
+        {
+          "id": "annolondon.choose.first.nowasteland",
+          "additional": true
+        },
+        {
+          "id": "annolondon.choose.second.nowasteland",
+          "additional": true,
+          "chance": 15
+        }
+      ]
+    },
+    {
+      "id": "recon.wasteland.a.contemnant.scouts",
+      "alt$append": [
+        {
+          "id": "annolondon.choose.first.nowasteland",
+          "additional": true
+        },
+        {
+          "id": "annolondon.choose.second.nowasteland",
+          "additional": true,
+          "chance": 15
+        }
+      ]
+    },
+    {
+      "id": "recon.cityinflames",
+      "alt$append": [
+        {
+          "id": "spit.side.dresden.out",
+          "additional": true,
+          "chance": 40
+        }
+      ]
+    },
+    {
+      "id": "recon.cityinflames.scouts",
+      "alt$append": [
+        {
+          "id": "spit.side.dresden.out",
+          "additional": true,
+          "chance": 40
+        }
+      ]
+    },
+    {
+      "id": "spit.side.dresden.out",
+      "actionid": "pit.underling.attack.success",
+      "label": "The Only Intact Place",
+      "startdescription": "A building both familiar and unfamiliar; I must have seen it in a dream.",
+      "extantreqs": {
+        "annolondonhere": 1
+      },
+      "maxexecutions": 1,
+      "effects": {
+        "side.dresden": 1
+      },
+      "warmup": 10
+    },
+    {
+      "id": "annolondon.choose.first",
+      "actionid": "spit.annolondon",
+      "label": "The Uninvited Guest's Demand?",
+      "extantreqs": {
+        "infamy.annolondon": 1,
+        "annolondoncomefor": 1,
+        "weapon.gaebolg": -1,
+        "weapon.gaebolg.exhausted": -1,
+        "wound.glorious": -1
+      },
+      "tablereqs": {
+        "wasteland": 1
+      },
+      "purge": {
+        "infamy.annolondon": 99
+      },
+      "linked": [
+        {
+          "id": "annolondon.choose.cycle"
+        }
+      ],
+      "effects": {
+        "neutral.annolondon": 1,
+        "infamy.annolondon": -1
+      }
+    },
+    {
+      "id": "annolondon.choose.second",
+      "actionid": "spit.annolondon",
+      "label": "The Uninvited Guest's Demand?",
+      "extantreqs": {
+        "wasteland.a.contemnant": 1,
+        "annolondoncomefor": 1,
+        "weapon.gaebolg": -1,
+        "weapon.gaebolg.exhausted": -1,
+        "wound.glorious": -1
+      },
+      "tablereqs": {
+        "wasteland": 1
+      },
+      "purge": {
+        "infamy.annolondon": 99
+      },
+      "linked": [
+        {
+          "id": "annolondon.choose.cycle"
+        }
+      ],
+      "effects": {
+        "neutral.annolondon": 1,
+        "infamy.annolondon": -1
+      }
+    },
+    {
+      "id": "annolondon.choose.first.nowasteland",
+      "$extends": ["annolondon.choose.first"],
+      "extantreqs$add": {
+        "wasteland.a.contemnant": 1
+      },
+      "tablereqs": {}
+    },
+    {
+      "id": "annolondon.choose.second.nowasteland",
+      "$extends": ["annolondon.choose.second"],
+      "extantreqs$add": {
+        "wasteland.a.contemnant": 1
+      },
+      "tablereqs": {}
+    },
+    {
+      "id": "annolondon.choose.cycle",
+      "actionid": "spit.annolondon",
+      "label": "The Uninvited Guest's Demand?",
+      "startdescription": "The points of light cast by the candles begin to tremble eerily. Unexplained pains appear from time to time, and both people and livestock shiver. Low, hoarse roars occasionally surge from my mouth, like musical notes chanting something sacred. She reaches out her hand to me... Behind her, I see something sacred. The one before me is of my kind, and far stronger than I; any slight will bring destruction. Before she is provoked, perhaps I should first yield, and then think of a countermeasure.\n\n[If you do not hand over what she wants now, you will have no chance to beg for mercy later]",
+      "warmup": 30,
+      "slots": [
+        {
+          "id": "needsfoe",
+          "label": "Treasure",
+          "required": {
+            "weapon": 1,
+            "tool": 1
+          }
+        }
+      ],
+      "aspects": {
+        "turnannolondonfoe": 1
+      },
+      "alt": [
+        {
+          "id": "annolondon.choose.gone.lantern"
+        },
+        {
+          "id": "annolondon.choose.gone.forge"
+        },
+        {
+          "id": "annolondon.choose.gone.weapon"
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.attack.cycle.first"
+        },
+        {
+          "id": "annolondon.attack.cycle.bgm"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.choose.gone.lantern",
+      "label": "Fulfilling Her Wish",
+      "startdescription": "“She always said she wanted to see the vast desert, but unfortunately she no longer has the chance...”",
+      "requirements": {
+        "annolondoncomefor": 1,
+        "lantern": 1
+      },
+      "effects": {
+        "neutral.annolondon": -1
+      },
+      "aspects": {
+        "turnannolondongo": 1
+      },
+      "linked": [
+        {
+          "id": "annolondon.choose.gone.contemplation"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.choose.gone.forge",
+      "label": "Fulfilling Her Wish",
+      "startdescription": "“Very beautiful... It will be placed before her grave.”",
+      "requirements": {
+        "annolondoncomefor": 1,
+        "forge": 1
+      },
+      "effects": {
+        "neutral.annolondon": -1
+      },
+      "aspects": {
+        "turnannolondongo": 1
+      },
+      "linked": [
+        {
+          "id": "annolondon.choose.gone.contemplation"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.choose.gone.weapon",
+      "label": "Fulfilling Her Wish",
+      "startdescription": "“She did not want to kill, but she loved all kinds of weapons... especially firearms.”",
+      "requirements": {
+        "annolondoncomefor": 1,
+        "weapon": 1
+      },
+      "effects": {
+        "neutral.annolondon": -1
+      },
+      "aspects": {
+        "turnannolondongo": 1
+      },
+      "linked": [
+        {
+          "id": "annolondon.choose.gone.contemplation"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.choose.gone.contemplation",
+      "label": "Fulfilling Her Wish",
+      "extantreqs": {
+        "missionannolondon": -1
+      },
+      "maxexecutions": 1,
+      "effects": {
+        "mission.annolondon.o": 1
+      }
+    },
+    {
+      "id": "annolondon.attack.cycle.first",
+      "label": "Revealing Her True Face",
+      "maxexecutions": 1,
+      "extantreqs": {
+        "missionannolondon": -1
+      },
+      "effects": {
+        "mission.annolondon.a": 1
+      },
+      "linked": [
+        {
+          "id": "annolondon.attack.cycle.bgm"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.attack.cycle.bgm",
+      "label": "Revealing Her True Face",
+      "playAudioTrack": "annolondoncoming.mp3",
+      "linked": [
+        {
+          "id": "annolondon.attack.cycle"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.attack.cycle",
+      "label": "Revealing Her True Face",
+      "startdescription": "“I can only have a proper talk with you now.”",
+      "warmup": 10,
+      "linked": [
+        {
+          "id": "annolondon.attack.pre",
+          "chance": 40
+        },
+        {
+          "id": "annolondon.attack.cycle"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.attack.pre",
+      "label": "Clara Launches an Attack!",
+      "linked": [
+        {
+          "id": "annolondon.attack.allies",
+          "chance": 50
+        },
+        {
+          "id": "annolondon.attack.you"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.attack.allies",
+      "label": "Clara Launches an Attack!",
+      "startdescription": "“Sticking with you, this fellow has really had a stroke of bad luck.”",
+      "warmup": 10,
+      "tablereqs": {
+        "friend": 1
+      },
+      "slots": [
+        {
+          "id": "needsallies",
+          "label": "Allies",
+          "required": {
+            "friend": 1
+          },
+          "forbidden": {
+            "friend.immortal": 1
+          },
+          "greedy": true
+        }
+      ],
+      "aspects": {
+        "killmortal": 1
+      },
+      "linked": [
+        {
+          "id": "annolondon.expel"
+        }
+      ],
+      "alt": [
+        {
+          "id": "produce.strife.contemnant",
+          "additional": true,
+          "chance": 50
+        }
+      ]
+    },
+    {
+      "id": "annolondon.expel",
+      "$extends": ["edgelong.expel"],
+      "linked": [
+        {
+          "id": "annolondon.attack.cycle"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.attack.you",
+      "label": "Clara Launches an Attack!",
+      "startdescription": "“When you lie in a pool of blood, I will step over your corpse and take what I want.\n\n[If you wish to defend, you need to provide friendly units to block the Edge-Long's attack for you. This will kill your friendly units.]",
+      "warmup": 30,
+      "slots": [
+        {
+          "id": "needsallies",
+          "label": "Cannon Fodder?",
+          "required": {
+            "friend": 1,
+            "legacyplotitem": 1,
+            "challenge": 1
+          },
+          "forbidden": {
+            "exhausted": 1,
+            "wounded": 1,
+            "damaged": 1,
+            "dream.colonel": 1,
+            "dream.lionsmith": 1,
+            "tool": 1,
+            "ascension.marker.casket": 1
+          }
+        }
+      ],
+      "linked": [
+        {
+          "id": "annolondon.attack.you.nodefense"
+        }
+      ],
+      "alt": [
+        {
+          "id": "annolondon.insight"
+        },
+        {
+          "id": "annolondon.friend.immortal"
+        },
+        {
+          "id": "annolondon.attack.you.defense"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.attack.you.defense",
+      "label": "Cast into the Fire",
+      "startdescription": "“An incurable fool, dying worthless.”",
+      "requirements": {
+        "friend": 1
+      },
+      "aspects": {
+        "killmortal": 1,
+        "killfriend": 1
+      },
+      "linked": [
+        {
+          "id": "annolondon.expel"
+        }
+      ],
+      "alt": [
+        {
+          "id": "produce.strife.contemnant",
+          "additional": true,
+          "chance": 50
+        }
+      ]
+    },
+    {
+      "id": "annolondon.attack.you.nodefense",
+      "label": "Completely Unprotected!",
+      "startdescription": "“You brought this on yourself. Do not beg for my mercy.”",
+      "linked": [
+        {
+          "id": "annolondon.attack.cycle"
+        }
+      ],
+      "warmup": 10,
+      "alt": [
+        {
+          "id": "edgelong.spitout.wounds",
+          "additional": true
+        },
+        {
+          "id": "produce.strife.contemnant",
+          "additional": true,
+          "chance": 50
+        }
+      ]
+    },
+    {
+      "id": "annolondon.insight",
+      "label": "Blade of Words",
+      "startdescription": "Her movements have slowed somewhat; I can dodge the attacks, for now.",
+      "requirements": {
+        "insight.annolondon": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "effects": {
+        "foe": -1
+      },
+      "linked": [
+        {
+          "id": "annolondon.insight.end"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.insight.end",
+      "label": "Blade of Words",
+      "startdescription": "Her movements have slowed somewhat; I can dodge the attacks, for now.",
+      "warmup": 90,
+      "linked": [
+        {
+          "id": "annolondon.attack.cycle"
+        }
+      ]
+    },
+    {
+      "id": "annolondon.friend.immortal",
+      "label": "Immortal Ally",
+      "startdescription": "“This is your plan? Hiding behind others?”",
+      "requirements": {
+        "friend.immortal": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "annolondon.expel"
+        }
+      ]
+    }
+  ]
+}
