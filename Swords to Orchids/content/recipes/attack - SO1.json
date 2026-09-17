@@ -1904,7 +1904,15 @@
                 "foe.officerdetail": -4,
                 "umiri.attacked": -1
             },
+            "requirements": {
+                "strategy.rally": -1
+            },
             "effects": {
+                "strategy.defense": -99,
+                "strategy.tactics1": -99,
+                "strategy.tactics2": -99,
+                "strategy.tactics3": -99,
+                "strategy.tactics4": -99,
                 "strategy.rally": 1
             },
             "linked": [
@@ -1920,7 +1928,15 @@
 			"extantreqs": {
 				"foe.officerdetail": -4
 			},
+            "requirements": {
+                "strategy.rally": -1
+            },
 			"effects": {
+                "strategy.defense": -99,
+                "strategy.tactics1": -99,
+                "strategy.tactics2": -99,
+                "strategy.tactics3": -99,
+                "strategy.tactics4": -99,
 				"strategy.rally": 1
 			},
             "linked": [
@@ -1942,7 +1958,15 @@
             "extantreqs": {
 				"foe.hidden": -5
 			},
+            "requirements": {
+                "strategy.defense": -1
+            },
 			"effects": {
+                "strategy.rally": -99,
+                "strategy.tactics1": -99,
+                "strategy.tactics2": -99,
+                "strategy.tactics3": -99,
+                "strategy.tactics4": -99,
 				"strategy.defense": 1
 			}
         },
@@ -1950,9 +1974,18 @@
             "id": "foe.umiri.attack.tactics2.pre",
             "$extends": ["foe.umiri.attack.rally.pre"],
             "extantreqs": {
-				"foetanks": 5
+				"foetanks": 5,
+                "obdurant.story": 1
 			},
+            "requirements": {
+                "strategy.tactics2": -1
+            },
 			"effects": {
+                "strategy.defense": -99,
+                "strategy.rally": -99,
+                "strategy.tactics1": -99,
+                "strategy.tactics3": -99,
+                "strategy.tactics4": -99,
 				"strategy.tactics2": 1
 			}
         },
@@ -1962,7 +1995,15 @@
             "grandReqs": {
                 "[~/exterior:foebombers] >= 3 || [~/exterior:foeartillery] >= 3": 1
             },
+            "requirements": {
+                "strategy.tactics3": -1
+            },
 			"effects": {
+                "strategy.defense": -99,
+                "strategy.rally": -99,
+                "strategy.tactics1": -99,
+                "strategy.tactics2": -99,
+                "strategy.tactics4": -99,
 				"strategy.tactics3": 1
 			}
         },
@@ -1973,7 +2014,15 @@
 				"mechanized_forces": 2,
                 "foe": 5
 			},
+            "requirements": {
+                "strategy.tactics1": -1
+            },
 			"effects": {
+                "strategy.defense": -99,
+                "strategy.rally": -99,
+                "strategy.tactics2": -99,
+                "strategy.tactics3": -99,
+                "strategy.tactics4": -99,
 				"strategy.tactics1": 1
 			}
         },
@@ -1998,7 +2047,7 @@
                 "draws": 1,
                 "resetonexhaustion": true
             },
-			"alt": [
+            "linked": [
 				{
 					"id": "foe.umiri.attack.weaken.pre",
 					"chance": 50
@@ -2010,9 +2059,7 @@
 				{
 					"id": "foe.umiri.attack.defense.pre",
 					"chance": 30
-				}
-			],
-            "linked": [
+				},
                 {
                     "id": "foe.umiri.attack"
                 }
@@ -2031,6 +2078,7 @@
                     "strategy.tactics1",
                     "strategy.tactics1",
                     "strategy.tactics2",
+                    "strategy.tactics2",
                     "strategy.defense",
                     "strategy.defense"
                 ],
@@ -2038,10 +2086,10 @@
                 "draws": 1,
                 "resetonexhaustion": true
             },
-			"alt$append": [
+			"linke$prepend": [
 				{
 					"id": "foe.umiri.attack.tactics1.pre",
-					"chance": 50
+					"chance": 60
 				}
 			]
         },
@@ -2056,6 +2104,8 @@
                     "strategy.rally",
                     "strategy.rally",
                     "strategy.tactics1",
+                    "strategy.tactics1",
+                    "strategy.tactics2",
                     "strategy.tactics2",
                     "strategy.tactics3",
                     "strategy.defense",
@@ -2065,7 +2115,7 @@
                 "draws": 1,
                 "resetonexhaustion": true
             },
-			"alt$append": [
+			"linke$prepend": [
 				{
 					"id": "foe.umiri.attack.tactics2.pre",
 					"chance": 60
@@ -2097,10 +2147,10 @@
                 "draws": 1,
                 "resetonexhaustion": true
             },
-			"alt$append": [
+			"linke$prepend": [
 				{
 					"id": "foe.umiri.attack.tactics3.pre",
-					"chance": 70
+					"chance": 50
 				}
 			]
         },
@@ -3278,7 +3328,7 @@
 	"id": "attackenemy.failure.necessary",
 	"label": "Stage an attack against a hidden enemy",
 	"grandReqs": {
-	    "[uqjerome] >= 1 || [uqlionel] >= 1 || [foe.umiri.mark] >= 1": 1
+	    "[uqjerome] >= 1 || [uqlionel] >= 1 || [foe.umiri.mark] >= 1 || [enemyhidden.mark] >= 1": 1
 	},
     "linked": [
         {

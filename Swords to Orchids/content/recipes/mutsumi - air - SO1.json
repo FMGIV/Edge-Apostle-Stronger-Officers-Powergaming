@@ -313,7 +313,7 @@
       "linked": [
         {
           "id": "foe.airsupremacy.startup",
-          "chance": 50
+          "chance": 90
         },
         {
           "id": "foe.airsupremacy.delete",
@@ -345,6 +345,9 @@
       "label": "Enemy launches an air strike!",
       "startdescription": "They have moved!",
       "warmup": 10,
+      "tablereqs": {
+        "foefighter": 1
+      },
       "requirements": {
         "german_airsupremacy": 1
       },
@@ -525,7 +528,8 @@
         "decaytoair": 1
       },
       "xpans": {
-        "adv_german": 99
+        "adv_german": 99,
+        "foefighterrecon": 1
       }
     },
     {
@@ -779,16 +783,54 @@
         "enemyforces": -5,
         "foe": 1
       },
+      "aspects": {
+        "destroy": 1
+      },
       "effects": {
         "enemyforces": 1
       },
       "slots": [
         {
           "id": "needssupplies",
-          "label": "Supplies",
+          "label": "Interdiction",
           "required": {
             "supplies": 1,
-            "weapon": 1
+            "weapon": 1,
+            "infrastructure": 1
+          },
+          "forbidden": {
+            "remnant": 1,
+            "debilitation": 1,
+            "contemnant.weapon": 1,
+            "friend.immortal.blocker": 1,
+            "hasebrehel": 1
+          },
+          "greedy": true
+        },
+        {
+          "id": "needssupplies2",
+          "label": "Interdiction",
+          "required": {
+            "supplies": 1,
+            "weapon": 1,
+            "infrastructure": 1
+          },
+          "forbidden": {
+            "remnant": 1,
+            "debilitation": 1,
+            "contemnant.weapon": 1,
+            "friend.immortal.blocker": 1,
+            "hasebrehel": 1
+          },
+          "greedy": true
+        },
+        {
+          "id": "needssupplies3",
+          "label": "Interdiction",
+          "required": {
+            "supplies": 1,
+            "weapon": 1,
+            "infrastructure": 1
           },
           "forbidden": {
             "remnant": 1,
@@ -842,6 +884,40 @@
             "friend.aerial": 1
           },
           "greedy": true
+        },
+        {
+          "id": "needsgerman2",
+          "label": "Ally",
+          "required": {
+            "soviet": 1,
+            "friend": 1
+          },
+          "forbidden": {
+            "friend.weakened": 1,
+            "friend.immortal": 1,
+            "umiri.mark": 1,
+            "hasebrehel": 1,
+            "friend.hidden": 1,
+            "friend.aerial": 1
+          },
+          "greedy": true
+        },
+        {
+          "id": "needsgerman3",
+          "label": "Ally",
+          "required": {
+            "soviet": 1,
+            "friend": 1
+          },
+          "forbidden": {
+            "friend.weakened": 1,
+            "friend.immortal": 1,
+            "umiri.mark": 1,
+            "hasebrehel": 1,
+            "friend.hidden": 1,
+            "friend.aerial": 1
+          },
+          "greedy": true
         }
       ],
       "linked": [
@@ -868,9 +944,11 @@
       },
       "warmup": 15,
       "effects": {
-        "side.cutoff": 1,
+        "side.cutoff.exhausted": 1,
         "supplies": -99,
-        "weapon": -99
+        "weapon": -99,
+        "infrastructure": -99,
+        "infrastructure.destroyed": -99
       },
       "linked": [
         {
