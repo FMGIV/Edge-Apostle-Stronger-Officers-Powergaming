@@ -652,6 +652,10 @@
         "needsedgeheart": 1,
         "edge": "needsedgeheart",
         "heart": "needsedgeheart"
+      },
+      "aspects": {
+	      "fatiguing": 1,
+        "killmortal": 1
       }
     },
     {
@@ -663,6 +667,10 @@
         "needsedgegrail": 1,
         "edge": "needsedgegrail",
         "grail": "needsedgegrail"
+      },
+      "aspects": {
+	      "fatiguing": 1,
+        "killmortal": 1
       }
     },
     {
@@ -674,6 +682,10 @@
         "needsedgelantern": 1,
         "edge": "needsedgelantern",
         "lantern": "needsedgelantern"
+      },
+      "aspects": {
+	      "fatiguing": 1,
+        "killmortal": 1
       }
     },
     {
@@ -682,6 +694,10 @@
       "label": "The Power of Insight",
       "startdescription": "“You're quite brave.”",
       "requirements": {},
+      "aspects": {
+	      "fatiguing": 1,
+        "killmortal": 1
+      },
       "alt": [
         {
           "id": "edgelong.spitout.wounds",
@@ -745,7 +761,7 @@
     {
       "id": "annolondon.fighting.insight",
       "label": "The Power of Insight",
-      "startdescription": "The mockery pierces to the deepest part of her soul. Her face turns alternately pale and blue, and her movements slow somewhat. This is not necessarily a good thing.\n\n[Her threshold will decrease, but she will lose control]",
+      "startdescription": "The mockery pierces to the deepest part of her soul. Her face turns alternately pale and blue, and her movements slow somewhat. This is not necessarily a good thing.\n\n[This will lower Clara's threshold, but once she loses control, worse things will happen.]",
       "warmup": 15,
       "requirements": {
         "insightannolondondecend": 1
@@ -833,68 +849,53 @@
         {
           "id": "needssomething",
           "required": {
-            "edge": 1,
-            "winter": 1,
-            "heart": 1,
-            "grail": 1,
-            "moth": 1,
-            "lantern": 1,
-            "forge": 1,
-            "knock": 1
+            "friend": 1
           },
           "forbidden": {
-            "exhausted": 1,
-            "wounded": 1,
-            "damaged": 1,
+            "friend.immortal": 1,
+            "friend.hidden": 1,
             "damage.body": 1,
             "damage.mind": 1
           },
-          "consumes": true
+          "consumes": true,
+          "greedy": true
         },
         {
           "id": "needssomething2",
           "required": {
-            "edge": 1,
-            "winter": 1,
-            "heart": 1,
-            "grail": 1,
-            "moth": 1,
-            "lantern": 1,
-            "forge": 1,
-            "knock": 1
+            "friend": 1
           },
           "forbidden": {
-            "exhausted": 1,
-            "wounded": 1,
-            "damaged": 1,
+            "friend.immortal": 1,
+            "friend.hidden": 1,
             "damage.body": 1,
             "damage.mind": 1
           },
-          "consumes": true
+          "consumes": true,
+          "greedy": true
         },
         {
           "id": "needssomething3",
           "required": {
-            "edge": 1,
-            "winter": 1,
-            "heart": 1,
-            "grail": 1,
-            "moth": 1,
-            "lantern": 1,
-            "forge": 1,
-            "knock": 1
+            "friend": 1
           },
           "forbidden": {
-            "exhausted": 1,
-            "wounded": 1,
-            "damaged": 1,
+            "friend.immortal": 1,
+            "friend.hidden": 1,
             "damage.body": 1,
             "damage.mind": 1
           },
-          "consumes": true
+          "consumes": true,
+          "greedy": true
         }
       ],
       "warmup": 15,
+      "alt": [
+        {
+          "id": "produce.trauma",
+          "additional": true
+        }
+      ],
       "linked": [
         {
           "id": "annolondon.fighting.attack.nodefense"
@@ -921,7 +922,7 @@
         {
           "id": "annolondon.choose.second",
           "additional": true,
-          "chance": 15
+          "chance": 10
         }
       ]
     },
@@ -935,7 +936,7 @@
         {
           "id": "annolondon.choose.second.nowasteland",
           "additional": true,
-          "chance": 15
+          "chance": 10
         }
       ]
     },
@@ -949,7 +950,7 @@
         {
           "id": "annolondon.choose.second.nowasteland",
           "additional": true,
-          "chance": 15
+          "chance": 10
         }
       ]
     },
