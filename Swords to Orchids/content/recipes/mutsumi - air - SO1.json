@@ -701,6 +701,13 @@
       ],
       "alt": [
         {
+          "id": "foe.airsupremacy.bombers.cutoff.five"
+        },
+        {
+          "id": "foe.airsupremacy.bombers.anti_air_friendly",
+          "chance": "{([anti_air_friendly] + 2) / ([foe.aerial] + 2)} * 100"
+        },
+        {
           "id": "foe.airsupremacy.bombers.anti_air_friendly",
           "chance": "{([anti_air_friendly] + 2) / ([foe.aerial] + 2)} * 100"
         },
@@ -711,7 +718,11 @@
       ],
       "linked": [
         {
-          "id": "foe.airsupremacy.bombers.cutoff.destroysupplies"
+          "id": "foe.airsupremacy.bombers.cutoff.destroysupplies",
+          "chance": 50
+        },
+        {
+          "id": "foe.airsupremacy.bombers.cutoff.weaken"
         }
       ]
     },
@@ -775,13 +786,30 @@
       "warmup": 5
     },
     {
+      "id": "foe.airsupremacy.bombers.cutoff.five",
+      "label": "Strike the warehouses!",
+      "requirements": {
+        "foe.aerial": 5,
+        "foe": 1
+      },
+      "linked": [
+        {
+          "id": "foe.airsupremacy.bombers.cutoff.destroysupplies",
+          "chance": 50
+        },
+        {
+          "id": "foe.airsupremacy.bombers.cutoff.weaken"
+        }
+      ]
+    },
+    {
       "id": "foe.airsupremacy.bombers.cutoff.destroysupplies",
       "label": "Strike the warehouses!",
       "startdescription": "Our resources are burning!",
       "warmup": 10,
       "requirements": {
-        "enemyforces": -5,
-        "foe": 1
+        "foe": 1,
+        "enemyforces": -3
       },
       "aspects": {
         "destroy": 1
@@ -862,7 +890,7 @@
       "startdescription": "Our forces are being savagely bombed!",
       "warmup": 10,
       "requirements": {
-        "enemyforces": -5
+        "enemyforces": -3
       },
       "effects": {
         "enemyforces": 1

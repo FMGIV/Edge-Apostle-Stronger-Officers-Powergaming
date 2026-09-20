@@ -43,6 +43,9 @@
                 },
                 {
                     "id": "foe.umiri.attack.defense1"
+                },
+                {
+                    "id": "foe.umiri.attack.defense0"
                 }
             ]
         },
@@ -350,6 +353,76 @@
                 }
             ],
             "warmup": 15
+        },
+        {
+            "id": "foe.umiri.attack.defense9",
+            "label": "Enemy Adjusts Defensive Strategy",
+            "startdescription": "Frontline enemy units are being redeployed...",
+            "description": "Stowing their weapons and re-forming their ranks, the enemy silently withdraws into hiding, leaving behind the corpses of their comrades.",
+            "warmup": 10,
+            "aspects": {
+                "concealidentity": 1
+            },
+            "slots": [
+                {
+                    "id": "foe.deploy",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "german": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "foe.hidden": 1,
+                        "allnaval": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense9",
+                    "chance": 40
+                },
+                {
+                    "id": "foe.umiri.attack.defense9.all.startup"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense9.all.startup",
+            "label": "Enemy Adjusts Defensive Strategy",
+            "requirements": {
+                "foe": -1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense9.all"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.defense9.all",
+            "$extends": ["foe.umiri.attack.defense9"],
+            "slots": [
+                {
+                    "id": "foe.deploy",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "german": 1
+                    },
+                    "forbidden": {
+                        "foe.umiri.mark": 1,
+                        "allnaval": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.defense9.all",
+                    "chance": 40
+                }
+            ]
         },
         {
             "id": "foe.umiri.attack.defense0",
@@ -678,6 +751,9 @@
                 },
                 {
                     "id": "foe.umiri.attack.rally_a"
+                },
+                {
+                    "id": "foe.umiri.attack.rally_z"
                 }
             ]
         },
@@ -1261,6 +1337,9 @@
             "startdescription": "We have intercepted German communications; they are gathering and reorganizing their formations.",
             "description": "Gunfire echoes from the trenches. It seems Ilse's private forces have swelled in number again, keeping German military police occupied.",
             "warmup": 15,
+            "extantreqs": {
+                "foe.officerdetail": -8
+            },
             "effects": {
                 "enemyforces": 1
             },
@@ -1280,7 +1359,8 @@
                         "foeartillery": 1,
                         "foebombers": 1,
                         "foefighter": 1,
-                        "foefighterhidden": 1
+                        "foefighterhidden": 1,
+                        "foe.officerdetail": 1
                     },
                     "greedy": true
                 }
@@ -1416,6 +1496,160 @@
             "linked": [
                 {
                     "id": "foe.umiri.attack.rally_a1.all",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_z",
+            "label": "Enemy Troops Reorganizing",
+            "startdescription": "We have intercepted German communications; they are gathering and reorganizing their formations.",
+            "description": "She makes the weary grip their weapons once more, and the wavering believe in victory again.",
+            "warmup": 15,
+            "effects": {
+                "enemyforces": 1
+            },
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "german": 1
+                    },
+                    "essential": {
+                        "weakened": 1
+                    },
+                    "forbidden": {
+                        "remnant": 1,
+                        "foe.umiri.mark": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe.officerdetail",
+                    "level": 1
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "weakened",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needswinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsmoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsforgemoth",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgeforge",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgewinter",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "needsedgelantern",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "foe.aerial",
+                    "level": 0
+                },
+                {
+                    "filter": "foe",
+                    "mutate": "foe.escorted",
+                    "level": 0
+                }
+            ],
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_z1.all.startup"
+                },
+                {
+                    "id": "foe.umiri.attack.rally_z1",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_z1.all.startup",
+            "label": "Enemy Troops Reorganizing",
+            "requirements": {
+                "foe": -1
+            },
+            "effects": {
+                "enemyforces": -1
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_z1.all"
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_z1",
+            "$extends": ["foe.umiri.attack.rally_z"],
+            "requirements": {
+                "enemyforces": -3
+            },
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_z1.all.startup"
+                },
+                {
+                    "id": "foe.umiri.attack.rally_z1",
+                    "chance": 60
+                }
+            ]
+        },
+        {
+            "id": "foe.umiri.attack.rally_z1.all",
+            "$extends": ["foe.umiri.attack.rally_z1"],
+            "slots": [
+                {
+                    "id": "needsfoe",
+                    "label": "Enemy Troops",
+                    "required": {
+                        "german": 1
+                    },
+                    "forbidden": {
+                        "remnant": 1,
+                        "foe.umiri.mark": 1
+                    },
+                    "greedy": true
+                }
+            ],
+            "warmup": 15,
+            "linked": [
+                {
+                    "id": "foe.umiri.attack.rally_z1.all",
                     "chance": 60
                 }
             ]
