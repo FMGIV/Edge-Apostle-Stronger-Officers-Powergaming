@@ -1343,17 +1343,26 @@
 	
     {
 	"id": "exile.respond.edge",
-	"warmup" : 5
+	"warmup" : 5,
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "60 + [~/visible:wolf.rage] * 20" } 
+		} 
 	},
 	
     {
 	"id": "exile.respond.grail",
-	"warmup" : 5
+	"warmup" : 5,
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "60 + [~/visible:wolf.rage] * 20" } 
+		} 
 	},
 	
     {
 	"id": "exile.respond.edgegrail",
-	"warmup" : 5
+	"warmup" : 5,
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "60 + [~/visible:wolf.rage] * 20" } 
+		} 
 	},
 	
     {
@@ -1400,17 +1409,26 @@
 	
     {
 	"id": "foe.respond.edge",
-	"warmup" : 5
+	"warmup" : 5,
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "60 + [~/visible:wolf.rage] * 20" } 
+		} 
 	},
 	
     {
 	"id": "foe.respond.lantern",
-	"warmup" : 5
+	"warmup" : 5,
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "60 + [~/visible:wolf.rage] * 20" } 
+		} 
 	},
 	
     {
 	"id": "foe.respond.edgelantern",
-	"warmup" : 5
+	"warmup" : 5,
+	"alt$listedit": { 
+	"0$dictedit" : { "chance": "60 + [~/visible:wolf.rage] * 20" } 
+		} 
 	},
 	
 	{
@@ -1517,6 +1535,28 @@
 		"0$dictedit" : 	 { "chance": "50 + [~/visible:wolf.rage] * 25" },
 		"3$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
 		"4$dictedit" : 	 { "chance": "40 + [~/visible:wolf.rage] * 20" }
+		},
+	"effects$add" : {"trauma":-99}
+	},
+	
+    {
+	"id": "edgelong.cycle", 
+	"$incompatible": [ "3775567517", "3713855248" ],
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 + [~/visible:wolf.rage] * 25" },
+		"3$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"4$dictedit" : 	 { "chance": "40 + [~/visible:wolf.rage] * 20" }
+		}
+	},
+	
+    {
+	"id": "edgelong.cycle", 
+	"$depends": [ "3713855248"],
+	"linked$listedit": { 
+		"0$dictedit" : 	 { "chance": "50 + [~/visible:corrivality.exile] * 25 - [~/visible:corrivality.foe] * 25" },
+		"1$dictedit" : 	 { "chance": "50 + [~/visible:wolf.rage] * 25" },
+		"4$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
+		"5$dictedit" : 	 { "chance": "40 + [~/visible:wolf.rage] * 20" }
 		}
 	},
 	
@@ -5005,6 +5045,11 @@
 	"alt$listedit": { 
 	"0$dictedit" : { "chance": "60 + [~/visible:wolf.rage] * 20" } 
 		} 
+	},
+	
+	{
+	"id": "expel.dead",
+	"effects" : {"trauma":-99, "op":-99}
 	}
 
 ]
