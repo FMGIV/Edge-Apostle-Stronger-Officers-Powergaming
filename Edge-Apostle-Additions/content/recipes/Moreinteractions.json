@@ -2388,6 +2388,64 @@
 	"grandReqs" : {
 		"([friend.medics] || [friend.medics.supplied] || [friendmedics])": 1
 		}
+    },
+	
+    {
+	"id": "longdefend.wrake",
+	"label": "Agony Incarnate",
+	"startdescription": "@#foe.exile|'Ah... brings back memories.'#foe.duffoure|'You-'@",
+	"requirements": {
+	    "friend.wrake": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.stun.wrake"
+		}
+		],
+	"inductions": [
+	    {
+		"id": "produce.strife.contemnant",
+		"chance": 50
+	    }
+	]
+    },
+	
+    {
+	"id": "edgelong.stun.wrake",
+	"$extends": ["friend.wrake.killed"],	
+	"requirements": {},
+	"linked": [
+	    {
+		"id": "edgelong.expel"
+		}
+		],  
+    "warmup": 90,  
+    "effects": {  
+        "friend.wrake.killtoken": -99
+		}
+    },
+	
+    {
+	"id": "longdefend.splinter",
+	"label": "Despair Incarnate",
+	"startdescription": "@#foe.exile|'The dog found a fellow hound. How Cute.'#foe.duffoure|'The Wolf's arts can't save you forever.'@",
+	"requirements": {
+	    "friend.splinter": 1
+	},
+	"linked": [
+	    {
+		"id": "edgelong.stun.splinter"
+		}
+		]
+    },
+	
+    {
+	"id": "edgelong.stun.splinter",
+	"$extends": ["edgelong.stun.wrake"],	
+	"requirements": {},
+	"label": "To Bite the Hand that Kills",
+	"startdescription": "The Splinter will put up a competent fight against this Edge-Long, but won't win. I've bought myself some time, for now.",
+    "warmup": 60, 
     }
 	
 	
