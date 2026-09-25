@@ -1,167 +1,23 @@
 {
 "elements": [
-
-    {
-	"id": "vivienne.mark",
-	"label": "Foe: Vivenne",
-	"isAspect": true,
-	"isHidden": true
-    },
-	
-	{
-	"id": "vivienne.side.complete",
-	"label": "Found Vivenne Opening",
-	"isHidden": true,
-	"lifetime": 1,
-	},
 	
 	{
     "id": "foe.vivienne",
-	"$extends" : ["foe.sniper"],
 	"label": "薇薇安少尉",
-	"description": "于冬季战争中一战成名的女狙击手。芬兰人管她叫“白色死神”。我很快就会知道这个绰号是怎么来的了。",
-	"aspects": {
-	    "mortal": 1,
-	    "foe.resilient": 1,
-	    "foe.elusive": 1,
-		"foe.lethal" : 1,
-		"foe.braced" : 1,
-		"vivienne.mark" : 1,
-		"needswinter" : 12,
-		"needsmoth" : 12
-	},
-	"xtriggers": {
-	    "refresh": "foe.vivienne",
-	    "killgerman": "nothing",
-	    "killfoe": "nothing",
-	    "killmortal": "nothing",
-	    "concealidentity": "foe.vivienne.hidden",
-		"revealidentity" : "foe.vivienne",
-	    "takeadditional": [
-		{
-		    "id": "needswinter",
-		    "morpheffect": "mutate",
-		    "level": -2
-		},
-		{
-		    "id": "needsmoth",
-		    "morpheffect": "mutate",
-		    "level": -2
-		}
-	    ],
-	    "makeadditional": [
-		{
-		    "id": "needswinter",
-		    "morpheffect": "mutate",
-		    "level": 2
-		},
-		{
-		    "id": "needsmoth",
-		    "morpheffect": "mutate",
-		    "level": 2
-		}
-	    ],
-	    "weaken": [
-		{
-		    "id": "weakened",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "needswinter",
-		    "morpheffect": "mutate",
-		    "level": -2
-		},
-		{
-		    "id": "needsmoth",
-		    "morpheffect": "mutate",
-		    "level": -2
-		}
-	    ]
-	}
+	"description": "于冬季战争中一战成名的女狙击手。芬兰人管她叫“白色死神”。我很快就会知道这个绰号是怎么来的了。"
     },
 	
 	{
     "id": "foe.vivienne.hidden",
-	"$extends" : ["foe.vivienne"],
 	"label": "未知敌军",
-    "description": "最为危险的敌军永远是那些我们未预料其行动的那些。",
-	"aspects": {
-	    "foe.hidden": 1,
-	    "vivienne.mark" : 1
-		},
-	"xtriggers": {
-	    "refresh": "foe.vivienne.hidden",
-	    "killgerman": "nothing",
-	    "killfoe": "nothing",
-	    "killmortal": "nothing",
-		"revealidentity" : "foe.vivienne",
-	    "weaken": [
-		{
-		    "id": "weakened",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "needswinter",
-		    "morpheffect": "mutate",
-		    "level": -2
-		},
-		{
-		    "id": "needsmoth",
-		    "morpheffect": "mutate",
-		    "level": -2
-		}
-	    ]
-	},
-	"icon": "foe.unknown",
-	"noStack": true
-	},
-	
-	{
-    "id": "hindrance.vivienne",
-	"$extends" : ["foe.vivienne"],
-	"aspects": {
-	    "needswinter": 14,
-	    "needsmoth" : 14
-		},
-	"icon" : "foe.vivienne"
+    "description": "最为危险的敌军永远是那些我们未预料其行动的那些。"
 	},
 	
     {
 	"id": "side.vivienne",
 	"label": "一个破绽？",
-    "description": "那位一直压制着我们的狙击手终于还是露出了破绽。尽管那破绽几乎转瞬即逝，但也足够我们在她行动前发动进攻。",
-	"inherits": "side.template",
-	"xtriggers": {
-	    "careeradvancement": [
-		{
-		    "id": "vivienne.side.complete"
-		}
-	    ],
-	    "opx.progress0": [
-		{
-		    "id": "hindrance.snows",
-		    "morpheffect": "spawn"
-		}
-	    ],
-	    "opx.progress1": [
-		{
-		    "id": "hindrance.unknownlocation",
-		    "morpheffect": "spawn"
-		}
-	    ],
-	    "opx.progress2": [
-		{
-		    "id": "hindrance.vivienne",
-		    "morpheffect": "spawn"
-		}
-	    ]
-	},
-	"unique": true,
-	"lifetime" : 60
+    "description": "那位一直压制着我们的狙击手终于还是露出了破绽。尽管那破绽几乎转瞬即逝，但也足够我们在她行动前发动进攻。"
     }
-	
 	
 	
 ]

@@ -1,77 +1,5 @@
 {
 "elements": [
-
-	{
-	"id": "foe.template",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1 }
-			},
-		"1$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1 }
-			},
-		"2$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1 }
-			}
-	},
-	"xtriggers": {
-		"giveammo": [
-			{
-		    "id": "foe.equipped",
-		    "morpheffect": "mutate",
-		    "level": 1
-			},
-			
-			{
-		    "id": "foe.offensive.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-			}
-	    ],
-		
-		"giveelusive": [
-			{
-		    "id": "foe.elusive",
-		    "morpheffect": "mutate",
-		    "level": 1
-			},
-			
-			{
-		    "id": "foe.offensive.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-			}
-	    ],
-		
-		"givecommander": [
-			{
-		    "id": "foe.commander",
-		    "morpheffect": "mutate",
-		    "level": 1
-			},
-			
-			{
-		    "id": "foe.offensive.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-			}
-	    ],
-		
-		"givelethal": [
-			{
-		    "id": "foe.lethal",
-		    "morpheffect": "mutate",
-		    "level": 1
-			},
-			
-			{
-		    "id": "foe.offensive.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-			}
-	    ]
-	}
-	},
 	
     {
 	"id": "provisions",
@@ -80,98 +8,34 @@
 		"id": "Tiredally",
 		"actionid": "abandon",
 		"label": "枯竭友军",
-        "description": "一个正在休息的盟友",
-		"required": {
-		    "friend": 1
-			}
+        "description": "一个正在休息的盟友"
 		},
 		
 		{
 		"id": "moreprovisions",
 		"actionid": "abandon",
 		"label": "更多补给品",
-        "description": "更多特殊补给品",
-		"required": {
-		    "provisions": 1
-			}
+        "description": "更多特殊补给品"
 		},
 		
 		{
 		"id": "medic",
 		"actionid": "mobilize",
-		"label": "战地医师",
-		"required": {
-		    "friend.medics": 1,
-			"friendmedics": 1,
-			"friend.medics.supplied": 1,
-			"recruited.medic" : 1
-		},
-		"forbidden": {
-		    "wounded": 1,
-			"exhausted": 1
-			}
+		"label": "战地医师"
 	    },
 		
 	    {
 		"id": "engi",
 		"actionid": "mobilize",
-		"label": "工兵",
-		"required": {
-		    "friend.engineers": 1,
-			"friendengineers": 1,
-			"friend.engineers.wellstocked": 1,
-			"recruited.engineers" : 1
-		},
-		"forbidden": {
-		    "wounded": 1,
-			"exhausted": 1
-			}
+		"label": "工兵"
 	    },
 		
 	    {
 		"id": "provisions",
 		"actionid": "mobilize",
-		"label": "补给品",
-		"required": {
-		    "provisions": 1
-			}
+		"label": "补给品"
 	    }
-	],
-	"aspects": {
-	"edge": 2,
-    "heart": 2,
-    "grail": 2,
-	  "supplies": 1
-	}
-	},
-	
-	{
-	"id": "op.church",
-	"aspects$remove" : ["op"],
-	"aspects$add" : {"location":1}
-	},
-	
-	{
-	"id": "op.church.contemnant",
-	"aspects$remove" : ["op"],
-	"aspects$add" : {"location":1},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "edge" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "op.farm",
-	"aspects$remove" : ["op"],
-	"aspects$add" : {"location":1}
-	},
-	
-	{
-	"id": "op.farm.contemnant",
-	"aspects$remove" : ["op"],
-	"aspects$add" : {"location":1}
+	]
 	},
 	
 	{
@@ -180,20 +44,8 @@
         {
         "id": "intent",
         "actionid": "abandon",
-        "label": "意图",
-        "required": {
-          "heart": 1,
-					"grail": 1
-            }
+        "label": "意图"
         }
-	],
-	"xtriggers$add": {
-		"becomezombiesoldier": "foe.chasseur"
-	},
-	"induces": [
-	    {
-		"id": "evac.corpse.remover"
-	    }
 	]
 	},
 	
@@ -203,16 +55,9 @@
         {
         "id": "intent",
         "actionid": "abandon",
-        "label": "意图",
-        "required": {
-			"grail": 1
-            },
-		"forbidden" : { "lore" : 1 }
+        "label": "意图"
         }
-	],
-	"xtriggers$add": {
-		"becomezombiesoldier": "foe.chasseur"
-	}
+	]
 	},
 	
 	{
@@ -221,19 +66,8 @@
         {
         "id": "intent",
         "actionid": "abandon",
-        "label": "意图",
-        "required": {
-			"grail": 1
-            }
+        "label": "意图"
         }
-	],
-	"xtriggers$add": {
-		"becomezombiesoldier": "foe.chasseur"
-	},
-	"induces": [
-	    {
-		"id": "enemy.corpse.respawner"
-	    }
 	]
 	},
 	
@@ -258,730 +92,71 @@
 	},
 	
 	{
-    "id": "main.template",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1 }
-			},
-		"1$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1 }
-			},
-		"2$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1 }
-			}
-	}
-    },
-	
-	{
-    "id": "side.template",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1 }
-			},
-		"1$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1 }
-			},
-		"2$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1 }
-			}
-		}
-    },
-	
-	{
-    "id": "loc.church",
-	"xtriggers$add": {
-		"enemycontrolled": "husk"
-	}
-	},
-	
-	{
-    "id": "loc.farm",
-	"xtriggers$add": {
-		"enemycontrolled": "husk"
-	}
-	},
-	
-	{
     "id": "loc.commtower",
 	"description": "在电线中传递的话语。拿起接收器一一有人在听。[当这一设施存在时，你将能够快速地请求支援，也可以凭此请求特定友军或物资支援]",
-	"xtriggers$add": {
-		"dissolve": "husk",
-		"enemycontrolled" : "loc.commtower.enemy"
-	},
 	"slots": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图?",
-		"required": {
-		    "moth": 1,
-		    "lantern": 1,
-		    "forge": 1,
-		    "edge": 1,
-		    "winter": 1,
-		    "heart": 1,
-		    "grail": 1,
-		    "knock": 1,
-			"resolution" : 1
-		},
+		"label": "意图?"
 	}
 	]
 	},
 	
 	{
     "id": "loc.hospital",
-	"xtriggers$add": {
-		"dissolve": "husk",
-		"enemycontrolled" : "loc.hospital.enemy"
-	},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"actionid" : "operate"
-			},
-		"1$dictedit" : {
-			"actionid" : "operate"
-			},
-		"2$dictedit" : {
-			"actionid" : "operate"
-			}
-	},
 	"slots$append" : [
 		{
 		"id": "givemedic",
 		"actionid": "abandon",
-		"label": "战地医师",
-		"required": {
-		    "friend.medics": 1,
-		    "friend.medics.afraid": 1,
-			"friend.medics.supplied" : 1,
-		    "friend.medics.weaken": 1
-			}
+		"label": "战地医师"
 		}
 	]
 	},
 	
 	{
-    "id": "loc.hospital.exhausted",
-	"xtriggers$add": {
-		"dissolve": "husk",
-		"enemycontrolled" : "loc.hospital.enemy"
-	}
-	},
-	
-	{
-    "id": "loc.barracks",
-	"xtriggers$add": {
-		"dissolve": "husk",
-		"enemycontrolled" : "loc.barracks.enemy"
-	}
-	},
-	
-	{
     "id": "main.repossess",
 	"description": "一件重要的资产在火焰与碎石中丢失。德军在寻找它——而我们不能让它落到德军手中。[完成这一主要目标将会奖励你补给品与其它有用道具。]",
-    "xtriggers$dictedit": {
-		"careeradvancement": [
-		{
-		    "id": "resolution"
-		},
-			
-		{
-			"id": "repossess.complete"
-		}
-		],
-		
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ]
-    }
     },
 	
 	{
     "id": "main.withdraw",
 	"description": "这一地点很快就将变得难以捍卫。我们必须提供足够的掩护，我们的友军才能在德军的攻势下撤退。[完成这一主要目标将会使当地友军撤离]",
-    "xtriggers$dictedit": {
-		"careeradvancement": [
-		{
-		    "id": "resolution"
-		},
-			
-		{
-			"id": "withdraw.complete"
-		}
-		],
-		
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ]
-    }
     },
 	
 	{
     "id": "main.eliminate",
 	"description": "当地情报表明一个高姿态的目标正位于我们当前的所在地。若我们能够在继续行军前歼灭这一目标，那对于战争而言将是个好兆头。[完成这一主要目标将会使敌军被弱化]",
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [
-		{
-		    "id": "resolution"
-		},
-			
-		{
-			"id": "eliminate.complete"
-		}
-		],
-		
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ]
-    }
     },
 	
 	{
     "id": "main.sabotage",
-	"description": "这一地点充满了珍贵的基础设施——我们带不走的基础设施。在继续行军之前，我们需要保证德国国防军无法享受我们遗留的任何事物。[完成这一主要目标将会使当地所有的军事设施被破坏] ",
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [
-		{
-		    "id": "resolution"
-		},
-			
-		{
-			"id": "sabotage.complete"
-		}
-		],
-		
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ]
-    }
+	"description": "这一地点充满了珍贵的基础设施——我们带不走的基础设施。在继续行军之前，我们需要保证德国国防军无法享受我们遗留的任何事物。[完成这一主要目标将会使当地所有的军事设施被破坏] "
     },
 	
 	{
     "id": "main.rout",
-	"description": "我们的目标非常简单：将敌人完全歼灭。杀光他们。[完成这一主要目标以夺取敌占区，且当地所有敌军将会撤退]",
-    "aspects" : {"evacuate.trigger":1},
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [
-		{
-		    "id": "resolution"
-		},
-			
-		{
-			"id": "rout.complete"
-		}
-		],
-		
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ]
-    }
+	"description": "我们的目标非常简单：将敌人完全歼灭。杀光他们。[完成这一主要目标以夺取敌占区，且当地所有敌军将会撤退]"
     },
 	
 	{
     "id": "main.capture",
-	"description": "敌军已在此就位——在我们的家与我们的街上就位。将他们驱赶出去，夺回这座城市。[完成这一主要目标以夺取敌占区和所有敌军军事设施]",
-    "aspects" : {"evacuate.trigger":1},
-	"xtriggers$dictedit": {
-		
-		"careeradvancement": [
-		{
-		    "id": "resolution"
-		},
-			
-		{
-			"id": "capture.complete"
-		}
-		],
-		
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ]
-    }
+	"description": "敌军已在此就位——在我们的家与我们的街上就位。将他们驱赶出去，夺回这座城市。[完成这一主要目标以夺取敌占区和所有敌军军事设施]"
     },
 	
 	{
     "id": "main.rout.contemnant",
-	"description": "我们的目标非常简单：将敌人完全歼灭。杀光他们。[完成这一主要目标会使当地所有敌军撤退]",
-    "aspects$add" : {"evacuate.trigger":1},
-	"xtriggers$dictedit": {
-		
-		"careeradvancement": [
-		{
-		    "id": "resolution"
-		},
-			
-		{
-			"id": "rout.contemnant.complete"
-		}
-		],
-		
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ]
-    }
+	"description": "我们的目标非常简单：将敌人完全歼灭。杀光他们。[完成这一主要目标会使当地所有敌军撤退]"
     },
 	
 	{
     "id": "main.eliminate.contemnant",
-	"description": "一个手上沾满鲜血的德军高级军官正在城市内行动——我将让他死亡。[完成这一主要目标将会使敌军被弱化]",
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [
-		{
-		    "id": "resolution"
-		},
-			
-		{
-			"id": "eliminate.contemnant.complete"
-		}
-		],
-		
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ]
-    }
-    },
-	
-	{
-    "id": "main.raze",
-    "xtriggers$dictedit": {
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ]
-    }
-    },
-	
-	{
-    "id": "side.cutoff",
-    "xtriggers$dictedit": {
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ]
-    }
-    },
-	
-	{
-    "id": "side.weaponscache",
-    "xtriggers$dictedit": {
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ]
-    }
-    },
-	
-	{
-    "id": "side.rescueallies",
-    "xtriggers$dictedit": {
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ]
-    }
-    },
-	
-	{
-    "id": "side.rescuepartisans",
-    "xtriggers$dictedit": {
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ]
-    }
-    },
-	
-	{
-    "id": "side.rescuerefugees",
-    "xtriggers$dictedit": {
-        "opx.progress0": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.hindrance.router"
-        }
-        ],
-		
-        "opx.progress1": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ],
-		
-        "opx.progress2": [
-        {
-            "morpheffect": "recipe",
-            "id": "random.enemy.router"
-        }
-        ]
-    }
+	"description": "一个手上沾满鲜血的德军高级军官正在城市内行动——我将让他死亡。[完成这一主要目标将会使敌军被弱化]"
     },
 	
 	{
 	"id": "strife",
-	"description": "每当我们战斗，我们就为纷争添加燃料，驱动其巨大的螺旋回转。而纷争则点燃并激化我们身处的这战争中的世界作为回报。被称为流亡者之人以“美丽”形容这一现象。[随着抗争的增加，你的敌军将会变得更加激进，更加繁多。完成目标时遇到的阻碍也会更加难以应对。一股可怖的力量或许会在抗争达到七之后被吸引至你的所在地。]",
-	"induces$listedit": { 
-		"0$dictedit" : {
-			"chance": "60 + [~/visible:wolf.rage] * 20"
-			}
-		}
-	},
-	
-	{
-	"id": "foe.infantry",
-	"aspects$add" : {"foe.coordinated.comms.marker":1},
-	"xtriggers$add": {
-		"defensiveprep": [
-		{
-		    "id": "foe.braced",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "foe.infantry.hidden",
-	"aspects$add" : {"foe.coordinated.comms.marker":1}
-	},
-	
-	{
-	"id": "foe.kommando.hidden",
-	"aspects$add" : {"foe.coordinated.comms.marker":1},
-	},
-	
-	
-	{
-	"id": "foe.kommando",
-	"aspects$add" : {"foe.coordinated.comms.marker":1},
-	"xtriggers$add": {
-		"defensiveprep": [
-		{
-		    "id": "kommando.retaliatory",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	
-	{
-	"id": "foe.manhunters",
-	"xtriggers$add": {
-		"defensiveprep": [
-		{
-		    "id": "foe.resilient",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "foe.tanks",
-	"xtriggers$add": {
-		"defensiveprep": [
-		{
-		    "id": "foe.hulldown",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "foe.bombers",
-	"xtriggers$add": {
-		"defensiveprep": [
-		{
-		    "id": "foe.escorted",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "foe.artillery",
-	"xtriggers$add": {
-		"defensiveprep": [
-		{
-		    "id": "foe.emplaced",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		
-		{
-		    "id": "needsedge",
-		    "morpheffect": "mutate",
-		    "level": 4
-		},
-		{
-		    "id": "needsforgemoth",
-		    "morpheffect": "mutate",
-		    "level": 2
-		}
-	    ]
-	}
-	},
-	
-	{
-	"id": "foe.sniper",
-	"xtriggers$add": {
-		"defensiveprep": [
-		{
-		    "id": "foe.emplaced",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		
-		{
-		    "id": "needswinter",
-		    "morpheffect": "mutate",
-		    "level": 4
-		},
-		{
-		    "id": "needsmoth",
-		    "morpheffect": "mutate",
-		    "level": 4
-		}
-	    ]
-	}
-	},
-	
-	{
-    "id": "trauma",
-	"xtriggers$add": {
-		"apolloniantraumarefresh": {
-			"morpheffect": "timeset",
-			"level": 1000000
-		}
-	}
+	"description": "每当我们战斗，我们就为纷争添加燃料，驱动其巨大的螺旋回转。而纷争则点燃并激化我们身处的这战争中的世界作为回报。被称为流亡者之人以“美丽”形容这一现象。[随着抗争的增加，你的敌军将会变得更加激进，更加繁多。完成目标时遇到的阻碍也会更加难以应对。一股可怖的力量或许会在抗争达到七之后被吸引至你的所在地。]"
 	},
 	
     {
@@ -991,127 +166,21 @@
 		{
 		"id": "thing1",
 		"actionid": "abandon",
-		"label": "意图",
-		"required": {
-		    "hindrance": 1,
-		    "hindrance.active": 1,
-			"friend.conscript" : 1
-			}
+		"label": "意图"
 		},
 		
 		{
 		"id": "thing2",
 		"actionid": "abandon",
-		"label": "意图",
-		"required": {
-		    "hindrance": 1,
-		    "hindrance.active": 1,
-			"friend.conscript" : 1
-			}
+		"label": "意图"
 		},
 		
 		{
 		"id": "thing3",
 		"actionid": "abandon",
-		"label": "意图",
-		"required": {
-		    "hindrance": 1,
-		    "hindrance.active": 1,
-			"friend.conscript" : 1
-			}
+		"label": "意图"
 		}
 	]
-	},
-	
-	{
-	"id": "hindrance.snows",
-	"xtriggers$add": {
-		"converthindrance": "op.snows"
-	}
-	},
-	
-	{
-	"id": "hindrance.storms",
-	"xtriggers$add": {
-		"converthindrance": "op.storms"
-	}
-	},
-	
-	{
-	"id": "hindrance.fog",
-	"xtriggers$add": {
-		"converthindrance": "op.fog"
-	}
-	},
-	
-	{
-	"id": "hindrance.earthquake",
-	"xtriggers": {
-		"converthindrance": "op.ruins"
-	}
-	},
-	
-	{
-	"id": "hindrance.fortifications",
-	"xtriggers": {
-		"converthindrance": "mem.ingenuity"
-	}
-	},
-	
-	{
-	"id": "hindrance.nocturnal",
-	"xtriggers": {
-		"converthindrance": "mem.fear"
-	}
-	},
-	
-	{
-	"id": "hindrance.apollonian",
-	"xtriggers": {
-		"converthindrance": "mem.rage"
-	}
-	},
-	
-	{
-	"id": "hindrance.dionysian",
-	"xtriggers": {
-		"converthindrance": "mem.taste"
-	}
-	},
-	
-	{
-	"id": "hindrance.wolf",
-	"xtriggers": {
-		"converthindrance": "mem.grief"
-	}
-	},
-	
-	{
-	"id": "hindrance.lionsmith",
-	"xtriggers": {
-		"converthindrance": "op.thelionsmith"
-	}
-	},
-	
-	{
-	"id": "hindrance.colonel",
-	"xtriggers": {
-		"converthindrance": "op.thecolonel"
-	}
-	},
-	
-	{
-	"id": "hindrance.moonspace",
-	"xtriggers": {
-		"converthindrance": "op.time.dawn"
-	}
-	},
-	
-	{
-	"id": "hindrance.worms",
-	"xtriggers": {
-		"converthindrance": "mem.joy"
-	}
 	},
 	
 	{
@@ -1122,10 +191,7 @@
 		"id": "enemy",
 		"actionid": "abandon",
 		"label": "敌军",
-        "description": "挡路之人",
-		"required": {
-		    "foe": 1
-			}
+        "description": "挡路之人"
 		}
 	]
 	},
@@ -1138,11 +204,7 @@
 		"id": "hindrance",
 		"actionid": "abandon",
 		"label": "障碍",
-		"description": "挡路之物",
-		"required": {
-		    "hindrance": 1,
-		    "hindrance.active": 1
-			}
+		"description": "挡路之物"
 		}
 	]
 	},
@@ -1154,31 +216,9 @@
 		{
 		"id": "corpse",
 		"actionid": "abandon",
-		"label": "意图?",
-		"required": {
-		    "remnant": 1,
-			"decaying" : 1
-			},
-		"forbidden": {
-		    "foe.corpse.unnatural": 1,
-			"foe.corpses" : 1
-			}
+		"label": "意图?"
 		}
-	],
-	},
-	
-	{
-	"id": "foe.growth",
-	"xtriggers$add": {
-		"promotiontodisciple": "friend.conscript"
-	}
-	},
-	
-	{
-	"id": "foe.undead",
-	"xtriggers$add": {
-		"promotiontodisciple": "friend.conscript"
-	}
+	]
 	},
 	
 	{
@@ -1188,130 +228,14 @@
 		"id": "enemybuilding",
 		"actionid": "operate",
 		"label": "敌军设施",
-        "description": "我不希望敌军继续使用的某物",
-		"required": {
-		    "enemy.infrastructure": 1
-			}
+        "description": "我不希望敌军继续使用的某物"
 		}
-	],
+	]
 	},
 	
 	{
-    "id": "main.stalingrad.north",
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [
-		{
-			"id": "stalingrad.first.complete.marker"
-		}
-		],
-    }
-    },
-	
-	{
-    "id": "main.stalingrad.west",
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [		
-		{
-			"id": "stalingrad.second.complete.marker"
-		}
-		],
-    }
-    },
-	
-	{
-    "id": "main.stalingrad.south",
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [
-		{
-			"id": "stalingrad.third.complete.marker"
-		}
-		],
-    }
-    },
-	
-	{
-    "id": "main.rome.west",
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [		
-		{
-			"id": "rome.first.complete.marker"
-		}
-		],
-    }
-    },
-	
-	{
-    "id": "main.rome.central",
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [		
-		{
-			"id": "rome.second.complete.marker"
-		}
-		],
-    }
-    },
-	
-	{
-    "id": "main.rome.east",
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [
-		{
-			"id": "rome.third.complete.marker"
-		}
-		],
-    }
-    },
-	
-	{
-    "id": "main.berlin.east",
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [
-		{
-			"id": "berlin.first.complete.marker"
-		}
-		],
-    }
-    },
-	
-	{
-    "id": "main.berlin.north",
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [
-		{
-			"id": "berlin.second.complete.marker"
-		}
-		],
-    }
-    },
-	
-	{
-    "id": "main.berlin.central",
-    "xtriggers$dictedit": {
-		
-		"careeradvancement": [
-		{
-			"id": "berlin.third.complete.marker"
-		}
-		],
-    }
-    },
-	
-	{
 	"id": "skill.unmake",
-	"description": "心、手、灵、魂、肉、血、骨——将这一切，尽数毁灭。[你可以使用此卡牌立刻消灭几乎任何敌军或友军甚至障碍。此卡牌的<b>刃</b>性相将随着使用次数增加，但每次使用此卡牌都会产生一份精神创伤。]",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "hindrance" : 1, "hindrance.active" : 1 }
-			}
-	}
+	"description": "心、手、灵、魂、肉、血、骨——将这一切，尽数毁灭。[你可以使用此卡牌立刻消灭几乎任何敌军或友军甚至障碍。此卡牌的<b>刃</b>性相将随着使用次数增加，但每次使用此卡牌都会产生一份精神创伤。]"
 	},
 	
 	{
@@ -1321,119 +245,13 @@
 	
 	{
 	"id": "skill.intimidate.active",
-	"description": "勇气会从人们的灵魂中逃离；狮群将低头并保持温驯；甚至天空都会在我怒号时颤抖。听吧，而后畏惧吧。[此卡牌在计时结束前都持续生效，期间一切敌人都不会对你展开进攻。并且，使用此卡牌会引发一次地震，并清除场上全部的障碍。]",
-	"lifetime": 90
-	},
-	
-	{
-	"id": "loc.hospital.destroyed",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.engineers.wellstocked" : 1}
-			}
-	},
-	"xtriggers$add": {
-		"dissolve": "husk"
-		}
-	},
-	
-	{
-	"id": "loc.commtower.destroyed",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.engineers.wellstocked" : 1}
-			}
-	},
-	"xtriggers$add": {
-		"dissolve": "husk"
-	}
-	},
-	
-	{
-	"id": "loc.barracks.destroyed",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.engineers.wellstocked" : 1}
-			}
-	},
-	"xtriggers$add": {
-		"dissolve": "husk"
-		}
-	},
-	
-	{
-	"id": "wound.eye",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.medics.supplied" : 1, "friend.partisan.physician" : 1, "isphysician" : 1},
-			"forbidden" : { "exhausted" : 1, "wounded" : 1 }
-			}
-	}
-	},
-	
-	{
-	"id": "wound.hand",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.medics.supplied" : 1, "friend.partisan.physician" : 1, "isphysician" : 1},
-			"forbidden" : { "exhausted" : 1, "wounded" : 1 }
-			}
-	}
-	},
-	
-	{
-	"id": "wound.leg",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.medics.supplied" : 1, "friend.partisan.physician" : 1, "isphysician" : 1},
-			"forbidden" : { "exhausted" : 1, "wounded" : 1 }
-			}
-	}
-	},
-	
-	{
-	"id": "wound.ear",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "friend.medics.supplied" : 1, "friend.partisan.physician" : 1, "isphysician" : 1},
-			"forbidden" : { "exhausted" : 1, "wounded" : 1 }
-			}
-	}
-	},
-	
-	{
-	"id": "skill.unmake",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$remove" : ["marinette.marker"]
-			}
-		}
-	},
-	
-	{
-	"id": "wasteland.ironeater.here",
-	"induces": [
-	    {
-		"id": "enemy.action.halter.sergei"
-	    }
-	]
-	},
-	
-	{
-	"id": "mission.wilhelm.c",
-	"aspects$add" : {"challenge":1}
-	},
-	
-	{
-	"id": "mission.camilla.c",
-	"aspects$add" : {"challenge":1}
+	"description": "勇气会从人们的灵魂中逃离；狮群将低头并保持温驯；甚至天空都会在我怒号时颤抖。听吧，而后畏惧吧。[此卡牌在计时结束前都持续生效，期间一切敌人都不会对你展开进攻。并且，使用此卡牌会引发一次地震，并清除场上全部的障碍。]"
 	},
 	
 	{
 	"id": "op.endinghope",
     "slots$listedit": { 
 		"0$dictedit" : {
-			"required$add" : { "hopelessness" : 1, "antithesis" : 1},
 			"description": "它是否还存在于我饱受折磨的灵魂之中？"
 			}
 		}
@@ -1441,60 +259,23 @@
 	
 	{
 	"id": "mem.eva",
-	"description": "一位曾是母亲的可憎之物。",
-	"icon" : "friend.eva",
-	"overlays": [
-		{
-      "image": "friend.eva",
-      "grayscale": true,
-      "color": "#000000"
-		}
-	]
+	"description": "一位曾是母亲的可憎之物。"
     },
 	
     {
 	"id": "mem.vanja",
-	"description": "一位失去双亲，被迫直面痛苦的孩子。",
-	"icon" : "friend.vanja",
-	"overlays": [
-		{
-      "image": "friend.vanja",
-      "grayscale": true,
-      "color": "#000000"
-		}
-	]
+	"description": "一位失去双亲，被迫直面痛苦的孩子。"
     },
 	
     {
 	"id": "mem.tibor",
-	"description": "一位被纳粹烧毁其著作的医生。",
-	"icon" : "friend.tibor",
-	"overlays": [
-		{
-      "image": "friend.tibor",
-      "grayscale": true,
-      "color": "#000000"
-		}
-	]
+	"description": "一位被纳粹烧毁其著作的医生。"
     },
 	
     {
 	"id": "mem.walther",
-	"description": "一位为拯救他人而牺牲自我的太阳神官。",
-	"icon" : "friend.walther",
-	"overlays": [
-		{
-      "image": "friend.walther",
-      "grayscale": true,
-      "color": "#000000"
-		}
-	]
+	"description": "一位为拯救他人而牺牲自我的太阳神官。"
     },
-	
-    {
-	"id": "signaller_afraid",
-	"isHidden": true
-	},
 	
 	{
     "id": "op.cat",
@@ -1502,51 +283,19 @@
         {
         "id": "intent",
         "actionid": "operate",
-        "label": "恐惧友军",
-        "required": {
-			"friend.weakened": 1
-            }
+        "label": "恐惧友军"
         }
 		]
 	},
 	
     {
 	"id": "skill.deflect",
-	"description": "这些极其折磨且费力的动作可将身体变为一座要塞。执行这一动作所需的精准与训练通常仅能在长生者身上寻得，但一个凡人——一个极其谨慎，极其训练有素的凡人——或许能够在一定限度上使用这些技术以使本将致命的攻击偏向。[你可以使用这一技能防御来自任何来源的攻击。也可以使用此卡消除一张精神创伤。]",
-	"slots" : [
-		{
-		"id": "trauma1",
-		"actionid": "abandon",
-		"label": "精神创伤",
-        "description": "指向心灵的攻击",
-		"required": {
-		    "trauma": 1
-			}
-		}
-		
-	]
+	"description": "这些极其折磨且费力的动作可将身体变为一座要塞。执行这一动作所需的精准与训练通常仅能在长生者身上寻得，但一个凡人——一个极其谨慎，极其训练有素的凡人——或许能够在一定限度上使用这些技术以使本将致命的攻击偏向。[你可以使用这一技能防御来自任何来源的攻击。也可以使用此卡消除一张精神创伤。]"
 	},
 	
     {
 	"id": "skill.refreshself",
-	"description": "这种对自身的精炼可以将灵魂中所有能量引导向彻底消灭对手的方向。支持这一过程所需的狂怒与忍耐通常仅能在长生者身上寻得，但一个凡人——一个极其强大，极其富有勇气的凡人——或许能够在一定限度上使用这些技术以使其攻击获得以其他方式不可能实现的速度和凶猛。[你可以使用这一技能立刻刷新一件枯竭的武器，或一份枯竭的密传。或消除一份精神创伤。]",
-	"slots$append" : [
-		{
-		"id": "trauma1",
-		"actionid": "abandon",
-		"label": "精神创伤",
-        "description": "指向心灵的攻击",
-		"required": {
-		    "trauma": 1
-			}
-		}
-		
-	]
-	},
-	
-	{
-	"id": "wound.sergei",
-	"aspects$remove" : ["op"]
+	"description": "这种对自身的精炼可以将灵魂中所有能量引导向彻底消灭对手的方向。支持这一过程所需的狂怒与忍耐通常仅能在长生者身上寻得，但一个凡人——一个极其强大，极其富有勇气的凡人——或许能够在一定限度上使用这些技术以使其攻击获得以其他方式不可能实现的速度和凶猛。[你可以使用这一技能立刻刷新一件枯竭的武器，或一份枯竭的密传。或消除一份精神创伤。]"
 	},
 	
 	{
@@ -1555,27 +304,18 @@
         {
         "id": "scaredyboi",
         "actionid": "communicate",
-        "label": "友军",
-        "required": {
-          "friend.weakened": 1
-            },
-		"forbidden" : { "wounded" : 1, "exhausted" : 1 }
+        "label": "友军"
         }
 	]
 	},
 	
 	{
     "id": "contemnant.memento",
-	"aspects$add" : {"hope.blocker":1},
 	"slots": [
         {
         "id": "scaredyboi",
         "actionid": "communicate",
-        "label": "友军",
-        "required": {
-          "friend.weakened": 1
-            },
-		"forbidden" : { "wounded" : 1, "exhausted" : 1 }
+        "label": "友军"
         }
 	]
 	},
@@ -1586,18 +326,9 @@
         {
         "id": "scaredyboi",
         "actionid": "communicate",
-        "label": "友军",
-        "required": {
-          "friend.weakened": 1
-            },
-		"forbidden" : { "wounded" : 1, "exhausted" : 1 }
+        "label": "友军"
         }
 	]
-	},
-	
-    {
-	"id": "weapon.cross",
-	"aspects$add" : {"ap":3}
 	},
 	
     {
@@ -1611,11 +342,7 @@
 	{
 		"id": "enemycorpse",
 		"actionid": "operate",
-		"label": "倒下的敌军",
-		"required": {
-		    "foe.corpses": 1,
-			"neutral.corpses" : 1
-		}
+		"label": "倒下的敌军"
 	}
 	]
 	},
@@ -1627,30 +354,9 @@
 		"id": "ally",
 		"actionid": "operate",
 		"label": "背叛",
-        "description": "能让我宣泄暴力的某人。",
-		"required": {
-		    "friend": 1,
-			"edgelong" : 1
-			},
-		"forbidden": {
-		    "faction.anno": 1
-			}
+        "description": "能让我宣泄暴力的某人。"
 		}
 	]
-	},
-	
-	{
-	"id": "op.sergei.comeforsword",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "edge" : 1}
-			}
-	}
-	},
-	
-	{
-	"id": "long.bossfight.marker",
-	"aspects$add" : {"long.blocker":1}
 	},
 	
 	{
@@ -1659,89 +365,20 @@
         {
         "id": "intent",
         "actionid": "abandon",
-        "label": "害怕",
-        "required": {
-			"trauma": 1
-            }
+        "label": "害怕"
         }
 		]
 	},
 	
 	{
 	"id": "friend.conscript",
-	"aspects$add": {
-		"forceshakedown" : 1
-	},
-	"xtriggers$add": {
-		"promotiontoveteran": "friend.veteran"
-	},
 	"slots": [
 		{
 		"id": "needswarzone",
 		"actionid": "operate",
-		"label": "战区",
-		"required": {
-		    "warzone.current": 1
-		},
-		"forbidden": {
-		    "wasteland": 1
-		}
+		"label": "战区"
 	    }
 	]
-	},
-	
-	{
-	"id": "friend.adeptwinter",
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"required$add" : { "decaying" : 1}
-			}
-	}
-	},
-	
-	{
-    "id": "weapon.revolver.5",
-	"aspects$add" : {"weapon.revolver.mark":1},
-	},
-	
-	{
-    "id": "weapon.revolver.4",
-	"aspects$add" : {"weapon.revolver.mark":1},
-	},
-	
-	{
-    "id": "weapon.revolver.3",
-	"aspects$add" : {"weapon.revolver.mark":1},
-	},
-	
-	{
-    "id": "weapon.revolver.2",
-	"aspects$add" : {"weapon.revolver.mark":1},
-	},
-	
-	{
-    "id": "weapon.revolver.1",
-	"aspects$add" : {"weapon.revolver.mark":1},
-	},
-	
-	{
-    "id": "weapon.rifle.4",
-	"aspects$add" : {"weapon.rifle.mark":1},
-	},
-	
-	{
-    "id": "weapon.rifle.3",
-	"aspects$add" : {"weapon.rifle.mark":1},
-	},
-	
-	{
-    "id": "weapon.rifle.2",
-	"aspects$add" : {"weapon.rifle.mark":1},
-	},
-	
-	{
-    "id": "weapon.rifle.1",
-	"aspects$add" : {"weapon.rifle.mark":1},
 	},
 	
 	{
@@ -1750,42 +387,9 @@
         {
         "id": "intent",
         "actionid": "operate",
-        "label": "抗争",
-        "required": {
-          "strife": 1
-            }
+        "label": "抗争"
         }
 	]
-	},
-	
-	{
-	"id": "cunning",
-	"aspects$add" : { "lantern": 4 }
-	},
-	
-	{
-	"id": "wisdom",
-	"aspects$add" : { "winter": 4 }
-	},
-	
-	{
-	"id": "patience",
-	"aspects$add" : { "edge": 4 }
-	},
-	
-	{
-	"id": "courage",
-	"aspects$add" : { "forge": 4 }
-	},
-	
-	{
-	"id": "strength",
-	"aspects$add" : { "heart": 4 }
-	},
-	
-	{
-	"id": "anger",
-	"aspects$add" : { "edge": 4 }
 	},
 	
 	{
@@ -1794,10 +398,7 @@
         {
         "id": "intent",
         "actionid": "abandon",
-        "label": "教导",
-        "required": {
-			"friend": 1
-            }
+        "label": "教导"
         }
 		]
 	},
@@ -1808,10 +409,7 @@
         {
         "id": "intent",
         "actionid": "abandon",
-        "label": "教导",
-        "required": {
-			"friend": 1
-            }
+        "label": "教导"
         }
 		]
 	},
@@ -1822,10 +420,7 @@
         {
         "id": "intent",
         "actionid": "abandon",
-        "label": "教导",
-        "required": {
-			"friend": 1
-            }
+        "label": "教导"
         }
 		]
 	},
@@ -1836,10 +431,7 @@
         {
         "id": "intent",
         "actionid": "abandon",
-        "label": "教导",
-        "required": {
-			"friend": 1
-            }
+        "label": "教导"
         }
 		]
 	},
@@ -1850,10 +442,7 @@
         {
         "id": "intent",
         "actionid": "abandon",
-        "label": "教导",
-        "required": {
-			"friend": 1
-            }
+        "label": "教导"
         }
 		]
 	},
@@ -1864,10 +453,7 @@
         {
         "id": "intent",
         "actionid": "abandon",
-        "label": "教导",
-        "required": {
-			"friend": 1
-            }
+        "label": "教导"
         }
 		]
 	},
@@ -1879,43 +465,21 @@
 		{
 		"id": "thing1",
 		"actionid": "abandon",
-		"label": "消逝",
-		"required": {
-		    "decaying": 1
-			}
+		"label": "消逝"
 		},
 		
 		{
 		"id": "thing2",
 		"actionid": "abandon",
-		"label": "消逝",
-		"required": {
-		    "decaying": 1
-			}
+		"label": "消逝"
 		},
 		
 		{
 		"id": "thing3",
 		"actionid": "abandon",
-		"label": "消逝",
-		"required": {
-		    "decaying": 1
-			}
+		"label": "消逝"
 		}
 	]
-	},
-	
-	{
-	"id": "shrine.wolf",
-	"xtriggers": {	
-		"dynamicbuffonce": [
-		{
-		    "id": "foe.preparation.buffed",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-			]
-		}
 	}
 	
 	

@@ -3,1106 +3,227 @@
 
 	{
 	"id": "command.ally.action.engineers.pre",
-	"actionid": "operate",
-	"$priority" : 1,
 	"label": "命令工兵进行工作",
-    "startdescription": "我需要工兵们进行维修或建筑工作，开始吧。",
-	"grandReqs": {
-	    "provisions": 2,
-	    "([friend.engineers] || [well.stocked] || [friendengineers])": 1,
-		"[~/extant:allyattackmarker]=3": -1,
-		"main": -1,
-		"side" : -1,
-		"foe": -1
-	},
-	"effects" : {
-	"allyattackmarker" : 1,
-	"provisions" : 2
-	},
-	"inductions": [  
-		{
-		"id" : "command.ally.action.engineers",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-			}
-		}
-	],  
-	"craftable": true  
+    "startdescription": "我需要工兵们进行维修或建筑工作，开始吧。"
 	},
 	
 	{  
 	"id": "command.ally.action.engineers",
-	"actionid": "ally.engineer.action",  
 	"label": "命令工兵进行工作",
-    "startdescription": "我需要工兵们进行维修或建筑工作，开始吧。",
-	"linked": [  
-		{
-		"id": "faster*"
-	    },
-		
-		{
-		"id": "repair*"
-	    },
-		
-		{
-		"id": "buildbarrack*"
-	    }
-	] 
-	},
-   
-    {
-	"id": "faster.repairdamaged.engineers",
-	"$extends" : ["repairdamaged.engineers"],
-	"requirements": {
-	    "damaged": 1,
-	    "provisions": 2,
-	    "well.stocked": 1
-	},
-	"warmup": 15
-	},
-	
-    {
-	"id": "faster.repairinfrastructure",
-	"$extends" : ["repairinfrastructure"],
-	"requirements": {
-	    "infrastructure.destroyed": 1,
-	    "well.stocked": 1,
-	    "provisions": 2
-	},
-	"warmup": 30
-	},
-	
-    {
-	"id": "faster.buildbarracks",
-	"$extends" : ["buildbarracks"],
-	"requirements": {
-	    "provisions": 2,
-		"well.stocked": 1
-	},
-	"warmup": 30,
-	"effects": {
-	    "well.stocked": -1,
-	    "loc.barracks": 1,
-		"provisions" : -2
-	}
+    "startdescription": "我需要工兵们进行维修或建筑工作，开始吧。"
 	},
 	
     {
 	"id": "Ally.Give.Provisions.Unweaken",
-	"actionid": "abandon",
-	"$priority" : 1,
 	"label": "使用补给品让友军恢复战斗力",
     "startdescription": "为被弱化的盟友分配额外的补给可以让他们恢复战斗力。",
-    "description": "好了，他们应该没问题了。",
-	"aspects": {
-	    "deweaken": 1
-	},
-	"requirements": {
-	    "friend": 1,
-		"weakened": 1,
-		"provisions" : 1,
-		"damage.body" : -1
-	},
-	"effects": {
-	    "provisions": -1
-	},
-	"warmup": 15,
-	"craftable": true
+    "description": "好了，他们应该没问题了。"
     },
 	
     {
-	"id": "Ally.Talk.Unafraid", 
-	"$depends": [ "3713855248" ],
-	"actionid": "communicate",
-	"$priority" : 1,
+	"id": "Ally.Talk.Unafraid",
 	"label": "激励友军",
     "startdescription": "一次残酷的经历动摇了这一友军的意志。只需要一点时间，我便可以使其重燃斗志。",
-    "description": "好了，准备战斗了。",
-	"aspects": {
-	    "deweaken": 1
-	},
-	"requirements": {
-	    "friend.weakened": 1,
-		"memento" : 1
-	},
-	"warmup": 30,
-	"craftable": true
-    },
-	
-    {
-	"id": "Ally.Talk.Unafraid", 
-	"$incompatible": [ "3713855248" ],
-	"actionid": "communicate",
-	"$priority" : 1,
-	"label": "激励友军",
-    "startdescription": "一次残酷的经历动摇了这一友军的意志。只需要一点时间，我便可以使其重燃斗志。",
-    "description": "好了，准备战斗了。",
-	"requirements": {
-	    "friend.weakened": 1,
-		"memento" : 1
-	},
-    "mutations": [
-                {
-                    "filter": "edge",
-                    "mutate": "edge",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "forge",
-                    "mutate": "forge",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "lantern",
-                    "mutate": "lantern",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "moth",
-                    "mutate": "moth",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "heart",
-                    "mutate": "heart",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "grail",
-                    "mutate": "grail",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "winter",
-                    "mutate": "winter",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "knock",
-                    "mutate": "knock",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "friend",
-                    "mutate": "friend.weakened",
-                    "level": 0,
-                    "additive": false
-                },
-                {
-                    "filter": "memento",
-                    "mutate": "heart",
-                    "level": -2,
-                    "additive": true
-                }
-    ],
-	"warmup": 30,
-	"craftable": true
+    "description": "好了，准备战斗了。"
     },
 	
     {
 	"id": "Ally.Give.Provisions",
-	"actionid": "communicate",
-	"$priority" : 1,
 	"label": "为这一友军分配额外补给品",
     "startdescription": "为友军分配更多的补给可以有效提升他们的士气与工作效率。",
-	"description": "好了。我的友军现在更有效率了。",
-	"aspects": {
-	    "giveallyprovisions": 1
-	},
-	"requirements": {
-	    "friend": 1,
-	    "well.stocked": -1,
-		"medic.stocked": -1,
-		"moralebuff": -1,
-		"friend.inspired" : -1,
-		"friend.weakened": -1,
-		"weakened": -1,
-		"provisions" : 1,
-		"uqpolevaya" : -1,
-		"wounded" : -1,
-		"exhausted" : -1,
-		"decaying" : -1
-	},
-	"effects": {
-	    "provisions": -1
-	},
-	"warmup": 15,
-	"craftable": true
+	"description": "好了。我的友军现在更有效率了。"
     },
 	
 	{
 	"id": "command.ally.action.medics.pre",
-	"actionid": "operate",
-	"$priority" : 1,
 	"label": "命令战地医师进行工作",
-    "startdescription": "我需要医护人员们治愈某人或某物，开始吧。",
-	"grandReqs": {
-	    "provisions": 1,
-		"wounded" : 1,
-	    "([friend.medics] || [medic.stocked] || [friendmedics])": 1,
-		"[~/extant:allyattackmarker]=3": -1
-	},
-	"effects" : {
-	"allyattackmarker" : 1,
-	"provisions" : 1
-	},
-	"inductions": [  
-		{
-		"id" : "command.ally.action.medics",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-			}
-		}
-	],  
-	"craftable": true  
+    "startdescription": "我需要医护人员们治愈某人或某物，开始吧。"
 	},
 	
 	{  
 	"id": "command.ally.action.medics",
-	"actionid": "ally.medics.action",  
 	"label": "命令战地医师进行工作",
-    "startdescription": "我需要医护人员们治愈某人或某物，开始吧。",
-	"linked": [  
-		{
-		"id": "faster*"
-	    },
-		
-		
-		{
-		"id": "healcasualty*"
-	    }
-	] 
+    "startdescription": "我需要医护人员们治愈某人或某物，开始吧。"
 	},
 	
 	{
 	"id": "command.ally.action.scouts.pre",
-	"actionid": "operate",
-	"$priority" : 1,
 	"label": "命令斥候进行侦查",
-    "startdescription": "变化无常的气候足以威胁毫无准备之人，但我的斥候总能设法将其化为我们的优势。\n\n[这会将一个阻碍转化为有用的影响]",
-	"grandReqs": {
-	    "provisions": 1,
-		"([friend.scouts] || [friendscouts])": 1,
-		"hindrance" : 1,
-		"[~/extant:allyattackmarker]=3": -1 
-	},
-	"effects" : {
-	"allyattackmarker" : 1,
-	"provisions" : 1
-	},
-	"inductions": [  
-		{
-		"id" : "command.ally.action.scouts",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-			}
-		}
-	],  
-	"craftable": true  
+    "startdescription": "变化无常的气候足以威胁毫无准备之人，但我的斥候总能设法将其化为我们的优势。\n\n[这会将一个阻碍转化为有用的影响]"
 	},
 	
 	{  
 	"id": "command.ally.action.scouts",
-	"actionid": "ally.scouts.action",  
 	"label": "命令斥候进行侦查",
-    "startdescription": "我需要斥候去搜寻某物，找到它。",
-	"linked": [  
-	
-		{
-		"id": "turnhindrance.scouts"
-	    },
-		
-		{
-		"id": "scouts.scopeout"
-	    },
-		
-		{
-		"id": "infil*"
-	    },
-		
-		{
-		"id": "recon*"
-	    }
-		
-	] 
+    "startdescription": "我需要斥候去搜寻某物，找到它。"
 	},
 	
 	{
 	"id": "command.ally.action.scouts.scopeout.pre",
-	"$priority" : 2,
-	"actionid": "recon",
 	"label": "命令斥候进行侦查",
-    "startdescription": "我需要知晓与这一敌军相关的情报，这些人会帮我找到它。",
-	"grandReqs": {
-	    "provisions": 1,
-	    "([friend.scouts] || [friendscouts] || [partisan])": 1,
-		"[foe] || [foe.hidden]" : 1,
-		"[~/extant:allyattackmarker]=3": -1 
-	},
-	"effects" : {
-	"allyattackmarker" : 1
-	},
-	"inductions": [  
-		{
-		"id" : "command.ally.action.scouts",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-			}
-		}
-	],  
-	"craftable": true  
+    "startdescription": "我需要知晓与这一敌军相关的情报，这些人会帮我找到它。"
 	},
 	
 	{  
     "id": "scouts.scopeout",  
-    "actionid": "recon",
-	"$priority" : 1,
     "label": "侦查敌军：斥候",
     "startdescription": "我需要知晓与这一敌军相关的情报，这些人会帮我找到它。",
-    "description": "我的人带着敌军的情报回来了。",
-    "aspects" : {
-		"revealidentity": 1,
-		"weaken": 1,
-		"fatiguing" : 1
-	},
-	"grandReqs" : {
-		"([foe] || [foe.hidden])": 1,
-		"provisions": 1,
-	    "([friend.scouts] || [friendscouts] || [partisan])": 1,
-		"weakened" : -1
-	},
-    "warmup": 30,  
-	"craftable": true  
-	},
-	
-    {
-	"id": "faster.heal.wound",
-	"$extends" : ["heal.wound"],
-	"requirements": {
-	    "provisions": 1,
-	    "medic.stocked": 1,
-	    "damage.body": 1,
-	    "debilitation": -1
-	},
-	"warmup": 15
+    "description": "我的人带着敌军的情报回来了。"
 	},
 	
 	{
 	"id": "command.ally.action.scouts.recon.warzone.pre",
-	"actionid": "recon",
-	"$priority" : 1,
 	"label": "命令斥候进行侦查",
-    "startdescription": "我需要知晓与这一战区相关的情报，这些人会帮我找到它。",
-	"grandReqs": {
-	    "([friend.scouts] || [friendscouts] || [partisan])": 1,
-		"warzone.current" : 1,
-		"[~/extant:allyattackmarker]=3": -1 
-	},
-	"effects" : {
-	"allyattackmarker" : 1
-	},
-	"inductions": [  
-		{
-		"id" : "command.ally.action.scouts",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-			}
-		}
-	],  
-	"craftable": true  
+    "startdescription": "我需要知晓与这一战区相关的情报，这些人会帮我找到它。"
 	},
 	
     {
 	"id": "faster.healcasualty.medics.monster",
-	"$extends" : ["healcasualty.medics.monster"],
-	"requirements": {
-	    "medic.stocked": 1,
-	    "provisions": 1,
-	    "friend.monster": 1,
-	    "wounded": 1
-	},
-	"warmup": 15,
 	"slots": [
 	    {
 		"id": "needsengineer",
 		"label": "金属",
-		"required": {
-		    "friend.engineers": 1,
-			"friend.engineers.wellstocked" : 1,
-			"friendengineers" : 1,
-			"lore" : 1
-		}
 	    }
-	],
-	"alt": [
-	    {
-		"id": "healcasualty.medics.monster.success"
-	    },
-		
-		{
-		"id": "healcasualty.medics.monster.success.lore"
-	    }
-
 	]
-	},
-	
-	
-    {
-	"id": "faster.healcasualty.medics",
-	"$extends" : ["healcasualty.medics"],
-	"requirements": {
-	    "medic.stocked": 1,
-	    "provisions": 1,
-	    "wounded": 1
-	},
-	"warmup": 15
-	},
-
-    {
-	"id": "operate.startup.shakedown.infantry.inspired",
-	"$extends" : ["operate.startup.shakedown"],
-	"requirements": {
-	    "friend.infantry.inspired": 1,
-	    "warzone.current": 1,
-	    "edge": 9,
-	    "lake.here": -1,
-	    "craterfield.here": -1,
-	    "wasteland.ironeater.here": -1,
-	    "wasteland": -1,
-	    "warzone.abused": -1
-	}
-	},
-
-    {
-	"id": "operate.startup.assistlocals.infantry.inspired",
-	"$extends" : ["operate.startup.assistlocals"],
-	"requirements": {
-	    "friend.infantry.inspired": 1,
-	    "warzone.current": 1,
-	    "heart": 1,
-	    "lake.here": -1,
-	    "craterfield.here": -1,
-	    "wasteland.ironeater.here": -1,
-	    "wasteland": -1,
-	    "warzone.abused": -1
-	}
 	},
 	
 	{  
 	"id": "command.ally.attack.pre",
-	"$priority" : 9,
-	"actionid": "operate",  
 	"label": "命令友军对这一敌军发起进攻",
-    "startdescription": "敌军就在前方。我需要一种策略，以及执行策路的人力和资源。或者，在我两者都缺的时候，一个乐意去死，我也不在乎将其抛弃的棋子。\n\n[你只能同时进行三次命令友军行动。失败的进攻有更高的概率使友军负伤或死亡，但不会使你受伤或受到精神创伤。]",
-	"requirements": {  
-	    "friend": 1,
-		"foe" : 1,
-		"provisions": 1,
-		"weapon" : -1,
-		"lore" : -1,
-		"tool" : -1,
-		"battlehunger" : -1,
-		"chain" : -1,
-		"trauma" : -1,
-		"damage.body" : -1,
-		"faction.anno" : -1,
-		"token.star" : -1,
-		"ability" : -1
-	},
-	"grandReqs": { 
-	    "[~/extant:allyattackmarker]=3": -1 
-	},  
-    "extantreqs": {  
-        "contemnant.story": -1   
-    },
-	"effects" : {
-	"allyattackmarker" : 1,
-	"provisions" : 1
-	},
-	"inductions": [  
-		{
-		"id": "command.ally.attack",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-		}
-	    }
-	],  
-	"craftable": true  
+    "startdescription": "敌军就在前方。我需要一种策略，以及执行策路的人力和资源。或者，在我两者都缺的时候，一个乐意去死，我也不在乎将其抛弃的棋子。\n\n[你只能同时进行三次命令友军行动。失败的进攻有更高的概率使友军负伤或死亡，但不会使你受伤或受到精神创伤。]"
 	},
 	
 	{  
 	"id": "command.ally.attack",
-	"actionid": "allyattack",  
 	"label": "命令友军对这一敌军发起进攻",
-    "startdescription": "敌军就在前方。我需要一种策略，以及执行策略的人力和资源。\n\n[投入的性相达到敌人的任一阈值即可对其进行袭击。投入的性相超越对应阈值至少5阶则能够保证这次袭击必定成功。]",
-	"linked": [  
-		{
-		"id": "attackenemy*"
-	    }
-	], 
+    "startdescription": "敌军就在前方。我需要一种策略，以及执行策略的人力和资源。\n\n[投入的性相达到敌人的任一阈值即可对其进行袭击。投入的性相超越对应阈值至少5阶则能够保证这次袭击必定成功。]"
 	},
 	
 	{  
 	"id": "command.ally.attack.toomany.hint",
-	"$priority" : 2,
-	"actionid": "operate",  
 	"label": "战线过于分散",
-    "startdescription": "我无法同时调配这么多人行动，我得等其中一位完成后才能继续。[你只能同时进行三次命令友军行动]",
-	"requirements": {  
-	    "friend": 1,
-		"foe" : 1,
-		"provisions": 1,
-		"weapon" : -1,
-		"lore" : -1,
-		"tool" : -1
-	},   
-	"extantreqs" : {
-	"allyattackmarker" : 3
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "我无法同时调配这么多人行动，我得等其中一位完成后才能继续。[你只能同时进行三次命令友军行动]"
 	},
 	
 	{  
 	"id": "command.hired.soviet.attack.pre",
-	"$priority" : 1,
-	"actionid": "operate",  
 	"label": "命令苏军对这一敌军发起进攻",
-    "startdescription": "敌军就在前方。我需要一种策略，以及执行策路的人力和资源。或者，在我两者都缺的时候，一个乐意去死，我也不在乎将其抛弃的棋子。\n\n[你只能同时进行三次命令友军行动。失败的进攻有更高的概率使友军负伤或死亡，但不会使你受伤或受到精神创伤。]",
-	"requirements": {  
-	    "hired": 1,
-		"foe" : 1,
-		"provisions": 1,
-		"weapon" : -1,
-		"lore" : -1,
-		"tool" : -1,
-		"chain" : -1,
-		"trauma" : -1,
-		"damage.body" : -1,
-		"faction.anno" : -1
-	},
-	"grandReqs": { 
-	    "[~/extant:allyattackmarker]=3": -1 
-	},  
-    "extantreqs": {  
-        "contemnant.story": 1   
-    },
-	"effects" : {
-	"allyattackmarker" : 1,
-	"provisions" : 1
-	},
-	"inductions": [  
-		{
-		"id": "command.ally.attack",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-		}
-	    }
-	],  
-	"craftable": true  
+    "startdescription": "敌军就在前方。我需要一种策略，以及执行策路的人力和资源。或者，在我两者都缺的时候，一个乐意去死，我也不在乎将其抛弃的棋子。\n\n[你只能同时进行三次命令友军行动。失败的进攻有更高的概率使友军负伤或死亡，但不会使你受伤或受到精神创伤。]"
 	},
 	
 	{
 	"id": "command.ally.action.hiding.pre",
-	"actionid": "communicate",
-	"$priority" : 2,
 	"label": "命令一位友军躲藏起来",
-    "startdescription": "前往暗处。我们的敌人无法找到我们，也无法危害我们。当我们决定再次出击时，那将会是一次意料之外的袭击……\n\n[处于隐匿状态的友军不会被大部分敌军袭击选为目标，并且直到下一次被使用之前，其性相将大幅提升。]",
-	"requirements": {  
-	    "foe.chasseur.reviving": -1
-	},
-	"grandReqs": {
-	    "([op] || [supplies.smokegrenade])": 1,
-		"([canhide] || [partisan])": 1,
-		"friend.weakened" : -1,
-		"weakened" : -1,
-		"[~/extant:allyattackmarker]=3": -1,
-		"friend.hidden" : -1,
-		"opligeian" : -1
-	},
-	"effects" : {
-	"allyattackmarker" : 1
-	},
-	"inductions": [  
-		{
-		"id" : "command.ally.action.hiding",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-			}
-		}
-	],  
-	"craftable": true  
+    "startdescription": "前往暗处。我们的敌人无法找到我们，也无法危害我们。当我们决定再次出击时，那将会是一次意料之外的袭击……\n\n[处于隐匿状态的友军不会被大部分敌军袭击选为目标，并且直到下一次被使用之前，其性相将大幅提升。]"
 	},
 	
 	{  
 	"id": "command.ally.action.hiding",
-	"actionid": "ally.scouts.action",  
 	"label": "命令一位友军躲藏起来",
-    "startdescription": "前往暗处。我们的敌人无法找到我们，也无法危害我们。当我们决定再次出击时，那将会是一次意料之外的袭击……\n\n[处于隐匿状态的友军不会被大部分敌军袭击选为目标，并且直到下一次被使用之前，其性相将大幅提升。]",
-	"linked": [  
-	
-		{
-		"id": "hide.noncontemnant"
-	    },
-		
-		{
-		"id": "hide.ally.smokegrenade"
-	    }
-		
-	] 
+    "startdescription": "前往暗处。我们的敌人无法找到我们，也无法危害我们。当我们决定再次出击时，那将会是一次意料之外的袭击……\n\n[处于隐匿状态的友军不会被大部分敌军袭击选为目标，并且直到下一次被使用之前，其性相将大幅提升。]"
 	},
 	
 	{
 	"id": "hide.noncontemnant",
-	"$priority" : 1,
-	"actionid": "communicate",
 	"label": "命令一位友军躲藏起来",
     "startdescription": "前往暗处。我们的敌人无法找到我们，也无法危害我们。当我们决定再次出击时，那将会是一次意料之外的袭击……\n\n[处于隐匿状态的友军不会被大部分敌军袭击选为目标，并且直到下一次被使用之前，其性相将大幅提升。]",
-	"description": "我们在此等待。我们在此预见。我们在此戒备。",
-	"aspects": {
-	    "concealidentity": 1
-	},  
-    "extantreqs": {  
-        "contemnant.story": -1   
-    },  
-	"requirements": {
-	    "friend": 1,
-	    "hired": -1,
-	    "friend.hidden": -1,
-	    "op": 1,
-		"foe.chasseur.reviving" : -1,
-		"weakened" : -1,
-		"friend.weakened" : -1,
-		"uqpolevaya" : -1,
-		"opligeian" : -1,
-		"wounded" : -1,
-		"exhausted" : -1,
-		"decaying" : -1
-	},
-	"effects": {
-	    "op": -99
-	},
-	"warmup": 30,
-	"craftable": true
+	"description": "我们在此等待。我们在此预见。我们在此戒备。"
     },
 	
     {
 	"id": "hide.ally.smokegrenade",
-	"actionid": "communicate",
-	"$priority" : 1,
 	"label": "命令一位友军躲藏起来",
     "startdescription": "前往暗处。我们的敌人无法找到我们，也无法危害我们。当我们决定再次出击时，那将会是一次意料之外的袭击……\n\n[处于隐匿状态的友军不会被大部分敌军袭击选为目标，并且直到下一次被使用之前，其性相将大幅提升。]",
-	"description": "我们在此等待。我们满怀期待，绷紧神经。",
-	"aspects": {
-	    "concealidentity": 1
-	},
-	"requirements": {
-	    "friend": 1,
-	    "hired": -1,
-	    "friend.hidden": -1,
-	    "supplies.smokegrenade": 1,
-		"uqpolevaya" : -1
-	},
-	"effects": {
-	    "supplies.smokegrenade": -99
-	},
-	"warmup": 30,
-	"craftable": true
+	"description": "我们在此等待。我们满怀期待，绷紧神经。"
     },
 	
 	{
 	"id": "command.ally.action.field.hospital.pre",
-	"actionid": "operate",
 	"startdescription": "我们在这里具有足够的设备与补给品以医治我军伤员。\n\n[放入任何负伤友军以治愈其伤口。你也可以放入你自己的伤口以治愈它们。]",
-    "$priority": 1,
     "label": "向战地医院内的友军寻求医疗护理",
-	"grandReqs": {
-		"wounded" : 1,
-		"damage.body": -1,
-	    "([loc.hospital] || [loc.hospital.staffed])": 1,
-		"[~/extant:allyattackmarker]=3": -1
-	},
-	"effects" : {
-	"allyattackmarker" : 1
-	},
-	"inductions": [  
-		{
-		"id" : "command.ally.action.hospital",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-			}
-		}
-	],  
-	"craftable": true  
 	},
 	
 	{  
 	"id": "command.ally.action.hospital",
-	"actionid": "ally.medics.action",  
 	"label": "命令战地医院开始工作",
-    "startdescription": "我需要医护人员们治愈某人或某物，开始吧。",
-	"linked": [  
-		{
-		"id": "healcasualty.hospital*"
-	    }
-	] 
+    "startdescription": "我需要医护人员们治愈某人或某物，开始吧。"
 	},
 	
     {
 	"id": "assign.medics.hospital",
-	"actionid": "abandon",
-	"$priority" : 1,
 	"label": "派遣战地医师为战地医院提供人力",
     "startdescription": "为战地医院分配医护人员会使其更快地治愈友军。[这会使你失去分配到此处的战地医生]",
-    "description": "结束了。",
-	"grandReqs": {
-	    "([friend.medics] || [medic.stocked] || [friendmedics])": 1,
-		"loc.hospital" : 1
-	},
-	"effects": {
-	    "friend": -1,
-		"loc.hospital" : -1,
-		"loc.hospital.staffed" : 1
-	},
-	"warmup": 30,
-	"craftable": true
+    "description": "结束了。"
     },
 	
 	{  
 	"id": "command.ally.location.pre",
-	"$priority" : 1,
-	"actionid": "mobilize",  
 	"label": "命令友军占领这一地点",
-    "startdescription": "我需要这一地点。我可以派遣这些人去占领它。",
-	"requirements": {  
-	    "friend": 1,
-		"location" : 1,
-		"edge" : 1
-	},
-	"grandReqs": { 
-	    "[~/extant:allyattackmarker]=3": -1 
-	},  
-    "extantreqs": {  
-        "contemnant.story": -1   
-    },
-	"effects" : {
-	"allyattackmarker" : 1
-	},
-	"inductions": [  
-		{
-		"id": "command.ally.location",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-		}
-	    }
-	],  
-	"craftable": true  
+    "startdescription": "我需要这一地点。我可以派遣这些人去占领它。"
 	},
 	
 	{  
 	"id": "command.ally.location",
-	"actionid": "allyattack",  
 	"label": "命令友军占领这一地点",
-    "startdescription": "我需要这一地点。我可以派遣这些人去占领它。",
-	"linked": [  
-	
-		{
-		"id": "operate.church.edge"
-	    },
-		
-		{
-		"id": "operate.farm.edge"
-	    }
-		
-	] 
+    "startdescription": "我需要这一地点。我可以派遣这些人去占领它。"
 	},
 	
 	{
 	"id": "command.ally.action.godbuilders.pre",
-	"actionid": "communicate",
-	"$priority" : 2,
 	"label": "命令造神者进行工作",
-    "startdescription": "我需要点燃辉煌的火焰，开始吧。",
-	"grandReqs": {
-	    "remnant": 1,
-	     "godbuildermarker": 1,
-		"[~/extant:allyattackmarker]=3": -1,
-		"boosted" : -1
-	},
-	"effects" : {
-	"allyattackmarker" : 1
-	},
-	"inductions": [  
-		{
-		"id" : "command.ally.action.godbuilders",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-			}
-		}
-	],  
-	"craftable": true  
+    "startdescription": "我需要点燃辉煌的火焰，开始吧。"
 	},
 	
 	{  
 	"id": "command.ally.action.godbuilders",
-	"actionid": "ally.engineer.action",  
 	"label": "命令造神者进行工作",
-    "startdescription": "我需要点燃辉煌的火焰，开始吧。",
-	"linked": [  
-		{
-		"id": "ally.action.godbuilder"
-	    }
-	] 
+    "startdescription": "我需要点燃辉煌的火焰，开始吧。"
 	},
 	
     {
 	"id": "ally.action.godbuilder",
-	"actionid": "communicate",
-	"$priority" : 1,
 	"label": "点燃辉煌的火焰",
     "startdescription": "为这一单位提供尸体可以大幅提升其效力。",
-    "description": "辉煌之火熊熊燃烧。",
-	"grandReqs": {
-	    "remnant": 1,
-	    "godbuildermarker": 1,
-		"boosted" : -1
-	},
-	"aspects": {
-		"godbuildertakecorpse" : 1
-	},
-	"effects": {
-		"remnant" : -1
-	},
-	"warmup": 30,
-	"craftable": true
+    "description": "辉煌之火熊熊燃烧。"
     },
 	
     {
 	"id": "loot.corpse.partisan.pre",
-	"actionid": "communicate",
 	"label": "命令游击队员搜刮尸体",
-    "$priority": 1,
     "startdescription": "检查他们的行囊与口袋，还有他们僵直紧握的手。\n\n[这将产生一些可用的补给，但有概率什么都找不到。]",
-    "description": "这就是我们找到的东西。",
-	"grandReqs": {
-		"partisan": 1,
-	    "remnant": 1,
-	    "looted": -1,
-	    "foe.corpse.unnatural": -1
-	},
-	"effects" : {
-	"allyattackmarker" : 1
-	},
-	"inductions": [  
-		{
-		"id" : "loot.corpse.partisan",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-			}
-		}
-	],  
-	"craftable": true  
+    "description": "这就是我们找到的东西。"
     },
 	
     {
 	"id": "loot.corpse.partisan",
-	"actionid": "lootin",
 	"label": "从死者身上搜寻有用之物",
     "startdescription": "检查他们的行囊与口袋，还有他们僵直紧握的手。\n\n[这将产生一些可用的补给，但有概率什么都找不到。]",
-    "description": "这就是我们找到的东西。",
-	"grandReqs": {
-		"partisan": 1,
-	    "remnant": 1,
-	    "looted": -1,
-	    "foe.corpse.unnatural": -1
-	},
-	"mutations": [
-	    {
-		"filter": "remnant",
-		"mutate": "looted",
-		"level": 1
-	    }
-	],
-	"craftable": true,
-	"warmup": 30,
-	"internaldeck": {
-	    "spec": [
-		"husk",
-		"husk",
-		"husk",
-		"husk",
-		"husk",
-		"husk",
-		"husk",
-		"supplies.apmunitions",
-		"supplies.apmunitions",
-		"supplies.explosives",
-		"supplies.explosives",
-		"supplies.flares",
-		"supplies.flares",
-		"supplies.smokegrenade",
-		"supplies.smokegrenade"
-	    ],
-	    "draws": 1,
-	    "resetonexhaustion": true
-	}
+    "description": "这就是我们找到的东西。"
     },
 	
 	{
 	"id": "command.ally.action.sappers.pre",
-	"$extends" : ["command.ally.action.engineers.pre"],
 	"label": "命令爆破手进行工作",
-    "startdescription": "我需要这位爆破手进行维修或建筑工作，开始吧。",
-	"grandReqs": {
-	    "provisions": 2,
-	    "issapper" : 1,
-		"[~/extant:allyattackmarker]=3": -1,
-		"main": -1,
-		"side" : -1,
-		"foe": -1
-	}
+    "startdescription": "我需要这位爆破手进行维修或建筑工作，开始吧。"
 	},
-	
-    {
-	"id": "repairdamaged.sapper",
-	"$extends" : ["repairdamaged.engineers"],
-	"requirements": {},
-	"grandReqs": {
-	    "provisions": 2,
-	    "issapper" : 1,
-	    "damaged": 1,
-	    "provisions": 2
-	},
-	"warmup": 45
-    },
-	
-    {
-	"id": "repairinfrastructure.sapper",
-	"$extends" : ["repairinfrastructure"],
-	"requirements": {},
-	"grandReqs": {
-	    "provisions": 2,
-	    "issapper" : 1,
-	    "infrastructure.destroyed": 1
-	},
-	"warmup": 90
-    },
-	
-    {
-	"id": "buildbarracks.sapper",
-	"$extends" : ["buildbarracks"],
-	"requirements": {},
-	"grandReqs": {
-	    "provisions": 2,
-	    "issapper" : 1
-	},
-	"effects": {
-	    "partisan": -99,
-		"provisions": -99,
-	    "loc.barracks": 1
-	},
-	"warmup": 90
-    },
 	
 	{
 	"id": "command.ally.action.physicians.pre",
-	"$extends" : ["command.ally.action.medics.pre"],
 	"label": "命令医生进行工作",
-    "startdescription": "我需要医护人员们治愈某人或某物，开始吧。",
-	"grandReqs": {
-	    "provisions": 1,
-		"wounded" : 1,
-	    "isphysician": 1,
-		"[~/extant:allyattackmarker]=3": -1
-		}
+    "startdescription": "我需要医护人员们治愈某人或某物，开始吧。"
 	},
-	
-    {
-	"id": "healcasualty.physicians",
-	"$extends" : ["healcasualty.medics"],
-	"requirements": {},
-	"grandReqs": {
-	    "provisions": 1,
-		"wounded" : 1,
-	    "isphysician": 1
-	}
-    },
-	
-    {
-	"id": "heal.wound.physicians",
-	"$extends" : ["heal.wound"],
-	"requirements": {
-	    "provisions": 1,
-	    "isphysician": 1,
-	    "damage.body": 1,
-	    "debilitation": -1
-		}
-    },
 	
 	{  
 	"id": "command.abandon.ally.pre",
-	"$priority" : 1,
-	"actionid": "abandon",  
 	"label": "重新委派友军",
-    "startdescription": "我可以通过将这一友军委派至别处以减小我分队的规模。或许我们必须轻装行军。或许我们必须逃离。",
-	"grandReqs": {
-	    "friend": 1,
-		"[~/extant:allyattackmarker]=3": -1,
-		"friend.tomori": -1,
-        "faction.anno": -1,
-		"provisions" : -1,
-		"remnant" : -1,
-		"damage.body": -1,
-		"lore": -1
-	},  
-    "extantreqs": {  
-        "contemnant.story": -1   
-    },
-	"effects" : {
-	"allyattackmarker" : 1
-	},
-	"inductions": [  
-		{
-		"id" : "command.abandon.ally",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-			}
-		}
-	],  
-	"craftable": true  
+    "startdescription": "我可以通过将这一友军委派至别处以减小我分队的规模。或许我们必须轻装行军。或许我们必须逃离。"
 	},
 	
 	{  
 	"id": "command.abandon.ally",
 	"actionid": "ally.abandon.action",  
 	"label": "重新委派友军",
-    "startdescription": "我可以通过将这一友军委派至别处以减小我分队的规模。或许我们必须轻装行军。或许我们必须逃离。",
-	"linked": [  
-		{
-		"id": "abandon*"
-	    }
-	] 
+    "startdescription": "我可以通过将这一友军委派至别处以减小我分队的规模。或许我们必须轻装行军。或许我们必须逃离。"
 	}
 	
 ]

@@ -3,58 +3,12 @@
 	
 	{
 	"id": "enemy.capture.infrastructure.startup",
-	"actionid": "enemyaction.infrastructure",
 	"label": "夺取设施！",
     "startdescription": "敌军寻求夺取支撑我军的大动脉之一——",
-	"aspects": {
-	    "takeadditional": 1
-	},
-	"effects": {
-	    "decision.enemy.infrastructure.capture": 1
-	},
-	"requirements": {
-		"decision.enemy.infrastructure.capture" : 1
-	},
-	"warmup": 15,
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌军",
-		"required": {
-		    "german": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-			"foe.emplaced" : 1,
-		    "soviet": 1,
-		    "detectivetemptation": 1,
-			"otherworldly" : 1,
-			"foe.artillery" : 1,
-			"foe.artillery.hidden" : 1,
-			"foe.bombers" : 1,
-			"foe.bombers.hidden" : 1,
-			"foe.tanks" : 1,
-			"foe.tanks.hidden" : 1,
-			"foe.monster" : 1,
-            "foeartillery": 1,
-            "foebombers": 1,
-            "foefighter": 1,
-            "foefighterhidden": 1,
-			"mechanized_forces": 1
-		},
-		"greedy": true
-	    },
-	],
-	"linked": [
-	    {
-		"id": "revealenemyidentity"
-	    },
-	    {
-		"id": "defend.opportunity"
-	    },
-	    {
-		"id": "nonefound"
+		"label": "敌军"
 	    }
 	]
 	},
@@ -63,109 +17,35 @@
 	"id": "enemy.capture.infrastructure.nodefence",
 	"label": "失去设施！",
     "startdescription": "一处我军的重要设施已被占领！",
-	"requirements": {
-	    "decision.enemy.infrastructure.capture": 1
-	},
-	"aspects": {
-	    "enemycontrolled": 1,
-	    "makeadditional": 1
-	},
 	"slots": [
 	    {
 		"id": "needsinfrastructure",
-		"label": "军事设施",
-		"required": {
-		    "infrastructure": 1
-		},
-		"greedy": true
-	    }
-	],
-	"warmup": 10,
-	"linked": [
-	    {
-		"id": "foe.elusive.conceal"
-	    }
-	],
-	"inductions": [
-	    {
-		"id": "produce.wounds",
-		"chance": 50
-	    },
-	    {
-		"id": "produce.strife",
-		"chance": 65
-	    },
-	    {
-		"id": "produce.strife.contemnant",
-		"chance": 50
+		"label": "军事设施"
 	    }
 	]
     },
 	
 	{
 	"id": "convert.to.enemy.buildings",
-	"actionid" : "enemycontrolledwarzone",
 	"label": "敌军已控制战区",
     "startdescription": "当前战区已落入敌军掌控，无人曾言战争简单。",
-    "description": "当前战区已落入敌军掌控，无人曾言战争简单。",
-	"warmup": 0,
-	"extantreqs": {
-	    "warzone.enemy.controlled": 1,
-		"enemy.infrastructure" : -1,
-		"contemnant.story" : -1,
-		"converted.already" : -1
-	},
-	"xpans": {
-	    "enemycontrolled": 1,
-		"convertonce" : 1
-	}
+    "description": "当前战区已落入敌军掌控，无人曾言战争简单。"
 	},
 	
     {
 	"id": "foe.coordinated.getsecond.enemycomms.pre",
 	"label": "步兵协同进攻！",
-    "startdescription": "这一敌军企图与另一支敌军联合——",
-	"tablereqs": {
-	    "loc.commtower.enemy": 1
-	},
-	"requirements" : {
-		"foe.coordinated.comms.marker" : 1
-	},
-	"aspects": {
-		"makeadditional": 1
-	},
-	"linked": [
-	    {
-		"id": "foe.coordinated.getsecond.enemycomms"
-	    }
-	]
+    "startdescription": "这一敌军企图与另一支敌军联合——"
     },
 	
 	{
 	"id": "foe.coordinated.getsecond.enemycomms",
 	"label": "步兵协同进攻！",
     "startdescription": "这一敌军企图与另一支敌军联合——",
-	"aspects": {
-	    "revealidentity": 1,
-		"takeadditional" : 1
-	},
 	"slots": [
 	    {
 		"id": "needscoordinated",
-		"label": "敌军",
-		"required": {
-		    "foe.infantry": 1,
-			"foe.infantry.hidden": 1,
-			"foe.kommando.hidden": 1,
-			"foe.kommando" : 1
-		},
-		"greedy": true
-	    }
-	],
-	"warmup": 10,
-	"linked": [
-	    {
-		"id": "defend.opportunity"
+		"label": "敌军"
 	    }
 	]
     },
@@ -174,98 +54,29 @@
 	"id": "enemy.fieldhospital.survived",
 	"label": "敌军仍存！",
     "startdescription": "真是令人沮丧——我们的敌人被敌军战地医院及时救下了。至少，下一次进攻会简单些。\n\n[当前战区内有敌军战地医院存在]",
-    "description": "真是令人沮丧——我们的敌人被敌军战地医院及时救下了。至少，下一次进攻会简单些。\n\n[当前战区内有敌军战地医院存在]",
-	"tablereqs": {
-	    "loc.hospital.enemy": 1
-	},
-	"requirements": {
-	    "weakened": -1,
-		"otherworldly" : -1,
-		"foe.monster" : -1,
-		"unstoppable" : -1
-	},
-	"aspects": {
-	    "weaken": 1,
-		"fatiguing" : 1
-	}
+    "description": "真是令人沮丧——我们的敌人被敌军战地医院及时救下了。至少，下一次进攻会简单些。\n\n[当前战区内有敌军战地医院存在]"
     },
 	
 	{
 	"id": "enemy.controlled.warzone.interference.router",
 	"label": "敌军干扰？",
-    "startdescription": "当前战区并不受我们掌控。敌军可能会干扰我们对当地人的行动。",
-	"grandReqs" : {
-		"[progression]>[enemy.interference.blocker]" : 1,
-		"[progression]=3" : -1 
-	},
-	"extantreqs": {
-	    "warzone.enemy.controlled": 1,
-		"skill.intimidate.active": -1
-	},
-	"warmup": 15,
-	"linked": [
-	    {
-		"id": "enemy.controlled.warzone.interference.afraid"
-	    },
-		
-		{
-		"id": "enemy.controlled.warzone.interference"
-	    }
-	]
+    "startdescription": "当前战区并不受我们掌控。敌军可能会干扰我们对当地人的行动。"
     },
 	
 	{
 	"id": "enemy.controlled.warzone.interference.afraid",
 	"label": "多变的战场——恐惧即我！",
-    "startdescription": "我即为雄狮，而他们是猎物。他们不会打扰我们。",
-	"extantreqs": {
-	    "skill.intimidate.active": 1
-	},
-	"warmup": 15,
-	"linked": [
-	    {
-		"id": "opx.gonext"
-	    }
-	]
+    "startdescription": "我即为雄狮，而他们是猎物。他们不会打扰我们。"
     },
 	
     {
 	"id": "enemy.controlled.warzone.interference",
 	"label": "敌军干扰？",
     "startdescription": "当前战区并不受我们掌控。敌军可能会干扰我们对当地人的行动。",
-	"extantreqs": {
-	    "skill.intimidate.active": -1
-	},
-	"effects" : {
-		"enemy.interference.blocker" : 1
-	},
 	"slots": [
 	    {
 		"id": "needssomething",
-		"label": "意外？",
-		"required": {
-		    "foe": 1
-		},
-		"forbidden": {
-		    "foe.rankofficer": 1,
-			"foe.emplaced" : 1,
-		    "uqbrood": 1,
-		    "foe.exile": 1,
-			"otherworldly" : 1,
-			"foe.monster" : 1
-		},
-		"greedy": true
-	    }
-	],
-	"warmup": 45,
-	"alt": [
-	    {
-		"id": "enemy.controlled.warzone.interference.foe"
-	    }
-	],
-	"linked": [
-	    {
-		"id": "opx.gonext"
+		"label": "意外？"
 	    }
 	]
     },
@@ -273,22 +84,7 @@
     {
 	"id": "enemy.controlled.warzone.interference.foe",
 	"label": "敌军采取拖延战术！",
-    "startdescription": "战区的掌控权仍未回归我们，敌军仍能够干预我们的行动！",
-	"requirements": {
-	    "foe": 1
-	},
-	"aspects": {
-	    "revealidentity": 1
-	},
-	"movements": {
-        "~/tabletop": "foe"
-    },
-	"warmup": 15,
-	"linked": [
-	    {
-		"id": "opx.gonext"
-	    }
-	]
+    "startdescription": "战区的掌控权仍未回归我们，敌军仍能够干预我们的行动！"
     },
 	
     {
@@ -296,236 +92,54 @@
 	"actionid": "enemy.doing.main.objective",
 	"label": "敌军正在夺取主要目标！",
     "startdescription": "此地我们有任务在身，我们的敌军亦是如此。他们正尝试先我们一步完成主要目标！",
-	"tablereqs": {
-		"main": 1
-	},
-	"extantreqs": {
-	    "strife.tracker": 5,
-		"berlin.here" : -1,
-		"rome.here" : -1,
-		"stalingrad.here" : -1,
-		"enemy.doing.main.objective" : -1,
-		"andnowwhat" : -1,
-		"lake.here" : -1,
-		"craterfield" : -1,
-		"sobibor.here" : -1,
-		"main.raze" : -1
-	},
 	"slots": [
 	    {
 		"id": "needsmainobj",
-		"label": "主要目标",
-		"required": {
-		    "main": 1
-		},
-		"forbidden": {
-			"main.sobibor" : 1
-		},
-		"greedy": true
-	    },
-	],
-	"warmup": 30,
-	"linked": [
-	    {
-		"id": "enemy.main.objective.take.enemies"
-	    },
-		
-	    {
-		"id": "enemy.nonefound"
+		"label": "主要目标"
 	    }
-	],
+	]
     },
 	
 	{
 	"id": "enemy.main.objective.take.enemies",
 	"label": "敌军正在夺取主要目标！",
     "startdescription": "敌军正在积蓄力量……",
-	"requirements": {
-	    "main": 1
-	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌军",
-		"required": {
-		    "german": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-			"foe.emplaced" : 1,
-		    "soviet": 1,
-		    "detectivetemptation": 1,
-		    "otherworldly": 1,
-			"foe.sniper" : 1,
-			"foe.sniper.hidden" : 1,
-			"foe.sniper.ins" : 1,
-			"foe.manhunters" : 1,
-			"foe.manhunters.hidden" : 1,
-			"foe.manhunters.ins" : 1
-		},
-		"greedy": true
+		"label": "敌军"
 	    },
 		
 	    {
 		"id": "needsenemy2",
-		"label": "敌军",
-		"required": {
-		    "german": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-			"foe.emplaced" : 1,
-		    "soviet": 1,
-		    "detectivetemptation": 1,
-		    "otherworldly": 1,
-			"foe.sniper" : 1,
-			"foe.sniper.hidden" : 1,
-			"foe.sniper.ins" : 1,
-			"foe.manhunters" : 1,
-			"foe.manhunters.hidden" : 1,
-			"foe.manhunters.ins" : 1
-		},
-		"greedy": true
+		"label": "敌军"
 	    },
 		
 	    {
 		"id": "needsenemy3",
-		"label": "敌军",
-		"required": {
-		    "german": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-		    "soviet": 1,
-			"foe.emplaced" : 1,
-		    "detectivetemptation": 1,
-		    "otherworldly": 1,
-			"foe.sniper" : 1,
-			"foe.sniper.hidden" : 1,
-			"foe.manhunters" : 1,
-			"foe.manhunters.hidden" : 1
-		},
-		"greedy": true
+		"label": "敌军"
 	    }
-	],
-	"linked": [
-		{
-		"id": "enemy.main.objective.defense"
-	    },
-
-	    {
-		"id": "nonefound"
-	    }
-	],
-	 "furthermore": [
-      {
-         "aspects": {
-            "revealidentity": 1
-         }
-      },
-	  
-	  {
-         "aspects": {
-            "takeadditional": 1
-         }
-      }
-	],
-	"warmup": 10
+	]
     },
 	
     {
 	"id": "enemy.main.objective.defense",
 	"label": "进行防御？",
     "startdescription": "敌军迫近了——我们能够奋起抵抗他们吗？\n\n[你只能使用敌军的刃阈值来进行抵抗这次进攻。<i>不侵守御<i>无法防御这次敌军谋划的大规模进攻]",
-	"requirements": {
-	    "foe": 1
-	},
 	"slots": [
 	    {
 		"id": "needsresponse",
-		"label": "防御",
-		"required": {
-		    "edge": 1,
-		    "winter": 1,
-		    "heart": 1,
-		    "grail": 1,
-		    "moth": 1,
-		    "lantern": 1,
-		    "forge": 1,
-		    "knock": 1
-		},
-		"forbidden": {
-		    "exhausted": 1,
-		    "friend.away": 1,
-			"faction.anno" : 1
-		}
+		"label": "防御"
 	    },
 		
 	    {
 		"id": "needsresponse2",
-		"label": "防御",
-		"required": {
-		    "edge": 1,
-		    "winter": 1,
-		    "heart": 1,
-		    "grail": 1,
-		    "moth": 1,
-		    "lantern": 1,
-		    "forge": 1,
-		    "knock": 1
-		},
-		"forbidden": {
-		    "exhausted": 1,
-		    "friend.away": 1,
-			"faction.anno" : 1
-		}
+		"label": "防御"
 	    },
 		
 	    {
 		"id": "needsresponse3",
-		"label": "防御",
-		"required": {
-		    "edge": 1,
-		    "winter": 1,
-		    "heart": 1,
-		    "grail": 1,
-		    "moth": 1,
-		    "lantern": 1,
-		    "forge": 1,
-		    "knock": 1
-		},
-		"forbidden": {
-		    "exhausted": 1,
-		    "friend.away": 1,
-			"faction.anno" : 1
-		}
-	    }
-	],
-	"warmup": 30,
-	"linked": [
-	    {
-		"id": "enemy.main.objective.defense.failure.enemy.overrun"
-	    },
-		
-	    {
-		"id": "enemy.main.objective.defense.failure.enemy.capture"
-	    },
-		
-	    {
-		"id": "enemy.main.objective.defense.failure.enemy.default"
-	    }
-		
-	],
-	"alt": [
-	    {
-		"id": "defend.friend.immortal"
-	    },
-		
-	    {
-		"id": "defend.edge"
+		"label": "防御"
 	    }
 	]
     },
@@ -534,62 +148,18 @@
     {
 	"id": "enemy.main.objective.defense.failure.enemy.overrun",
 	"label": "敌军正在推进！",
-    "startdescription": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。",
-	"aspects": {
-	    "makeadditional": 1
-	},
-	"grandReqs": {
-		"([main.withdraw] || [main.withdraw.exhausted])": 1
-	},
-	"effects": {
-		"main" : -1,
-		"foe.resolution" : 1
-	},
-	"inductions": [
-	    {
-		"id": "enemy.overrun.detect"
-	    },
-		
-		{
-		"id": "enemy.capture.warzone"
-	    }
-	],
-	"warmup": 15
+    "startdescription": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。"
     },
 	
 	{
 	"id": "enemy.overrun.detect",
-	"actionid" : "fatality.overrun",
 	"label": "敌军正在推进！",
     "startdescription": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。",
     "description": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。",
 	"slots": [
 	    {
 		"id": "needslocal",
-		"label": "当地友军",
-		"essential" : {
-			"local" : 1,
-			"friend" : 1
-		},
-		"required": {
-			"mortal" : 1
-		},
-		"forbidden": {
-		    "edgelong": 1,
-			"remnant" : 1
-		},
-		"greedy": true
-	    }
-	],
-	"warmup": 5,
-	"alt": [
-	    {
-		"id": "enemy.overrun.detect.foundlocal"
-	    }
-	],
-	"linked": [
-	    {
-		"id": "enemy.overrun.detect.conclude"
+		"label": "当地友军"
 	    }
 	]
     },
@@ -598,19 +168,7 @@
 	"id": "enemy.overrun.detect.foundlocal",
 	"label": "敌军正在推进！",
     "startdescription": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。",
-    "description": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。",
-	"requirements": {
-	    "local": 1,
-		"mortal" : 1
-	},
-	"aspects" : {
-		"killfriend" : 1
-	},
-	"linked": [
-	    {
-		"id": "enemy.overrun.detect"
-	    }
-	]
+    "description": "我们无法挤出在战场上面对敌人的力量。现在敌军将碾过那些我曾奉命掩护的友军——而我无能为力。"
     },
 	
     {
@@ -623,47 +181,17 @@
     {
 	"id": "enemy.main.objective.defense.failure.enemy.capture",
 	"label": "敌军即将控制战区！",
-    "startdescription": "这片战区已经彻底失守。我应该赶快撤离。",
-	"aspects": {
-	    "makeadditional": 1
-	},
-	"grandReqs": {
-		"([main.sabotage] || [main.sabotage.exhausted])": 1
-	},
-	"effects": {
-		"main" : -1,
-		"foe.resolution" : 1
-	},
-	"linked": [	
-		{
-		"id": "enemy.capture.warzone"
-	    }
-	],
-	"warmup": 15
+    "startdescription": "这片战区已经彻底失守。我应该赶快撤离。"
     },
 	
     {
 	"id": "enemy.capture.warzone",
-	"actionid" : "enemycontrolledwarzone",
 	"label": "失去战区！",
     "startdescription": "这片战区已经彻底失守。我必须不惜一切代价将其夺回！",
 	"slots": [
 	    {
 		"id": "needswarzone",
-		"label": "战区",
-		"required": {
-		    "warzone.current": 1
-		},
-		"greedy": true
-	    }
-	],
-	"warmup": 5,
-	"linked": [
-	    {
-		"id": "enemy.capture.warzone.warzonefound"
-	    },
-	    {
-		"id": "enemy.capture.warzone"
+		"label": "战区"
 	    }
 	]
     },
@@ -671,92 +199,24 @@
     {
 	"id": "enemy.capture.warzone.warzonefound",
 	"label": "失去战区！",
-    "startdescription": "这片战区已经彻底失守。我必须不惜一切代价将其夺回！",
-	"requirements": {
-	    "warzone.current": 1
-	},
-	"mutations": [
-	    {
-		"filter": "warzone.current",
-		"mutate": "warzone.enemy.controlled",
-		"level": 1
-	    }
-	],
-	"inductions": [
-	    {
-		"id": "produce.wounds",
-		"chance": 50
-	    },
-	    {
-		"id": "produce.strife",
-		"chance": 65
-	    },
-	    {
-		"id": "produce.strife.contemnant",
-		"chance": 50
-	    }
-	]
+    "startdescription": "这片战区已经彻底失守。我必须不惜一切代价将其夺回！"
     },
 	
     {
 	"id": "enemy.main.objective.defense.failure.enemy.default",
 	"label": "敌军目标得手！",
-    "startdescription": "我们曾在此寻找某物，但敌军先我们一步得手。现在，我们已经没有机会了。",
-	"aspects": {
-	    "makeadditional": 1
-	},
-	"warmup": 15,
-	"effects": {
-		"foe.resolution" : 1
-	},
-	"linked": [
-	    {
-		"id": "enemy.withdraw.leaving.detect"
-	    },
-
-	    {
-		"id": "enemy.remove.main.objective"
-	    }
-	]
+    "startdescription": "我们曾在此寻找某物，但敌军先我们一步得手。现在，我们已经没有机会了。"
     },
 	
 	{
 	"id": "enemy.withdraw.leaving.detect",
-	"actionid": "scandal",
 	"label": "敌军撤退！",
     "startdescription": "德军已经完成了他们的军事目标。他们正从这条战线上撤离。",
     "description": "德军已经完成了他们的军事目标。他们正从这条战线上撤离。",
-	"extantreqs": {
-		"obdurant.story" : -1
-	},
-	"requirements" : {
-		"evacuate.trigger":1	
-	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌军",
-		"required": {
-		    "german": 1
-		},
-		"forbidden": {
-		    "otherworldly": 1,
-		    "uqbrood": 1,
-		    "soviet": 1,
-			"foe.hidden" : 1
-		},
-		"greedy": true
-	    }
-	],
-	"warmup": 5,
-	"alt": [
-	    {
-		"id": "enemy.withdraw.leaving.success"
-	    }
-	],
-	"linked": [
-	    {
-		"id": "enemy.withdraw.leaving.conclude"
+		"label": "敌军"
 	    }
 	]
     },
@@ -764,46 +224,13 @@
     {
 	"id": "enemy.withdraw.leaving.success",
 	"label": "敌军撤退！",
-    "description": "德军已经完成了他们的军事目标。他们正从这条战线上撤离。",
-	"requirements": {
-	    "foe": 1
-	},
-	"effects" : {
-		"foe" : -99
-	},
-	"haltverb" : {
-		"foeactionumiri" : 99,
-		"eyetoweakened" : 99,
-		"foerally" : 99,
-		"foetactics2" : 99,
-		"foetactics3" : 99,
-		"foedefense" : 99,
-		"foerally" : 99
-	},
-	"linked": [
-	    {
-		"id": "enemy.withdraw.leaving.detect"
-	    }
-	]
+    "description": "德军已经完成了他们的军事目标。他们正从这条战线上撤离。"
     },
 	
     {
 	"id": "enemy.withdraw.leaving.conclude",
 	"label": "敌军撤退！",
-    "description": "德军已经完成了他们的军事目标。他们正从这条战线上撤离。",
-	"effects": {
-		"main" : -1
-	},
-	"linked": [
-	    {
-		"id": "enemy.main.objective.abandon.warzone"
-	    }
-	],
-	"inductions": [
-	    {
-		"id": "anno.pursuit.detect"
-	    }
-	]
+    "description": "德军已经完成了他们的军事目标。他们正从这条战线上撤离。"
     },
 	
     {
@@ -813,21 +240,7 @@
 	"slots": [
 	    {
 		"id": "needswarzone",
-		"label": "战区",
-		"required": {
-		    "warzone.current": 1
-		},
-		"greedy": true
-	    }
-	],
-	"warmup": 5,
-	"linked": [
-		{
-		"id": "enemy.main.objective.warzonefound"
-	    },
-		
-	    {
-		"id": "enemy.main.objective.abandon.warzone"
+		"label": "战区"
 	    }
 	]
     },
@@ -835,509 +248,151 @@
     {
 	"id": "enemy.main.objective.warzonefound",
 	"label": "解放这座城市？",
-    "description": "德军放弃了这篇战区，这无疑是件好事，但为什么我如此沮丧？",
-	"requirements": {
-	    "warzone.current": 1
-	},
-	"xpans": { 
-	    "capture": 1 
-	},
-	"mutations": [
-	    {
-		"filter": "warzone.current",
-		"mutate": "warzone.enemy.controlled",
-		"level": -1
-	    }
-	],
-	"linked": [
-	    {
-		"id": "enemy.remove.main.objective"
-	    }
-	]
+    "description": "德军放弃了这篇战区，这无疑是件好事，但为什么我如此沮丧？"
     },
 	
     {
 	"id": "enemy.remove.main.objective",
 	"label": "敌军目标得手！",
-    "description": "我们曾在此寻找某物，但敌军先我们一步得手。现在，我们已经没有机会了。",
-	"effects": {
-		"main" : -1
-	},
-	"linked": [
-	    {
-		"id": "enemy.main.objective.complete.contemnant"
-	    }
-	],
-	"inductions": [
-	    {
-		"id": "produce.wounds",
-		"chance": 50
-	    },
-	    {
-		"id": "produce.strife",
-		"chance": 65
-	    },
-	    {
-		"id": "produce.strife.contemnant",
-		"chance": 50
-	    }
-	]
+    "description": "我们曾在此寻找某物，但敌军先我们一步得手。现在，我们已经没有机会了。"
     },
 	
     {
 	"id": "enemy.main.objective.complete.contemnant",
 	"label": "该怎么办？",
-    "description": "我们曾在此寻找某物，但敌军先我们一步得手。现在，目标已经失去，我们该怎么办？",
-	"extantreqs": {
-		"contemnant.story" : 1
-	},
-	"effects": {
-		"andnowwhat" : 1
-	}
+    "description": "我们曾在此寻找某物，但敌军先我们一步得手。现在，目标已经失去，我们该怎么办？"
     },
 	
     {
 	"id": "enemy.cycle.spawner",
-	"actionid" : "finalbattle",
 	"label": "最后一战",
-    "description": "战争已经进入白热化。再没有任何一处的纷争能比此处燃的更旺。我已经找不到比此处更好的舞台。",
-	"maxexecutions" : 1,
-    "grandReqs": {
-        "([~/visible:rome.here] || [~/visible:stalingrad.here] || [~/visible:berlin.here]) >= 1": 1
-     },
-	"inductions": [
-	    {
-		"id": "enemy.cycle.finalbattle"
-	    },
-		
-		{
-		"id": "enemy.cycle.finalbattle"
-	    },
-		
-	    {
-		"id": "soviet.cycle.finalbattle"
-	    },
-		
-	    {
-		"id": "soviet.cycle.finalbattle"
-	    }
-	]
+    "description": "战争已经进入白热化。再没有任何一处的纷争能比此处燃的更旺。我已经找不到比此处更好的舞台。"
     },
 	
 	{
 	"id": "enemy.cycle.finalbattle",
-	"actionid": "final.battle.german",
 	"label": "最后一战",
-    "startdescription": "战争已经进入白热化。再没有任何一处的纷争能比此处燃的更旺。我已经找不到比此处更好的舞台。",
-	"warmup": 30,
-	"linked": [
-	    {
-		"id": "enemy.cycle"
-	    }
-	],
+    "startdescription": "战争已经进入白热化。再没有任何一处的纷争能比此处燃的更旺。我已经找不到比此处更好的舞台。"
 	},
 	
 	{
 	"id": "soviet.cycle.finalbattle",
-	"actionid": "final.battle.soviet",
 	"label": "最后一战",
     "startdescription": "战争已经进入白热化。再没有任何一处的纷争能比此处燃的更旺。我已经找不到比此处更好的舞台。",
-	"warmup": 30,
-	"extantreqs": {
-		"contemnant.story" : 1
-	},
-	"linked": [
-	    {
-		"id": "soviet.cycle.startup"
-	    }
-	],
 	},
 	
 	{
 	"id": "enemy.cycle.checker",
-	"actionid": "enemyaction",
 	"label": "敌军等待时机",
-    "startdescription": "我们的敌军有部队在此，但尚未做出任何攻击行为。时间不断流逝。他们即将行动。",
-	"extantreqs": {
-		"main.rome.west.complete" : -1,
-		"main.stalingrad.north.complete" : -1,
-		"main.berlin.east.complete" : -1,
-		"wasteland.ironeater.here" : -1,
-		"craterfield.here" : -1,
-		"sobibor.here" : -1,
-		"foe.huntingparty" : -1
-	},
-	"linked": [
-	    {
-		"id": "enemy.cycle"
-	    }
-	]
+    "startdescription": "我们的敌军有部队在此，但尚未做出任何攻击行为。时间不断流逝。他们即将行动。"
 	},
 	
 	{
 	"id": "hint.enemy.infrastructure",
-	"actionid": "operate",
 	"label": "筹划一次对敌军军事设施的袭击？",
-    "startdescription": "敌军掌控了这座基础设施，我可以尝试将其夺回，亦或者只是将它炸成废墟。[在槽内放入<i>铸<i>或拥有<i>刃<i>性相的非机械化，非怪物友军来决定你的行为]",
-    "requirements": {
-      "enemy.infrastructure": 1
-    },
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "敌军掌控了这座基础设施，我可以尝试将其夺回，亦或者只是将它炸成废墟。[在槽内放入<i>铸<i>或拥有<i>刃<i>性相的非机械化，非怪物友军来决定你的行为]"
     },
 	
 	{
 	"id": "destroy.enemy.infrastructure.pre",
-	"actionid": "operate",
 	"label": "筹划一次对敌军军事设施的破坏行动",
-    "startdescription": "我已决定将此方军事设施化为废墟。",
-	"requirements": {
-	    "enemy.infrastructure": 1,
-		"forge" : 1,
-		"provisions" : 1,
-		"faction.anno" : -1
-	},
-	"warmup" : 15,
-	"effects": {
-	    "destroy.infrastructure.marker": 1
-	},
-	"linked": [
-	    {
-		"id": "enemy.infrastructure.getenemy"
-	    }
-	],
-	"craftable": true
+    "startdescription": "我已决定将此方军事设施化为废墟。"
     },
 	
 	{
 	"id": "capture.enemy.infrastructure.pre",
-	"actionid": "operate",
 	"label": "筹划一次对敌军军事设施的夺取行动",
-    "startdescription": "我已决定将此方军事设施的掌控权夺回我手。我需要一些人手来完成此事。",
-	"requirements": {
-	    "enemy.infrastructure": 1,
-		"provisions" : 1,
-		"edge" : 1,
-		"friend" : 1,
-		"faction.anno" : -1,
-		"otherworldly" : -1,
-		"friend.tanks" : -1,
-		"friend.tanks.inspired" : -1,
-		"friend.bombers" : -1,
-		"friend.bombers.inspired" : -1,
-		"friend.artillery" : -1,
-		"friend.artillery.inspired" : -1,
-	},
-	"effects": {
-	    "capture.infrastructure.marker": 1
-	},
-	"warmup" : 15,
-	"linked": [
-	    {
-		"id": "enemy.infrastructure.getenemy"
-	    }
-	],
-	"craftable": true
+    "startdescription": "我已决定将此方军事设施的掌控权夺回我手。我需要一些人手来完成此事。"
     },
 	
 	{
 	"id": "enemy.infrastructure.getenemy",
 	"label": "敌军守卫！",
     "startdescription": "一组敌军奉命守卫此处军事设施。我们将在此与其遭遇。[提供足以通过这一敌军的阈值来占领这一军事设施]",
-	"aspects": {
-		"revealidentity": 1
-	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌军",
-		"required": {
-		    "german": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-		    "soviet": 1,
-		    "otherworldly": 1
-		},
-		"greedy": true
+		"label": "敌军"
 	    },
-	],
-	"linked": [
-		{
-		"id": "enemy.infrastructure.response"
-	    },
-
-	    {
-		"id": "capture.enemy.infrastructure.success"
-	    },
-
-	    {
-		"id": "destroy.enemy.infrastructure.success"
-	    }
-	],
-	"warmup": 15
-    },
+	]
+	},
 	
 	{
 	"id": "enemy.infrastructure.response",
 	"label": "敌军守卫！",
     "startdescription": "一组敌军奉命守卫此处军事设施。我们将在此与其遭遇。[提供足以通过这一敌军的阈值来摧毁这一军事设施]",
-	"requirements" : {
-		"foe" : 1
-	},
 	"slots": [
 		{
 		"id": "needsresponse",
-		"label": "回应",
-		"required": {
-		    "edge": 1,
-		    "winter": 1,
-		    "heart": 1,
-		    "grail": 1,
-		    "moth": 1,
-		    "lantern": 1,
-		    "forge": 1,
-		    "knock": 1,
-		},
-        "forbidden": {
-			"faction.anno": 1,
-			"exhausted" : 1,
-			"friend.away" : 1,
-			"friend.tanks" : -1,
-			"friend.tanks.inspired" : -1,
-			"friend.bombers" : -1,
-			"friend.bombers.inspired" : -1,
-			"friend.artillery" : -1,
-			"friend.artillery.inspired" : -1,
-        }
+		"label": "回应"
 	    }
-	],
-	"linked": [
-		{
-		"id": "attackenemy*"
-	    }
-	],
-	"warmup": 15
+	]
 	},
 	
 	{
 	"id": "capture.enemy.infrastructure.success",
 	"label": "占领敌军军事设施",
-    "startdescription": "他们的这些东西归我们了。今天是个好日子，但这只是沧海一粟。",
-	"requirements": {
-	    "enemy.infrastructure": 1,
-		"capture.infrastructure.marker" : 1
-	},
-	"aspects": {
-		"killfoe": 1,
-		"fatiguing" : 1,
-		"capture" : 1
-	},
-	"warmup": 15,
-	"inductions": [  
-		{
-		"id" : "enemy.barracks.lost"
-		}
-	]
+    "startdescription": "他们的这些东西归我们了。今天是个好日子，但这只是沧海一粟。"
     },
 	
 	{
 	"id": "destroy.enemy.infrastructure.success",
 	"label": "摧毁敌军军事设施！",
-    "startdescription": " 他们已经失去了这些珍贵之物。今天是个好日子，但这只是沧海一粟。",
-	"requirements": {
-	    "enemy.infrastructure": 1,
-		"destroy.infrastructure.marker" : 1
-	},
-	"aspects": {
-		"killfoe": 1,
-		"fatiguing" : 1,
-		"destroy" : 1
-	},
-	"warmup": 15,
-	"inductions": [  
-		{
-		"id" : "enemy.barracks.lost"
-		}
-	]
+    "startdescription": " 他们已经失去了这些珍贵之物。今天是个好日子，但这只是沧海一粟。"
     },
 	
     {
 	"id": "enemy.barracks.lost",
-	"actionid": "scandal",
 	"label": "敌军失去营房！",
     "startdescription": "德军以其高效自傲。但现在我们摧毁了他们的营房之一，他们的效能已被折损。\n\n[该战区的部分敌军将被弱化] ",
-	"grandReqs" : {
-		"([loc.barracks] || [loc.barracks.destroyed])": 1,
-	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌军",
-		"required": {
-		    "foe": 1,
-			"german" : 1
-		},
-		"forbidden": {
-		    "otherworldly": 1,
-		    "weakened": 1,
-		    "uqbrood": 1,
-		    "soviet": 1,
-			"foe.rankofficer" : 1
-		},
-		"greedy": true
+		"label": "敌军"
 	    },
 		
 		{
 		"id": "needsenemy2",
-		"label": "敌军",
-		"required": {
-		    "foe": 1,
-			"german" : 1
-		},
-		"forbidden": {
-		    "otherworldly": 1,
-		    "weakened": 1,
-		    "uqbrood": 1,
-		    "soviet": 1,
-			"foe.rankofficer" : 1
-		},
-		"greedy": true
+		"label": "敌军"
 	    },
 		
 		{
 		"id": "needsenemy3",
-		"label": "敌军",
-		"required": {
-		    "foe": 1,
-			"german" : 1
-		},
-		"forbidden": {
-		    "otherworldly": 1,
-		    "weakened": 1,
-		    "uqbrood": 1,
-		    "soviet": 1,
-			"foe.rankofficer" : 1
-		},
-		"greedy": true
+		"label": "敌军"
 	    }
-	],
-	"warmup": 5,
-	"aspects": {
-	    "weaken": 1
-	}
+	]
     },
 	
 	{
 	"id": "enemy.defensive.preparation",
-	"actionid": "enemy.defensive.preparation",
 	"label": "敌军采取防御措施！",
     "startdescription": "敌军准备巩固防线——",
     "description": "敌军的战备如今更加充足了，这无疑是件坏事。",
-	"aspects": {
-	    "defensiveprep": 1
-	},
-	"effects": {
-	    "decision.enemy.defensive.preparation": 1
-	},
-	"requirements": {
-		"decision.enemy.defensive.preparation" : 1
-	},
-	"warmup": 30,
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌军",
-		"required": {
-		    "german": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-		    "soviet": 1,
-			"otherworldly" : 1,
-			"foe.hidden" : 1,
-			"kommando.retaliatory" : 1,
-			"foe.hulldown" : 1,
-			"foe.escorted" : 1,
-			"foe.emplaced" : 1,
-			"foe.braced" : 1
-		},
-		"greedy": true
+		"label": "敌军"
 	    }
 	]
 	},
 	
 	{
 	"id": "enemy.offensive.preparation.startup",
-	"actionid": "enemy.offensive.preparation",
 	"label": "敌军正在谋划一次进攻！",
     "startdescription": "敌军正在谋划进攻——",
-	"effects": {
-	    "decision.enemy.offensive.preparation": 1
-	},
-	"requirements": {
-		"decision.enemy.offensive.preparation" : 1
-	},
-	"warmup": 30,
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌军",
-		"required": {
-		    "foe": 1,
-			"german" : 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-		    "soviet": 1,
-			"otherworldly" : 1,
-			"foe.hidden" : 1,
-			"foe.offensive.buffed" : 1
-		},
-		"greedy": true
+		"label": "敌军"
 	    }
-	],
-	"linked" : [
-		{
-		"id" : "enemy.offensive.preparation.router"
-		}
 	]
 	},
 	
 	{
 	"id": "enemy.offensive.preparation.router",
-	"actionid": "enemy.offensive.preparation",
 	"label": "敌军正在谋划一次进攻！",
     "startdescription": "敌军正在谋划进攻——",
-    "description": "敌军的火力如今更加充足了，这无疑是件坏事。",
-	"linked" : [
-		{
-		"id" : "enemy.offensive.preparation.ammo",
-		"chance" : 25
-		},
-		
-		{
-		"id" : "enemy.offensive.preparation.elusive",
-		"chance" : 25
-		},
-		
-		{
-		"id" : "enemy.offensive.preparation.commander",
-		"chance" : 25
-		},
-		
-		{
-		"id" : "enemy.offensive.preparation.lethal",
-		"chance" : 25
-		},
-		
-		{
-		"id" : "enemy.offensive.preparation.router"
-		}
-	]
+    "description": "敌军的火力如今更加充足了，这无疑是件坏事。"
 	},
 	
 	{
@@ -1345,143 +400,58 @@
 	"label": "敌军正在谋划一次进攻！",
     "startdescription": "敌军正在谋划进攻——",
     "description": "敌军的火力如今更加充足了，这无疑是件坏事。",
-	"requirements": {
-		"foefighter" : -1
-	},
-	"aspects": {
-	    "giveammo": 1,
-		"makeadditional" : 1
-	}
 	},
 	
 	{
 	"id": "enemy.offensive.preparation.elusive",
 	"label": "敌军正在谋划一次进攻！",
     "startdescription": "敌军正在谋划进攻——",
-    "description": "敌军的火力如今更加充足了，这无疑是件坏事。",
-	"requirements": {
-		"foe.elusive" : -1
-	},
-	"aspects": {
-	    "giveelusive": 1
-	}
+    "description": "敌军的火力如今更加充足了，这无疑是件坏事。"
 	},
 	
 	{
 	"id": "enemy.offensive.preparation.commander",
 	"label": "敌军正在谋划一次进攻！",
     "startdescription": "敌军正在谋划进攻——",
-    "description": "敌军的火力如今更加充足了，这无疑是件坏事。",
-	"requirements": {
-		"foe.commander" : -1
-	},
-	"aspects": {
-	    "givecommander": 1
-	}
+    "description": "敌军的火力如今更加充足了，这无疑是件坏事。"
 	},
 	
 	{
 	"id": "enemy.offensive.preparation.lethal",
 	"label": "敌军正在谋划一次进攻！",
     "startdescription": "敌军正在谋划进攻——",
-    "description": "敌军的火力如今更加充足了，这无疑是件坏事。",
-	"requirements": {
-		"foe.lethal" : -1
-	},
-	"aspects": {
-	    "givelethal": 1
-	}
+    "description": "敌军的火力如今更加充足了，这无疑是件坏事。"
 	},
 	
     {
 	"id": "attackenemy.failure.kommando.retaliatory",
 	"label": "敌军奋起反击！",
-    "startdescription": "我们中陷阱了！敌军的早已准备伏击我们，他们绝不会让我们全身而退的……",
-	"requirements": {
-	    "kommando.retaliatory": 1
-	},
-	"effects" : {
-		"decision.enemy.singleattack": 1	
-	},
-	"aspects": {
-	    "makecasualty": 1,
-	},
-	"warmup" : 5,
-	"inductions": [
-	    {
-		"id": "kommando.counterattack"
-	    }
-	]
+    "startdescription": "我们中陷阱了！敌军的早已准备伏击我们，他们绝不会让我们全身而退的……"
     },
 	
     {
 	"id": "kommando.counterattack",
-	"$extends" : ["singleattack.startup"],
-	"actionid": "enemyaction.single",
 	"label": "敌军奋起反击！",
     "startdescription": "我们中陷阱了！敌军的早已准备伏击我们，他们绝不会让我们全身而退的……",
-	"requirements" : {},
-	"effects" : {"decision.enemy.attack" : 1},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌军",
-		"required": {
-		    "kommando.retaliatory": 1
-		},
-		"forbidden": {
-		    "remnant": 1
-		},
-		"greedy": true
-	    },
-	],
-	"warmup": 10
-    },
+		"label": "敌军"
+	    }
+	]
+	},
 	
 	{
 	"id": "enemy.defensive.preparation.alternate",
-	"actionid": "enemy.defensive.preparation",
 	"label": "敌军采取防御措施！",
     "startdescription": "敌军准备巩固防线——",
-    "description": "敌军的战备如今更加充足了，这无疑是件坏事。",
-	"aspects": {
-	    "defensiveprep": 1
-	}
+    "description": "敌军的战备如今更加充足了，这无疑是件坏事。"
 	},
 	
 	{  
 	"id": "enemy.preparation.pre",
-	"actionid": "enemybuffs",  
 	"label": "敌军正在做战前准备！",
-    "startdescription": "敌军上级察觉了我们的行为，为我们的敌军分配了更多资源。",
-	"extantreqs": {
-		"foe.preparation.buffed" : -1,
-		"lake.here" : -1,
-		"craterfield.here" : -1,
-		"wasteland.ironeater.here" : -1,
-		"wasteland.a" : -1,
-		"wasteland.b" : -1,
-		"wasteland.a.italy" : -1,
-		"wasteland.b.italy" : -1,
-		"sobibor.here" : -1,
-		"wasteland.a.contemnant" : -1,
-		"wasteland.b.contemnant" : -1
-	},
-	"grandReqs": { 
-        "([~/exterior:resolution] > 1) || ([~/exterior:retribution] > 1)": 1
-    },
-	"xpans": {
-		"dynamicbuffonce" : 1
-	},
-	"linked": [  
-		{
-		"id": "enemy.preparation.resolution"
-	    },
-		
-		{
-		"id": "enemy.preparation.retribution"
-	    }
-	] 
+    "startdescription": "敌军上级察觉了我们的行为，为我们的敌军分配了更多资源。"
 	},
 	
 	{
@@ -1489,161 +459,44 @@
 	"label": "敌军正在做战前准备！",
     "startdescription": "敌军上级察觉了我们的行为，为我们的敌军分配了更多资源。",
     "description": "敌军的战备如今更加充足了。",
-	"warmup": 5,
-	"effects" : {
-		"buffcounter" : 1
-	},
-	"grandReqs": { 
-        "([~/exterior:resolution] + [~/exterior:rome.here] * 10 + [~/exterior:stalingrad.here] * 10) > ([buffcounter] * 2)": 1 
-    },
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌军",
-		"required": {
-		    "german": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-		    "soviet": 1,
-			"otherworldly" : 1,
-			"foe.hidden" : 1,
-			"kommando.retaliatory" : 1,
-			"foe.hulldown" : 1,
-			"foe.escorted" : 1,
-			"foe.emplaced" : 1,
-			"foe.braced" : 1
-		},
-		"greedy": true
-	    }
-	],
-	"inductions": [
-	    {
-		"id": "enemy.defensive.preparation.alternate",
-		"chance" : 50,
-		"expulsion": {
-			"filter": { "tlg.note": -1, "buffcounter" : -1},
-		    "limit": 5
-		}
-	    },
-		
-		{
-		"id": "enemy.offensive.preparation.router",
-		"expulsion": {
-			"filter": { "tlg.note": -1, "buffcounter" : -1},
-		    "limit": 5
-		}
-	    }
-	],
-	"linked": [
-	    {
-		"id": "enemy.preparation.resolution"
+		"label": "敌军"
 	    }
 	]
 	},
 	
 	{
 	"id": "enemy.preparation.retribution",
-	"actionid": "enemybuffs",
 	"label": "敌军正在做战前准备！",
     "startdescription": "敌军上级察觉了我们的行为，为我们的敌军分配了更多资源。",
     "description": "敌军的战备如今更加充足了。",
-	"warmup": 5,
-	"effects" : {
-		"buffcounter" : 1
-	},
-	"grandReqs": { 
-        "([~/exterior:retribution] + [~/exterior:berlin.here] * 10) > ([buffcounter] * 2)": 1 
-    },
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "敌军",
-		"required": {
-		    "german": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-		    "soviet": 1,
-			"otherworldly" : 1,
-			"foe.hidden" : 1,
-			"kommando.retaliatory" : 1,
-			"foe.hulldown" : 1,
-			"foe.escorted" : 1,
-			"foe.emplaced" : 1
-		},
-		"greedy": true
+		"label": "敌军"
 	    }
-	],
-	"inductions": [
-	    {
-		"id": "enemy.defensive.preparation.alternate",
-		"expulsion": {
-			"filter": { "tlg.note": -1, "buffcounter" : -1},
-		    "limit": 5
-		}
-	    }
-	],
-	"linked": [
-	
-	    {
-		"id": "enemy.preparation.retribution"
-	    }
-		
 	]
 	},
 	
 	{
 	"id": "enemy.action.halter.sergei",
-	"actionid" : "sergei_enemy_verb",
 	"label": "此处无人？",
     "startdescription": "谁也不在这。",
-    "description": "至少，现在谁也不在。",
-	"warmup": 1,
-	"grandReqs" : {
-      "~/visible:{verb/enemyaction}:recipe/*": 1,
-    },
-	"haltverb" : {
-		"enemyaction" : 1
-	}
+    "description": "至少，现在谁也不在。"
 	},
 	
 	{
 	"id": "enemy.corpse.respawner",
-	"actionid": "respawnenemycorpse",
 	"label": "敌军被击杀！",
     "startdescription": "一组敌军死亡了！",
     "description": "一组敌军死亡了！",
-	"warmup": 1,
-	"effects": {
-        "remnant" : -1
-    },
-	"grandReqs": {
-		"([foe.emplaced] || [foe.equipped] || [foe.officerdetail])": 1
-	},
 	"slots": [
 	    {
 		"id": "deadenemy",
-		"label": "死去敌军",
-		"required": {
-			"foe.emplaced" : 1,
-			"foe.equipped" : 1,
-			"foe.officerdetail" : 1
-		},
-		"essential": {
-		    "remnant": 1
-		},
-		"greedy": true
+		"label": "死去敌军"
 	    }
-	],
-	"furthermore": [
-      {
-         "effects": {
-            "foe.corpses" : 1
-         }
-      }
 	]
 	}
 	

@@ -2,458 +2,174 @@
 "recipes": [
     {
 	"id": "active.hindrance.verb.cycle",
-	"actionid": "active.hindrances",
 	"label": "场上阻碍丛生……",
-    "startdescription": "种种普通或特殊的障碍遍布战场。我们很快就得面对这些问题了。",
-	"extantreqs": {
-		"sobibor.here" : -1
-	},
-	"linked": [
-	    {
-		"id": "active.hindrance.nohindrances"
-	    },
-		
-	    {
-		"id": "active.hindrance.hindrancefound.foewinning",
-		"chance" : 50
-	    },
-		
-	    {
-		"id": "active.hindrance.hindrancefound",
-		"chance" : 25
-	    },
-		
-		{
-		"id": "active.hindrance.verb.cycle"
-	    }
-	],
-	"warmup": 30
+    "startdescription": "种种普通或特殊的障碍遍布战场。我们很快就得面对这些问题了。"
     },
 	
 	{
 	"id": "active.hindrance.nohindrances",
 	"label": "战场恢复如常",
-    "description": "现在场上已无障碍——暂时如此，回去与敌军作战吧。",
-	"warmup": 0,
-	"tablereqs": {
-		"hindrance": -1
-	},
-	"extantreqs": {
-		"hindrance": -1
-	}
+    "description": "现在场上已无障碍——暂时如此，回去与敌军作战吧。"
 	},
 	
 	{
 	"id": "active.hindrance.hindrancefound.foewinning",
 	"label": "敌对环境",
-    "description": "大敌使吾友落入下风，战场因此对我不利，恐怕很快就有麻烦找上门了。",
-	"warmup": 10,
-	"tablereqs": {
-		"hindrance": 1
-	},
-	"extantreqs": {
-		"corrivality.foe" : 1
-	},
-	"linked": [
-	    {
-		"id": "active.hindrance.hindrancefound"
-	    }
-		]
+    "description": "大敌使吾友落入下风，战场因此对我不利，恐怕很快就有麻烦找上门了。"
 	},
 	
 	{
 	"id": "active.hindrance.hindrancefound",
 	"label": "阻碍！",
     "description": "战场上的某物将妨碍我们的行动。真是麻烦……",
-	"warmup": 30,
-	"extantreqs": {
-		"hindrance": 1
-	},
-	
 	"slots": [
 	    {
 		"id": "needshindrance",
 		"label": "障碍",
-        "description": "一个阻碍。",
-		"required": {
-			"hindrance": 1
-		},
-		"forbidden": {
-			"hindrance.fortifications": 1
-		},
-		"greedy": true
+        "description": "一个阻碍。"
 	    }
-	],
-	"linked": [
-		{
-		"id": "active.hindrance.nohindrances"
-		},
-
-	    {
-		"id": "active.hindrance.verb.cycle"
-	    }
-	],
-	"inductions": [
-	    {
-		"id": "active.hindrance.found.*",
-		"expulsion": {
-		    "filter": {
-			"hindrance" : 1
-		    },
-		    "limit": 1
-		}
-	    }
-
 	]
 	},
 	
 	{
 	"id": "active.hindrance.found.snows",
 	"label": "暴风雪！",
-    "actionid": "badweather",
     "startdescription": "冻……冻死人了！",
     "description": "冬将军向你问好。",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.snows": 1
-	},
 	"slots": [
 	    {
 		"id": "needssomeone",
-		"label": "某人？",
-		"required": {
-			"mortal": 1,
-			"otherworldly" : 1,
-			"foe.monster" : 1,
-			"foe.hidden" : 1
-		},
-		"forbidden": {
-			"weakened": 1,
-			"remnant" : 1
-		},
-		"greedy": true
+		"label": "某人？"
 	    }
-	],
-	"aspects" : {
-		"makecasualty" : 1,
-		"weaken" : 1
-	}
+	]
 	},
 	
 	{
 	"id": "active.hindrance.found.fog",
 	"label": "陷于迷雾！",
-    "actionid": "badweather",
     "startdescription": "有人或某样东西在迷雾中迷路了，他们要过上一段时间才能回到这片战场。",
     "description": "可算是出来了。",
-	"warmup": 90,
-	"requirements": {
-		"hindrance.fog": 1
-	},
 	"slots": [
 	    {
 		"id": "needssomeone",
-		"label": "某人？",
-		"required": {
-			"mortal": 1,
-			"otherworldly" : 1,
-			"foe.monster" : 1,
-			"foe.hidden" : 1
-		},
-		"forbidden": {
-			"remnant" : 1
-		},
-		"greedy": true
+		"label": "某人？"
 	    }
-	],
+	]
 	},
 	
 	{
 	"id": "active.hindrance.found.earthquake",
 	"label": "地震！",
-    "actionid": "badweather",
     "startdescription": "大地自会夺走其想要的一切。",
     "description": "现在，大地重归沉眠。",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.earthquake": 1
-	},
 	"slots": [
 	    {
 		"id": "needssomething",
-		"label": "某物？",
-		"required": {
-			"supplies": 1,
-			"infrastructure" : 1,
-			"enemy.infrastructure" : 1
-		},
-		"greedy": true
+		"label": "某物？"
 	    }
-	],
-	"aspects" : {
-		"fatiguing" : 1,
-		"destroy" : 1
-	}
+	]
 	},
 	
 	{
 	"id": "active.hindrance.found.storms",
     "label": "暴风雨！",
-    "actionid": "badweather",
     "startdescription": "天穹降下其怒火。",
     "description": "下方之卒逃不过上方之威。",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.storms": 1
-	},
 	"slots": [
 	    {
 		"id": "needssomeone",
-		"label": "某人？",
-		"required": {
-			"mortal": 1,
-			"otherworldly" : 1,
-			"foe.monster" : 1,
-			"foe.hidden" : 1
-		},
-		"forbidden": {
-			"weakened": 1,
-			"remnant" : 1
-		},
-		"greedy": true
+		"label": "某人？"
 	    }
-	],
-	"aspects" : {
-		"fatiguing" : 1,
-		"weaken" : 1
-	}
+	]
 	},
 	
 	{
 	"id": "active.hindrance.found.colonel",
 	"label": "上校的期许",
-    "actionid": "badweather",
     "startdescription": "一切死去的士兵都会经过上校之手。祂目盲的双眼审视战场，物色着下一个仍须服役之人。",
     "description": "又一批上校的士兵站了起来，这并不是什么好事。",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.colonel": 1
-	},
 	"slots": [
 	    {
 		"id": "needscorpse",
-		"label": "尸体",
-		"required": {
-			"friend.corpses": 1,
-			"foe.corpses" : 1,
-			"neutral.corpses" : 1
-		},
-		"greedy": true
+		"label": "尸体"
 	    }
-	],
-	"aspects" : {
-		"becomezombiesoldier" : 1
-	}
+	]
 	},
 	
 	{
 	"id": "active.hindrance.found.lionsmith",
 	"label": "狮子匠的咆哮",
-    "actionid": "badweather",
     "startdescription": "当雄狮怒吼时，其它一切生物均在恐惧中低伏，只因它们理解了百兽之王已君临于此。但我们并非雄狮。",
     "description": "逃兵就是叛徒。一群懦夫。",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.lionsmith": 1
-	},
 	"slots": [
 	    {
 		"id": "needssomething",
-		"label": "某人",
-		"required": {
-			"mortal": 1,
-			"otherworldly" : 1,
-			"foe.hidden" : 1
-		},
-		"forbidden": {
-			"friend.named": 1,
-			"foe.rankofficer" : 1,
-			"edgelong" : 1,
-			"remnant" : 1,
-			"named.local": 1
-		},
-		"greedy": true
+		"label": "某人"
 	    }
-	],
-	"effects" : {
-		"mortal": -1,
-		"otherworldly" : -1,
-		"foe.hidden" : -1
-	}
+	]
 	},
 	
 	{
 	"id": "active.hindrance.found.wolf",
 	"label": "裂分之狼的憎恶",
-    "actionid": "badweather",
     "startdescription": "某物过于接近这一破碎的狼之恶意，其将被彻底毁灭...",
     "description": "结束了，什么都没留下。",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.wolf": 1
-	},
 	"slots": [
 	    {
 		"id": "needssomething",
-		"label": "某物",
-		"required": {
-			"mortal": 1,
-			"supplies" : 1,
-			"infrastructure" : 1,
-			"enemy.infrastructure" : 1,
-			"otherworldly" : 1,
-			"foe" : 1,
-			"hindrance" : 1,
-			"op" : 1,
-			"foe.hidden" : 1
-		},
-		"forbidden": {
-			"friend.named": 1,
-			"edgelong" : 1,
-			"uqlionel" : 1,
-			"uqjerome" : 1,
-			"uqbrood" : 1,
-			"marinette.marker": 1,
-			"anno.mark" : 1,
-			"valkyrie.mark" : 1,
-			"foe.rankofficer" : 1,
-			"clockwork.mark" : 1,
-			"strife.tracker": 1,
-			"op.axe" : 1,
-			"opligeian" : 1,
-			"promise.purple" : 1
-		},
-		"greedy": true
+		"label": "某物"
 	    }
-	],
-	"effects" : {
-		"mortal": -1,
-		"supplies" : -1,
-		"infrastructure" : -1,
-		"enemy.infrastructure" : -1,
-		"otherworldly" : -1,
-		"foe" : -1,
-		"hindrance" : -1,
-		"op" : -1,
-		"foe.hidden" : -1
-	}
+	]
 	},
 	
 	{
 	"id": "active.hindrance.found.moonspace",
 	"label": "弧月的鄙夷",
-    "actionid": "badweather",
     "startdescription": "弧月并不喜欢我们，现实开始扭曲……",
-    "description": "空气中弥漫着山楂的甜腥，目不能见的林枭于夜空中鸣叫。侦查行动如今已不可行。",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.moonspace": 1
-	},
-	"effects" : {
-		"hindrance.moonspace.active": 1
-	}
+    "description": "空气中弥漫着山楂的甜腥，目不能见的林枭于夜空中鸣叫。侦查行动如今已不可行。"
 	},
 	
 	{
 	"id": "recon.blocked",
-	"actionid": "recon",
 	"label": "沉沦月光！",
-    "$priority": 1,
-    "startdescription": "如果我或者我的斥候此时出去侦查，恐怕就一去不回了。[此时尝试侦查会浪费你90秒]",
-	"extantreqs": {
-		"hindrance.moonspace.active": 1
-	},
-	"warmup": 90,
-	"craftable": true
+    "startdescription": "如果我或者我的斥候此时出去侦查，恐怕就一去不回了。[此时尝试侦查会浪费你90秒]"
     },
 	
 	{
 	"id": "active.hindrance.found.dionysian",
 	"label": "欲望狂欢",
-    "actionid": "badweather",
     "startdescription": "林地生长的过于接近梦境，某物将被遗失……",
     "description": "结束了",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.dionysian": 1
-	},
 	"slots": [
 	    {
 		"id": "needsopportunity",
-		"label": "某物",
-		"required": {
-			"op": 1
-		},
-		"forbidden": {
-			"strife.tracker": 1,
-			"op.axe" : 1,
-			"opligeian" : 1,
-			"promise.purple" : 1
-		},
-		"greedy": true
+		"label": "某物"
 	    }
-	],
-	"effects" : {
-		"op": -1
-	}
+	]
 	},
 	
 	{
 	"id": "active.hindrance.found.nocturnal",
 	"label": "暗夜惊魂",
-    "actionid": "badweather",
     "startdescription": "影子逐渐拉长，变得可怖。夜晚似乎更加漫长。某些事情将被遗忘……",
 	"description": "消失了。",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.nocturnal": 1
-	},
 	"slots": [
 	    {
 		"id": "needsmemory",
-		"label": "某物",
-		"required": {
-			"memory": 1
-		},
-		"greedy": true
+		"label": "某物"
 	    }
-	],
-	"effects" : {
-		"memory": -1
-	}
+	]
 	},
 	
 	{
 	"id": "active.hindrance.found.apollonian",
 	"label": "崇高愤懑",
-    "actionid": "badweather",
     "startdescription": "我距离那光太近，太近了，它穿透了我的灵魂。我看见了，我看见了……",
     "description": "<b>我 看 见 了</b>。",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.apollonian": 1
-	},
-	"aspects": {
-	    "apolloniantraumarefresh": 1
-	},
 	"slots": [
 	    {
 		"id": "needstrauma",
-		"label": "精神创伤",
-		"required": {
-			"trauma": 1
-		},
-		"greedy": true
+		"label": "精神创伤"
 	    }
 	]
 	},
@@ -461,94 +177,47 @@
 	{
 	"id": "active.hindrance.found.worms",
 	"label": "这里有蠕虫！",
-    "actionid": "badweather",
     "startdescription": "这些东西正蠕动着爬出世界。",
     "description": "很快它们就会变成麻烦。",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.worms": 1
-	},
-	"effects" : {
-		"foe.worms": 1
-	}
 	},
 	
 	{
 	"id": "foe.corrosive.dissolve",
 	"label": "什么都没留下",
-    "startdescription": "这一敌军什么都没留给我们",
-	"requirements": {
-	    "foe.corrosive": 1
-	},
-	"aspects": {
-	    "fatiguing": 1
-	}
+    "startdescription": "这一敌军什么都没留给我们"
     },
 	
 	{
 	"id": "foe.corrosive.dissolve.building",
 	"label": "什么都没留下",
-    "startdescription": "这一敌军什么都没留给我们",
-	"requirements": {
-	    "foe.corrosive": 1
-	},
-	"aspects": {
-	    "dissolve": 1
-	}
+    "startdescription": "这一敌军什么都没留给我们"
     },
 	
 	{
-	"id": "active.hindrance.found.ants", 
-	"$depends": [ "3775567517" ],
-	"actionid": "badweather",
+	"id": "active.hindrance.found.ants",
 	"label": "蚂蚁女王的妹妹们",
 	"startdescription": "蚂蚁女王有许多妹妹，还有更多的妹妹正来到这片田野……",
-	"description": "姐姐保护妹妹，妹妹保护姐姐。",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.motherofants": 1
-	},
-	"effects": {
-	    "foe.serpent": 1
-		}
+	"description": "姐姐保护妹妹，妹妹保护姐姐。"
 	},
 	
 	{
-	"id": "active.hindrance.found.fire", 
-	"$depends": [ "3775567517" ],
-	"actionid": "badweather",
+	"id": "active.hindrance.found.fire",
 	"label": "着火了！",
 	"startdescription": "火焰吞噬万物，这本是它的天性。",
 	"description": "只剩下灰烬。",
-	"warmup": 30,
-	"requirements": {
-		"hindrance.fireinthechurch": 1
-	},
 	"slots": [
 	    {
 		"id": "needssomething",
-		"label": "Something?",
-		"required": {
-			"supplies": 1,
-			"infrastructure" : 1,
-			"enemy.infrastructure" : 1
-		},
-		"greedy": true
+		"label": "某物？"
 	    }
-		],
-	"aspects" : {
-		"fatiguing" : 1,
-		"destroy" : 1
-		}
+		]
 	},
 	
 	{
-	"id": "active.hindrance.found.fallback", 
-	"actionid": "badweather",
+	"id": "active.hindrance.found.fallback",
 	"label": "活动障碍回退",
 	"startdescription": "您发现了一个 EOA 未定义的障碍！",
-	"description": "如果您看到此提示，请向开发者报告，谢谢！",
-	"warmup": 1,
+	"description": "如果您看到此提示，请向开发者报告，谢谢！"
 	}
 	
 ]

@@ -1,526 +1,120 @@
 {
 "elements": [
-    {
-	"id" : "allyattackmarker",
-	"label" : "Ally Command Marker",
-	"description" : "Commanded Allies",
-	"lifetime" : 1,
-	"isHidden": true
-	},
 	
     {
 	"id": "supplies.smokegrenade",
 	"label": "烟雾弹",
-    "description": "一拉插销即可藏匿自我，误导敌众，又或只是升起浓烟。实属便利。",
-	"aspects": {
-	    "moth": 6,
-	    "supplies": 1
-	},
-	"xtriggers": {
-	    "fatiguing": "husk"
-	}
-    },
-	
-	{
-	"id" : "capture.infrastructure.marker",
-	"label" : "Infrastructure Attack marker",
-	"description" : "Attacking Infrastructure",
-	"lifetime" : 1,
-	"isHidden": true
-	},
-	
-	{
-	"id" : "destroy.infrastructure.marker",
-	"label" : "Infrastructure Attack marker",
-	"description" : "Attacking Infrastructure",
-	"lifetime" : 1,
-	"isHidden": true
-	},
-	
-	{
-	"id": "decision.enemy.defensive.preparation",
-	"label": "Decision: Prepare Defensive Strategy",
-	"lifetime": 1,
-	"isHidden": true,
-	"aspects": {
-	    "decision": 1
-	}
-    },
-	
-	{
-	"id": "decision.enemy.offensive.preparation",
-	"label": "Decision: Prepare Offensive Strategy",
-	"lifetime": 1,
-	"isHidden": true,
-	"aspects": {
-	    "decision": 1
-	}
-    },
-	
-	{
-	"id": "enemy.interference.blocker",
-	"label": "Enemy Interference",
-	"lifetime": 1,
-	"isHidden": true
-    },
-	
-	{
-	"id": "buffcounter",
-	"label": "Enemy Buffs",
-	"lifetime": 1,
-	"isHidden": true
+    "description": "一拉插销即可藏匿自我，误导敌众，又或只是升起浓烟。实属便利。"
     },
 	
 	{
 	"id": "marinette.gone",
 	"label": "玛丽内特已被杀死？",
-    "description": "狼似乎已将这位丽姬娅就此吞噬。但这是否意味着其已彻底死去，可就不好说了。不过至少在梦境的这一侧，我不会再见到她了。[此卡牌视作两份“抗争”，玛丽内特不会于战火摧残的地区前来袭击你了。]",
-	"aspects": {
-	    "strife.tracker": 2
-	}
+    "description": "狼似乎已将这位丽姬娅就此吞噬。但这是否意味着其已彻底死去，可就不好说了。不过至少在梦境的这一侧，我不会再见到她了。[此卡牌视作两份“抗争”，玛丽内特不会于战火摧残的地区前来袭击你了。]"
     },
 	
 	{  
 	"id": "marinette.opening", 
-	"icon" : "opening.foe",
 	"label": "杀死丽姬娅？",
     "description": "我要不了干涸女巫的命，但<b>狼<b>或许可以。",
-	"aspects": {  
-		"op": 1  
-	},  
 	"slots": [  
 		{  
 			"id": "needswolfdivided1",  
-			"label": "权威",
-			"required": {  
-				"op.wolfdivided": 1  
-			}  
+			"label": "权威"
 		},
 		
 		{  
 			"id": "needswolfdivided2",   
-			"label": "权威", 
-			"required": {  
-				"op.wolfdivided": 1  
-			}  
+			"label": "权威",
 		},
 		
 		{  
 			"id": "Desire",   
-			"label": "欲望",  
-			"required": {  
-				"antithesis": 1  
-			}  
+			"label": "欲望"  
 		},
 		
 		{  
 			"id": "needsunmake",  
-			"label": "力量",
-			"required": {  
-				"skill.unmake": 1  
-			}  
+			"label": "力量"
 		},
 		
 		{  
 			"id": "needsmarinette",  
-			"label": "玛丽内特",
-			"required": {  
-				"foe.marinette.recovering": 1,
-				"foe.marinette" : 1
-			}  
+			"label": "玛丽内特"  
 		}  
-	],
-	"unique": true
+	]
 	},
 	
     {
 	"id": "foe.cold.sergei",
 	"label": "寒冷",
-    "description": "食铁者所过之处，天气变得充满憎恨。我们的人许多连惨叫都未曾发出便被活活冻死。",
-	"inherits": "foe.template",
-	"aspects": {
-	    "needsforge": 8,
-	    "needsheart": 8
-	},
-	"xtriggers": {
-	    "killfoe": "husk",
-	    "concealidentity": "foe.cold.sergei.hidden",
-	    "takeadditional": [
-		{
-		    "id": "needsforge",
-		    "morpheffect": "mutate",
-		    "level": -4
-		},
-		{
-		    "id": "needsheart",
-		    "morpheffect": "mutate",
-		    "level": -4
-		},
-	    ],
-	    "makeadditional": [
-		{
-		    "id": "needsforge",
-		    "morpheffect": "mutate",
-		    "level": 4
-		},
-		{
-		    "id": "needsheart",
-		    "morpheffect": "mutate",
-		    "level": 4
-		},
-	    ]
-	},
-	"icon": "foe.cold",
+    "description": "食铁者所过之处，天气变得充满憎恨。我们的人许多连惨叫都未曾发出便被活活冻死。"
     },
 	
     {
 	"id": "foe.cold.sergei.hidden",
 	"label": "未知敌军",
-    "description": "最为危险的敌军永远是那些我们未预料其行动的那些。",
-	"inherits": "foe.template",
-	"aspects": {
-	    "foe.hidden": 1
-	},
-	"xtriggers": {
-	    "refresh": "foe.cold.sergei.hidden",
-	    "killfoe": "agony",
-	    "revealidentity": "foe.cold.sergei",
-	    "weaken": [
-		{
-		    "id": "weakened",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "needswinter",
-		    "morpheffect": "mutate",
-		    "level": -2
-		},
-		{
-		    "id": "needswinterheart",
-		    "morpheffect": "mutate",
-		    "level": -2
-		}
-	    ]
-	},
-	"icon": "foe.unknown",
-	"noStack": true
+    "description": "最为危险的敌军永远是那些我们未预料其行动的那些。"
     },
 	
     {
 	"id": "foe.wolves.sergei",
 	"label": "狼群",
-    "description": "老狼的爪牙",
-	"inherits": "foe.template",
-	"aspects": {
-	    "needsedge": 10,
-	    "foe.coordinated": 1
-	},
-	"xtriggers": {
-	    "killfoe": "provisions",
-	    "concealidentity": "foe.wolves.sergei.hidden",
-	    "takeadditional": [
-		{
-		    "id": "needsedge",
-		    "morpheffect": "mutate",
-		    "level": -2
-		},
-	    ],
-	    "makeadditional": [
-		{
-		    "id": "needsedge",
-		    "morpheffect": "mutate",
-		    "level": 2
-		}
-	    ],
-	    "weaken": [
-		{
-		    "id": "weakened",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "needsedge",
-		    "morpheffect": "mutate",
-		    "level": -2
-		}
-	    ]
-	},
-	"icon": "foe.watchdog"
+    "description": "老狼的爪牙"
     },
 	
     {
 	"id": "foe.wolves.sergei.hidden",
 	"label": "未知敌军",
-    "description": "最为危险的敌军永远是那些我们未预料其行动的那些。",
-	"inherits": "foe.template",
-	"aspects": {
-	    "foe.hidden": 1
-	},
-	"xtriggers": {
-	    "refresh": "foe.wolves.sergei.hidden",
-	    "killfoe": "provisions",
-	    "revealidentity": "foe.wolves.sergei",
-	    "weaken": [
-		{
-		    "id": "weakened",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "needsedge",
-		    "morpheffect": "mutate",
-		    "level": -2
-		}
-	    ]
-	},
-	"icon": "foe.unknown",
-	"noStack": true
+    "description": "最为危险的敌军永远是那些我们未预料其行动的那些。"
     },
 	
     {
 	"id": "foe.grame.sergei",
 	"label": "忿狼",
-    "description": "若碎狼是灵魂的绝望超出灵魂光芒之具现，戕狼是吞噬灵魂的痛苦之具现，那么忿狼便是未得复仇者与未得回应者那满溢溃烂的怒火的具现。恐怕只有<b>狼</b>知道到底有多少这种东西寄宿于食铁者身上。",
-	"inherits": "foe.template",
-	"aspects": {
-	    "needsedgewinter": 10,
-	    "foe.commander": 1
-	},
-	"xtriggers": {
-	    "killfoe": "husk",
-	    "concealidentity": "foe.grame.sergei.hidden",
-	    "takeadditional": [
-		{
-		    "id": "needsedgewinter",
-		    "morpheffect": "mutate",
-		    "level": -4
-		},
-	    ],
-	    "makeadditional": [
-		{
-		    "id": "needsedgewinter",
-		    "morpheffect": "mutate",
-		    "level": 4
-		},
-	    ],
-	    "weaken": [
-		{
-		    "id": "weakened",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "needsedgewinter",
-		    "morpheffect": "mutate",
-		    "level": -4
-		}
-	    ]
-	},
-	"icon": "foe.grame"
+    "description": "若碎狼是灵魂的绝望超出灵魂光芒之具现，戕狼是吞噬灵魂的痛苦之具现，那么忿狼便是未得复仇者与未得回应者那满溢溃烂的怒火的具现。恐怕只有<b>狼</b>知道到底有多少这种东西寄宿于食铁者身上。"
     },
 	
     {
 	"id": "foe.grame.sergei.hidden",
 	"label": "未知敌军",
-    "description": "最为危险的敌军永远是那些我们未预料其行动的那些。",
-	"inherits": "foe.template",
-	"aspects": {
-	    "foe.hidden": 1
-	},
-	"xtriggers": {
-	    "refresh": "foe.grame.sergei.hidden",
-	    "killfoe": "husk",
-	    "revealidentity": "foe.grame.sergei",
-	    "weaken": [
-		{
-		    "id": "weakened",
-		    "morpheffect": "mutate",
-		    "level": 1
-		},
-		{
-		    "id": "needsedgewinter",
-		    "morpheffect": "mutate",
-		    "level": -4
-		}
-	    ]
-	},
-	"icon": "foe.unknown",
-	"noStack": true
-    },
-	
-    {
-	"id": "long.bossfight.marker",
-	"label": "Long Bossfight Marker",
-	"lifetime": 1,
-	"isHidden": true,
-	"aspects": {
-	    "travel.blocker": 1
-	}
-    },
-	
-    {
-	"id": "requisitioning",
-	"label": "Requisitioning Something",
-	"lifetime": 1,
-	"isHidden": true
-    },
-	
-    {
-	"id": "requisitioning.provisions",
-	"label": "Requisitioning Provisions",
-	"lifetime": 1,
-	"isHidden": true
-    },
-	
-    {
-	"id": "requisitioning.supplies",
-	"label": "Requisitioning Supplies",
-	"lifetime": 1,
-	"isHidden": true
-    },
-	
-    {
-	"id": "requisitioning.medics",
-	"label": "Requisitioning Medics",
-	"lifetime": 1,
-	"isHidden": true
-    },
-	
-    {
-	"id": "requisitioning.engineers",
-	"label": "Requisitioning Engineers",
-	"lifetime": 1,
-	"isHidden": true
-    },
-	
-    {
-	"id": "requisitioning.scouts",
-	"label": "Requisitioning Scouts",
-	"lifetime": 1,
-	"isHidden": true
-    },
-	
-    {
-	"id": "requisitioning.snipers",
-	"label": "Requisitioning Sniper",
-	"lifetime": 1,
-	"isHidden": true
-    },
-	
-    {
-	"id": "requisitioning.godbuilders",
-	"label": "Requisitioning Godbuilders",
-	"lifetime": 1,
-	"isHidden": true
-    },
-	
-    {
-	"id": "requisitioning.heavyunits",
-	"label": "Requisitioning Heavy Units",
-	"lifetime": 1,
-	"isHidden": true
-    },
-	
-    {
-	"id": "induction.halter",
-	"label": "Stop giving me this useless shit",
-	"lifetime": 1,
-	"isHidden": true
-    },
-	
-    {
-	"id": "long.here.already",
-	"label": "Someone's already beating your ass fam",
-	"lifetime": 1,
-	"isHidden": true,
-	"aspects": {
-	    "long.blocker": 1
-		}
+    "description": "最为危险的敌军永远是那些我们未预料其行动的那些。"
     },
 	
     {
 	"id": "reputation.infamy.permanent",
 	"label": "声名狼藉",
-    "description": "行使无形之术为我带来了骇人的传闻，它们传播的速度远超我们的行军要快得多。[此卡牌视作一张恶名]",
-	"aspects": {
-	    "local.infamy": 1
-		}
+    "description": "行使无形之术为我带来了骇人的传闻，它们传播的速度远超我们的行军要快得多。[此卡牌视作一张恶名]"
     },
 	
 	{  
-	"id": "loc.hospital.staffed",
-	"$derives" : ["loc.hospital"], 
-	"label": "战地医院（人员充足）",
-	"icon": "loc.hospital",
-	"xtriggers": {
-	    "fatiguing": "loc.hospital.staffed.exhausted",
-	}
+	"id": "loc.hospital.staffed", 
+	"label": "战地医院（人员充足）"
 	},
 	
     {
 	"id": "loc.hospital.staffed.exhausted",
-	"$derives" : ["loc.hospital.exhausted"], 
-	"label": "战地医院（人员充足——枯竭）",
-	"lifetime": 150,
-	"decayTo": "loc.hospital.staffed"
+	"label": "战地医院（人员充足——枯竭）"
 	},
 	
 	{  
 	"id": "proterant.reputation",
-	"icon": "notoriety",
 	"label": "名声",
     "description": "我在当地也算是小有名气了，当地人对我是仰慕还是厌恶，只看我如何待他们。[你可以凭借此卡招募游击队员]",
-	"aspects": {  
-		"reputation.good": 3  
-	},  
 	"slots": [  
 		{  
 			"id": "Location",   
 			"label": "地点",
-			"actionid": "communicate",  
-			"required": {  
-				"warzone.current": 1,
-				"location" : 1
-			}  
+			"actionid": "communicate"
 		}
-	],
-	"unique": true,
-	"xtriggers": {
-	    "badrepgain": [
-		{
-		    "id": "reputation.bad",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ],
-		"goodrepgain": [
-		{
-		    "id": "reputation.good",
-		    "morpheffect": "mutate",
-		    "level": 1
-		}
-	    ]
-	}
+	]
 	},
 	
     {
 	"id": "faster.evac",
 	"label": "准备疏散",
-    "description": "我们早已准备好离开此地。[每个战区最多进行两次准备疏散行动，此卡牌会使你更快离开当前战区]",
-	"icon": "rarity.grail",
-	"aspects": {
-	    "op": 1
-		}
-    },
-	
-    {
-	"id": "evac.recipe.halter",
-	"label": "so travelslot.end doesn't fire for these",
-	"lifetime": 1,
-	"isHidden": true
+    "description": "我们早已准备好离开此地。[每个战区最多进行两次准备疏散行动，此卡牌会使你更快离开当前战区]"
     }
-	
 	
 	
 ]

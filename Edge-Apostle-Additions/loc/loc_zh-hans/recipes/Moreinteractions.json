@@ -3,14 +3,8 @@
 	
 	{
 	"id": "hint.sniper",
-	"actionid": "operate",
 	"label": "与狙击手商讨？",
-    "startdescription": "如果说步兵和坦克是我们的锤子，那这些人则是我们的手术刀。我可以让他们隐匿起来以变得更加致命。",
-	"requirements": {
-	    "friend.sniper": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "如果说步兵和坦克是我们的锤子，那这些人则是我们的手术刀。我可以让他们隐匿起来以变得更加致命。"
     },
 	
 	{
@@ -20,157 +14,53 @@
 	
     {
 	"id": "hint.godbuilder",
-	"$extends": ["hint.sniper"],
-	"actionid": "operate",
 	"label": "与实验性单位商讨？",
-    "startdescription": "造神者部队 ——一种新型的，由内务部和异管局共同研发的，尚处于实验中的单位。如果我能提供一些新鲜血肉，他们可以变得更加致命。",
-	"requirements": {
-	    "friend.godbuilder": 1
-		}
+    "startdescription": "造神者部队 ——一种新型的，由内务部和异管局共同研发的，尚处于实验中的单位。如果我能提供一些新鲜血肉，他们可以变得更加致命。"
     },
 	
 	{  
     "id": "bury.fallen.ally",  
-    "actionid": "abandon",
-	"$priority" : 1,
     "label": "埋葬倒下的友军",
     "startdescription": "属于他们的战争结束了，但属于我们的还没有。如果我们还有多余的精力，也许可以让他们入土为安。[你可以获得一份回忆]",
-    "description": "他们曾战，他们现已躺在坟墓之中。我简单悼念了他们一会，而后继续前进。",
-    "requirements": {  
-        "friend.corpses": 1,
-		"heart" : 1,
-		"constructions.a": -1,
-		"constructions.b": -1,
-		"constructions.c": -1
-    },  
-    "effects": {  
-        "friend.corpses": -1  
-    },  
-    "extantreqs": {  
-        "hopelessness": -1,  
-        "antithesis": -1   
-    },  
-    "internaldeck": {  
-        "spec": [  
-            "mem.regret",  
-            "mem.joy",  
-            "mem.rage",  
-            "mem.fear",  
-            "mem.calm",  
-            "mem.grief",  
-            "mem.ingenuity",  
-            "mem.taste",  
-            "mem.unexpected"  
-        ],  
-        "draws": 1,  
-        "resetonexhaustion": true  
-    },  
-    "warmup": 30,  
-    "craftable": true  
+    "description": "他们曾战，他们现已躺在坟墓之中。我简单悼念了他们一会，而后继续前进。"
 	},
 	
 	{
 	"id": "hint.bury.fallen.ally",
-	"actionid": "abandon",
 	"label": "埋葬倒下的友军？",
-    "startdescription": "只需要一点时间，我便可以让他们入土为安。但如果我足够绝望，我也可以让他们派上别的用处……",
-	"requirements": {
-	    "friend.corpses": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "只需要一点时间，我便可以让他们入土为安。但如果我足够绝望，我也可以让他们派上别的用处……"
     },
 	
 	{
 	"id": "hint.bury.fallen.ally.hopelessness",
-	"actionid": "abandon",
-	"$priority" : 1,
 	"label": "毫无意义",
-    "startdescription": "没什么可悼念的，这种事毫无意义。",
-	"requirements": {
-	    "friend.corpses": 1,
-		"heart" : 1
-	},
-	"extantreqs" : { "hopelessness" : 1},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "没什么可悼念的，这种事毫无意义。"
     },
 	
 	{
 	"id": "hint.bury.fallen.ally.antithesis",
-	"actionid": "abandon",
-	"$priority" : 1,
 	"label": "<color=red>毫无价值<color=#005500>",
-    "startdescription": "<color=red>这都是他们应得的。<color=#005500>",
-	"requirements": {
-	    "friend.corpses": 1,
-		"heart" : 1
-	},
-	"extantreqs" : { "antithesis" : 1},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "<color=red>这都是他们应得的。<color=#005500>"
     },
 	
 	{
 	"id": "refreshally.provision.hint",
-	"actionid": "abandon",
 	"label": "使用补给品刷新一位友军？",
-    "startdescription": "如果我有一些盈余的补给，我可以将它们配给给那些疲惫的友军，使他们更快投入战斗。部分友军需要更多的补给。",
-	"requirements": {
-	    "provisions" : 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "如果我有一些盈余的补给，我可以将它们配给给那些疲惫的友军，使他们更快投入战斗。部分友军需要更多的补给。"
     },
 	
 	{
 	"id": "refreshally.provisions",
-	"$priority" : 2,
-	"actionid": "abandon",
 	"label": "使用补给品刷新一位友军？",
     "startdescription": "如果我有一些盈余的补给，我可以将它们配给给那些疲惫的友军，使他们更快投入战斗。[机械化单位和怪物友军需要更多的补给]",
-    "description": "吃饱喝足。准备战斗了。",
-	"requirements": {
-	    "provisions" : 1,
-		"friend" : 1,
-		"exhausted" : 1,
-		"otherworldly" : -1,
-		"friend.tanks.exhausted" : -1,
-		"friend.bombers.exhausted" : -1,
-		"friend.artillery.exhausted" : -1,
-		"mechanized_forces.friend": -1
-	},
-	"aspects": {   
-        "refresh": 1   
-    },
-	"effects": {  
-    "provisions": -99  
-	},
-	"warmup": 15, 
-	"craftable": true
+    "description": "吃饱喝足。准备战斗了。"
     },
 	
 	{
 	"id": "refreshally.provisions.mechormonster",
-	"$priority" : 2,
-	"actionid": "abandon",
 	"label": "使用补给品刷新一位友军？",
     "startdescription": "如果我有一些盈余的补给，我可以将它们配给给那些疲惫的友军，使他们更快投入战斗。",
-    "description": "吃饱喝足。准备战斗了。",
-	"aspects": {
-		"provisionrefresh" : 1,
-		"refresh" : 1
-	},
-	"effects": {  
-    "provisions": -99  
-	},
-	"requirements": {
-	    "provisions" : 2,
-		"friend" : 1,
-		"exhausted" : 1
-	},
-	"warmup": 30,
-	"craftable": true
+    "description": "吃饱喝足。准备战斗了。"
     },
 	
 	{  
@@ -178,31 +68,12 @@
     "label": "当地人的协助！",
     "startdescription": "我们对当地人的协助带来了意想不到的好处，一些市民告知了我们有关敌军的情报……",
     "description": "当地人分享了他们所知晓的关于敌军不对分布和构成的情报，我们可以好好利用这些信息。",
-    "tablereqs": {  
-        "foe": 1
-    },  
     "slots": [  
         {  
             "id": "needsfoe",  
-            "label": "敌人",  
-            "required": {  
-                "foe": 1  
-            },  
-            "forbidden": {  
-                "remnant": 1,  
-                "weakened": 1,  
-                "foe.rankofficer": 1,  
-                "otherworldly": 1,
-				"foe.monster" : 1
-            },  
-            "greedy": true  
+            "label": "敌人" 
         }  
-    ],  
-    "aspects": {  
-		"revealidentity": 1,
-		"weaken": 1
-    },  
-    "warmup": 10  
+    ]
 	},
 	
 	{  
@@ -210,1340 +81,380 @@
     "actionid": "abandon",
     "label": "从被杀的生物中学习？",
     "startdescription": "这尊造物于战斗中落败，但在打碎其血肉的过程中，我也许能学习关于铸造怪物的知识。",
-    "description": "被毁之物经重铸后总能更加致命，毕竟，知识就是力量。", 
-    "requirements": {  
-        "foe.corpse.unnatural": 1,
-		"lore" : -1
-		},  
-	"extantreqs": {  
-        "constructions.a": 1
-		},
-    "aspects": {  
-        "fatiguing": 1  
-		},  
-	"effects": {  
-        "lesson.monsters.a": 1
-		},
-	"warmup": 60,
-	"craftable": true
+    "description": "被毁之物经重铸后总能更加致命，毕竟，知识就是力量。"
 	},
 	
 	{  
     "id": "learnfromdeadmonsters.b",  
-    "actionid": "abandon",
-	"$priority" : 1,
     "label": "从被杀的生物中学习？",
     "startdescription": "这尊造物于战斗中落败，但在打碎其血肉的过程中，我也许能学习关于铸造怪物的知识。",
-    "description": "被毁之物经重铸后总能更加致命，毕竟，知识就是力量。",
-    "requirements": {  
-        "foe.corpse.unnatural": 1,
-		"lore" : -1
-		},  
-	"extantreqs": {  
-        "constructions.b": 1
-		},
-    "aspects": {  
-        "fatiguing": 1  
-		},  
-	"effects": {  
-        "lesson.monsters.b": 1
-		},
-	"warmup": 60,
-	"craftable": true
+    "description": "被毁之物经重铸后总能更加致命，毕竟，知识就是力量。"
 	},
 	
 	{
 	"id": "learnfromdeadmonsters.hint",
-	"actionid": "abandon",
 	"label": "从死去的怪物身上学习？",
-    "startdescription": "吾友告诉我要学习有关怪物的知识，但目前我没有头绪。我应该把这具尸体带到别的地方去。",
-	"requirements": {
-	    "foe.corpse.unnatural" : 1
-	},  
-	"extantreqs": {  
-        "proterant.story" : 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "吾友告诉我要学习有关怪物的知识，但目前我没有头绪。我应该把这具尸体带到别的地方去。"
     },
 	
 	{
 	"id": "contemnant.mentor.hint",
-	"actionid": "operate",
-	"$priority" : 1,
 	"label": "我的梦魇",
-    "startdescription": "那名为流亡者的怪物已经来此。而我感到害怕。",
-	"requirements": {
-	    "contemnant.mentor": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "那名为流亡者的怪物已经来此。而我感到害怕。"
     },
 	
 	{
 	"id": "proterant.mentor.hint",
-	"actionid": "operate",
-	"$priority" : 1,
 	"label": "吾之友人",
-    "startdescription": "我那志同道合的战友，我需要和他聊聊。",
-	"requirements": {
-	    "proterant.mentor": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "我那志同道合的战友，我需要和他聊聊。"
     },
 	
 	{
 	"id": "obdurant.mentor.hint",
-	"actionid": "operate",
-	"$priority" : 1,
 	"label": "我的同志",
-    "startdescription": "我那履行着相同责任的同志，我需要和他聊聊。",
-	"requirements": {
-	    "obdurant.mentor": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "我那履行着相同责任的同志，我需要和他聊聊。"
     },
 	
 	{
 	"id": "assistlocals.hopelessness.hint",
-	"actionid": "operate",
-	"$priority" : 2,
 	"label": "为什么？",
-    "startdescription": "此处的人们已经没有未来了。我为何要白费时间去让它们好受些呢？",
-	"requirements": {
-	    "warzone.current": 1,
-		"heart" : 1
-	},
-	"extantreqs" : { "hopelessness" : 1},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "此处的人们已经没有未来了。我为何要白费时间去让它们好受些呢？"
     },
 	
 	{
 	"id": "assistlocals.antithesis.hint",
-	"actionid": "operate",
-	"$priority" : 2,
 	"label": "<color=red>废物<color=#005500>",
-    "startdescription": "<color=red>它们能从我这里寻得的只有痛苦与火焰。<color=#005500>",
-	"requirements": {
-	    "warzone.current": 1,
-		"heart" : 1
-	},
-	"extantreqs" : { "antithesis" : 1},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "<color=red>它们能从我这里寻得的只有痛苦与火焰。<color=#005500>"
     },
 	
 	{
 	"id": "recruit.refugees.heart.hopelessness.hint",
-	"actionid": "operate",
-	"$priority" : 2,
 	"label": "否决希望",
-    "startdescription": "我不会确保任何人的安全。",
-	"requirements": {
-	    "wandering.refugees": 1,
-		"heart" : 6
-	},
-	"extantreqs" : { "hopelessness" : 1},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "我不会确保任何人的安全。"
     },
 	
 	{
 	"id": "recruit.refugees.grail.hopelessness.hint",
-	"actionid": "operate",
-	"$priority" : 2,
 	"label": "否决救助",
-    "startdescription": "他们的伤口他们的事，与我何干。",
-	"requirements": {
-	    "wandering.refugees": 1,
-		"grail" : 6
-	},
-	"extantreqs" : { "hopelessness" : 1},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "他们的伤口他们的事，与我何干。"
     },
 	
 	{
 	"id": "recruit.refugees.heart.antithesis.hint",
-	"actionid": "operate",
-	"$priority" : 2,
 	"label": "<color=red>厌弃希望<color=#005500>",
-    "startdescription": "<color=red>我的希望已被毁灭。它们的希望亦终将被毁灭。<color=#005500>",
-	"requirements": {
-	    "wandering.refugees": 1,
-		"heart" : 6
-	},
-	"extantreqs" : { "antithesis" : 1},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "<color=red>我的希望已被毁灭。它们的希望亦终将被毁灭。<color=#005500>"
     },
 	
 	{
 	"id": "recruit.refugees.grail.antithesis.hint",
-	"actionid": "operate",
-	"$priority" : 2,
 	"label": "<color=red>厌弃救助<color=#005500>",
-    "startdescription": "<color=red>它们身上的伤势真是糟糕啊。谁会来帮助它们呢？是德国人，还是苏联人？反正不是我。<color=#005500>",
-	"requirements": {
-	    "wandering.refugees": 1,
-		"grail" : 6
-	},
-	"extantreqs" : { "antithesis" : 1},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "<color=red>它们身上的伤势真是糟糕啊。谁会来帮助它们呢？是德国人，还是苏联人？反正不是我。<color=#005500>"
     },
 	
 	{
 	"id": "recruit.deserters.vulneration.hint",
-	"actionid": "operate",
-	"$priority" : 1,
 	"label": "光之憎恶",
-    "startdescription": "当你的存在即意味着毁灭时，寻常的方法就很难说服某人加入你的队伍了。除了用枪指着它的脑门或者用刀架在它的脖子上，别无他法。[当辉光之伤在场时，逃兵无法被<b>冬</b>或<b>杯</b>阈值招募]",
-	"requirements": {
-	    "wandering.deserters": 1
-	},
-	"grandReqs" : {
-		"([winter] + [grail]) >= 8": 1
-	},
-	"extantreqs" : { "wound.glorious" : 1},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "当你的存在即意味着毁灭时，寻常的方法就很难说服某人加入你的队伍了。除了用枪指着它的脑门或者用刀架在它的脖子上，别无他法。[当辉光之伤在场时，逃兵无法被<b>冬</b>或<b>杯</b>阈值招募]"
     },
 	
 	{
 	"id": "operate.church.heart.contemnant.hopelessness.hint",
-	"actionid": "mobilize",
-	"$priority" : 1,
 	"label": "空虚",
-    "startdescription": "如果神存在，那祂应该早就彻底放弃了我。",
-	"requirements": {
-	    "op.church.contemnant": 1,
-		"heart" : 1
-	},
-	"extantreqs" : { "hopelessness" : 1},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "如果神存在，那祂应该早就彻底放弃了我。"
     },
 	
 	{
 	"id": "operate.church.heart.contemnant.antithesis.hint",
-	"actionid": "mobilize",
-	"$priority" : 1,
 	"label": "<color=red>狗屁不是<color=#005500>",
-    "startdescription": "<color=red>如果神存在，那祂应该祈求我的原谅。<color=#005500>",
-	"requirements": {
-	    "op.church.contemnant": 1,
-		"heart" : 1
-	},
-	"extantreqs" : { "antithesis" : 1},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "<color=red>如果神存在，那祂应该祈求我的原谅。<color=#005500>"
     },
 	
 	{
 	"id": "attackenemy.success.ostlingant",
 	"label": "胜利！",
-    "description": "我们获得了胜利，歌声回荡在我们耳中。这个生物的秘密如今已归于我手。",
-	"aspects": {
-	    "dissolution": 1,
-		"killfoe" : 1,
-	    "fatiguing": 1
-	},
-	"requirements": {
-	    "foe.ostlingant": 1
-	},
-	"effects": {
-		"flock.clue" : 1
-	}
-    },
-	
-	{
-	"id": "attackenemy.success.voice",
-	"$extends": ["attackenemy.success.ostlingant"],
-	"requirements": {
-	    "foe.voice": 1
-		}
+    "description": "我们获得了胜利，歌声回荡在我们耳中。这个生物的秘密如今已归于我手。"
     },
 	
 	{
 	"id": "attackenemy.success.grame",
-	"$extends": ["attackenemy.success.ostlingant"],
-	"description": "梦魇消退了。忿狼的狂怒敌不过我的狂怒。而我现在更加<i>愤怒</i>了。",
-	"requirements": {
-	    "foe.grame": 1
-	},
-	"effects": {
-		"contemplation.sobibor" : 1
-		}
+	"description": "梦魇消退了。忿狼的狂怒敌不过我的狂怒。而我现在更加<i>愤怒</i>了。"
     },
 	
 	{
 	"id": "attackenemy.success.devoured",
-	"$extends": ["attackenemy.success.ostlingant"],
-	"description": "梦魇消退了。这该死的目标驱使着我，而我绝不停歇。天堂和大地不能阻止我，哪怕是这地狱也不行！",
-	"requirements": {
-	    "foe.shade": 1
-	},
-	"effects": {
-		"contemplation.sobibor" : 1
-		}
+	"description": "梦魇消退了。这该死的目标驱使着我，而我绝不停歇。天堂和大地不能阻止我，哪怕是这地狱也不行！"
     },
 	
 	{
 	"id": "attackenemy.success.nightmare",
-	"$extends": ["attackenemy.success.ostlingant"],
-	"description": "梦魇消退了。我的过去不会吞噬我的现在与将来。我绝不允许。",
-	"requirements": {
-	    "foe.nightmare": 1
-	},
-	"effects": {
-		"shred.self" : 1
-		}
+	"description": "梦魇消退了。我的过去不会吞噬我的现在与将来。我绝不允许。"
     },
 	
 	{
 	"id": "attackenemy.success.reclaimer",
-	"$extends": ["attackenemy.success.ostlingant"],
-	"description": "介壳种们早已死去，事到如今它们又为何返回？又为何是现在？如果我仔细思考，也许我会得到答案……",
-	"requirements": {
-	    "foe.cross": 1
-	},
-	"effects": {
-		"contemplation.cross.1" : 1
-	},
-	"maxexecutions": 1,
-	"extantreqs": {
-	    "runmarker.cross" : 1,
-		"contemplation.cross.1" : -1,
-		"contemplation.cross.2" : -1,
-		"contemplation.cross.3" : -1,
-		"op.axe" : -1,
-		"cross.summonsign": -1
-		}
+	"description": "介壳种们早已死去，事到如今它们又为何返回？又为何是现在？如果我仔细思考，也许我会得到答案……"
     },
 	
     {
 	"id": "operate.getvision.birdchatter",
-	"$priority" : 1,
-	"actionid": "operate",
 	"label": "水与雾之歌",
     "startdescription": "头顶鸟类的喀嚓与锐鸣逐渐变成完全不同的一种声音。鸟们以尖细的空灵之声与自然之声交谈，交换传闻与秘密。“那把剑，”它们合唱道。“那把剑……”",
-    "description": "现在我们离那剑又近了一步",
-	"requirements": {
-	    "heart": 1
-	},
-	"extantreqs" : { "lake.here" : 1},
-	"effects": {
-	    "flock.clue" : 1,
-		"op.dove": -1
-	}
+    "description": "现在我们离那剑又近了一步"
     },
 	
 	{  
 	"id": "contemplate.night.pre",  
-	"actionid": "operate",  
 	"label": "于夜色下沉思？",
-    "startdescription": "太阳已经彻底落下。在我迈向终局之前，我还可以休息一下。在无光之地，我又该思考些什么呢？",
-	"requirements": {  
-	    "op.time.night": 1,
-		"foe" : -1,
-		"main" : -1,
-		"side" : -1,
-		"op.axe" : -1
-	},  
-	"effects": {  
-	    "op.time.night": -1  
-	},  
-	"extantreqs": {  
-	    "contemnant.story": 1  
-	},  
-	"linked": [  
-	    {  
-		"id": "contemplate.night"  
-	    }  
-	],  
-	"craftable": true  
+    "startdescription": "太阳已经彻底落下。在我迈向终局之前，我还可以休息一下。在无光之地，我又该思考些什么呢？"
 	},
 	
 	{
 	"id": "contemplate.night",
-	"actionid": "operate",
 	"label": "于夜色下沉思？",
     "startdescription": "太阳已经彻底落下。在我迈向终局之前，我还可以休息一下。在无光之地，我又该思考些什么呢？",
     "description": "没什么值得思考的，我猜。",
 	"slots": [
 	    {
 		"id": "needscontemplation",
-		"label": "值得思考的某物？",
-		"required": {
-		    "contemplation": 1
-		},
+		"label": "值得思考的某物？"
 	    }
-	],
-	"alt": [
-	    {
-		"id": "contemnant.namehints"
-	    },
-	    {
-		"id": "proterant.namehints"
-	    },
-	    {
-		"id": "obdurant.namehints"
-	    },
-	    {
-		"id": "contemplation.complete"
-	    },
-	    {
-		"id": "contemplate.mainobjective.contemnant"
-	    },
-	    {
-		"id": "contemplate.wolfdream"
-	    },
-	    {
-		"id": "contemplate.antithesis"
-	    },
-	    {
-		"id": "othercontemplations"
-	    }
-	],
-	"warmup": 30
+	]
     },
-	
-	{
-	"id": "contemplate.night", 
-	"$depends": [ "3753135571" ],
-	"alt$prepend": [
-	    {
-		"id": "contemplation.complete.anno"
-	    }
-		]
-	},
-	
-	{
-	"id": "contemplate.night", 
-	"$depends": [ "3713855248" ],
-	"alt$prepend": [
-	    {
-		"id": "obdurant.defiancehints"
-	    }
-		]
-	},
 	
 	{  
 	"id": "contemplate.noon.pre",  
-	"actionid": "operate",  
 	"label": "于烈日下沉思？",
-    "startdescription": "太阳已升至顶点。在职责将我唤回之前，我还可以休息一下。在阳光之下，我又该思考些什么呢？",
-	"requirements": {  
-	    "op.time.noon": 1,
-		"foe" : -1,
-		"main" : -1,
-		"side" : -1
-	},  
-	"effects": {  
-	    "op.time.noon": -1  
-	},  
-	"extantreqs": {  
-	    "obdurant.story": 1  
-	},  
-	"linked": [  
-	    {  
-		"id": "contemplate.noon"  
-	    }  
-	],  
-	"craftable": true  
+    "startdescription": "太阳已升至顶点。在职责将我唤回之前，我还可以休息一下。在阳光之下，我又该思考些什么呢？"
 	},
 	
 	{
 	"id": "contemplate.noon",
-	"$extends": ["contemplate.night"],
 	"label": "于烈日下沉思？",
     "startdescription": "太阳已升至顶点。在职责将我唤回之前，我还可以休息一下。在阳光之下，我又该思考些什么呢？"
     },
 	
 	{  
 	"id": "contemplate.sunset.pre",  
-	"actionid": "operate",  
 	"label": "于夕阳下沉思？",
-    "startdescription": "太阳正让位于月亮。在解放事业召唤我回去之前，我还可以休息一下。在昏光之下，我又该思考些什么呢？",
-	"requirements": {  
-	    "op.time.sunset": 1,
-		"foe" : -1,
-		"main" : -1,
-		"side" : -1
-	},  
-	"effects": {  
-	    "op.time.sunset": -1  
-	},  
-	"extantreqs": {  
-	    "proterant.story": 1  
-	},  
-	"linked": [  
-	    {  
-		"id": "contemplate.sunset"
-	    }  
-	],  
-	"craftable": true  
+    "startdescription": "太阳正让位于月亮。在解放事业召唤我回去之前，我还可以休息一下。在昏光之下，我又该思考些什么呢？"
 	},
 	
 	{
 	"id": "contemplate.sunset",
-	"$extends": ["contemplate.night"],
 	"label": "于夕阳下沉思？",
     "startdescription": "太阳正让位于月亮。在解放事业召唤我回去之前，我还可以休息一下。在昏光之下，我又该思考些什么呢？"
     },
 	
 	{
 	"id": "evacuate.sooner",
-	"$priority" : 1,
-	"actionid": "communicate",
 	"label": "使这一友军做好撤离准备",
     "startdescription": "我们终将离开此地，但我希望此人在撤离时能够领先他人一步。",
-    "description": "好了，这一友军已经做好了随时撤离的准备。",
-	"requirements": {
-	    "friend": 1,
-	    "local": -1,
-	    "warzone": 1,
-		"friend.getthefuckout" : -1
-	},
-	"mutations": [  
-		{  
-			"filter": "friend",  
-			"mutate": "friend.getthefuckout",  
-			"level": 1  
-		}  
-	], 
-	"warmup": 10,
-	"craftable": true
+    "description": "好了，这一友军已经做好了随时撤离的准备。"
     },
 	
 	{
 	"id": "evacuate.sooner.cancel",
-	"$priority" : 1,
-	"actionid": "communicate",
 	"label": "使这一友军取消撤离准备",
     "startdescription": "此人已经做好迅速撤离的准备。我可以命令其解除准备。",
-    "description": "好了，这一友军的撤离顺序已与常人无异。",
-	"requirements": {
-	    "friend": 1,
-	    "friend.getthefuckout": 1,
-		"warzone": 1
-	},
-	"mutations": [  
-		{  
-			"filter": "friend",  
-			"mutate": "friend.getthefuckout",  
-			"level": -1  
-		}  
-	], 
-	"warmup": 10,
-	"craftable": true
+    "description": "好了，这一友军的撤离顺序已与常人无异。"
     },
 	
 	{
 	"id": "travelslot.takemoreimportantfriend",
-	"$extends": ["travelslot.takefriends"],
-	"tablereqs": {
-    "friend.getthefuckout": 1,
-	"friend" : 1
-    },
 	"slots": [
 	    {
 		"id": "needsfriend",
-		"label": "友军",
-		"essential": {
-		"friend.getthefuckout": 1,
-		"friend" : 1
-		},
-		"forbidden": {
-		    "local": 1,
-		    "remnant": 1
-		},
-		"greedy": true
+		"label": "友军"
 	    }
-		],
-	"linked$prepend": [
-	    {
-		"id": "travelslot.takefriends"
-	    }
-	]
+		]
     },
 	
 	{
 	"id": "hint.no.cannibalism",
-	"actionid": "abandon",
-	"$priority" : 1,
 	"label": "食用死者？",
-    "startdescription": "我还不至于如此没有底线。他们不该被这么对待。",
-	"extantreqs": {
-	    "contemnant.story": 1
-	},
-	"requirements": {
-	    "remnant": 1,
-		"grail": 5
-	},
-	"hintonly": true,
-	"craftable": false
-    },
-	
-    {
-	"id": "operate.startup.assistlocals.militia.hidden",
-	"$extends" : ["operate.startup.assistlocals.militia"],
-	"requirements": {
-	    "friend.militia.hidden": 1,
-	    "warzone.current": 1,
-	    "heart": 9,
-	    "warzone.abused": -1,
-	    "lake.here": -1,
-	    "craterfield.here": -1,
-	    "wasteland.ironeater.here": -1,
-	    "wasteland": -1
-	}
-    },
-	
-    {
-	"id": "operate.startup.shakedown.militia.hidden",
-	"$extends" : ["operate.startup.shakedown.militia"],
-	"requirements": {
-	    "friend.militia.hidden": 1,
-	    "warzone.current": 1,
-	    "edge": 9,
-	    "lake.here": -1,
-	    "craterfield.here": -1,
-	    "wasteland.ironeater.here": -1,
-	    "wasteland": -1,
-	    "warzone.abused": -1
-	}
+    "startdescription": "我还不至于如此没有底线。他们不该被这么对待。"
     },
 	
 	{  
     "id": "convert.hindrance.lore",  
-    "actionid": "abandon",
-	"$priority" : 1,
     "label": "将障碍转变为有用之物？",
     "startdescription": "我的言语即为不容违抗的命令，我的前路将聆听，而后畅通无阻。",
-    "description": "我不会后退一步。我不容违抗。",
-    "requirements": {  
-        "hindrance": 1,
-		"skill.refreshally" : 1
-		},  
-    "aspects": {  
-        "fatiguing": 1,
-		"converthindrance" : 1
-		},
-	"warmup": 15,
-	"craftable": true
+    "description": "我不会后退一步。我不容违抗。"
 	},
 	
 	{  
     "id": "convert.to.veteran",  
-    "actionid": "abandon",
-	"$priority" : 1,
     "label": "激励受征召者？",
     "startdescription": "我的言语即为不容违抗的命令，这些人将聆听，其职责将永不解除。",
-    "description": "我需要这些人。它们将战斗，直至战争结束。", 
-    "requirements": {  
-        "skill.refreshally": 1,
-		"friend.conscript" : 1
-		},  
-    "aspects": {  
-        "fatiguing": 1,
-		"promotiontoveteran" : 1
-		},
-	"mutations": [  
-		{  
-			"filter": "local",  
-			"mutate": "local",  
-			"level": -1  
-		}  
-	], 
-	"warmup": 15,
-	"craftable": true
+    "description": "我需要这些人。它们将战斗，直至战争结束。"
 	},
 	
 	{  
     "id": "convert.hindrance.sharpestear",  
-    "actionid": "abandon",
-	"$priority" : 1,
     "label": "以不闻之耳将障碍转变为有用之物",
     "startdescription": "我闭眼聆听，集中精神。我能于脑海中构建出前进的道路……",
-    "description": "我睁开双眼。前路已畅通无阻。",
-    "requirements": {  
-        "hindrance": 1,
-		"debilitation.ear.colonel" : 1
-		},  
-    "aspects": {  
-        "fatiguing": 1,
-		"converthindrance" : 1
-		},
-	"warmup": 15,
-	"craftable": true
+    "description": "我睁开双眼。前路已畅通无阻。"
 	},
 	
 	{
 	"id": "hint.sharpestear",
-	"actionid": "abandon",
 	"label": "以不闻之耳将障碍转变为有用之物？",
-    "startdescription": "上校耳聋，但任何声响皆无法逃离他的耳朵。我亦如此。[使用此卡将一张障碍转化为有用之物]",
-	"requirements": {
-	    "debilitation.ear.colonel" : 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "上校耳聋，但任何声响皆无法逃离他的耳朵。我亦如此。[使用此卡将一张障碍转化为有用之物]"
     },
 	
 	{
 	"id": "hint.coloneleye",
-	"actionid": "abandon",
 	"label": "揭示与/或弱化一名敌军？",
-    "startdescription": "上校目盲，但无物可逃离上校的关注。我亦如此。[使用此卡揭示并弱化一名未知敌军]",
-	"requirements": {
-	    "debilitation.eye.colonel" : 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "上校目盲，但无物可逃离上校的关注。我亦如此。[使用此卡揭示并弱化一名未知敌军]"
     },
 	
 	{  
     "id": "Raise.Conscript.Hallowed.Prosthesis",  
-    "actionid": "abandon",
     "label": "征召入伍",
     "startdescription": "一切死去的士兵都会经过上校之手，而后经过悼歌诗人之手。但我义肢的力量足以让我先他们一步将此人唤起，并为我而战。",
-    "description": "我义肢上的名字闪烁着。受征召者起身并敬礼，而后回到岗位之上。",
-    "requirements": {  
-        "remnant": 1,
-		"debilitation.leg.colonel" : 1
-		},  
-    "aspects": {  
-        "fatiguing": 1,
-		"promotiontodisciple" : 1
-		},
-	"warmup": 15,
-	"craftable": true
+    "description": "我义肢上的名字闪烁着。受征召者起身并敬礼，而后回到岗位之上。"
 	},
 	
 	{
 	"id": "hint.Hallowed.Prosthesis",
-	"actionid": "abandon",
 	"label": "拜请严冬？",
-    "startdescription": "这一死者在生前立下过誓言。而这义肢的力量将提醒之。如果我的友军即将迎来终结，我也可以使用这力量将其延缓之。[使用此卡可将一具尸体唤起为受征召者，也可以将一位消逝的友军恢复正常]",
-	"requirements": {
-	    "debilitation.leg.colonel" : 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "这一死者在生前立下过誓言。而这义肢的力量将提醒之。如果我的友军即将迎来终结，我也可以使用这力量将其延缓之。[使用此卡可将一具尸体唤起为受征召者，也可以将一位消逝的友军恢复正常]"
     },
 	
 	{
 	"id": "operate.church.edge.contemnant.hope.hint",
-	"actionid": "mobilize",
-	"$priority" : 1,
 	"label": "勒索教堂？",
-    "startdescription": "难民和神职人员躲藏于此，我还不至于无情到夺走他们最后一点东西。",
-	"requirements": {
-	    "op.church.contemnant": 1,
-		"edge" : 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "难民和神职人员躲藏于此，我还不至于无情到夺走他们最后一点东西。"
     },
 	
 	{
 	"id": "operate.church.edge.contemnant.hopelessness",
-	"actionid": "mobilize",
 	"label": "勒索教堂",
     "startdescription": "难民和神职人员躲藏于此，他们手上的那点物资在我手中更加有用。也许我还可以从他们之中拉来些“志愿者”。[这将产出补给品，难民，或什么都没有。这一举动有概率使良心尚存的友军背弃你，产出恶名或激怒当地人]",
-    "description": "他们的就是我的。他们会很庆幸我没有将他们赶尽杀绝的。",
-	"$priority" : 1,
-	"requirements": {
-	    "op.church.contemnant": 1,
-		"edge" : 1
-	},  
-    "effects": {  
-        "op.church.contemnant": -1   
-    },
-    "extantreqs": {  
-        "hopelessness": 1   
-    },
-	"internaldeck": {
-	    "spec": [
-		"provisions",
-		"provisions",
-		"wandering.refugees",
-		"wandering.refugees",
-		"husk",
-		"husk"
-	    ],
-	    "draws": 2,
-	    "resetonexhaustion": true
-	},
-	"warmup": 30,
-	"craftable": true,
-	"inductions": [
-	    {
-		"id": "startup.desertion",
-		"chance": 25
-	    },
-		
-	    {
-		"id": "produce.localinfamy",
-		"chance": 45
-	    },
-		
-	    {
-		"id": "spit.hostilelocals",
-		"chance": 45
-	    }
-	] 
+    "description": "他们的就是我的。他们会很庆幸我没有将他们赶尽杀绝的。"
     },
 	
 	{
 	"id": "operate.church.edge.contemnant.antithesis",
-	"actionid": "mobilize",
-	"$priority" : 1,
 	"label": "<color=red>夷平教堂<color=#005500>",
     "startdescription": "<color=red>那些仍抱有<i>希望</i>和对未来充满美好妄想的人躲藏于此，企图远离这场战争。而我将于此替他们选择未来。<color=#005500>\n\n[这将产生恶名，使良心尚存的友军背弃你或激怒当地人，也有概率产生有用之物，或什么都没有]",
-    "description": "<color=red>狼的工作。深呼吸，而后享受希望化作飞灰与瓦砾的美妙滋味。好好尝尝我为这座城市规划的未来吧。<color=#005500>",
-	"requirements": {
-	    "op.church.contemnant": 1,
-		"edge" : 1
-	},  
-    "extantreqs": {  
-        "antithesis": 1   
-    },  
-    "effects": {  
-        "op.church.contemnant": -1   
-    },
-	"internaldeck": {
-	    "spec": [
-		"agony",
-		"despair",
-		"hatred",
-		"friend.wrake",
-		"op.wolfdivided",
-		"foe.wrake",
-		"foe.splinter",
-		"foe.undead",
-		"husk",
-		"op.fire",
-		"agony",
-		"despair",
-		"hatred",
-		"friend.wrake",
-		"op.wolfdivided",
-		"foe.wrake",
-		"foe.splinter",
-		"foe.undead",
-		"husk",
-		"op.fire"
-	    ],
-	    "draws": 4,
-	    "resetonexhaustion": true
-	},
-	"warmup": 30,
-	"craftable": true,
-	"inductions": [
-	    {
-		"id": "startup.desertion"
-	    },
-		
-	    {
-		"id": "produce.localinfamy"
-	    },
-		
-	    {
-		"id": "spit.hostilelocals"
-	    }
-	] 
+    "description": "<color=red>狼的工作。深呼吸，而后享受希望化作飞灰与瓦砾的美妙滋味。好好尝尝我为这座城市规划的未来吧。<color=#005500>"
     },
 	
     {
 	"id": "activate.skill.intimidate.rome",
-	"$priority" : 1,
-	"actionid": "abandon",
 	"label": "释放令人石化的战吼？",
     "startdescription": "我身体前屈，身上的每一寸肌肉都因狂怒而紧绷。我的眼前仅有赤红。我的肺中满是空气，但当我张开口时，传出的声音——那<i>声音</i>——",
-    "description": "大地开裂。飞鸟在空中死亡并落下。树木弯曲并倒下。我的声音回荡在上校的城市里。唯有这座城市的人敢于回应我声音的回响带着的挑战。\n\n[敌军不会在上校的城市内恐惧]",
-	"requirements": {
-	    "skill.intimidate.dormant": 1
-	},  
-    "extantreqs": {  
-        "rome.here": 1   
-    },  
-	"effects": {
-	    "op.earthquake": 1
-	},  
-	"aspects": {
-	    "fatiguing": 1
-	},
-	"craftable": true,
-	"warmup": 10
+    "description": "大地开裂。飞鸟在空中死亡并落下。树木弯曲并倒下。我的声音回荡在上校的城市里。唯有这座城市的人敢于回应我声音的回响带着的挑战。\n\n[敌军不会在上校的城市内恐惧]"
     },
 	
 	{  
     "id": "destroy.building.your.earthquake",  
-    "actionid": "operate",
     "label": "大地开裂。飞鸟在空中死亡并落下。树木弯曲并倒下。我的声音回荡在上校的城市里。唯有这座城市的人敢于回应我声音的回响带着的挑战。\\n\\n[敌军不会在上校的城市内恐惧]",
     "startdescription": "大地开裂。飞鸟在空中死亡并落下。树木弯曲并倒下。我的声音回荡在上校的城市里。唯有这座城市的人敢于回应我声音的回响带着的挑战。\\n\\n[敌军不会在上校的城市内恐惧]",
-    "description": "凡在大地上的，都逃不过其怒火。",
-    "requirements": {  
-        "op.earthquake": 1,
-		"enemy.infrastructure" : 1
-    },  
-    "aspects": {  
-        "destroy": 1,
-		"fatiguing" : 1
-    },   
-    "warmup": 15,  
-    "craftable": true,
-	"inductions": [  
-		{
-		"id" : "enemy.barracks.lost"
-		}
-	]
+    "description": "凡在大地上的，都逃不过其怒火。"
 	},
 	
     {
 	"id": "use.unmake.hindrance",
-	"actionid": "abandon",
 	"label": "毁灭",
     "startdescription": "阴影落在了我灵魂之上，比我的憎恨更加古老深邃的憎恶在我之中涌动——流过我的血管，汇聚至我的双手，我伸手抓住那障碍-——",
-    "description": "什么都没剩下。一点痕迹都没有。",
-	"requirements": {
-	    "skill.unmake": 1,
-	    "hindrance": 1
-	},
-	"effects": {
-	    "hindrance": -99
-	},
-	"aspects": {
-	    "fatiguing": 1
-	},
-	"craftable": true,
-	"warmup": 15,
-	"inductions": [
-	    {
-		"id": "produce.strife.contemnant",
-		"chance": 60
-	    }
-	],
-	"linked": [
-	    {
-		"id": "unmake.getshadow",
-		"chance": "45 + [~/visible:wolf.rage] * 20"
-	    }
-	]
+    "description": "什么都没剩下。一点痕迹都没有。"
     },
 	
     {
 	"id": "use.unmake.hindrance.active",
-	"actionid": "abandon",
 	"label": "毁灭",
     "startdescription": "阴影落在了我灵魂之上，比我的憎恨更加古老深邃的憎恶在我之中涌动——流过我的血管，汇聚至我的双手，我伸手抓住那障碍-——",
-    "description": "什么都没剩下。一点痕迹都没有。",
-	"requirements": {
-	    "skill.unmake": 1,
-	    "hindrance.active": 1
-	},
-	"effects": {
-	    "hindrance.active": -99
-	},
-	"aspects": {
-	    "fatiguing": 1
-	},
-	"craftable": true,
-	"warmup": 15,
-	"inductions": [
-	    {
-		"id": "produce.strife.contemnant",
-		"chance": 60
-	    }
-	],
-	"linked": [
-	    {
-		"id": "unmake.getshadow",
-		"chance": "45 + [~/visible:wolf.rage] * 20"
-	    }
-	]
+    "description": "什么都没剩下。一点痕迹都没有。"
     },
 	
 	{
 	"id": "hint.killmarinette",
-	"actionid": "operate",
-	"$priority" : 1,
 	"label": "袭击玛丽内特？",
-    "startdescription": "如果我打算彻底解决干涸女巫带来的麻烦，我必须先将其带来的骨白者和染血之手全部毁灭。而后我需要将其终结的<color=red>欲望<color=#005500>。",
-	"requirements": {
-	    "marinette.opening": 1
-	},  
-    "grandReqs": {
-        "([~/extant:foe.bloodonhands] || [~/extant:foe.bloodonhands.hidden] || [~/extant:foe.ivory] || [~/extant:foe.ivory.hidden]) >= 1": 1
-     },
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "如果我打算彻底解决干涸女巫带来的麻烦，我必须先将其带来的骨白者和染血之手全部毁灭。而后我需要将其终结的<color=red>欲望<color=#005500>。"
     },
 	
 	{  
-    "id": "killmarinette",  
-    "actionid": "operate",
-	"$priority" : 1,
+    "id": "killmarinette",
     "label": "湮灭胜过渴求",
     "startdescription": "一股远比渴求强烈的多的憎恨在我肉与灵之中涌动。伴随着一声可怖的嚎叫响彻荒野。我伸手抓住玛丽内特——",
-    "description": "巨大的阴影落在了玛丽内特之上。而后我听到一声无比刺耳且凄厉的惨叫，再然后归于寂静。她再也不会打扰我们了。",
-    "requirements": {  
-        "antithesis": 1,
-		"op.wolfdivided" : 2,
-		"skill.unmake" : 1
-    },
-	"grandReqs" : {
-		"([foe.marinette] || [foe.marinette.recovering])": 1,
-		"[edge]>[needsedge]": 1
-	},
-    "aspects": {  
-		"fatiguing" : 1
-    },
-    "effects": {  
-		"foe.marinette" : -1,
-		"foe.marinette.recovering" : -1,
-		"op.wolfdivided" : -2,
-		"marinette.gone" : 1
-    },    
-    "warmup": 30,  
-    "craftable": true  
+    "description": "巨大的阴影落在了玛丽内特之上。而后我听到一声无比刺耳且凄厉的惨叫，再然后归于寂静。她再也不会打扰我们了。"
 	},
 	
 	{
 	"id": "hint.endinghope.hopelessness",
-	"actionid": "operate",
-	"$priority" : 1,
 	"label": "太迟了",
-    "startdescription": "我所选的道路决不允许安宁，更不允许救赎。这个结局于我而言已毫无意义。",
-	"requirements": {
-	    "op.endinghope": 1,
-		"hopelessness": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "我所选的道路决不允许安宁，更不允许救赎。这个结局于我而言已毫无意义。"
     },
 	
 	{
 	"id": "hint.endinghope.antithesis",
-	"actionid": "operate",
-	"$priority" : 1,
 	"label": "<color=red>愚蠢<color=#005500>",
-    "startdescription": "<color=red>这种东西真恶心<color=#005500>",
-	"requirements": {
-	    "op.endinghope": 1,
-		"antithesis": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "<color=red>这种东西真恶心<color=#005500>"
     },
 	
     {
 	"id": "produce.permanentinfamy.1",
-	"$extends" : ["produce.localinfamy"],
 	"label": "不受欢迎的关注",
-    "startdescription": "我的“功绩”传到了俄军最高指挥部的耳朵里，现在他们对我更加警惕了。好像我做的事情红军没做过似的。",
-	"maxexecutions": 1,
-	"extantreqs": {
-	    "retribution": 5
-		},
-	"effects": {
-	    "reputation.infamy.permanent": 1
-		}
-    },
-	
-    {
-	"id": "produce.permanentinfamy.2",
-	"$extends" : ["produce.permanentinfamy.1"],
-	"extantreqs": {
-	    "retribution": 10
-		}
-    },
-	
-    {
-	"id": "produce.permanentinfamy.3",
-	"$extends" : ["produce.permanentinfamy.1"],
-	"extantreqs": {
-	    "retribution": 15
-		}
+    "startdescription": "我的“功绩”传到了俄军最高指挥部的耳朵里，现在他们对我更加警惕了。好像我做的事情红军没做过似的。"
     },
 	
     {
 	"id": "enemy.cycle.afraid_create.retribution",
-	"$extends" : ["enemy.cycle.afraid_create"],
 	"label": "狼对羔羊如是说",
-    "startdescription": "当狼巡猎时，其余的一切都将因畏惧而躲藏，因为他们知道它们是猎物。而我则是狼，他们的灵魂则是猎物。[敌军将不会攻击你或干扰你的目标]",
-	"extantreqs": {
-		"retribution" : 1
-	},
-	"linked": [
-	    {
-		"id": "enemy.cycle.afraid_create.retribution.continue"
-	    }
-	]
-    },
-	
-    {
-	"id": "enemy.cycle.afraid_create.retribution.continue",
-	"$extends" : ["enemy.cycle.afraid_create.retribution"],
-	"warmup": 30,
-	"linked": [
-	    {
-		"id": "enemy.cycle.afraid_create.retribution.end"
-	    }
-	]
+    "startdescription": "当狼巡猎时，其余的一切都将因畏惧而躲藏，因为他们知道它们是猎物。而我则是狼，他们的灵魂则是猎物。[敌军将不会攻击你或干扰你的目标]"
     },
 	
     {
 	"id": "enemy.cycle.afraid_create.retribution.end",
-	"$extends" : ["enemy.cycle.afraid_end"],
 	"label": "狼对羔羊如是说",
     "startdescription": "当狼巡猎时，其余的一切都将因畏惧而躲藏，因为他们知道它们是猎物。而我则是狼，他们的灵魂则是猎物。[敌军将不会攻击你或干扰你的目标]"
     },
 	
     {
 	"id": "producefatiguing",
-	"actionid": "expendedop",
 	"label": "消耗！",
-    "startdescription": "即使我们于此处获胜，我们也将损失一些投入的资源。我想这是不可避免的。\n\n[完成目标的过程中，有时你会损失机会或物资，即使你成功克服了这一阻碍或敌军]",
-	"warmup": 10,
-	"grandreqs": {
-		"([op] || [supplies])": 1
-	},
-	"aspects": {
-	    "fatiguing": 1
-		}
+    "startdescription": "即使我们于此处获胜，我们也将损失一些投入的资源。我想这是不可避免的。\n\n[完成目标的过程中，有时你会损失机会或物资，即使你成功克服了这一阻碍或敌军]"
     },
 	
 	{
 	"id": "cat.stop.scared", 
-	"$depends": [ "3713855248" ],
-	"actionid": "operate",
-	"$priority" : 1,
 	"label": "激励恐惧的友军",
     "startdescription": "可爱之物确实可以抚慰恐惧。",
-    "description": "可爱之物确实可以抚慰恐惧。",
-	"requirements" : {
-		"op.cat" : 1,
-		"friend.weakened" : 1
-	},
-	"aspects": {
-	    "fatiguing": 1,
-		"deweaken" : 1
-	},
-	"warmup": 15,
-	"craftable": true
-	},
-	
-	{
-	"id": "cat.stop.scared", 
-	"$incompatible": [ "3713855248" ],
-	"actionid": "operate",
-	"$priority" : 1,
-	"label": "激励恐惧的友军",
-    "startdescription": "可爱之物确实可以抚慰恐惧。",
-    "description": "可爱之物确实可以抚慰恐惧。",
-	"requirements" : {
-		"op.cat" : 1,
-		"friend.weakened" : 1
-	},
-	"aspects": {
-	    "fatiguing": 1
-	},
-    "mutations": [
-                {
-                    "filter": "edge",
-                    "mutate": "edge",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "forge",
-                    "mutate": "forge",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "lantern",
-                    "mutate": "lantern",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "moth",
-                    "mutate": "moth",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "heart",
-                    "mutate": "heart",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "grail",
-                    "mutate": "grail",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "winter",
-                    "mutate": "winter",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "knock",
-                    "mutate": "knock",
-                    "level": 2,
-                    "additive": true
-                },
-                {
-                    "filter": "friend",
-                    "mutate": "friend.weakened",
-                    "level": 0,
-                    "additive": false
-                }
-    ],
-	"warmup": 15,
-	"craftable": true
+    "description": "可爱之物确实可以抚慰恐惧。"
 	},
 	
 	{
 	"id": "hint.deflect.remove.trauma",
-	"actionid": "abandon",
-	"$priority" : 1,
 	"label": "冥想我的过错？",
-    "startdescription": "如果我精神上出现裂痕，我可以通过冥想来驱散它并得到有用之物。经验的获取总是伴随着痛苦。",
-	"requirements": {
-	    "skill.deflect": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "如果我精神上出现裂痕，我可以通过冥想来驱散它并得到有用之物。经验的获取总是伴随着痛苦。"
     },
 	
 	{  
     "id": "remove.trauma.skill.deflect",  
-    "actionid": "abandon",
     "label": "冥想我的过错",
     "startdescription": "我所经历的折磨使灵魂产生裂痕，这是作用于心灵之上的攻击。如果我有些时间，我可以冥想我过去所受的折磨。",
-    "description": "睁开双眼，我已从那折磨中提炼出有用之物。我的心灵坚不可摧，不可侵犯。", 
-    "requirements": {  
-        "trauma": 1,
-		"skill.deflect" : 1
-		},  
-    "aspects": {  
-        "fatiguing": 1
-		},  
-    "effects": {  
-        "trauma": -1
-		},
-	"internaldeck": {
-				"spec": [
-				"cunning",
-				"patience",
-				"wisdom",
-				"cunning",
-				"patience",
-				"wisdom"
-				],
-				"draws": 2,
-				"resetonexhaustion": true
-			},
-	"warmup": 30,
-	"craftable": true
+    "description": "睁开双眼，我已从那折磨中提炼出有用之物。我的心灵坚不可摧，不可侵犯。"
 	},
-	
-    {
-	"id": "healcasualty.hospital.mywound.faster",
-	"$extends" : ["healcasualty.hospital.mywound"],
-	"requirements": {
-	    "damage.body": 1,
-	    "loc.hospital.staffed": 1
-	},
-	"warmup": 15
-    },
 	
 	{
 	"id": "hint.refreshself.remove.trauma",
-	"actionid": "abandon",
-	"$priority" : 1,
 	"label": "克服我的过错？",
-    "startdescription": "如果我的心灵于战争的考验中被毁，我可以从被毁的部分里提炼有用之物。被毁之物必须重铸。",
-	"requirements": {
-	    "skill.refreshself": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "如果我的心灵于战争的考验中被毁，我可以从被毁的部分里提炼有用之物。被毁之物必须重铸。"
     },
 	
 	{  
-    "id": "remove.trauma.skill.refreshself",  
-    "actionid": "abandon",
+    "id": "remove.trauma.skill.refreshself", 
     "label": "克服我的过错",
     "startdescription": "灵魂的裂痕是强大内心的燃料。如果我有些时间，我可以克服我过去所受的折磨。",
-    "description": "睁开双眼，我已从那折磨中提炼出有用之物。失败会使我的灵魂受损，但每次其都将被重铸一新。",
-    "requirements": {  
-        "trauma": 1,
-		"skill.refreshself" : 1
-		},  
-    "aspects": {  
-        "fatiguing": 1
-		},  
-    "effects": {  
-        "trauma": -1
-		},
-	"internaldeck": {
-				"spec": [
-				"strength",
-				"strength",
-				"anger",
-				"anger",
-				"courage",
-				"courage"
-				],
-				"draws": 2,
-				"resetonexhaustion": true
-			},
-	"warmup": 30,
-	"craftable": true
+    "description": "睁开双眼，我已从那折磨中提炼出有用之物。失败会使我的灵魂受损，但每次其都将被重铸一新。"
 	},
-	
-    {
-	"id": "healcasualty.hospital.wounded.faster",
-	"$extends" : ["healcasualty.hospital.wounded"],
-	"requirements": {
-	    "friend": 1,
-	    "wounded": 1,
-	    "loc.hospital.staffed": 1
-	},
-	"warmup": 15
-    },
 	
 	{
 	"id": "attackenemy.weaken.useeye",
-	"$priority" : 1,
-    "actionid": "abandon",
 	"label": "使用我的不视之眼弱化敌军",
-    "startdescription": "他们的习惯，他们的弱点，他们的行为模式。无物可逃过我的注意。",
-	"requirements": {
-	    "foe": 1,
-		"weakened" : -1,
-	    "debilitation.eye.colonel": 1
-		},
-	"aspects": {
-	    "revealidentity": 1,
-		"weaken" : 1,
-	    "fatiguing": 1
-		},
-	"craftable": true,
-	"warmup": 30
+    "startdescription": "他们的习惯，他们的弱点，他们的行为模式。无物可逃过我的注意。"
 	},
 	
 	{  
@@ -1551,80 +462,25 @@
     "label": "化为残骸！",
     "startdescription": "先是浓烟与烈火。而后是烈火与飞灰……",
     "description": "曾经是建筑的地方，如今只剩下浓烟与死亡。",  
-    "tablereqs": {  
-        "foe_arch": 1,  
-        "foe_building": 1  
-    },  
     "slots": [  
         {  
             "id": "needsenemybuilding",  
-            "label": "Enemy",  
-            "required": {  
-				"foe_arch": 1,  
-				"foe_building": 1  
-            },
-            "greedy": true  
+            "label": "敌人" 
         }  
-    ],  
-    "aspects": {  
-		"killgerman": 1
-    },  
-    "warmup": 10  
+    ]
 	},
 	
     {
 	"id": "loot.corpse.beachcomber",
-	"actionid": "operate",
-	"$priority" : 1,
 	"label": "从死者身上搜寻有用之物",
     "startdescription": "检查他们的行囊与口袋，还有他们僵直紧握的手。\n\n[这将产生一些可用的补给。]",
-    "description": "这就是我们找到的东西。",
-	"requirements": {
-	    "op.beachcomber": 1,
-	    "remnant": 1,
-	    "looted": -1,
-	    "foe.corpse.unnatural": -1
-	},
-	"mutations": [
-	    {
-		"filter": "remnant",
-		"mutate": "looted",
-		"level": 1
-	    }
-	],  
-    "effects": {  
-        "op.beachcomber": -1  
-    },
-	"craftable": true,
-	"warmup": 15,
-	"internaldeck": {
-	    "spec": [
-		"supplies.apmunitions",
-		"supplies.apmunitions",
-		"supplies.explosives",
-		"supplies.explosives",
-		"supplies.flares",
-		"supplies.flares",
-		"provisions",
-		"provisions",
-		"supplies.smokegrenade",
-		"supplies.smokegrenade"
-	    ],
-	    "draws": 1,
-	    "resetonexhaustion": true
-	}
+    "description": "这就是我们找到的东西。"
     },
 	
 	{
 	"id": "hint.betrayal",
-	"actionid": "operate",
 	"label": "背叛友军？",
-    "startdescription": "如果我软弱到无法像敌军宣泄我的狂怒，我的人将承受它们。",
-	"requirements": {
-	    "friend.sniper": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "如果我软弱到无法像敌军宣泄我的狂怒，我的人将承受它们。"
     },
 	
 	{  
@@ -1632,842 +488,282 @@
     "actionid": "operate",
     "label": "背叛友军",
     "startdescription": "如果敌军强大到我无法通过战胜之来宣泄我的狂怒，我的人将承受它们。",
-    "description": "没有背叛，就不会有战争。",  
-    "requirements": {  
-        "battlehunger": 1,
-		"friend" : 1,
-		"foe" : -1,
-		"main" : -1,
-		"side" : -1
-		},  
-    "aspects": {  
-        "killfriend": 1,
-		"killmortal" : 1
-		},
-	"mutations": [
-	    {
-		"filter": "battlehunger",
-		"mutate": "battlehunger",
-		"level": -1,
-		"additive": true
-	    }
-	],
-	"warmup": 15,
-	"craftable": true,
-	"linked": [
-	    {
-		"id": "clear.bloodlust.betrayal"
-	    }
-	],
-	"inductions": [
-	    {
-		"id": "startup.desertion.proterant",
-		"chance": "50 - [~/visible:corrivality.exile] * 25 + [~/visible:corrivality.foe] * 25"
-	    }
-	],
-	"inductions": [
-	    {
-		"id": "bad.reputation.router"
-	    }
-	] 
+    "description": "没有背叛，就不会有战争。"
 	},
 	
     {
 	"id": "startup.desertion.proterant",
-	"actionid": "desertion",
 	"label": "叛逃！",
     "startdescription": "出于种种原因，一名盟友背弃了我。到了早上，我们的营地又空虚了一分——我们最近的蛮行使某人确信独自一人前行好过与我这种人待在一块。",
     "description": "<i>这就是战争</i>",
-	"effects": {
-	    "partisan": -1
-	},
-	"tablereqs": {
-	    "partisan": 1
-	},
 	"slots": [
 	    {
 		"id": "needsfriend",
-		"label": "友军",
-		"required": {
-		    "partisan": 1
-		},
-		"forbidden": {
-		    "vicious": 1,
-		    "otherworldly": 1,
-		    "edgelong": 1,
-		    "friend.named": 1,
-		    "prisoner": 1,
-			"faction.anno" : 1
-		},
-		"greedy": true
+		"label": "友军"
 	    }
-	],
-	"warmup": 15
-    },
+	]
+	},
 	
     {
 	"id": "clear.bloodlust.betrayal",
-    "label": "背叛友军",
-	"startdescription": "",
-	"requirements": {
-	    "bloodlust": 1,
-	    "battlehunger": -1
-	},
-	"effects": {
-	    "bloodlust": -99
-	}
+    "label": "背叛友军"
     },
 	
 	{  
     "id": "bloodlust.betray.wilhelm",  
-    "actionid": "operate",
     "label": "背叛友军？",
-    "$priority": 1,
     "startdescription": "这大概不是个好主意。",
-    "description": "但我偏要如此。",
-    "requirements": {  
-        "battlehunger": 1,
-		"friend.wilhelm" : 1,
-		"foe" : -1,
-		"main" : -1,
-		"side" : -1
-		},  
-    "effects": {  
-        "bloodlust": -1,
-		"friend.wilhelm" : -1,
-		"wilhelm" : 1
-		},
-	"warmup": 15,
-	"craftable": true,
-	"inductions": [
-	    {
-		"id": "intro.bossfight.wilhelm",
-		"expulsion": {
-			"filter": { "tlg.note": -1 },
-		    "limit": 10
-			}
-	    }
-	]
+    "description": "但我偏要如此。"
 	},
 	
 	{  
     "id": "betray.sergei",  
-    "actionid": "communicate",
     "label": "人人皆狼",
     "startdescription": "这大概不是个好主意。",
-    "description": "但我偏要如此。", 
-    "requirements": {  
-        "op.sergei.comeforsword": 1,
-		"edge" : 1
-		},  
-    "effects": {  
-		"op.sergei.comeforsword" : -1,
-		"weapon.kazimir" : 1
-		},
-	"purge": {
-	    "plotitem.kazimirshashka": 1
-	},
-	"warmup": 15,
-	"craftable": true,
-	"inductions": [
-	    {
-		"id": "betray.sergei.cont"
-		}
-	]
+    "description": "但我偏要如此。"
 	},
 	
     {
 	"id": "betray.sergei.cont",
-	"$extends" : ["find.ironeater"],
 	"label": "去否决老狼",
     "startdescription": "<i>我告诉过你要善良，那就这样吧。</i>"
     },
 	
 	{
 	"id": "hint.contemnant.weapon.remove.trauma.hope",
-	"actionid": "abandon",
-	"$priority" : 1,
 	"label": "缓解痛苦？",
-    "startdescription": "我不会这么做……暂时不会。我的心灵尚可承受这些。",
-	"requirements": {
-	    "contemnant.weapon": 1
-	},
-	"extantreqs" : { "contemnant.memento" : 1},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "我不会这么做……暂时不会。我的心灵尚可承受这些。"
     },
 	
 	{  
     "id": "remove.trauma.contemnant.weapon.hopelessness",  
-    "actionid": "abandon",
     "label": "缓解痛苦",
     "startdescription": "如果我的心灵无法承受更多痛苦，我可以通过承受另一种痛苦来“分散注意力”，必须是那种作用于我身躯的痛苦……[这将使你受伤]",
-    "description": "<i>好痛</i>。这疼痛是如此强烈，以至于我忘记了放弃的念头。",
-    "requirements": {  
-        "trauma": 1,
-		"contemnant.weapon" : 1
-		},  
-    "aspects": {  
-        "fatiguing": 1
-		},
-	"extantreqs" : { "hopelessness" : 1},
-    "effects": {  
-        "trauma": -1,
-		"wound.generic" : 1
-		},
-	"warmup": 15,
-	"craftable": true
+    "description": "<i>好痛</i>。这疼痛是如此强烈，以至于我忘记了放弃的念头。"
 	},
 	
 	{  
     "id": "remove.trauma.contemnant.weapon.antithesis",
-	"$extends" : ["remove.trauma.contemnant.weapon.hopelessness"],
     "label": "<color=red>安慰<color=#005500>",
     "startdescription": "<color=red>即使经历了这一切，我心中的那部分软弱仍尖叫着要投降，放弃。我将切除这些部分，切除这份软弱<color=#005500>",
-    "description": "<color=red>后悔是一种软弱<color=#005500>",
-	"extantreqs" : { "antithesis" : 1}
+    "description": "<color=red>后悔是一种软弱<color=#005500>"
 	},
 	
     {
 	"id": "healdecaying.adeptwinter",
-	"actionid": "operate",
 	"label": "拜请悼歌诗人推迟此人的终结到来",
     "startdescription": "安排于此处的守卫谨慎地注视着我的囚犯，囚犯则在此人上方举起锤子。房间变得更加寒冷了一分。",
-    "description": "悼歌诗人知晓一切生者都将逝去，但这个灵魂的大限并非今日。消逝将停止，死亡将被推迟。职责还远未结束。",
-	"requirements": {
-	    "friend.adeptwinter": 1,
-	    "decaying": 1
-	},
-	"aspects": {
-	    "restorehealth": 1,
-	    "fatiguing": 1
-	},
-	"warmup": 30,
-	"craftable": true
+    "description": "悼歌诗人知晓一切生者都将逝去，但这个灵魂的大限并非今日。消逝将停止，死亡将被推迟。职责还远未结束。"
     },
 	
 	{
 	"id": "hint.velvet",
-	"actionid": "operate",
 	"label": "遮蔽抗争？",
-    "startdescription": "哪怕是那些对抗争最为敏感的目光，也无法在丝绒的无名具名者刻意的掩盖下注意到此处的抗争。但这不会持续太久。",
-	"requirements": {
-	    "op.velvet": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "哪怕是那些对抗争最为敏感的目光，也无法在丝绒的无名具名者刻意的掩盖下注意到此处的抗争。但这不会持续太久。"
     },
 	
     {
 	"id": "op.velvet.hidestrife",
-	"$priority" : 1,
-	"actionid": "operate",
 	"label": "遮蔽抗争",
     "startdescription": "丝绒遮蔽，丝绒掩盖。丝绒不能消除战争的火焰，但她的阴影可以暂时让刃之长生者暂时注意不到此处的战争。但如果他们已经在这里了，就不管用了。",
-    "description": "梦境重归平静。",
-	"requirements": {
-	    "op.velvet": 1,
-		"strife" : 1
-	},
-	"effects": {
-	    "op.velvet" : -1,
-		"strife": -1
-	},
-	"warmup": 30,
-	"craftable": true
+    "description": "梦境重归平静。"
     },
 	
     {
 	"id": "hint.abandoned.hired",
-	"actionid": "abandon",
 	"label": "放逐苏军？",
-    "startdescription": "如果我驱逐他们，他们将归队。我应该好好使用他们。",
-	"requirements": {
-	    "hired": 1
-	},  
-    "extantreqs": {  
-        "hopelessness": -1,  
-        "antithesis": -1   
-    }, 
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "如果我驱逐他们，他们将归队。我应该好好使用他们。"
     },
 	
     {
 	"id": "hint.abandoned.hired.hopelessness",
-	"actionid": "abandon",
 	"label": "放逐炮灰？",
-    "startdescription": "说到底我为什么要招揽它们？",
-	"requirements": {
-	    "hired": 1
-	},  
-    "extantreqs": {  
-        "hopelessness": 1   
-    }, 
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "说到底我为什么要招揽它们？"
     },
 	
     {
 	"id": "hint.abandoned.hired.antithesis",
-	"actionid": "abandon",
     "label": "<color=red>一份工作<color=#005500>",
-    "startdescription": "<color=red>它们可能，也即将为我而死。这就是他们在这的全部意义<color=#005500>", 
-	"requirements": {
-	    "hired": 1
-	},  
-    "extantreqs": {  
-        "antithesis": 1   
-    }, 
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "<color=red>它们可能，也即将为我而死。这就是他们在这的全部意义<color=#005500>"
     },
 	
     {
 	"id": "hint.proterant.recruiting",
-	"actionid": "communicate",
     "label": "游击战术",
-    "startdescription": "我们得到了友军的支持，但他们不是正规军，我们得换种方式招募他们。[你无法通过这种方式招募友军，但有别的办法这么做]",
-	"requirements": {
-	    "friend": 1
-	},  
-    "extantreqs": {  
-        "proterant.story": 1   
-    }, 
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "我们得到了友军的支持，但他们不是正规军，我们得换种方式招募他们。[你无法通过这种方式招募友军，但有别的办法这么做]"
     },
 	
     {
 	"id": "opx.conclude.assistlocals.3.proterant",
 	"label": "援助行动完成",
-    "startdescription": "本地人提供了他们所能提供的一切协助以回报我们的服务：一些食物与饮水，住所，本地的情报——偶尔还会有志愿者。这些将派上用场。",
-	"requirements": {
-	    "end.assistlocals": 1,
-	    "progression": 3
-	},
-	"deckeffects": {
-	    "proterant.assistlocals.deck": 4
-	},
-	"extantreqs": {
-	    "proterant.story": 1
-	},
-	"linked" : [
-		{
-			"id": "assistlocals.weakenenemy",
-			"chance": "60 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [~/visible:reputation.good] * 3 - [~/visible:reputation.bad] * 5"
-		}
-		],
-	"inductions": [
-	    {
-		"id": "good.reputation.router",
-		"chance": "60 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
-	    }
-	]
+    "startdescription": "本地人提供了他们所能提供的一切协助以回报我们的服务：一些食物与饮水，住所，本地的情报——偶尔还会有志愿者。这些将派上用场。"
     },
 	
     {
 	"id": "opx.conclude.assistlocals.2.proterant",
 	"label": "援助行动完成",
-    "startdescription": "本地人提供了他们所能提供的一切协助以回报我们的服务：一些食物与饮水，住所，本地的情报——偶尔还会有志愿者。这些将派上用场。",
-	"requirements": {
-	    "end.assistlocals": 1,
-	    "progression": 2
-	},
-	"deckeffects": {
-	    "proterant.assistlocals.deck": 3
-	},
-	"extantreqs": {
-	    "proterant.story": 1
-	},
-	"linked" : [
-		{
-			"id": "assistlocals.weakenenemy",
-			"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [~/visible:reputation.good] * 3 - [~/visible:reputation.bad] * 5"
-		}
-		],
-	"inductions": [
-	    {
-		"id": "good.reputation.router",
-		"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
-	    }
-	]
+    "startdescription": "本地人提供了他们所能提供的一切协助以回报我们的服务：一些食物与饮水，住所，本地的情报——偶尔还会有志愿者。这些将派上用场。"
     },
 	
     {
 	"id": "opx.conclude.assistlocals.1.proterant",
 	"label": "救援助行动完成",
-    "startdescription": "本地人提供了他们所能提供的一切协助以回报我们的服务：一些食物与饮水，住所，本地的情报——偶尔还会有志愿者。这些将派上用场。",
-	"requirements": {
-	    "end.assistlocals": 1
-	},
-	"deckeffects": {
-	    "proterant.assistlocals.deck": 2
-	},
-	"extantreqs": {
-	    "proterant.story": 1
-	},
-	"linked" : [
-		{
-			"id": "assistlocals.weakenenemy",
-			"chance": "20 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [~/visible:reputation.good] * 3 - [~/visible:reputation.bad] * 5"
-		}
-		],
-	"inductions": [
-	    {
-		"id": "good.reputation.router",
-		"chance": "20 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
-	    }
-	]
+    "startdescription": "本地人提供了他们所能提供的一切协助以回报我们的服务：一些食物与饮水，住所，本地的情报——偶尔还会有志愿者。这些将派上用场。"
     },
 	
     {
 	"id": "hint.proterant.recruiting.reputation",
-	"actionid": "communicate",
     "label": "招募游击队员？",
-    "startdescription": "我声名的好坏是拉拢更多游击队员的关键。更好的声名将能让我更容易招募到游击队员。",
-	"requirements": {
-	    "proterant.reputation": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "我声名的好坏是拉拢更多游击队员的关键。更好的声名将能让我更容易招募到游击队员。"
     },
 	
 	{  
     "id": "proterant.recruit.partisan.pre",  
-    "actionid": "communicate",
-	"$priority" : 1,
     "label": "招募游击队员",
-    "startdescription": "我可以从这招募游击队员，我可不会独自解放<i>意大利</i>。[这有概率失败，什么都不产生]", 
-	"grandReqs" : {
-		"([warzone.current] || [location])": 1,
-		"proterant.reputation": 1,
-		"recruited.here.already": -1
-		},    
-    "warmup": 30,  
-    "craftable": true,
-	"linked" : [
-		{
-			"id": "proterant.recruit.partisans.success",
-			"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [~/visible:reputation.good] * 2 - [~/visible:reputation.bad] * 5"
-		},
-		
-		{
-			"id": "proterant.recruit.partisans.failure"
-		}
-		]  
+    "startdescription": "我可以从这招募游击队员，我可不会独自解放<i>意大利</i>。[这有概率失败，什么都不产生]"
 	},
 	
 	{
     "id": "proterant.recruit.partisans.success",  
     "label": "招募游击队员——成功",
-    "description": "我和新兵们握了握手。更多的人选择支持解放事业。",
-	"deckeffects": {
-	    "partisan.allies": 2
-	},
-	"mutations": [
-	    {
-		"filter": "location",
-		"mutate": "recruited.here.already",
-		"level": 1
-	    },
-	    {
-		"filter": "warzone.current",
-		"mutate": "recruited.here.already",
-		"level": 1
-	    }
-	]
+    "description": "我和新兵们握了握手。更多的人选择支持解放事业。"
 	},
 	
 	{
     "id": "proterant.recruit.partisans.failure",  
     "label": "招募游击队员——失败",
-    "description": "没人愿意支持解放运动。我得找别人了。",
-	"mutations": [
-	    {
-		"filter": "location",
-		"mutate": "recruited.here.already",
-		"level": 1
-	    },
-	    {
-		"filter": "warzone.current",
-		"mutate": "recruited.here.already",
-		"level": 1
-	    }
-	]
+    "description": "没人愿意支持解放运动。我得找别人了。"
 	},
 	
     {
 	"id": "bad.reputation.router",
-	"actionid": "bad.rep.verb",
 	"label": "恶名！",
     "startdescription": "我所做的某些事情激怒了当地人！这些话语正传播开来……",
-	"extantreqs": {
-	    "proterant.story": 1
-	},
 	"slots": [
 	    {
 		"id": "reputation",
-		"label": "名声",
-		"required": {
-		    "proterant.reputation": 1
-		},
-		"greedy": true
+		"label": "名声"
 	    }
-	],
-	"alt": [
-	    {
-		"id": "bad.reputation.increase"
-	    }
-	],
-	"linked": [
-	    {
-		"id": "bad.reputation.router"
-	    }
-	],
-	"warmup": 5
-    },
+	]
+	},
 	
 	{
     "id": "bad.reputation.increase",  
     "label": "恶名！",
-    "description": "考虑到我所做的事情，他们鄙视我有错吗？",
-	"grandReqs" : {
-		"proterant.reputation": 1
-		}, 
-	"aspects": {
-	    "badrepgain": 1
-	}
+    "description": "考虑到我所做的事情，他们鄙视我有错吗？"
 	},
 	
     {
 	"id": "good.reputation.router",
-	"actionid": "good.rep.verb",
 	"label": "好名声！",
     "startdescription": "群众的意志最为有力的支持。他们的支持是解放运动的关键。",
-	"extantreqs": {
-	    "proterant.story": 1
-	},
 	"slots": [
 	    {
 		"id": "reputation",
-		"label": "名声",
-		"required": {
-		    "proterant.reputation": 1
-		},
-		"greedy": true
+		"label": "名声"
 	    }
-	],
-	"alt": [
-	    {
-		"id": "good.reputation.increase"
-	    }
-	],
-	"linked": [
-	    {
-		"id": "good.reputation.router"
-	    }
-	],
-	"warmup": 5
-    },
+	]
+	},
 	
 	{
     "id": "good.reputation.increase",  
     "label": "好名声！",
-    "description": "因此群众给予我们更多支持。",
-	"grandReqs" : {
-		"proterant.reputation": 1
-		}, 
-	"aspects": {
-	    "goodrepgain": 1
-	}
+    "description": "因此群众给予我们更多支持。"
 	},
-	
-    {
-	"id": "good.reputation.router.from.killed.german",
-	"$extends" : ["good.reputation.router"],
-	"requirements": {
-	    "german": 1
-	}
-    },
-	
-    {
-	"id": "good.reputation.router.from.main.obj",
-	"$extends" : ["good.reputation.router"],
-	"requirements": {
-	    "main": 1
-	}
-    },
 	
 	{
 	"id": "hint.partisan",
-	"actionid": "operate",
 	"label": "与游击队员商讨？",
-    "startdescription": "正规军的方式不适合这些人，但一些非常规的操作则恰恰相反。我可以让这些人躲藏起来，或让他们在死者身上搜寻物资。",
-	"requirements": {
-	    "partisan": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "正规军的方式不适合这些人，但一些非常规的操作则恰恰相反。我可以让这些人躲藏起来，或让他们在死者身上搜寻物资。"
     },
 	
 	{
 	"id": "evac.corpse.remover",
-	"actionid": "respawnenemycorpse",
 	"label": "友军被击杀！",
     "startdescription": "一位友军死亡了！",
     "description": "一位友军死亡了！",
-	"warmup": 1,
-	"grandReqs": {
-		"([friend.corpses] && [friend.getthefuckout])": 1,
-	},
 	"slots": [
 	    {
 		"id": "deadally",
-		"label": "死去的友军",
-		"required": {
-			"friend.getthefuckout" : 1
-		},
-		"essential": {
-		    "friend.corpses": 1
-		},
-		"greedy": true
+		"label": "死去的友军"
 	    }
-	],
-	"mutations": [  
-		{  
-			"filter": "friend.corpses",  
-			"mutate": "friend.getthefuckout",  
-			"level": -1  
-		}  
-		]
+	]
 	},
 	
     {
 	"id": "prepare.evac.faster",
-	"actionid": "mobilize",
 	"label": "准备撤离",
     "startdescription": "我们迟早要离开此地。充足的准备可以让我们离开的更快。[每个战区最多进行两次准备疏散行动，这将消耗所有投入的物资和人员]",
-    "description": "结束了。",
-	"requirements": {
-	    "provisions": 2,
-		"friend" : 2
-	},  
-    "extantreqs": {  
-        "faster.evac": -2
-    },  
-    "effects": {  
-        "faster.evac": 1,
-		"friend" : -2,
-		"provisions" : -2
-		},
-	"craftable": true,
-	"warmup": 60
+    "description": "结束了。"
     },
 	
 	{
 	"id": "hint.prepare.evac",
-	"actionid": "mobilize",
 	"label": "准备撤离？",
-    "startdescription": "如果我投入更多人手和物资到疏散准备中，我就可以更快离开当前战区。",
-	"requirements": {
-	    "provisions": 1
-	},
-	"hintonly": true,
-	"craftable": false
+    "startdescription": "如果我投入更多人手和物资到疏散准备中，我就可以更快离开当前战区。"
     },
-	
-    {
-	"id": "operate.startup.shakedown.otherunits",
-	"$extends": ["operate.startup.shakedown"],
-	"grandReqs": {
-	    "forceshakedown": 1,
-	    "warzone.current": 1,
-	    "lake.here": -1,
-	    "craterfield.here": -1,
-	    "wasteland.ironeater.here": -1,
-	    "wasteland": -1,
-	    "warzone.abused": -1,
-	    "shrine.wolf.lionsmith": -1
-	},
-	"requirements" : {}
-	},
 	
 	{  
     "id": "empowered.induction",  
-    "actionid": "empoweredverb",
     "label": "心之武力",
     "startdescription": "这支部队在战斗中体现出的勇猛无畏被狮子匠所赏识，这份赏识很快就会带来好处……",
-    "description": "更强，始终更强。",
-	"internaldeck": {
-				"spec": [
-				"strength",
-				"anger",
-				"courage"
-				],
-				"draws": 1,
-				"resetonexhaustion": true
-			},
-	"warmup": 15
+    "description": "更强，始终更强。"
 	},
 	
 	{
 	"id": "attackenemy.success.gunmanadept",
-	"$extends": ["attackenemy.success.ostlingant"],
-	"description": "痛苦先于死亡而来，死亡紧随痛苦而至。",
-	"requirements": {
-	    "gunmanadepttrigger": 1
-	},
-	"effects": {
-		"agony" : 1
-	}
+	"description": "痛苦先于死亡而来，死亡紧随痛苦而至。"
     },
 	
     {
 	"id": "healdecaying.colonelleg",
-	"actionid": "abandon",
 	"label": "拜请伤疤护民官阻止死去士兵的消逝。",
     "startdescription": "我义肢的力量能够延缓此人的消逝。只需要一点时间。",
-    "description": "悼歌诗人通晓一切亡者的姓名，但死去的士兵会先经过上校之手。此人的职责尚未被解除。",
-	"requirements": {
-	    "debilitation.leg.colonel": 1,
-	    "decaying": 1
-	},
-	"aspects": {
-	    "restorehealth": 1,
-	    "fatiguing": 1
-	},
-	"warmup": 30,
-	"craftable": true
+    "description": "悼歌诗人通晓一切亡者的姓名，但死去的士兵会先经过上校之手。此人的职责尚未被解除。"
     },
 	
     {
 	"id": "healdecaying.raisedead",
-	"$priority" : 1,
-	"actionid": "abandon",
 	"label": "使用使节祷文延缓消逝。",
     "startdescription": "它们尚未完全死去，但也即将如此，我可以将它们从死亡的安宁中拽回来。",
-    "description": "悼歌诗人通晓一切亡者的姓名，但死去的士兵会先经过上校之手。此人的职责尚未被解除。",
-	"requirements": {
-	    "skill.raisedead": 1,
-	    "decaying": 1
-	},
-	"aspects": {
-	    "restorehealth": 1,
-	    "fatiguing": 1
-	},
-	"warmup": 30,
-	"craftable": true
+    "description": "悼歌诗人通晓一切亡者的姓名，但死去的士兵会先经过上校之手。此人的职责尚未被解除。"
     },
 	
 	{  
     "id": "godbuilderveteran.induction",  
-    "actionid": "godbuilderveteraninductionverb",
     "label": "心之兵刃",
     "startdescription": "这支部队在战斗中体现出的狡诈致命被上校所赏识，这份赏识很快就会带来好处……",
-    "description": "因此纷争持续。",
-	"internaldeck": {
-				"spec": [
-				"wisdom",
-				"cunning",
-				"patience"
-				],
-				"draws": 1,
-				"resetonexhaustion": true
-			},
-	"warmup": 15
+    "description": "因此纷争持续。"
 	},
 	
     {
 	"id": "healcasualty.medics.monster.success.lore",
-	"$extends" : ["healcasualty.medics.monster.success"],
 	"label": "血肉与钢铁",
-    "startdescription": "看上去医师与工兵都有些缺乏类似经验，但他们理解了这次的工作，并完成的足够好。我的友军肯定能够再次站起。",
-	"requirements": {
-	    "proterant.fragmentedgeg": 1
-		},
-	"grandReqs" : {
-		"([friend.medics] || [friend.medics.supplied] || [friendmedics])": 1
-		}
+    "startdescription": "看上去医师与工兵都有些缺乏类似经验，但他们理解了这次的工作，并完成的足够好。我的友军肯定能够再次站起。"
     },
 	
     {
 	"id": "longdefend.wrake",
-	"label": "Agony Incarnate",
-	"startdescription": "@#foe.exile|'啊……真让人怀念。'#foe.duffoure|'你-'@",
-	"requirements": {
-	    "friend.wrake": 1
-	},
-	"linked": [
-	    {
-		"id": "edgelong.stun.wrake"
-		}
-		],
-	"inductions": [
-	    {
-		"id": "produce.strife.contemnant",
-		"chance": 50
-	    }
-	]
-    },
-	
-    {
-	"id": "edgelong.stun.wrake",
-	"$extends": ["friend.wrake.killed"],	
-	"requirements": {},
-	"linked": [
-	    {
-		"id": "edgelong.expel"
-		}
-		],  
-    "warmup": 90,  
-	"furthermore": [
-      {
-         "effects": {
-            "friend.wrake.killtoken": -99
-         }
-      }
-	]
+	"label": "痛苦的化身",
+	"startdescription": "@#foe.exile|'啊……真让人怀念。'#foe.duffoure|'你-'@"
     },
 	
     {
 	"id": "longdefend.splinter",
-	"label": "Despair Incarnate",
-	"startdescription": "@#foe.exile|'那只狗找到了一只同类。真可爱。'#foe.duffoure|'狼的诡计无法永远救你。'@",
-	"requirements": {
-	    "friend.splinter": 1
-	},
-	"linked": [
-	    {
-		"id": "edgelong.stun.splinter"
-		}
-		]
+	"label": "绝望的化身",
+	"startdescription": "@#foe.exile|'那只狗找到了一只同类。真可爱。'#foe.duffoure|'狼的诡计无法永远救你。'@"
     },
 	
     {
-	"id": "longdefend.splinter", 
-	"$depends": [ "3801750928" ],
+	"id": "longdefend.splinter",
 	"startdescription$postfix": "@#annolondon|啧，真麻烦。@"
 	},
 	
     {
 	"id": "edgelong.stun.splinter",
-	"$extends": ["edgelong.stun.wrake"],	
-	"requirements": {},
 	"label": "反咬杀害自己的那只手",
-	"startdescription": "‘木刺’会与这只‘刃长’展开一场势均力敌的战斗，但终究无法取胜。我暂时争取到了一些时间。",
-    "warmup": 60, 
-    },
-	
-    {
-	"id": "edgelong.stun.splinter", 
-	"$depends": [ "3801750928" ],
-	"linked$prepend": [
-	    {
-		"id": "annolondon.expel"
-		}
-		]
-	}
+	"startdescription": "‘木刺’会与这只‘刃长’展开一场势均力敌的战斗，但终究无法取胜。我暂时争取到了一些时间。"
+    }
 	
 	
 ]

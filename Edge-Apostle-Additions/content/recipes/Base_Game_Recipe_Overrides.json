@@ -260,26 +260,6 @@
     },
 	
 	{
-    "id": "defend.opportunity", 
-	"$depends": [ "3713855248" ],
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1 }
-			}
-		},
-    },
-	
-	{
-    "id": "defend.opportunity", 
-	"$depends": [ "3775567517" ],
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1 }
-			}
-		},
-    },
-	
-	{
 	"id": "operate.startup.shakedown",
 	"requirements$add" : {"exhausted" : -1, "friend.away" : -1}
 	},
@@ -320,51 +300,11 @@
     },
 	
 	{
-    "id": "assistlocals.prep", 
-	"$depends": [ "3713855248" ],
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1 }
-			}
-		}
-    },
-	
-	{
-    "id": "assistlocals.prep", 
-	"$depends": [ "3775567517" ],
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1 }
-			}
-		}
-    },
-	
-	{
     "id": "shakedown.prep", 
 	"$incompatible": [ "3775567517", "3713855248" ],
     "slots$listedit": { 
 		"0$dictedit" : {
 			"forbidden" : { "friend.away" : 1, "exhausted" : 1}
-			}
-		}
-    },
-	
-	{
-    "id": "shakedown.prep", 
-	"$depends": [ "3713855248" ],
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
-			}
-		}
-    },
-	
-	{
-    "id": "shakedown.prep", 
-	"$depends": [ "3775567517" ],
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
 			}
 		}
     },
@@ -384,26 +324,6 @@
     "slots$listedit": { 
 		"0$dictedit" : {
 			"forbidden" : { "friend.away" : 1, "exhausted" : 1}
-			}
-		}
-    },
-	
-	{
-    "id": "encounternative", 
-	"$depends": [ "3713855248" ],
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
-			}
-		}
-    },
-	
-	{
-    "id": "encounternative", 
-	"$depends": [ "3775567517" ],
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
 			}
 		}
     },
@@ -659,14 +579,6 @@
 	]
 	},
 	
-	{ 
-	"id": "attackenemy.success", 
-	"$depends": [ "3713855248" ],
-	"alt$listedit": { 
-	"6$dictedit" : { "chance": "50 - [~/visible:corrivality.exile] * 25 + [~/visible:corrivality.foe] * 25" } 
-		} 
-	},
-	
 	{
 	"id": "opx.gonext",
 	"linked$prepend" : [
@@ -877,18 +789,6 @@
 	"id": "visit.shrinewolf.getskill", 
 	"$incompatible": [ "3775567517", "3713855248" ],
 	"extantreqs": {"contemnant.memento" : -1}
-	},
-	
-	{
-	"id": "visit.shrinewolf.getskill", 
-	"$depends": [ "3713855248" ],
-	"extantreqs$add": {"contemnant.memento" : -1}
-	},
-	
-	{
-	"id": "visit.shrinewolf.getskill", 
-	"$depends": [ "3775567517" ],
-	"extantreqs$add": {"contemnant.memento" : -1}
 	},
 	
 	{
@@ -1534,32 +1434,16 @@
     {
 	"id": "edgelong.cycle",
 	"requirements": {"long.bossfight.marker" : -1},
-	"linked$listedit": { 
-		"0$dictedit" : 	 { "chance": "50 + [~/visible:wolf.rage] * 25" },
-		"3$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-		"4$dictedit" : 	 { "chance": "40 + [~/visible:wolf.rage] * 20" }
-		},
 	"effects$add" : {"trauma":-99}
 	},
 	
     {
 	"id": "edgelong.cycle", 
-	"$incompatible": [ "3775567517", "3713855248" ],
+	"$incompatible": [ "3775567517", "3713855248"],
 	"linked$listedit": { 
 		"0$dictedit" : 	 { "chance": "50 + [~/visible:wolf.rage] * 25" },
 		"3$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
 		"4$dictedit" : 	 { "chance": "40 + [~/visible:wolf.rage] * 20" }
-		}
-	},
-	
-    {
-	"id": "edgelong.cycle", 
-	"$depends": [ "3713855248"],
-	"linked$listedit": { 
-		"0$dictedit" : 	 { "chance": "50 + [~/visible:corrivality.exile] * 25 - [~/visible:corrivality.foe] * 25" },
-		"2$dictedit" : 	 { "chance": "50 + [~/visible:wolf.rage] * 25" },
-		"5$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-		"6$dictedit" : 	 { "chance": "40 + [~/visible:wolf.rage] * 20" }
 		}
 	},
 	
@@ -1839,28 +1723,6 @@
 		}
 	},
 	
-	{
-	"id": "enemy.cycle", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"3$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-		"4$dictedit" : 	 { "chance": "40 + [readiness.token] * 5 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
-		},
-	"linked$prepend" : [
-		{
-			"id": "enemy.cycle.afraid_create.retribution",
-			"chance" : "[~/extant:retribution]"
-		}
-		],
-	"alt$listedit": { 
-		"0$dictedit" : 	 { "chance": "15 - [~/visible:corrivality.exile] * 15 + [~/visible:corrivality.foe] * 15" },
-		"1$dictedit" : 	 { "chance": "60 - [~/visible:corrivality.exile] * 30 + [~/visible:corrivality.foe] * 30" },
-		"2$dictedit" : 	 { "chance": "20 - [~/visible:corrivality.exile] * 10 + [~/visible:corrivality.foe] * 10" },
-		"3$dictedit" : 	 { "chance": "20 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-		"4$dictedit" : 	 { "chance": "20 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
-		}
-	},
-	
     {
 	"id": "visit.shrinewolf.gethopelessness",
 	"tableleather": "tablecover.contemnant_kopia",
@@ -1972,28 +1834,6 @@
 	},
 	
 	{
-	"id": "corrivality.cycle", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"0$dictedit" : 	 { "chance": "20+[~/visible:strife.tracker]*3" }
-		},
-	"alt$listedit": { 
-		"0$dictedit" : 	 { "chance": "50 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-		"1$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-		"2$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-		"3$dictedit" : 	 { "chance": "20 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
-		}
-	},
-	
-	{
-	"id": "corrivality.turnfoeadvantage", 
-	"$depends": [ "3713855248" ],
-	"alt$listedit": { 
-		"3$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
-		}
-	},
-	
-	{
 	"id": "corrivality.cycle.exile",
 	"$incompatible": [ "3775567517" ],
 	"linked$listedit": { 
@@ -2005,35 +1845,14 @@
 	},
 	
 	{
-	"id": "corrivality.cycle.exile",
-	"$depends": [ "3775567517" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30+[~/visible:strife.tracker]*3" }
-		},
-	"alt$listedit": { 
-		"0$dictedit" : 	 { "chance": "40+[~/visible:strife.tracker]*3" }
-		}
-	},
-	
-	{
 	"id": "corrivality.cycle.foe", 
-	"$incompatible": [ "3713855248", "3775567517" ],
+	"$incompatible": [ "3713855248" ],
+	"$incompatible": [ "3775567517" ],
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker]*3" }
 		},
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker]*3" }
-		}
-	},
-	
-	{
-	"id": "corrivality.cycle.foe", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"1$dictedit" : 	 { "chance": "30 + [~/visible:strife.tracker]*3" }
-		},
-	"alt$listedit": { 
-		"3$dictedit" : 	 { "chance": "40 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
 		}
 	},
 	
@@ -2064,15 +1883,6 @@
 	},
 	
 	{
-	"id": "side.startup", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "encounteradditional", 
 	"$incompatible": [ "3775567517", "3713855248" ],
 	"linked$listedit": { 
@@ -2081,32 +1891,6 @@
     "slots$listedit": { 
 		"0$dictedit" : {
 			"forbidden" : { "friend.away" : 1, "exhausted" : 1}
-			}
-		}
-	},
-	
-	{
-	"id": "encounteradditional", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"0$dictedit" : 	 { "chance": "30 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"}
-		},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
-			}
-		}
-	},
-	
-	{
-	"id": "encounteradditional", 
-	"$depends": [ "3775567517" ],
-	"linked$listedit": { 
-		"0$dictedit" : 	 { "chance": "30 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"}
-		},
-    "slots$listedit": { 
-		"0$dictedit" : {
-			"forbidden$add" : { "friend.away" : 1, "exhausted" : 1}
 			}
 		}
 	},
@@ -2589,15 +2373,6 @@
 	},
 	
 	{
-	"id": "encounternative.lucky", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "respondnative.aerial",
 	"requirements$add": {
 	    "foe.escorted": -1
@@ -2630,15 +2405,6 @@
 	},
 	
 	{
-	"id": "respondnative.aerial", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "respondnative.edgegrail", 
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
@@ -2664,15 +2430,6 @@
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
 		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
-	"id": "respondnative.edgegrail", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
 		}
 	},
 	
@@ -2708,15 +2465,6 @@
 		}
 	},
 	
-	{	
-	"id": "respondnative.ap", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
 	{
 	"id": "respondnative.edge", 
 	"alt$listedit": { 
@@ -2743,15 +2491,6 @@
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
 		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
-	"id": "respondnative.edge", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
 		}
 	},
 	
@@ -2785,15 +2524,6 @@
 	},
 	
 	{
-	"id": "respondnative.winter", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "respondnative.heart", 
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
@@ -2819,15 +2549,6 @@
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
 		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
-	"id": "respondnative.heart", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
 		}
 	},
 	
@@ -2861,15 +2582,6 @@
 	},
 	
 	{
-	"id": "respondnative.grail", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "respondnative.moth", 
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
@@ -2895,15 +2607,6 @@
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
 		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
-	"id": "respondnative.moth", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
 		}
 	},
 	
@@ -2937,15 +2640,6 @@
 	},
 	
 	{
-	"id": "respondnative.lantern", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "respondnative.forge", 
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
@@ -2971,15 +2665,6 @@
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
 		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
-	"id": "respondnative.forge", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
 		}
 	},
 	
@@ -3013,15 +2698,6 @@
 	},
 	
 	{
-	"id": "respondnative.knock", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "respondnative.forgemoth", 
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
@@ -3047,15 +2723,6 @@
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
 		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
-	"id": "respondnative.forgemoth", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
 		}
 	},
 	
@@ -3089,15 +2756,6 @@
 	},
 	
 	{
-	"id": "respondnative.edgelantern", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "respondnative.edgewinter", 
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
@@ -3123,15 +2781,6 @@
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
 		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
-	"id": "respondnative.edgewinter", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
 		}
 	},
 	
@@ -3165,15 +2814,6 @@
 	},
 	
 	{
-	"id": "respondnative.edgeforge", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "respondnative.knocklantern", 
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
@@ -3199,15 +2839,6 @@
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
 		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
-	"id": "respondnative.knocklantern", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
 		}
 	},
 	
@@ -3241,15 +2872,6 @@
 	},
 	
 	{
-	"id": "respondnative.forgeheart", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "respondnative.winterlantern", 
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
@@ -3275,15 +2897,6 @@
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
 		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
-	"id": "respondnative.winterlantern", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
 		}
 	},
 	
@@ -3317,15 +2930,6 @@
 	},
 	
 	{
-	"id": "respondnative.edgeknock", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "respondnative.edgeheart", 
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
@@ -3355,15 +2959,6 @@
 	},
 	
 	{
-	"id": "respondnative.edgeheart", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "respondnative.edgegrail", 
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
@@ -3386,15 +2981,6 @@
 	{
 	"id": "respondnative.edgegrail", 
 	"$incompatible": [ "3713855248" ],
-	"linked$listedit": { 
-		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
-	"id": "respondnative.edgegrail", 
-	"$depends": [ "3713855248" ],
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
 		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
@@ -3431,15 +3017,6 @@
 	},
 	
 	{
-	"id": "respondnative.winterheart", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
 	"id": "respondnative.lanternheart", 
 	"alt$listedit": { 
 		"0$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
@@ -3465,15 +3042,6 @@
 	"linked$listedit": { 
 		"1$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
 		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
-		}
-	},
-	
-	{
-	"id": "respondnative.lanternheart", 
-	"$depends": [ "3713855248" ],
-	"linked$listedit": { 
-		"2$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"},
-		"3$dictedit" : 	 { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"}
 		}
 	},
 	
@@ -3679,15 +3247,6 @@
 	"alt$listedit": { 
 		"1$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
 		"4$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
-		}
-	},
-	
-	{
-	"id": "attack.conclude", 
-	"$depends": [ "3713855248" ],
-	"alt$listedit": { 
-		"2$dictedit" : 	 { "chance": "50 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-		"5$dictedit" : 	 { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
 		}
 	},
 	
@@ -3929,15 +3488,6 @@
 	"$incompatible": [ "3713855248" ],
 	"alt$listedit": { 
 	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
-		} 
-	},
-	
-	{ 
-	"id": "getreinforcements.success", 
-	"$depends": [ "3713855248" ],
-	"alt$listedit": { 
-	"0$dictedit" : { "chance": "15 + [~/visible:corrivality.exile] * 15 - [~/visible:corrivality.foe] * 15" },
-	"1$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" } 
 		} 
 	},
 	
@@ -4816,81 +4366,6 @@
 	"6$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 + [~/visible:strife.tracker] * 2" },
 	"7$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 " },
 	"8$dictedit" : { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 " }
-		} 
-	},
-	
-	{ 
-	"id": "time.cycle", 
-	"$depends": [ "3713855248" ],
-	"alt$listedit": { 
-	"0$dictedit" : { "chance": "10 - [~/visible:corrivality.exile] * 10 + [~/visible:corrivality.foe] * 20" },
-	"1$dictedit" : { "chance": "10 - [~/visible:corrivality.exile] * 10 + [~/visible:corrivality.foe] * 20" },
-	"2$dictedit" : { "chance": "30 - [~/visible:corrivality.exile] * 10 + [~/visible:corrivality.foe] * 20" },
-	"6$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" },
-	"7$dictedit" : { "chance": "45 + [~/visible:strife.tracker] * 2" },
-	"8$dictedit" : { "chance": "45 + [~/visible:strife.tracker] * 2" },
-	"9$dictedit" : { "chance": "15 + [~/visible:strife.tracker] * 2" },
-	"10$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-	"11$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" },
-	"12$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 + [~/visible:strife.tracker] * 2" },
-	"13$dictedit" : { "chance": "40 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 " },
-	"14$dictedit" : { "chance": "30 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20 " }
-		} 
-	},
-	
-	{ 
-	"id": "opx.conclude.assistlocals.3", 
-	"$depends": [ "3713855248" ],
-	"alt$listedit": { 
-	"0$dictedit" : { "chance": "60 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" }
-		} 
-	},
-	
-	{ 
-	"id": "opx.conclude.assistlocals.2", 
-	"$depends": [ "3713855248" ],
-	"alt$listedit": { 
-	"0$dictedit" : { "chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" }
-		} 
-	},
-	
-	{ 
-	"id": "opx.conclude.assistlocals.1", 
-	"$depends": [ "3713855248" ],
-	"alt$listedit": { 
-	"0$dictedit" : { "chance": "20 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20" }
-		} 
-	},
-	
-	{ 
-	"id": "opx.conclude.shakedown.3", 
-	"$depends": [ "3713855248" ],
-	"alt$listedit": { 
-	"0$dictedit" : { "chance": "90 - [~/visible:corrivality.exile] * 30 + [~/visible:corrivality.foe] * 10" }
-		} 
-	},
-	
-	{ 
-	"id": "opx.conclude.shakedown.2", 
-	"$depends": [ "3713855248" ],
-	"alt$listedit": { 
-	"0$dictedit" : { "chance": "60 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20" }
-		} 
-	},
-	
-	{ 
-	"id": "opx.conclude.shakedown.1", 
-	"$depends": [ "3713855248" ],
-	"alt$listedit": { 
-	"0$dictedit" : { "chance": "30 - [~/visible:corrivality.exile] * 15 + [~/visible:corrivality.foe] * 15" }
-		} 
-	},
-	
-	{ 
-	"id": "operate.getdream.success", 
-	"$depends": [ "3713855248" ],
-	"alt$listedit": { 
-	"0$dictedit" : { "chance": "50 - [~/visible:corrivality.exile] * 25 + [~/visible:corrivality.foe] * 25" }
 		} 
 	},
 	

@@ -2,560 +2,156 @@
 "recipes": [
     {
 	"id": "lake.monster.cycle", 
-	"$depends": [ "3713855248" ],
-	"actionid": "lake.monster",
 	"label": "怪物们正等待时机",
-    "startdescription": "我们的敌军在此聚集，但尚未做出任何攻击行为。时间不断流逝。它们即将行动。",
-	"warmup": 30,
-	"linked": [
-	    {
-		"id": "lake.monster.pickaction.router",
-		"chance": "40 + [~/visible:strife.tracker] * 3"
-	    },
-	    {
-		"id": "lake.monster.cycle"
-	    }
-	]
+    "startdescription": "我们的敌军在此聚集，但尚未做出任何攻击行为。时间不断流逝。它们即将行动。"
     },
 
     {
 	"id": "lake.monster.pickaction.router", 
-	"$depends": [ "3713855248" ],
-	"label": "怪物们行动了！",
-	"startdescription": "",
-	"linked": [
-	    {
-		"id": "lake.monster.pickaction.high"
-	    },
-	    {
-		"id": "lake.monster.pickaction.medium"
-	    },
-	    {
-		"id": "lake.monster.pickaction.low"
-	    }
-	]
+	"label": "怪物们行动了！"
     },
 	
     {
 	"id": "lake.monster.pickaction.high", 
-	"$depends": [ "3713855248" ],
 	"label": "怪物们行动了！",
-    "startdescription": "警报响起——我们的敌人开始行动了！",
-	"extantreqs": {
-	    "strife.tracker": 5
-	},
-	"deckeffects": {
-	    "decisions.lake.monster.high": 1
-	},
-	"warmup": 10,
-	"linked": [
-	    {
-		"id": "lake.monster.enemy.executeaction.targetenemy.pre",
-		"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
-	    },
-	    {
-		"id": "lake.monster.executeaction"
-	    }
-	]
+    "startdescription": "警报响起——我们的敌人开始行动了！"
     },
 	
     {
 	"id": "lake.monster.pickaction.medium", 
-	"$depends": [ "3713855248" ],
 	"label": "怪物们行动了！",
-    "startdescription": "警报响起——我们的敌人开始行动了！",
-	"extantreqs": {
-	    "strife.tracker": 3
-	},
-	"deckeffects": {
-	    "decisions.lake.monster.medium": 1
-	},
-	"warmup": 10,
-	"linked": [
-	    {
-		"id": "lake.monster.enemy.executeaction.targetenemy.pre",
-		"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
-	    },
-	    {
-		"id": "lake.monster.executeaction"
-	    }
-	]
+    "startdescription": "警报响起——我们的敌人开始行动了！"
     },
 	
     {
 	"id": "lake.monster.pickaction.low", 
-	"$depends": [ "3713855248" ],
 	"label": "怪物们行动了！",
-    "startdescription": "警报响起——我们的敌人开始行动了！",
-	"deckeffects": {
-	    "decisions.lake.monster.low": 1
-	},
-	"warmup": 10,
-	"linked": [
-	    {
-		"id": "lake.monster.enemy.executeaction.targetenemy.pre",
-		"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
-	    },
-	    {
-		"id": "lake.monster.executeaction"
-	    }
-	]
+    "startdescription": "警报响起——我们的敌人开始行动了！"
     },
 	
     {
 	"id": "lake.monster.executeaction", 
-	"$depends": [ "3713855248" ],
 	"label": "怪物们行动了！",
-    "startdescription": "警报响起——我们的敌人开始行动了！",
-	"linked": [
-	    {
-		"id": "lake.monster.clear"
-	    }
-	],
-	"alt": [
-	    {
-		"id": "lake.monster.doubleattack.1.startup",
-		"additional": true
-	    },
-	    {
-		"id": "lake.monster.doubleattack.2.startup",
-		"additional": true
-	    },
-	    {
-		"id": "lake.monster.singleattack.startup",
-		"additional": true
-	    },
-	    {
-		"id": "lake.monster.hide.startup",
-		"additional": true
-	    }
-	]
+    "startdescription": "警报响起——我们的敌人开始行动了！"
     },
 	
     {
-	"id": "lake.monster.clear", 
-	"$depends": [ "3713855248" ],
-	"label": "湖中怪物行动了！",
-	"effects": {
-	    "decision": -99,
-	    "readiness.token": -99
-	},
-	"linked": [
-	    {
-		"id": "lake.monster.cycle"
-	    }
-	]
+	"id": "lake.monster.clear",
+	"label": "湖中怪物行动了！"
     },
 	
     {
 	"id": "lake.monster.doubleattack.1.startup",
-	"actionid": "enemyaction.double.1",
 	"label": "一次夹击！",
     "startdescription": "我们的敌人之二决定同时袭击我们——是策略，还是纯粹的坏运气？无论是哪一种，我们都将遭遇一场棘手的战斗。",
-	"effects": {
-	    "decision.enemy.attack": 1
-	},
-	"aspects": {
-	    "takeadditional": 1
-	},
-	"requirements": {
-	    "decision.enemy.doubleattack": 1
-	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "湖中怪物",
-		"required": {
-		    "neutral_monster": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-		    "soviet": 1,
-		    "detectivetemptation": 1,
-		    "foe.exilenightmare": 1
-		},
-		"greedy": true
-	    }
-	],
-	"linked": [
-	    {
-		"id": "foe.coordinated.getsecond.pre"
-	    },
-	    {
-		"id": "revealenemyidentity"
-	    },
-	    {
-		"id": "defend.opportunity"
-	    },
-	    {
-		"id": "nonefound"
-	    }
-	],
-	"warmup": 10,
-	"alt": [
-	    {
-		"id": "foe.commander.extraenemy",
-		"additional": true
+		"label": "湖中怪物"
 	    }
 	]
     },
 	
     {
 	"id": "lake.monster.doubleattack.2.startup",
-	"actionid": "enemyaction.double.2",
 	"label": "一次夹击！",
     "startdescription": "我们的敌人之二决定同时袭击我们——是策略，还是纯粹的坏运气？无论是哪一种，我们都将遭遇一场棘手的战斗。",
-	"effects": {
-	    "decision.enemy.attack": 1
-	},
-	"aspects": {
-	    "takeadditional": 1
-	},
-	"requirements": {
-	    "decision.enemy.doubleattack": 1
-	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "怪物",
-		"required": {
-		    "neutral_monster": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-		    "soviet": 1,
-		    "detectivetemptation": 1,
-		    "foe.exilenightmare": 1
-		},
-		"greedy": true
-	    }
-	],
-	"linked": [
-	    {
-		"id": "foe.coordinated.getsecond.pre"
-	    },
-	    {
-		"id": "revealenemyidentity"
-	    },
-	    {
-		"id": "defend.opportunity"
-	    },
-	    {
-		"id": "nonefound"
-	    }
-	],
-	"warmup": 10,
-	"alt": [
-	    {
-		"id": "foe.commander.extraenemy",
-		"additional": true
+		"label": "怪物"
 	    }
 	]
     },
 	
     {
 	"id": "lake.monster.singleattack.startup",
-	"actionid": "enemyaction.single",
 	"label": "敌军进攻了！",
     "startdescription": "我们的敌人之一寻求对我们的袭击——",
-	"effects": {
-	    "decision.enemy.attack": 1
-	},
-	"aspects": {
-	    "takeadditional": 1
-	},
-	"requirements": {
-	    "decision.enemy.singleattack": 1
-	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "湖中怪物",
-		"required": {
-		    "neutral_monster": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-		    "soviet": 1,
-		    "detectivetemptation": 1,
-		    "marinette.marker": 1,
-		    "foe.exilenightmare": 1
-		},
-		"greedy": true
-	    }
-	],
-	"linked": [
-	    {
-		"id": "foe.coordinated.getsecond.pre"
-	    },
-	    {
-		"id": "revealenemyidentity"
-	    },
-	    {
-		"id": "defend.opportunity"
-	    },
-	    {
-		"id": "nonefound"
-	    }
-	],
-	"warmup": 10,
-	"alt": [
-	    {
-		"id": "foe.commander.extraenemy",
-		"additional": true
+		"label": "湖中怪物"
 	    }
 	]
     },
 	
     {
 	"id": "lake.monster.hide.startup",
-	"actionid": "enemyaction.hide",
 	"label": "位置打乱",
 	"startdescription": "一名对手后撤以隐藏行踪。",
-	"aspects": {
-	    "concealidentity": 1
-	},
-	"requirements": {
-	    "decision.enemy.hide": 1
-	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "湖中怪物",
-		"required": {
-		    "neutral_monster": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.hidden": 1,
-		    "foe.rankofficer": 1,
-		    "foe.unsubtle": 1,
-		    "soviet": 1,
-		    "detectivetemptation": 1,
-		    "marinette.marker": 1,
-		    "foe.exilenightmare": 1
-		},
-		"greedy": true
+		"label": "湖中怪物"
 	    }
-	],
-	"warmup": 10
-    },
+	]
+	},
 
 	{
 	"id": "lake.monster.enemy.executeaction.targetenemy.pre",
-	"$depends": [ "3713855248" ],
 	"label": "湖中怪物行动了！",
-    "startdescription": "警报响起——我们的敌人开始行动了！",
-	"tablereqs": {
-	    "neutral_monster": 1
-	},
-	"grandReqs": {
-		"[~/extant:soviet] >= 1 || [~/extant:german] >= 1": 1
-	},
-	"effects": {
-	    "decision": -99
-	},
-	"linked": [
-	    {
-		"id": "lake.monster.enemy.executeaction.targetenemy"
-	    }
-	]
+    "startdescription": "警报响起——我们的敌人开始行动了！"
     },
 	
     {
-	"id": "lake.monster.enemy.executeaction.targetenemy", 
-	"$depends": [ "3713855248" ],
+	"id": "lake.monster.enemy.executeaction.targetenemy",
 	"label": "怪物们行动了！",
-    "startdescription": "警报响起——我们的敌人开始行动了！",
-	"tablereqs": {
-	    "neutral_monster": 1
-	},
-	"deckeffects": {
-	    "decisions.enemy.targetsoviets.low": 1
-	},
-	"linked": [
-	    {
-		"id": "lake.monster.enemy.executeaction.targetenemy.continue"
-	    }
-	],
-	"alt": [
-	    {
-		"id": "lake.monster.enemy.executeaction.targetenemy.high"
-	    }
-	]
+    "startdescription": "警报响起——我们的敌人开始行动了！"
     },
 	
     {
 	"id": "lake.monster.enemy.executeaction.targetenemy.high", 
-	"$depends": [ "3713855248" ],
 	"label": "怪物们行动了！",
-    "startdescription": "警报响起——我们的敌人开始行动了！",
-	"tablereqs": {
-	    "neutral_monster": 1
-	},
-	"extantreqs": {
-	    "strife.tracker": 4
-	},
-	"deckeffects": {
-	    "decisions.enemy.targetsoviets.high": 1
-	},
-	"linked": [
-	    {
-		"id": "lake.monster.enemy.executeaction.targetenemy.continue"
-	    }
-	]
+    "startdescription": "警报响起——我们的敌人开始行动了！"
     },
 	
     {
 	"id": "lake.monster.enemy.executeaction.targetenemy.continue", 
-	"$depends": [ "3713855248" ],
 	"label": "湖中怪物行动了！",
-    "startdescription": "警报响起——我们的敌人开始行动了！",
-	"alt": [
-	    {
-		"id": "lake.monster.enemy.targetenemy.startup.lake.monster",
-		"additional": true
-	    },
-	    {
-		"id": "lake.monster.enemy.doubleattack.1.startup.againstenemy",
-		"additional": true
-	    },
-	    {
-		"id": "lake.monster.enemy.doubleattack.2.startup.againstenemy",
-		"additional": true
-	    }
-	],
-	"linked": [
-	    {
-		"id": "lake.monster.clear"
-	    }
-	]
+    "startdescription": "警报响起——我们的敌人开始行动了！"
     },
 	
     {
 	"id": "lake.monster.enemy.targetenemy.startup.lake.monster",
-	"actionid": "enemyaction.single",
 	"label": "敌军进攻了！",
     "startdescription": "怪物之一向海玲的军队发起了一次进攻——",
-    "description": "怪物们不再发出声响，战场安静了。",
-	"requirements": {
-	    "decision.enemy.singleattack": 1,
-	    "decision.enemy.doubleattack": -1
-	},
-	"slots": [
-	    {
-		"id": "needsgerman",
-		"label": "湖中怪物",
-		"required": {
-		    "neutral_monster": 1
-		},
-		"forbidden": {
-		    "foe.officer": 1,
-		    "friend": 1,
-		    "soviet": 1
-		},
-		"greedy": true
-	    }
-	],
-	"warmup": 10,
-	"linked": [
-	    {
-		"id": "lake.monster.enemy.targetenemy"
-	    }
-	]
+    "description": "怪物们不再发出声响，战场安静了。"
     },
 	
     {
 	"id": "lake.monster.enemy.targetenemy",
 	"label": "敌军进攻了！",
     "startdescription": "怪物循着血腥味，扑向它们的敌人——",
-	"requirements": {
-	    "foe": 1
-	},
 	"slots": [
 	    {
 		"id": "needstarget",
-		"label": "目标",
-		"required": {
-		    "german": 1,
-			"soviet": 1
-		},
-		"forbidden": {
-			"foe.rankofficer": 1
-		},
-		"greedy": true
-	    }
-	],
-	"warmup": 30,
-	"linked": [
-	    {
-		"id": "lake.monster.enemy.targetenemy.0"
-	    },
-	    {
-		"id": "nonefound"
+		"label": "目标"
 	    }
 	]
     },
 	
     {
 	"id": "lake.monster.enemy.targetenemy.0",
-	"label": "怪物们获胜了！",
-	"linked": [
-	    {
-		"id": "lake.monster.enemy.targetenemy.victory",
-		"chance": "50 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 - [foe.rankofficer] * 200"
-	    },
-	    {
-		"id": "lake.monster.enemy.targetenemy.defeat"
-	    }
-	]
+	"label": "怪物们获胜了！"
     },
 	
     {
 	"id": "lake.monster.enemy.targetenemy.victory",
 	"label": "怪物们获胜了！",
-    "startdescription": "在远处，我看见德国人正仓皇逃窜。怪物们享用了一顿不错的晚餐。",
-	"requirements": {
-	},
-	"aspects": {
-	    "killmortal": 1
-	},
-	"linked": [
-		{
-			"id": "lake.monster.enemy.targetenemy.victory.self_destruction"
-		},
-		{
-			"id": "lake.monster.enemy.targetenemy.victory.growth"
-		}
-	]
+    "startdescription": "在远处，我看见德国人正仓皇逃窜。怪物们享用了一顿不错的晚餐。"
     },
 	
     {
 	"id": "lake.monster.enemy.targetenemy.victory.growth",
 	"label": "绽放的憎恶",
-    "startdescription": "戴冠之孳的触碰承诺的不是死亡，而是生命。人们很快便学会畏惧这承诺。",
-	"requirements": {
-	    "foe.growth": 1
-	},
-	"effects": {
-		"foe.growth": 1,
-		"remnant": -99
-	}
+    "startdescription": "戴冠之孳的触碰承诺的不是死亡，而是生命。人们很快便学会畏惧这承诺。"
     },
 	
     {
 	"id": "lake.monster.enemy.targetenemy.victory.self_destruction",
 	"label": "怪物们获胜了！",
-    "startdescription": "在远处，我看见德国人正仓皇逃窜。怪物们享用了一顿不错的晚餐。",
-	"requirements": {
-	    "self_destruction": 1
-	},
-	"aspects": {
-	    "killfoe": 1
-	}
+    "startdescription": "在远处，我看见德国人正仓皇逃窜。怪物们享用了一顿不错的晚餐。"
     },
 	
     {
@@ -566,78 +162,28 @@
 	
     {
 	"id": "lake.monster.enemy.doubleattack.1.startup.againstenemy",
-	"actionid": "enemyaction.double.1",
 	"label": "一次夹击！",
     "startdescription": "敌军计划了一次对其对手的双线进攻——",
-	"effects": {
-	    "decision.enemy.attack": 1
-	},
-	"requirements": {
-	    "decision.enemy.doubleattack": 1
-	},
-	"tablereqs": {
-	    "german": 1
-	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "湖中怪物",
-		"required": {
-		    "neutral_monster": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-		    "soviet": 1,
-		    "detectivetemptation": 1
-		},
-		"greedy": true
+		"label": "湖中怪物"
 	    }
-	],
-	"linked": [
-	    {
-		"id": "lake.monster.enemy.targetenemy"
-	    }
-	],
-	"warmup": 10
-    },
+	]
+	},
 	
     {
 	"id": "lake.monster.enemy.doubleattack.2.startup.againstenemy",
-	"actionid": "enemyaction.double.2",
 	"label": "一次夹击！",
     "startdescription": "敌军计划了一次对其对手的双线进攻——",
-	"effects": {
-	    "decision.enemy.attack": 1
-	},
-	"requirements": {
-	    "decision.enemy.doubleattack": 1
-	},
-	"tablereqs": {
-	    "german": 1
-	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "湖中怪物",
-		"required": {
-		    "neutral_monster": 1
-		},
-		"forbidden": {
-		    "remnant": 1,
-		    "foe.rankofficer": 1,
-		    "soviet": 1,
-		    "detectivetemptation": 1
-		},
-		"greedy": true
+		"label": "湖中怪物"
 	    }
-	],
-	"linked": [
-	    {
-		"id": "lake.monster.enemy.targetenemy"
-	    }
-	],
-	"warmup": 10
-    }
+	]
+	}
+	
+	
 ]
 }

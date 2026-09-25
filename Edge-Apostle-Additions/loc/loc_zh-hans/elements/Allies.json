@@ -2,441 +2,65 @@
 "elements": [
     {
 	"id": "friend.sniper",
-	"aspects$add": {
-	    "canhide": 1
-	},
 	"slots": [
-	{
+		{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-		    "op.time.night": 1,
-		    "op.woods": 1,
-		    "op.ruins": 1,
-		    "op.sewers": 1,
-			"op.fog" : 1,
-			"op.snows" : 1,
-			"op.storms" : 1,
-			"op.velvet" : 1,
-			"warzone" : 1,
-			"supplies.smokegrenade" : 1
-			}
+		"label": "意图？"
 		}
-	],
-	"xtriggers$add": {
-		"concealidentity" : "friend.sniper.hidden"
-	}
+	]
     },
 	
 	{
 	"id": "friend.sniper.hidden",
-	"$derives" : ["friend.sniper"],
-	"label": "友军狙击手（隐匿）",
-	"aspects": {
-		"friend.hidden": 1,
-	    "edge": 8,
-	    "winter": 8,
-	    "lantern": 8
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.sniper.hidden.ins"
-		}
+	"label": "友军狙击手（隐匿）"
     },
 	
 	{
-	"id": "friend.sniper.hidden.ins", 
-	"$depends": [ "3713855248" ],
-	"$derives" : ["friend.sniper.ins"],
-	"label": "友军狙击手（隐匿）",
-	"aspects": {
-		"friend.hidden": 1,
-	    "edge": 14,
-	    "winter": 12,
-	    "lantern": 12,
-	    "ins_soviet": 1
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.sniper.hidden.ins"
-	},
-	"lifetime": 180,
-	"icon": "friend.sniper.hidden",
-	"decayTo": "friend.sniper.hidden",
-    },
-	
-	{
-	"id": "friend.sniper.hidden.ins", 
-	"$depends": [ "3753135571" ],
-	"$derives" : ["friend.sniper.ins"],
-	"label": "友军狙击手（隐匿）",
-	"aspects": {
-		"friend.hidden": 1,
-	    "edge": 14,
-	    "winter": 12,
-	    "lantern": 12,
-	    "ins_soviet": 1
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.sniper.hidden.ins"
-	},
-	"lifetime": 180,
-	"icon": "friend.sniper.hidden",
-	"decayTo": "friend.sniper.hidden",
-    },
-	
-	{
-	"id": "friend.sniper.wounded",
-	"xtriggers$add": {
-		"promotion": "friend.sniper.sightless"
-		},
-	"aspects$add": {
-	    "obdurantpromotiontrigger": 1
-		}
+	"id": "friend.sniper.hidden.ins",
+	"label": "友军狙击手（隐匿）"
     },
 	
 	{
 	"id": "friend.militia",
-	"aspects$add": {
-	    "canhide": 1
-	},
-	"slots": [
-	{
+	"slots$append": [
+			{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-		    "op.time.night": 1,
-		    "op.woods": 1,
-		    "op.ruins": 1,
-		    "op.sewers": 1,
-			"op.fog" : 1,
-			"op.snows" : 1,
-			"op.storms" : 1,
-			"op.velvet" : 1,
-			"warzone" : 1,
-			"supplies.smokegrenade" : 1
-		},
-	},
-	],
-	"xtriggers$add": {
-		"concealidentity" : "friend.militia.hidden",
-		"maxpromotion" : "friend.unstoppable.infantry",
-		"partialpromotion" : "friend.empowered.infantry",
-		"minorpromotion" : "friend.lonesoldier"
-	}
+		"label": "意图？"
+			}
+		]
     },
 	
 	{
 	"id": "friend.militia.hidden.ins",
-	"$depends": [ "3713855248" ],
-	"$derives" : ["friend.militia.ins"],
-	"label": "友军义勇军（隐匿）",
-	"aspects": {
-		"friend.hidden": 1,
-	    "edge": 10,
-	    "heart": 8,
-	    "ins_soviet": 1
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.militia.hidden.ins"
-	},
-	"lifetime": 180,
-	"icon": "friend.militia.hidden",
-	"decayTo": "friend.militia.hidden",
-    },
-	
-	{
-	"id": "friend.militia.hidden.ins", 
-	"$depends": [ "3753135571" ],
-	"$derives" : ["friend.militia.ins"],
-	"label": "友军义勇军（隐匿）",
-	"aspects": {
-		"friend.hidden": 1,
-	    "edge": 10,
-	    "heart": 8,
-	    "ins_soviet": 1
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.militia.hidden.ins"
-	},
-	"lifetime": 180,
-	"icon": "friend.militia.hidden",
-	"decayTo": "friend.militia.hidden",
+	"label": "友军义勇军（隐匿）"
     },
 	
 	{
 	"id": "friend.militia.hidden",
-	"$derives" : ["friend.militia"],
-	"label": "友军义勇军（隐匿）",
-	"aspects": {
-		"friend.hidden": 1,
-	    "edge": 8,
-	    "heart": 8
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.militia.hidden.ins"
-		}
+	"label": "友军义勇军（隐匿）"
     },
 	
 	{
-	"id": "friend.militia.exhausted",
-	"xtriggers$add": {
-		"maxpromotion" : "friend.unstoppable.infantry",
-		"partialpromotion" : "friend.empowered.infantry",
-		"minorpromotion" : "friend.lonesoldier"
-		}
-	},
-	
-	{
-	"id": "friend.tanks.exhausted",
-	"xtriggers$add": {
-		"provisionrefresh": "friend.tanks"
-		},
-	},
-	
-	{
-	"id": "friend.bombers.exhausted",
-	"xtriggers$add": {
-		"provisionrefresh": "friend.bombers"
-		},
-	},
-	
-	{
-	"id": "friend.artillery.exhausted",
-	"xtriggers$add": {
-		"provisionrefresh": "friend.artillery"
-		},
-	},
-	
-	{
-	"id": "friend.tiger.exhausted",
-	"xtriggers$add": {
-		"provisionrefresh": "friend.tiger"
-		},
-	},
-	
-	{
-	"id": "friend.lion.exhausted",
-	"xtriggers$add": {
-		"provisionrefresh": "friend.lion"
-		},
-	},
-	
-	{
-	"id": "friend.labhite.exhausted",
-	"xtriggers$add": {
-		"provisionrefresh": "friend.labhite"
-		},
-	},
-	
-	{
-	"id": "friend.spathiurus.exhausted",
-	"xtriggers$add": {
-		"provisionrefresh": "friend.spathiurus"
-		},
-	},
-	
-	{
-	"id": "friend.hesukhine.exhausted",
-	"xtriggers$add": {
-		"provisionrefresh": "friend.hesukhine"
-		},
-	},
-	
-	{
-	"id": "friend.echidniform.exhausted",
-	"xtriggers$add": {
-		"provisionrefresh": "friend.echidniform"
-		},
-	},
-	
-	{
-	"id": "friend.skaptodon.exhausted",
-	"xtriggers$add": {
-		"provisionrefresh": "friend.skaptodon"
-		}
-	},
-	
-	{
-	"id": "friend.gunman.exhausted",
-	"xtriggers$add": {
-		"refresh": "friend.gunman",
-		"promotion": "friend.adept.gunman"
-		}
-	},
-	
-	{
-	"id": "friend.doctor.exhausted",
-	"xtriggers$add": {
-		"refresh": "friend.doctor"
-		}
-	},
-	
-	{
-	"id": "friend.labourer.exhausted",
-	"xtriggers$add": {
-		"refresh": "friend.labourer"
-		}
-	},
-	
-	{
-	"id": "friend.lookout.exhausted",
-	"xtriggers$add": {
-		"refresh": "friend.lookout"
-		}
-	},
-	
-	{
-	"id": "friend.dregsoldier.exhausted",
-	"xtriggers$add": {
-		"refresh": "friend.dregsoldier",
-		"promotion": "friend.dreg.adept"
-		}
-	},
-	
-	{
-	"id": "friend.dregarsonists.exhausted",
-	"xtriggers$add": {
-		"refresh": "friend.dregarsonists",
-		"promotion": "friend.arsonist.adept"
-		},
-    "induces$listedit": { 
-		"0$dictedit" : {
-			"chance": "50 + [~/visible:wolf.rage] * 30"
-			}
-		}
-	},
-	
-	{
-	"id": "friend.dregscavengers.exhausted",
-	"xtriggers$add": {
-		"refresh": "friend.dregscavengers"
-		}
-	},
-	
-	{
 	"id": "friend.infantry",
-	"slots": [
+	"slots$append": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1,
-			"provisions" : 1
-		}
+		"label": "意图？"
 	}
-	],
-	"xtriggers$add": {
-		"giveallyprovisions" : "friend.infantry.inspired"
-	}
-	},
-	
-	{
-	"id": "friend.infantry.exhausted",
-	"xtriggers$add": {
-		"maxpromotion" : "friend.unstoppable.infantry",
-		"partialpromotion" : "friend.empowered.infantry",
-		"minorpromotion" : "friend.lonesoldier"
-		}
-	},
-	
-	{
-	"id": "friend.infantry.weaken.exhausted",
-	"$depends": [ "3713855248" ],
-	"xtriggers$add": {
-		"maxpromotion" : "friend.unstoppable.infantry",
-		"partialpromotion" : "friend.empowered.infantry",
-		"minorpromotion" : "friend.lonesoldier"
-		}
-	},
-	
-	{
-	"id": "friend.infantry.weaken.exhausted", 
-	"$depends": [ "3753135571" ],
-	"xtriggers$add": {
-		"maxpromotion" : "friend.unstoppable.infantry",
-		"partialpromotion" : "friend.empowered.infantry",
-		"minorpromotion" : "friend.lonesoldier"
-		}
-	},
-	
-	{
-	"id": "friend.infantry.afraid.exhausted",
-	"$depends": [ "3713855248" ],
-	"xtriggers$add": {
-		"maxpromotion" : "friend.unstoppable.infantry",
-		"partialpromotion" : "friend.empowered.infantry",
-		"minorpromotion" : "friend.lonesoldier"
-		}
-	},
-	
-	{
-	"id": "friend.infantry.afraid.exhausted", 
-	"$depends": [ "3753135571" ],
-	"xtriggers$add": {
-		"maxpromotion" : "friend.unstoppable.infantry",
-		"partialpromotion" : "friend.empowered.infantry",
-		"minorpromotion" : "friend.lonesoldier"
-		}
+	]
 	},
 	
 	{
 	"id": "friend.infantry.inspired",
-	"$derives" : ["friend.infantry"],
-	"label": "友军步兵连队（士气高涨）",
-	"icon": "friend.infantry",
-	"aspects": {
-	    "edge": 8,
-		"friend.inspired" : 1
-	},
-	"xtriggers$add": {
-		"adv_soviet": "friend.infantry.inspired.ins",
-		}
+	"label": "友军步兵连队（士气高涨）"
     },
 	
 	{
 	"id": "friend.infantry.inspired.ins",
-	"$depends": [ "3713855248" ],
-	"$derives" : ["friend.infantry.ins"],
-	"label": "友军步兵连队（士气高涨）",
-	"aspects": {
-	    "edge": 10,
-	    "ins_soviet": 1,
-		"friend.inspired" : 1
-	},
-	"xtriggers$add": {
-		"adv_soviet": "friend.infantry.inspired.ins"
-		},
-	"lifetime": 180,
-	"decayTo": "friend.infantry.inspired",
-    },
-	
-	{
-	"id": "friend.infantry.inspired.ins", 
-	"$depends": [ "3753135571" ],
-	"$derives" : ["friend.infantry.ins"],
-	"label": "友军步兵连队（士气高涨）",
-	"aspects": {
-	    "edge": 10,
-	    "ins_soviet": 1,
-		"friend.inspired" : 1
-	},
-	"xtriggers$add": {
-		"adv_soviet": "friend.infantry.inspired.ins"
-		},
-	"lifetime": 180,
-	"decayTo": "friend.infantry.inspired",
-    },
-	
-	{
-	"id": "friend.infantry.wounded",
-	"xtriggers$add": {
-		"promotion": "friend.adept.infantry"
-		},
-	"aspects$add": {
-	    "obdurantpromotiontrigger": 1
-		}
+	"label": "友军步兵连队（士气高涨）"
     },
 	
 	{
@@ -445,129 +69,57 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1,
-			"provisions" : 1
-		}
+		"label": "意图？"
 	}
-	],
-	"xtriggers$add": {
-		"giveallyprovisions" : "friend.tanks.inspired"
-	}
+	]
 	},
 	
 	{
 	"id": "friend.tanks.inspired",
-	"$derives" : ["friend.tanks"],
-	"label": "友军装甲连队（补给充足）",
-	"icon": "friend.tanks",
-	"aspects": {
-	    "forge": 6,
-	    "edge": 14,
-		"friend.inspired" : 1
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.tanks.inspired.ins"
-		},
+	"label": "友军装甲连队（补给充足）"
     },
 	
 	{
 	"id": "friend.tanks.inspired.ins",
-	"$depends": [ "3713855248" ],
-	"$derives" : ["friend.tanks.ins"],
-	"label": "友军装甲连队（士气高涨）",
-	"aspects": {
-	    "forge": 8,
-	    "edge": 16,
-	    "ins_soviet": 1,
-		"friend.inspired" : 1
-	},
-	"xtriggers$add": {
-		"adv_soviet": "friend.tanks.inspired.ins"
-		},
-	"lifetime": 180,
-	"decayTo": "friend.tanks.inspired",
-    },
-	
-	{
-	"id": "friend.tanks.inspired.ins", 
-	"$depends": [ "3753135571" ],
-	"$derives" : ["friend.tanks.ins"],
-	"label": "友军装甲连队（士气高涨）",
-	"aspects": {
-	    "forge": 8,
-	    "edge": 16,
-	    "ins_soviet": 1,
-		"friend.inspired" : 1
-	},
-	"xtriggers$add": {
-		"adv_soviet": "friend.tanks.inspired.ins"
-		},
-	"lifetime": 180,
-	"decayTo": "friend.tanks.inspired",
+	"label": "友军装甲连队（士气高涨）"
     },
 	
 	{
 	"id": "friend.medics",
-	"slots": [
+	"slots$append": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1,
-			"provisions" : 1
-		}
+		"label": "意图？"
 	}
-	],
-	"xtriggers$add": {
-		"giveallyprovisions" : "friend.medics.supplied"
-	}
+	]
 	},
 	
 	{
 	"id": "friend.medics.supplied",
-	"$derives" : ["friend.medics"],
-	"label": "友军战地医师（补给强化）",
-	"icon": "friend.medics",
-	"aspects": {
-	    "heart": 8,
-	    "grail": 8,
-		"medic.stocked" : 1
-	}
+	"label": "友军战地医师（补给强化）"
     },
 	
 	{
 	"id": "friend.scouts",
-	"slots": [
+	"slots$append": [
 	
 		{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 		},
 		
 		{
 		"id": "enemy",
 		"actionid": "recon",
-		"label": "敌军",
-		"required": {
-			"foe" : 1,
-			"foe.hidden" : 1
-			}
+		"label": "敌军"
 		},
 		
 		{
 		"id": "provisions",
 		"actionid": "recon",
-		"label": "补给品",
-		"required": {
-			"provisions" : 1
-			}
+		"label": "补给品"
 		}
 		
 	]
@@ -575,71 +127,28 @@
 	
 	{
 	"id": "friend.engineers",
-	"slots": [
+	"slots$append": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1,
-			"provisions" : 1
-		}
+		"label": "意图？"
 	}
-	],
-	"xtriggers$add": {
-		"giveallyprovisions" : "friend.engineers.wellstocked"
-	}
+	]
 	},
 	
 	{
 	"id": "friend.engineers.wellstocked",
-	"$derives" : ["friend.engineers"],
-	"label": "友军工兵连队（补给充足）",
-	"icon": "friend.engineers",
-	"aspects": {
-	    "forge": 8,
-	    "knock": 8,
-		"well.stocked" : 1
-	},
-	"xtriggers$add": {
-		"adv_soviet": "friend.engineers.wellstocked.ins"
-	}
+	"label": "友军工兵连队（补给充足）"
     },
 	
 	{
 	"id": "friend.engineers.wellstocked.ins",
-	"$depends": [ "3713855248" ],
-	"$derives" : ["friend.engineers.ins"],
-	"label": "友军工兵连队（补给充足）",
-	"aspects": {
-	    "forge": 10,
-	    "knock": 10,
-	    "ins_soviet": 1,
-		"well.stocked" : 1
-	},
-	"lifetime": 180,
-	"decayTo": "friend.engineers.wellstocked",
-	"xtriggers$add": {
-		"adv_soviet": "friend.engineers.wellstocked.ins"
-	}
+	"label": "友军工兵连队（补给充足）"
     },
 	
 	{
-	"id": "friend.engineers.wellstocked.ins", 
-	"$depends": [ "3753135571" ],
-	"$derives" : ["friend.engineers.ins"],
-	"label": "友军工兵连队（补给充足）",
-	"aspects": {
-	    "forge": 10,
-	    "knock": 10,
-	    "ins_soviet": 1,
-		"well.stocked" : 1
-	},
-	"lifetime": 180,
-	"decayTo": "friend.engineers.wellstocked",
-	"xtriggers$add": {
-		"adv_soviet": "friend.engineers.wellstocked.ins"
-	}
+	"id": "friend.engineers.wellstocked.ins",
+	"label": "友军工兵连队（补给充足）"
     },
 	
 	{
@@ -648,64 +157,19 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1,
-			"provisions" : 1
-		}
+		"label": "意图？"
 	}
-	],
-	"xtriggers$add": {
-		"giveallyprovisions" : "friend.bombers.inspired"
-	}
+	]
 	},
 	
 	{
 	"id": "friend.bombers.inspired",
-	"$derives" : ["friend.bombers"],
-	"label": "友军轰炸机中队（士气高涨）",
-	"icon": "friend.bombers",
-	"aspects": {
-	    "edge": 14,
-		"friend.inspired" : 1
-	},
-	"xtriggers$add": {
-		"adv_soviet": "friend.bombers.inspired.ins"
-	}
+	"label": "友军轰炸机中队（士气高涨）"
     },
 	
 	{
 	"id": "friend.bombers.inspired.ins",
-	"$depends": [ "3713855248" ],
-	"$derives" : ["friend.bombers.ins"],
-	"label": "友军轰炸机中队（士气高涨）",
-	"aspects": {
-	    "edge": 18,
-	    "ins_soviet": 1,
-		"friend.inspired" : 1
-	},
-	"xtriggers$add": {
-		"adv_soviet": "friend.bombers.inspired.ins"
-		},
-	"lifetime": 180,
-	"decayTo": "friend.bombers.inspired",
-    },
-	
-	{
-	"id": "friend.bombers.inspired.ins", 
-	"$depends": [ "3753135571" ],
-	"$derives" : ["friend.bombers.ins"],
-	"label": "友军轰炸机中队（士气高涨）",
-	"aspects": {
-	    "edge": 18,
-	    "ins_soviet": 1,
-		"friend.inspired" : 1
-	},
-	"xtriggers$add": {
-		"adv_soviet": "friend.bombers.inspired.ins"
-		},
-	"lifetime": 180,
-	"decayTo": "friend.bombers.inspired",
+	"label": "友军轰炸机中队（士气高涨）"
     },
 	
 	{
@@ -714,64 +178,19 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1,
-			"provisions" : 1
-		}
+		"label": "意图？"
 	}
-	],
-	"xtriggers$add": {
-		"giveallyprovisions" : "friend.artillery.inspired"
-	}
+	]
 	},
 	
 	{
 	"id": "friend.artillery.inspired",
-	"$derives" : ["friend.artillery"],
-	"label": "友军火炮（士气高涨）",
-	"icon": "friend.artillery",
-	"aspects": {
-	    "edge": 20,
-		"friend.inspired" : 1
-	},
-	"xtriggers$add": {
-		"adv_soviet": "friend.bombers.inspired.ins"
-	}
+	"label": "友军火炮（士气高涨）"
     },
 	
 	{
 	"id": "friend.artillery.inspired.ins",
-	"$depends": [ "3713855248" ],
-	"$derives" : ["friend.artillery.ins"],
-	"label": "友军火炮（士气高涨）",
-	"aspects": {
-	    "edge": 22,
-	    "ins_soviet": 1,
-		"friend.inspired" : 1
-	},
-	"xtriggers$add": {
-		"adv_soviet": "friend.artillery.inspired.ins"
-		},
-	"lifetime": 180,
-	"decayTo": "friend.artillery.inspired",
-    },
-	
-	{
-	"id": "friend.artillery.inspired.ins",
-	"$depends": [ "3753135571" ],
-	"$derives" : ["friend.artillery.ins"],
-	"label": "友军火炮（士气高涨）",
-	"aspects": {
-	    "edge": 22,
-	    "ins_soviet": 1,
-		"friend.inspired" : 1
-	},
-	"xtriggers$add": {
-		"adv_soviet": "friend.artillery.inspired.ins"
-		},
-	"lifetime": 180,
-	"decayTo": "friend.artillery.inspired",
+	"label": "友军火炮（士气高涨）"
     },
 	
 	{
@@ -780,10 +199,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -794,10 +210,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -808,10 +221,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -822,10 +232,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -836,10 +243,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -850,10 +254,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -864,10 +265,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -878,153 +276,40 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
-	},
-	
-	{
-	"id": "friend.doctor",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1, "op.fog" : 1, "op.storms" : 1, "op.velvet" : 1, "op.snows" : 1, "supplies.smokegrenade" : 1}}
-		}
-	},
-	
-	{
-	"id": "friend.doctor.hidden",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1 }}
-		}
-	},
-	
-	{
-	"id": "friend.lookout",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1, "op.fog" : 1, "op.storms" : 1, "op.velvet" : 1, "op.snows" : 1, "supplies.smokegrenade" : 1}}
-		}
-	},
-	
-	{
-	"id": "friend.lookout.hidden",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1 }}
-		}
-	},
-	
-	{
-	"id": "friend.labourer",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1, "op.fog" : 1, "op.storms" : 1, "op.velvet" : 1, "op.snows" : 1, "supplies.smokegrenade" : 1}}
-		}
-	},
-	
-	{
-	"id": "friend.labourer.hidden",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1 }}
-		}
-	},
-	
-	{
-	"id": "friend.gunman",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1, "op.fog" : 1, "op.storms" : 1, "op.velvet" : 1, "op.snows" : 1, "supplies.smokegrenade" : 1}}
-		}
-	},
-	
-	{
-	"id": "friend.gunman.hidden",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1 }}
-		}
-	},
-	
-	{
-	"id": "friend.dregsoldier",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1, "op.fog" : 1, "op.storms" : 1, "op.velvet" : 1, "op.snows" : 1, "supplies.smokegrenade" : 1}}
-		}
-	},
-	
-	{
-	"id": "friend.dregsoldier.hidden",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1 }}
-		}
-	},
-	
-	{
-	"id": "friend.dregscavengers",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1, "op.fog" : 1, "op.storms" : 1, "op.velvet" : 1, "op.snows" : 1, "supplies.smokegrenade" : 1}}
-		}
-	},
-	
-	{
-	"id": "friend.dregscavengers.hidden",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1 }}
-		}
-	},
-	
-	{
-	"id": "friend.dregarsonists",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1, "op.fog" : 1, "op.storms" : 1, "op.velvet" : 1, "op.snows" : 1, "supplies.smokegrenade" : 1}}
-		}
-	},
-	
-	{
-	"id": "friend.dregarsonists.hidden",
-	"slots$listedit": {
-	"0$dictedit" : { "required$add" : { "warzone" : 1 }}
-		}
 	},
 	
 	{
 	"id": "friend.adeptwinter", 
-	"$depends": [ "3269558395" ],
-	"slots": [
+	"slots$append": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
 	
 	{
-	"id": "friend.adeptgrail", 
-	"$depends": [ "3269558395" ],
-	"slots": [
+	"id": "friend.adeptgrail",
+	"slots$append": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
 	
 	{
-	"id": "friend.adeptlantern", 
-	"$depends": [ "3269558395" ],
-	"slots": [
+	"id": "friend.adeptlantern",
+	"slots$append": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1032,14 +317,11 @@
 	{
 	"id": "friend.adeptmoth", 
 	"$depends": [ "3269558395" ],
-	"slots": [
+	"slots$append": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1047,14 +329,11 @@
 	{
 	"id": "friend.adeptheart", 
 	"$depends": [ "3269558395" ],
-	"slots": [
+	"slots$append": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1062,14 +341,11 @@
 	{
 	"id": "friend.adeptknock", 
 	"$depends": [ "3269558395" ],
-	"slots": [
+	"slots$append": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1077,14 +353,11 @@
 	{
 	"id": "friend.adeptforge", 
 	"$depends": [ "3269558395" ],
-	"slots": [
+	"slots$append": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1092,14 +365,11 @@
 	{
 	"id": "friend.adepthistories", 
 	"$depends": [ "3269558395" ],
-	"slots": [
+	"slots$append": [
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1111,10 +381,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1126,10 +393,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1141,10 +405,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1156,10 +417,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1171,10 +429,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1186,10 +441,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1201,10 +453,7 @@
 	{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-			"warzone" : 1
-		}
+		"label": "意图？"
 	}
 	]
 	},
@@ -1212,456 +461,90 @@
     {
 	"id": "friend.godbuilder",
 	"label": "友军造神者部队（实验型）",
-	"icon": "friend.godbuilder",
 	"description": "一支由修习盗火术的政委——“造神者”——们组成的小队领导着这支步兵分队。他们在麾下战士们的武器与血肉中燃起辉煌的火焰。",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "forcesize": 4,
-	    "edge": 4,
-		"knock" : 4,
-		"lantern" : 4,
-		"forge" : 4,
-		"godbuildermarker" : 1,
-		"obdurantpromotiontrigger" : 1
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.godbuilder.exhausted",
-	    "killmortal": "friend.corpses",
-	    "killfriend": "friend.corpses",
-	    "makecasualty": "friend.godbuilder.wounded",
-		"giveallyprovisions" : "friend.godbuilder.inspired",
-		"godbuildertakecorpse" : "friend.godbuilder.boosted",
-	    "refresh": "friend.godbuilder",
-	    "refreshally": "friend.godbuilder",
-		"adv_soviet": "friend.godbuilder.ins",
-	    "becaptive": "foe.manhunters",
-	    "makeafraid": "friend.godbuilder.afraid",
-	    "makeweaken": "friend.godbuilder.weaken",
-	    "promotion": "friend.godbuilder.veteran"
-	},
 	"slots": [
 	    {
 		"id": "needsintent",
 		"actionid": "communicate",
-		"label": "意图",
-		"required": {
-		    "warzone": 1,
-		    "remnant": 1,
-			"provisions" : 1
-		}
+		"label": "意图"
 	    }
-	],
-	"decayTo": "friend.godbuilder"
+	]
     },
 	
     {
 	"id": "friend.godbuilder.exhausted",
-	"$extends" : ["friend.godbuilder"],
-	"label": "友军造神者部队（实验型——枯竭）",
-	"aspects": {
-		"friend" : 1,
-	    "exhausted": 1,
-	    "mortal": 1,
-	    "forcesize": 4,
-		"obdurantpromotiontrigger" : 1
-	},
-	"xtriggers$add": {
-	    "makeafraid": "friend.godbuilder.afraid.exhausted",
-	    "makeweaken": "friend.godbuilder.afraid.exhausted"
-	},
-	"lifetime": 120,
-	"resaturate": true
+	"label": "友军造神者部队（实验型——枯竭）"
     },
 	
     {
 	"id": "friend.godbuilder.wounded",
-	"$derives" : ["friend.godbuilder.exhausted"],
 	"label": "友军造神者部队（实验型——负伤）",
-	"icon": "friend.godbuilder.wounded",
-	"description": "[使用战地医师或战地医院治愈这一友军。]",
-	"aspects": {
-	    "wounded": 1
+	"description": "[使用战地医师或战地医院治愈这一友军。]"
 	},
-	"aspects$remove" : [
-	    "exhausted"
-		],
-	"xtriggers": {
-		"fatiguing": "friend.godbuilder.wounded",
-	    "makecasualty": "friend.corpses",
-		"refresh": "friend.godbuilder.wounded",
-	    "refreshally": "friend.godbuilder.wounded",
-	},
-	"decayTo": "friend.corpses"
-	},
-	
-	{
-	"id": "friend.godbuilder.ins",
-	"$derives" : ["friend.godbuilder"],
-	"aspects": {
-	    "edge": 6,
-		"knock" : 6,
-		"lantern" : 6,
-		"forge" : 6,
-	    "ins_soviet": 1
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.godbuilder.ins",
-		"giveallyprovisions" : "friend.godbuilder.boosted.inspired",
-		"godbuildertakecorpse" : "friend.godbuilder.boosted.ins",
-	    "refresh": "friend.godbuilder.ins",
-	    "refreshally": "friend.godbuilder.ins"
-		},
-	"lifetime": 180,
-	"decayTo": "friend.godbuilder",
-    },
 	
 	{
 	"id": "friend.godbuilder.boosted",
-	"$derives" : ["friend.godbuilder"],
-	"label": "友军造神者部队（实验型——强化）",
-	"aspects": {
-	    "edge": 8,
-		"knock" : 8,
-		"lantern" : 8,
-		"forge" : 8,
-		"boosted" : 1
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.godbuilder.boosted.inspired.ins",
-		"giveallyprovisions" : "friend.godbuilder.boosted.inspired",
-	    "refresh": "friend.godbuilder.boosted",
-	    "refreshally": "friend.godbuilder.boosted"
-		}
+	"label": "友军造神者部队（实验型——强化）"
     },
 	
 	{
 	"id": "friend.godbuilder.boosted.ins",
-	"$derives" : ["friend.godbuilder.boosted"],
-	"label": "友军造神者部队（实验型——强化）",
-	"aspects": {
-	    "edge": 10,
-		"knock" : 10,
-		"lantern" : 10,
-		"forge" : 10,
-	    "ins_soviet": 1,
-		"boosted" : 1
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.godbuilder.boosted.ins",
-		"giveallyprovisions" : "friend.godbuilder.boosted.inspired",
-	    "refresh": "friend.godbuilder.boosted.ins",
-	    "refreshally": "friend.godbuilder.boosted.ins"
-		},
-	"lifetime": 180,
-	"decayTo": "friend.godbuilder.boosted",
+	"label": "友军造神者部队（实验型——强化）"
     },
 	
 	{
 	"id": "friend.godbuilder.inspired",
-	"$derives" : ["friend.godbuilder"],
-	"label": "友军造神者部队（实验型——士气高涨）",
-	"aspects": {
-	    "edge": 6,
-		"knock" : 6,
-		"lantern" : 6,
-		"forge" : 6,
-		"friend.inspired" : 1
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.godbuilder.inspired.ins",
-		"godbuildertakecorpse" : "friend.godbuilder.boosted.inspired",
-	    "refresh": "friend.godbuilder.inspired",
-	    "refreshally": "friend.godbuilder.inspired"
-		}
+	"label": "友军造神者部队（实验型——士气高涨）"
     },
 	
 	{
 	"id": "friend.godbuilder.inspired.ins",
-	"$derives" : ["friend.godbuilder"],
-	"label": "友军造神者部队（实验型——士气高涨）",
-	"aspects": {
-	    "edge": 8,
-		"knock" : 8,
-		"lantern" : 8,
-		"forge" : 8,
-		"friend.inspired" : 1,
-	    "ins_soviet": 1
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.godbuilder.inspired.ins",
-		"godbuildertakecorpse" : "friend.godbuilder.boosted.inspired.ins",
-	    "refresh": "friend.godbuilder.inspired.ins",
-	    "refreshally": "friend.godbuilder.inspired.ins"
-		}
+	"label": "友军造神者部队（实验型——士气高涨）"
     },
 	
 	{
 	"id": "friend.godbuilder.boosted.ins",
-	"$derives" : ["friend.godbuilder.boosted"],
-	"label": "友军造神者部队（实验型——强化）",
-	"aspects": {
-	    "edge": 10,
-		"knock" : 10,
-		"lantern" : 10,
-		"forge" : 10,
-	    "ins_soviet": 1,
-		"boosted" : 1
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.godbuilder.boosted.ins",
-		"giveallyprovisions" : "friend.godbuilder.boosted.inspired.ins",
-	    "refresh": "friend.godbuilder.boosted.ins",
-	    "refreshally": "friend.godbuilder.boosted.ins"
-		},
-	"lifetime": 180,
-	"decayTo": "friend.godbuilder.boosted",
+	"label": "友军造神者部队（实验型——强化）"
     },
 	
 	{
 	"id": "friend.godbuilder.boosted.inspired",
-	"$derives" : ["friend.godbuilder.boosted"],
-	"label": "造神者部队（实验型——强化，士气高涨）",
-	"aspects": {
-	    "edge": 10,
-		"knock" : 10,
-		"lantern" : 10,
-		"forge" : 10
-	},
-	"xtriggers": {
-		"adv_soviet": "friend.godbuilder.boosted.inspired.ins",
-	    "refresh": "friend.godbuilder.boosted.inspired",
-	    "refreshally": "friend.godbuilder.boosted.inspired"
-		}
+	"label": "造神者部队（实验型——强化，士气高涨）"
     },
 	
 	{
 	"id": "friend.godbuilder.boosted.inspired.ins",
-	"$derives" : ["friend.godbuilder.boosted.ins"],
-	"label": "造神者部队（实验型——强化，士气高涨）",
-	"aspects": {
-	    "edge": 12,
-		"knock" : 12,
-		"lantern" : 12,
-		"forge" : 12,
-	    "ins_soviet": 1,
-		"friend.inspired" : 1
-	},
-	"decayTo": "friend.godbuilder.boosted.inspired",
-	"xtriggers": {
-		"adv_soviet": "friend.godbuilder.boosted.inspired.ins",
-	    "refresh": "friend.godbuilder.boosted.inspired.ins",
-	    "refreshally": "friend.godbuilder.boosted.inspired.ins"
-		}
+	"label": "造神者部队（实验型——强化，士气高涨）"
     },
-	
-    {
-	"id": "friend.godbuilder.weaken",
-	"$derives": ["friend.godbuilder"],
-	"aspects": {
-	    "edge": 3,
-		"knock" : 3,
-		"lantern" : 3,
-		"forge" : 3,
-	    "weakened": 1
-	},
-	"lifetime": 150,
-	"decayTo": "friend.godbuilder",
-	"xtriggers": {
-	    "fatiguing": "friend.godbuilder.weaken.exhausted",
-	    "makecasualty": "friend.godbuilder.afraid.wounded",
-	    "deweaken": "friend.godbuilder",
-	    "makeweaken": "friend.godbuilder.afraid"
-	}
-    },
-	
-    {
-	"id": "friend.godbuilder.afraid",
-	"$derives": ["friend.godbuilder"],
-	"aspects": {
-	    "edge": 2,
-		"knock" : 2,
-		"lantern" : 2,
-		"forge" : 2,
-	    "friend.weakened": 1
-	},
-	"lifetime": 300,
-	"decayTo": "friend.godbuilder.weaken",
-	"xtriggers": {
-	    "fatiguing": "friend.godbuilder.afraid.exhausted",
-	    "makecasualty": "friend.godbuilder.afraid.wounded",
-	    "refresh": "friend.godbuilder.weaken",
-	    "refreshally": "friend.godbuilder.weaken",
-	    "deweaken": "friend.godbuilder.weaken",
-	    "makeafraid": "friend.godbuilder.afraid",
-	    "makeweaken": "friend.godbuilder.afraid"
-	}
-    },
-	
-    {
-	"id" : "friend.godbuilder.weaken.exhausted",
-	"$derives": ["friend.godbuilder.exhausted"],
-	"xtriggers": {
-	    "fatiguing": "friend.godbuilder.weaken.exhausted",
-	    "makecasualty": "friend.godbuilder.afraid.wounded",
-	    "refresh": "friend.godbuilder.weaken",
-	    "refreshally": "friend.godbuilder.weaken"
-	},
-	"lifetime": 120,
-	"decayTo": "friend.godbuilder.weaken"
-    },
-	
-    {
-	"id" : "friend.godbuilder.afraid.exhausted",
-	"$derives": ["friend.godbuilder.exhausted"],
-	"aspects": {
-		"friend.weakened": 1
-	},
-	"xtriggers": {
-	    "fatiguing": "friend.godbuilder.afraid.exhausted",
-	    "makecasualty": "friend.godbuilder.afraid.wounded",
-	    "refresh": "friend.godbuilder.afraid",
-	    "refreshally": "friend.godbuilder.afraid"
-	},
-	"lifetime": 120,
-	"decayTo": "friend.godbuilder.weaken"
-    },
-	
-    {
-	"id": "friend.godbuilder.afraid.wounded",
-	"$derives": ["friend.godbuilder.wounded"],
-	"aspects": {
-		"friend.weakened": 1
-	},
-	"xtriggers": {
-	    "restorehealth": "friend.godbuilder.afraid"
-	}
-	},
 	
     {
 	"id": "friend.veteran",
 	"label": "友军永役兵",
-	"icon": "friend.veteran",
 	"description": "战争还在继续，士兵自当继续履行他们的职责。",
-	"aspects": {
-	    "friend": 1,
-	    "otherworldly": 1,
-	    "edge": 8,
-	    "winter": 8,
-		"lantern" : 4,
-		"isveteran" : 1,
-		"canhide" : 1,
-		"forceshakedown" : 1
-	},
-	"xtriggers": {
-	    "killfriend": "mem.grief",
-	    "makecasualty": "friend.veteran.wounded",
-	    "refresh": "friend.veteran",
-		"adv_soviet": "friend.veteran.ins",
-		"concealidentity" : "friend.veteran.hidden",
-		"fatiguing" : "friend.veteran"
-	},
 	"slots": [
 		{
 		"id": "intent",
 		"actionid": "communicate",
-		"label": "意图？",
-		"required": {
-		    "op.time.night": 1,
-		    "op.woods": 1,
-		    "op.ruins": 1,
-		    "op.sewers": 1,
-			"op.fog" : 1,
-			"op.snows" : 1,
-			"op.storms" : 1,
-			"op.velvet" : 1,
-			"warzone" : 1,
-			"supplies.smokegrenade" : 1
-			}
+		"label": "意图？"
 		},
 		
 		{
 		"id": "needswarzone",
 		"actionid": "operate",
-		"label": "战区",
-		"required": {
-		    "warzone.current": 1
-		},
-		"forbidden": {
-		    "wasteland": 1
-		}
+		"label": "战区"
 	    }
 	]
     },
 	
 	{
-	"id": "friend.veteran.ins",
-	"$derives" : ["friend.veteran"],
-	"aspects": {
-	    "edge": 14,
-	    "winter": 14,
-	    "lantern": 10,
-	    "ins_soviet": 1
-	},
-	"lifetime": 180,
-	"decayTo": "friend.veteran",
-	"xtriggers": {
-	    "refresh": "friend.veteran.ins",
-		"concealidentity" : "friend.veteran.hidden.ins"
-	}
-    },
-	
-	{
 	"id": "friend.veteran.hidden",
-	"$derives" : ["friend.veteran"],
-	"label": "友军永役兵（隐匿）",
-	"aspects": {
-	    "edge": 12,
-	    "winter": 12,
-	    "lantern": 8,
-	    "friend.hidden": 1
-		},
-	"xtriggers": {
-	    "refresh": "friend.veteran.hidden",
-		"adv_soviet": "friend.veteran.hidden.ins",
-	},
-	"decayTo": "friend.veteran.hidden",
-	"icon": "friend.veteran.hidden"
-    },
-	
-	{
-	"id": "friend.veteran.hidden.ins",
-	"$derives" : ["friend.veteran.hidden"],
-	"aspects": {
-	    "edge": 18,
-	    "winter": 18,
-	    "lantern": 14,
-	    "ins_soviet": 1
-	},
-	"lifetime": 180,
-	"xtriggers": {
-	    "refresh": "friend.veteran.hidden.ins"
-	}
+	"label": "友军永役兵（隐匿）"
     },
 	
     {
 	"id": "friend.veteran.wounded",
 	"label": "友军永役兵（负伤）",
-	"description": "[使用冬之学徒，神圣义肢，或使节祷文治愈这一友军。]",
-	"aspects": {
-	    "friend": 1,
-	    "mortal": 1,
-	    "decaying": 1,
-		"exhausted" : 1
-	},
-	"xtriggers": {
-	    "killfriend": "mem.grief",
-	    "makecasualty": "mem.grief",
-	    "restorehealth": "friend.veteran"
-		},
-	"lifetime": 400,
-	"decayTo": "mem.grief",
-	"icon": "friend.veteran.wounded"
+	"description": "[使用冬之学徒，神圣义肢，或使节祷文治愈这一友军。]"
     }
 	
 ]

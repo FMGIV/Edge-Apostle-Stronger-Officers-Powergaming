@@ -1,0 +1,1066 @@
+{
+"elements": [
+	
+	{
+	"id": "lake.here", 
+	"$depends": [ "3713855248" ],
+	"induces": [
+	    {
+		"id": "lake.monster.cycle"
+	    }
+	]
+	},
+	
+	{
+	"id": "ebrehel.umiri",
+	"label": "Ebrehel, the Ragged Sword",
+	"description": "Scarsword, Gatemaker, Orphan; Lake-Gift and Godsickle and Deserter. It has known many hands, and yet it was never wielded for the purpose it was intended. Perhaps that is why it wanders from warrior to warrior: in the hope that one will remember why its blade was forged so keenly. [Kill Von Helling to get the sword. This counts as 3 Foe Resolution.]",
+	"aspects": {
+	    "foe.resolution": 3
+	}
+	},
+	
+    {
+	"id": "flock.clue.umiri",
+	"label": "Whispers on Wings",
+	"description": "The chatter of the birds around the lake-grove might lead us to the keeper of the Ragged Sword. We need to consolidate more wing-rumour and flock-chatter before a path presents itself.",
+	"lifetime" : 1
+	},
+	
+	{
+	"id": "friend.sniper.hidden.ins", 
+	"$depends": [ "3713855248" ],
+	"$derives" : ["friend.sniper.ins"],
+	"label": "Ally Sniper (Hidden)",
+	"aspects": {
+		"friend.hidden": 1,
+	    "edge": 14,
+	    "winter": 12,
+	    "lantern": 12,
+	    "ins_soviet": 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.sniper.hidden.ins"
+	},
+	"lifetime": 180,
+	"icon": "friend.sniper.hidden",
+	"decayTo": "friend.sniper.hidden",
+    },
+	
+	{
+	"id": "friend.militia.hidden.ins", 
+	"$depends": [ "3713855248" ],
+	"$derives" : ["friend.militia.ins"],
+	"label": "Ally Militia (Hidden)",
+	"aspects": {
+		"friend.hidden": 1,
+	    "edge": 10,
+	    "heart": 8,
+	    "ins_soviet": 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.militia.hidden.ins"
+	},
+	"lifetime": 180,
+	"icon": "friend.militia.hidden",
+	"decayTo": "friend.militia.hidden",
+    },
+	
+	{
+	"id": "friend.infantry.weaken.exhausted",
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"maxpromotion" : "friend.unstoppable.infantry",
+		"partialpromotion" : "friend.empowered.infantry",
+		"minorpromotion" : "friend.lonesoldier"
+		}
+	},
+	
+	{
+	"id": "friend.infantry.afraid.exhausted",
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"maxpromotion" : "friend.unstoppable.infantry",
+		"partialpromotion" : "friend.empowered.infantry",
+		"minorpromotion" : "friend.lonesoldier"
+		}
+	},
+	
+	{
+	"id": "friend.infantry.inspired.ins",
+	"$depends": [ "3713855248" ],
+	"$derives" : ["friend.infantry.ins"],
+	"label": "Ally Infantry (Inspired)",
+	"aspects": {
+	    "edge": 10,
+	    "ins_soviet": 1,
+		"friend.inspired" : 1
+	},
+	"xtriggers$add": {
+		"adv_soviet": "friend.infantry.inspired.ins"
+		},
+	"lifetime": 180,
+	"decayTo": "friend.infantry.inspired",
+    },
+	
+	{
+	"id": "friend.tanks.inspired.ins",
+	"$depends": [ "3713855248" ],
+	"$derives" : ["friend.tanks.ins"],
+	"label": "Ally Tanks (Inspired)",
+	"aspects": {
+	    "forge": 8,
+	    "edge": 16,
+	    "ins_soviet": 1,
+		"friend.inspired" : 1
+	},
+	"xtriggers$add": {
+		"adv_soviet": "friend.tanks.inspired.ins"
+		},
+	"lifetime": 180,
+	"decayTo": "friend.tanks.inspired",
+    },
+	
+	{
+	"id": "friend.engineers.wellstocked.ins",
+	"$depends": [ "3713855248" ],
+	"$derives" : ["friend.engineers.ins"],
+	"label": "Ally Engineers (Stocked up)",
+	"aspects": {
+	    "forge": 10,
+	    "knock": 10,
+	    "ins_soviet": 1,
+		"well.stocked" : 1
+	},
+	"lifetime": 180,
+	"decayTo": "friend.engineers.wellstocked",
+	"xtriggers$add": {
+		"adv_soviet": "friend.engineers.wellstocked.ins"
+	}
+    },
+	
+	{
+	"id": "friend.bombers.inspired.ins",
+	"$depends": [ "3713855248" ],
+	"$derives" : ["friend.bombers.ins"],
+	"label": "Ally Bombers (Inspired)",
+	"aspects": {
+	    "edge": 18,
+	    "ins_soviet": 1,
+		"friend.inspired" : 1
+	},
+	"xtriggers$add": {
+		"adv_soviet": "friend.bombers.inspired.ins"
+		},
+	"lifetime": 180,
+	"decayTo": "friend.bombers.inspired",
+    },
+	
+	{
+	"id": "friend.artillery.inspired.ins",
+	"$depends": [ "3713855248" ],
+	"$derives" : ["friend.artillery.ins"],
+	"label": "Ally Artillery (Inspired)",
+	"aspects": {
+	    "edge": 22,
+	    "ins_soviet": 1,
+		"friend.inspired" : 1
+	},
+	"xtriggers$add": {
+		"adv_soviet": "friend.artillery.inspired.ins"
+		},
+	"lifetime": 180,
+	"decayTo": "friend.artillery.inspired",
+    },
+	
+	{
+	"id": "foe.infantry.ins", 
+	"$depends": [ "3713855248" ],
+	"aspects$add" : {"foe.coordinated.comms.marker":1},
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.braced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.infantry.environment.ins", 
+	"$depends": [ "3713855248" ],
+	"aspects$add" : {"foe.coordinated.comms.marker":1},
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.braced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.kommando.ins", 
+	"$depends": [ "3713855248" ],
+	"aspects$add" : {"foe.coordinated.comms.marker":1},
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "kommando.retaliatory",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.kommando.environment.ins", 
+	"$depends": [ "3713855248" ],
+	"aspects$add" : {"foe.coordinated.comms.marker":1},
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "kommando.retaliatory",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.sniper.ins", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.emplaced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.sniper.environment.ins", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.emplaced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.tanks.ins", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.hulldown",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.bombers.ins", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.escorted",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.fighter_aircraft", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.escorted",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.fighter_aircraft.ins", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.escorted",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.artillery.ins", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.emplaced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.manhunters.ins", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.resilient",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.manhunters.environment.ins", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.resilient",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.fighter_aircraft.exhausted", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"provisionrefresh": "friend.fighter_aircraft"
+		}
+	},
+	
+	{
+	"id": "friend.galika.exhausted", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"provisionrefresh": "friend.galika"
+		}
+	},
+	
+	{
+	"id": "friend.engineers.ins", 
+	"$depends": [ "3713855248" ],
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.engineers.wellstocked.ins"
+		}
+	},
+	
+	{
+	"id": "friend.infantry.ins", 
+	"$depends": [ "3713855248" ],
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.infantry.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.infantry.afraid.wounded", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"promotion": "friend.adept.infantry"
+		},
+	"aspects$add": {
+	    "obdurantpromotiontrigger": 1
+		}
+    },
+	
+	{
+	"id": "friend.tanks.ins", 
+	"$depends": [ "3713855248" ],
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.tanks.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.artillery.ins", 
+	"$depends": [ "3713855248" ],
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.artillery.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.bombers.ins", 
+	"$depends": [ "3713855248" ],
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.bombers.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.fighter_aircraft", 
+	"$depends": [ "3713855248" ],
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.fighter_aircraft.inspired"
+		}
+	},
+	
+	{
+	"id": "friend.fighter_aircraft.inspired", 
+	"$depends": [ "3713855248" ],
+	"$derives" : ["friend.fighter_aircraft"],
+	"label": "Ally Fighter Aircraft (Inspired)",
+	"icon": "friend.fighter_aircraft",
+	"aspects": {
+	    "edge": 18,
+		"friend.inspired" : 1
+	},
+	"xtriggers$add": {
+		"adv_soviet": "friend.fighter_aircraft.inspired.ins",
+		}
+    },
+	
+	{
+	"id": "friend.fighter_aircraft.ins", 
+	"$depends": [ "3713855248" ],
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.fighter_aircraft.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.fighter_aircraft.inspired.ins", 
+	"$depends": [ "3713855248" ],
+	"$derives" : ["friend.fighter_aircraft.ins"],
+	"label": "Ally Fighter Aircraft (Inspired)",
+	"aspects": {
+	    "edge": 20,
+		"friend.inspired" : 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.fighter_aircraft.inspired.ins"
+		},
+	"decayTo": "friend.fighter_aircraft.inspired",
+    },
+	
+	{
+	"id": "friend.militia.ins", 
+	"$depends": [ "3713855248" ],
+	"aspects$add": {
+	    "canhide": 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"concealidentity" : "friend.militia.hidden.ins"
+		}
+	},
+	
+	{
+	"id": "friend.militia.weaken.exhausted", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"maxpromotion" : "friend.unstoppable.infantry",
+		"partialpromotion" : "friend.empowered.infantry",
+		"minorpromotion" : "friend.lonesoldier"
+		}
+	},
+	
+	{
+	"id": "friend.sniper.ins", 
+	"$depends": [ "3713855248" ],
+	"aspects$add": {
+	    "canhide": 1
+	},
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"concealidentity" : "friend.sniper.hidden.ins"
+		}
+	},
+	
+	{
+	"id": "friend.sniper.afraid.wounded", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+		"promotion": "friend.sniper.sightless"
+		},
+	"aspects$add": {
+	    "obdurantpromotiontrigger": 1
+		}
+    },
+	
+	{
+	"id": "foe.chasseur", 
+	"$depends": [ "3713855248" ],
+	"aspects$remove" : [
+	    "neutral_monster"
+		],
+	},
+	
+	{
+	"id": "foe.chasseur.hidden", 
+	"$depends": [ "3713855248" ],
+	"aspects$remove" : [
+	    "neutral_monster"
+		],
+	},
+	
+	{
+	"id": "foe.chasseur.environment", 
+	"$depends": [ "3713855248" ],
+	"aspects$remove" : [
+	    "neutral_monster"
+		],
+	},
+	
+	{
+	"id": "foe.chasseur.environment.hidden", 
+	"$depends": [ "3713855248" ],
+	"aspects$remove" : [
+	    "neutral_monster"
+		],
+	},
+	
+	{
+	"id": "vilna", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.vilna",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "bialystok", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.bialystok",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "countdownpincer",
+		    "morpheffect": "spawn",
+		    "level": 24
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "minsk", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.minsk",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "countdownpincer",
+		    "morpheffect": "spawn",
+		    "level": 24
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "vitebsk", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.vitebsk",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "countdownpincer",
+		    "morpheffect": "spawn",
+		    "level": 20
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "orsha", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.orsha",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "smolensk", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.smolensk",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "countdownpincer",
+		    "morpheffect": "spawn",
+		    "level": 20
+			},
+			
+			{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "vyazma", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.vyazma",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "countdownpincer",
+		    "morpheffect": "spawn",
+		    "level": 18
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "rzhev", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.rzhev",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "countdownpincer",
+		    "morpheffect": "spawn",
+		    "level": 18
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "bryansk", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.bryansk",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "countdownpincer",
+		    "morpheffect": "spawn",
+		    "level": 18
+			},
+			
+			{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "kyiv", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.kyiv",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "countdownpincer",
+		    "morpheffect": "spawn",
+		    "level": 16
+			},
+			
+			{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "long.execution",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "kursk", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.kursk",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "livny", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.livny",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "voronezh", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.voronezh",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "countdownpincer",
+		    "morpheffect": "spawn",
+		    "level": 16
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "kharkov", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.kharkov",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "countdownpincer",
+		    "morpheffect": "spawn",
+		    "level": 16
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "uman", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.uman",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "countdownpincer",
+		    "morpheffect": "spawn",
+		    "level": 16
+			},
+			
+			{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "odessa", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.odessa",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "perekop", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.perekop",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "izyum", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.izyum",
+		    "morpheffect": "spawn",
+		    "level": 1
+			},
+			
+			{
+		    "id": "countdownpincer",
+		    "morpheffect": "spawn",
+		    "level": 16
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "stalingrad", 
+	"$depends": [ "3713855248" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "nya.purple.unknown.stalingrad",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	}
+	
+	
+]
+}

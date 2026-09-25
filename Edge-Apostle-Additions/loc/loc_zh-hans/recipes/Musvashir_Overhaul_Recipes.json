@@ -1,666 +1,126 @@
 {
 "recipes": [
-
-	{
-	"id": "duelling.longattack.feint",
-	"$extends" : ["duelling.longattack"],
-	"warmup": 20,
-	"linked": [
-		{
-		"id": "duelling.successful.feint"
-	    },
-		
-	    {
-		"id": "duelling.failed.feint"
-	    }
-	],
-	"alt" : []
-	},
 	
 	{
 	"id": "duelling.failed.feint",
 	"label": "一次失败的佯攻",
     "startdescription": "我没有被刃之长生者的佯攻所欺骗。他们继续周旋着，寻找我的破绽。",
-    "description": "于是我们也继续与其周旋。",
-	"warmup": 10,
-	"linked": [
-	    {
-		"id": "duelling.clear"
-	    }
-	]
+    "description": "于是我们也继续与其周旋。"
 	},
 	
 	{
 	"id": "duelling.successful.feint",
 	"label": "一次成功的佯攻",
     "startdescription": "我对一次虚假的进攻采取了防御。这一不明智的举动让刃之长生者得以迅速逼近，进攻我的破绽——",
-    "description": "我最好还能奋起抵抗。",
-	"warmup": 5,
-	"grandReqs" : {
-	"[edge] || [lantern] || [winter] || [heart]" : 1,
-	"([edge] >= [needsedge]) || ([lantern] >= [needslantern]) || ([winter] >= [needswinter]) || [skill.deflect]" : 1
-	},
-	"linked": [
-	    {
-		"id": "duelling.longattack"
-	    }
-	],
-	"aspects": {
-	    "fatiguing": 1
-	},
-	"inductions": [
-	    {
-		"id": "eject.exhausted",
-	 	"expulsion": {
-		    "limit": 99,
-		    "filter": {
-			"exhausted": 1,
-			"husk": 1,
-		    	"edge": 1,
-		    	"winter": 1,
-		    	"heart": 1,
-		    	"grail": 1,
-		    	"moth": 1,
-		    	"lantern": 1,
-		    	"forge": 1,
-		    	"knock": 1
-		    }
-		}
-	    }
-	]
+    "description": "我最好还能奋起抵抗。"
 	},
 	
     {
 	"id": "duelling.respond.lantern",
-	"$extends" : ["duelling.respond.edge"],
 	"label": "心眼通透",
-    "startdescription": "上校目盲，但无物可逃离上校的关注。战争制造者带来的高温蒸汽阻断了我的视觉，但我的每一种感官皆敏锐无比。在被他近身之前我便作出反应，挡下了这一击。",
-	"requirements": {
-	    "needslantern": 1,
-	    "lantern": "needslantern"
-	},
-	"warmup" : 5
-    },
-	
-    {
-	"id": "duelling.skill.deflect.proterant",
-	"$extends" : ["duelling.skill.deflect"],
-	"inductions$prepend": [
-	    {
-		"id": "produce.opening.camilla",
-		"chance" : 40
-	    }
-	],
-	"linked": [
-	    {
-		"id": "duelling.clear.proterant"
-	    }
-	]
+    "startdescription": "上校目盲，但无物可逃离上校的关注。战争制造者带来的高温蒸汽阻断了我的视觉，但我的每一种感官皆敏锐无比。在被他近身之前我便作出反应，挡下了这一击。"
     },
 	
     {
 	"id": "duelling.respond.edgelantern",
-	"$extends" : ["duelling.respond.edge"],
 	"label": "智慧与狡诈",
-    "startdescription": "即使浓密的蒸汽环绕战场，我仍然能察觉并回应战争制造者的每一次进攻，他的每记重拳都尽数落空。",
-	"requirements": {
-	    "needsedgelantern": 1,
-	    "edge": "needsedgelantern",
-	    "lantern": "needsedgelantern"
-	},
-	"warmup" : 5
+    "startdescription": "即使浓密的蒸汽环绕战场，我仍然能察觉并回应战争制造者的每一次进攻，他的每记重拳都尽数落空。"
     },
-	
-	{
-	"id": "duelling.longattack.feint.proterant",
-	"$extends" : ["duelling.longattack.proterant"],
-	"warmup": 20,
-	"linked": [
-		{
-		"id": "duelling.successful.feint.proterant"
-	    },
-		
-	    {
-		"id": "duelling.failed.feint.proterant"
-	    }
-	],
-	"alt" : []
-	},
-	
-	{
-	"id": "duelling.failed.feint.proterant",
-	"$extends" : ["duelling.failed.feint"],
-	"linked": [
-	    {
-		"id": "duelling.clear.proterant"
-	    }
-	]
-	},
-	
-	{
-	"id": "duelling.successful.feint.proterant",
-	"$extends" : ["duelling.successful.feint"],
-	"grandReqs" : {
-	"[edge] || [forge] || [heart]" : 1,
-	"([edge] >= [needsedge]) || ([forge] >= [needsforge]) || ([heart] >= [needsheart]) || [skill.deflect]" : 1
-	},
-	"linked": [
-	    {
-		"id": "duelling.longattack.proterant"
-	    }
-	]
-	},
 	
     {
 	"id": "duelling.respond.heart.proterant",
-	"$extends" : ["duelling.respond.edge.proterant"],
 	"label": "心之守御",
-    "startdescription": "如狮子匠挑战其敌手，我亦将继续挑战大陆之敌。我的心是如此渴望战胜她，我的反抗仍将继续。",
-	"requirements": {
-	    "needsheart": 1,
-	    "heart": "needsheart"
-	},
-	"warmup" : 5
+    "startdescription": "如狮子匠挑战其敌手，我亦将继续挑战大陆之敌。我的心是如此渴望战胜她，我的反抗仍将继续。"
     },
 	
     {
 	"id": "duelling.respond.edgeheart.proterant",
-	"$extends" : ["duelling.respond.edge.proterant"],
 	"label": "勇气与力量",
-    "startdescription": "我的血液可不会就此凝滞。我的肉体在大陆之敌的无情攻势下仍完好无损。",
-	"requirements": {
-	    "needsedgeheart": 1,
-	    "edge": "needsedgeheart",
-	    "heart": "needsedgeheart"
-	},
-	"warmup" : 5
+    "startdescription": "我的血液可不会就此凝滞。我的肉体在大陆之敌的无情攻势下仍完好无损。"
     },
-	
-	{
-	"id": "exile.feint",
-	"$extends" : ["exile.attacks"],
-	"warmup": 20,
-	"linked": [
-		{
-		"id": "exile.successful.feint"
-	    },
-		
-	    {
-		"id": "exile.failed.feint"
-	    }
-	],
-	"alt" : []
-	},
-	
-	{
-	"id": "exile.failed.feint",
-	"$extends" : ["duelling.failed.feint"],
-	"linked": [
-	    {
-		"id": "exile.bossfight.clear"
-	    }
-	]
-	},
-	
-	{
-	"id": "exile.successful.feint",
-	"$extends" : ["duelling.successful.feint"],
-	"grandReqs" : {
-	"[edge] || [grail]" : 1,
-	"([edge] >= [needsedge]) || ([grail] >= [needsgrail])" : 1
-	},
-	"linked": [
-	    {
-		"id": "exile.attacks"
-	    }
-	]
-	},
-	
-	{
-	"id": "foe.feint",
-	"$extends" : ["foe.attacks"],
-	"warmup": 20,
-	"linked": [
-		{
-		"id": "foe.successful.feint"
-	    },
-		
-	    {
-		"id": "foe.failed.feint"
-	    }
-	],
-	"alt" : []
-	},
-	
-	{
-	"id": "foe.failed.feint",
-	"$extends" : ["duelling.failed.feint"],
-	"linked": [
-	    {
-		"id": "foe.bossfight.clear"
-	    }
-	]
-	},
-	
-	{
-	"id": "foe.successful.feint",
-	"$extends" : ["duelling.successful.feint"],
-	"grandReqs" : {
-	"[edge] || [lantern]" : 1,
-	"([edge] >= [needsedge]) || ([lantern] >= [needslantern])" : 1
-	},
-	"linked": [
-	    {
-		"id": "foe.attacks"
-	    }
-	]
-	},
-	
-	{
-	"id": "sergei.feint",
-	"$extends" : ["fightingsergei.longattack"],
-	"warmup": 20,
-	"linked": [
-		{
-		"id": "sergei.successful.feint"
-	    },
-		
-	    {
-		"id": "sergei.failed.feint"
-	    }
-	],
-	"alt" : []
-	},
-	
-	{
-	"id": "sergei.failed.feint",
-	"$extends" : ["duelling.failed.feint"],
-	"linked": [
-	    {
-		"id": "fightingsergei.clear"
-	    }
-	]
-	},
-	
-	{
-	"id": "sergei.successful.feint",
-	"$extends" : ["duelling.successful.feint"],
-	"grandReqs" : {
-	"[edge] || [forge]" : 1,
-	"([edge] >= [needsedge]) || ([forge] >= [needsforge])" : 1
-	},
-	"linked": [
-	    {
-		"id": "fightingsergei.longattack"
-	    }
-	]
-	},
 	
     {
 	"id": "wilhelm.usechallenge",
 	"label": "一了百了",
-    "startdescription": "“哦？正面过来了吗？不选择逃跑，反而主动接近我吗？<i>是条好汉。</i>\n\n[一旦你开始这场战斗，便无法回头。]",
-	"requirements": {
-		"challenge" : 1
-	},
-	"extantreqs" : {
-		"foe.wilhelm": 1
-	},
-	"effects": {
-	    "long.bossfight.marker": 1
-	},
-	"linked": [
-	    {
-		"id": "intro.bossfight.wilhelm"
-	    }
-	]
+    "startdescription": "“哦？正面过来了吗？不选择逃跑，反而主动接近我吗？<i>是条好汉。</i>\n\n[一旦你开始这场战斗，便无法回头。]"
     },
 	
     {
 	"id": "intro.bossfight.wilhelm",
-	"label": "对抗不朽者",
-	"actionid": "long.wilhelm",
-	"startdescription": "",
-	"requirements": {
-	    "foe.wilhelm": 1
-	},
-	"effects": {
-	    "long.bossfight.marker": 1
-	},
-	"linked": [
-	    {
-		"id": "duelling.longattack.pre"
-	    }
-	]
+	"label": "对抗不朽者"
     },
 	
     {
 	"id": "camilla.usechallenge",
 	"label": "勇猛无畏",
-    "startdescription": "“真是令人惊叹的勇猛，或许你确实值得我花些时间对付。”\n\n[一旦你开始这场战斗，便无法回头。]",
-	"requirements": {
-		"challenge" : 1
-	},
-	"extantreqs" : {
-		"foe.camilla": 1
-	},
-	"effects": {
-	    "long.bossfight.marker": 1
-	},
-	"linked": [
-	    {
-		"id": "intro.bossfight.camilla"
-	    }
-	]
+    "startdescription": "“真是令人惊叹的勇猛，或许你确实值得我花些时间对付。”\n\n[一旦你开始这场战斗，便无法回头。]"
     },
 	
     {
 	"id": "intro.bossfight.camilla",
-	"label": "对抗不朽者",
-	"startdescription": "",
-	"requirements": {
-	    "foe.camilla": 1
-	},
-	"effects": {
-	    "long.bossfight.marker": 1
-	},
-	"linked": [
-	    {
-		"id": "duelling.longattack.pre.proterant"
-	    }
-	]
+	"label": "对抗不朽者"
     },
 	
     {
 	"id": "summon.camilla.musicstart",
-	"actionid": "long.camilla",
 	"label": "同仇敌忾",
-    "startdescription": "“所以这就是你四处闲逛而不来找我的原因对吗，<i>亲爱的</i>。我会先把这个小妖精宰了再教训你一顿。”",
-	"effects": {
-	    "camilla": 1,
-		"long.bossfight.marker": 1
-	},
-	"extantreqs": {
-	    "wound.wilhelm": 1,
-	    "camilla": -1
-	},
-	"linked": [
-	    {
-		"id": "summoncamilla"
-	    }
-	],
-	"playAudioTrack": "continentalduel.mp3"
+    "startdescription": "“所以这就是你四处闲逛而不来找我的原因对吗，<i>亲爱的</i>。我会先把这个小妖精宰了再教训你一顿。”"
     },
 	
     {
 	"id": "summoncamilla",
-	"actionid": "long.camilla",
 	"label": "同仇敌忾",
-    "startdescription": "“所以这就是你四处闲逛而不来找我的原因对吗，<i>亲爱的</i>。我会先把这个小妖精宰了再教训你一顿。”",
-	"linked": [
-	    {
-		"id": "duelling.cycle.proterant"
-	    }
-	],
-	"warmup": 15
+    "startdescription": "“所以这就是你四处闲逛而不来找我的原因对吗，<i>亲爱的</i>。我会先把这个小妖精宰了再教训你一顿。”"
     },
 	
     {
 	"id": "summon.wilhelm.musicstart",
-	"actionid": "long.wilhelm",
 	"label": "同仇敌忾",
-    "startdescription": "“你的无畏令人钦佩，勇猛的战士。只可惜，这是我的<i>宝贝儿</i>，我的，不是你的。”",
-	"effects": {
-	    "wilhelm": 1,
-		"long.bossfight.marker": 1
-	},
-	"extantreqs": {
-	    "wound.camilla": 1,
-	    "wilhelm": -1
-	},
-	"linked": [
-	    {
-		"id": "summonwilhelm"
-	    }
-	],
-	"playAudioTrack": "warmakerduel.mp3"
+    "startdescription": "“你的无畏令人钦佩，勇猛的战士。只可惜，这是我的<i>宝贝儿</i>，我的，不是你的。”"
     },
 	
     {
 	"id": "summonwilhelm",
-	"actionid": "long.wilhelm",
 	"label": "同仇敌忾",
-    "startdescription": "“你的无畏令人钦佩，勇猛的战士。只可惜，这是我的<i>宝贝儿</i>，我的，不是你的。”",
-	"linked": [
-	    {
-		"id": "duelling.cycle"
-	    }
-	],
-	"warmup": 15
-    },
-	
-    {
-	"id": "produce.opening.wilhelm",
-	"$extends" : ["produce.opening"],
-	"extantreqs" : { "foe.wilhelm" : 1},
-	"grandreqs" : {},
-	"effects": {
-	    "long.opening.wilhelm": 1
-		}
-    },
-	
-    {
-	"id": "produce.opening.camilla",
-	"$extends" : ["produce.opening"],
-	"grandreqs" : {},
-	"extantreqs" : { "foe.camilla" : 1},
-	"effects": {
-	    "long.opening.camilla": 1
-		}
+    "startdescription": "“你的无畏令人钦佩，勇猛的战士。只可惜，这是我的<i>宝贝儿</i>，我的，不是你的。”"
     },
 	
     {
 	"id": "operate.strike.wilhelm.pre",
-	"$extends" : ["operate.strike.sergei.pre"],
-	"label": "发动一次不可能的攻击",
-	"extantreqs": {
-	    "foe.wilhelm": 1
-	},
-	"requirements": {
-	    "long.opening.wilhelm": 3
-	},
-	"effects": {
-	    "long.breakthrough.challenge": 1
-	},
-	"linked": [
-	    {
-		"id": "operate.strike.wilhelm"
-	    }
-	]
+	"label": "发动一次不可能的攻击"
     },
 	
     {
 	"id": "operate.strike.wilhelm",
-	"$extends" : ["operate.strike.sergei"],
-	"label": "发动一次不可能的攻击",
-	"linked": [
-		{
-		"id": "operate.strike.wilhelm.failure",
-		"chance" : 20
-	    },
-		
-	    {
-		"id": "operate.strike.wilhelm.success"
-	    }
-	],
-	"alt" : []
-    },
-	
-    {
-	"id": "operate.strike.wilhelm.success",
-	"$extends" : ["operate.strike.sergei.success"],
-	"effects": {
-	    "wound.wilhelm": 1,
-	    "long.opening.wilhelm": -2
-		}
-    },
-	
-    {
-	"id": "operate.strike.wilhelm.failure",
-	"$extends" : ["operate.strike.sergei.failure"],
-	"effects": {
-	    "long.opening.wilhelm": -2
-		}
+	"label": "发动一次不可能的攻击"
     },
 	
     {
 	"id": "operate.strike.camilla.pre",
-	"$extends" : ["operate.strike.sergei.pre"],
-	"label": "发动一次不可能的攻击",
-	"extantreqs": {
-	    "foe.camilla": 1
-	},
-	"requirements": {
-	    "long.opening.camilla": 3
-	},
-	"effects": {
-	    "long.breakthrough.challenge": 1
-	},
-	"linked": [
-	    {
-		"id": "operate.strike.camilla"
-	    }
-	]
+	"label": "发动一次不可能的攻击"
     },
 	
     {
 	"id": "operate.strike.camilla",
-	"$extends" : ["operate.strike.sergei"],
-	"label": "发动一次不可能的攻击",
-	"linked": [
-		{
-		"id": "operate.strike.camilla.failure",
-		"chance" : 20
-	    },
-		
-	    {
-		"id": "operate.strike.camilla.success"
-	    }
-	],
-	"alt" : []
-    },
-	
-    {
-	"id": "operate.strike.camilla.success",
-	"$extends" : ["operate.strike.sergei.success"],
-	"effects": {
-	    "wound.camilla": 1,
-	    "long.opening.camilla": -2
-		}
-    },
-	
-    {
-	"id": "operate.strike.camilla.failure",
-	"$extends" : ["operate.strike.sergei.failure"],
-	"effects": {
-	    "long.opening.camilla": -2
-		}
+	"label": "发动一次不可能的攻击"
     },
 	
     {
 	"id": "warmakerandcontinental.finalstrike",
-	"actionid": "operate",
 	"label": "进行一次近乎完全不可能的攻击？",
-    "startdescription": "战争制造者与大陆之敌仍在激烈地战斗，但他们的动作逐渐变得愈发滞涩无力。若我将有史以来最强的力量凝聚在这最后一击上，我或许能迫使他们投降——",
-	"requirements": {
-	    "wound.wilhelm": 2,
-	    "wound.camilla": 2
-	},
-	"effects": {
-	    "long.breakthrough.challenge.double": 1
-	},
-	"craftable": true,
-	"linked": [
-	    {
-		"id": "warmakerandcontinental.finalstrike.continue"
-	    }
-	]
+    "startdescription": "战争制造者与大陆之敌仍在激烈地战斗，但他们的动作逐渐变得愈发滞涩无力。若我将有史以来最强的力量凝聚在这最后一击上，我或许能迫使他们投降——"
     },
 	
     {
 	"id": "warmakerandcontinental.finalstrike.continue",
-	"actionid": "operate",
 	"label": "进行一次近乎完全不可能的攻击？",
-    "startdescription": "战争制造者与大陆之敌仍在激烈地战斗，但他们的动作逐渐变得愈发滞涩无力。若我将有史以来最强的力量凝聚在这最后一击上，我或许能迫使他们投降——",
-	"slots": [
-	    {
-		"id": "needssomething",
-		"required": {
-		    "edge": 1
-			}
-		},
-		
-		{
-		"id": "needssomething2",
-		"required": {
-		    "edge": 1
-			}
-		},
-		
-		{
-		"id": "needssomething3",
-		"required": {
-		    "edge": 1
-			}
-		}
-	],
-	"warmup": 15,
-	"linked": [
-		{
-		"id": "warmakerandcontinental.finalstrike.failure",
-		"chance" : 20
-	    },
-		
-	    {
-		"id": "warmakerandcontinental.finalstrike.success.pre"
-	    }
-	],
-	"alt" : []
-    },
-	
-    {
-	"id": "warmakerandcontinental.finalstrike.failure",
-	"$extends" : ["operate.strike.sergei.failure"]
+    "startdescription": "战争制造者与大陆之敌仍在激烈地战斗，但他们的动作逐渐变得愈发滞涩无力。若我将有史以来最强的力量凝聚在这最后一击上，我或许能迫使他们投降——"
     },
 	
     {
 	"id": "warmakerandcontinental.finalstrike.success.pre",
 	"label": "<b>以下犯上</b>",
-    "startdescription": "战争制造者和大陆之敌朝我冲来，而我亦向他们冲去。我感受到刃之司辰们正注视着我。纷争之火于此刻燃至白热。我们最后一次向着彼此冲锋——",
-	"requirements": {
-	    "needsedge": 1,
-	    "edge": "needsedge"
-	},
-	"haltverb": {
-	    "long.camilla": 1,
-	    "long.wilhelm": 1
-	},
-	"effects": {
-	    "foe": -99,
-	    "wound.wilhelm": -99,
-	    "wound.camilla": -99
-	},
-	"playAudioTrack": "duelend.mp3",
-	"linked": [
-	    {
-		"id": "warmakerandcontinental.finalstrike.success"
-	    }
-	],
-	"aspects": {
-	    "killmortal": 1,
-	    "killfriend": 1,
-	    "fatiguing": 1
-		}
+    "startdescription": "战争制造者和大陆之敌朝我冲来，而我亦向他们冲去。我感受到刃之司辰们正注视着我。纷争之火于此刻燃至白热。我们最后一次向着彼此冲锋——"
     },
 	
     {
@@ -671,33 +131,14 @@
 	"slots": [
 	    {
 		"id": "needswilhelm",
-		"label": "战争制造者",
-		"required": {
-		    "wilhelm": 1
-		},
-		"greedy": true
+		"label": "战争制造者"
 	    },
+		
 	    {
 		"id": "needscamilla",
-		"label": "《大陆》",
-		"required": {
-		    "camilla": 1
-		},
-		"greedy": true
+		"label": "《大陆》"
 	    },
-	],
-	"achievements": [
-	    "victory.gekokujo"
-	],
-	"warmup": 15,
-	"effects": {
-	    "foe": -99,
-	    "foe.wilhelm": -99,
-		"wilhelm" : -99,
-	    "foe.camilla": -99,
-		"camilla" : -99,
-		"mark.victory" : 1
-	}
+	]
     }
 
 	

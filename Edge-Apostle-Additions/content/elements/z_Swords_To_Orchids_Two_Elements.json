@@ -1,0 +1,690 @@
+{
+"elements": [
+	
+	{
+	"id": "friend.sniper.hidden.ins", 
+	"$depends": [ "3753135571" ],
+	"$derives" : ["friend.sniper.ins"],
+	"label": "Ally Sniper (Hidden)",
+	"aspects": {
+		"friend.hidden": 1,
+	    "edge": 14,
+	    "winter": 12,
+	    "lantern": 12,
+	    "ins_soviet": 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.sniper.hidden.ins"
+	},
+	"lifetime": 180,
+	"icon": "friend.sniper.hidden",
+	"decayTo": "friend.sniper.hidden",
+    },
+	
+	{
+	"id": "friend.militia.hidden.ins", 
+	"$depends": [ "3753135571" ],
+	"$derives" : ["friend.militia.ins"],
+	"label": "Ally Militia (Hidden)",
+	"aspects": {
+		"friend.hidden": 1,
+	    "edge": 10,
+	    "heart": 8,
+	    "ins_soviet": 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.militia.hidden.ins"
+	},
+	"lifetime": 180,
+	"icon": "friend.militia.hidden",
+	"decayTo": "friend.militia.hidden",
+    },
+	
+	{
+	"id": "friend.infantry.weaken.exhausted", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"maxpromotion" : "friend.unstoppable.infantry",
+		"partialpromotion" : "friend.empowered.infantry",
+		"minorpromotion" : "friend.lonesoldier"
+		}
+	},
+	
+	{
+	"id": "friend.infantry.afraid.exhausted", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"maxpromotion" : "friend.unstoppable.infantry",
+		"partialpromotion" : "friend.empowered.infantry",
+		"minorpromotion" : "friend.lonesoldier"
+		}
+	},
+	
+	{
+	"id": "friend.infantry.inspired.ins", 
+	"$depends": [ "3753135571" ],
+	"$derives" : ["friend.infantry.ins"],
+	"label": "Ally Infantry (Inspired)",
+	"aspects": {
+	    "edge": 10,
+	    "ins_soviet": 1,
+		"friend.inspired" : 1
+	},
+	"xtriggers$add": {
+		"adv_soviet": "friend.infantry.inspired.ins"
+		},
+	"lifetime": 180,
+	"decayTo": "friend.infantry.inspired",
+    },
+	
+	{
+	"id": "friend.tanks.inspired.ins", 
+	"$depends": [ "3753135571" ],
+	"$derives" : ["friend.tanks.ins"],
+	"label": "Ally Tanks (Inspired)",
+	"aspects": {
+	    "forge": 8,
+	    "edge": 16,
+	    "ins_soviet": 1,
+		"friend.inspired" : 1
+	},
+	"xtriggers$add": {
+		"adv_soviet": "friend.tanks.inspired.ins"
+		},
+	"lifetime": 180,
+	"decayTo": "friend.tanks.inspired",
+    },
+	
+	{
+	"id": "friend.engineers.wellstocked.ins", 
+	"$depends": [ "3753135571" ],
+	"$derives" : ["friend.engineers.ins"],
+	"label": "Ally Engineers (Stocked up)",
+	"aspects": {
+	    "forge": 10,
+	    "knock": 10,
+	    "ins_soviet": 1,
+		"well.stocked" : 1
+	},
+	"lifetime": 180,
+	"decayTo": "friend.engineers.wellstocked",
+	"xtriggers$add": {
+		"adv_soviet": "friend.engineers.wellstocked.ins"
+	}
+    },
+	
+	{
+	"id": "friend.bombers.inspired.ins", 
+	"$depends": [ "3753135571" ],
+	"$derives" : ["friend.bombers.ins"],
+	"label": "Ally Bombers (Inspired)",
+	"aspects": {
+	    "edge": 18,
+	    "ins_soviet": 1,
+		"friend.inspired" : 1
+	},
+	"xtriggers$add": {
+		"adv_soviet": "friend.bombers.inspired.ins"
+		},
+	"lifetime": 180,
+	"decayTo": "friend.bombers.inspired",
+    },
+	
+	{
+	"id": "friend.artillery.inspired.ins",
+	"$depends": [ "3753135571" ],
+	"$derives" : ["friend.artillery.ins"],
+	"label": "Ally Artillery (Inspired)",
+	"aspects": {
+	    "edge": 22,
+	    "ins_soviet": 1,
+		"friend.inspired" : 1
+	},
+	"xtriggers$add": {
+		"adv_soviet": "friend.artillery.inspired.ins"
+		},
+	"lifetime": 180,
+	"decayTo": "friend.artillery.inspired",
+    },
+	
+	{
+	"id": "foe.infantry.ins", 
+	"$depends": [ "3753135571" ],
+	"aspects$add" : {"foe.coordinated.comms.marker":1},
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.braced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.infantry.environment.ins", 
+	"$depends": [ "3753135571" ],
+	"aspects$add" : {"foe.coordinated.comms.marker":1},
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.braced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.kommando.ins", 
+	"$depends": [ "3753135571" ],
+	"aspects$add" : {"foe.coordinated.comms.marker":1},
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "kommando.retaliatory",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.kommando.environment.ins", 
+	"$depends": [ "3753135571" ],
+	"aspects$add" : {"foe.coordinated.comms.marker":1},
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "kommando.retaliatory",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.sniper.ins", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.emplaced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.sniper.environment.ins", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.emplaced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		
+		{
+		    "id": "needswinter",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsmoth",
+		    "morpheffect": "mutate",
+		    "level": 4
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.tanks.ins", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.hulldown",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.bombers.ins", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.escorted",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.fighter_aircraft", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.escorted",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.fighter_aircraft.ins", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.escorted",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.artillery.ins", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.emplaced",
+		    "morpheffect": "mutate",
+		    "level": 1
+		},
+		
+		{
+		    "id": "needsedge",
+		    "morpheffect": "mutate",
+		    "level": 4
+		},
+		{
+		    "id": "needsforgemoth",
+		    "morpheffect": "mutate",
+		    "level": 2
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.manhunters.ins", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.resilient",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "foe.manhunters.environment.ins", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"defensiveprep": [
+		{
+		    "id": "foe.resilient",
+		    "morpheffect": "mutate",
+		    "level": 1
+		}
+	    ]
+	}
+	},
+	
+	{
+	"id": "friend.fighter_aircraft.exhausted", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"provisionrefresh": "friend.fighter_aircraft"
+		}
+	},
+	
+	{
+	"id": "friend.engineers.ins", 
+	"$depends": [ "3753135571" ],
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.engineers.wellstocked.ins"
+		}
+	},
+	
+	{
+	"id": "friend.infantry.ins", 
+	"$depends": [ "3753135571" ],
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.infantry.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.infantry.afraid.wounded", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"promotion": "friend.adept.infantry"
+		},
+	"aspects$add": {
+	    "obdurantpromotiontrigger": 1
+		}
+    },
+	
+	{
+	"id": "friend.tanks.ins", 
+	"$depends": [ "3753135571" ],
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.tanks.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.artillery.ins", 
+	"$depends": [ "3753135571" ],
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.artillery.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.bombers.ins", 
+	"$depends": [ "3753135571" ],
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.bombers.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.fighter_aircraft", 
+	"$depends": [ "3753135571" ],
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.fighter_aircraft.inspired"
+		}
+	},
+	
+	{
+	"id": "friend.fighter_aircraft.inspired", 
+	"$depends": [ "3753135571" ],
+	"$derives" : ["friend.fighter_aircraft"],
+	"label": "Ally Fighter Aircraft (Inspired)",
+	"icon": "friend.fighter_aircraft",
+	"aspects": {
+	    "edge": 18,
+		"friend.inspired" : 1
+	},
+	"xtriggers$add": {
+		"adv_soviet": "friend.fighter_aircraft.inspired.ins",
+		}
+    },
+	
+	{
+	"id": "friend.fighter_aircraft.ins", 
+	"$depends": [ "3753135571" ],
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"giveallyprovisions" : "friend.fighter_aircraft.inspired.ins"
+		}
+	},
+	
+	{
+	"id": "friend.fighter_aircraft.inspired.ins", 
+	"$depends": [ "3753135571" ],
+	"$derives" : ["friend.fighter_aircraft.ins"],
+	"label": "Ally Fighter Aircraft (Inspired)",
+	"aspects": {
+	    "edge": 20,
+		"friend.inspired" : 1
+	},
+	"xtriggers": {
+		"adv_soviet": "friend.fighter_aircraft.inspired.ins"
+		},
+	"decayTo": "friend.fighter_aircraft.inspired",
+    },
+	
+	{
+	"id": "friend.militia.ins", 
+	"$depends": [ "3753135571" ],
+	"aspects$add": {
+	    "canhide": 1
+	},
+	"slots$append": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"concealidentity" : "friend.militia.hidden.ins"
+		}
+	},
+	
+	{
+	"id": "friend.militia.weaken.exhausted", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+		"maxpromotion" : "friend.unstoppable.infantry",
+		"partialpromotion" : "friend.empowered.infantry",
+		"minorpromotion" : "friend.lonesoldier"
+		}
+	},
+	
+	{
+	"id": "friend.sniper.ins", 
+	"$depends": [ "3753135571" ],
+	"aspects$add": {
+	    "canhide": 1
+	},
+	"slots": [
+	{
+		"id": "intent",
+		"actionid": "communicate",
+		"label": "Intent?",
+		"required": {
+			"warzone" : 1,
+			"provisions" : 1,
+		    "op.time.night": 1,
+		    "op.woods": 1,
+		    "op.ruins": 1,
+		    "op.sewers": 1,
+			"op.fog" : 1,
+			"op.snows" : 1,
+			"op.storms" : 1
+		}
+	}
+	],
+	"xtriggers$add": {
+		"concealidentity" : "friend.sniper.hidden.ins"
+		}
+	},
+	
+	{
+	"id": "salerno", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "termoli", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "gaeta", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "pontecorvo", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+	{
+	"id": "anzio", 
+	"$depends": [ "3753135571" ],
+	"xtriggers$add": {
+	    "arriving": [
+			{
+		    "id": "foe.officer",
+		    "morpheffect": "spawn",
+		    "level": 1
+			}
+				]
+		}
+	},
+	
+]
+}
