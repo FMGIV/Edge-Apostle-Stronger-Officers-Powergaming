@@ -1,0 +1,200 @@
+{
+    "recipes": [
+        {
+            "id": "quell.strife",
+            "label": "Hinder the Enemy with Weather",
+            "startdescription": "The harsh environment has become our advantage, but not the enemy’s. Through the power of sky and atmospheric activity, this enemy force has been delayed by destructive weather and natural phenomena. They will be unable to engage us for some time.\n\n[The intensity of war has briefly diminished.]",
+            "actionId": "operate",
+            "warmup": 30,
+            "effects": {
+                "op": -99,
+                "hinder": 1
+            },
+            "requirements": {
+                "foe": 1,
+                "op.environment": 1,
+                "provisions": 1,
+                "strife": 1
+            },
+            "extantreqs": {
+                "hinder": -3
+            },
+            "craftable": true,
+            "inductions": [
+                {
+                "id": "quell.strife.haltenemy",
+                "expulsion": {
+                    "limit": 99,
+                    "filter": {
+                    "foe": 1,
+                    "hinder": 1
+                    }
+                }
+                }
+            ]
+        },
+        {
+            "id": "quell.strife.hint",
+            "label": "Making use of favorable conditions?",
+            "previewdescription": "We must recognize this fact: adverse weather and difficult terrain will significantly hinder military operations, yet they are not merely our affliction. Now that they have become our advantage, I may attempt a course of action—one that the Edge-Hours might not entirely approve of, but one that the enemy will find even less tolerable.\n\n[This will delay the enemy's movements and slightly extinguish the spark of resistance, though the Edge-Hours may express some displeasure.]",
+            "actionId": "operate",
+            "requirements": {
+                "op.environment": 1
+            },
+            "extantreqs": {
+                "hinder": -3
+            },
+            "hintonly": true
+        },
+        {
+            "id": "quell.strife.hint.2",
+            "label": "Making use of favorable conditions?",
+            "previewdescription": "[The maximum number of slowed enemy units is already on the field.]",
+            "actionId": "operate",
+            "requirements": {
+                "op.environment": 1
+            },
+            "extantreqs": {
+                "hinder": 3
+            },
+            "hintonly": true
+        },
+        
+        {
+            "id": "quell.strife.haltenemy",
+            "label": "Enemy Delayed",
+            "startdescription": "This enemy force has been trapped by severe weather and can barely act against us—nor can we act against them, lest we share their fate.",
+            "actionId": "enemydelayed",
+            "warmup": 90,
+            "requirements": {
+                "foe": 1
+            },
+            "linked": [
+                {
+                    "id": "quell.strife.haltenemy.bad",
+                    "chance": 30
+                }
+            ]
+        },
+        {
+            "id": "quell.strife.haltenemy.bad",
+            "label": "Displeasure of the Edge-Hours",
+            "startdescription": "An Edge-Hour has cast its gaze upon this place… and it is not one of approval.",
+            "actionId": "enemydelayed",
+            "warmup": 10,
+            "linked": [
+                {
+                    "id": "quell.strife.haltenemy.bad1"
+                },
+                {
+                    "id": "quell.strife.haltenemy.bad2"
+                },
+                {
+                    "id": "quell.strife.haltenemy.bad3"
+                }
+            ]
+        },
+        {
+            "id": "quell.strife.haltenemy.bad1",
+            "label": "Displeasure of the Edge-Hours",
+            "startdescription": "An Edge-Hour has cast its gaze upon this place… and it is not one of approval.",
+            "actionId": "enemydelayed",
+            "extantreqs": {
+                "obdurant.story": 1
+            },
+            "internaldeck": {
+                "spec": [
+                "hindrance.lionsmith",
+                "hindrance.lionsmith",
+                "hindrance.wolf",
+                "hindrance.wolf"
+                ],
+                "draws": 1,
+                "resetonexhaustion": true
+            }
+        },
+        {
+            "id": "quell.strife.haltenemy.bad2",
+            "label": "Displeasure of the Edge-Hours",
+            "startdescription": "An Edge-Hour has cast its gaze upon this place… and it is not one of approval.",
+            "actionId": "enemydelayed",
+            "extantreqs": {
+                "proterant.story": 1
+            },
+            "internaldeck": {
+                "spec": [
+                "hindrance.colonel",
+                "hindrance.colonel",
+                "hindrance.wolf",
+                "hindrance.wolf"
+                ],
+                "draws": 1,
+                "resetonexhaustion": true
+            }
+        },
+        {
+            "id": "quell.strife.haltenemy.bad3",
+            "label": "Displeasure of the Edge-Hours",
+            "startdescription": "An Edge-Hour has cast its gaze upon this place… and it is not one of approval.",
+            "actionId": "enemydelayed",
+            "extantreqs": {
+                "contemnant.story": 1
+            },
+            "internaldeck": {
+                "spec": [
+                "hindrance.lionsmith",
+                "hindrance.lionsmith",
+                "hindrance.colonel",
+                "hindrance.colonel",
+                "hindrance.wolf",
+                "hindrance.wolf"
+                ],
+                "draws": 1,
+                "resetonexhaustion": true
+            }
+        },
+        
+    {
+	"id": "attackenemy.hint.contemnant",
+    "requirements$add": {
+        "strife": -1
+	}
+    },
+    {
+	"id": "attackenemy.hint",
+    "requirements$add": {
+        "strife": -1
+	}
+    },
+    {
+	"id": "attackenemy.hidden.hint",
+    "requirements$add": {
+        "strife": -1
+	}
+    },
+    {
+	"id": "attackenemy.hidden",
+    "requirements$add": {
+        "strife": -1
+	}
+    },
+    {
+	"id": "attackenemy.moth.overwhelm",
+    "requirements$add": {
+        "strife": -1
+	}
+    },
+    {
+	"id": "attackenemy.winter.overwhelm",
+    "requirements$add": {
+        "strife": -1
+	}
+    },
+    {
+	"id": "attackenemy.heart.overwhelm",
+    "requirements$add": {
+        "strife": -1
+	}
+    }
+    ]
+}
