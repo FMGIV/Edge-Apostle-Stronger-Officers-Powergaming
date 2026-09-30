@@ -1,5 +1,448 @@
 {
-  "recipes": [
+  "recipes": [    
+    {
+      "id": "communicate.tomoriserpent.token.camilla",
+      "actionid": "communicate",
+      "label": "Iron and Duel",
+      "previewDescription": "The iron coin flips between my fingers.",
+      "startdescription": "“Your body... can those scars really support you? ... If you insist on this ancient <i>Жекпе‑Жек</i>... and I won't be by your side... I feel uneasy about this...”",
+      "description": "I comfort the girl, telling her not to worry; I have plenty of time to prepare.",
+      "extantreqs": {
+        "talkwithtomoriserpent": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "token.camilla": 1
+      },
+      "effects": {
+        "mem.calm": 1
+      },
+      "maxexecutions": 1,
+      "$priority": 5,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.weapon.kazimir",
+      "actionid": "communicate",
+      "label": "Iron and Duel",
+      "previewDescription": "I tried this blade.",
+      "startdescription": "“...Artillery fire like silk threads; not all knots are tangible. Fate has woven a joke of the setting sun. This is absolutely the worst thing. On the bright side, you are certainly stronger; on the dark side... I'd rather not say.”",
+      "description": "I comfort the girl, telling her not to worry; I have plenty of time to prepare.",
+      "extantreqs": {
+        "talkwithtomoriserpent": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "weapon.kazimir": 1
+      },
+      "effects": {
+        "mem.calm": 1
+      },
+      "maxexecutions": 1,
+      "$priority": 5,
+      "warmup": 30,
+      "craftable": true
+    },
+
+    {
+      "id": "communicate.tomoriserpent.friend.wounded.priestess",
+      "actionid": "communicate",
+      "label": "Let the girl touch the wounded",
+      "previewDescription": "I no longer try to dissuade her.",
+      "startdescription": "The girl kneels beside the stretcher. She blows out the lamp. In the darkness, she presses her palms to the wounded person's forehead and temples. Once he calms, her fingers dance over the wound. Threading the needle, blood flows from one side and stops at the other. Soon, the wounded person opens his eyes.",
+      "extantreqs": {
+        "talkwithtomoriserpent": 1
+      },
+      "aspects": {
+        "fatiguing": 1,
+        "restorehealth": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "friend.tomori.priestess": 1,
+        "friend": 2,
+        "exhausted": -1,
+        "wounded": 1
+      },
+      "$priority": 5,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.wounded.other",
+      "actionid": "communicate",
+      "label": "Let the girl touch the wounded",
+      "previewDescription": "Although I tried to dissuade her several times, she still followed us to the front line.",
+      "startdescription": "When people carry a stretcher past, the girl stands up. She follows for only a short distance. Realizing she cannot help much, she shrinks back into the corner.",
+      "extantreqs": {
+        "talkwithtomoriserpent": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "friend.tomori.priestess": -1,
+        "friend": 2,
+        "exhausted": -1,
+        "wounded": 1
+      },
+      "internaldeck": {
+          "spec": [
+            "influenceknockc",
+            "influencewinterc",
+            "influenceheartc",
+            "influenceknockc",
+            "influencewinterc",
+            "influenceheartc"
+          ],
+          "draws": 1,
+          "resetonexhaustion": true
+      },
+      "$priority": 5,
+      "warmup": 15,
+      "craftable": true
+    },
+
+    {
+      "id": "communicate.tomoriserpent.friend.yuri",
+      "actionid": "communicate",
+      "label": "Befriend: Warrant Officer Yuri Shereenko",
+      "previewDescription": "I brought her to Yuri to 'register,' as every new soldier must do.",
+      "startdescription": "The girl stands before Yuri. She does not dare speak. Yuri keeps frowning. The two just stand there awkwardly. Finally Yuri asks first: 'Do you have a belief you will uphold for life and never betray? Have you held a gun? Do you dare pull the trigger on a person? Has your hand been stained with the blood of war?' The girl is almost frightened: 'I... do not know...' Yuri's mouth keeps twitching, extreme disappointment and coldness hidden in his eyes. I promptly pull the girl out. Later, Yuri spends several days preparing a red notebook and luggage for the girl. 'The battlefield is not merciful.'",
+      "extantreqs": {
+        "talkwithtomoriserpent": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "friend": 2,
+        "friend.yuri": 1,
+        "exhausted": -1,
+        "wounded": -1
+      },
+      "mutations": [
+          {
+            "filter": "friend.yuri",
+            "mutate": "experience.exile.ally",
+            "level": 1,
+            "additive": true
+          },
+          {
+            "filter": "haspolevaya",
+            "mutate": "makeagoodfriend",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.friend.achievements"
+        }
+      ],
+      "$priority": 5,
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.konstantin",
+      "actionid": "communicate",
+      "label": "Befriend: Doctor Konstantin Ismailov",
+      "previewDescription": "The doctor is wiping his scalpel.",
+      "startdescription": "The doctor is wiping his knife. The girl walks over and takes a careful look. The doctor says: 'Are you afraid of blood?' The girl says: 'No. Can you... teach me something?' The doctor stops his hands. When he looks at her, it is not as a patient, nor really as a soldier. More like looking at one of his own kind. Of course, I assure you Konstantin is human. Later, the two often exchange some bloody knowledge and knowledge on how not to make people bloody.",
+      "extantreqs": {
+        "talkwithtomoriserpent": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "friend": 2,
+        "friend.konstantin": 1,
+        "exhausted": -1,
+        "wounded": -1
+      },
+      "mutations": [
+          {
+            "filter": "friend.konstantin",
+            "mutate": "experience.exile.ally",
+            "level": 1,
+            "additive": true
+          },
+          {
+            "filter": "haspolevaya",
+            "mutate": "makeagoodfriend",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.friend.achievements"
+        }
+      ],
+      "$priority": 5,
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.iosef",
+      "actionid": "communicate",
+      "label": "Befriend: Iosef Volodin",
+      "previewDescription": "Iosef is taking a stroll outside the barracks.",
+      "startdescription": "When they see Iosef, the girl first offers him a cigarette. Iosef looks up at her. 'Where are you from?' he asks. The girl says: 'A cold, dark place.' Iosef lights the cigarette and takes a drag. 'Me too,' he says. Later, two people with stories often smoke behind the tent. Wait, where did she get the cigarette?",
+      "extantreqs": {
+        "talkwithtomoriserpent": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "friend": 2,
+        "friend.iosef": 1,
+        "exhausted": -1,
+        "wounded": -1
+      },
+      "mutations": [
+          {
+            "filter": "friend.iosef",
+            "mutate": "experience.exile.ally",
+            "level": 1,
+            "additive": true
+          },
+          {
+            "filter": "haspolevaya",
+            "mutate": "makeagoodfriend",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.friend.achievements"
+        }
+      ],
+      "$priority": 5,
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.nikolai",
+      "actionid": "communicate",
+      "label": "Befriend: Nikolai Belyayev",
+      "previewDescription": "Nikolai is squatting beside an old cannon.",
+      "startdescription": "When I find Nikolai, he is still squatting beside the cannon, wiping the barrel with a cloth. The girl squats down beside him. Neither of them speaks. After a long time, snow begins to fall outside. Nikolai shifts half a foot to the side to make room for her. Later, Nikolai finds me privately. 'She should go to the rear.' I can only answer with silence.",
+      "extantreqs": {
+        "talkwithtomoriserpent": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "friend": 2,
+        "friend.nikolai": 1,
+        "exhausted": -1,
+        "wounded": -1
+      },
+      "mutations": [
+          {
+            "filter": "friend.nikolai",
+            "mutate": "experience.exile.ally",
+            "level": 1,
+            "additive": true
+          },
+          {
+            "filter": "haspolevaya",
+            "mutate": "makeagoodfriend",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.friend.achievements"
+        }
+      ],
+      "$priority": 5,
+      "maxexecutions": 1,
+      "warmup": 30,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.zulfiya",
+      "actionid": "communicate",
+      "label": "Befriend? Former Bird-Eater",
+      "startdescription": "I arrive at Zulfiya's dwelling first; he is just coming out from behind the door.",
+      "extantreqs": {
+        "talkwithtomoriserpent": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "friend": 2,
+        "friend.zulfiya": 1,
+        "exhausted": -1,
+        "wounded": -1
+      },
+      "mutations": [
+          {
+            "filter": "haspolevaya",
+            "mutate": "makeagoodfriend",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.friend.zulfiya.priestess"
+        },
+        {
+          "id": "communicate.tomoriserpent.friend.zulfiya.other"
+        }
+      ],
+      "$priority": 5,
+      "maxexecutions": 1,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.zulfiya.priestess",
+      "actionid": "communicate",
+      "label": "Befriend? Former Bird-Eater",
+      "startdescription": "Zulfiya tells me:\n\n'I never thought draping clothes over oneself is the same as wearing them. The black beast should burrow and dwell in the stone forest.'\n\nBefore the girl comes over, he leaves first.",
+      "description": "I notice the girl has tears on her face when she enters the room. Did she hear something? Or realize something?\n\nI should not ask further.",
+      "requirements": {
+        "friend.tomori.priestess": 1
+      },
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.friend.achievements"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 15
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.zulfiya.other",
+      "actionid": "communicate",
+      "label": "Befriend? Former Bird-Eater",
+      "startdescription": "Zulfiya tells me:\n\n'In our line of work, clinging to unnecessary pasts is something to be mocked for.'\n\nBefore the girl comes over, he leaves first.",
+      "description": "I find the girl still standing outside. 'I was thinking about clasps. We do not have any on us, do we?'\n\nI answer no.",
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.friend.achievements"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 15
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.chaima",
+      "actionid": "communicate",
+      "label": "Befriend? Monster Hunter",
+      "startdescription": "Chaima and I are exchanging experience on <i>hunting</i>, when the little sister happens to pass not far in front of us, and I instinctively call out to her.",
+      "extantreqs": {
+        "talkwithtomoriserpent": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "friend": 2,
+        "friend.chaima": 1,
+        "exhausted": -1,
+        "wounded": -1
+      },
+      "mutations": [
+          {
+            "filter": "haspolevaya",
+            "mutate": "makeagoodfriend",
+            "level": 1,
+            "additive": true
+          }
+      ],
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.friend.chaima.priestess"
+        },
+        {
+          "id": "communicate.tomoriserpent.friend.chaima.other"
+        }
+      ],
+      "$priority": 5,
+      "maxexecutions": 1,
+      "craftable": true
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.chaima.priestess",
+      "actionid": "communicate",
+      "label": "Befriend? Monster Hunter",
+      "startdescription": "Chaima's steps halt when she sees the girl. 'Non-human?' The girl nods.\n\n\n\n\n\n\n\n      'Different.'",
+      "description": "The little sister also waves at me.\n\n\n\n\n\n\n\n      Chaima shrugs and turns away.",
+      "requirements": {
+        "friend.tomori.priestess": 1
+      },
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.friend.achievements"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 15
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.chaima.other",
+      "actionid": "communicate",
+      "label": "Befriend? Monster Hunter",
+      "startdescription": "'Bang!'\n\n\n\n\n\n\n\n      A gunshot.",
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.friend.chaima.other.end"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 5
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.chaima.other.end",
+      "actionid": "communicate",
+      "label": "Befriend? Monster Hunter",
+      "startdescription": "I admit I panicked for the first time.\n\n\n\n\n\n\n\n      Fortunately, the bullet only hit the girl's earring.",
+      "description": "'The weather today is disappointing. I should not have missed. I respect you; I will let her go.' Chaima holsters her gun and turns to leave.\n\n      She clearly held back. Is this a warning?",
+      "linked": [
+        {
+          "id": "communicate.tomoriserpent.friend.achievements"
+        }
+      ],
+      "maxexecutions": 1,
+      "warmup": 10
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.achievements",
+      "label": "<i>Making Friends</i>",
+      "requirements": {
+        "makeagoodfriend": 6
+      },
+      "achievements": [
+          "achievements.makeagoodfriend"
+      ],
+      "maxexecutions": 1
+    },
+    {
+      "id": "communicate.tomoriserpent.friend.hint",
+      "actionid": "communicate",
+      "label": "<i>Try reaching out to others?</i>",
+      "startdescription": "'Ne marche pas derrière moi, je ne te guiderai pas.\nNe marche pas devant moi, je ne te suivrai pas.\nMarche à mes côtés, sois mon ami intime.'",
+      "extantreqs": {
+        "talkwithtomoriserpent": 1
+      },
+      "requirements": {
+        "haspolevaya": 1,
+        "friend": 2
+      },
+      "$priority": 5,
+      "hintonly": true
+    },
+
+    {
+      "id": "communicate.namedally.intro",
+      "requirements$add": {
+          "uqpolevaya": -1
+      }
+    },
     {
       "id": "expel.dead",
       "requirements": {}
