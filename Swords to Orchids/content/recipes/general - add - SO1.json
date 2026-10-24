@@ -2085,7 +2085,7 @@
     {
       "id": "travelslot.pinceroffensive",
       "label": "The End……",
-      "startdescription": "-",
+      "startdescription": "The End……",
       "extantreqs": {
         "besieged": 1,
         "breakthroughsuccessful": -1
@@ -2097,14 +2097,14 @@
       ]
     },
     {
-	"id": "travelslot.end",
-	"mutations$prepend": [
-	    {
-		"filter": "firstone",
-		"mutate": "firstone",
-		"level": 0
-	    }
-	]
+      "id": "travelslot.end",
+      "mutations$prepend": [
+          {
+        "filter": "firstone",
+        "mutate": "firstone",
+        "level": 0
+          }
+      ]
     },
     {
       "id": "hide.startup",
@@ -2337,10 +2337,48 @@
       }
     },
     {
-	    "id": "travel.wasteland.ironeater",
-      "extantreqs": {
+	    "id": "travel.lake",
+      "extantreqs$add": {
         "besieged": -1
       }
+    },
+    {
+	    "id": "travel.wasteland.ironeater",
+      "extantreqs$add": {
+        "besieged": -1
+      }
+    },
+    {
+      "id": "travel.lake.besieged.hint",
+      "actionid": "mobilize",
+      "label": "Cannot Travel to the Unseen Lake",
+      "startdescription": "[You can only travel here while the city is not besieged]",
+      "requirements": {
+        "lake.vision": 1
+      },
+      "extantreqs": {
+        "battlehunger": -1,
+        "obdurant.story": 1,
+        "besieged": 1
+      },
+      "$priority": 3,
+      "hintonly": true
+    },
+    {
+      "id": "travel.ironeater.besieged.hint",
+      "actionid": "mobilize",
+      "label": "Cannot Pursue the Iron-Eater",
+      "startdescription": "[You can only travel here while the city is not besieged]",
+      "requirements": {
+        "wasteland.ironeater": 1
+      },
+      "extantreqs": {
+        "battlehunger": -1,
+        "obdurant.story": 1,
+        "besieged": 1
+      },
+      "$priority": 3,
+      "hintonly": true
     },
     {
       "id": "travel.warzone.sector.a.besieged",
