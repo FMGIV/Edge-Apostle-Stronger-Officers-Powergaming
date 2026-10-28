@@ -298,7 +298,7 @@
         {
             "id": "friend.escapes.execution",
             "label": "Execute Deserters",
-            "startdescription": "Fear is a subtle blade. Used properly, it stops dissent, yet resentment will build over time.\n[Instantly execute the soldier and block desertion temporarily, though this measure may fail with unintended consequences.]",
+            "startdescription": "Fear is a subtle blade. Used properly, it stops dissent, yet resentment will build over time.\n\n[Instantly execute the soldier and block desertion temporarily, though this measure may fail with unintended consequences.]",
             "requirements": {
                 "weapon": 1
             },
@@ -344,7 +344,7 @@
         {
             "id": "friend.escapes.execution.failure",
             "label": "Execute Deserters",
-            "startdescription": "Fear is a subtle blade. Used properly, it stops dissent, yet resentment will build over time.\n[Instantly execute the soldier and block desertion temporarily, though this measure may fail with unintended consequences.]",
+            "startdescription": "Fear is a subtle blade. Used properly, it stops dissent, yet resentment will build over time.\n\n[Instantly execute the soldier and block desertion temporarily, though this measure may fail with unintended consequences.]",
             "aspects": {
                 "killmortal": 1,
                 "fatiguing": 1
@@ -431,7 +431,7 @@
             "id": "pinceroffensive.pre",
             "actionid": "pinceroffensive",
             "label": "Enemy Encirclement Tightens",
-            "startdescription": "The city will fall soon unless we complete all tasks and escape before their ring closes.\n[When the countdown hits zero, full encirclement activates.]",
+            "startdescription": "The city will fall soon unless we complete all tasks and escape before their ring closes.\n\n[When the countdown hits zero, full encirclement activates.If a siege occurs while an evacuation is in progress, the evacuation will be forcibly ended.]",
             "requirements": {
                 "countdownpincer": 6
             },
@@ -461,7 +461,7 @@
         {
             "id": "pinceroffensive.closer",
             "label": "Enemy Encirclement Tightens",
-            "startdescription": "The city will fall soon unless we complete all tasks and escape before their ring closes.\n[When the countdown hits zero, full encirclement activates.]",
+            "startdescription": "The city will fall soon unless we complete all tasks and escape before their ring closes.\n\n[When the countdown hits zero, full encirclement activates.If a siege occurs while an evacuation is in progress, the evacuation will be forcibly ended.]",
             "signalMusic": "bgm.closer.mp3",
 	        "signalEndingFlavour": "Melancholy",
             "linked": [
@@ -475,12 +475,13 @@
             "id": "pinceroffensive.mutate",
             "actionid": "pinceroffensive",
             "label": "Enemy Encirclement Tightens",
-            "startdescription": "The fortress crumbles — we must cut through enemy lines or die as soldiers.\n[When the countdown hits zero, full encirclement activates.]",
+            "startdescription": "The fortress crumbles — we must cut through enemy lines or die as soldiers.\n\n[When the countdown hits zero, full encirclement activates.]",
             "requirements": {
                 "warzone.current": -1
             },
             "effects": {
-                "countdownpincer": -99
+                "countdownpincer": -99,
+                "side.cutoff": 1
             },
             "slots": [
                 {
@@ -502,9 +503,6 @@
             "warmup": 5,
             "linked": [
                 {
-                    "id": "pinceroffensive.mutate"
-                },
-                {
                     "id": "pinceroffensive.move"
                 }
             ]
@@ -521,9 +519,15 @@
             },
             "effects": {
                 "pinceroffensivetrigger": 1,
-                "long.blocker": 1,
-                "side.cutoff": 1
+                "long.blocker": 1
             },
+            "mutations": [
+                {
+                    "filter": "side.cutoff",
+                    "mutate": "besieged",
+                    "level": 1
+                }
+            ],
             "linked": [
                 {
                     "id": "pinceroffensive.circle"
@@ -534,7 +538,7 @@
             "id": "pinceroffensive.circle",
             "actionid": "pinceroffensive",
             "label": "Enemy Encirclement Tightened",
-            "startdescription": "Fight our way through enemy lines, or perish with honor.\n[Defeat enemy units to earn Breakthrough Opportunities.]",
+            "startdescription": "Fight our way through enemy lines, or perish with honor.\n\n[Defeat enemy units to earn Breakthrough Opportunities.]",
             "warmup": 60,
             "effects": {
                 "readiness.token": 1
@@ -609,7 +613,7 @@
             "id": "pinceroffensive.cutoff",
             "actionid": "pinceroffensivecutoff",
             "label": "Enemy Reinforcements Flood In",
-            "startdescription": "Supply lines are fully severed. Their reinforcements march ever closer to our headquarters.\n[Once encircled, long-lived units vanish, exploration time extends, seasonal supplies & allied calls are locked; enemy forces will keep growing without a breakout.]",
+            "startdescription": "Supply lines are fully severed. Their reinforcements march ever closer to our headquarters.\n\n[Once encircled, long-lived units vanish, exploration time extends, seasonal supplies & allied calls are locked; enemy forces will keep growing without a breakout.]",
             "grandReqs": {
                 "[~/extant:foe.forcesize] <= ([~/extant:forcesize] * 2)": 1
             },
