@@ -1805,7 +1805,8 @@
       "label": "Suicide attack!",
       "startdescription": "\"Quick! Take cover!\"",
       "requirements": {
-        "foe.resuscitated.air": 1
+        "foe.resuscitated.air": 1,
+        "friend": -2
       },
       "slots": [
           {
@@ -1824,7 +1825,11 @@
       "linked": [
         {
           "id": "produce.disintegration.fire.cycle",
-          "chance": 40
+          "chance": 50
+        },
+        {
+          "id": "produce.disintegration.fire.kill",
+          "chance": 30
         },
         {
           "id": "produce.disintegration.fire.end"
@@ -1842,6 +1847,13 @@
       "effects": {
         "hindrance.fire": 1,
         "foe": -1
+      }
+    },
+    {
+      "id": "produce.disintegration.fire.kill",
+      "$extends": ["produce.disintegration.fire.end"],
+      "aspects": {
+        "killfriend": 1
       }
     },
     {
