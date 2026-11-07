@@ -19,14 +19,36 @@
 	    {
 		"id": "sergei.enemies.cycle"
 	    }
+	],  
+	"mutations": [  
+		{  
+			"filter": "foe",  
+			"mutate": "german",  
+			"level": 1,  
+			"additive": true  
+		}  
 	]
     },
 	
 	{
+	"id": "sergei.phase.one.enemies", 
+	"$depends": [ "3786163815" ],
+	"extantreqs": {
+	    "contemnant.story": -1
+		}
+	},
+	
+	{
+	"id": "sergei.phase.one.enemies", 
+	"$depends": [ "3783319582" ],
+	"extantreqs": {
+	    "contemnant.story": -1
+		}
+	},
+	
+	{
 	"id": "sergei.phase.two.enemies",
-	"label": "Hounds of the Iron-Eater",
-	"actionid": "enemyaction.reinforcements",
-	"startdescription": "As the Iron-Eater suffers a wound, his agony materializes into the world-",
+	"$extends" : ["sergei.phase.one.enemies"],
 	"grandReqs" : {
 		"([~/exterior:wound.sergei] + [~/exterior:wound.sergei.forumiri_end]) = 2" : 1
 	},
@@ -34,13 +56,7 @@
 	    "foe.splinter": 3,
 	    "foe.growth": 3,
 	    "foe.grame.sergei": 3
-	},
-	"maxexecutions": 1,
-	"inductions": [
-	    {
-		"id": "sergei.enemies.cycle"
-	    }
-	]
+	}
     },
 	
     {
@@ -55,7 +71,7 @@
 	"linked": [
 	    {
 		"id": "sergei.enemies.pickaction.router",
-		"chance": "55+[~/visible:strife.tracker]*3"
+		"chance": "55 + [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
 	    },
 	    {
 		"id": "sergei.enemies.cycle"
@@ -65,7 +81,7 @@
 	    {
 		"id": "sergei.enemies.reinforcements",
 		"additional": true,
-		"chance": 50
+		"chance": 25
 	    }
 	]
     },
@@ -97,10 +113,6 @@
 	"alt": [
 	    {
 		"id": "singleattack.startup",
-		"additional": true
-	    },
-	    {
-		"id": "destroysupplies.startup",
 		"additional": true
 	    },
 	    {
@@ -137,9 +149,6 @@
 	"actionid": "enemyaction.reinforcements",
 	"label": "The Pack Grows",
 	"startdescription": "The longer we fight the Iron-Eater, the more <i>things</i> come for our blood -",
-	"extantreqs": {
-	    "foe": -10
-	},
 	"grandReqs" : {
 		"([~/exterior:wound.sergei] + [~/exterior:wound.sergei.forumiri_end]) = 2" : 1
 	},
@@ -159,7 +168,15 @@
 	    ],
 	    "draws": 4,
 	    "resetonexhaustion": true
-	}
+	},  
+	"mutations": [  
+		{  
+			"filter": "foe",  
+			"mutate": "german",  
+			"level": 1,  
+			"additive": true  
+		}  
+	]
     },
 	
     {
