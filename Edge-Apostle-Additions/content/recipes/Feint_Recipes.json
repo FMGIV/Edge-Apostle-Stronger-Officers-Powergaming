@@ -1,0 +1,442 @@
+{
+  "recipes": [
+    {
+      "id": "attackenemy.failure", 
+	"$incompatible": [ "3713855248" ],
+      "requirements": {
+        "fake.enemy": -1
+      }
+    },
+	
+    {
+      "id": "producecasualty", 
+	"$incompatible": [ "3713855248" ],
+      "requirements$add": {
+        "fake.enemy": -1
+      }
+    },
+	
+    {
+      "id": "detectadditional", 
+	"$incompatible": [ "3713855248" ],
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "fake.enemy": 1,
+            "uqjerome": 1,
+            "uqlionel": 1,
+            "allnaval": 1
+          }
+        }
+      }
+    },
+	
+    {
+      "id": "detectadditional.afraid", 
+	"$incompatible": [ "3713855248" ],
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "fake.enemy": 1,
+            "uqjerome": 1,
+            "uqlionel": 1,
+            "allnaval": 1
+          }
+        }
+      }
+    },
+	
+    {
+      "id": "detectadditional.side", 
+	"$incompatible": [ "3713855248" ],
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "fake.enemy": 1,
+            "uqjerome": 1,
+            "uqlionel": 1,
+            "allnaval": 1
+          }
+        }
+      }
+    },
+	
+    {
+      "id": "detectadditional.side.afraid", 
+	"$incompatible": [ "3713855248" ],
+      "slots$listedit": {
+        "0$dictedit": {
+          "forbidden$add": {
+            "fake.enemy": 1,
+            "uqjerome": 1,
+            "uqlionel": 1,
+            "allnaval": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "enemy.clear", 
+	"$incompatible": [ "3713855248" ],
+      "requirements": {
+        "fake.enemy.stopverb": -1
+      }
+    },
+    {
+      "id": "attack.nodefense.failedfeint", 
+	"$incompatible": [ "3713855248" ],
+      "label": "A Failed Feint",
+      "startdescription": "The enemy sought to draw us out, but found nothing.",
+      "description": "And so we remain vigilant.",
+      "warmup": 10,
+      "requirements": {
+        "fake.enemy": 1
+      },
+      "effects": {
+        "fake.enemy": -1
+      }
+    },
+	
+    {
+      "id": "defend.successfulfeint", 
+	"$incompatible": [ "3713855248" ],
+      "label": "A Successful Feint!",
+      "startdescription": "I've fallen for the enemy's trap. They are moving to capitalise on my exposed opening—",
+      "warmup": 10,
+      "requirements": {
+        "fake.enemy": 1
+      },
+      "effects": {
+        "fake.enemy": -1,
+        "readiness.token": 2,
+        "fake.enemy.stopverb": 1
+      },
+      "aspects": {
+        "fatiguing": 1
+      },
+      "linked": [
+        {
+          "id": "enemy.pickaction.router"
+        }
+      ]
+    },
+	
+    {
+      "id": "fake.enemy.killed", 
+	"$incompatible": [ "3713855248" ],
+      "label": "A Victory?",
+      "startdescription": "The 'Enemy' lies broken at our feet. All we killed was a dummy. This has been a waste of time and resources.",
+      "description": "The 'Enemy' lies broken at our feet. All we killed was a dummy. This has been a waste of time and resources.",
+      "requirements": {
+        "fake.enemy": 1
+      },
+      "aspects": {
+        "killfoe": 1,
+        "fatiguing": 1,
+        "dissolution": 1
+      },
+      "alt": [
+        {
+          "id": "fake.enemy.killed.counterattack",
+          "additional": true,
+          "expulsion": {
+            "filter": {
+              "friend": 1
+            },
+            "limit": 99
+          }
+        }
+      ]
+    },
+	
+    {
+      "id": "fake.enemy.killed.counterattack", 
+	"$incompatible": [ "3713855248" ],
+      "label": "A Trap!",
+      "actionId": "spit.trap",
+      "startdescription": "My main force is now trapped on an island of smoke and death. If I deem them still useful, I can only continue to pour in reinforcements to rescue them.",
+      "requirements": {
+        "fake.enemy": 1
+      },
+      "warmup": 10,
+      "aspects": {
+        "fatiguing": 1
+      },
+      "effects": {
+        "decision.enemy.singleattack": 1
+      },
+      "linked": [
+        {
+          "id": "singleattack.startup"
+        }
+      ]
+    },
+	
+    {
+      "id": "defend.skill.deflect", 
+	"$incompatible": [ "3713855248" ],
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+	
+    {
+      "id": "defend.friend.immortal", 
+	"$incompatible": [ "3713855248" ],
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+	
+    {
+      "id": "defend.ap",
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+	
+    {
+      "id": "defend.edge", 
+	"$incompatible": [ "3713855248" ],
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+	
+    {
+      "id": "defend.winter", 
+	"$incompatible": [ "3713855248" ],
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+	
+    {
+      "id": "defend.moth", 
+	"$incompatible": [ "3713855248" ],
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+	
+    {
+      "id": "defend.forgemoth", 
+	"$incompatible": [ "3713855248" ],
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+	
+    {
+      "id": "defend.edgelantern", 
+	"$incompatible": [ "3713855248" ],
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+	
+    {
+      "id": "defend.edgewinter", 
+	"$incompatible": [ "3713855248" ],
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+	
+    {
+      "id": "defend.edgeforge", 
+	"$incompatible": [ "3713855248" ],
+      "linked$prepend": [
+        {
+          "id": "defend.successfulfeint"
+        }
+      ]
+    },
+	
+	{
+	"id": "attackenemy.success", 
+	"$incompatible": [ "3713855248" ],
+	"alt$prepend" : [
+		{
+			"id": "fake.enemy.killed"
+		}
+		]
+	},
+	
+    {
+	"id": "create.decoys.startup",
+	"$extends" : ["reinforcements.startup"],
+	"extantreqs": {
+	    "fake.enemy": -4,
+		"contemnant.story" : -1
+	},
+	"requirements": {},
+	"linked": [
+	    {
+		"id": "decoys.pick"
+	    }
+	],
+	"warmup": 40
+    },
+	
+    {
+	"id": "decoys.pick",
+	"$extends" : ["reinforcements.pick"],
+	"extantreqs": {
+	    "fake.enemy": -4
+	},
+	"requirements": {},
+	"deckeffects": {
+	    "decoyenemies": 1
+	},
+	"linked": [
+	    {
+		"id": "decoys.pick",
+		"chance": "60 - [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
+	    }
+	]
+    },
+	
+	{
+	"id": "enemy.cycle", 
+	"inductions" : [
+		{
+			"id": "create.decoys.startup",
+			"chance": "40 - [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
+		}
+		]
+	},
+	
+	{
+	"id": "decoy.shuffling",
+	"label": "Enemy Repositioning!",
+	"startdescription": "The Germans are repositioning their forces. We'll have to find out which are real and which are decoys...",
+	"description": "Tricky.",
+	"requirements": {
+	    "german": 1
+	},
+	"extantreqs": {
+	    "fake.enemy": -4
+	},
+	"aspects": {
+	    "concealidentity": 1
+	},
+	"deckeffects": {
+		"decoyenemies.hidden": 3
+	},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "german": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.hidden": 1,
+		    "foe.rankofficer": 1,
+		    "foe.unsubtle": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1,
+		    "marinette.marker": 1,
+		    "foe.exilenightmare": 1
+		},
+		"greedy": true
+	    },
+		
+		{
+		"id": "needsenemy2",
+		"label": "Enemy",
+		"required": {
+		    "german": 1
+		},
+		"forbidden": {
+		    "remnant": 1,
+		    "foe.hidden": 1,
+		    "foe.rankofficer": 1,
+		    "foe.unsubtle": 1,
+		    "soviet": 1,
+		    "detectivetemptation": 1,
+		    "marinette.marker": 1,
+		    "foe.exilenightmare": 1
+		},
+		"greedy": true
+	    },
+	],
+	"warmup": 30,
+	 "furthermore": [
+		{
+         "movements": {  
+    "~/tabletop!dropzone_elementstack/dropzone_elementstackbubble": {  
+      "filter": "foe"  
+				}  
+			}
+		}
+		]
+	},
+	
+    {
+	"id": "hide.startup", 
+	"$incompatible": [ "3713855248" ],
+	"linked": [
+	    {
+		"id": "decoy.shuffling",
+		"chance": "40 - [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
+	    }
+	]
+    },
+	
+    {
+	"id": "hide.startup.general", 
+	"$depends": [ "3713855248" ],
+	"linked": [
+	    {
+		"id": "decoy.shuffling",
+		"chance": "40 - [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
+	    }
+	]
+    },
+	
+    {
+	"id": "hide.startup.officer.hidden", 
+	"$depends": [ "3713855248" ],
+	"linked": [
+	    {
+		"id": "decoy.shuffling",
+		"chance": "40 - [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
+	    }
+	]
+    },
+	
+    {
+	"id": "hide.startup.officer.hidden.mu", 
+	"$depends": [ "3713855248" ],
+	"linked": [
+	    {
+		"id": "decoy.shuffling",
+		"chance": "40 - [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
+	    }
+	]
+    }
+	
+	
+  ]
+}
