@@ -3,10 +3,14 @@
 	
     {
 	"id": "neutral.monster.cycle", 
-	"actionid": "neutral.monster",
+	"actionid": "neutral.monster.verb",
 	"label": "The Monsters Bide Time",
 	"startdescription": "Our enemies are here in force, but none have yet made a move against us. The hours tick away. Soon.",
 	"warmup": 30,
+	"extantreqs": {
+	    "lake.here": -1,
+		"underground.here": -1
+	},
 	"linked": [
 	    {
 		"id": "neutral.monster.pickaction.router",
@@ -71,6 +75,7 @@
     {
 	"id": "neutral.monster.pickaction.low",
 	"$extends" : ["neutral.monster.pickaction.high"],
+	"extantreqs": {},
 	"deckeffects": {
 	    "decisions.lake.monster.low": 1
 	},
@@ -78,7 +83,6 @@
 	
     {
 	"id": "neutral.monster.executeaction", 
-	
 	"label": "The Monsters Act!",
 	"startdescription": "The alarm cries out - our adversary mobilises!",
 	"linked": [
@@ -337,6 +341,14 @@
 	    }
 	],
 	"warmup": 30,
+    "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "monster.grabbed.marker",
+                    "level": 1,
+                    "additive": true
+                }
+    ],
 	"linked": [
 	    {
 		"id": "neutral.monster.enemy.targetenemy.0"
@@ -378,17 +390,34 @@
 			"id": "neutral.monster.enemy.targetenemy.victory.growth"
 		},
 		{
+			"id": "neutral.monster.enemy.targetenemy.victory.othermonster"
+		},
+		{
 			"id": "neutral.monster.enemy.targetenemy.victory.default"
 		}
+	],
+	"inductions": [
+	    {
+		"id": "produce.strife",
+		"chance": 30
+	    },
+		
+	    {
+		"id": "produce.strife.contemnant",
+		"chance": 20
+	    }
 	]
     },
 	
-    {
-	"id": "neutral.monster.enemy.targetenemy.victory.default",
+	{
+	"id": "neutral.monster.enemy.targetenemy.victory.self_destruction",
 	"label": "The Monsters Prevail!",
-	"startdescription": "In the distance, something dies. The beasts feast well, tonight.",
+	"startdescription": "In the distance, I see Germans run for their lives. The beasts feast well, tonight.",
+	"requirements": {
+	    "self_destruction": 1
+	},
 	"aspects": {
-	    "killmortal": 1
+	    "killfoe": 1
 	}
     },
 	
@@ -406,15 +435,51 @@
 	}
     },
 	
-    {
-	"id": "neutral.monster.enemy.targetenemy.victory.self_destruction",
+	{
+	"id": "neutral.monster.enemy.targetenemy.victory.othermonster",
 	"label": "The Monsters Prevail!",
-	"startdescription": "In the distance, I see Germans run for their lives. The beasts feast well, tonight.",
-	"requirements": {
-	    "self_destruction": 1
-	},
+	"startdescription": "In the distance, something dies. The beasts feast well, tonight.",
+	"inductions": [
+	    {
+		"id": "spit.other.monster.mark.clearer",
+		"expulsion": {
+		    "limit": 1,
+		    "filter": {
+			"monster.grabbed.marker": 1
+		    }
+		}
+	    }
+	],
+	"furthermore": [
+		{
+		"effects": {
+		"foe": -99
+					}
+		}
+		]
+    },
+	
+	{
+	"id": "spit.other.monster.mark.clearer",
+	"actionid": "enemyaction.single",
+	"label": "The Monsters Prevail!",
+	"startdescription": "In the distance, something dies. The beasts feast well, tonight.",
+    "mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "monster.grabbed.marker",
+                    "level": 0
+                }
+    ]
+    },
+	
+    {
+	"id": "neutral.monster.enemy.targetenemy.victory.default",
+	"label": "The Monsters Prevail!",
+	"startdescription": "In the distance, something dies. The beasts feast well, tonight.",
 	"aspects": {
-	    "killfoe": 1
+	    "killmortal": 1,
+		"killresuscitated": 1
 	}
     },
 	
