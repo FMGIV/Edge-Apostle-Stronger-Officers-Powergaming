@@ -13,7 +13,7 @@
 	},
 	"linked": [
 	    {
-		"id": "neutral.monster.pickaction.router",
+		"id": "neutral.monster.pickactionrouter",
 		"chance": "40 + [~/visible:strife.tracker] * 3"
 	    },
 	    {
@@ -23,18 +23,12 @@
     },
 
     {
-	"id": "neutral.monster.pickaction.router", 
+	"id": "neutral.monster.pickactionrouter", 
 	"label": "The Monsters Act!",
 	"startdescription": "",
 	"linked": [
 	    {
-		"id": "neutral.monster.pickaction.high"
-	    },
-	    {
-		"id": "neutral.monster.pickaction.medium"
-	    },
-	    {
-		"id": "neutral.monster.pickaction.low"
+		"id": "neutral.monster.pickaction.*"
 	    }
 	]
     },
@@ -52,7 +46,7 @@
 	"warmup": 10,
 	"linked": [
 	    {
-		"id": "neutral.monster.enemy.executeaction.targetenemy.pre",
+		"id": "neutral.monster.enemy.executeaction.targetenemy",
 		"chance": "50 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
 	    },
 	    {
@@ -78,7 +72,7 @@
 	"extantreqs": {},
 	"deckeffects": {
 	    "decisions.lake.monster.low": 1
-	},
+	}
     },
 	
     {
@@ -196,73 +190,22 @@
 	    }
 	]
     },
-
-	{
-	"id": "neutral.monster.enemy.executeaction.targetenemy.pre", 
-	"label": "The Monsters Act!",
-	"startdescription": "The alarm cries out - our adversary mobilises!",
-	"effects": {
-	    "decision": -99
-	},
-	"linked": [
-	    {
-		"id": "neutral.monster.enemy.executeaction.targetenemy"
-	    }
-	]
-    },
 	
     {
 	"id": "neutral.monster.enemy.executeaction.targetenemy", 
 	"label": "The Monsters Act!",
 	"startdescription": "The alarm cries out - our adversary mobilises!",
-	"deckeffects": {
-	    "decisions.enemy.targetsoviets.low": 1
-	},
-	"linked": [
+	"inductions": [
 	    {
-		"id": "neutral.monster.enemy.executeaction.targetenemy.continue"
-	    }
-	],
-	"alt": [
-	    {
-		"id": "neutral.monster.enemy.executeaction.targetenemy.high"
-	    }
-	]
-	},
-	
-    {
-	"id": "neutral.monster.enemy.executeaction.targetenemy.high", 
-	"label": "The Monsters Act!",
-	"startdescription": "The alarm cries out - our adversary mobilises!",
-	"extantreqs": {
-	    "strife.tracker": 4
-	},
-	"deckeffects": {
-	    "decisions.enemy.targetsoviets.high": 1
-	},
-	"linked": [
-	    {
-		"id": "neutral.monster.enemy.executeaction.targetenemy.continue"
-	    }
-	]
-    },
-	
-    {
-	"id": "neutral.monster.enemy.executeaction.targetenemy.continue", 
-	"label": "The Monsters Act!",
-	"startdescription": "The alarm cries out - our adversary mobilises!",
-	"alt": [
-	    {
-		"id": "neutral.monster.enemy.targetenemy.startup.neutral.monster",
-		"additional": true
+		"id": "neutral.monster.enemy.targetenemy.startup.neutral.monster"
 	    },
+		
 	    {
-		"id": "neutral.monster.enemy.doubleattack.1.startup.againstenemy",
-		"additional": true
+		"id": "neutral.monster.enemy.doubleattack.1.startup.againstenemy"
 	    },
+		
 	    {
-		"id": "neutral.monster.enemy.doubleattack.2.startup.againstenemy",
-		"additional": true
+		"id": "neutral.monster.enemy.doubleattack.2.startup.againstenemy"
 	    }
 	],
 	"linked": [
@@ -410,8 +353,9 @@
 	"mutations": [
                 {
                     "filter": "foe.monster",
-                    "setmutation": "foe",
-                    "level": 1
+                    "mutate": "foe",
+                    "level": 1,
+					"additive": false
                 }
     ]
     },
@@ -439,7 +383,8 @@
                 {
                     "filter": "foe.monster",
                     "mutate": "foe",
-                    "level": 1
+                    "level": 1,
+					"additive": false
                 }
     ]
     },
@@ -455,8 +400,9 @@
 	"mutations": [
                 {
                     "filter": "foe.monster",
-                    "setmutation": "foe",
-                    "level": 1
+                    "mutate": "foe",
+                    "level": 1,
+					"additive": false
                 }
     ]
     },
@@ -468,8 +414,9 @@
 	"mutations": [
                 {
                     "filter": "foe.monster",
-                    "setmutation": "foe",
-                    "level": 1
+                    "mutate": "foe",
+                    "level": 1,
+					"additive": false
                 }
     ]
     },
@@ -484,9 +431,6 @@
 	},
 	"requirements": {
 	    "decision.enemy.doubleattack": 1
-	},
-	"tablereqs": {
-	    "german": 1
 	},
 	"slots": [
 	    {
@@ -530,9 +474,6 @@
 	"requirements": {
 	    "decision.enemy.doubleattack": 1
 	},
-	"tablereqs": {
-	    "german": 1
-	},
 	"slots": [
 	    {
 		"id": "needsenemy",
@@ -562,7 +503,37 @@
                     "level": -1
                 }
     ]
-    }
+    },
+	
+	{
+	"id": "monster.corpse.respawner",
+	"$extends" : ["enemy.corpse.respawner"],
+	"grandReqs": {},
+	"warmup": 1,
+	"requirements": {
+		"foe": 1
+	},
+	"slots": [
+	    {
+		"id": "deadenemy",
+		"label": "Dead Enemy",
+		"required": {
+			"foe" : 1
+		},
+		"essential": {
+		    "remnant": 1
+		},
+		"greedy": true
+	    }
+	],
+	"furthermore": [
+      {
+         "effects": {
+            "foe.corpse.unnatural" : 1
+         }
+      }
+	]
+	}
 	
 ]
 }
