@@ -53,7 +53,7 @@
 	"linked": [
 	    {
 		"id": "neutral.monster.enemy.executeaction.targetenemy.pre",
-		"chance": "40 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+		"chance": "50 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
 	    },
 	    {
 		"id": "neutral.monster.executeaction"
@@ -205,12 +205,6 @@
 	"id": "neutral.monster.enemy.executeaction.targetenemy.pre", 
 	"label": "The Monsters Act!",
 	"startdescription": "The alarm cries out - our adversary mobilises!",
-	"tablereqs": {
-	    "foe.monster": 1
-	},
-	"grandReqs": {
-		"[~/extant:soviet] >= 1 || [~/extant:german] >= 1": 1
-	},
 	"effects": {
 	    "decision": -99
 	},
@@ -225,9 +219,6 @@
 	"id": "neutral.monster.enemy.executeaction.targetenemy", 
 	"label": "The Monsters Act!",
 	"startdescription": "The alarm cries out - our adversary mobilises!",
-	"tablereqs": {
-	    "foe.monster": 1
-	},
 	"deckeffects": {
 	    "decisions.enemy.targetsoviets.low": 1
 	},
@@ -241,15 +232,12 @@
 		"id": "neutral.monster.enemy.executeaction.targetenemy.high"
 	    }
 	]
-    },
+	},
 	
     {
 	"id": "neutral.monster.enemy.executeaction.targetenemy.high", 
 	"label": "The Monsters Act!",
 	"startdescription": "The alarm cries out - our adversary mobilises!",
-	"tablereqs": {
-	    "foe.monster": 1
-	},
 	"extantreqs": {
 	    "strife.tracker": 4
 	},
@@ -314,6 +302,13 @@
 	    }
 	],
 	"warmup": 10,
+	"mutations": [
+                {
+                    "filter": "foe",
+                    "mutate": "foe",
+                    "level": -1
+                }
+    ],
 	"linked": [
 	    {
 		"id": "neutral.monster.enemy.targetenemy"
@@ -326,7 +321,7 @@
 	"label": "A Hostile Offensive!",
 	"startdescription": "The monsters follow the scent of blood and flesh, and attack their enemy -",
 	"requirements": {
-	    "foe": 1
+	    "foe.monster": 1
 	},
 	"slots": [
 	    {
@@ -341,14 +336,6 @@
 	    }
 	],
 	"warmup": 30,
-    "mutations": [
-                {
-                    "filter": "foe",
-                    "mutate": "monster.grabbed.marker",
-                    "level": 1,
-                    "additive": true
-                }
-    ],
 	"linked": [
 	    {
 		"id": "neutral.monster.enemy.targetenemy.0"
@@ -363,7 +350,7 @@
 	"id": "neutral.monster.enemy.targetenemy.0",
 	"label": "The Monsters Prevail!",
 	"grandReqs": { 
-        "[foe.monster] + [german] + [soviet] = 2": 1 
+        "[foe.monster] + [german] + [soviet] + [faction.resuscitated] = 2": 1 
     },
 	"linked": [
 	    {
@@ -384,16 +371,7 @@
 	},
 	"linked": [
 		{
-			"id": "neutral.monster.enemy.targetenemy.victory.self_destruction"
-		},
-		{
-			"id": "neutral.monster.enemy.targetenemy.victory.growth"
-		},
-		{
-			"id": "neutral.monster.enemy.targetenemy.victory.othermonster"
-		},
-		{
-			"id": "neutral.monster.enemy.targetenemy.victory.default"
+			"id": "neutral.monster.enemy.targetenemy.victory.*"
 		}
 	],
 	"inductions": [
@@ -412,7 +390,7 @@
 	{
 	"id": "neutral.monster.enemy.targetenemy.victory.self_destruction",
 	"label": "The Monsters Prevail!",
-	"startdescription": "In the distance, I see Germans run for their lives. The beasts feast well, tonight.",
+	"startdescription": "In the distance, I see an explosion. Nothing survived.",
 	"requirements": {
 	    "self_destruction": 1
 	},
@@ -432,43 +410,46 @@
 		"foe.growth": 1,
 		"german": -99,
 		"soviet": -99
-	}
+	},
+	"mutations": [
+                {
+                    "filter": "foe.monster",
+                    "setmutation": "foe",
+                    "level": 1
+                }
+    ]
     },
 	
 	{
 	"id": "neutral.monster.enemy.targetenemy.victory.othermonster",
 	"label": "The Monsters Prevail!",
 	"startdescription": "In the distance, something dies. The beasts feast well, tonight.",
-	"inductions": [
-	    {
-		"id": "spit.other.monster.mark.clearer",
-		"expulsion": {
-		    "limit": 1,
-		    "filter": {
-			"monster.grabbed.marker": 1
-		    }
-		}
-	    }
-	],
-	"furthermore": [
-		{
-		"effects": {
-		"foe": -99
-					}
-		}
-		]
+	"effects": {
+	    "foe": -99
+	},
+    "furthermore": [  
+        {  
+            "mutations": [
+                {
+                    "filter": "foe.monster",
+                    "setmutation": "foe",
+                    "level": 1
+                }
+						]
+        }  
+    ]
     },
 	
-	{
-	"id": "spit.other.monster.mark.clearer",
+    {
+	"id": "neutral.monster.clearer",
 	"actionid": "enemyaction.single",
 	"label": "The Monsters Prevail!",
 	"startdescription": "In the distance, something dies. The beasts feast well, tonight.",
-    "mutations": [
+	"mutations": [
                 {
-                    "filter": "foe",
-                    "mutate": "monster.grabbed.marker",
-                    "level": 0
+                    "filter": "foe.monster",
+                    "setmutation": "foe",
+                    "level": 1
                 }
     ]
     },
@@ -480,13 +461,27 @@
 	"aspects": {
 	    "killmortal": 1,
 		"killresuscitated": 1
-	}
+	},
+	"mutations": [
+                {
+                    "filter": "foe.monster",
+                    "setmutation": "foe",
+                    "level": 1
+                }
+    ]
     },
 	
     {
 	"id": "neutral.monster.enemy.targetenemy.defeat",
 	"label": "The Monsters Retreat!",
-	"startdescription": "The monsters flee from the guns of the Germans. They starve, tonight."
+	"startdescription": "The monsters flees. It starves, tonight.",
+	"mutations": [
+                {
+                    "filter": "foe.monster",
+                    "setmutation": "foe",
+                    "level": 1
+                }
+    ]
     },
 	
     {
@@ -524,7 +519,14 @@
 		"id": "neutral.monster.enemy.targetenemy"
 	    }
 	],
-	"warmup": 10
+	"warmup": 10,
+	"mutations": [
+                {
+                    "filter": "foe.monster",
+                    "mutate": "foe",
+                    "level": -1
+                }
+    ]
     },
 	
     {
@@ -562,7 +564,14 @@
 		"id": "neutral.monster.enemy.targetenemy"
 	    }
 	],
-	"warmup": 10
+	"warmup": 10,
+	"mutations": [
+                {
+                    "filter": "foe.monster",
+                    "mutate": "foe",
+                    "level": -1
+                }
+    ]
     }
 	
 ]
