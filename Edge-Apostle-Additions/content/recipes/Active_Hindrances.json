@@ -497,6 +497,33 @@
     },
 	
 	{
+	"id": "active.hindrance.found.fire",
+	"$extends" : ["active.hindrance.found.earthquake"],
+	"startdescription": "The flames consume, as is it's nature.",
+	"description": "Only ash remains.",
+	"grandReqs" : {
+		"([hindrance.fire] || [hindrance.fireinthechurch])": 1,
+		},
+	"slots": [
+	    {
+		"id": "needssomething",
+		"label": "Something?",
+		"required": {
+			"supplies": 1,
+			"infrastructure" : 1,
+			"enemy.infrastructure" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"effects" : {
+		"supplies" : -99,
+		"infrastructure" : -99,
+		"enemy.infrastructure" : -99
+	}
+	},
+	
+	{
 	"id": "active.hindrance.found.fallback", 
 	"actionid": "badweather",
 	"label": "Active Hindrance Fallback",
