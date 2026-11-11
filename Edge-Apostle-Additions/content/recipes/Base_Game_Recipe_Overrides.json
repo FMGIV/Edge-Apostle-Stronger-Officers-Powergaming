@@ -4613,7 +4613,101 @@
             }  
         }  
     ]  
-	}
+	},
+	
+	{
+	"id": "enemy.pickaction.high",
+	"linked$prepend" : [
+		{
+			"id": "enemy.executeaction.targetothers.pre",
+			"chance": "25 + [~/visible:corrivality.exile] * 25 - [~/visible:corrivality.foe] * 25"
+		}
+		]
+	},
+	
+	{
+	"id": "enemy.pickaction.high.contemnant",
+	"linked$prepend" : [
+		{
+			"id": "enemy.executeaction.targetothers.pre",
+			"chance": "20"
+		}
+		]
+	},
+	
+	{
+	"id": "enemy.pickaction.medium",
+	"linked$prepend" : [
+		{
+			"id": "enemy.executeaction.targetothers.pre",
+			"chance": "25 + [~/visible:corrivality.exile] * 25 - [~/visible:corrivality.foe] * 25"
+		}
+		]
+	},
+	
+	{
+	"id": "enemy.pickaction.medium.contemnant",
+	"linked$prepend" : [
+		{
+			"id": "enemy.executeaction.targetothers.pre",
+			"chance": "20"
+		}
+		]
+	},
+	
+	{
+	"id": "enemy.pickaction.low",
+	"linked$prepend" : [
+		{
+			"id": "enemy.executeaction.targetothers.pre",
+			"chance": "25 + [~/visible:corrivality.exile] * 25 - [~/visible:corrivality.foe] * 25"
+		}
+		]
+	},
+	
+	{
+	"id": "enemy.pickaction.low.contemnant",
+	"linked$prepend" : [
+		{
+			"id": "enemy.executeaction.targetothers.pre",
+			"chance": "20"
+		}
+		]
+	},
+	
+    {
+	"id": "friend.wrake.killed",
+	"aspects$add" : {"killmortal": 1}
+	},
+	
+    {
+	"id": "soviet.neutral.singleattack.seektarget",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$remove" : ["otherworldly"]
+			}
+		}
+	"linked$prepend": [
+	    {
+		"id": "soviet.attack.monster.router"
+	    }
+	]
+    },
+	
+    {
+	"id": "aggro.againstgerman.singleattack",
+    "slots$listedit": { 
+		"0$dictedit" : {
+			"forbidden$remove" : ["otherworldly"]
+			}
+		}
+	"linked$prepend": [
+	    {
+		"id": "soviet.attack.monster.router"
+	    }
+	]
+    }
+	
 
 ]
 }

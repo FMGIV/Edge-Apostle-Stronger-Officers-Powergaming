@@ -293,9 +293,14 @@
     },
 	"linked": [
 	    {
+		"id": "friend.wrake.killed"
+	    },
+		
+	    {
 		"id": "neutral.monster.enemy.targetenemy.victory",
 		"chance": "50 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 - [foe.rankofficer] * 200"
 	    },
+		
 	    {
 		"id": "neutral.monster.enemy.targetenemy.defeat"
 	    }
@@ -543,7 +548,213 @@
          }
       }
 	]
+	},
+	
+    {
+	"id": "enemy.executeaction.targetothers.pre",
+	"$extends" : ["enemy.executeaction.targetsoviets.pre"],
+	"tablereqs": {},
+	"grandReqs" : {
+		"[~/exterior:foe.monster] || [~/exterior:foe.resuscitated]": 1
+		},
+	"deckeffects": {
+	    "decisions.enemy.targetsoviets.high": 1
+	},
+	"linked": [
+	    {
+		"id": "enemy.executeaction.targetothers"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.executeaction.targetothers",
+	"$extends" : ["enemy.executeaction.targetsoviets.continue"],
+	"alt": [],
+	"inductions": [
+	    {
+		"id": "enemy.targetothers.startup"
+	    },
+		
+	    {
+		"id": "enemy.doubleattack.1.startup.againstothers"
+	    },
+		
+	    {
+		"id": "enemy.doubleattack.2.startup.againstothers"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.targetothers.startup",
+	"$extends" : ["enemy.targetsoviets.startup"],
+	"startdescription": "The Wehrmacht makes an advance against the monsters -",
+	"linked": [
+	    {
+		"id": "enemy.targetothers"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.doubleattack.1.startup.againstothers",
+	"$extends" : ["enemy.doubleattack.1.startup.againstsoviets"],
+	"extantreqs": {},
+	"tablereqs": {},
+	"slots": [
+	    {
+		"id": "needsenemy",
+		"label": "Enemy",
+		"required": {
+		    "foe.monster": 1,
+			"foe.resuscitated": 1
+		},
+		"forbidden": {},
+		"greedy": true
+	    }
+	],
+	"linked": [
+	    {
+		"id": "enemy.targetothers"
+	    },
+	],
+	"warmup": 10
+    },
+	
+    {
+	"id": "enemy.doubleattack.2.startup.againstothers",
+	"$extends" : ["enemy.doubleattack.1.startup.againstothers"],
+	"actionid": "enemyaction.double.2"
+    },
+	
+    {
+	"id": "enemy.targetothers",
+	"$extends" : ["enemy.targetsoviets"],
+	"startdescription": "The Wehrmacht makes a counter-advance against the monsters -",
+	"slots": [
+	    {
+		"id": "needstarget",
+		"label": "Target",
+		"required": {
+		    "foe.monster": 1,
+			"foe.resuscitated": 1
+		},
+		"greedy": true
+	    }
+	],
+	"linked": [
+		{
+		"id": "friend.wrake.killed"
+	    },
+		
+	    {
+		"id": "enemy.targetothers.victory",
+		"chance": 40
+	    },
+		
+	    {
+		"id": "enemy.targetothers.defeat"
+	    },
+		
+	    {
+		"id": "enemy.nonefound"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.targetothers.victory",
+	"startdescription": "In the distance, I see the final death-throes of something inhuman: it is brutal killing, done with brutal efficiency. The Germans are nothing, if not efficient.",
+	"requirements": {
+	    "foe": 2
+	},
+	"effects": {
+	    "foe.monster": -99
+	},
+	"aspects": {
+	    "killresuscitated": 1
+	},
+	"inductions": [
+		{
+		"id": "produce.strife",
+		"chance": 20
+	    },
+		
+	    {
+		"id": "produce.strife.contemnant",
+		"chance": 20
+	    }
+	],
+	"furthermore": [
+      {
+         "effects": {
+            "trauma" : -99
+         }
+      }
+	]
+    },
+	
+    {
+	"id": "enemy.targetothers.defeat",
+	"$extends" : ["enemy.targetsoviets.defeat"],
+	"startdescription": "The German counter-attack crumples against the beasts. Outgunned and outnumbered, the Wehrmacht's soldiers hurry back to their lines. The front remains unmoved; neither side is yet the victor.",
+	"requirements": {},
+	"alt": [],
+	"inductions": [
+		{
+		"id": "produce.strife",
+		"chance": 20
+	    },
+		
+	    {
+		"id": "produce.strife.contemnant",
+		"chance": 20
+	    }
+	]
+    },
+	
+    {
+	"id": "soviet.attack.monster.router",
+	"$extends" : ["enemy.targetothers"],
+	"slots": [],
+	"grandReqs" : {
+		"([foe.monster] || [faction.resuscitated])": 1,
+		},
+	"linked": [
+		{
+		"id": "friend.wrake.killed"
+	    },
+		
+	    {
+		"id": "soviet.targetothers.victory",
+		"chance": 40
+	    },
+		
+	    {
+		"id": "soviet.targetothers.defeat"
+	    },
+		
+	    {
+		"id": "soviet.nonefound"
+	    }
+	]
+    },
+	
+    {
+	"id": "soviet.targetothers.victory",
+	"$extends" : ["enemy.targetothers.victory"],
+	"startdescription": "I watch the battle from afar - watch the Russian contingent wash over the monsters. There is the distant popping of the guns, the low boom of shellfire, and then that particular silence that comes after victory. The Russians move onwards.",
+	"requirements": {
+	    "foe": 1
 	}
+    },
+	
+    {
+	"id": "soviet.targetothers.defeat",
+	"$extends" : ["enemy.targetothers.defeat"],
+	"startdescription": "The Beasts prove too fierce for the Red Army. With their strength now expended, they withdraw from the field. No-one is the victor.",
+    }
 	
 ]
 }
