@@ -2179,28 +2179,33 @@
 	"description": "An Ally has died!",
 	"warmup": 1,
 	"grandReqs": {
-		"([friend.corpses] && [friend.getthefuckout])": 1,
+		"([friend.corpses] && [friend.getthefuckout] || [friend.corpses] && [local] || [friend.corpses] && [companion.death.marker])": 1,
 	},
 	"slots": [
 	    {
 		"id": "deadally",
 		"label": "Dead Ally",
 		"required": {
-			"friend.getthefuckout" : 1
+			"friend.getthefuckout" : 1,
+			"local" : 1,
+			"companion.death.marker" : 1
 		},
 		"essential": {
 		    "friend.corpses": 1
 		},
 		"greedy": true
 	    }
-	],
-	"mutations": [  
-		{  
-			"filter": "friend.corpses",  
-			"mutate": "friend.getthefuckout",  
-			"level": -1  
-		}  
-		]
+	],  
+    "effects": {  
+        "remnant": -99
+		},  
+	"furthermore": [
+      {
+         "effects": {
+            "friend.corpses": 1
+         }
+      }
+	]
 	},
 	
     {
