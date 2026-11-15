@@ -2204,13 +2204,50 @@
 	},
 	
     {
-      "id": "produce.hindrance.fire", 
+    "id": "produce.hindrance.fire", 
 	"$depends": [ "3713855248" ],
 	"inductions": [
 	    {
 		"id": "active.hindrance.verb.cycle"
 	    }
 		]
+	},
+	
+	{
+	"id": "hint.learn.insight", 
+	"$depends": [ "3713855248" ],
+	"actionid": "abandon",
+	"label": "Meditate on Von Helling's Tactics?",
+	"startdescription": "Should I have the opportunity, I can study her tactics and how she commands her armies. [This will require Large amounds of Edge, and a moderately large amounts of Winter and Lantern.]",
+	"requirements": {
+	    "obdurant.story.umiri": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{  
+    "id": "learn.insight", 
+	"$depends": [ "3713855248" ],
+    "actionid": "abandon",
+    "label": "Meditate on Von Helling's Tactics",  
+    "startdescription": "I close my eyes and replay her attacks in my mind's eye.",
+    "description": "I open my eyes. Her tactics become easier to grasp, to learn, and eventually overcome.",  
+    "requirements": {  
+        "obdurant.story.umiri": 1,
+		"edge" : 18,
+		"winter" : 10,
+		"lantern" : 10
+		},  
+    "aspects": {  
+        "fatiguing": 1  
+		},  
+	"effects": {  
+        "lesson.insight": 1,
+		"influence": -99
+		},
+	"warmup": 60,
+	"craftable": true
 	}
 	
 ]
