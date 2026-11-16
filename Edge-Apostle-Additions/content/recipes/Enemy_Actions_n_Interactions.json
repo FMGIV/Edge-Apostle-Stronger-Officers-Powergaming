@@ -1650,7 +1650,36 @@
          }
       }
 	]
-	}
+	},
+	
+	{
+	"id": "enemy.reinforcements.router",
+	"$extends" : ["reinforcements.startup"],
+	"requirements" : {},
+	"linked": [
+		{
+			"id": "create.decoys.startup",
+			"chance": "40 - [~/visible:strife.tracker] * 3 - [~/visible:corrivality.exile] * 20 + [~/visible:corrivality.foe] * 20"
+		},
+		
+	    {
+		"id": "enemy.reinforcements"
+	    }
+	]
+    },
+	
+    {
+	"id": "enemy.reinforcements",
+	"$extends" : ["reinforcements.startup"],
+	"requirements" : {},
+	"effects" : {"decision.enemy.attack" : 1},
+	"linked": [
+	    {
+		"id": "reinforcements.pick"
+	    }
+	],
+	"warmup": 30
+    },
 	
 	
 ]
