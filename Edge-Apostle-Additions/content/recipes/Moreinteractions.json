@@ -2421,7 +2421,40 @@
 	"label": "To Bite the Hand that Kills",
 	"startdescription": "The Splinter will put up a competent fight against this Edge-Long, but won't win. I've bought myself some time, for now.",
     "warmup": 60, 
-    }
+    },
+	
+	{
+	"id": "wounded.gtfo.remover",
+	"actionid": "respawnenemycorpse",
+	"label": "Ally Wounded!",
+	"startdescription": "An Ally has been wounded!",
+	"description": "An Ally has been wounded!",
+	"warmup": 1,
+	"grandReqs": {
+		"([wounded] && [friend.getthefuckout] || [friend.getthefuckout] && [decaying])": 1,
+	},
+	"slots": [
+	    {
+		"id": "deadally",
+		"label": "Wounded Ally",
+		"required": {
+			"wounded" : 1,
+			"decaying" : 1
+		},
+		"essential": {
+		    "friend.getthefuckout": 1
+		},
+		"greedy": true
+	    }
+	],
+	"mutations": [  
+		{  
+			"filter": "friend",  
+			"mutate": "friend.getthefuckout",  
+			"level": -1  
+		}  
+	]
+	}
 	
 	
 ]
