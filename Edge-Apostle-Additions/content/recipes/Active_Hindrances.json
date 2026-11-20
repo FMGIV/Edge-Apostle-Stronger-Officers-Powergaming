@@ -106,6 +106,27 @@
 	},
 	
 	{
+	"id": "active.hindrance.found.snows.router",
+	"label": "Heavy Storms!",
+	"actionid": "badweather",
+	"startdescription": "Cold, so very cold!",
+	"description": "General winter sends his regards.",
+	"requirements": {
+		"hindrance.snows": 1
+	},
+	"linked": [
+	    {
+		"id": "active.hindrance.found.snows.enemybarracks",
+		"chance": "25 - [~/visible:corrivality.exile] * 25 + [~/visible:corrivality.foe] * 25"
+	    },
+		
+		{
+		"id": "active.hindrance.found.snows"
+	    }
+	]
+	},
+	
+	{
 	"id": "active.hindrance.found.snows",
 	"label": "Snowstorm!",
 	"actionid": "badweather",
@@ -135,6 +156,32 @@
 	"aspects" : {
 		"makecasualty" : 1,
 		"weaken" : 1
+	}
+	},
+	
+	{
+	"id": "active.hindrance.found.snows.enemybarracks",
+	"$extends" : ["active.hindrance.found.snows"],
+	"slots": [
+	    {
+		"id": "needssomeone",
+		"label": "Someone?",
+		"required": {
+			"mortal": 1,
+			"foe.monster" : 1,
+			"foe.hidden" : 1
+		},
+		"forbidden": {
+			"weakened": 1,
+			"remnant" : 1,
+			"faction.resuscitated" : 1,
+			"german" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"extantreqs": {
+	    "loc.barracks.enemy": 1
 	}
 	},
 	
@@ -195,6 +242,27 @@
 	},
 	
 	{
+	"id": "active.hindrance.found.storms.router",
+	"label": "Heavy Storms!",
+	"actionid": "badweather",
+	"startdescription": "The sky sends down its wrath.",
+	"description": "What is below cannot escape what is above.",
+	"requirements": {
+		"hindrance.storms": 1
+	},
+	"linked": [
+	    {
+		"id": "active.hindrance.found.storms.enemybarracks",
+		"chance": "25 - [~/visible:corrivality.exile] * 25 + [~/visible:corrivality.foe] * 25"
+	    },
+		
+		{
+		"id": "active.hindrance.found.storms"
+	    }
+	]
+	},
+	
+	{
 	"id": "active.hindrance.found.storms",
 	"label": "Heavy Storms!",
 	"actionid": "badweather",
@@ -223,6 +291,31 @@
 	"aspects" : {
 		"fatiguing" : 1,
 		"weaken" : 1
+	}
+	},
+	
+	{
+	"id": "active.hindrance.found.storms.enemybarracks",
+	"$extends" : ["active.hindrance.found.storms"],
+	"slots": [
+	    {
+		"id": "needssomeone",
+		"label": "Someone?",
+		"required": {
+			"mortal": 1,
+			"foe.monster" : 1,
+			"foe.hidden" : 1
+		},
+		"forbidden": {
+			"weakened": 1,
+			"remnant" : 1,
+			"german" : 1
+		},
+		"greedy": true
+	    }
+	],
+	"extantreqs": {
+	    "loc.barracks.enemy": 1
 	}
 	},
 	
