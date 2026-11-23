@@ -2454,6 +2454,133 @@
 			"level": -1  
 		}  
 	]
+	},
+	
+	{
+	"id": "hint.op.thecolonel",
+	"actionid": "operate",
+	"label": "The Shadow of the Colonel",
+	"startdescription": "Nothing escape's the colonel's gaze, and for a brief moment, an enemy wont escape mine.",
+	"requirements": {
+	    "op.thecolonel": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+    {
+	"id": "weaken.op.thecolonel",
+    "actionid": "operate",
+	"label": "Weaken an enemy in the shadow of the Colonel",
+	"startdescription": "The world slows. Colors blur. Insight fills my mind...",
+	"description": "Time resumes. Colors return. Information fills my mind.",
+	"requirements": {
+	    "foe": 1,
+		"weakened" : -1,
+	    "op.thecolonel": 1
+		},
+	"aspects": {
+		"weaken" : 1,
+	    "fatiguing": 1
+		},
+	"craftable": true,
+	"warmup": 30
+	},
+	
+	{
+	"id": "hint.op.thelionsmith",
+	"actionid": "operate",
+	"label": "The Shadow of the Lionsmith",
+	"startdescription": "In the shadow of the Lionsmith, men rise from exhaustion and weakness.",
+	"requirements": {
+	    "op.thelionsmith": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+    {
+	"id": "refresh.op.thelionsmith",
+    "actionid": "operate",
+	"label": "Refresh Myself or an Ally",
+	"startdescription": "Doubts fade. Exhaution recedes. Back into the fight.",
+	"description": "Theres killing to be done. Anger is a powerful motivator.",
+	"requirements": {
+	    "op.thelionsmith": 1
+		},
+	"grandReqs" : {
+	"([trauma] || [friend] && [exhausted] || [friend] && [friend.weakened] || [friend] && [weakened])": 1,
+		},
+	"aspects": {
+		"refresh" : 1
+		},
+	"effects": {
+		"trauma" : -99,
+		"op.thelionsmith": -99
+		},
+	"craftable": true,
+	"warmup": 30
+	},
+	
+	{
+	"id": "hint.op.wolfdivided",
+	"actionid": "operate",
+	"label": "The Shadow of the Wolf",
+	"startdescription": "The Wolf's Rage devours anything and everything. If I lure an enemy into such concentrated hatred, they'll die. However, this does run the risk of attracting more fragments of his rage...",
+	"requirements": {
+	    "op.wolfdivided": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+    {
+	"id": "op.wolfdivided.kill",
+	"actionid": "operate",
+	"label": "Killing with a Borrowed Fang",
+	"startdescription": "A shadow falls across my enemy, and a hatred deep and old swallows them whole-",
+	"description": "The enemy is gone, what remains?",
+	"requirements": {
+	    "op.wolfdivided": 1,
+	    "foe": 1,
+	    "foe.rankofficer": -1,
+	    "foe.seventeen": -1,
+	    "foe.hidden": -1
+	},
+    "effects": {  
+        "foe": -99,
+		"op.wolfdivided": -1  
+    },
+	"craftable": true,
+	"warmup": 30,
+	"linked": [
+	    {
+		"id": "op.wolfdivided.kill.cont"
+	    }
+	]
+    },
+	
+    {
+	"id": "op.wolfdivided.kill.cont",
+    "actionid": "operate",
+	"label": "Killing with a Borrowed Fang",
+	"startdescription": "A shadow falls across my enemy, and a hatred deep and old swallows them whole-",
+	"description": "The enemy is gone, what remains?",
+	"internaldeck": {
+	    "spec": [
+		"op.wolfdivided",
+		"foe.splinter",
+		"foe.wrake",
+		"hindrance.wolf",
+		"trauma",
+		"nothing",
+		"husk",
+		"strife"
+	    ],
+	    "draws": 1,
+	    "resetonexhaustion": true
+		},
+	"craftable": false
 	}
 	
 	
