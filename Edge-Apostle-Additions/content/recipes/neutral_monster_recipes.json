@@ -160,16 +160,20 @@
     },
 	
     {
-	"id": "neutral.monster.hide.startup", 
-	"$depends": [ "3713855248" ],
-	"$extends" : ["hide.startup.general"],
+	"id": "neutral.monster.hide.startup",
+	"actionid": "enemyaction.hide",
+	"label": "Scrambling Positions",
+	"startdescription": "An adversary withdraws to shroud themselves.",
+	"aspects": {
+	    "concealidentity": 1
+	},
 	"requirements": {
 	    "decision.enemy.hide": 1
 	},
 	"slots": [
 	    {
 		"id": "needsenemy",
-		"label": "Monster",
+		"label": "Enemy",
 		"required": {
 		    "foe.monster": 1
 		},
@@ -177,27 +181,9 @@
 		    "foe.hidden": 1
 		},
 		"greedy": true
-	    }
-	]
-    },
-	
-    {
-	"id": "neutral.monster.hide.startup", 
-	"$incompatible": [ "3713855248" ],
-	"$extends" : ["hide.startup"],
-	"slots": [
-	    {
-		"id": "needsenemy",
-		"label": "Monster",
-		"required": {
-		    "foe.monster": 1
-		},
-		"forbidden": {
-		    "foe.hidden": 1
-		},
-		"greedy": true
-	    }
-	]
+	    },
+	],
+	"warmup": 10
     },
 	
     {
@@ -275,6 +261,9 @@
 	"requirements": {
 	    "foe.monster": 1
 	},
+	"aspects": {
+	    "revealidentity": 1
+	},
 	"slots": [
 	    {
 		"id": "needstarget",
@@ -306,11 +295,33 @@
 	]
     },
 	
+	{
+	"id": "defend.opportunity_friend.monster", 
+	"$depends": [ "3753135571"], 
+	"$extends": [ "defend.opportunity_friend"],
+	"requirements": {
+		"faction.anno": 1
+	},
+	"grandReqs": {},
+	"slots": [],
+	"warmup": 0
+	},
+	
+	{
+	"id": "neutral.monster.enemy.targetenemy", 
+	"$depends": [ "3753135571"],
+	"linked$prepend": [
+	    {
+		"id": "defend.opportunity_friend.monster"
+	    }
+	]
+	},
+	
     {
 	"id": "neutral.monster.enemy.targetenemy.0",
 	"label": "The Monsters Prevail!",
 	"grandReqs": { 
-        "[foe.monster] + [german] + [soviet] + [faction.anno] + [faction.resuscitated] = 2": 1 
+        "[foe.monster] + [german] + [soviet] + [faction.resuscitated] = 2": 1 
     },
 	"linked": [
 	    {
