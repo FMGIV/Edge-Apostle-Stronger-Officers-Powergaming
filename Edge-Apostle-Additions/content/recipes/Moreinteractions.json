@@ -2179,7 +2179,7 @@
 	"description": "An Ally has died!",
 	"warmup": 1,
 	"grandReqs": {
-		"([friend.corpses] && [friend.getthefuckout] || [friend.corpses] && [local] || [friend.corpses] && [companion.death.marker])": 1,
+		"([friend.corpses] && [friend.getthefuckout] || [friend.corpses] && [friend.braced] || [friend.corpses] && [local] || [friend.corpses] && [companion.death.marker])": 1,
 	},
 	"slots": [
 	    {
@@ -2188,7 +2188,8 @@
 		"required": {
 			"friend.getthefuckout" : 1,
 			"local" : 1,
-			"companion.death.marker" : 1
+			"companion.death.marker" : 1,
+			"friend.braced" : 1
 		},
 		"essential": {
 		    "friend.corpses": 1
@@ -2582,7 +2583,63 @@
 	    "resetonexhaustion": true
 		},
 	"craftable": false
-	}
+	},
+	
+	{
+	"id": "hint.op.madrugad",
+	"actionid": "operate",
+	"label": "The Shadow of the Cindered",
+	"startdescription": "The Madrugad is the patron of life, and of years. Given the correct rites, the right men, and the most careful of records, we might invest hours now, and reap them later.",
+	"requirements": {
+	    "op.madrugad": 1
+	},
+	"hintonly": true,
+	"craftable": false
+    },
+	
+	{
+	"id": "op.madrugad.brace",
+	"$priority" : 1,
+	"actionid": "operate",
+	"label": "Brace an Ally",
+	"startdescription": "The Madrugad is the patron of life, and of years. Given the correct rites, the right men, and the most careful of records, we might invest hour's now, and reap them later.",
+	"description": "It is done. As the dawn rises, what was once owned is now in trust. When the moment comes, they will have the time they need.",
+	"requirements": {
+	    "friend": 1,
+	    "op.madrugad": 1,
+		"friend.braced" : -1
+	},
+	"mutations": [  
+		{  
+			"filter": "friend",  
+			"mutate": "friend.braced",  
+			"level": 1  
+		}  
+	], 
+	"effects": {
+	    "op.madrugad": -1
+	},
+	"warmup": 30,
+	"craftable": true
+    },
+	
+    {
+	"id": "defend.friend.braced",
+	"$extends": ["defend.skill.deflect"],
+	"label": "Successful Counterattack!",
+	"startdescription": "The men work at a desperate pace, erecting fortifications, setting mines, and digging trenchworks. Hours of work, paid for well in advance.",
+	"description": "The enemy offensive stalls, faced with a threat they scarcely have the time to dislodge. As they withdraw, I note the smell of something burning in the wind; Not quite gunpowder, yet not quite flesh....",
+	"requirements": {
+	    "friend.braced": 1
+	},
+	"mutations": [  
+		{  
+			"filter": "friend",  
+			"mutate": "friend.braced",  
+			"level": -1  
+		}  
+	]
+    }
 	
 	
 ]
