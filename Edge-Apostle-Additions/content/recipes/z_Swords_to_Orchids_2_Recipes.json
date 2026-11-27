@@ -1,0 +1,47 @@
+{
+"recipes": [
+
+	{
+    "id": "objective.enemy.killed",
+	"$depends": [ "3753135571" ],
+	"linked": [
+	    {
+		"id": "reduce.bloodlust.from.obj"
+	    }
+		]
+	},
+	
+    {
+    "id": "reduce.bloodlust.from.obj", 
+	"$depends": [ "3753135571" ],  
+    "tablereqs": {  
+        "battlehunger": 1
+    },  
+    "slots": [  
+        {  
+            "id": "bloodlust",  
+            "label": "Bloodlust",  
+            "required": {  
+                "battlehunger": 1  
+            },
+            "greedy": true  
+        }  
+    ],
+	"mutations": [
+	    {
+		"filter": "battlehunger",
+		"mutate": "battlehunger",
+		"level": -1,
+		"additive": true
+	    }
+	],
+	"warmup": 5,  
+	"linked": [
+		{
+		"id": "clear.bloodlust"
+	    }
+		]
+	}
+	
+]
+}
