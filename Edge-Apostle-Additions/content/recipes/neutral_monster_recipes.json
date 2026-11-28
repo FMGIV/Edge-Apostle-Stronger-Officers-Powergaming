@@ -56,7 +56,7 @@
 	"linked": [
 	    {
 		"id": "neutral.monster.enemy.executeaction.targetenemy",
-		"chance": "50 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20"
+		"chance": "50 + [~/visible:corrivality.exile] * 20 - [~/visible:corrivality.foe] * 20 + [~/visible:anno.mark] * 15 + [~/visible:foe.umiri.mark] * 15"
 	    },
 	    {
 		"id": "neutral.monster.executeaction"
@@ -242,9 +242,9 @@
 	"warmup": 10,
 	"mutations": [
                 {
-                    "filter": "foe",
-                    "mutate": "foe",
-                    "level": -1
+                    "filter": "foe.monster",
+                    "mutate": "monster.attacker",
+                    "level": 1
                 }
     ],
 	"linked": [
@@ -293,7 +293,28 @@
 	    {
 		"id": "monster.nonefound"
 	    }
-	]
+	], 
+	"furthermore": [
+			{
+		"mutations": [
+	    {
+		"filter": "foe.monster",
+		"mutate": "monster.victim",
+		"level": 1
+	    }
+				]
+			},
+			
+			{
+		"mutations": [
+	    {
+		"filter": "monster.attacker",
+		"mutate": "monster.victim",
+		"level": -1
+	    }
+				]
+			}
+		]
     },
 	
 	{
@@ -311,9 +332,8 @@
 	"mutations": [
                 {
                     "filter": "foe.monster",
-                    "mutate": "foe",
-                    "level": 1,
-					"additive": false
+                    "mutate": "monster.attacker",
+                    "level": -1
                 }
     ],
 	"warmup": 0,
@@ -419,38 +439,8 @@
 	"mutations": [
                 {
                     "filter": "foe.monster",
-                    "mutate": "foe",
-                    "level": 1,
-					"additive": false
-                }
-    ]
-    },
-	
-	{
-	"id": "neutral.monster.enemy.targetenemy.victory.othermonster",
-	"label": "The Monsters Prevail!",
-	"startdescription": "In the distance, something dies. The beasts feast well, tonight.",
-	"effects": {
-	    "foe": -99
-	},
-	"linked": [
-	    {
-		"id": "neutral.monster.clearer"
-	    }
-	]
-    },
-	
-    {
-	"id": "neutral.monster.clearer",
-	"actionid": "enemyaction.single",
-	"label": "The Monsters Prevail!",
-	"startdescription": "In the distance, something dies. The beasts feast well, tonight.",
-	"mutations": [
-                {
-                    "filter": "foe.monster",
-                    "mutate": "foe",
-                    "level": 1,
-					"additive": false
+                    "mutate": "monster.attacker",
+                    "level": -1
                 }
     ]
     },
@@ -461,7 +451,8 @@
 	"startdescription": "In the distance, something dies. The beasts feast well, tonight.",
 	"effects": {
 	    "soviet": -99,
-		"german": -99
+		"german": -99,
+		"monster.victim": -99
 	},
 	"aspects": {
 		"killresuscitated": 1
@@ -469,9 +460,8 @@
 	"mutations": [
                 {
                     "filter": "foe.monster",
-                    "mutate": "foe",
-                    "level": 1,
-					"additive": false
+                    "mutate": "monster.attacker",
+                    "level": -1
                 }
     ],
 	"furthermore": [
@@ -489,10 +479,15 @@
 	"startdescription": "The monsters flee. They starve, tonight.",
 	"mutations": [
                 {
-                    "filter": "foe.monster",
-                    "mutate": "foe",
-                    "level": 1,
-					"additive": false
+                    "filter": "monster.attacker",
+                    "mutate": "monster.attacker",
+                    "level": -1
+                },
+				
+				{
+                    "filter": "monster.victim",
+                    "mutate": "monster.victim",
+                    "level": -1
                 }
     ]
     },
@@ -533,8 +528,8 @@
 	"mutations": [
                 {
                     "filter": "foe.monster",
-                    "mutate": "foe",
-                    "level": -1
+                    "mutate": "monster.attacker",
+                    "level": 1
                 }
     ]
     },
@@ -796,10 +791,9 @@
 	"$extends" : ["nonefound"],
 	"mutations": [
                 {
-                    "filter": "foe.monster",
-                    "mutate": "foe",
-                    "level": 1,
-					"additive": false
+                    "filter": "monster.attacker",
+                    "mutate": "monster.attacker",
+                    "level": -1
                 }
     ]
     }
